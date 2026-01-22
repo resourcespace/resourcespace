@@ -1,0 +1,9 @@
+name    : sensitive_images
+title   : Sensitive image blurring
+author  : Montala Ltd.
+version : 1.0
+desc    : Blurs images marked as sensitive with the user able to click to deblur.
+icon    : eye-off
+config_url: /plugins/sensitive_images/pages/setup.php
+category: Workflow And Access
+info_url: https://www.resourcespace.com/knowledge-base/plugins/sensitive_images

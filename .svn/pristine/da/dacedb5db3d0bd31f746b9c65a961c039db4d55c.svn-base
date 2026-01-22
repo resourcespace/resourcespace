@@ -1,0 +1,10 @@
+User messages. Use for system and user to user messaging
+ref,int(11),
+created,DATETIME,
+owner,int(11),User reference
+message,MEDIUMTEXT,Message text
+url,text,Message URL. Appears as link with message and in message list.
+expires,DATETIME,Message expiration date
+related_activity,int(11),Used with related_ref to link system generated messages to e.g. a user account request so that all related messages can be deleted once account is approved
+related_ref,int(11),Related activity reference e.g. user ref
+type,int(11),Denotes various types of message e.g. user message, screen. Defined by the enabled bits. Refer to definitions.php for more information

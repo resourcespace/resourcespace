@@ -1,0 +1,5 @@
+resource,int(11),YES,MUL,,
+user,int(11),YES,MUL,,
+resource_type_field,int(11),YES,,,
+value,MEDIUMTEXT,YES,,,
+date,datetime,YES,MUL,,

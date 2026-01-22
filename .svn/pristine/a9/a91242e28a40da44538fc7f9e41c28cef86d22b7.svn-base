@@ -1,0 +1,5 @@
+Stores the home page slideshow images.
+ref,int(11),
+resource_ref,int(11),
+homepage_show,tinyint(1),Include in home page slideshow?
+login_show,tinyint(1),include in login page sequence?

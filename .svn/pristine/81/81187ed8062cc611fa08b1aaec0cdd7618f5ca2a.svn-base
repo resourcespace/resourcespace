@@ -1,0 +1,224 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Variable \\$language in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/boot.php
+
+		-
+			message: "#^Variable \\$collections in isset\\(\\) is never defined\\.$#"
+			count: 1
+			path: include/collections_functions.php
+
+		-
+			message: "#^Variable \\$user in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/collections_functions.php
+
+		-
+			message: "#^Variable \\$additional_title_pages in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: include/footer.php
+
+		-
+			message: "#^Variable \\$_SERVER in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/general_functions.php
+
+		-
+			message: "#^Variable \\$array2search in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/general_functions.php
+
+		-
+			message: "#^Variable \\$return_array in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/general_functions.php
+
+		-
+			message: "#^Variable \\$search_key in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/general_functions.php
+
+		-
+			message: "#^Variable \\$search_value in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/general_functions.php
+
+		-
+			message: "#^Variable \\$version_data in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: include/general_functions.php
+
+		-
+			message: "#^Variable \\$map_container_obj on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: include/geocoding_view.php
+
+		-
+			message: "#^Variable \\$height in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/image_processing.php
+
+		-
+			message: "#^Variable \\$unoconv_path in isset\\(\\) is never defined\\.$#"
+			count: 1
+			path: include/image_processing.php
+
+		-
+			message: "#^Variable \\$width in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/image_processing.php
+
+		-
+			message: "#^Variable \\$ref in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/node_functions.php
+
+		-
+			message: "#^Variable \\$collectiondata in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 2
+			path: include/request_functions.php
+
+		-
+			message: "#^Variable \\$fp on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: include/resource_functions.php
+
+		-
+			message: "#^Variable \\$mysql_charset in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 2
+			path: include/resource_functions.php
+
+		-
+			message: "#^Variable \\$unoconv_path in isset\\(\\) is never defined\\.$#"
+			count: 1
+			path: include/resource_functions.php
+
+		-
+			message: "#^Variable \\$value on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: include/resource_functions.php
+
+		-
+			message: "#^Variable \\$initial_tags in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/searchbar.php
+
+		-
+			message: "#^Variable \\$simple_search_display_condition in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 2
+			path: include/searchbar.php
+
+		-
+			message: "#^Variable \\$order_by on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: include/user_functions.php
+
+		-
+			message: "#^Variable \\$userref in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: include/user_functions.php
+
+		-
+			message: "#^Variable \\$current_node_siblings_index in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/admin/admin_manage_field_options.php
+
+		-
+			message: "#^Variable \\$new_record_ref in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/admin/admin_manage_field_options.php
+
+		-
+			message: "#^Variable \\$sql_columns in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/admin/admin_size_management_edit.php
+
+		-
+			message: "#^Variable \\$groups in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/ajax/autocomplete_user.php
+
+		-
+			message: "#^Variable \\$allowed_external_share_groups in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 2
+			path: pages/collection_share.php
+
+		-
+			message: "#^Variable \\$resourcesnotadded in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: pages/collections.php
+
+		-
+			message: "#^Variable \\$internal_share_access in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/resource_request.php
+
+		-
+			message: "#^Variable \\$allowed_external_share_groups in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 2
+			path: pages/resource_share.php
+
+		-
+			message: "#^Variable \\$collectiondata in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/search.php
+
+		-
+			message: "#^Variable \\$result_count on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/search.php
+
+		-
+			message: "#^Variable \\$baseurl in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/setup.php
+
+		-
+			message: "#^Variable \\$mysql_bin_path in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/setup.php
+
+		-
+			message: "#^Variable \\$port in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/setup.php
+
+		-
+			message: "#^Variable \\$scramble_key in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/setup.php
+
+		-
+			message: "#^Variable \\$storagedir in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/setup.php
+
+		-
+			message: "#^Variable \\$print on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/team/team_analytics_edit.php
+
+		-
+			message: "#^Variable \\$unoconv_path in isset\\(\\) is never defined\\.$#"
+			count: 1
+			path: pages/tools/staticsync.php
+
+		-
+			message: "#^Variable \\$fields_tab_names in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: pages/view_metadata.php
+
+		-
+			message: "#^Variable \\$preview_sizes on left side of \\?\\?\\= is never defined\\.$#"
+			count: 2
+			path: plugins/image_banks/providers/ResourceSpace.php
+
+		-
+			message: "#^Variable \\$email in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: plugins/simplesaml/hooks/all.php
+		-
+			message: '#^Constant (BRAND_GUIDELINES|FIELD_TYPE)_[A-Z_]+ not found\.$#'
+			path: plugins/brand_guidelines/*

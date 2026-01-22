@@ -1,0 +1,9 @@
+name: pdf_split
+title: PDF Split
+author: Montala Limited
+version: 1.0
+desc: Allows PDF files to be split to multiple pages.
+icon: file-text
+icon-colour: red
+category: Asset Processing
+info_url: https://www.resourcespace.com/knowledge-base/plugins/pdf-split

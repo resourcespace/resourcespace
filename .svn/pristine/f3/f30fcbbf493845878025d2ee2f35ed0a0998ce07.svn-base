@@ -1,0 +1,9 @@
+ref,int(11),NO,PRI,,auto_increment
+created,DATETIME,YES,,,
+owner,int(11),YES,,,
+message,MEDIUMTEXT,YES,,,
+url,text,YES,,,
+expires,DATETIME,YES,,,
+related_activity,int(11),YES,,,
+related_ref,int(11),YES,,,
+type,int(11),NO,,0,

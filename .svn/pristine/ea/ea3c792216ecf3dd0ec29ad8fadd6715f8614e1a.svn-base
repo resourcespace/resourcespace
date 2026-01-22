@@ -1,0 +1,5 @@
+collection,0,PRIMARY,1,ref,A,35,,,,BTREE,,
+collection,1,public,1,public,A,2,,,YES,BTREE,,
+collection,1,user,1,user,A,4,,,YES,BTREE,,
+collection,1,type,1,type,A,4,,,YES,BTREE,,
+collection,1,parent,1,parent,A,6,,,YES,BTREE,,

@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+user,int(11),YES,PRI,,
+message,int(11),YES,PRI,,
+seen,int(11) DEFAULT '0',YES,PRI,,

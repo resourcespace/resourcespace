@@ -1,0 +1,12 @@
+#remote_assist #SearchBoxPanel {
+    margin-top: 0 !important;
+}
+
+#remote_assist #HomeSiteText {
+    max-width: unset;
+    padding: 0 15px 5px 15px;
+}
+
+#remote_assist {
+    color: white;
+}

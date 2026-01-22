@@ -1,0 +1,5 @@
+id,int,NO,PRI,,auto_increment
+user,varchar(255),YES,,,
+field_id,int,YES,,,
+value,longtext,YES,,,
+date,date,YES,,,

@@ -1,0 +1,54 @@
+<?php
+
+
+$lang["museumplus_configuration"] = 'MuseumPlus Configuration';
+$lang["museumplus_top_menu_title"] = 'MuseumPlus: hindi wastong asosasyon';
+$lang["museumplus_api_settings_header"] = 'Mga detalye ng API';
+$lang["museumplus_host"] = 'Host';
+$lang["museumplus_host_api"] = 'API Host (para sa mga tawag sa API lamang; karaniwang pareho sa nasa itaas)';
+$lang["museumplus_application"] = 'Pangalan ng aplikasyon (hindi kinakailangan para sa mas bagong M+ Host URLs)';
+$lang["user"] = 'Gumagamit';
+$lang["museumplus_api_user"] = 'Gumagamit';
+$lang["password"] = 'Password';
+$lang["museumplus_api_pass"] = 'Password';
+$lang["museumplus_RS_settings_header"] = 'Mga setting ng ResourceSpace';
+$lang["museumplus_mpid_field"] = 'Pangkalahatang patlang ng metadata na ginagamit upang itago ang MuseumPlus identifier (MpID)';
+$lang["museumplus_module_name_field"] = 'Pangkalahatang patlang ng metadata na ginagamit upang hawakan ang pangalan ng mga module kung saan ang MpID ay wasto. Kung hindi ito nakatakda, ang plugin ay babalik sa configuration ng "Object" module.';
+$lang["museumplus_secondary_links_field"] = 'Pangkalahatang patlang ng metadata na ginagamit upang hawakan ang mga pangalawang link sa iba pang mga module. Ang ResourceSpace ay lilikha ng isang MuseumPlus URL para sa bawat isa sa mga link. Ang mga link ay magkakaroon ng espesyal na format ng syntax: module_name:ID (hal. "Object:1234")';
+$lang["museumplus_object_details_title"] = 'MuseumPlus na mga detalye';
+$lang["museumplus_script_header"] = 'Mga setting ng script';
+$lang["museumplus_last_run_date"] = 'Huling tumakbo ang script';
+$lang["museumplus_enable_script"] = 'I-enable ang script ng MuseumPlus';
+$lang["museumplus_interval_run"] = 'Patakbuhin ang script sa sumusunod na agwat (hal. +1 araw, +2 linggo, kinsenas). Iwanang blangko at ito ay tatakbo tuwing tumatakbo ang cron_copy_hitcount.php)';
+$lang["museumplus_log_directory"] = 'Direktoryo para sa pag-iimbak ng mga log ng script. Kung ito ay iiwanang blangko o hindi wasto, walang magaganap na pag-log.';
+$lang["museumplus_integrity_check_field"] = 'Pagsusuri ng integridad na larangan';
+$lang["museumplus_modules_configuration_header"] = 'Kongigurasyon ng mga Module';
+$lang["museumplus_module"] = 'Modyul';
+$lang["museumplus_add_new_module"] = 'Magdagdag ng bagong MuseumPlus module';
+$lang["museumplus_mplus_field_name"] = 'MuseumPlus field name';
+$lang["museumplus_rs_field"] = 'Patlang ng ResourceSpace';
+$lang["museumplus_view_in_museumplus"] = 'Tingnan sa MuseumPlus';
+$lang["museumplus_confirm_delete_module_config"] = 'Sigurado ka bang nais mong tanggalin ang configuration ng module na ito? Ang aksyong ito ay hindi maibabalik!';
+$lang["museumplus_module_setup"] = 'Pagsasaayos ng Module';
+$lang["museumplus_module_name"] = 'MuseumPlus module name';
+$lang["museumplus_mplus_id_field"] = 'MuseumPlus ID field name';
+$lang["museumplus_mplus_id_field_helptxt"] = 'Iwanang walang laman upang gamitin ang teknikal na ID \'__id\' (default)';
+$lang["museumplus_rs_uid_field"] = 'Field ng UID ng ResourceSpace';
+$lang["museumplus_applicable_resource_types"] = 'Naaangkop na uri ng mapagkukunan(s)';
+$lang["museumplus_field_mappings"] = 'MuseumPlus - mga pagmamapa ng field ng ResourceSpace';
+$lang["museumplus_add_mapping"] = 'Magdagdag ng pagmamapa';
+$lang["museumplus_error_bad_conn_data"] = 'Maling data ng koneksyon sa MuseumPlus';
+$lang["museumplus_error_unexpected_response"] = 'Hindi inaasahang tugon ng MuseumPlus na code ang natanggap - %code';
+$lang["museumplus_error_no_data_found"] = 'Walang natagpuang data sa MuseumPlus para sa MpID na ito - %mpid';
+$lang["museumplus_warning_script_not_completed"] = 'BABALA: Ang script ng MuseumPlus ay hindi natapos mula noong \'%script_last_ran\'. 
+Maaari mong ligtas na balewalain ang babalang ito kung nakatanggap ka ng abiso ng matagumpay na pagkakatapos ng script.';
+$lang["museumplus_error_script_failed"] = 'Ang script ng MuseumPlus ay nabigong tumakbo dahil may naka-set na process lock. Ipinapahiwatig nito na ang naunang pagtakbo ay hindi natapos. Kung kailangan mong alisin ang lock pagkatapos ng nabigong pagtakbo, patakbuhin ang script sa ganitong paraan: php museumplus_script.php --clear-lock';
+$lang["museumplus_php_utility_not_found"] = 'Dapat itakda ang $php_path na opsyon sa configuration upang matagumpay na tumakbo ang cron functionality!';
+$lang["museumplus_error_not_deleted_module_conf"] = 'Hindi ma-delete ang hinihinging configuration ng module.';
+$lang["museumplus_error_unknown_type_saved_config"] = 'Ang \'museumplus_modules_saved_config\' ay may hindi kilalang uri!';
+$lang["museumplus_error_invalid_association"] = 'Hindi wastong pagkakaugnay ng module(s). Mangyaring tiyakin na ang tamang Module at/o Record ID ay nailagay!';
+$lang["museumplus_id_returns_multiple_records"] = 'Maraming tala ang natagpuan - mangyaring ilagay ang teknikal na ID sa halip';
+$lang["museumplus_error_module_no_field_maps"] = 'Hindi ma-sync ang data mula sa MuseumPlus. Dahilan: ang module na \'%name\' ay walang naka-configure na field mappings.';
+$lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus Detalye ng Objeto';
+$lang["page-title_museumplus_setup_module"] = 'I-set up ang MuseumPlus Module';
+$lang["page-title_museumplus_setup"] = 'I-set up ang MuseumPlus Plugin';

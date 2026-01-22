@@ -1,0 +1,40 @@
+<?php
+
+
+$lang["action_dates_configuration"] = 'Pilih medan yang akan digunakan untuk secara automatik melaksanakan tindakan yang ditetapkan.';
+$lang["action_dates_deletesettings"] = 'Tetapan tindakan utama sumber automatik - gunakan dengan berhati-hati';
+$lang["action_dates_delete"] = 'Secara automatik memadam atau mengubah keadaan sumber apabila tarikh dalam medan ini dicapai';
+$lang["action_dates_eligible_states"] = 'Negara yang layak untuk tindakan automatik utama. Jika tiada negara yang dipilih, maka semua negara layak.';
+$lang["action_dates_restrict"] = 'Secara automatik mengehadkan akses kepada sumber apabila tarikh dalam medan ini dicapai. Ini hanya terpakai kepada sumber yang aksesnya kini terbuka.';
+$lang["action_dates_delete_logtext"] = '- Secara automatik dilaksanakan oleh plugin action_dates';
+$lang["action_dates_restrict_logtext"] = '- Dibataskan secara automatik oleh plugin action_dates';
+$lang["action_dates_reallydelete"] = 'Hapus sepenuhnya sumber apabila tarikh tindakan telah berlalu? Jika ditetapkan kepada tidak, sumber akan dipindahkan ke keadaan_pemadaman_sumber yang telah dikonfigurasikan dan dengan itu boleh dipulihkan';
+$lang["action_dates_email_admin_days"] = 'Beritahu pentadbir sistem beberapa hari sebelum tarikh ini dicapai. Biarkan pilihan ini kosong untuk tidak menghantar sebarang pemberitahuan.';
+$lang["action_dates_email_text_restrict"] = 'Sumber berikut akan dihadkan dalam [days] hari.';
+$lang["action_dates_email_text_state"] = 'Sumber berikut akan berubah keadaan dalam [days] hari.';
+$lang["action_dates_email_text"] = 'Sumber berikut akan dihadkan dan/atau mengubah keadaan dalam [days] hari.';
+$lang["action_dates_email_range_restrict"] = 'Sumber-sumber berikut akan dihadkan dalam tempoh [days_min] hingga [days_max] hari.';
+$lang["action_dates_email_range_state"] = 'Sumber-sumber berikut akan berubah keadaan dalam [days_min] hingga [days_max] hari.';
+$lang["action_dates_email_range"] = 'Sumber-sumber berikut akan dihadkan dan/atau mengubah keadaan dalam [days_min] hingga [days_max] hari.';
+$lang["action_dates_email_subject_restrict"] = 'Pemberitahuan tentang sumber yang akan dihadkan';
+$lang["action_dates_email_subject_state"] = 'Pemberitahuan sumber yang disebabkan oleh perubahan status';
+$lang["action_dates_email_subject"] = 'Pemberitahuan mengenai sumber yang akan dihadkan dan/atau mengubah keadaan';
+$lang["action_dates_new_state"] = 'Negara baru untuk dipindahkan (jika pilihan di atas ditetapkan untuk memadamkan sumber sepenuhnya, ini akan diabaikan)';
+$lang["action_dates_notification_subject"] = 'Pemberitahuan daripada pemalam tarikh tindakan';
+$lang["action_dates_additional_settings"] = 'Tindakan tambahan';
+$lang["action_dates_additional_settings_info"] = 'Selain itu, pindahkan sumber ke negeri yang dipilih apabila medan yang ditentukan dicapai';
+$lang["action_dates_additional_settings_date"] = 'Apabila tarikh ini dicapai';
+$lang["action_dates_additional_settings_status"] = 'Pindahkan sumber ke keadaan arkib ini';
+$lang["action_dates_remove_from_collection"] = 'Buang sumber daripada semua koleksi yang berkaitan apabila keadaan diubah?';
+$lang["action_dates_email_for_state"] = 'Hantar pemberitahuan untuk sumber yang mengubah keadaan. Memerlukan pengubahsuaian medan keadaan di atas untuk dikonfigurasikan.';
+$lang["action_dates_email_for_restrict"] = 'Hantar pemberitahuan untuk sumber yang akan dihadkan. Memerlukan medan sumber yang dihadkan di atas untuk dikonfigurasikan.';
+$lang["action_dates_workflow_actions"] = 'Jika plugin Aliran Kerja Lanjutan diaktifkan, adakah pemberitahuannya harus diterapkan kepada perubahan keadaan yang dimulakan oleh plugin ini?';
+$lang["action_dates_weekdays"] = 'Pilih hari bekerja apabila tindakan diproses.';
+$lang["weekday-0"] = 'Ahad';
+$lang["weekday-1"] = 'Isnin';
+$lang["weekday-2"] = 'Selasa';
+$lang["weekday-3"] = 'Rabu';
+$lang["weekday-4"] = 'Khamis';
+$lang["weekday-5"] = 'Jumaat';
+$lang["weekday-6"] = 'Sabtu';
+$lang["page-title_action_dates_setup"] = 'Tetapkan Plugin Tarikh Tindakan';

@@ -1,0 +1,5 @@
+id,int,NO,PRI,,auto_increment
+text,varchar(255),YES,,,
+type,int,YES,,,
+options,longtext,YES,,,
+version,int,YES,,,

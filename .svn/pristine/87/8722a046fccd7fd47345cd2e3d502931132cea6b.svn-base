@@ -1,0 +1,11 @@
+name: whisper
+title: (BETA) Whisper
+author: Montala Limited
+version: 1.0
+desc: Video/audio to text using Whisper from OpenAI. Runs locally, no subscription needed.
+icon: audio-lines
+icon-colour: seagreen
+category: AI
+config_url: /plugins/whisper/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/whisper
+disable_group_select: 1

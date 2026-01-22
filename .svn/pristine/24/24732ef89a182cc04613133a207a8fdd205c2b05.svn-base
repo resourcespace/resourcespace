@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+{% block contentwrapper %}
+
+<div id="portalmenu" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+
+    <div id="portalcontent" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+
+{{ block('content') }}
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_manage"] = 'Falconの公開/アーカイブ化';
+$lang["falcon_link_publish"] = 'Falcon に公開する。';
+$lang["falcon_link_archive"] = 'ファルコンのアーカイブ';
+$lang["falcon_link_configuration"] = 'ファルコンリンクのセットアップ';
+$lang["falcon_link_api_key"] = 'Falcon APIキー';
+$lang["falcon_link_notconfigured"] = 'Falcon Linkプラグインが設定されていません。管理者にプラグインの設定を依頼してください。';
+$lang["falcon_link_resource_types_to_include"] = '有効なファルコンリソースタイプを選択してください。';
+$lang["falcon_link_not_permitted_extension"] = 'ファイルタイプ %TYPE% はFalconにアップロードできません。';
+$lang["falcon_link_text_field"] = 'ファルコンのテンプレートテキストフィールド';
+$lang["falcon_link_default_tag"] = 'すべてのFalcon公開コンテンツに自動的に追加されるデフォルトのタグテキストです。 \'[ID]\'というテキストを含めると、タグ内のリソースIDに置き換えられます。';
+$lang["falcon_link_template_url"] = 'ファルコンのテンプレートURL。これにより、公開されたリソースを直接ファルコンで表示できます。[id]タグは、リソースが公開された際にファルコンから発行された識別子に置き換えられます。';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Falcon タグフィールド。これらは連結され、Falconテンプレートタグに追加されます。';
+$lang["falcon_link_id_field"] = 'ファルコン識別子を保存するためのメタデータフィールド';
+$lang["falcon_link_log_share"] = 'Falcon に公開済み';
+$lang["falcon_link_archived"] = 'アーカイブ済み';
+$lang["falcon_link_access_denied"] = '選択されたリソースを公開する権限がありません。';
+$lang["falcon_link_already_published"] = 'このリソースはFalconに公開されました。';
+$lang["falcon_link_resources_already_published"] = '一部のリソースはすでにFalconに公開されており、再公開することはできません。';
+$lang["falcon_link_resource_not_published"] = 'リソースはFalconに公開されていません。';
+$lang["falcon_link_resource_publish_unavailable"] = 'リソースをFalconに公開できません。';
+$lang["falcon_link_template_description"] = 'テンプレートの説明';
+$lang["falcon_link_template_tags"] = '追加されるテンプレートタグ';
+$lang["falcon_link_missing_file"] = 'リソースにオリジナルファイルがありません。';
+$lang["falcon_link_existing_id"] = '既存のFalcon ID';
+$lang["falcon_link_not_uploaded"] = 'アップロードされていません。';
+$lang["falcon_link_publish_button_text"] = '公開する';
+$lang["falcon_link_archive_button_text"] = 'アーカイブ';
+$lang["falcon_link_publish_success"] = '公開が成功しました。';
+$lang["falcon_link_archived_success"] = '正常にアーカイブされました。<br />リソース共有はまだアクティブであり、必要に応じて手動で削除する必要があります。';
+$lang["falcon_link_usergroups"] = 'Falconテンプレートを管理するアクセス権限を持つグループ。';
+$lang["falcon_link_filter"] = 'Falcon に公開可能なリソースを決定するためのフィルター。';
+$lang["falcon_link_error_no_resources"] = '公開するリソースが提出されていません。';
+$lang["falcon_link_error_falcon_api"] = 'Falconとの通信中にエラーが発生しました。詳細についてはステータスを確認してください。';
+$lang["falcon_link_error_falcon_api_detailed"] = 'ファルコン エラー';
+$lang["falcon_link_view_in_falcon"] = 'ファルコンで表示';
+$lang["falcon_link_share_user"] = 'Falcon用に作成された共有のためのユーザーテキスト表示、例：「user@falcon.ioと共有済み」';
+$lang["falcon_link_log_publish"] = 'Falconを介して共有されたリソース';
+$lang["falcon_link_log_archive"] = 'ファルコンを介してアーカイブされたリソース';
+$lang["falcon_link_error_falcon_check_tags"] = '説明とタグが空でないことを確認してください。';
+$lang["falcon_link_title"] = 'ファルコンリンク';
+$lang["plugin-falcon_link-title"] = 'ファルコンリンク';
+$lang["plugin-falcon_link-desc"] = 'リソースをFalcon.ioに公開する';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Falcon Linkプラグインの設定';

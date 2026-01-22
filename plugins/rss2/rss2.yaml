@@ -1,0 +1,10 @@
+name    : rss2
+title   : RSS Feed
+author  : Camillo Ferraris/Colorhythm LLC/Tom Gleason
+version : 0.9
+desc    : Enables the authenticated generation of RSS feeds of new content, including configurable fields.
+icon    : rss
+icon-colour: orangered
+config_url: /plugins/rss2/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/rss-feed

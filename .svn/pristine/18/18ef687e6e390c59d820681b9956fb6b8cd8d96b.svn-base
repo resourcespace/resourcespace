@@ -1,0 +1,4 @@
+annotation_node,0,annotation_node,1,annotation,A,5,,,YES,BTREE,,
+annotation_node,0,annotation_node,2,node,A,5,,,YES,BTREE,,
+annotation_node,1,annotation,1,annotation,A,5,,,YES,BTREE,,
+annotation_node,1,node,1,node,A,5,,,YES,BTREE,,

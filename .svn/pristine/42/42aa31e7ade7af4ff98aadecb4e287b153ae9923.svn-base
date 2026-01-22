@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Velg feltene som vil bli brukt til å automatisk utføre de spesifiserte handlingene.';
+$lang["action_dates_deletesettings"] = 'Automatiske innstillinger for primær handling av ressurser - bruk med forsiktighet';
+$lang["action_dates_delete"] = 'Automatisk slett eller endre statusen til ressurser når datoen i dette feltet er nådd';
+$lang["action_dates_eligible_states"] = 'Stater som er kvalifisert for primær automatisk handling. Hvis ingen stater er valgt, er alle stater kvalifisert.';
+$lang["action_dates_restrict"] = 'Automatisk begrens tilgangen til ressurser når datoen i dette feltet er nådd. Dette gjelder bare for ressurser hvis tilgang for øyeblikket er åpen.';
+$lang["action_dates_delete_logtext"] = 'Automatisk utført av action_dates-tillegget';
+$lang["action_dates_restrict_logtext"] = 'Automatisk begrenset av action_dates-tillegget';
+$lang["action_dates_reallydelete"] = 'Fullstendig slett ressurs når handlingstidspunktet har passert? Hvis satt til falsk, vil ressurser bli flyttet til den konfigurerte resource_deletion_state og dermed gjenopprettbare';
+$lang["action_dates_email_admin_days"] = 'Varsle systemadministratorer et bestemt antall dager før denne datoen er nådd. La dette alternativet stå tomt for å ikke sende noen varsler.';
+$lang["action_dates_email_text_restrict"] = 'Følgende ressurser vil bli begrenset om [days] dager.';
+$lang["action_dates_email_text_state"] = 'Følgende ressurser vil endre tilstand om [days] dager.';
+$lang["action_dates_email_text"] = 'Følgende ressurser vil bli begrenset og/eller endre tilstand om [days] dager.';
+$lang["action_dates_email_range_restrict"] = 'Følgende ressurser vil bli begrenset innen [days_min] til [days] dager.';
+$lang["action_dates_email_range_state"] = 'Følgende ressurser vil endre tilstand innen [days_min] til [days] dager.';
+$lang["action_dates_email_range"] = 'Følgende ressurser vil bli begrenset og/eller endre tilstand innen [days_min] til [days] dager.';
+$lang["action_dates_email_subject_restrict"] = 'Varsel om ressurser som skal begrenses';
+$lang["action_dates_email_subject_state"] = 'Varsling om ressurser som skal endre tilstand';
+$lang["action_dates_email_subject"] = 'Varsel om ressurser som skal begrenses og/eller endre tilstand';
+$lang["action_dates_new_state"] = 'Ny tilstand å flytte til (hvis ovennevnte alternativ er satt til å fullstendig slette ressurser, vil dette bli ignorert)';
+$lang["action_dates_notification_subject"] = 'Varsling fra plugin-modulen for handlingstidspunkter';
+$lang["action_dates_additional_settings"] = 'Tilleggs handlinger';
+$lang["action_dates_additional_settings_info"] = 'Flytt også ressurser til den valgte tilstanden når det angitte feltet er nådd';
+$lang["action_dates_additional_settings_date"] = 'Når denne datoen er nådd';
+$lang["action_dates_additional_settings_status"] = 'Flytt ressurser til denne arkivtilstanden';
+$lang["action_dates_remove_from_collection"] = 'Fjerne ressurser fra alle tilknyttede samlinger når tilstanden endres?';
+$lang["action_dates_email_for_state"] = 'Send varsling når ressurser endrer tilstand. Krever at tilstandsfeltene over er konfigurert.';
+$lang["action_dates_email_for_restrict"] = 'Send varsling om at ressurser skal begrenses. Krever at feltene for begrensning av ressurser over er konfigurert.';
+$lang["action_dates_workflow_actions"] = 'Hvis Avansert arbeidsflyt-tillegget er aktivert, skal varsler fra dette tillegget brukes på tilstandsendringer som er initiert av dette tillegget?';
+$lang["action_dates_weekdays"] = 'Velg ukedagene når handlinger skal behandles.';
+$lang["weekday-0"] = 'Søndag';
+$lang["weekday-1"] = 'Mandag';
+$lang["weekday-2"] = 'Tirsdag';
+$lang["weekday-3"] = 'Onsdag';
+$lang["weekday-4"] = 'Torsdag';
+$lang["weekday-5"] = 'Fredag';
+$lang["weekday-6"] = 'Lørdag';
+$lang["plugin-action_dates-title"] = 'Handlingsdatoer';
+$lang["plugin-action_dates-desc"] = 'Aktiverer planlagt sletting eller begrensning av ressurser basert på datofelt';
+
+$lang["page-title_action_dates_setup"] = 'Konfigurer Handlingsdatoer Plugin';

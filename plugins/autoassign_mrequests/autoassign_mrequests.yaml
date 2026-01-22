@@ -1,0 +1,10 @@
+name: autoassign_mrequests
+title: Auto-assign managed requests
+author: Montala Limited
+version: 1.0
+desc: Automatically assign requests based on resource type and metadata.
+icon: shopping-cart
+config_url: /plugins/autoassign_mrequests/pages/setup.php
+default_priority: 100
+category: Workflow And Access
+info_url: https://www.resourcespace.com/knowledge-base/plugins/auto_assign

@@ -1,0 +1,5 @@
+resource_log,0,PRIMARY,1,ref,A,35876157,,,,BTREE,,
+resource_log,1,resource,1,resource,A,1993119,,,YES,BTREE,,
+resource_log,1,type,1,type,A,9068,,,YES,BTREE,,
+resource_log,1,user,1,user,A,1760,,,YES,BTREE,,
+resource_log,1,date,1,date,A,1833,,,YES,BTREE,,

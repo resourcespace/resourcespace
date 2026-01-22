@@ -1,0 +1,3 @@
+System variables, used by upgrade scripts and other non-user functions.
+name,varchar(50),Variable name
+value,text,

@@ -1,0 +1,16 @@
+.offline_archive_table{
+	width: 95%;
+	border-spacing: 0px;
+}
+
+.offlinearchiveSaveStatus {
+	font-weight: bold;
+	font-size: 1.1em;
+	margin: 0px 0px 25px;
+	text-align: center;
+	padding: 3px 3px 6px;
+	color: #FF0000;
+}
+
+
+

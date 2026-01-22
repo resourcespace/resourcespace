@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Pilih bidang yang akan digunakan untuk melakukan tindakan secara otomatis sesuai dengan yang ditentukan.';
+$lang["action_dates_deletesettings"] = 'Pengaturan tindakan utama sumber daya otomatis - gunakan dengan hati-hati';
+$lang["action_dates_delete"] = 'Menghapus secara otomatis atau mengubah status sumber daya saat tanggal pada kolom ini telah tercapai';
+$lang["action_dates_eligible_states"] = 'Negara bagian yang memenuhi syarat untuk tindakan otomatis utama. Jika tidak ada negara bagian yang dipilih, maka semua negara bagian memenuhi syarat.';
+$lang["action_dates_restrict"] = 'Secara otomatis membatasi akses ke sumber daya ketika tanggal pada kolom ini telah tercapai. Hal ini hanya berlaku untuk sumber daya yang saat ini memiliki akses terbuka.';
+$lang["action_dates_delete_logtext"] = 'Secara otomatis dijalankan oleh plugin action_dates';
+$lang["action_dates_restrict_logtext"] = 'Secara otomatis dibatasi oleh plugin action_dates';
+$lang["action_dates_reallydelete"] = 'Apakah benar-benar menghapus sumber daya ketika tanggal tindakan berlalu? Jika diatur ke false, sumber daya akan dipindahkan ke status penghapusan sumber daya yang dikonfigurasi dan masih dapat dipulihkan';
+$lang["action_dates_email_admin_days"] = 'Memberitahu administrator sistem beberapa hari sebelum tanggal ini tercapai. Biarkan opsi ini kosong jika tidak ingin mengirimkan pemberitahuan.';
+$lang["action_dates_email_range_restrict"] = 'Sumber daya berikut akan dibatasi aksesnya dalam waktu [days_min] hingga [days] hari.';
+$lang["action_dates_email_range_state"] = 'Sumber daya berikut akan berubah status dalam waktu [days_min] hingga [days] hari.';
+$lang["action_dates_email_range"] = 'Sumber daya berikut akan dibatasi dan/atau berubah status dalam waktu [days_min] hingga [days] hari.';
+$lang["action_dates_email_subject_restrict"] = 'Pemberitahuan sumber daya yang akan dibatasi aksesnya';
+$lang["action_dates_email_subject_state"] = 'Pemberitahuan sumber daya yang akan mengalami perubahan status';
+$lang["action_dates_email_subject"] = 'Pemberitahuan sumber daya yang akan dibatasi dan/atau mengalami perubahan status';
+$lang["action_dates_new_state"] = 'Negara baru untuk dipindahkan ke (jika opsi di atas diatur untuk menghapus sumber daya sepenuhnya, ini akan diabaikan)';
+$lang["action_dates_notification_subject"] = 'Notifikasi dari plugin tanggal tindakan';
+$lang["action_dates_additional_settings"] = 'Tindakan tambahan';
+$lang["action_dates_additional_settings_info"] = 'Selain itu, pindahkan sumber daya ke status yang dipilih ketika bidang yang ditentukan tercapai';
+$lang["action_dates_additional_settings_date"] = 'Ketika tanggal ini tercapai';
+$lang["action_dates_additional_settings_status"] = 'Memindahkan sumber daya ke status arsip ini';
+$lang["action_dates_remove_from_collection"] = 'Apakah artinya: Hapus sumber daya dari semua koleksi terkait ketika status diubah?';
+$lang["action_dates_email_for_state"] = 'Kirim pemberitahuan untuk perubahan status sumber daya. Memerlukan konfigurasi bidang perubahan status di atas.';
+$lang["action_dates_email_for_restrict"] = 'Kirim pemberitahuan untuk sumber daya yang akan dibatasi. Memerlukan konfigurasi bidang batasi sumber daya di atas.';
+$lang["action_dates_workflow_actions"] = 'Jika plugin Alur Kerja Lanjutan diaktifkan, apakah notifikasinya harus diterapkan pada perubahan status yang diinisiasi oleh plugin ini?';
+$lang["action_dates_weekdays"] = 'Pilih hari-hari kerja ketika tindakan akan diproses.';
+$lang["weekday-0"] = 'Minggu';
+$lang["weekday-1"] = 'Senin';
+$lang["weekday-2"] = 'Selasa';
+$lang["weekday-3"] = 'Rabu';
+$lang["weekday-4"] = 'Kamis';
+$lang["weekday-5"] = 'Jumat';
+$lang["weekday-6"] = 'Sabtu';
+$lang["action_dates_email_text_restrict"] = 'Sumber daya berikut akan dibatasi dalam [days] hari.';
+$lang["action_dates_email_text_state"] = 'Sumber daya berikut akan berubah status dalam [days] hari.';
+$lang["action_dates_email_text"] = 'Sumber daya berikut akan dibatasi dan/atau mengubah status dalam [days] hari.';
+$lang["plugin-action_dates-title"] = 'Tanggal Tindakan';
+$lang["plugin-action_dates-desc"] = 'Memungkinkan penghapusan atau pembatasan sumber daya yang dijadwalkan berdasarkan bidang tanggal';
+
+$lang["page-title_action_dates_setup"] = 'Plugin Tanggal Tindakan Pengaturan';

@@ -1,0 +1,4 @@
+To install this plugin, extract it in the ResourceSpace plugins directory, and then either add "transform" 
+to your plugins array in config.php, or use the new plugins manager to activate it.
+
+

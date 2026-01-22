@@ -1,0 +1,7 @@
+A log storing all e-mails sent, mainly for diagnosis purposes.
+ref,int(11),
+date,datetime,Date and time the e-mail was sent.
+mail_to,varchar(100),Recipient's e-mail address.
+mail_from,int(11),User ID of the sending user.
+subject,varchar(150),E-mail subject.
+sender_email,varchar(200),E-mail address of the sending user.

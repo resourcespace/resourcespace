@@ -1,0 +1,7 @@
+{% set pagetitle = 'SimpleSAMLphp'|trans %}
+{% extends "base.twig" %}
+
+{% block content %}
+    <h2>{{ 'Wrong authentication context'|trans }}</h2>
+    <p>{{ 'Your authentication context is not accepted at this service. Probably too weak or not two-factor.'|trans }}</p>
+{% endblock %}

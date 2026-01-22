@@ -1,0 +1,11 @@
+name: google_analytics
+title: Google Analytics
+desc: Add Google Analytics tracking.
+icon: chart-no-axes-combined
+icon-colour: #4285f4
+author: Montala Limited
+version: 1.0
+default_priority: 1
+config_url: /plugins/google_analytics/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/google-analytics

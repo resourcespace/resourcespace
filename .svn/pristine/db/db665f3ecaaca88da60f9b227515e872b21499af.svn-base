@@ -1,0 +1,10 @@
+﻿name: yt2rs
+title: YouTube to ResourceSpace
+author: Julio Melon (Ayuda en Accion)
+version: 2.0
+desc: Add YouTube hosted videos as resources.
+icon: youtube
+icon-colour: red
+config_url: /plugins/yt2rs/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/yt2rs

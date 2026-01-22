@@ -1,0 +1,10 @@
+Resource annotations.
+ref,int(11),
+resource,int(11),
+resource_type_field,int(11),
+user,int(11),
+x,decimal(17),The coordinates of the annotation.
+y,decimal(17),The coordinates of the annotation.
+width,decimal(17),The dimensions of the annotation.
+height,decimal(17),The dimensions of the annotation.
+page,int(11),For mult-page resources - the page of the annotation.

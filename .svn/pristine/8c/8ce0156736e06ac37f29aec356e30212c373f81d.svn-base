@@ -1,0 +1,11 @@
+name: google_vision
+title: Google Vision
+author: Montala Limited
+version: 1.0
+desc: Automated image tagging using AI.
+icon: scan-eye
+icon-colour: #4285f4
+config_url: /plugins/google_vision/pages/setup.php
+category: AI
+info_url: https://www.resourcespace.com/knowledge-base/plugins/google-vision
+disable_group_select: 1

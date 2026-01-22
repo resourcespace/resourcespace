@@ -1,0 +1,11 @@
+ref,int(11),YES,PRI,,auto_increment
+code,int(11),,,,
+name,varchar(200),,,,
+notify_group,int(11),,,,
+more_notes_flag,tinyint(4),,,,
+notify_user_flag,tinyint(4),,,,
+email_from,varchar(100),,,,
+bcc_admin,tinyint(4),,,,
+simple_search_flag,tinyint(1),YES,,0,
+icon,tinytext,YES,,,
+skip_required_fields,tinyint(1),YES,,0,

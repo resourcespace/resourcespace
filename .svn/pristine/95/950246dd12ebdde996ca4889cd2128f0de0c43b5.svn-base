@@ -1,0 +1,9 @@
+name    : transform
+title   : Image Tools (transform)
+author  : David Dwiggins/Montala Limited
+version : 1.4
+desc    : Enables creation of cropped and scaled alternative images.
+icon    : crop
+config_url: /plugins/transform/pages/setup.php
+default_priority: 998
+category: Asset Processing

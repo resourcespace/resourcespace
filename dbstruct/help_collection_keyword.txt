@@ -1,0 +1,3 @@
+A join table connecting collections with keywords, for indexing of collections to enable rapid collection searching.
+collection,int(11),
+keyword,int(11),

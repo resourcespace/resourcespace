@@ -1,0 +1,9 @@
+name: video_splice
+title: Video Splice
+author: Montala Limited
+version: 2.0
+desc: Video trimming and splicing capability.
+icon: scissors-line-dashed
+config_url: /plugins/video_splice/pages/setup.php
+category: Asset Processing
+info_url: https://www.resourcespace.com/knowledge-base/plugins/video-splice

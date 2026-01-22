@@ -1,0 +1,15 @@
+Lists all plugins active on the system and stores plugin configuration.
+name,varchar(50),The folder name containing the plugin
+descrip,text,A textual description of the plugin loaded from the .yaml file
+author,varchar(100),The author of the plugin, loaded from the .yaml file
+update_url,varchar(100),Loaded from the .yaml file
+info_url,varchar(100),The URL of the plugin's project page for more information. Loaded from the .yaml file
+inst_version,float,The installed version number. Loaded from the .yaml file
+config,longblob,Serialised plugin configuration data
+config_json,mediumtext,JSON encoded configuration data
+config_url,varchar(100),Plugin configuration URL. Loaded from the .yaml file
+enabled_groups,varchar(200),Comma separated list of group refs. Used if disable_group_select=0 to enable plugin for specified groups
+priority,int(11),Defines the order that plugin hooks will be called. Plugins with higher priority numbers will be called later. Loaded from the .yaml file
+disable_group_select,int(11),Prevent plugin from being enabled only for certain groups. Loaded from the .yaml file
+title,varchar(100),A 'friendly' title to display as the plugin name instead of the folder name used in 'name'. Loaded from the .yaml file
+icon,varchar(100),A Lucide icon string to display in the UI. Loaded from the .yaml file

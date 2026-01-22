@@ -1,0 +1,5 @@
+User specific report parameters.
+ref,int(11),
+name,varchar(100),Report name
+user,int(11),
+params,text,Report parameters

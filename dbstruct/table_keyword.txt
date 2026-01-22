@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+keyword,varchar(100),YES,MUL,,
+soundex,varchar(50),YES,,,
+hit_count,int(11),NO,MUL,0,

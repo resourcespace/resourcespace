@@ -1,0 +1,142 @@
+.video-trim-tool {
+	position: relative;
+	margin: auto;
+	padding: 8px;
+	width: 50%;
+	height: 30px;
+}
+
+.video-trim-slider {
+	position: relative;
+	z-index: 1;
+	height: 10px;
+	margin: 0 15px;
+}
+
+.video-trim-slider > #start-timestamp {
+    position: absolute;
+    left: 0%;
+    transform: translate(-90px, -5px);
+}
+
+.video-trim-slider > .bar {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 5px;
+	background-color: #cbe4f6;
+}
+
+.video-trim-slider > .selected {
+	position: absolute;
+	z-index: 2;
+	left: 25%;
+	right: 25%;
+	top: 0;
+	bottom: 0;
+	border-radius: 5px;
+	background-color: #1988d7;
+}
+
+.video-trim-slider > .selected > #duration-timestamp {
+	position: relative;
+	text-align: center;
+	transform: translate(0px, 16px);
+}
+
+.video-trim-slider > .handle {
+	position: absolute;
+	z-index: 3;
+	width: 20px;
+	height: 20px;
+	background-color: #1988d7;
+	border-radius: 25%;
+	box-shadow: 0 0 0 0 #1988d7;
+	transition: box-shadow .3s ease-in-out;
+}
+
+.video-trim-slider > .handle.start {
+	left: 25%;
+	transform: translate(-10px, -5px);
+	box-shadow: 0 1px 3px rgb(0 0 0 / 25%)
+}
+
+.video-trim-slider > .handle.end {
+	right: 25%;
+	transform: translate(10px, -5px);
+	box-shadow: 0 1px 3px rgb(0 0 0 / 25%)
+}
+
+.video-trim-slider > .handle.hover {
+    filter: brightness(1.08);
+    -moz-filter: brightness(1.08);
+    -webkit-filter: brightness(1.08);
+	box-shadow: 0 0 0 5px #1988d7;
+}
+
+.video-trim-slider > .handle.active {
+	box-shadow: 0 0 0 2px #1988d7;
+}
+
+.video-trim-slider > #end-timestamp {
+	position: absolute;
+	right: 0%;
+    transform: translate(90px, -5px);
+}
+
+.video-trim-tool input[type=range] {
+	position: absolute;
+	pointer-events: none;
+	-webkit-appearance: none;
+	z-index: 2;
+	height: 10px;
+	width: 98%;
+	right: 1px;
+	top: 6px;
+	opacity: 0;
+}
+
+/* Ensure slider works on Firefox */
+@-moz-document url-prefix() {					
+	input[type=range]::-moz-range-thumb {
+		height: 30px;
+		width: 30px;
+		pointer-events: auto;
+	}
+}
+
+input[type=range]::-webkit-slider-thumb {
+	pointer-events: all;
+	width: 30px;
+	height: 30px;
+	border-radius: 0;
+	border: 0 none;
+	background-color: white;
+	-webkit-appearance: none;
+}
+
+.trimsubmit {
+	margin: auto;
+}
+
+#splice_scroll {
+    overflow-x: scroll;
+}
+#splice_reel {
+    margin: 20px;
+    height: 200px;
+    overflow:auto;
+}
+.splice_item {
+    margin: 5px;
+    display: inline !important;
+    vertical-align: middle;
+}
+
+.splicesubmit {
+	margin: auto;
+	width: 100px;
+}

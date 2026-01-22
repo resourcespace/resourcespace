@@ -1,0 +1,57 @@
+<?php
+
+
+$lang["offline_archive_configuration"] = 'Offline Archívum Konfigurációs Oldal';
+$lang["offline_archive_archivefield"] = 'Kérjük, válassza ki azt a metaadat mezőt, amely az archívum hivatkozási kódját fogja tárolni';
+$lang["offline_archive_archivepath"] = 'Kérjük, adja meg a helyet, ahol az archívumok létrejönnek';
+$lang["offline_archive_restorepath"] = 'A StaticSync mappában található erőforrások helyreállításához megadhat egy almappát, ahová a helyreállított fájlok kerülnek.';
+$lang["offline_archive_preservedate"] = 'Megőrizzük a fájl időbélyegét?';
+$lang["offline_archive_administer_archive"] = 'Archívumok kezelése';
+$lang["offline_archive_view_pending"] = 'Nézd meg az archíválásra váró erőforrásokat';
+$lang["offline_archive_view_pending_restore"] = 'Nézd meg a helyreállításra váró erőforrásokat';
+$lang["offline_archive_view_completed"] = 'Archív munka megtekintése';
+$lang["offline_archive_view_associated"] = 'Kapcsolódó erőforrások megtekintése';
+$lang["offline_archive_view_as_search"] = 'Erőforrások megtekintése keresésként';
+$lang["offline_archive_entername"] = 'Kérjük, adja meg az archívum nevét';
+$lang["offline_archive_input_text"] = 'Kérjük, adjon meg egy erőforrások listáját vagy egy gyűjtemény azonosítót, amelyet visszaállításra szeretne megjelölni';
+$lang["offline_archive_input_resources"] = 'Kérjük, adja meg a helyreállítandó erőforrás-azonosítókat, vesszővel elválasztva';
+$lang["offline_archive_input_collection"] = 'Kérjük, adja meg a gyűjtemény azonosítóját a visszaállításhoz';
+$lang["offline_archive_name"] = 'Archív előtag';
+$lang["offline_archive_createnew"] = 'Új archíválási feladat létrehozása';
+$lang["offline_archive_archive_created"] = 'Archívum sikeresen létrehozva';
+$lang["offline_archive_archive_ref"] = 'Archív hivatkozás';
+$lang["offline_archive_archive_date"] = 'Archív dátum';
+$lang["offline_archive_archive_status"] = 'Archív dátum';
+$lang["offline_archive_request_restore"] = 'Kérés helyreállítására';
+$lang["offline_archive_cancel_restore"] = 'Visszaállítás megszakítása';
+$lang["offline_archive_cancel_confirm"] = 'Biztos benne, hogy meg akarja szakítani ennek az erőforrásnak a helyreállítását?';
+$lang["offline_archive_restore_pending"] = 'Függőben lévő helyreállítás az archívumból';
+$lang["offline_archive_restore_confirm"] = 'Megerősíti a visszaállítást';
+$lang["offline_archive_restore_resources"] = 'Erőforrások visszaállítása az archívumból';
+$lang["offline_archive_restore_resource"] = 'Visszaállítás archívumból';
+$lang["offline_archive_request_restore_text"] = 'Kérjük, adja meg a kérés okát';
+$lang["offline_archive_request_restore_reason"] = 'A helyreállítási kérelem oka';
+$lang["offline_archive_request_email_subject"] = 'offline archívum helyreállítási kérelem';
+$lang["offline_archive_requestsenttext"] = 'Az archívum helyreállítási kérelmét benyújtották, és hamarosan megvizsgálják.';
+$lang["offline_archive_resources_restore_confirmed"] = 'Az erőforrások sikeresen beállítva a visszaállításhoz, és akkor lesznek visszaállítva, amikor a megfelelő archívumok be lettek illesztve vagy másolva a konfigurált archívum helyére';
+$lang["offline_archive_resources_restore_cancel_confirmed"] = 'Az erőforrás sikeresen eltávolítva a függőben lévő visszaállításból';
+$lang["offline_archive_resource_log_archived"] = '- archiválva az offline archívum pluginnal. Archív kód:';
+$lang["offline_archive_resource_log_restored"] = '- helyreállítva az offline archívum bővítménnyel';
+$lang["offline_archive_resource_log_restore_set"] = 'Javításra kijelölve az archívumból';
+$lang["offline_archive_resource_log_restore_removed"] = 'Törölt helyreállítás az archívumból';
+$lang["offline_archive_resource_log_restore_request"] = 'Kért helyreállítás az archívumból';
+$lang["offline_archive_resource_restore"] = 'Erőforrások visszaállítása';
+$lang["offline_archive_administer_archive-tooltip"] = 'Archív fájlok áthelyezése offline helyre';
+$lang["offline_archive_statustype"] = array (
+  0 => 'Függőben',
+  1 => 'Folyamatban',
+  2 => 'Befejezve',
+);
+$lang["page-title_offline_archive_administer_archive"] = 'Archívum kezelése';
+$lang["page-title_offline_archive_offline_archive_action"] = 'Offline Archív';
+$lang["page-title_offline_archive_pending_restore"] = 'Függőben lévő erőforrás-visszaállítás';
+$lang["page-title_offline_archive_restore_request"] = 'Kérjük az erőforrás visszaállítását';
+$lang["page-title_offline_archive_restore"] = 'Archívum visszaállítása';
+$lang["page-title_offline_archive_setup"] = 'Beállítás Plugin';
+$lang["page-title_offline_archive_view_archives"] = 'Nézd meg az Erőforrás Archívumokat';
+$lang["page-title_offline_archive_view_pending"] = 'Nézd meg a függőben lévő archívumokat';

@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+resource_ref,int(11),YES,,NULL,
+homepage_show,tinyint(1),YES,,1,
+login_show,tinyint(1),YES,,0,

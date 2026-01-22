@@ -1,0 +1,8 @@
+ref,int(11),NO,PRI,,auto_increment
+collection,int(11),YES,,,
+search,text,YES,,,
+restypes,text,YES,,,
+starsearch,int(11),YES,,,
+archive,varchar(50),YES,,,
+created,timestamp,YES,,CURRENT_TIMESTAMP,
+result_limit,int(11),YES,,,

@@ -1,0 +1,8 @@
+name    : user_preferences
+title   : User Preferences
+author  : Axel Dörfler
+version : 1.0
+desc    : Allows users to update their username, name and e-mail address.
+icon    : user-round-cog
+config_url: /plugins/user_preferences/pages/setup.php
+category: User Interface

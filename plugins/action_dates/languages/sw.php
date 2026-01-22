@@ -1,0 +1,40 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Chagua sehemu ambazo zitatumika kutekeleza kiotomatiki vitendo vilivyobainishwa.';
+$lang["action_dates_deletesettings"] = 'Mipangilio ya kiotomatiki ya hatua kuu ya rasilimali - tumia kwa tahadhari';
+$lang["action_dates_delete"] = 'Futa au badilisha hali ya rasilimali kiotomatiki wakati tarehe katika uwanja huu inafikiwa';
+$lang["action_dates_eligible_states"] = 'Nchi ambazo zinastahiki kwa hatua ya msingi ya kiotomatiki. Ikiwa hakuna nchi zilizochaguliwa basi nchi zote zinastahiki.';
+$lang["action_dates_restrict"] = 'Zuia kiotomatiki ufikiaji wa rasilimali wakati tarehe katika uwanja huu inafikiwa. Hii inatumika tu kwa rasilimali ambazo ufikiaji wake kwa sasa uko wazi.';
+$lang["action_dates_delete_logtext"] = '- Imechukuliwa hatua kiotomatiki na programu-jalizi ya action_dates';
+$lang["action_dates_restrict_logtext"] = '- Kuzuia kiotomatiki na programu-jalizi ya action_dates';
+$lang["action_dates_reallydelete"] = 'Futa rasilimali kabisa wakati tarehe ya hatua imepita? Ikiwa imewekwa kuwa uongo, rasilimali zitahamishwa hadi hali ya kufutwa ya rasilimali iliyosanidiwa na hivyo kurejesheka.';
+$lang["action_dates_email_admin_days"] = 'Arifu wasimamizi wa mfumo siku kadhaa kabla ya tarehe hii kufikiwa. Acha chaguo hili wazi ikiwa hutaki arifa itumwe.';
+$lang["action_dates_email_text_restrict"] = 'Rasilimali zifuatazo zinatarajiwa kuzuiwa katika siku [days].';
+$lang["action_dates_email_text_state"] = 'Rasilimali zifuatazo zinatarajiwa kubadilisha hali katika siku [days].';
+$lang["action_dates_email_text"] = 'Rasilimali zifuatazo zinatarajiwa kuzuiwa na/au kubadilisha hali katika siku [days].';
+$lang["action_dates_email_range_restrict"] = 'Rasilimali zifuatazo zinatarajiwa kuzuiwa ndani ya siku [days_min] hadi [days_max].';
+$lang["action_dates_email_range_state"] = 'Rasilimali zifuatazo zinatarajiwa kubadilisha hali ndani ya siku [days_min] hadi [days_max].';
+$lang["action_dates_email_range"] = 'Rasilimali zifuatazo zinatarajiwa kuzuiliwa na/au kubadilisha hali ndani ya siku [days_min] hadi [days_max].';
+$lang["action_dates_email_subject_restrict"] = 'Arifa ya rasilimali zinazotarajiwa kuzuiliwa';
+$lang["action_dates_email_subject_state"] = 'Arifa ya rasilimali zinazotarajiwa kubadilisha hali';
+$lang["action_dates_email_subject"] = 'Arifa ya rasilimali zinazotarajiwa kuzuiliwa na/au kubadilisha hali';
+$lang["action_dates_new_state"] = 'Hali mpya ya kuhamia (ikiwa chaguo hapo juu limewekwa kufuta rasilimali kabisa hii itapuuzwa)';
+$lang["action_dates_notification_subject"] = 'Arifa kutoka kwa programu-jalizi ya tarehe za hatua';
+$lang["action_dates_additional_settings"] = 'Vitendo vya ziada';
+$lang["action_dates_additional_settings_info"] = 'Zaidi ya hayo, hamisha rasilimali hadi hali iliyochaguliwa wakati uwanja maalum unapofikiwa';
+$lang["action_dates_additional_settings_date"] = 'Wakati tarehe hii inapofikiwa';
+$lang["action_dates_additional_settings_status"] = 'Hamisha rasilimali kwenye hali hii ya kumbukumbu';
+$lang["action_dates_remove_from_collection"] = 'Ondoa rasilimali kutoka kwa makusanyo yote yanayohusiana wakati hali inabadilishwa?';
+$lang["action_dates_email_for_state"] = 'Tuma arifa kwa rasilimali zinazobadilisha hali. Inahitaji uwanja wa mabadiliko ya hali hapo juu kusanidiwa.';
+$lang["action_dates_email_for_restrict"] = 'Tuma arifa kwa rasilimali zitakazozuiliwa. Inahitaji sehemu za rasilimali zilizozuiliwa hapo juu ziwe zimepangwa.';
+$lang["action_dates_workflow_actions"] = 'Ikiwa programu-jalizi ya Mtiririko wa Kazi wa Juu imewezeshwa, je, arifa zake zinapaswa kutumika kwa mabadiliko ya hali yaliyoanzishwa na programu-jalizi hii?';
+$lang["action_dates_weekdays"] = 'Chagua siku za wiki ambapo vitendo vitashughulikiwa.';
+$lang["weekday-0"] = 'Jumapili';
+$lang["weekday-1"] = 'Jumatatu';
+$lang["weekday-2"] = 'Jumanne';
+$lang["weekday-3"] = 'Jumatano';
+$lang["weekday-4"] = 'Alhamisi';
+$lang["weekday-5"] = 'Ijumaa';
+$lang["weekday-6"] = 'Jumamosi';
+
+$lang["page-title_action_dates_setup"] = 'Panga Plugin ya Tarehe za Kitendo';

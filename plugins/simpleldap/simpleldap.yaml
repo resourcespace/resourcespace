@@ -1,0 +1,11 @@
+name    : simpleldap
+title   : LDAP
+author  : David Dwiggins, Montala Ltd.
+version : 1.2
+desc    : User authentication via LDAP.
+icon    : key-round
+icon-colour: goldenrod
+config_url: /plugins/simpleldap/pages/setup.php
+category: Authentication
+disable_group_select: 1
+info_url: https://www.resourcespace.com/knowledge-base/plugins/simpleldap

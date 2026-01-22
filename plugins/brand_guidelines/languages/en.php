@@ -1,0 +1,43 @@
+<?php
+
+$lang['brand_guidelines_permission_bgv'] = 'Can view the Brand Guidelines';
+$lang['brand_guidelines_permission_bge'] = 'Can edit the Brand Guidelines';
+$lang['brand_guidelines_top_nav_title'] = 'Guidelines';
+$lang['brand_guidelines_new_resource'] = 'New resource';
+$lang['brand_guidelines_existing_resource'] = 'Existing resource';
+$lang['brand_guidelines_new_content'] = 'Add new content';
+$lang['brand_guidelines_new_page'] = '+ New page';
+$lang['brand_guidelines_new_section'] = '+ New section';
+$lang['brand_guidelines_view_table_of_content'] = 'View table of content';
+$lang['brand_guidelines_new_section_title'] = 'Create new section';
+$lang['brand_guidelines_new_page_title'] = 'Create new page';
+$lang['brand_guidelines_edit_section_title'] = 'Edit section';
+$lang['brand_guidelines_edit_page_title'] = 'Edit page';
+$lang['brand_guidelines_section'] = 'Section';
+$lang['brand_guidelines_full_width'] = 'Full-width';
+$lang['brand_guidelines_half_width'] = 'Half-width';
+$lang['brand_guidelines_title_new_text'] = 'Create new text item';
+$lang['brand_guidelines_title_edit_text'] = 'Edit text';
+$lang['brand_guidelines_title_select_resource'] = 'Select existing resource';
+$lang['brand_guidelines_err_invalid_input'] = 'Invalid input submitted';
+$lang['brand_guidelines_hex'] = 'HEX';
+$lang['brand_guidelines_hex_help_txt'] = 'Hexadecimal (0-9A-F). Examples: #0FA, 0FA, 00FFAA';
+$lang['brand_guidelines_rgb'] = 'RGB';
+$lang['brand_guidelines_rgb_help_txt'] = 'RGB (0-255). Example: 116,182,50';
+$lang['brand_guidelines_cmyk'] = 'CMYK';
+$lang['brand_guidelines_cmyk_help_txt'] = 'CMYK (0-100). Example: 36,0,73,29';
+$lang['brand_guidelines_move_left'] = 'Move left';
+$lang['brand_guidelines_move_right'] = 'Move right';
+$lang['brand_guidelines_confirm_delete_group_members'] = 'Are you sure you want to delete all in this group?';
+$lang['brand_guidelines_layout'] = 'Layout';
+$lang['brand_guidelines_view_mode'] = 'View mode';
+$lang['brand_guidelines_edit_mode'] = 'Edit mode';
+$lang['brand_guidelines_configuration'] = 'Brand Guidelines configuration';
+$lang['brand_guidelines_fallback_size_thm'] = 'Thumbnail layout fallback image size';
+$lang['brand_guidelines_fallback_size_half_width'] = 'Half-width layout fallback image size';
+$lang['brand_guidelines_fallback_size_full_width'] = 'Full-width layout fallback image size';
+
+$lang["page-title_brand_guidelines_content"]    = "Manage Brand Guidelines Content";
+$lang["page-title_brand_guidelines_guidelines"] = "Brand Guidelines";
+$lang["page-title_brand_guidelines_setup"]      = "Setup Brand Guidelines Plugin";
+$lang["page-title_brand_guidelines_toc"]        = "Edit content";

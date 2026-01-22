@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Şahin Bağlantısı';
+$lang["falcon_link_manage"] = 'Şahin yayınla/arsivle';
+$lang["falcon_link_publish"] = 'Falcon\'a Yayınla';
+$lang["falcon_link_archive"] = 'Falcon\'da Arşivle';
+$lang["falcon_link_configuration"] = 'Şahin bağlantısı- Kurulum';
+$lang["falcon_link_api_key"] = 'Falcon API anahtarı';
+$lang["falcon_link_notconfigured"] = 'Falcon Link eklentisi yapılandırılmamış. Lütfen yöneticinizden eklentiyi yapılandırmasını isteyin.';
+$lang["falcon_link_resource_types_to_include"] = 'Geçerli Falcon Kaynak Türlerini Seçin';
+$lang["falcon_link_not_permitted_extension"] = 'Dosya türü %TYPE% Falcon\'a yüklenemez';
+$lang["falcon_link_default_tag"] = 'Tüm Falcon yayınlanan içeriğe otomatik olarak eklenecek varsayılan etiket metni. \'[ID]\' metnini eklerseniz, bu etiket içinde kaynak kimliği ile değiştirilecektir.';
+$lang["falcon_link_template_url"] = 'Falcon şablon URL\'si. Bu, yayımlanan kaynağı doğrudan Falcon\'da görüntülemenizi sağlar. [id] etiketi, kaynak yayımlandığında Falcon tarafından verilen tanımlayıcı ile değiştirilecektir.';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Falcon etiket alanları. Bunlar birleştirilip Falcon şablon etiketlerine eklenecek';
+$lang["falcon_link_id_field"] = 'Falcon tanımlayıcısını saklamak için meta veri alanı';
+$lang["falcon_link_log_share"] = 'Falcon\'da Yayınlandı';
+$lang["falcon_link_archived"] = 'Arşivlendi';
+$lang["falcon_link_access_denied"] = 'Seçilen kaynak(lar)ı yayınlama izniniz yok';
+$lang["falcon_link_already_published"] = 'Bu kaynak Falcon\'a yayınlandı';
+$lang["falcon_link_resources_already_published"] = 'Bazı kaynaklar zaten Falcon\'a yayınlandı ve yeniden yayınlanamaz';
+$lang["falcon_link_resource_not_published"] = 'Kaynak Falcon\'a yayınlanmadı';
+$lang["falcon_link_resource_publish_unavailable"] = 'Kaynak Falcon\'a yayınlanamaz';
+$lang["falcon_link_template_description"] = 'Şablon açıklaması';
+$lang["falcon_link_template_tags"] = 'Eklenecek şablon etiketleri';
+$lang["falcon_link_missing_file"] = 'Kaynağın orijinal dosyası yok';
+$lang["falcon_link_existing_id"] = 'Mevcut Falcon Kimliği';
+$lang["falcon_link_not_uploaded"] = 'Yüklenmedi';
+$lang["falcon_link_publish_button_text"] = 'Yayınla';
+$lang["falcon_link_archive_button_text"] = 'Arşiv';
+$lang["falcon_link_publish_success"] = 'Başarıyla yayınlandı';
+$lang["falcon_link_archived_success"] = 'Başarıyla arşivlendi.<br />Kaynak paylaşımları hala aktif ve gerekirse manuel olarak silinmeleri gerekecek.';
+$lang["falcon_link_usergroups"] = 'Şahin şablonlarını yönetme erişimine sahip gruplar';
+$lang["falcon_link_filter"] = 'Yayınlanabilecek kaynakları belirlemek için filtreyi Falcon\'a gönder';
+$lang["falcon_link_error_no_resources"] = 'Yayınlanmak üzere gönderilen kaynak yok';
+$lang["falcon_link_error_falcon_api"] = 'Falcon ile iletişim kurarken bir hata oluştu. Daha fazla ayrıntı için durumu kontrol edin.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Şahin hatası';
+$lang["falcon_link_view_in_falcon"] = 'Falcon\'da Görüntüle';
+$lang["falcon_link_share_user"] = 'Falcon kullanımı için oluşturulan paylaşımlar için görüntülenecek kullanıcı metni, örneğin \'user@falcon.io ile paylaşıldı\'';
+$lang["falcon_link_log_publish"] = 'Falcon aracılığıyla paylaşılan kaynak';
+$lang["falcon_link_log_archive"] = 'Falcon aracılığıyla arşivlenen kaynak';
+$lang["falcon_link_error_falcon_check_tags"] = 'Lütfen açıklamanın ve etiketlerin boş olmadığını kontrol edin';
+$lang["falcon_link_text_field"] = 'Şahin şablon metin alanı';
+$lang["plugin-falcon_link-title"] = 'Şahin Bağlantısı';
+$lang["plugin-falcon_link-desc"] = '[İleri] Kaynakları Falcon.io\'ya yayınla';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Falcon Link Eklentisini Kurun';

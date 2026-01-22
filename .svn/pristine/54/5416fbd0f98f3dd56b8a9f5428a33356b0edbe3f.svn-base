@@ -1,0 +1,10 @@
+name: youtube_publish
+title: YouTube Publish
+author: Montala Limited
+version: 1.0
+desc: Publish video resources to a configured YouTube account.
+icon: youtube
+icon-colour: red
+config_url: /plugins/youtube_publish/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/youtube-publish

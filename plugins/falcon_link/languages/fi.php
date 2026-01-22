@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link';
+$lang["falcon_link_manage"] = 'Falcon julkaisee/arkistoi';
+$lang["falcon_link_publish"] = 'Julkaise Falconiin';
+$lang["falcon_link_archive"] = 'Arkisto Falconissa';
+$lang["falcon_link_configuration"] = 'Falcon-link asennus';
+$lang["falcon_link_api_key"] = 'Falcon API -avain';
+$lang["falcon_link_notconfigured"] = 'Falcon Link -liitännäistä ei ole määritetty. Pyydä ylläpitäjää määrittämään liitännäinen.';
+$lang["falcon_link_resource_types_to_include"] = 'Valitse kelvolliset Falcon-resurssityypit';
+$lang["falcon_link_not_permitted_extension"] = 'Tiedostotyyppiä %TYPE% ei voi ladata Falconiin';
+$lang["falcon_link_text_field"] = 'Falcon mallipohjan tekstikenttä';
+$lang["falcon_link_default_tag"] = 'Oletusarvoinen tunniste, joka lisätään automaattisesti kaikkeen Falcon-julkaisusisältöön. Jos sisällytät tekstin \'[ID]\', se korvataan resurssin ID:llä tunnisteessa';
+$lang["falcon_link_template_url"] = 'Falcon-mallipohjan URL-osoite. Tämä mahdollistaa julkaistun resurssin katselun suoraan Falconissa. [id]-tunniste korvataan Falconin myöntämällä tunnisteella, kun resurssi julkaistaan';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Falcon-tunnisteiden kentät. Nämä yhdistetään ja lisätään Falcon-mallin tunnisteisiin';
+$lang["falcon_link_id_field"] = 'Metatietokenttä Falcon-tunnisteen tallentamiseen';
+$lang["falcon_link_log_share"] = 'Julkaistu Falconilla';
+$lang["falcon_link_archived"] = 'Arkistoitu';
+$lang["falcon_link_access_denied"] = 'Sinulla ei ole oikeutta julkaista valittuja resursseja';
+$lang["falcon_link_already_published"] = 'Tämä resurssi on julkaistu Falconiin';
+$lang["falcon_link_resources_already_published"] = 'Joitakin resursseja on jo julkaistu Falconiin eikä niitä voi julkaista uudelleen';
+$lang["falcon_link_resource_not_published"] = 'Resurssia ei ole julkaistu Falconiin';
+$lang["falcon_link_resource_publish_unavailable"] = 'Resurssia ei voida julkaista Falconiin';
+$lang["falcon_link_template_description"] = 'Mallin kuvaus';
+$lang["falcon_link_template_tags"] = 'Mallin tunnisteet, jotka lisätään';
+$lang["falcon_link_missing_file"] = 'Resurssilla ei ole alkuperäistiedostoa';
+$lang["falcon_link_existing_id"] = 'Olemassa oleva Falcon-tunnus';
+$lang["falcon_link_not_uploaded"] = 'Ei ladattu';
+$lang["falcon_link_publish_button_text"] = 'Julkaise';
+$lang["falcon_link_archive_button_text"] = 'Arkisto';
+$lang["falcon_link_publish_success"] = 'Julkaistu onnistuneesti';
+$lang["falcon_link_archived_success"] = 'Arkistoitu onnistuneesti.<br />Resurssien jakaminen on edelleen aktiivista ja ne on poistettava manuaalisesti, jos tarpeen.';
+$lang["falcon_link_usergroups"] = 'Ryhmät, joilla on pääsy hallita Falcon-malleja';
+$lang["falcon_link_filter"] = 'Suodatin, jolla määritetään, mitkä resurssit voidaan julkaista Falconiin';
+$lang["falcon_link_error_no_resources"] = 'Ei resursseja lähetetty julkaistavaksi';
+$lang["falcon_link_error_falcon_api"] = 'Tapahtui virhe Falconin kanssa kommunikoidessa. Tarkista tila saadaksesi lisätietoja.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Falcon virhe';
+$lang["falcon_link_view_in_falcon"] = 'Näytä Falconissa';
+$lang["falcon_link_share_user"] = 'Käyttäjän teksti näytettäväksi jakamisille, jotka on luotu Falcon-käyttöä varten, esim. "jaettu käyttäjän kanssa@falcon.io"';
+$lang["falcon_link_log_publish"] = 'Jaettu resurssi Falconin kautta';
+$lang["falcon_link_log_archive"] = 'Arkistoitu resurssi Falconin kautta';
+$lang["falcon_link_error_falcon_check_tags"] = 'Tarkista, että kuvaus ja tunnisteet eivät ole tyhjiä';
+$lang["plugin-falcon_link-title"] = 'Falcon Link';
+$lang["plugin-falcon_link-desc"] = 'Julkaise resurssit Falcon.io-palveluun';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Aseta Falcon Link -laajennus';

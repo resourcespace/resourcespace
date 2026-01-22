@@ -1,0 +1,3 @@
+search_log,0,PRIMARY,1,ref,A,0,,,,BTREE,,
+search_log,1,idx_result_count,1,result_count,A,5,,,YES,BTREE,,
+search_log,1,idx_logged,1,logged,A,448,,,YES,BTREE,,

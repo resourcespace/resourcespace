@@ -1,0 +1,10 @@
+name    : action_dates
+title   : Action Dates 
+author  : Montala Ltd.
+version : 1.1
+desc    : Enables scheduled deletion or restriction of resources based upon date fields.
+icon    : calendar-days
+config_url: /plugins/action_dates/pages/setup.php
+category: Workflow And Access
+disable_group_select: 1
+info_url: https://www.resourcespace.com/knowledge-base/plugins/actiondates

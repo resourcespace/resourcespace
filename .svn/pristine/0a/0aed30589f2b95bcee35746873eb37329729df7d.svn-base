@@ -1,0 +1,11 @@
+name: simplesaml
+title: SAML
+desc: User authentication via SAML.
+icon: key-round
+icon-colour : goldenrod
+author: Montala Limited
+version: 1.0
+config_url: /plugins/simplesaml/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/simplesaml
+category: Authentication
+disable_group_select: 1

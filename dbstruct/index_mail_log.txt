@@ -1,0 +1,2 @@
+mail_log,0,PRIMARY,1,ref,A,249,,,,BTREE,,
+mail_log,1,date,1,date,A,0,,,YES,BTREE,,

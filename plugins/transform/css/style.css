@@ -1,0 +1,59 @@
+#new_slideshow_form {
+    display: none;
+    margin-top: 10px;
+}
+
+#new_slideshow_img_resource {
+    width: 100px;
+}
+
+#imagetool-toolbar {
+    float:left;
+    border: 1px solid #666666;
+    border-radius: 4px;
+    font-size:28px;
+    height: 600px;
+    margin-left: 4px;
+    }
+
+#imagetool-toolbar table td{
+    margin: 2px;
+    text-align: center;
+    background: #fff;
+    color:#000;
+    }
+
+#cropimgdiv {
+    border: 1px solid #666666;
+    border-radius: 4px;
+    float:left;
+    padding:0;
+    margin:0;
+    width:600px;
+    height:600px;
+    }
+
+.FloatingOptions {
+    float: left;
+    margin-left: 10px;
+    }
+
+.FloatingOptions .Question label,
+.FloatingOptions .QuestionSubmit label {
+    width: 200px;
+}
+
+.FloatingOptions .Question .stdwidth,
+.FloatingOptions .QuestionSubmit .stdwidth {
+    width: 250px;
+}
+
+#cropdiv{
+    float: left;
+    width: 655px;
+    }
+
+#croptools {
+    float:left;
+    padding: 15px;
+    }

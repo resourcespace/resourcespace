@@ -1,0 +1,57 @@
+<?php
+
+$lang["consent_management"] = 'Usimamizi wa ridhaa';
+$lang["new_consent"] = 'Idhini mpya';
+$lang["edit_consent"] = 'Hariri idhini';
+$lang["delete_consent"] = 'Futa idhini';
+$lang["consent_id"] = 'Kitambulisho cha Idhini';
+$lang["consentmanager_new"] = 'Idhini mpya';
+$lang["manageconsents"] = 'Idhini';
+$lang["manageconsent"] = 'Idhini';
+$lang["no_expiry_date"] = 'Hakuna tarehe ya kumalizika';
+$lang["action-unlink"] = 'Ondoa kiungo';
+$lang["unlink_consent"] = 'Ondoa kiungo cha idhini';
+$lang["consentsearch"] = 'Tafuta kwa jina';
+$lang["linkedresources"] = 'Rasilimali zilizounganishwa';
+$lang["linkconsent"] = 'Kiungo cha idhini';
+$lang["unlinkconsent"] = 'Ondoa kiungo cha idhini';
+$lang["selectconsent"] = 'Tafadhali chagua kitambulisho cha idhini';
+$lang["name"] = 'Jina';
+$lang["usage"] = 'Matumizi';
+$lang["telephone"] = 'Simu';
+$lang["notes"] = 'Vidokezo';
+$lang["confirmdeleteconsentfile"] = 'Je, una uhakika unataka KUFUTA faili hili? Hili haliwezi kubatilishwa.';
+$lang["consent_manager_mediums"] = 'Njia za matumizi ya idhini';
+$lang["consent_manager_access"] = 'Dhibiti data ya ridhaa (ambapo haijawezeshwa tayari kupitia ruhusa ya "Inaweza kufikia eneo la Usanidi wa Mfumo")';
+
+$lang["manageconsent-tooltip"] = 'Unda na simamia rekodi za idhini za rasilimali';
+
+$lang["consent_status"] = 'Hali ya idhini';
+$lang["no_consent_date"] = 'Hapana tarehe ya idhini';
+$lang["date_of_birth"] = 'Tarehe ya kuzaliwa';
+$lang["address"] = 'Anwani';
+$lang["parent_guardian"] = 'Jina la Mzazi/Mlezi';
+$lang["date_of_consent"] = 'Tarehe ya idhini';
+$lang["consent_expiry_notification"] = 'Arifa za kuisha kwa idhini';
+$lang["consent_expiry_notification_days"] = 'Idadi ya siku kabla ya kumalizika kwa idhini inakaribia wakati watumiaji wenye ruhusa ya \'Usimamizi wa idhini\' watataarifiwa';
+$lang["consent_attach_upload"] = 'Ruhusu rekodi ya idhini kuunganishwa kwenye ukurasa wa Kuboresha Metadata baada ya kupakia';
+$lang["consent_expired_workflow_state"] = 'Kiotomatiki hifadhi rasilimali zilizounganishwa na idhini zilizokwisha muda hadi hali hii ya mtiririko wa kazi';
+$lang["user_pref_consent_notifications"] = 'Nitumie arifa za kukubali zinazokaribia kuisha?';
+$lang["consent_status_all"] = 'Madaraka yote';
+$lang["consent_status_active"] = 'Ruhusa za kazi';
+$lang["consent_status_expiring"] = 'Ruhusa zinazokaribia kuisha';
+$lang["consent_status_expired"] = 'Ruhusa zilizokwisha';
+$lang["consent_view_linked_resources_short"] = 'Tazama';
+$lang["consent_no_archiving"] = 'Hakuna Mabadiliko';
+$lang["consent_notification_expiring_soon"] = 'Idhini Zinazokaribia Kuisha';
+$lang["consent_notification_user_pref"] = 'Badilisha ikiwa unapata arifa hizi';
+$lang["consent_notification_global_pref"] = 'Zima hizi arifa kwa kila mtu';
+$lang["consent_notification_link"] = 'Tazama hapa';
+$lang["consent_notification_message"] = 'Kuna baadhi ya idhini zinazokaribia kuisha.';
+$lang["page-title_consentmanager_batch"] = 'Idhini za Mkusanyiko';
+$lang["page-title_consentmanager_delete"] = 'Futa Idhini';
+$lang["page-title_consentmanager_download"] = 'Idhini ya Kupakua';
+$lang["page-title_consentmanager_edit"] = 'Hariri Idhini';
+$lang["page-title_consentmanager_list"] = 'Simamisha Idhini';
+$lang["page-title_consentmanager_setup"] = 'Weka Plugin ya Idhini';
+$lang["page-title_consentmanager_unlink"] = 'Ondoa Kuthibitisha';

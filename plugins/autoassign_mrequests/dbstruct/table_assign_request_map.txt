@@ -1,0 +1,5 @@
+id,int(11),NO,PRI,,auto_increment
+user_id,int(11),YES,,,
+user_group_id,int(11),YES,,,
+field_id,int(11),YES,,,
+field_value,text,YES,,,

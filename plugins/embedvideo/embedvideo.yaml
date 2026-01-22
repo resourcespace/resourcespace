@@ -1,0 +1,10 @@
+name: embedvideo
+title: Embed Video
+author: Montala Limited
+version: 1.1
+desc: Provides a function to generate HTML for embeddable video on remote sites.
+icon: file-video-camera
+icon-colour: black
+config_url: /plugins/embedvideo/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/embed-video

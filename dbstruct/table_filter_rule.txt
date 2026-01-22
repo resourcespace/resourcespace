@@ -1,0 +1,2 @@
+ref,int(11),NO,PRI,,auto_increment
+filter,int(11),NO,PRI,,

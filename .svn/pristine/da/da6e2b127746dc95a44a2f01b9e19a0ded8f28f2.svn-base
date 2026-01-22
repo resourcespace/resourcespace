@@ -1,0 +1,9 @@
+name: remote_assist
+title: Remote Assist
+desc: Displays options for assistance in the welcome text area on the home page.
+icon: hand-helping
+icon-colour: tan
+author: Montala Limited
+version: 3.1
+category: User Interface
+info_url: https://www.resourcespace.com/knowledge-base/plugins/remote_assist

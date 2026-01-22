@@ -1,0 +1,4 @@
+Determines which internal users a collection has been shared with.
+user,int(11),
+collection,int(11),
+request_feedback,int(11),Request feedback when emailing collection?

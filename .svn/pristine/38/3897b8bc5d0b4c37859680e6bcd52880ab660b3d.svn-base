@@ -1,0 +1,7 @@
+Node keyword list (fixed metadata). Used for the fixed list types such as drop down boxes and category trees.
+ref,int(11),
+resource_type_field,int(11),Which metadata field this belongs to.
+name,mediumtext,The display name.
+parent,int(11),For category trees - defines node hierarchy. 
+order_by,int(11),Defines the order of the nodes for display purposes.
+active,tinyint(1),Flag node as active (1) or deactivated (0).

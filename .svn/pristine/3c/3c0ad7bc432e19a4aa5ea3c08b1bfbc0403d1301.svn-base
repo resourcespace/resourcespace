@@ -1,0 +1,3 @@
+id,int(11),NO,PRI,,auto_increment
+user_id,int(11),YES,,,
+periodic_email_id,int(11),YES,,,

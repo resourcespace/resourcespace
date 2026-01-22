@@ -1,0 +1,439 @@
+1,"Values used in resource edits","SELECT 
+TRIM( RIGHT ( diff, LENGTH ( diff ) - LOCATE ( '\n+', diff ) - 2 ) ) AS `Value`, 
+count(*) AS `Count` 
+FROM resource_log WHERE type = 'e' 
+
+# --- date ranges
+# Make sure date is greater than FROM date
+and date > DATE('[from-y]-[from-m]-[from-d]')
+# Make sure date is less than TO date
+and date > DATE('[to-y]-[to-m]-[to-d]')
+
+group by 1 order by 2 desc limit 5000;
+",0
+2,"Keywords used in searches","select k.keyword 'Keyword',sum(count) Searches from keyword k,daily_stat d where k.ref=d.object_ref and d.activity_type='Keyword usage'
+
+# --- date ranges
+# Make sure date is greater than FROM date
+and 
+(
+d.year>[from-y]
+or 
+(d.year=[from-y] and d.month>[from-m])
+or
+(d.year=[from-y] and d.month=[from-m] and d.day>=[from-d])
+)
+# Make sure date is less than TO date
+and
+(
+d.year<[to-y]
+or 
+(d.year=[to-y] and d.month<[to-m])
+or
+(d.year=[to-y] and d.month=[to-m] and d.day<=[to-d])
+)
+
+
+group by k.ref order by Searches desc
+",0
+3,"Resource download summary","
+select r.ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) AS 'Title', 
+count(*) Downloads 
+from resource_log rl
+join resource r on rl.resource=r.ref
+where rl.type='d'
+  and rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+group by r.ref order by 'Downloads' desc
+",0
+4,"Resource views","
+select r.ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Title',sum(count) Views from resource r,daily_stat d where r.ref=d.object_ref and d.activity_type='Resource view'
+
+# --- date ranges
+# Make sure date is greater than FROM date
+and 
+(
+d.year>[from-y]
+or 
+(d.year=[from-y] and d.month>[from-m])
+or
+(d.year=[from-y] and d.month=[from-m] and d.day>=[from-d])
+)
+# Make sure date is less than TO date
+and
+(
+d.year<[to-y]
+or 
+(d.year=[to-y] and d.month<[to-m])
+or
+(d.year=[to-y] and d.month=[to-m] and d.day<=[to-d])
+)
+
+
+group by r.ref order by Views desc;
+",0
+5,"Resources sent via e-mail","
+select r.ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Title',sum(count) Sent from resource r,daily_stat d where r.ref=d.object_ref and d.activity_type='E-mailed resource'
+
+# --- date ranges
+# Make sure date is greater than FROM date
+and 
+(
+d.year>[from-y]
+or 
+(d.year=[from-y] and d.month>[from-m])
+or
+(d.year=[from-y] and d.month=[from-m] and d.day>=[from-d])
+)
+# Make sure date is less than TO date
+and
+(
+d.year<[to-y]
+or 
+(d.year=[to-y] and d.month<[to-m])
+or
+(d.year=[to-y] and d.month=[to-m] and d.day<=[to-d])
+)
+
+
+group by r.ref order by Sent desc;
+",0
+6,"Resources added to collection","
+select cl.resource 'Resource',
+( SELECT n.name
+FROM resource_node rn, node n
+WHERE rn.resource = cl.resource AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Title',
+count(*) 'Collection Add Count'
+from collection_log cl
+where BINARY cl.type='a'
+and cl.date>=date('[from-y]-[from-m]-[from-d]')
+and cl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+group by resource
+order by resource;
+",0
+7,"Resources created","
+
+select
+rl.date 'Date / Time',
+concat(u.username,' (',u.fullname,' )') 'Created By User',
+g.name 'User Group',
+r.ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Resource Title'
+
+from
+resource_log rl
+join resource r on r.ref=rl.resource
+left outer join user u on rl.user=u.ref
+left outer join usergroup g on u.usergroup=g.ref
+where
+rl.type='c'
+and
+rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+order by rl.date
+",0
+8,"Resources with zero downloads","
+select ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = resource.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Title' from resource where ref > 0 and ref not in 
+
+(
+select object_ref from daily_stat
+WHERE activity_type='Resource download'
+AND
+(
+year>[from-y]
+or 
+(year=[from-y] and month>[from-m])
+or
+(year=[from-y] and month=[from-m] and day>=[from-d])
+)
+AND
+(
+year<[to-y]
+or 
+(year=[to-y] and month<[to-m])
+or
+(year=[to-y] and month=[to-m] and day<=[to-d])
+)
+group by object_ref
+)
+
+AND
+DATE_FORMAT(creation_date, '%Y-%m-%d')<=date('[to-y]-[to-m]-[to-d]')
+
+AND
+ref>0
+",0
+9,"Resources with zero views","
+select ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = resource.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Title' from resource where ref not in 
+
+(
+SELECT object_ref FROM daily_stat d
+
+WHERE d.activity_type='Resource view'
+
+AND 
+(
+year>[from-y]
+or 
+(year=[from-y] and month>[from-m])
+or
+(year=[from-y] and month=[from-m] and day>=[from-d])
+)
+
+AND
+(
+year<[to-y]
+or 
+(year=[to-y] and month<[to-m])
+or
+(year=[to-y] and month=[to-m] and day<=[to-d])
+)
+
+group by object_ref
+)
+
+AND
+DATE_FORMAT(creation_date, '%Y-%m-%d')<=date('[to-y]-[to-m]-[to-d]')
+
+AND
+ref>0
+",0
+10,"Resource downloads by group","
+select
+g.name 'Group Name',
+count(rl.resource) 'Resource Downloads'
+
+from
+resource_log rl
+join resource r on r.ref=rl.resource
+left outer join user u on rl.user=u.ref
+left outer join usergroup g on u.usergroup=g.ref
+where
+rl.type='d'
+and rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+group by g.ref order by 'Resource Downloads' desc
+",0
+11,"Resource download detail","
+select
+rl.date 'Date / Time',
+concat(u.username,' (',u.fullname,' )') 'Downloaded By User',
+g.name 'User Group',
+r.ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Resource Title',
+rt.name 'Resource Type'
+
+from
+resource_log rl
+join resource r on r.ref=rl.resource
+left outer join user u on rl.user=u.ref
+left outer join usergroup g on u.usergroup=g.ref
+left outer join resource_type rt on r.resource_type=rt.ref
+where
+rl.type='d'
+and
+rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+order by rl.date
+",0
+12,"User details including group allocation","select 
+u.username 'Username',
+u.email 'E-mail address',
+u.fullname 'Full Name',
+u.created 'Created',
+u.last_active 'Last Seen',
+g.name 'Group name'
+
+from user u join usergroup g on u.usergroup=g.ref
+
+order by username;
+",0
+13,"Expired Resources","
+select distinct resource.ref 'Resource ID',resource.field8 'Resource Title',node.name 'Expires' 
+from resource 
+join resource_node on resource.ref=resource_node.resource 
+join node on node.ref=resource_node.node 
+join resource_type_field on node.resource_type_field=resource_type_field.ref 
+where resource_type_field.type=6 and node.name>=date('[from-y]-[from-m]-[from-d]') and node.name<=adddate(date('[to-y]-[to-m]-[to-d]'),1) and length(node.name)>0 and resource.ref>0 order by resource.ref;
+",0
+14,"Resources created - with thumbnails","
+select
+r.ref 'thumbnail',
+rl.date 'Date / Time',
+concat(u.username,' (',u.fullname,' )') 'Created By User',
+g.name 'User Group',
+r.ref 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) 'Resource Title'
+
+from
+resource_log rl
+join resource r on r.ref=rl.resource
+left outer join user u on rl.user=u.ref
+left outer join usergroup g on u.usergroup=g.ref
+where
+rl.type='c'
+and
+rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+order by rl.date;
+",0
+16,"Database statistics","
+
+select 
+(select count(*) from resource) as 'Total resources',
+(select count(*) from keyword) 'Total keywords',
+(select count(*) from node) as 'Total nodes (field options)',
+(select count(*) from resource_node) as 'Resource - node (field option) relationships',
+(select count(*) from collection) as 'Total collections',
+(select count(*) from collection_resource) as 'Collection resource relationships',
+(select count(*) from user) as 'Total users';
+",0
+17,"Mail Log","
+SELECT 
+  ml.ref, 
+  date, 
+  mail_to 'TO', 
+  IFNULL(u.username, 'SYSTEM') 'FROM', 
+  subject,
+  sender_email
+FROM mail_log ml
+LEFT JOIN user u ON u.ref=ml.mail_from 
+WHERE
+  date>=date('[from-y]-[from-m]-[from-d]') and 
+  date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+ORDER BY ml.ref DESC
+",0
+18,"Resource comments","
+SELECT  c.ref 'Ref', c.created 'Date', c.resource_ref 'Resource ID', c.resource_ref 'thumbnail', c.body 'Comment', 
+ifnull(concat(u.username,' (',u.fullname,')'),concat('ANONYMOUS: ',c.fullname,' (',c.website_url,')')) 'User', ifnull(c.email,u.email) Email
+
+FROM comment c LEFT JOIN user u ON u.ref=c.user_ref
+
+WHERE 
+
+c.created>=date('[from-y]-[from-m]-[from-d]') and c.created<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+order by c.created DESC;",0
+19,"File integrity check report","
+SELECT * FROM 
+(SELECT 'Oldest' AS State, ref 'Resource', ifnull(last_verified,'NEVER') 'Verified' FROM resource WHERE ref>0 AND integrity_fail=0 ORDER BY last_verified ASC LIMIT 1) AS a 
+UNION ALL 
+SELECT * FROM 
+(SELECT 'Newest' AS State, ref 'Resource', ifnull(last_verified,'NEVER') 'Verified' FROM resource WHERE ref>0 AND integrity_fail=0 ORDER BY last_verified DESC LIMIT 1) AS b;",0
+20,"Request details","
+SELECT
+    cres.resource 'Resource ID',
+    typ.name 'Resource Type',
+    usreq.username 'User',
+    req.comments 'Comments',
+    req.created 'Date requested',
+    req.reasonapproved 'Reason approved',
+    CASE
+        WHEN req.status = 0 THEN 'Pending'
+        WHEN req.status = 1 THEN 'Approved'
+        WHEN req.status = 2 THEN 'Declined'
+        ELSE 'UNDEFINED'
+    END 'Outcome',
+    usapp.username 'Approved / Declined by'
+
+FROM request req
+
+JOIN collection_resource cres ON req.collection=cres.collection
+
+JOIN resource res ON cres.resource = res.ref
+
+JOIN resource_type typ ON res.resource_type = typ.ref
+
+JOIN user usreq ON req.user = usreq.ref
+
+LEFT OUTER JOIN user usapp ON req.approved_declined_by = usapp.ref
+
+WHERE req.created>=date('[from-y]-[from-m]-[from-d]') AND req.created<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
+
+ORDER BY req.created desc;",0
+21,"Searches with no results", "
+  SELECT logged, `user`, search_string, resource_types, archive_states, result_count
+    FROM search_log AS sl
+   WHERE sl.result_count = 0
+     AND sl.logged >= date('[from-y]-[from-m]-[from-d]')
+     AND sl.logged <= adddate(date('[to-y]-[to-m]-[to-d]'), 1)
+ORDER BY ref DESC;",0
+22,"Resource download detail (search results)","
+         SELECT rl.date AS 'Date / Time',
+                concat(u.username,' (',u.fullname,' )') AS 'Downloaded By User',
+                g.name AS 'User Group',
+                r.ref AS 'Resource ID',
+                ( SELECT n.name 
+                FROM resource_node rn, node n 
+                WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+                LIMIT 1 ) AS 'Resource Title',
+                rt.name AS 'Resource Type'
+
+           FROM resource_log rl
+           JOIN resource r ON r.ref = rl.resource
+LEFT OUTER JOIN user u ON rl.user = u.ref
+LEFT OUTER JOIN usergroup g ON u.usergroup = g.ref
+LEFT OUTER JOIN resource_type rt ON r.resource_type = rt.ref
+
+          WHERE rl.type = 'd'
+            AND rl.date >= date('[from-y]-[from-m]-[from-d]') AND rl.date <= adddate(date('[to-y]-[to-m]-[to-d]'), 1)
+            AND r.ref IN [non_correlated_sql]
+       ORDER BY rl.date;",1
+23,"Resource download summary (search results)","
+  SELECT r.ref AS 'Resource ID',
+( SELECT n.name 
+FROM resource_node rn, node n 
+WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+LIMIT 1 ) AS 'Title', 
+         count(*) AS 'Downloads' 
+    FROM resource_log rl
+    JOIN resource r on rl.resource = r.ref
+   WHERE rl.type = 'd'
+     AND rl.date >= date('[from-y]-[from-m]-[from-d]') AND rl.date <= adddate(date('[to-y]-[to-m]-[to-d]'), 1)
+     AND r.ref IN [non_correlated_sql]
+GROUP BY r.ref
+ORDER BY 'Downloads' DESC;",1
+24,"Resources created - with thumbnails (search results)","
+         SELECT r.ref AS 'thumbnail',
+                rl.date AS 'Date / Time',
+                concat(u.username,' (',u.fullname,' )') AS 'Created By User',
+                g.name AS 'User Group',
+                r.ref AS 'Resource ID',
+                ( SELECT n.name 
+                FROM resource_node rn, node n 
+                WHERE rn.resource = r.ref AND n.ref = rn.node and n.resource_type_field = [title_field]
+                LIMIT 1 ) AS 'Resource Title'
+
+           FROM resource_log AS rl
+           JOIN resource AS r ON r.ref = rl.resource
+LEFT OUTER JOIN user AS u ON rl.user  =  u.ref
+LEFT OUTER JOIN usergroup AS g ON u.usergroup = g.ref
+
+          WHERE rl.type = 'c'
+            AND rl.date >= date('[from-y]-[from-m]-[from-d]') AND rl.date <= adddate(date('[to-y]-[to-m]-[to-d]'), 1)
+            AND r.ref IN [non_correlated_sql]
+       ORDER BY rl.date;",1

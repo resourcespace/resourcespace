@@ -1,0 +1,40 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Виберіть поля, які будуть використовуватися для автоматичного виконання зазначених дій.';
+$lang["action_dates_deletesettings"] = 'Автоматичні налаштування основних дій з ресурсами - використовуйте з обережністю';
+$lang["action_dates_delete"] = 'Автоматично видаляти або змінювати стан ресурсів, коли досягнуто дату в цьому полі';
+$lang["action_dates_eligible_states"] = 'Штати, які мають право на первинну автоматичну дію. Якщо жоден штат не вибрано, то всі штати мають право.';
+$lang["action_dates_restrict"] = 'Автоматично обмежувати доступ до ресурсів, коли досягнуто дату в цьому полі. Це стосується лише ресурсів, доступ до яких наразі відкритий.';
+$lang["action_dates_delete_logtext"] = '- Автоматично виконано плагіном action_dates';
+$lang["action_dates_restrict_logtext"] = '- Автоматично обмежено плагіном action_dates';
+$lang["action_dates_reallydelete"] = 'Повністю видалити ресурс після закінчення дати дії? Якщо встановлено значення false, ресурси будуть переміщені до налаштованого стану видалення ресурсів і, таким чином, можуть бути відновлені';
+$lang["action_dates_email_admin_days"] = 'Повідомити системних адміністраторів за певну кількість днів до досягнення цієї дати. Залиште цей параметр порожнім, щоб не надсилати сповіщення.';
+$lang["action_dates_email_text_restrict"] = 'Наступні ресурси будуть обмежені через [days] днів.';
+$lang["action_dates_email_text_state"] = 'Наступні ресурси змінять стан через [days] днів.';
+$lang["action_dates_email_text"] = 'Наступні ресурси будуть обмежені та/або змінять стан через [days] днів.';
+$lang["action_dates_email_range_restrict"] = 'Наступні ресурси будуть обмежені протягом [days_min] до [days_max] днів.';
+$lang["action_dates_email_range_state"] = 'Наступні ресурси мають змінити стан протягом [days_min] до [days_max] днів.';
+$lang["action_dates_email_range"] = 'Наступні ресурси мають бути обмежені та/або змінити стан протягом [days_min] до [days_max] днів.';
+$lang["action_dates_email_subject_restrict"] = 'Повідомлення про ресурси, які мають бути обмежені';
+$lang["action_dates_email_subject_state"] = 'Сповіщення про зміну стану ресурсів';
+$lang["action_dates_email_subject"] = 'Повідомлення про ресурси, які мають бути обмежені та/або змінити стан';
+$lang["action_dates_new_state"] = 'Новий стан для переміщення (якщо вище вказана опція встановлена на повне видалення ресурсів, це буде проігноровано)';
+$lang["action_dates_notification_subject"] = 'Сповіщення від плагіна дат дій';
+$lang["action_dates_additional_settings"] = 'Додаткові дії';
+$lang["action_dates_additional_settings_info"] = 'Додатково перемістити ресурси до вибраного стану, коли досягнуто вказаного поля';
+$lang["action_dates_additional_settings_date"] = 'Коли ця дата досягнута';
+$lang["action_dates_additional_settings_status"] = 'Перемістити ресурси до цього стану архіву';
+$lang["action_dates_remove_from_collection"] = 'Видалити ресурси з усіх пов\'язаних колекцій при зміні стану?';
+$lang["action_dates_email_for_state"] = 'Надіслати сповіщення про зміну стану ресурсів. Потрібно налаштувати поля зміни стану вище.';
+$lang["action_dates_email_for_restrict"] = 'Надіслати сповіщення про обмеження ресурсів. Потрібно налаштувати поля обмеження ресурсів вище.';
+$lang["action_dates_workflow_actions"] = 'Якщо плагін Advanced Workflow увімкнено, чи слід застосовувати його сповіщення до змін стану, ініційованих цим плагіном?';
+$lang["action_dates_weekdays"] = 'Виберіть дні тижня, коли дії будуть оброблятися.';
+$lang["weekday-0"] = 'Неділя';
+$lang["weekday-1"] = 'Понеділок';
+$lang["weekday-2"] = 'Вівторок';
+$lang["weekday-3"] = 'Середа';
+$lang["weekday-4"] = 'Четвер';
+$lang["weekday-5"] = 'П\'ятниця';
+$lang["weekday-6"] = 'Субота';
+
+$lang["page-title_action_dates_setup"] = 'Налаштування плагіна дат дій';

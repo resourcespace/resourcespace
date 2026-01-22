@@ -1,0 +1,17 @@
+.rse_workflow_link{
+	cursor: pointer;
+	cursor: hand;
+}
+
+#ResourceWorkflowActions input {
+	width: 100%;
+    margin: 0 5px 0 5px;
+}
+
+#ResourceWorkflowTable {
+    width: 100%;
+}
+
+#ResourceWorkflowActions {
+    margin-right: 0;
+}

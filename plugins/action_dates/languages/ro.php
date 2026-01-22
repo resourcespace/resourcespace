@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Selectați câmpurile care vor fi utilizate pentru a efectua automat acțiunile specificate.';
+$lang["action_dates_deletesettings"] = 'Setările automate pentru acțiunea primară a resurselor - folosiți cu precauție';
+$lang["action_dates_delete"] = 'Ștergeți automat sau schimbați starea resurselor atunci când data din acest câmp este atinsă';
+$lang["action_dates_eligible_states"] = 'Statele care sunt eligibile pentru acțiunea automată primară. Dacă nu sunt selectate state, atunci toate statele sunt eligibile.';
+$lang["action_dates_restrict"] = 'Restricționați automat accesul la resurse atunci când data din acest câmp este atinsă. Aceasta se aplică numai resurselor ale căror acces este în prezent deschis.';
+$lang["action_dates_delete_logtext"] = 'Automatizat de plugin-ul action_dates';
+$lang["action_dates_restrict_logtext"] = 'Restricționat automat de plugin-ul action_dates';
+$lang["action_dates_reallydelete"] = 'Ștergeți complet resursa când data acțiunii a trecut? Dacă este setat la fals, resursele vor fi mutate în starea de ștergere a resurselor configurată și, prin urmare, pot fi recuperate';
+$lang["action_dates_email_admin_days"] = 'Notificați administratorii sistemului cu un număr de zile stabilite înainte de atingerea acestei date. Lăsați această opțiune necompletată pentru a nu trimite nicio notificare.';
+$lang["action_dates_email_range_restrict"] = 'Următoarele resurse urmează să fie restricționate în termen de [days_min] până la [days] zile.';
+$lang["action_dates_email_range_state"] = 'Următoarele resurse urmează să își schimbe starea în termen de [days_min] până la [days] zile.';
+$lang["action_dates_email_range"] = 'Următoarele resurse urmează să fie restricționate și/sau să își schimbe starea în termen de [days_min] până la [days] zile.';
+$lang["action_dates_email_subject_restrict"] = 'Notificare privind resursele care urmează să fie restricționate';
+$lang["action_dates_email_subject_state"] = 'Notificare privind resursele care urmează să își schimbe starea';
+$lang["action_dates_email_subject"] = 'Notificare privind resursele care urmează să fie restricționate și/sau să-și schimbe starea';
+$lang["action_dates_new_state"] = 'Noua stare în care să se mute (dacă opțiunea de mai sus este setată să șteargă complet resursele, aceasta va fi ignorată)';
+$lang["action_dates_notification_subject"] = 'Notificare din modulul de date de acțiune';
+$lang["action_dates_additional_settings"] = 'Acțiuni suplimentare';
+$lang["action_dates_additional_settings_info"] = 'De asemenea, mutați resursele în starea selectată atunci când câmpul specificat este atins';
+$lang["action_dates_additional_settings_date"] = 'Când această dată este atinsă';
+$lang["action_dates_additional_settings_status"] = 'Mută resursele în acest stadiu de arhivă';
+$lang["action_dates_remove_from_collection"] = 'Eliminați resursele din toate colecțiile asociate atunci când starea este modificată?';
+$lang["action_dates_email_for_state"] = 'Trimite notificare pentru schimbarea stării resurselor. Necesită configurarea câmpurilor de schimbare a stării de mai sus.';
+$lang["action_dates_email_for_restrict"] = 'Trimite notificare pentru resursele care trebuie restricționate. Este necesară configurarea câmpurilor de restricționare a resurselor de mai sus.';
+$lang["action_dates_workflow_actions"] = 'Dacă modulul Advanced Workflow este activat, ar trebui ca notificările sale să fie aplicate la schimbările de stare inițiate de acest modul?';
+$lang["action_dates_weekdays"] = 'Selectați zilele săptămânii în care acțiunile vor fi procesate.';
+$lang["weekday-0"] = 'Duminică';
+$lang["weekday-1"] = 'Luni';
+$lang["weekday-2"] = 'Marți';
+$lang["weekday-3"] = 'Miercuri';
+$lang["weekday-4"] = 'Joi';
+$lang["weekday-5"] = 'Vineri';
+$lang["weekday-6"] = 'Sâmbătă';
+$lang["action_dates_email_text_restrict"] = 'Următoarele resurse urmează să fie restricționate în [days] zile.';
+$lang["action_dates_email_text_state"] = 'Următoarele resurse urmează să își schimbe starea în [days] zile.';
+$lang["action_dates_email_text"] = 'Următoarele resurse urmează să fie restricționate și/sau să își schimbe starea în [days] zile.';
+$lang["plugin-action_dates-title"] = 'Date de acțiune';
+$lang["plugin-action_dates-desc"] = 'Permite ștergerea sau restricționarea programată a resurselor pe baza câmpurilor de dată';
+
+$lang["page-title_action_dates_setup"] = 'Configurare Plugin pentru Datele de Acțiune';

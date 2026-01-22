@@ -1,0 +1,8 @@
+A log of all activity relating to a collection.
+ref,int(11),
+date,datetime,
+user,int(11),
+collection,int(11),
+type,char(1),Activity type - see include/definitions.php
+resource,int(11),
+notes,varchar(255),Notes

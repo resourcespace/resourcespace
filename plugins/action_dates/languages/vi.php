@@ -1,0 +1,40 @@
+<?php
+
+
+$lang["action_dates_configuration"] = 'Chọn các trường sẽ được sử dụng để tự động thực hiện các hành động đã chỉ định.';
+$lang["action_dates_deletesettings"] = 'Cài đặt hành động chính tài nguyên tự động - sử dụng cẩn thận';
+$lang["action_dates_delete"] = 'Tự động xóa hoặc thay đổi trạng thái của tài nguyên khi ngày trong trường này được đạt tới';
+$lang["action_dates_eligible_states"] = 'Các trạng thái đủ điều kiện cho hành động tự động chính. Nếu không có trạng thái nào được chọn thì tất cả các trạng thái đều đủ điều kiện.';
+$lang["action_dates_restrict"] = 'Tự động hạn chế quyền truy cập vào tài nguyên khi ngày trong trường này được đạt đến. Điều này chỉ áp dụng cho các tài nguyên có quyền truy cập hiện tại là mở.';
+$lang["action_dates_delete_logtext"] = '- Tự động thực hiện bởi plugin action_dates';
+$lang["action_dates_restrict_logtext"] = '- Tự động bị hạn chế bởi plugin action_dates';
+$lang["action_dates_reallydelete"] = 'Xóa hoàn toàn tài nguyên khi ngày hành động đã qua? Nếu đặt thành sai, tài nguyên sẽ được chuyển đến trạng thái xóa tài nguyên đã cấu hình và do đó có thể khôi phục lại';
+$lang["action_dates_email_admin_days"] = 'Thông báo cho quản trị viên hệ thống một số ngày nhất định trước khi ngày này đến. Để tùy chọn này trống để không gửi thông báo.';
+$lang["action_dates_email_text_restrict"] = 'Các tài nguyên sau đây sẽ bị hạn chế trong [days] ngày.';
+$lang["action_dates_email_text_state"] = 'Các tài nguyên sau đây sẽ thay đổi trạng thái trong [days] ngày.';
+$lang["action_dates_email_text"] = 'Các tài nguyên sau đây sẽ bị hạn chế và/hoặc thay đổi trạng thái trong [days] ngày.';
+$lang["action_dates_email_range_restrict"] = 'Các tài nguyên sau đây sẽ bị hạn chế trong khoảng từ [days_min] đến [days_max] ngày.';
+$lang["action_dates_email_range_state"] = 'Các tài nguyên sau đây sẽ thay đổi trạng thái trong khoảng từ [days_min] đến [days_max] ngày.';
+$lang["action_dates_email_range"] = 'Các tài nguyên sau đây sẽ bị hạn chế và/hoặc thay đổi trạng thái trong khoảng từ [days_min] đến [days_max] ngày.';
+$lang["action_dates_email_subject_restrict"] = 'Thông báo về tài nguyên sắp bị hạn chế';
+$lang["action_dates_email_subject_state"] = 'Thông báo về tài nguyên do thay đổi trạng thái';
+$lang["action_dates_email_subject"] = 'Thông báo về tài nguyên sắp bị hạn chế và/hoặc thay đổi trạng thái';
+$lang["action_dates_new_state"] = 'Trạng thái mới để chuyển đến (nếu tùy chọn trên được đặt để xóa hoàn toàn tài nguyên, điều này sẽ bị bỏ qua)';
+$lang["action_dates_notification_subject"] = 'Thông báo từ plugin ngày hành động';
+$lang["action_dates_additional_settings"] = 'Các hành động bổ sung';
+$lang["action_dates_additional_settings_info"] = 'Ngoài ra, di chuyển tài nguyên đến trạng thái đã chọn khi trường được chỉ định được đạt tới';
+$lang["action_dates_additional_settings_date"] = 'Khi ngày này được đạt tới';
+$lang["action_dates_additional_settings_status"] = 'Di chuyển tài nguyên đến trạng thái lưu trữ này';
+$lang["action_dates_remove_from_collection"] = 'Xóa tài nguyên khỏi tất cả các bộ sưu tập liên kết khi trạng thái được thay đổi?';
+$lang["action_dates_email_for_state"] = 'Gửi thông báo khi tài nguyên thay đổi trạng thái. Cần cấu hình các trường thay đổi trạng thái ở trên.';
+$lang["action_dates_email_for_restrict"] = 'Gửi thông báo cho các tài nguyên bị hạn chế. Cần cấu hình các trường hạn chế tài nguyên ở trên.';
+$lang["action_dates_workflow_actions"] = 'Nếu plugin Quy trình Nâng cao được kích hoạt, thông báo của nó có nên được áp dụng cho các thay đổi trạng thái do plugin này khởi xướng không?';
+$lang["action_dates_weekdays"] = 'Chọn các ngày trong tuần khi hành động được xử lý.';
+$lang["weekday-0"] = 'Chủ nhật';
+$lang["weekday-1"] = 'Thứ Hai';
+$lang["weekday-2"] = 'Thứ Ba';
+$lang["weekday-3"] = 'Thứ Tư';
+$lang["weekday-4"] = 'Thứ Năm';
+$lang["weekday-5"] = 'Thứ Sáu';
+$lang["weekday-6"] = 'Thứ Bảy';
+$lang["page-title_action_dates_setup"] = 'Cài đặt Plugin Ngày Hành Động';

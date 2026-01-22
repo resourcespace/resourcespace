@@ -1,0 +1,5 @@
+Used for creating custom lists of users if $sharing_userlists is enabled
+ref,int(11),
+user,int(11),User ref of list owner
+userlist_name,varchar(50),Name of user list
+userlist_string,text,Comma separated list of usernames

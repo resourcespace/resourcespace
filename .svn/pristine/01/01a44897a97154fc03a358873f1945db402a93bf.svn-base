@@ -1,0 +1,6 @@
+resource,int(11),NO,MUL,,
+keyword,int(11),NO,MUL,,
+hit_count,int(11),YES,,0,
+position,int(11),YES,,0,
+resource_type_field,int(11),YES,MUL,0,
+new_hit_count,int(11),NO,,0,

@@ -1,0 +1,10 @@
+name: vr_view
+title: Google VR View
+author: Montala Ltd
+version: 1.0
+desc: 360 degree image and video previews.
+icon: rectangle-goggles
+icon-colour: peru
+config_url: /plugins/vr_view/pages/setup.php
+category: User Interface
+info_url: https://www.resourcespace.com/knowledge-base/plugins/googlevrview

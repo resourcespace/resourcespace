@@ -1,0 +1,12 @@
+ref,int(11),NO,PRI,,auto_increment
+user,int(11),YES,,,
+collection,int(11),YES,MUL,,
+created,datetime,YES,,,
+request_mode,int(11),NO,,0,
+status,int(11),NO,,0,
+comments,text,YES,,,
+expires,date,YES,,,
+assigned_to,int(11),YES,,,
+reason,text,YES,,,
+reasonapproved,text,YES,,,
+approved_declined_by,int(11),YES,,,

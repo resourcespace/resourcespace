@@ -1,0 +1,4 @@
+external_access_keys,1,resource,1,resource,A,113,,,YES,BTREE,
+external_access_keys,1,resource_key,1,resource,A,113,,,YES,BTREE,
+external_access_keys,1,resource_key,2,access_key,A,113,,,YES,BTREE,
+external_access_keys,1,access_key,1,access_key,A,113,,,YES,BTREE,

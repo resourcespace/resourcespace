@@ -1,0 +1,6 @@
+ref,int(11),YES,PRI,,auto_increment
+name,varchar(200),,,,
+text,varchar(500),,,,
+buttontext,varchar(255),,,,
+statusfrom,varchar(255),MUL,,,
+statusto,int(11),MUL,,,

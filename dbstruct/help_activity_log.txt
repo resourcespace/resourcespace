@@ -1,0 +1,12 @@
+A log of all user activity across the system.
+ref,int(11),
+logged,datetime,The date and time of the activity
+user,int(11),
+log_code,char(1),A single character code defining the activity type
+note,text,Further information relating to the activity
+value_old,text,If the activity involved a change - the old value
+value_new,text,If the activity involved a change - the new value
+value_diff,text,The difference between the old and new values
+remote_table,varchar(100),The table the activity related to
+remote_column,varchar(100),The column the activity related to
+remote_ref,varchar(100),The row the activity related to

@@ -1,0 +1,74 @@
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSAMLphp 1.15\n"
+"Report-Msgid-Bugs-To: simplesamlphp-translation@googlegroups.com\n"
+"POT-Creation-Date: 2016-10-12 09:23+0200\n"
+"PO-Revision-Date: 2016-10-14 12:14+0200\n"
+"Last-Translator: \n"
+"Language: es\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+msgid "Yes, continue"
+msgstr "Sí"
+
+msgid "Return to consent page"
+msgstr "Volver a la página de consentimiento"
+
+msgid "Go to information page for the service"
+msgstr "Ir a la página de información del servicio"
+
+msgid "Abort login to %SPNAME%"
+msgstr "Cancelar la identificación en %SPNAME%"
+
+msgid "The purpose of %SPNAME% is %SPDESC%"
+msgstr "El propósito de %SPNAME% es %SPDESC%"
+
+msgid ""
+"List the information about you that is about to be transmitted to the "
+"service you are going to login to"
+msgstr ""
+"Muestra que información relativa a usted va a ser transmitida al servicio"
+" en el que se va a identificar"
+
+msgid "Consent about releasing personal information"
+msgstr "Consentimiento para la liberación de información personal"
+
+msgid "No consent given"
+msgstr "No se dió el consentimiento"
+
+msgid "You did not give consent for transferring your attributes to %SPNAME%."
+msgstr ""
+"No ha dado su consentimiento para tranferir sus atributos al proveedor de"
+" servicio."
+
+msgid "Remember"
+msgstr "Recordar el consentimiento"
+
+msgid "Show content"
+msgstr "Mostrart consentimiento"
+
+msgid "%SPNAME% requires that the information below is transferred."
+msgstr ""
+"Está a punto de acceder al servicio %SPNAME%. El servicio requiere que la "
+"información que se muestra a continuación sea transferida desde %IDPNAME%. "
+"¿Acepta esto?"
+
+msgid "Privacy policy for the service"
+msgstr "Política de privacidad para el servicio"
+
+msgid "No, cancel"
+msgstr "No"
+
+msgid "User information"
+msgstr "Información del usuario"
+
+msgid "Information that will be sent to %SPNAME%"
+msgstr "Atributos que serán enviados al servicio"
+

@@ -1,0 +1,11 @@
+Defines preview sizes used for resource preview and thumbnail generation.
+ref,int(11),
+id,char(3),Short code e.g. 'scr', 'lpr'
+width,int(11),Width in pixels
+height,int(11),Height in pixels
+padtosize,int(11),(boolean) Add padding to make image required size. If set to 0 the image will be scaled to fit within the defined dimensions
+name,varchar(50),Friendly name
+internal,int(11),(boolean) For system use. Prevents deletion.
+allow_preview,int(11),(boolean) Show a link to preview this size on the resource view page? 
+allow_restricted,int(11),(boolean) Allow users with restricted access to see this preview size
+quality,int(3),JPEG quality

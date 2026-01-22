@@ -1,0 +1,44 @@
+.ResponsiveButton {
+   height:auto;
+   line-height: 2.5em;
+}
+input[type=checkbox] {
+   -ms-transform: scale(1); /* IE */
+   -moz-transform: scale(1); /* FF */
+   -webkit-transform: scale(1); /* Safari and Chrome */
+   -o-transform: scale(1); /* Opera */
+   height:auto;
+}
+input[type="submit"], input[type="button"], button {
+   height:auto;
+   padding: 5px;
+   box-shadow: 1px 1px 8px -2px;
+   border:0;
+   margin:5px;
+}
+input {
+   display: inline-block;
+   height: auto;
+}
+.InpageNavLeftBlock a, .InpageNavLeftBlock span  {
+	font-size:1em;
+}
+#Header {
+	margin-bottom:5px;
+}
+#Header .HorizontalNav ul li a {
+	padding:9px 0;
+}
+#SearchBarContainer a {
+  font-size:1em;
+}
+#searchspace p {
+  margin: 3px 0;
+}
+#FooterThemes img {
+  width:11px;
+  height:11px;
+}
+.ResponsiveSimpleSearch .searchbutton {
+  height:auto;
+}

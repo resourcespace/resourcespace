@@ -1,0 +1,13 @@
+Resource comments.
+ref,int(11),
+ref_parent,int(11),Parent comment reference
+created,timestamp,
+hide,int(1),(boolean) Hide comment?
+collection_ref,int(11),
+resource_ref,int(11),
+user_ref,int(11),
+fullname,varchar(100),External commenter's full name (anonymous access)
+email,varchar(100),Commenter's email (anonymous access)
+website_url,text,Commenter's website link (anonymous access)
+body,text,Comment text
+annotation,int(11),Link an annotations' text with a resource comment (if $annotate_text_adds_comment enabled)

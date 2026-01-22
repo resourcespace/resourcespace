@@ -1,0 +1,11 @@
+ref,int(11),NO,PRI,,auto_increment
+logged,datetime,YES,,,
+user,int(11),YES,,,
+log_code,char(5),YES,,,
+note,text,YES,,,
+value_old,text,YES,,,
+value_new,text,YES,,,
+value_diff,text,YES,,,
+remote_table,varchar(100),YES,,,
+remote_column,varchar(100),YES,,,
+remote_ref,varchar(100),YES,,,

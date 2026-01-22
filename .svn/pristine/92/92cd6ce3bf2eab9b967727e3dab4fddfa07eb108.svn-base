@@ -1,0 +1,9 @@
+{% block content %}
+{% if isStored == true %}
+{{ 'added'|trans }}
+{% elseif isStored == false %}
+{{ 'updated'|trans }}
+{% else %}
+{{ 'unknown'|trans }}
+{% endif %}
+{% endblock %}

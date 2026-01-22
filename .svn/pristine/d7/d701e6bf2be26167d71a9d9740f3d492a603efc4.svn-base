@@ -1,0 +1,9 @@
+name    : format_chooser
+title   : Format Chooser
+author  : Axel Dörfler
+version : 1.0
+desc    : Allows you to choose different formats when downloading files which are generated on the fly.
+icon    : image
+config_url: /plugins/format_chooser/pages/setup.php
+category: Asset Processing
+info_url: https://www.resourcespace.com/knowledge-base/plugins/format-chooser

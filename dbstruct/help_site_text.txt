@@ -1,0 +1,8 @@
+Stores any custom site text the user has entered replacing that stored in the language folder.
+page,varchar(50),Page that text relates to (excludes .php extension)
+name,varchar(200),Name of text string
+text,text,The text itself
+ref,int(11),
+language,varchar(10),Language code of text e.g. 'en', 'no','jp'
+specific_to_group,int(11),Id of usergroup to use text for
+custom,int(11),Custom text (not a core text string)?

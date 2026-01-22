@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+user,int(11),NO,,,
+dash_tile,int(11),NO,,,
+order_by,int(11),YES,,,

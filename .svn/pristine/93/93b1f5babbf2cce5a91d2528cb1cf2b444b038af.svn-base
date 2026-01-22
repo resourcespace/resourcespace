@@ -1,0 +1,23 @@
+{% set pagetitle = "Metarefresh" | trans %}
+
+{% extends "base.twig" %}
+
+{% block content %}
+
+{% if logentries %}
+    <h1>{{ "Fetched metadata" | trans }}</h1>
+    <div class="code-box">
+    <pre>
+{% for logentry in logentries %}
+{{ logentry }}
+{% endfor %}</pre>
+    </div>
+{% else %}
+    <div>{{ "No output from metarefresh." | trans }}</div>
+{% endif %}
+
+<div class="center">
+    <a href="{{ moduleURL('admin/') }}" class="pure-button pure-button-red">{{ 'Back'|trans }}</a>
+</div>
+
+{% endblock content %}

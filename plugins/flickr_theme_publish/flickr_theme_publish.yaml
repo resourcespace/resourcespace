@@ -1,0 +1,10 @@
+name: flickr_theme_publish
+title: Flickr Publishing
+author: Montala Limited
+version: 1.0
+desc: Publishes selected resources within selected themes to Flickr.
+icon: camera
+icon-colour: #0063DC
+config_url: /plugins/flickr_theme_publish/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/flickr-publishing

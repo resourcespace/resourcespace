@@ -1,0 +1,17 @@
+Research requests - requests for appropriate resources for a project (for example)
+ref,int(11),
+name,text,Research (project) name.
+description,text,Research description.
+deadline,datetime,Deadline for requested resources.
+email,varchar(200),E-mail of the person making the request (when $anonymous_login is set).
+contact,varchar(100),Telephone contact.
+finaluse,text,Description of the final use of the resources.
+resource_types,varchar(50),List (CSV) of resource types
+noresources,int(11),Number of required resources
+shape,varchar(50),Orientation of the resources. Available options: Portrait, Landscape, Either.
+created,datetime,Date request was created.
+user,int(11),The user making the request. For $anonymous_login, the user is the ID of the anonymous user.
+assigned_to,int(11),User assigned to work on the research request.
+status,int(11),Request processing status. Available options: 0 - Unassigned; 1 - In progress; 2 - Complete.
+collection,int(11),
+custom_fields_json,longtext,JSON encoded data of custom research fields. See $custom_researchrequest_fields configuration option.

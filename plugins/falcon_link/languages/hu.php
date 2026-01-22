@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link';
+$lang["falcon_link_manage"] = 'Falcon közzététel/archiválás';
+$lang["falcon_link_publish"] = 'Közzététel a Falconra';
+$lang["falcon_link_archive"] = 'Archívum a Falconban';
+$lang["falcon_link_configuration"] = 'Falcon link - Beállítás';
+$lang["falcon_link_api_key"] = 'Falcon API kulcs';
+$lang["falcon_link_notconfigured"] = 'A Falcon Link bővítmény nincs konfigurálva. Kérjük, kérje meg a rendszergazdát, hogy konfigurálja a bővítményt.';
+$lang["falcon_link_resource_types_to_include"] = 'Válassza ki a érvényes Falcon erőforrás típusokat';
+$lang["falcon_link_not_permitted_extension"] = 'A %TYPE% fájltípus nem tölthető fel a Falconba';
+$lang["falcon_link_text_field"] = 'Falcon sablon szövegmező';
+$lang["falcon_link_default_tag"] = 'Alapértelmezett címke szöveg, amely automatikusan hozzáadódik minden Falcon által közzétett tartalomhoz. Ha a \'[ID]\' szöveget tartalmazza, akkor ezt a címke erőforrás-azonosítójával helyettesítjük.';
+$lang["falcon_link_template_url"] = 'Falcon sablon URL. Ez lehetővé teszi, hogy közvetlenül a Falconban nézze meg a közzétett erőforrást. A [id] címke a Falcon által a közzétett erőforrás azonosítójával lesz helyettesítve.';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Falcon címkefeldők. Ezek össze lesznek fűzve és hozzáadva a Falcon sablon címkékhez';
+$lang["falcon_link_id_field"] = 'Metaadat mező a Falcon azonosító tárolására';
+$lang["falcon_link_log_share"] = 'Közzétéve a Falconon';
+$lang["falcon_link_archived"] = 'Archívált';
+$lang["falcon_link_access_denied"] = 'Nincs engedélye a kiválasztott erőforrás(ok) közzétételére';
+$lang["falcon_link_already_published"] = 'Ez az erőforrás közzétéve lett a Falconon.';
+$lang["falcon_link_resources_already_published"] = 'Néhány erőforrást már közzétettek a Falconon, és nem lehet újra közzétenni';
+$lang["falcon_link_resource_not_published"] = 'Az erőforrást nem publikálták a Falconra';
+$lang["falcon_link_resource_publish_unavailable"] = 'Az erőforrás nem publikálható a Falconra';
+$lang["falcon_link_template_description"] = 'Sablon leírása';
+$lang["falcon_link_template_tags"] = 'Sablon címkék, amelyeket hozzá fognak adni';
+$lang["falcon_link_missing_file"] = 'A forrásnak nincs eredeti fájlja';
+$lang["falcon_link_existing_id"] = 'Meglévő Falcon azonosító';
+$lang["falcon_link_not_uploaded"] = 'Nem feltöltve';
+$lang["falcon_link_publish_button_text"] = 'Közzététel';
+$lang["falcon_link_archive_button_text"] = 'Archívum';
+$lang["falcon_link_publish_success"] = 'Sikeresen közzétéve';
+$lang["falcon_link_archived_success"] = 'Sikeresen archiválva.<br />A forrásmegosztások továbbra is aktívak, és szükség esetén manuálisan kell törölni őket.';
+$lang["falcon_link_usergroups"] = 'Csoportok, amelyek hozzáféréssel rendelkeznek a Falcon sablonok kezeléséhez';
+$lang["falcon_link_filter"] = 'Szűrő a közzétételre alkalmas erőforrások meghatározásához a Falcon számára';
+$lang["falcon_link_error_no_resources"] = 'Nincs benyújtott erőforrás a közzétételhez';
+$lang["falcon_link_error_falcon_api"] = 'Hiba történt a Falconnal való kommunikáció során. Kérjük, ellenőrizze az állapotot a további részletekért.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Falcon hiba';
+$lang["falcon_link_view_in_falcon"] = 'Nézet a Falconban';
+$lang["falcon_link_share_user"] = 'Felhasználói szöveg megjelenítése a Falcon használatra létrehozott megosztásokhoz, pl. \'megosztva a felhasználó@falcon.io-val\'';
+$lang["falcon_link_log_publish"] = 'Megosztott erőforrás a Falconon keresztül';
+$lang["falcon_link_log_archive"] = 'Archívált erőforrás a Falconon keresztül';
+$lang["falcon_link_error_falcon_check_tags"] = 'Kérjük, ellenőrizze, hogy a leírás és a címkék nem üresek';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Falcon Link Plugin beállítása';

@@ -1,0 +1,3 @@
+Defines related resources.
+resource,int(11),
+related,int(11),List (CSV) of resource IDs related to the resource.

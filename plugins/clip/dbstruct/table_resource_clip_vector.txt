@@ -1,0 +1,9 @@
+ref,int(11),NO,PRI,,auto_increment
+resource,int(11),YES,MUL,,
+user,int(11),YES,MUL,,
+frame_number,int(11),YES,,,
+timestamp_seconds,float,YES,,,
+vector_blob,blob,NO,,,
+checksum,varchar(32),YES,MUL,,
+is_text,int(11),YES,,0,
+created,datetime,YES,,CURRENT_TIMESTAMP,

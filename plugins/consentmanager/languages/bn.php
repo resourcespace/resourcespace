@@ -1,0 +1,57 @@
+<?php
+
+$lang["consent_management"] = 'সম্মতি ব্যবস্থাপনা';
+$lang["new_consent"] = 'নতুন সম্মতি';
+$lang["edit_consent"] = 'অনুমতি সম্পাদনা করুন';
+$lang["delete_consent"] = 'অনুমতি মুছে দিন';
+$lang["consent_id"] = 'সম্মতি আইডি';
+$lang["consentmanager_new"] = 'নতুন সম্মতি';
+$lang["manageconsents"] = 'সম্মতিসমূহ';
+$lang["manageconsent"] = 'সম্মতি';
+$lang["no_expiry_date"] = 'কোনো মেয়াদ শেষ হওয়ার তারিখ নেই';
+$lang["action-unlink"] = 'আনলিঙ্ক';
+$lang["unlink_consent"] = 'সম্মতি সংযোগ বিচ্ছিন্ন করুন';
+$lang["consentsearch"] = 'নামের দ্বারা অনুসন্ধান করুন';
+$lang["linkedresources"] = 'সংযুক্ত সম্পদসমূহ';
+$lang["linkconsent"] = 'লিঙ্ক সম্মতি';
+$lang["unlinkconsent"] = 'সম্মতি সংযোগ বিচ্ছিন্ন করুন';
+$lang["selectconsent"] = 'অনুগ্রহ করে একটি সম্মতি আইডি নির্বাচন করুন';
+$lang["name"] = 'নাম';
+$lang["usage"] = 'ব্যবহার';
+$lang["telephone"] = 'টেলিফোন';
+$lang["notes"] = 'নোটস্';
+$lang["confirmdeleteconsentfile"] = 'আপনি কি নিশ্চিত যে আপনি এই ফাইলটি মুছে ফেলতে চান? এটি পূর্বাবস্থায় ফেরানো যাবে না।';
+$lang["consent_manager_mediums"] = 'সম্মতির ব্যবহার মাধ্যমসমূহ';
+$lang["consent_manager_access"] = 'অনুমতি ডেটা পরিচালনা করুন (যেখানে "সিস্টেম সেটআপ এলাকা অ্যাক্সেস করতে পারে" অনুমতির মাধ্যমে ইতিমধ্যে সক্রিয় নয়)';
+
+$lang["manageconsent-tooltip"] = 'সম্পদগুলির জন্য সম্মতি রেকর্ড তৈরি এবং পরিচালনা করুন';
+
+$lang["consent_status"] = 'সहमতি স্থিতি';
+$lang["no_consent_date"] = 'কোনো সম্মতি তারিখ নেই';
+$lang["date_of_birth"] = 'জন্ম তারিখ';
+$lang["address"] = 'ঠিকানা';
+$lang["parent_guardian"] = 'অভিভাবক/অভিভাবিকার নাম';
+$lang["date_of_consent"] = 'সম্মতির তারিখ';
+$lang["consent_expiry_notification"] = 'সম্মতি মেয়াদ শেষ হওয়ার বিজ্ঞপ্তি';
+$lang["consent_expiry_notification_days"] = 'যতদিনের মধ্যে সম্মতি মেয়াদ শেষ হওয়ার সময় আসছে, \'সম্মতি ব্যবস্থাপনা\' অনুমতি সহ ব্যবহারকারীদের জানানো হবে';
+$lang["consent_attach_upload"] = 'আপলোডের পরে রিফাইন মেটাডেটা পৃষ্ঠায় একটি সম্মতি রেকর্ড সংযুক্ত করার অনুমতি দিন';
+$lang["consent_expired_workflow_state"] = 'স্বয়ংক্রিয়ভাবে এই কর্মপ্রবাহ অবস্থার সাথে সংযুক্ত মেয়াদ শেষ হওয়া সম্মতিগুলির সাথে সম্পদগুলি আর্কাইভ করুন';
+$lang["user_pref_consent_notifications"] = 'আমাকে মেয়াদ শেষ হওয়া সম্মতি বিজ্ঞপ্তি পাঠান?';
+$lang["consent_status_all"] = 'সমস্ত সম্মতি';
+$lang["consent_status_active"] = 'সক্রিয় সম্মতি';
+$lang["consent_status_expiring"] = 'মেয়াদ শেষ হওয়া সম্মতি';
+$lang["consent_status_expired"] = 'মেয়াদ শেষ হওয়া সম্মতি';
+$lang["consent_view_linked_resources_short"] = 'দেখুন';
+$lang["consent_no_archiving"] = 'কোন পরিবর্তন নেই';
+$lang["consent_notification_expiring_soon"] = 'সম্মতি শীঘ্রই শেষ হচ্ছে';
+$lang["consent_notification_user_pref"] = 'এই বিজ্ঞপ্তিগুলি আপনি পাবেন কিনা তা পরিবর্তন করুন';
+$lang["consent_notification_global_pref"] = 'সবাইয়ের জন্য এই বিজ্ঞপ্তিগুলি অক্ষম করুন';
+$lang["consent_notification_link"] = 'এখানে সেগুলি দেখুন';
+$lang["consent_notification_message"] = 'কিছু সম্মতি শীঘ্রই মেয়াদ শেষ হচ্ছে।';
+$lang["page-title_consentmanager_batch"] = 'সংগ্রহ সম্মতি';
+$lang["page-title_consentmanager_delete"] = 'মৌখিক সম্মতি মুছুন';
+$lang["page-title_consentmanager_download"] = 'ডাউনলোড সম্মতি';
+$lang["page-title_consentmanager_edit"] = 'সংশোধন সম্মতি';
+$lang["page-title_consentmanager_list"] = 'মঞ্জুরি পরিচালনা করুন';
+$lang["page-title_consentmanager_setup"] = 'সম্মতি প্লাগইন সেটআপ করুন';
+$lang["page-title_consentmanager_unlink"] = 'অনুমতি অকার্যকর করুন';

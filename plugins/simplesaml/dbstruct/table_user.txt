@@ -1,0 +1,1 @@
+simplesaml_custom_attributes,mediumtext,YES,,,

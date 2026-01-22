@@ -1,0 +1,3 @@
+resource_custom_access,1,resource,1,resource,A,2,,,YES,BTREE,	
+resource_custom_access,1,usergroup,1,usergroup,A,2,,,YES,BTREE,
+resource_custom_access,1,user,1,user,A,2,,,YES,BTREE,

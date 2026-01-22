@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Selecteer de velden die automatisch gebruikt zullen worden om de gespecificeerde acties uit te voeren.';
+$lang["action_dates_deletesettings"] = 'Automatische instellingen voor primaire acties van resources - gebruik met voorzichtigheid';
+$lang["action_dates_delete"] = 'Automatisch verwijderen of de status van resources wijzigen wanneer de datum in dit veld is bereikt';
+$lang["action_dates_eligible_states"] = 'Staten die in aanmerking komen voor primaire automatische actie. Als er geen staten zijn geselecteerd, zijn alle staten in aanmerking komend.';
+$lang["action_dates_restrict"] = 'Automatisch de toegang tot bronnen beperken wanneer de datum in dit veld is bereikt. Dit is alleen van toepassing op bronnen waarvan de toegang momenteel open is.';
+$lang["action_dates_delete_logtext"] = 'Automatisch uitgevoerd door de plugin action_dates';
+$lang["action_dates_restrict_logtext"] = 'Automatisch beperkt door de plugin "action_dates"';
+$lang["action_dates_reallydelete"] = 'Volledig bronbestand verwijderen wanneer actiedatum is verstreken? Als ingesteld op false, worden bronnen verplaatst naar de geconfigureerde resource_deletion_state en dus herstelbaar';
+$lang["action_dates_email_admin_days"] = 'Waarschuw systeembeheerders een vast aantal dagen voordat deze datum wordt bereikt. Laat deze optie leeg als er geen melding moet worden verzonden.';
+$lang["action_dates_email_text_restrict"] = 'De volgende bronnen zullen over [days] dagen beperkt worden.';
+$lang["action_dates_email_text_state"] = 'De volgende resources zullen binnen [days] dagen van status veranderen.';
+$lang["action_dates_email_text"] = 'De volgende bronnen zullen over [days] dagen beperkt worden en/of van status veranderen.';
+$lang["action_dates_email_range_restrict"] = 'De volgende bronnen zullen binnen [days_min] tot [days] dagen beperkt worden.';
+$lang["action_dates_email_range_state"] = 'De volgende bronnen zullen binnen [days_min] tot [days] dagen van status veranderen.';
+$lang["action_dates_email_range"] = 'De volgende bronnen zullen binnen [days_min] tot [days] dagen beperkt worden en/of van status veranderen.';
+$lang["action_dates_email_subject_restrict"] = 'Melding van bronnen die binnenkort beperkt zullen worden';
+$lang["action_dates_email_subject_state"] = 'Melding van bronnen die van staat moeten veranderen';
+$lang["action_dates_email_subject"] = 'Melding van bronnen die binnenkort beperkt en/of van status zullen veranderen';
+$lang["action_dates_new_state"] = 'Nieuwe status om naar te verplaatsen (als de bovenstaande optie is ingesteld op volledig verwijderen van resources, wordt dit genegeerd)';
+$lang["action_dates_notification_subject"] = 'Melding van actiedatums plugin';
+$lang["action_dates_additional_settings"] = 'Extra acties';
+$lang["action_dates_additional_settings_info"] = 'Verplaats de resources ook naar de geselecteerde status wanneer het gespecificeerde veld is bereikt';
+$lang["action_dates_additional_settings_date"] = 'Wanneer deze datum is bereikt';
+$lang["action_dates_additional_settings_status"] = 'Verplaats bronnen naar deze archiefstatus';
+$lang["action_dates_remove_from_collection"] = 'Verwijder bronnen uit alle bijbehorende collecties wanneer de status wordt gewijzigd?';
+$lang["action_dates_email_for_state"] = 'Stuur een melding wanneer de status van een bron wijzigt. Het vereist dat de velden voor de statuswijziging hierboven geconfigureerd zijn.';
+$lang["action_dates_email_for_restrict"] = 'Stuur een melding voor bronnen die beperkt moeten worden. Het vereist dat de velden voor het beperken van bronnen hierboven geconfigureerd zijn.';
+$lang["action_dates_workflow_actions"] = 'Indien de Advanced Workflow-plugin is ingeschakeld, moeten de meldingen dan worden toegepast op statuswijzigingen die door deze plugin zijn geïnitieerd?';
+$lang["action_dates_weekdays"] = 'Selecteer de weekdagen waarop acties worden verwerkt.';
+$lang["weekday-0"] = 'Zondag';
+$lang["weekday-1"] = 'Maandag';
+$lang["weekday-2"] = 'Dinsdag';
+$lang["weekday-3"] = 'Woensdag';
+$lang["weekday-4"] = 'Donderdag';
+$lang["weekday-5"] = 'Vrijdag';
+$lang["weekday-6"] = 'Zaterdag';
+$lang["plugin-action_dates-title"] = 'Actiedata';
+$lang["plugin-action_dates-desc"] = 'Maakt geplande verwijdering of beperking van bronnen mogelijk op basis van datumvelden';
+
+$lang["page-title_action_dates_setup"] = 'Instellen Actiedatums Plugin';

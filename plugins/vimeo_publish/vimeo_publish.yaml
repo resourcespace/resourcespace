@@ -1,0 +1,11 @@
+name: vimeo_publish
+title: Vimeo Publish
+desc: Publish resources to Vimeo.
+icon: cloud-upload
+icon-colour: #19B7EA
+author: Montala Limited
+version: 1.0
+default_priority: 100
+config_url: /plugins/vimeo_publish/pages/setup.php
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/vimeo-publish

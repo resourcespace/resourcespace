@@ -1,0 +1,44 @@
+.ca-sp-name {
+  font-weight: bold;
+}
+
+td.ca-sp-name {
+  vertical-align: top;
+}
+
+td.ca-allowed {
+  vertical-align: top;
+}
+
+tr.row0 td {
+  background-color: #888;
+  color: black;
+}
+
+tr.row1 td {
+  background-color: #aaa;
+  color: black;
+}
+
+a.orange {
+  color: #ffd633;
+}
+
+span.show-hide {
+  font-size: 80%;
+}
+
+a.service-url {
+  color: black;
+  font-weight: bold;
+}
+
+span[id^="hiding_"],
+span[id*="hiding_"] {
+  display: none;
+}
+
+div[id^="attributes_"],
+div[id*="attributes_"] {
+  display: none;
+}

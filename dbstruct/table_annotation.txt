@@ -1,0 +1,9 @@
+ref,int(11),NO,PRI,,auto_increment
+resource,int(11),YES,,,
+resource_type_field,int(11),YES,,,
+user,int(11),YES,,,
+x,"decimal(17,16)",YES,,,
+y,"decimal(17,16)",YES,,,
+width,"decimal(17,16)",YES,,,
+height,"decimal(17,16)",YES,,,
+page,int(11),YES,,,

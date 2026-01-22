@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'ਫਾਲਕਨ ਲਿੰਕ';
+$lang["falcon_link_manage"] = 'ਫਾਲਕਨ ਪ੍ਰਕਾਸ਼ਿਤ/ਅਰਕਾਈਵ';
+$lang["falcon_link_publish"] = 'ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ';
+$lang["falcon_link_archive"] = 'ਫਾਲਕਨ ਵਿੱਚ ਆਰਕਾਈਵ ਕਰੋ';
+$lang["falcon_link_configuration"] = 'ਫਾਲਕਨ ਲਿੰਕ- ਸੈਟਅੱਪ';
+$lang["falcon_link_api_key"] = 'ਫਾਲਕਨ API ਕੁੰਜੀ';
+$lang["falcon_link_notconfigured"] = 'ਫਾਲਕਨ ਲਿੰਕ ਪਲੱਗਇਨ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨੂੰ ਪਲੱਗਇਨ ਸੰਰਚਿਤ ਕਰਨ ਲਈ ਕਹੋ।';
+$lang["falcon_link_resource_types_to_include"] = 'ਵੈਧ ਫਾਲਕਨ ਸਰੋਤ ਕਿਸਮਾਂ ਚੁਣੋ';
+$lang["falcon_link_not_permitted_extension"] = 'ਫਾਈਲ ਕਿਸਮ %TYPE% ਨੂੰ ਫਾਲਕਨ \'ਤੇ ਅਪਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ';
+$lang["falcon_link_text_field"] = 'ਫਾਲਕਨ ਟੈਮਪਲੇਟ ਟੈਕਸਟ ਫੀਲਡ';
+$lang["falcon_link_default_tag"] = 'ਡਿਫਾਲਟ ਟੈਗ ਪਾਠ ਜੋ ਸਾਰੇ ਫਾਲਕਨ ਪ੍ਰਕਾਸ਼ਿਤ ਸਮੱਗਰੀ ਵਿੱਚ ਸਵੈਚਾਲਿਤ ਤੌਰ \'ਤੇ ਸ਼ਾਮਲ ਕੀਤਾ ਜਾਵੇਗਾ। ਜੇ ਤੁਸੀਂ ਪਾਠ \'[ID]\' ਸ਼ਾਮਲ ਕਰਦੇ ਹੋ ਤਾਂ ਇਸਨੂੰ ਟੈਗ ਵਿੱਚ ਸਰੋਤ ID ਨਾਲ ਬਦਲ ਦਿੱਤਾ ਜਾਵੇਗਾ।';
+$lang["falcon_link_template_url"] = 'ਫਾਲਕਨ ਟੈਮਪਲੇਟ URL। ਇਹ ਤੁਹਾਨੂੰ ਫਾਲਕਨ ਵਿੱਚ ਸਿੱਧੇ ਤੌਰ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਸਰੋਤ ਨੂੰ ਦੇਖਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ। [id] ਟੈਗ ਨੂੰ ਫਾਲਕਨ ਦੁਆਰਾ ਜਾਰੀ ਕੀਤੇ ਗਏ ਪਛਾਣਕਰਤਾ ਨਾਲ ਬਦਲਿਆ ਜਾਵੇਗਾ ਜਦੋਂ ਸਰੋਤ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - ਫਾਲਕਨ ਟੈਗ ਫੀਲਡਸ। ਇਹਨਾਂ ਨੂੰ ਜੋੜ ਕੇ ਫਾਲਕਨ ਟੈਮਪਲੇਟ ਟੈਗਸ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤਾ ਜਾਵੇਗਾ।';
+$lang["falcon_link_id_field"] = 'ਫਾਲਕਨ ਪਛਾਣਕਰਤਾ ਨੂੰ ਸਟੋਰ ਕਰਨ ਲਈ ਮੈਟਾਡੇਟਾ ਫੀਲਡ';
+$lang["falcon_link_log_share"] = 'ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ';
+$lang["falcon_link_archived"] = 'ਆਰਕਾਈਵ ਕੀਤਾ';
+$lang["falcon_link_access_denied"] = 'ਤੁਹਾਨੂੰ ਚੁਣੇ ਗਏ ਸਰੋਤ(ਸਰੋਤਾਂ) ਨੂੰ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।';
+$lang["falcon_link_already_published"] = 'ਇਹ ਸਰੋਤ ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤਾ ਗਿਆ ਹੈ।';
+$lang["falcon_link_resources_already_published"] = 'ਕੁਝ ਸਰੋਤ ਪਹਿਲਾਂ ਹੀ ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤੇ ਜਾ ਚੁੱਕੇ ਹਨ ਅਤੇ ਦੁਬਾਰਾ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕਦੇ';
+$lang["falcon_link_resource_not_published"] = 'ਸਰੋਤ ਨੂੰ ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ।';
+$lang["falcon_link_resource_publish_unavailable"] = 'ਸਰੋਤ ਨੂੰ ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ';
+$lang["falcon_link_template_description"] = 'ਟੈਂਪਲੇਟ ਵੇਰਵਾ';
+$lang["falcon_link_template_tags"] = 'ਟੈਮਪਲੇਟ ਟੈਗ ਜੋ ਸ਼ਾਮਲ ਕੀਤੇ ਜਾਣਗੇ';
+$lang["falcon_link_missing_file"] = 'ਸਰੋਤ ਦੇ ਕੋਲ ਕੋਈ ਮੂਲ ਫਾਈਲ ਨਹੀਂ ਹੈ';
+$lang["falcon_link_existing_id"] = 'ਮੌਜੂਦਾ ਫਾਲਕਨ ID';
+$lang["falcon_link_not_uploaded"] = 'ਅਪਲੋਡ ਨਹੀਂ ਕੀਤਾ ਗਿਆ';
+$lang["falcon_link_publish_button_text"] = 'ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ';
+$lang["falcon_link_archive_button_text"] = 'ਆਰਕਾਈਵ';
+$lang["falcon_link_publish_success"] = 'ਸਫਲਤਾਪੂਰਵਕ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤਾ ਗਿਆ';
+$lang["falcon_link_archived_success"] = 'ਸਫਲਤਾਪੂਰਵਕ ਆਰਕਾਈਵ ਕੀਤਾ ਗਿਆ।<br />ਸਰੋਤ ਸਾਂਝੇ ਅਜੇ ਵੀ ਸਰਗਰਮ ਹਨ ਅਤੇ ਜੇ ਲੋੜ ਹੋਵੇ ਤਾਂ ਹੱਥੋਂ ਹਟਾਉਣ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।';
+$lang["falcon_link_usergroups"] = 'ਉਹ ਗਰੁੱਪ ਜੋ ਫਾਲਕਨ ਟੈਂਪਲੇਟਾਂ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਦੀ ਪਹੁੰਚ ਰੱਖਦੇ ਹਨ';
+$lang["falcon_link_filter"] = 'ਫਿਲਟਰ ਜੋ ਇਹ ਨਿਰਧਾਰਤ ਕਰਦਾ ਹੈ ਕਿ ਕਿਹੜੇ ਸਰੋਤ ਫਾਲਕਨ \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ।';
+$lang["falcon_link_error_no_resources"] = 'ਕੋਈ ਵੀ ਸਰੋਤ ਪ੍ਰਕਾਸ਼ਨ ਲਈ ਜਮ੍ਹਾਂ ਨਹੀਂ ਕੀਤੇ ਗਏ';
+$lang["falcon_link_error_falcon_api"] = 'ਫਾਲਕਨ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਦੌਰਾਨ ਇੱਕ ਗਲਤੀ ਹੋਈ। ਕਿਰਪਾ ਕਰਕੇ ਹੋਰ ਵੇਰਵੇ ਲਈ ਸਥਿਤੀ ਦੀ ਜਾਂਚ ਕਰੋ।';
+$lang["falcon_link_error_falcon_api_detailed"] = 'ਫਾਲਕਨ ਗਲਤੀ';
+$lang["falcon_link_view_in_falcon"] = 'ਫਾਲਕਨ ਵਿੱਚ ਵੇਖੋ';
+$lang["falcon_link_share_user"] = 'ਫਾਲਕਨ ਵਰਤੋਂ ਲਈ ਬਣਾਈਆਂ ਗਈਆਂ ਸਾਂਝਾਂ ਲਈ ਵਰਤੋਂਕਾਰ ਪਾਠ ਦਿਖਾਉਣ ਲਈ ਜਿਵੇਂ ਕਿ \'user@falcon.io ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ\'';
+$lang["falcon_link_log_publish"] = 'ਫਾਲਕਨ ਰਾਹੀਂ ਸਾਂਝਾ ਕੀਤਾ ਸਰੋਤ';
+$lang["falcon_link_log_archive"] = 'ਫਾਲਕਨ ਰਾਹੀਂ ਆਰਕਾਈਵ ਕੀਤਾ ਸਰੋਤ';
+$lang["falcon_link_error_falcon_check_tags"] = 'ਕਿਰਪਾ ਕਰਕੇ ਜਾਂਚ ਕਰੋ ਕਿ ਵੇਰਵਾ ਅਤੇ ਟੈਗ ਖਾਲੀ ਨਹੀਂ ਹਨ';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'ਫਾਲਕਨ ਲਿੰਕ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';

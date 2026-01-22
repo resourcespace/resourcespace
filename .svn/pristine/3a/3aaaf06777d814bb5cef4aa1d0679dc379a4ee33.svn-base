@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link kan oversættes til "Falkon Link"';
+$lang["falcon_link_manage"] = 'Falcon udgiv/arkivér';
+$lang["falcon_link_publish"] = 'Udgiv til Falcon';
+$lang["falcon_link_archive"] = 'Arkivér i Falcon';
+$lang["falcon_link_configuration"] = 'Falcon link - Opsætning';
+$lang["falcon_link_api_key"] = 'Falcon API nøgle';
+$lang["falcon_link_notconfigured"] = 'Falcon Link-plugin er ikke konfigureret. Bed venligst din administrator om at konfigurere pluginnet.';
+$lang["falcon_link_resource_types_to_include"] = 'Vælg gyldige Falcon ressourcetyper';
+$lang["falcon_link_not_permitted_extension"] = 'Filtypen %TYPE% kan ikke uploades til Falcon';
+$lang["falcon_link_text_field"] = 'Falcon skabelon tekstfelt';
+$lang["falcon_link_default_tag"] = 'Standard tagtekst, der automatisk vil blive tilføjet til alt Falcon-publiseret indhold. Hvis du inkluderer teksten \'[ID]\', vil dette blive erstattet med ressource-ID\'et i taggen';
+$lang["falcon_link_template_url"] = 'Falcon skabelon-URL. Dette giver dig mulighed for at se den offentliggjorte ressource direkte i Falcon. [id]-tagget vil blive erstattet med identifikatoren udstedt af Falcon, når ressourcen er offentliggjort';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Falcon tag-felter. Disse vil blive sammenkædet og tilføjet til Falcon-skabelon-tags';
+$lang["falcon_link_id_field"] = 'Metadatafelt til at gemme Falcon identifikator';
+$lang["falcon_link_log_share"] = 'Offentliggjort på Falcon';
+$lang["falcon_link_archived"] = 'Arkiveret';
+$lang["falcon_link_access_denied"] = 'Du har ikke tilladelse til at publicere den/de valgte ressource(r)';
+$lang["falcon_link_already_published"] = 'Denne ressource er blevet udgivet til Falcon';
+$lang["falcon_link_resources_already_published"] = 'Nogle ressourcer er allerede blevet offentliggjort på Falcon og kan ikke offentliggøres igen';
+$lang["falcon_link_resource_not_published"] = 'Ressourcen er ikke blevet offentliggjort til Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Ressourcen kan ikke blive udgivet til Falcon';
+$lang["falcon_link_template_description"] = 'Skabelonbeskrivelse';
+$lang["falcon_link_template_tags"] = 'Skabelon tags, der vil blive tilføjet';
+$lang["falcon_link_missing_file"] = 'Ressourcen har ingen originalfil';
+$lang["falcon_link_existing_id"] = 'Eksisterende Falcon ID';
+$lang["falcon_link_not_uploaded"] = 'Ikke uploadet';
+$lang["falcon_link_publish_button_text"] = 'Offentliggør';
+$lang["falcon_link_archive_button_text"] = 'Arkiv';
+$lang["falcon_link_publish_success"] = 'Offentliggjort med succes';
+$lang["falcon_link_archived_success"] = 'Arkiveret med succes.<br />Ressource delinger er stadig aktive og skal manuelt slettes, hvis det er nødvendigt.';
+$lang["falcon_link_usergroups"] = 'Grupper, der har adgang til at administrere Falcon-skabeloner';
+$lang["falcon_link_filter"] = 'Filtrer for at bestemme, hvilke ressourcer der kan offentliggøres til Falcon';
+$lang["falcon_link_error_no_resources"] = 'Ingen ressourcer indsendt til publicering';
+$lang["falcon_link_error_falcon_api"] = 'Der opstod en fejl under kommunikationen med Falcon. Kontroller status for flere detaljer.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Falcon-fejl';
+$lang["falcon_link_view_in_falcon"] = 'Vis i Falcon';
+$lang["falcon_link_share_user"] = 'Brugertekst til visning af delinger, der er oprettet til Falcon-brug, f.eks. \'delt med user@falcon.io\'';
+$lang["falcon_link_log_publish"] = 'Delt ressource via Falcon';
+$lang["falcon_link_log_archive"] = 'Arkiveret ressource via Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Venligst tjek, at beskrivelsen og tags ikke er tomme';
+$lang["plugin-falcon_link-title"] = 'Falcon Link';
+$lang["plugin-falcon_link-desc"] = 'Udgiv ressourcer til Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Opsæt Falcon Link Plugin';

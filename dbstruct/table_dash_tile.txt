@@ -1,0 +1,10 @@
+ref,int(11),NO,PRI,,auto_increment
+title,varchar(255),YES,,,
+txt,text,YES,,,
+all_users,int(1),YES,,,
+default_order_by,int(11),YES,,,
+url,text,YES,,,
+link,text,YES,,,
+reload_interval_secs,int(11),YES,,,
+resource_count,int(1),YES,,,
+allow_delete,int(1),NO,,1,

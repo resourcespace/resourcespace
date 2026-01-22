@@ -1,0 +1,40 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Dewiswch y meysydd a fydd yn cael eu defnyddio i weithredu\'n awtomatig y gweithredoedd a nodwyd.';
+$lang["action_dates_deletesettings"] = 'Gosodiadau gweithredu prif adnoddau awtomatig - defnyddiwch gyda chwrteisi';
+$lang["action_dates_delete"] = 'Dileu neu newid statws adnoddau yn awtomatig pan fydd y dyddiad yn y maes hwn wedi\'i gyrraedd';
+$lang["action_dates_eligible_states"] = 'Gwladau sy\'n gymwys ar gyfer gweithredu awtomatig sylfaenol. Os na ddewisir unrhyw wlad, yna mae pob gwlad yn gymwys.';
+$lang["action_dates_restrict"] = 'Cyfyngu mynediad i adnoddau yn awtomatig pan gaiff y dyddiad yn y maes hwn ei gyrraedd. Mae hyn yn gymwys yn unig i adnoddau sydd â mynediad agored ar hyn o bryd.';
+$lang["action_dates_delete_logtext"] = '- Gweithredwyd yn awtomatig gan y plwgyn action_dates';
+$lang["action_dates_restrict_logtext"] = '- Cael ei gyfyngu\'n awtomatig gan y plugin action_dates';
+$lang["action_dates_reallydelete"] = 'Dileu\'r adnodd yn llwyr pan fydd dyddiad y weithred wedi mynd heibio? Os bydd yn cael ei osod i false, bydd adnoddau\'n cael eu symud i\'r cyflwr dileu_adnodd a felly\'n adferadwy';
+$lang["action_dates_email_admin_days"] = 'Hysbysu gweinyddwyr y system nifer benodol o ddyddiau cyn i\'r dyddiad hwn gael ei gyrraedd. Gadewch y dewis hwn yn wag i beidio â throsglwyddo hysbysiad.';
+$lang["action_dates_email_text_restrict"] = 'Mae\'r adnoddau canlynol i gael eu cyfyngu mewn [days] diwrnodau.';
+$lang["action_dates_email_text_state"] = 'Mae\'r adnoddau canlynol yn ddyledus i newid statws mewn [days] diwrnod.';
+$lang["action_dates_email_text"] = 'Mae\'r canlynol adnoddau yn ddyledus i gael eu cyfyngu a/neu newid statws mewn [days] diwrnodau.';
+$lang["action_dates_email_range_restrict"] = 'Mae\'r adnoddau canlynol yn ddyledus i gael eu cyfyngu o fewn [days_min] i [days_max] diwrnodau.';
+$lang["action_dates_email_range_state"] = 'Mae\'r adnoddau canlynol yn ddyledus i newid statws o fewn [days_min] i [days_max] diwrnodau.';
+$lang["action_dates_email_range"] = 'Mae\'r adnoddau canlynol yn ddyledus i gael eu cyfyngu a/neu newid statws o fewn [days_min] i [days_max] diwrnodau.';
+$lang["action_dates_email_subject_restrict"] = 'Hysbysiad am adnoddau sydd i gael eu cyfyngu';
+$lang["action_dates_email_subject_state"] = 'Hysbysiad o adnoddau yn sgil newid statws';
+$lang["action_dates_email_subject"] = 'Hysbysiad am adnoddau sy\'n mynd i gael eu cyfyngu a/neu newid statws';
+$lang["action_dates_new_state"] = 'Cyflwr newydd i symud i (os yw\'r opsiwn uchod wedi\'i osod i ddileu adnoddau\'n llwyr, bydd hyn yn cael ei anwybyddu)';
+$lang["action_dates_notification_subject"] = 'Hysbysiad gan y plwgins dyddiadau gweithredu';
+$lang["action_dates_additional_settings"] = 'Camau ychwanegol';
+$lang["action_dates_additional_settings_info"] = 'Hefyd symudwch adnoddau i\'r wladwriaeth a ddewiswyd pan gaiff y maes penodol ei gyrraedd';
+$lang["action_dates_additional_settings_date"] = 'Pan fydd y dyddiad hwn yn cael ei gyrraedd';
+$lang["action_dates_additional_settings_status"] = 'Symud adnoddau i\'r cyflwr archif hwn';
+$lang["action_dates_remove_from_collection"] = 'Ail-ddefnyddiwch adnoddau o\'r holl gasgliadau cysylltiedig pan fydd y wladwriaeth yn newid?';
+$lang["action_dates_email_for_state"] = 'Anfon hysbysiad am newid statws adnoddau. Mae angen i\'r meysydd newid statws uchod gael eu gosod.';
+$lang["action_dates_email_for_restrict"] = 'Anfon hysbysiad am adnoddau i gael eu cyfyngu. Mae angen i\'r meysydd cyfyngu adnoddau uchod gael eu gosod.';
+$lang["action_dates_workflow_actions"] = 'Os yw\'r plwgyn Gweithdrefn Uwch wedi\'i actifadu, a ddylid cymhwyso ei hysbysiadau i newidiau statws a ddechreuwyd gan y plwgyn hwn?';
+$lang["action_dates_weekdays"] = 'Dewiswch y dyddiau gwaith pan fydd gweithredoedd yn cael eu prosesu.';
+$lang["weekday-0"] = 'Dydd Sul';
+$lang["weekday-1"] = 'Dydd Llun';
+$lang["weekday-2"] = 'Dydd Mawrth';
+$lang["weekday-3"] = 'Mercher';
+$lang["weekday-4"] = 'Dydd Iau';
+$lang["weekday-5"] = 'Dydd Gwener';
+$lang["weekday-6"] = 'Dydd Sadwrn';
+
+$lang["page-title_action_dates_setup"] = 'Gosod Plugin Dyddiadau Gweithredu';

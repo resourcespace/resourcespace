@@ -1,0 +1,43 @@
+<?php
+
+
+$lang["brand_guidelines_permission_bgv"] = 'Boleh melihat Garis Panduan Jenama';
+$lang["brand_guidelines_permission_bge"] = 'Boleh mengedit Garis Panduan Jenama';
+$lang["brand_guidelines_top_nav_title"] = 'Garis Panduan';
+$lang["brand_guidelines_new_resource"] = 'Sumber baru';
+$lang["brand_guidelines_existing_resource"] = 'Sumber sedia ada';
+$lang["brand_guidelines_new_content"] = 'Tambah kandungan baru';
+$lang["brand_guidelines_new_page"] = '+ Halaman baru';
+$lang["brand_guidelines_new_section"] = '+ Bahagian baru';
+$lang["brand_guidelines_view_table_of_content"] = 'Lihat jadual kandungan';
+$lang["brand_guidelines_new_section_title"] = 'Buat seksyen baru';
+$lang["brand_guidelines_new_page_title"] = 'Buat halaman baru';
+$lang["brand_guidelines_edit_section_title"] = 'Edit bahagian';
+$lang["brand_guidelines_edit_page_title"] = 'Halaman edit';
+$lang["brand_guidelines_section"] = 'Bahagian';
+$lang["brand_guidelines_full_width"] = 'Lebar penuh';
+$lang["brand_guidelines_half_width"] = 'Separuh lebar';
+$lang["brand_guidelines_title_new_text"] = 'Buat item teks baru';
+$lang["brand_guidelines_title_edit_text"] = 'Edit teks';
+$lang["brand_guidelines_title_select_resource"] = 'Pilih sumber sedia ada';
+$lang["brand_guidelines_err_invalid_input"] = 'Input tidak sah dihantar';
+$lang["brand_guidelines_hex"] = 'HEX';
+$lang["brand_guidelines_hex_help_txt"] = 'Heksadesimal (0-9A-F). Contoh: #0FA, 0FA, 00FFAA';
+$lang["brand_guidelines_rgb"] = 'RGB';
+$lang["brand_guidelines_rgb_help_txt"] = 'RGB (0-255). Contoh: 116,182,50';
+$lang["brand_guidelines_cmyk"] = 'CMYK';
+$lang["brand_guidelines_cmyk_help_txt"] = 'CMYK (0-100). Contoh: 36,0,73,29';
+$lang["brand_guidelines_move_left"] = 'Pindah ke kiri';
+$lang["brand_guidelines_move_right"] = 'Gerakkan ke kanan';
+$lang["brand_guidelines_confirm_delete_group_members"] = 'Adakah anda pasti ingin memadamkan semua dalam kumpulan ini?';
+$lang["brand_guidelines_layout"] = 'Tata Letak';
+$lang["brand_guidelines_view_mode"] = 'Mod paparan';
+$lang["brand_guidelines_edit_mode"] = 'Mod penyuntingan';
+$lang["brand_guidelines_configuration"] = 'Konfigurasi Garis Panduan Jenama';
+$lang["brand_guidelines_fallback_size_thm"] = 'Saiz imej sandaran susun atur thumbnail';
+$lang["brand_guidelines_fallback_size_half_width"] = 'Saiz imej sandaran susun atur separuh lebar';
+$lang["brand_guidelines_fallback_size_full_width"] = 'Saiz imej sandaran susun atur lebar penuh';
+$lang["page-title_brand_guidelines_content"] = 'Urus Kandungan Garis Panduan Jenama';
+$lang["page-title_brand_guidelines_guidelines"] = 'Garis Panduan Jenama';
+$lang["page-title_brand_guidelines_setup"] = 'Tetapkan Plugin Garis Panduan Jenama';
+$lang["page-title_brand_guidelines_toc"] = 'Edit kandungan';

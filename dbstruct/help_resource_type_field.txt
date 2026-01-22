@@ -1,0 +1,44 @@
+Metadata fields.
+ref,int(11),
+name,varchar(50),Metadata field short name identifier
+title,varchar(400),Metadata field name
+field_constraint,int(11),Apply constraints to field (e.g number)
+type,int(11),Field type. See include/definitions.php
+order_by,int(11),Metadata field order defined by administrators.
+keywords_index,int(11),Set if values of this field should be indexed.
+partial_index,int(11),Allows searching and matching algorithms to check only parts of this field values.
+global,int(1),Set to 1 if field is applicable to all resource types. If set to 0 then mappings are stored in resource_type_field_resource_type. Replaces the old resource_type column.
+resource_column,varchar(50),Points to a resource table column to keep it up to date. Deprecated?
+display_field,int(11),Determines if a field is visible on the resource view page
+iptc_equiv,varchar(20),IPTC codes for extracting embedded metadata. See https://www.resourcespace.com/knowledge-base/resourceadmin/metadata-read-write-mapping
+display_template,text,Custom HTML display template
+required,int(11),Mark field as mandatory.
+smart_theme_name,varchar(200),Generate featured collections based on the values of this field
+exiftool_field,varchar(200),Exif values for extracting from embedded metadata.
+advanced_search,int(11),Display on advanced search.
+simple_search,int(11),Display on simple search.
+help_text,text,Help text shown when having focus of field in edit/upload.
+display_as_dropdown,int(11),Display field as a dropdown selector.
+external_user_access,int(11),
+autocomplete_macro,text,Macro used to autocomplete field if when saving it's empty (ie no value)
+hide_when_uploading,int(11),Do not show when uploading
+hide_when_restricted,int(11),Do not show when restricted access.
+value_filter,text,PHP code snippet which allows the transformation of $value to modify the display of a field value in search display fields or resource view.
+exiftool_filter,text,PHP code to modify extracted exiftool $value upon import into the database.
+omit_when_copying,int(11),Specifies that the field should not be copied when using the resource copy function.
+tooltip_text,text,Text that will appear in simple/advanced search when the cursor hovers over the field.
+regexp_filter,varchar(400),Regular expression used to add constraints on the values input to the field.
+display_condition,varchar(400),Adding dependencies on other field values for displaying the current field.
+onchange_macro,text,PHP code to be executed when updating the field value.
+linked_data_field,text,Used for date range fields
+automatic_nodes_ordering,tinyint(1),If 1, nodes get ordered by translated names, otherwise uses the order_by column.
+fits_field,varchar(255),FITS values for extracting from embedded metadata.
+personal_data,tinyint(1),If 1, field may contain personal data.
+include_in_csv_export,tinyint(1),If 1, field can be included in CSV exports.
+browse_bar,tinyint(1),Set to 1 to show field in the browse bar
+read_only,tinyint(1),Set to 1 to make field read-only and not write back to the file on download.
+active,tinyint(1),Set to 1 to have field active, 0 to be disabled.
+full_width,tinyint(1),Set to 1 to have the field be displayed full width on the view page.
+tab,int(11),Reference to a system tab. See the "tab" table.
+complete_index,int(11),Index field values as one unbroken keyword. Incompatible with partial indexing.
+sort_method,int(11),Sort method used when ordering by this field in search results. Alphanumeric by default. 

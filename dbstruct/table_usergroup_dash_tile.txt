@@ -1,0 +1,5 @@
+ref,int(11),NO,PRI,,auto_increment
+usergroup,int(11),YES,,NULL,
+dash_tile,int(11),YES,,NULL,
+default_order_by,int(11),YES,,NULL,
+order_by,int(11),YES,,NULL,

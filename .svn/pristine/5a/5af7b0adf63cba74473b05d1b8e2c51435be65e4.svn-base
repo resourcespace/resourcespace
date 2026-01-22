@@ -1,0 +1,7 @@
+node,0,PRIMARY,1,ref,A,249,,,,BTREE,,
+node,1,resource_type_field,1,resource_type_field,A,4,,,YES,BTREE,,
+node,1,resource_type_field,2,ref,A,249,,,,BTREE,,
+node,1,resource_type_field,3,parent,A,249,,,YES,BTREE,,
+node,1,resource_type_field,4,order_by,A,249,,,YES,BTREE,,
+node,1,name,1,name,A,1738,20,,YES,BTREE,,
+node,1,name_full,1,name,,2821,,,YES,FULLTEXT,,

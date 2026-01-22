@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link';
+$lang["falcon_link_manage"] = 'Falcon terbit/arkib';
+$lang["falcon_link_publish"] = 'Terbitkan ke Falcon';
+$lang["falcon_link_archive"] = 'Arkib dalam Falcon';
+$lang["falcon_link_configuration"] = 'Pautan Falcon - Persediaan';
+$lang["falcon_link_api_key"] = 'Falcon API kunci';
+$lang["falcon_link_notconfigured"] = 'Plugin Falcon Link tidak dikonfigurasikan. Sila minta pentadbir anda untuk mengkonfigurasi plugin tersebut.';
+$lang["falcon_link_resource_types_to_include"] = 'Pilih Jenis Sumber Falcon yang Sah';
+$lang["falcon_link_not_permitted_extension"] = 'Jenis fail %TYPE% tidak boleh dimuat naik ke Falcon';
+$lang["falcon_link_text_field"] = 'Medan teks templat Falcon';
+$lang["falcon_link_default_tag"] = 'Teks tag lalai yang akan ditambahkan secara automatik kepada semua kandungan yang diterbitkan oleh Falcon. Jika anda menyertakan teks \'[ID]\', maka ini akan digantikan dengan ID sumber dalam tag';
+$lang["falcon_link_template_url"] = 'URL templat Falcon. Ini membolehkan anda melihat sumber yang diterbitkan dalam Falcon secara langsung. Tag [id] akan digantikan dengan pengenalan yang dikeluarkan oleh Falcon apabila sumber diterbitkan';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Medan tag Falcon. Ini akan digabungkan dan ditambahkan ke tag templat Falcon';
+$lang["falcon_link_id_field"] = 'Medan metadata untuk menyimpan pengenalan Falcon';
+$lang["falcon_link_log_share"] = 'Diterbitkan di Falcon';
+$lang["falcon_link_archived"] = 'Diarkibkan';
+$lang["falcon_link_access_denied"] = 'Anda tidak mempunyai kebenaran untuk menerbitkan sumber yang dipilih';
+$lang["falcon_link_already_published"] = 'Sumber ini telah diterbitkan ke Falcon';
+$lang["falcon_link_resources_already_published"] = 'Beberapa sumber telah pun diterbitkan ke Falcon dan tidak boleh diterbitkan semula';
+$lang["falcon_link_resource_not_published"] = 'Sumber belum diterbitkan ke Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Sumber tidak dapat diterbitkan ke Falcon';
+$lang["falcon_link_template_description"] = 'Penerangan templat';
+$lang["falcon_link_template_tags"] = 'Tag templat yang akan ditambahkan';
+$lang["falcon_link_missing_file"] = 'Sumber tiada fail asal';
+$lang["falcon_link_existing_id"] = 'ID Falcon Sedia';
+$lang["falcon_link_not_uploaded"] = 'Tidak dimuat naik';
+$lang["falcon_link_publish_button_text"] = 'Terbitkan';
+$lang["falcon_link_archive_button_text"] = 'Arkib';
+$lang["falcon_link_publish_success"] = 'Diterbitkan dengan jayanya';
+$lang["falcon_link_archived_success"] = 'Diarkibkan dengan jayanya.<br />Kongsi sumber masih aktif dan perlu dipadamkan secara manual jika diperlukan.';
+$lang["falcon_link_usergroups"] = 'Kumpulan yang mempunyai akses untuk menguruskan templat Falcon';
+$lang["falcon_link_filter"] = 'Tapis untuk menentukan sumber mana yang boleh diterbitkan ke Falcon';
+$lang["falcon_link_error_no_resources"] = 'Tiada sumber yang dihantar untuk diterbitkan';
+$lang["falcon_link_error_falcon_api"] = 'Ralat berlaku semasa berkomunikasi dengan Falcon. Sila semak status untuk maklumat lanjut.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Ralat Falcon';
+$lang["falcon_link_view_in_falcon"] = 'Lihat dalam Falcon';
+$lang["falcon_link_share_user"] = 'Teks pengguna untuk dipaparkan bagi perkongsian yang dibuat untuk penggunaan Falcon iaitu \'dikongsi dengan user@falcon.io\'';
+$lang["falcon_link_log_publish"] = 'Sumber yang dikongsi melalui Falcon';
+$lang["falcon_link_log_archive"] = 'Sumber yang diarkibkan melalui Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Sila semak bahawa penerangan dan tag tidak kosong';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Pasang Plugin Falcon Link';

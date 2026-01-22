@@ -1,0 +1,5 @@
+1.0 Initial release
+1.1 Added support for new alternative preview functionality
+1.2 Added download functionality and ability for non-admin users to use it
+1.3 Added ability to flip and rotate resulting images
+1.4 Ported to jCrop (jQuery-based, works on mobile)

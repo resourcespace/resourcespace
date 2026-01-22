@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link';
+$lang["falcon_link_manage"] = 'Falcon ilathala/arkibo';
+$lang["falcon_link_publish"] = 'I-publish sa Falcon';
+$lang["falcon_link_archive"] = 'I-archive sa Falcon';
+$lang["falcon_link_configuration"] = 'Falcon link- Pagsasaayos';
+$lang["falcon_link_api_key"] = 'Falcon API key';
+$lang["falcon_link_notconfigured"] = 'Ang Falcon Link plugin ay hindi naka-configure. Mangyaring hilingin sa iyong administrator na i-configure ang plugin.';
+$lang["falcon_link_resource_types_to_include"] = 'Pumili ng wastong Uri ng Falcon Resource';
+$lang["falcon_link_not_permitted_extension"] = 'Ang uri ng file na %TYPE% ay hindi ma-upload sa Falcon';
+$lang["falcon_link_text_field"] = 'Teksto ng larangan ng template ng Falcon';
+$lang["falcon_link_default_tag"] = 'Default na teksto ng tag na awtomatikong idaragdag sa lahat ng nilalaman na inilathala ng Falcon. Kung isasama mo ang teksto na \'[ID]\' kung gayon ito ay papalitan ng resource ID sa tag';
+$lang["falcon_link_template_url"] = 'Falcon template URL. Ito ay nagbibigay-daan sa iyo upang tingnan ang na-publish na resource sa Falcon nang direkta. Ang [id] tag ay papalitan ng identifier na ibinigay ng Falcon kapag ang resource ay na-publish';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Mga patlang ng tag ng Falcon. Ito ay pagsasamahin at idaragdag sa mga tag ng template ng Falcon';
+$lang["falcon_link_id_field"] = 'Pangkalahatang metadata na patlang upang itago ang Falcon identifier';
+$lang["falcon_link_log_share"] = 'Nai-publish sa Falcon';
+$lang["falcon_link_archived"] = 'Naka-archive';
+$lang["falcon_link_access_denied"] = 'Wala kang pahintulot na ilathala ang napiling mapagkukunan.';
+$lang["falcon_link_already_published"] = 'Ang yaman na ito ay nailathala sa Falcon';
+$lang["falcon_link_resources_already_published"] = 'Ang ilang mga mapagkukunan ay nailathala na sa Falcon at hindi na maaaring muling ilathala';
+$lang["falcon_link_resource_not_published"] = 'Hindi pa nailathala ang resource sa Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Hindi maaring mailathala ang Resource sa Falcon';
+$lang["falcon_link_template_description"] = 'Paglalarawan ng Template';
+$lang["falcon_link_template_tags"] = 'Mga tag ng template na idaragdag';
+$lang["falcon_link_missing_file"] = 'Walang orihinal na file ang resource';
+$lang["falcon_link_existing_id"] = 'Umiiral na Falcon ID';
+$lang["falcon_link_not_uploaded"] = 'Hindi na-upload';
+$lang["falcon_link_publish_button_text"] = 'I-publish';
+$lang["falcon_link_archive_button_text"] = 'Arkibo';
+$lang["falcon_link_publish_success"] = 'Nailathala nang matagumpay';
+$lang["falcon_link_archived_success"] = 'Matagumpay na na-archive.<br />Ang mga ibinahaging resource ay nananatiling aktibo at kailangang manu-manong tanggalin kung kinakailangan.';
+$lang["falcon_link_usergroups"] = 'Mga grupo na may access upang pamahalaan ang mga template ng Falcon';
+$lang["falcon_link_filter"] = 'Salain upang matukoy kung aling mga mapagkukunan ang maaaring mailathala sa Falcon';
+$lang["falcon_link_error_no_resources"] = 'Walang mga mapagkukunan na isinumite para sa paglalathala';
+$lang["falcon_link_error_falcon_api"] = 'Nagkaroon ng error habang nakikipag-ugnayan sa Falcon. Pakisuri ang katayuan para sa karagdagang detalye.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Falcon error';
+$lang["falcon_link_view_in_falcon"] = 'Tingnan sa Falcon';
+$lang["falcon_link_share_user"] = 'Ibinahagi sa user@falcon.io';
+$lang["falcon_link_log_publish"] = 'Ibinahaging yaman sa pamamagitan ng Falcon';
+$lang["falcon_link_log_archive"] = 'Naka-archive na yaman sa pamamagitan ng Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Pakisuri na ang paglalarawan at mga tag ay hindi walang laman';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'I-set up ang Falcon Link Plugin';

@@ -1,0 +1,10 @@
+{% set pagetitle = 'Missing cookie'|trans %}
+{% extends "base.twig" %}
+
+{% block content %}
+    <h2>{{ 'Missing cookie'|trans }}</h2>
+    <p>{{ 'You appear to have disabled cookies in your browser. Please check the settings in your browser, and try again.'|trans }}</p>
+    {% if retryURL is not null %}
+    <p><a href="{{ retryURL|escape('html') }}" class="pure-button pure-button-red" id="retry">{{ 'Retry'|trans }}</a></p>
+    {% endif %}
+{% endblock %}

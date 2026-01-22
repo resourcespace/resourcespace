@@ -1,0 +1,9 @@
+name: conditional_terms
+title: Conditional Terms
+desc: Enables conditional display of terms page at download based on resource metadata.
+icon: list-check
+author: Montala Limited
+config_url: /plugins/conditional_terms/pages/setup.php
+version: 1.0
+category: User Interface
+info_url: https://www.resourcespace.com/knowledge-base/plugins/conditional_terms

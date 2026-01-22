@@ -1,0 +1,3 @@
+A join table connecting resource annotations to keyword nodes for annotating resources with fixed list metadata.
+annotation,int(11),
+node,int(11),

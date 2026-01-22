@@ -1,0 +1,3 @@
+usergroup,int(11),NO,PRI,0,
+collection,int(11),NO,PRI,0,
+request_feedback,int(11),YES,,0,

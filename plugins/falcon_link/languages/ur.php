@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'فالکن لنک';
+$lang["falcon_link_manage"] = 'فالکن شائع/محفوظ کریں';
+$lang["falcon_link_publish"] = 'فالکن پر شائع کریں';
+$lang["falcon_link_archive"] = 'فالکن میں محفوظ کریں';
+$lang["falcon_link_configuration"] = 'فالکن لنک - سیٹ اپ';
+$lang["falcon_link_api_key"] = 'فالکن API کلید';
+$lang["falcon_link_notconfigured"] = 'فالکن لنک پلگ ان کنفیگر نہیں ہے۔ براہ کرم اپنے ایڈمنسٹریٹر سے پلگ ان کو کنفیگر کرنے کے لیے کہیں۔';
+$lang["falcon_link_resource_types_to_include"] = 'درست فالکن وسائل کی اقسام منتخب کریں';
+$lang["falcon_link_not_permitted_extension"] = 'فائل کی قسم %TYPE% کو Falcon پر اپ لوڈ نہیں کیا جا سکتا۔';
+$lang["falcon_link_text_field"] = 'فالکن ٹیمپلیٹ ٹیکسٹ فیلڈ';
+$lang["falcon_link_default_tag"] = 'فالکن کے تمام شائع شدہ مواد میں خودکار طور پر شامل ہونے والا ڈیفالٹ ٹیگ متن۔ اگر آپ متن \'[ID]\' شامل کرتے ہیں تو یہ ٹیگ میں وسائل کی شناختی نمبر سے تبدیل ہو جائے گا۔';
+$lang["falcon_link_template_url"] = 'فالکن ٹیمپلیٹ یو آر ایل۔ یہ آپ کو فالکن میں شائع شدہ وسائل کو براہ راست دیکھنے کی اجازت دیتا ہے۔ [id] ٹیگ کو اس شناخت کنندہ سے تبدیل کیا جائے گا جو فالکن کے ذریعہ وسائل کی اشاعت کے وقت جاری کیا جاتا ہے۔';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - فالکن ٹیگ فیلڈز۔ یہ جوڑ کر فالکن ٹیمپلیٹ ٹیگز میں شامل کیے جائیں گے۔';
+$lang["falcon_link_id_field"] = 'فالکن شناختی کو ذخیرہ کرنے کے لیے میٹا ڈیٹا فیلڈ';
+$lang["falcon_link_log_share"] = 'فالکن پر شائع ہوا';
+$lang["falcon_link_archived"] = 'محفوظ شدہ';
+$lang["falcon_link_access_denied"] = 'آپ کو منتخب کردہ وسائل کو شائع کرنے کی اجازت نہیں ہے۔';
+$lang["falcon_link_already_published"] = 'یہ وسیلہ فالکن پر شائع کر دیا گیا ہے۔';
+$lang["falcon_link_resources_already_published"] = 'کچھ وسائل پہلے ہی فالکن پر شائع ہو چکے ہیں اور دوبارہ شائع نہیں کیے جا سکتے۔';
+$lang["falcon_link_resource_not_published"] = 'وسیلہ Falcon پر شائع نہیں کیا گیا ہے۔';
+$lang["falcon_link_resource_publish_unavailable"] = 'وسیلہ Falcon پر شائع نہیں کیا جا سکتا';
+$lang["falcon_link_template_description"] = 'سانچہ کی تفصیل';
+$lang["falcon_link_template_tags"] = 'سانچے کے ٹیگز جو شامل کیے جائیں گے';
+$lang["falcon_link_missing_file"] = 'وسیلے کے پاس اصل فائل نہیں ہے';
+$lang["falcon_link_existing_id"] = 'موجودہ فالکن آئی ڈی';
+$lang["falcon_link_not_uploaded"] = 'اپ لوڈ نہیں ہوا';
+$lang["falcon_link_publish_button_text"] = 'شائع کریں';
+$lang["falcon_link_archive_button_text"] = 'آرکائیو';
+$lang["falcon_link_publish_success"] = 'کامیابی سے شائع ہوا';
+$lang["falcon_link_archived_success"] = 'کامیابی سے محفوظ کر لیا گیا۔<br />وسائل کے اشتراکات ابھی بھی فعال ہیں اور اگر ضرورت ہو تو انہیں دستی طور پر حذف کرنا پڑے گا۔';
+$lang["falcon_link_usergroups"] = 'وہ گروپس جنہیں فالکن ٹیمپلیٹس کو منظم کرنے کی رسائی حاصل ہے';
+$lang["falcon_link_filter"] = 'فلٹر جو یہ طے کرتا ہے کہ کون سے وسائل Falcon پر شائع کیے جا سکتے ہیں۔';
+$lang["falcon_link_error_no_resources"] = 'اشاعت کے لیے کوئی وسائل جمع نہیں کیے گئے';
+$lang["falcon_link_error_falcon_api"] = 'فالکن کے ساتھ بات چیت کرتے وقت ایک خرابی پیش آئی۔ مزید تفصیلات کے لیے اسٹیٹس چیک کریں۔';
+$lang["falcon_link_error_falcon_api_detailed"] = 'فالکن خرابی';
+$lang["falcon_link_view_in_falcon"] = 'Falcon میں دیکھیں';
+$lang["falcon_link_share_user"] = 'فالکن استعمال کے لیے بنائے گئے شیئرز کے لیے صارف کا متن دکھائیں مثلاً \'user@falcon.io کے ساتھ شیئر کیا گیا\'';
+$lang["falcon_link_log_publish"] = 'فالکن کے ذریعے مشترکہ وسیلہ';
+$lang["falcon_link_log_archive"] = 'فالکن کے ذریعے محفوظ شدہ وسیلہ';
+$lang["falcon_link_error_falcon_check_tags"] = 'براہ کرم چیک کریں کہ تفصیل اور ٹیگز خالی نہ ہوں۔';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'فالکن لنک پلگ ان سیٹ اپ کریں';

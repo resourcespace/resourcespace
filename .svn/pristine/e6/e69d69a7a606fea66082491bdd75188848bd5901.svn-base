@@ -1,0 +1,5 @@
+ref,int(11),NO,PRI,,auto_increment
+datetime,timestamp,YES,,CURRENT_TIMESTAMP,
+level,varchar(10),YES,,,
+message,varchar(255),YES,,,
+context,mediumtext,YES,,,

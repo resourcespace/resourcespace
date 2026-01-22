@@ -1,0 +1,6 @@
+resource_node,1,resource,1,resource,A,16206,,,,BTREE,
+resource_node,1,node,1,node,A,16206,,,,BTREE,
+resource_node,1,hit_count,1,hit_count,A,16206,,,,BTREE,
+resource_node,1,node_resource_hit_count,1,node,A,1629,,,,BTREE,,,YES,
+resource_node,1,node_resource_hit_count,2,resource,A,1703,,,,BTREE,,,YES,
+resource_node,1,node_resource_hit_count,3,hit_count,A,1703,,,YES,BTREE,,,YES,

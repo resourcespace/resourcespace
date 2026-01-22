@@ -1,0 +1,2 @@
+report,0,PRIMARY,1,ref,A,9,,,,BTREE,
+report,1,support_non_correlated_sql,1,support_non_correlated_sql,A,1,,,YES,BTREE,,

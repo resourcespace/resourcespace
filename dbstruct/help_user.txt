@@ -1,0 +1,35 @@
+Stores all ResourceSpace users.
+ref,int(11),
+username,varchar(50),Username - users use this to log in 
+password,varchar(64),One way encrypted password, using hash chaining to support/upgrade old hash algorithms. Can store the password in plain text and it will be encrypted when the user next logs in.
+fullname,varchar(100),User full name - used for display purposes
+email,varchar(100),Email address
+usergroup,int(11),
+last_active,datetime,Date of last ResourceSpace activity
+logged_in,int(11),Is user currently logged in?
+last_browser,text,Browser user agent string
+last_ip,varchar(100),Client IP last used to access ResourceSpace
+current_collection,int(11),ID of current selected collection
+accepted_terms,int(11),Has user accepted terms? (if $terms_login=true)
+account_expires,datetime,Expiration date of account
+comments,text,For admin use
+session,varchar(50),Current session ID
+ip_restrict,text,Only permit access from the given IPs. Uses wildcards instead of CIDR notation i.e. 192.168.*, not 192.168.0/24
+search_filter_override,text,(deprecated) Old search filter string
+password_last_change,datetime,Last password change date
+login_tries,int(11),Number of failed logins
+login_last_try,datetime,Timestamp of last failed login
+approved,int(11),Approval state. 0 = not approved, 1 = approved, 2 = disabled
+lang,varchar(11),User's preferred language code
+created,timestamp,Account creation date
+hidden_collections,text,Comma separated list of hidden collections
+password_reset_hash,varchar(100),Used for password reset links
+origin,varchar(50),Origin of account. Normally 'resourcespace' but may be set by plugins e.g. simplesaml, simpleldap
+unique_hash,varchar(50),Used for antispam code
+csrf_token,varchar(255),Not currently used
+search_filter_o_id,int(11),Search filter ID - overrides any filter set at usergroup level
+profile_image,text,The path to an optional image of the user, uploaded via the My Profile page.
+profile_text,varchar(500),The user's profile text, entered via the My Profile page.
+email_invalid,int(1),Sets that the e-mail is invalid and not to be used - is set externally via the API call mark_email_as_invalid() e.g. from a script processing bounced e-mails.
+email_rate_limit_active,int(1),Sets that the e-mail rate limit is currently active. E-mails will not be sent if this is true.
+processing_messages,text,Message text displayed in overlay when processing data e.g. uploading resources. 

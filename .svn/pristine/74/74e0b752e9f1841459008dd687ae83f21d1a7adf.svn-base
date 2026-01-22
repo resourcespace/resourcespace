@@ -1,0 +1,4 @@
+resource,int(11),NO,PRI,,
+node,int(11),NO,PRI,,
+hit_count,int(11),YES,,0,
+new_hit_count,int(11),NO,,0,

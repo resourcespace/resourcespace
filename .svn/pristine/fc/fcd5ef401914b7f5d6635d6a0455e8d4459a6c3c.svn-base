@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link - Poveznica sokola';
+$lang["falcon_link_manage"] = 'Objavljivanje/arhiviranje sokola';
+$lang["falcon_link_publish"] = 'Objaviti na Falconu';
+$lang["falcon_link_archive"] = 'Arhiva u Falconu';
+$lang["falcon_link_configuration"] = 'Falcon poveznica - Postavljanje';
+$lang["falcon_link_api_key"] = 'Falcon API ključ';
+$lang["falcon_link_notconfigured"] = 'Falcon Link dodatak nije konfiguriran. Molimo vas da zatražite od administratora da konfigurira dodatak.';
+$lang["falcon_link_resource_types_to_include"] = 'Odaberite valjane vrste resursa sokola';
+$lang["falcon_link_not_permitted_extension"] = 'Vrsta datoteke %TYPE% ne može se prenijeti na Falcon';
+$lang["falcon_link_text_field"] = 'Polje teksta predloška sokola';
+$lang["falcon_link_default_tag"] = 'Zadani tekst oznake koji će se automatski dodati svim objavljenim Falcon sadržajima. Ako uključite tekst \'[ID]\', tada će se on zamijeniti ID-em resursa u oznaci';
+$lang["falcon_link_template_url"] = 'Falcon URL predložak. To vam omogućuje pregled objavljenog resursa izravno u Falconu. Oznaka [id] bit će zamijenjena identifikatorom koji je izdao Falcon kada je resurs objavljen';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Polja oznaka sokola. Ona će biti spojena i dodana oznakama predloška sokola';
+$lang["falcon_link_id_field"] = 'Polje metapodataka za pohranu identifikatora sokola';
+$lang["falcon_link_log_share"] = 'Objavljeno na Falconu';
+$lang["falcon_link_archived"] = 'Arhivirano';
+$lang["falcon_link_access_denied"] = 'Nemate dopuštenje za objavljivanje odabranih resursa';
+$lang["falcon_link_already_published"] = 'Ovaj resurs je objavljen na Falconu';
+$lang["falcon_link_resources_already_published"] = 'Neki resursi su već objavljeni na Falconu i ne mogu se ponovno objaviti';
+$lang["falcon_link_resource_not_published"] = 'Resurs nije objavljen na Falconu';
+$lang["falcon_link_resource_publish_unavailable"] = 'Resurs nije moguće objaviti na Falconu';
+$lang["falcon_link_template_description"] = 'Opis predloška';
+$lang["falcon_link_template_tags"] = 'Oznake predloška koje će biti dodane';
+$lang["falcon_link_missing_file"] = 'Resurs nema izvornu datoteku';
+$lang["falcon_link_existing_id"] = 'Postojeći Falcon ID';
+$lang["falcon_link_not_uploaded"] = 'Nije učitano';
+$lang["falcon_link_publish_button_text"] = 'Objaviti';
+$lang["falcon_link_archive_button_text"] = 'Arhiva';
+$lang["falcon_link_publish_success"] = 'Uspješno objavljeno';
+$lang["falcon_link_archived_success"] = 'Uspješno arhivirano.<br />Dijeljenja resursa su još uvijek aktivna i bit će potrebno ručno ih izbrisati ako je potrebno.';
+$lang["falcon_link_usergroups"] = 'Skupine koje imaju pristup upravljanju predlošcima Sokola';
+$lang["falcon_link_filter"] = 'Filter za određivanje koje će se resurse moći objaviti na Falcon';
+$lang["falcon_link_error_no_resources"] = 'Nema resursa poslanih za objavljivanje';
+$lang["falcon_link_error_falcon_api"] = 'Došlo je do pogreške prilikom komunikacije s Falconom. Molimo provjerite status za više detalja.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Greška sokola';
+$lang["falcon_link_view_in_falcon"] = 'Prikaz u Falconu';
+$lang["falcon_link_share_user"] = 'Tekst korisnika za prikaz dijeljenja stvorenih za Falcon upotrebu, npr. \'podijeljeno s korisnikom@falcon.io\'';
+$lang["falcon_link_log_publish"] = 'Dijeljeni resurs putem Falcona';
+$lang["falcon_link_log_archive"] = 'Arhivirani resurs putem Falcona';
+$lang["falcon_link_error_falcon_check_tags"] = 'Molimo provjerite da opis i oznake nisu prazni';
+$lang["plugin-falcon_link-title"] = 'Falcon Link';
+$lang["plugin-falcon_link-desc"] = 'Objavi resurse na Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Postavljanje Falcon Link dodatka';

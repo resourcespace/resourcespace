@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+name,varchar(100),YES,,,
+query,text,YES,,,
+support_non_correlated_sql,tinyint(1),YES,,0,

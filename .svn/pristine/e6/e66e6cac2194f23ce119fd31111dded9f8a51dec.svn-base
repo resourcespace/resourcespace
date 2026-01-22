@@ -1,0 +1,11 @@
+name    : tms_link
+title   : TMS Link
+author  : Montala Ltd.
+version : 1.0
+desc    : Allows resource metadata to be extracted from TMS database. 
+icon    : landmark
+icon-colour: #B64B00
+config_url: /plugins/tms_link/pages/setup.php
+category: Integrations
+disable_group_select: 1
+info_url: https://www.resourcespace.com/knowledge-base/plugins/tms-link

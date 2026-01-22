@@ -1,0 +1,18 @@
+h3#attributeheader {
+  margin: 1.5em 0 0.5em;
+}
+
+form#consent-yes {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+form#consent-no {
+  display: inline;
+  margin-left: 0.5em;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'ফ্যালকন লিঙ্ক';
+$lang["falcon_link_manage"] = 'ফ্যালকন প্রকাশ/সংরক্ষণাগার';
+$lang["falcon_link_publish"] = 'ফ্যালকনে প্রকাশ করুন';
+$lang["falcon_link_archive"] = 'ফ্যালকনে আর্কাইভ করুন';
+$lang["falcon_link_configuration"] = 'ফ্যালকন লিঙ্ক- সেটআপ';
+$lang["falcon_link_api_key"] = 'ফ্যালকন এপিআই কী';
+$lang["falcon_link_notconfigured"] = 'ফ্যালকন লিঙ্ক প্লাগইন কনফিগার করা হয়নি। অনুগ্রহ করে আপনার প্রশাসককে প্লাগইন কনফিগার করতে বলুন।';
+$lang["falcon_link_resource_types_to_include"] = 'বৈধ ফ্যালকন রিসোর্স প্রকার নির্বাচন করুন';
+$lang["falcon_link_not_permitted_extension"] = 'ফাইলের ধরন %TYPE% Falcon-এ আপলোড করা যাবে না';
+$lang["falcon_link_text_field"] = 'ফ্যালকন টেমপ্লেট টেক্সট ফিল্ড';
+$lang["falcon_link_default_tag"] = 'ফ্যালকন প্রকাশিত সমস্ত কন্টেন্টে স্বয়ংক্রিয়ভাবে যোগ করা হবে এমন ডিফল্ট ট্যাগ টেক্সট। যদি আপনি \'[ID]\' টেক্সটটি অন্তর্ভুক্ত করেন তবে এটি ট্যাগে রিসোর্স আইডি দিয়ে প্রতিস্থাপিত হবে।';
+$lang["falcon_link_template_url"] = 'ফ্যালকন টেমপ্লেট URL। এটি আপনাকে ফ্যালকনে সরাসরি প্রকাশিত রিসোর্স দেখতে দেয়। [id] ট্যাগটি রিসোর্স প্রকাশিত হলে ফ্যালকন দ্বারা প্রদত্ত শনাক্তকারী দিয়ে প্রতিস্থাপিত হবে।';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - ফ্যালকন ট্যাগ ক্ষেত্র। এগুলি একত্রিত করা হবে এবং ফ্যালকন টেমপ্লেট ট্যাগগুলিতে যোগ করা হবে।';
+$lang["falcon_link_id_field"] = 'ফ্যালকন শনাক্তকারী সংরক্ষণের জন্য মেটাডেটা ক্ষেত্র';
+$lang["falcon_link_log_share"] = 'ফ্যালকনে প্রকাশিত';
+$lang["falcon_link_archived"] = 'আর্কাইভ করা হয়েছে';
+$lang["falcon_link_access_denied"] = 'আপনার নির্বাচিত রিসোর্স(গুলি) প্রকাশ করার অনুমতি নেই';
+$lang["falcon_link_already_published"] = 'এই রিসোর্সটি ফ্যালকনে প্রকাশিত হয়েছে';
+$lang["falcon_link_resources_already_published"] = 'কিছু রিসোর্স ইতিমধ্যে ফ্যালকনে প্রকাশিত হয়েছে এবং পুনরায় প্রকাশ করা যাবে না।';
+$lang["falcon_link_resource_not_published"] = 'রিসোর্সটি ফ্যালকনে প্রকাশিত হয়নি';
+$lang["falcon_link_resource_publish_unavailable"] = 'রিসোর্স ফ্যালকনে প্রকাশ করা যায়নি';
+$lang["falcon_link_template_description"] = 'টেমপ্লেট বিবরণ';
+$lang["falcon_link_template_tags"] = 'টেমপ্লেট ট্যাগগুলি যা যোগ করা হবে';
+$lang["falcon_link_missing_file"] = 'রিসোর্সের কোনো মূল ফাইল নেই';
+$lang["falcon_link_existing_id"] = 'বিদ্যমান ফ্যালকন আইডি';
+$lang["falcon_link_not_uploaded"] = 'আপলোড করা হয়নি';
+$lang["falcon_link_publish_button_text"] = 'প্রকাশ করুন';
+$lang["falcon_link_archive_button_text"] = 'আর্কাইভ';
+$lang["falcon_link_publish_success"] = 'সফলভাবে প্রকাশিত হয়েছে';
+$lang["falcon_link_archived_success"] = 'সফলভাবে সংরক্ষণ করা হয়েছে।<br />রিসোর্স শেয়ারগুলি এখনও সক্রিয় এবং প্রয়োজনে ম্যানুয়ালি মুছে ফেলতে হবে।';
+$lang["falcon_link_usergroups"] = 'যেসব গ্রুপ ফ্যালকন টেমপ্লেট পরিচালনা করার অ্যাক্সেস আছে';
+$lang["falcon_link_filter"] = 'ফিল্টার যা নির্ধারণ করে কোন সম্পদগুলি ফ্যালকনে প্রকাশ করা যেতে পারে।';
+$lang["falcon_link_error_no_resources"] = 'কোনো রিসোর্স প্রকাশের জন্য জমা দেওয়া হয়নি';
+$lang["falcon_link_error_falcon_api"] = 'ফ্যালকনের সাথে যোগাযোগ করার সময় একটি ত্রুটি ঘটেছে। আরও বিস্তারিত জানার জন্য অবস্থা পরীক্ষা করুন।';
+$lang["falcon_link_error_falcon_api_detailed"] = 'ফ্যালকন ত্রুটি';
+$lang["falcon_link_view_in_falcon"] = 'ফ্যালকনে দেখুন';
+$lang["falcon_link_share_user"] = 'ব্যবহারকারীর জন্য প্রদর্শিত টেক্সট যা ফ্যালকন ব্যবহারের জন্য তৈরি শেয়ারগুলির জন্য, যেমন \'user@falcon.io এর সাথে শেয়ার করা হয়েছে\'';
+$lang["falcon_link_log_publish"] = 'ফ্যালকন এর মাধ্যমে শেয়ার করা রিসোর্স';
+$lang["falcon_link_log_archive"] = 'ফ্যালকন এর মাধ্যমে সংরক্ষিত রিসোর্স';
+$lang["falcon_link_error_falcon_check_tags"] = 'অনুগ্রহ করে নিশ্চিত করুন যে বর্ণনা এবং ট্যাগগুলি খালি নয়';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'ফ্যালকন লিঙ্ক প্লাগইন সেটআপ করুন';

@@ -1,0 +1,9 @@
+name: totp
+title: TOTP 
+author: Montala Limited
+version: 1.0
+desc: TFA/MFA support via Google Authenticator
+icon: qr-code
+category: Authentication
+config_url: /plugins/totp/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/totp

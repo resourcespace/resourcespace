@@ -1,0 +1,9 @@
+@font-face
+    {
+    font-family: "Work Sans";
+    src: url("../../lib/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf");
+    }
+
+h1,h2,h3,h4,h5,h6,.Title {font-family: Work Sans, Arial, Helvetica, sans-serif;}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button,.ui-widget, body, input, textarea, select, button {font-family: Work Sans, Arial, Helvetica, sans-serif;}

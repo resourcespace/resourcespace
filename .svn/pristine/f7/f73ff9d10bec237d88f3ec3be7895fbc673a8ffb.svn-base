@@ -1,0 +1,12 @@
+name: museumplus
+title: MuseumPlus
+author: Montala Ltd.
+version: 1.0
+desc: Allows resource metadata to be extracted from MuseumPlus using its REST API (MpRIA).
+icon: landmark
+icon-colour: #B64B00
+info_url: https://www.resourcespace.com/knowledge-base/user/plugin-museumplus
+config_url: /plugins/museumplus/pages/setup.php
+default_priority: 100
+category: Integrations
+disable_group_select: 1

@@ -1,0 +1,5 @@
+Links nodes with resources, to store metadata against a resource.
+resource,int(11),
+node,int(11),
+hit_count,int(11),The live hitcount. This value is copied from the new_hit_count column. See copy_hitcount_to_live()
+new_hit_count,int(11),For each matching keyword in a search, the new hitcount is incremented so existing results are not affected. See update_resource_keyword_hitcount() & update_resource_node_hitcount()

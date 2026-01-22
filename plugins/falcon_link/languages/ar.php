@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'رابط الصقر';
+$lang["falcon_link_manage"] = 'نشر/أرشفة الصقر';
+$lang["falcon_link_publish"] = 'نشر إلى فالكون';
+$lang["falcon_link_archive"] = 'الأرشيف في فالكون';
+$lang["falcon_link_configuration"] = 'رابط الصقر - الإعدادات';
+$lang["falcon_link_api_key"] = 'مفتاح واجهة برمجة تطبيقات فالكون';
+$lang["falcon_link_notconfigured"] = 'الإضافة Falcon Link غير مُعينة. يرجى طلب من المسؤول تهيئة الإضافة.';
+$lang["falcon_link_resource_types_to_include"] = 'يرجى اختيار أنواع مصادر الصقور الصحيحة';
+$lang["falcon_link_not_permitted_extension"] = 'لا يمكن تحميل نوع الملف %TYPE% إلى فالكون';
+$lang["falcon_link_text_field"] = 'حقل نص قالب الصقر';
+$lang["falcon_link_default_tag"] = 'النص الافتراضي للوسم الذي سيتم إضافته تلقائيًا إلى جميع محتوى فالكون المنشور. إذا قمت بتضمين النص "[ID]" ، فسيتم استبداله بمعرف المورد في الوسم';
+$lang["falcon_link_template_url"] = 'رابط قالب الصقر. يتيح لك هذا عرض المورد المنشور في الصقر مباشرةً. سيتم استبدال العلامة [id] بالمعرف الصادر عن الصقر عند نشر المورد';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - حقول وسم الصقر. سيتم دمج هذه الحقول وإضافتها إلى علامات قالب الصقر';
+$lang["falcon_link_id_field"] = 'حقل البيانات الوصفية لتخزين معرف الصقر';
+$lang["falcon_link_log_share"] = 'تم النشر على فالكون';
+$lang["falcon_link_archived"] = 'المؤرشفة';
+$lang["falcon_link_access_denied"] = 'ليس لديك الإذن لنشر المورد (الموارد) المحدد (ة)';
+$lang["falcon_link_already_published"] = 'تم نشر هذا المورد على Falcon';
+$lang["falcon_link_resources_already_published"] = 'بعض الموارد تم نشرها بالفعل على فالكون ولا يمكن إعادة نشرها';
+$lang["falcon_link_resource_not_published"] = 'لم يتم نشر المورد على فالكون';
+$lang["falcon_link_resource_publish_unavailable"] = 'لا يمكن نشر المورد على فالكون';
+$lang["falcon_link_template_description"] = 'وصف القالب';
+$lang["falcon_link_template_tags"] = 'العلامات النموذجية التي سيتم إضافتها';
+$lang["falcon_link_missing_file"] = 'المورد ليس لديه ملف أصلي';
+$lang["falcon_link_existing_id"] = 'هوية الصقر الموجودة';
+$lang["falcon_link_not_uploaded"] = 'غير مُرفَع';
+$lang["falcon_link_publish_button_text"] = 'نشر';
+$lang["falcon_link_archive_button_text"] = 'الأرشيف';
+$lang["falcon_link_publish_success"] = 'تم النشر بنجاح';
+$lang["falcon_link_archived_success"] = 'تم الأرشفة بنجاح. <br /> مشاركات الموارد لا تزال نشطة وسيتعين حذفها يدويًا إذا لزم الأمر.';
+$lang["falcon_link_usergroups"] = 'المجموعات التي لديها صلاحية الوصول لإدارة قوالب فالكون';
+$lang["falcon_link_filter"] = 'تصفية لتحديد الموارد التي يمكن نشرها على Falcon';
+$lang["falcon_link_error_no_resources"] = 'لم يتم تقديم أي موارد للنشر';
+$lang["falcon_link_error_falcon_api"] = 'حدث خطأ أثناء التواصل مع فالكون. يرجى التحقق من الحالة للحصول على مزيد من التفاصيل.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'خطأ الصقر';
+$lang["falcon_link_view_in_falcon"] = 'عرض في فالكون';
+$lang["falcon_link_share_user"] = 'النص المستخدم للعرض للمشاركات التي تم إنشاؤها للاستخدام في فالكون، على سبيل المثال "مشاركة مع user@falcon.io"';
+$lang["falcon_link_log_publish"] = 'المورد المشترك عبر فالكون';
+$lang["falcon_link_log_archive"] = 'المورد المؤرشف عبر فالكون';
+$lang["falcon_link_error_falcon_check_tags"] = 'يرجى التحقق من عدم ترك الوصف والعلامات فارغة';
+$lang["plugin-falcon_link-title"] = 'رابط فالكون';
+$lang["plugin-falcon_link-desc"] = '[متقدم] نشر الموارد إلى Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'إعداد ملحق فالكون لينك';

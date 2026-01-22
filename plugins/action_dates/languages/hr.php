@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Odaberite polja koja će se koristiti za automatsko izvršavanje navedenih radnji.';
+$lang["action_dates_deletesettings"] = 'Automatske postavke primarnih radnji resursa - koristiti s oprezom';
+$lang["action_dates_delete"] = 'Automatski izbriši ili promijeni status resursa kada se dostigne datum u ovom polju';
+$lang["action_dates_eligible_states"] = 'Države koje su prikladne za primarnu automatsku akciju. Ako nijedna država nije odabrana, tada su sve države prikladne.';
+$lang["action_dates_restrict"] = 'Automatski ograničite pristup resursima kada se dostigne datum u ovom polju. Ovo se odnosi samo na resurse čiji je pristup trenutno otvoren.';
+$lang["action_dates_delete_logtext"] = 'Automatski izvršeno putem dodatka action_dates';
+$lang["action_dates_restrict_logtext"] = 'Automatski ograničeno pomoću dodatka action_dates';
+$lang["action_dates_reallydelete"] = 'Potpuno izbrisati resurs kada prođe datum radnje? Ako je postavljeno na "false", resursi će biti premješteni u konfigurirano stanje brisanja resursa i stoga će biti moguće oporaviti ih';
+$lang["action_dates_email_admin_days"] = 'Obavijesti administratora sustava određeni broj dana prije nego što se dostigne ovaj datum. Ostavite ovu opciju praznom ako ne želite slati obavijesti.';
+$lang["action_dates_email_text_restrict"] = 'Sljedeći resursi trebaju biti ograničeni za [days] dana.';
+$lang["action_dates_email_text_state"] = 'Sljedeći resursi će promijeniti status za [days] dana.';
+$lang["action_dates_email_text"] = 'Sljedeći resursi trebaju biti ograničeni i/ili promijeniti status za [days] dana.';
+$lang["action_dates_email_range_restrict"] = 'Sljedeći resursi trebaju biti ograničeni unutar [days_min] do [days] dana.';
+$lang["action_dates_email_range_state"] = 'Sljedeći resursi će promijeniti status unutar [days_min] do [days] dana.';
+$lang["action_dates_email_range"] = 'Sljedeći resursi trebaju biti ograničeni i/ili promijeniti status unutar [days_min] do [days] dana.';
+$lang["action_dates_email_subject_restrict"] = 'Obavijest o resursima koji će biti ograničeni';
+$lang["action_dates_email_subject_state"] = 'Obavijest o resursima koji trebaju promijeniti status';
+$lang["action_dates_email_subject"] = 'Obavijest o resursima koji će biti ograničeni i/ili promijeniti status';
+$lang["action_dates_new_state"] = 'Nova država za premještanje (ako je prethodna opcija postavljena na potpuno brisanje resursa, ovo će biti ignorirano)';
+$lang["action_dates_notification_subject"] = 'Obavijest iz dodatka datuma radnje';
+$lang["action_dates_additional_settings"] = 'Dodatne radnje';
+$lang["action_dates_additional_settings_info"] = 'Dodatno premjesti resurse u odabrano stanje kada se dostigne određeno polje';
+$lang["action_dates_additional_settings_date"] = 'Kada se dostigne ovaj datum';
+$lang["action_dates_additional_settings_status"] = 'Premjesti resurse u ovaj arhivski status';
+$lang["action_dates_remove_from_collection"] = 'Ukloniti resurse iz svih povezanih kolekcija kada se promijeni status?';
+$lang["action_dates_email_for_state"] = 'Pošalji obavijest o promjeni stanja resursa. Zahtijeva konfiguraciju polja za promjenu stanja iznad.';
+$lang["action_dates_email_for_restrict"] = 'Pošalji obavijest za ograničavanje resursa. Potrebno je konfigurirati polja za ograničavanje resursa gore navedena.';
+$lang["action_dates_workflow_actions"] = 'Ako je dodatak Napredni radni tok omogućen, trebaju li se njegove obavijesti primjenjivati na promjene stanja pokrenute ovim dodatkom?';
+$lang["action_dates_weekdays"] = 'Odaberite dane u tjednu kada će se obraditi radnje.';
+$lang["weekday-0"] = 'Nedjelja';
+$lang["weekday-1"] = 'Ponedjeljak';
+$lang["weekday-2"] = 'Utorak';
+$lang["weekday-3"] = 'Srijeda';
+$lang["weekday-4"] = 'Četvrtak';
+$lang["weekday-5"] = 'Petak';
+$lang["weekday-6"] = 'Subota';
+$lang["plugin-action_dates-title"] = 'Datumi radnji';
+$lang["plugin-action_dates-desc"] = 'Omogućuje zakazano brisanje ili ograničenje resursa na temelju polja s datumima';
+
+$lang["page-title_action_dates_setup"] = 'Postavljanje dodatka za akcijske datume';

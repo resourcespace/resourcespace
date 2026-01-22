@@ -1,0 +1,11 @@
+The job queue - a list of active offline jobs such as preview processing.
+ref,int(11),
+type,varchar(100),Job type e.g. collection_download that matches the name of handler files in include/job_handlers. Custom types can be created by plugins if they also include a handler
+job_data,mediumtext,JSON encoded job data
+start_date,datetime,Earliest time to start the job
+user,int(11),
+status,int(11),Job status code e.g. STATUS_COMPLETE. See definitions.php
+success_text,varchar(250),Text to include in message if job completes successfully
+failure_text,varchar(250),Text to include in message if job fails
+job_code,varchar(100),Unique hash. Used to prevent duplicate jobs
+priority,tinyint(1),Job priority. Lower numbers are higher priority. Refer to definitions.php and Knowledge Base for more information

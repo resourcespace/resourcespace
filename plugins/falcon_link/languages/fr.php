@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Lien Falcon';
+$lang["falcon_link_manage"] = 'Publier/archiver Falcon';
+$lang["falcon_link_publish"] = 'Publier sur Falcon';
+$lang["falcon_link_archive"] = 'Archiver dans Falcon';
+$lang["falcon_link_configuration"] = 'Lien Falcon - Configuration';
+$lang["falcon_link_api_key"] = 'Clé API Falcon';
+$lang["falcon_link_notconfigured"] = 'Le plugin Falcon Link n\'est pas configuré. Veuillez demander à votre administrateur de configurer le plugin.';
+$lang["falcon_link_resource_types_to_include"] = 'Sélectionnez les types de ressources Falcon valides';
+$lang["falcon_link_not_permitted_extension"] = 'Le type de fichier %TYPE% ne peut pas être téléchargé sur Falcon';
+$lang["falcon_link_text_field"] = 'Champ de texte de modèle de faucon';
+$lang["falcon_link_default_tag"] = 'Texte de tag par défaut qui sera automatiquement ajouté à tout contenu publié Falcon. Si vous incluez le texte \'[ID]\', cela sera remplacé par l\'ID de la ressource dans le tag';
+$lang["falcon_link_template_url"] = 'URL du modèle Falcon. Cela vous permet de visualiser la ressource publiée directement dans Falcon. La balise [id] sera remplacée par l\'identifiant attribué par Falcon lorsque la ressource est publiée';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Champs d\'étiquettes Falcon. Ceux-ci seront concaténés et ajoutés aux étiquettes de modèle Falcon';
+$lang["falcon_link_id_field"] = 'Champ de métadonnées pour stocker l\'identifiant du Faucon';
+$lang["falcon_link_log_share"] = 'Publié sur Falcon';
+$lang["falcon_link_archived"] = 'Archivé';
+$lang["falcon_link_access_denied"] = 'Vous n\'avez pas la permission de publier la/les ressource(s) sélectionnée(s)';
+$lang["falcon_link_already_published"] = 'Cette ressource a été publiée sur Falcon';
+$lang["falcon_link_resources_already_published"] = 'Certaines ressources ont déjà été publiées sur Falcon et ne peuvent pas être republiées';
+$lang["falcon_link_resource_not_published"] = 'La ressource n\'a pas été publiée sur Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'La ressource ne peut pas être publiée sur Falcon';
+$lang["falcon_link_template_description"] = 'Description du modèle';
+$lang["falcon_link_template_tags"] = 'Balises de modèle qui seront ajoutées';
+$lang["falcon_link_missing_file"] = 'La ressource n\'a pas de fichier original';
+$lang["falcon_link_existing_id"] = 'Identifiant Falcon existant';
+$lang["falcon_link_not_uploaded"] = 'Non téléchargé';
+$lang["falcon_link_publish_button_text"] = 'Publier';
+$lang["falcon_link_archive_button_text"] = 'Archiver';
+$lang["falcon_link_publish_success"] = 'Publié avec succès';
+$lang["falcon_link_archived_success"] = 'Archivé avec succès.<br />Les partages de ressources sont toujours actifs et devront être supprimés manuellement si nécessaire.';
+$lang["falcon_link_usergroups"] = 'Groupes ayant accès à la gestion des modèles Falcon';
+$lang["falcon_link_filter"] = 'Filtre pour déterminer les ressources qui peuvent être publiées sur Falcon';
+$lang["falcon_link_error_no_resources"] = 'Aucune ressource soumise pour publication';
+$lang["falcon_link_error_falcon_api"] = 'Une erreur s\'est produite lors de la communication avec Falcon. Veuillez vérifier l\'état pour plus de détails.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Erreur de Faucon';
+$lang["falcon_link_view_in_falcon"] = 'Afficher dans Falcon';
+$lang["falcon_link_share_user"] = 'Texte utilisateur à afficher pour les partages créés pour Falcon, par exemple "partagé avec user@falcon.io"';
+$lang["falcon_link_log_publish"] = 'Ressource partagée via Falcon';
+$lang["falcon_link_log_archive"] = 'Ressource archivée via Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Veuillez vérifier que la description et les tags ne sont pas vides';
+$lang["plugin-falcon_link-title"] = 'Lien Falcon';
+$lang["plugin-falcon_link-desc"] = '[Avancé] Publier des ressources sur Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Configurer le plugin Falcon Link';

@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = '选择要用于自动执行指定操作的字段。';
+$lang["action_dates_deletesettings"] = '自动资源主要操作设置 - 谨慎使用';
+$lang["action_dates_delete"] = '当此字段中的日期到达时，自动删除或更改资源状态。';
+$lang["action_dates_eligible_states"] = '符合主要自动操作的状态。如果未选择任何状态，则所有状态均符合条件。';
+$lang["action_dates_restrict"] = '当此字段中的日期到达时，自动限制对资源的访问。这仅适用于当前访问是开放的资源。';
+$lang["action_dates_delete_logtext"] = '自动执行的操作，由action_dates插件触发。';
+$lang["action_dates_restrict_logtext"] = '自动受 action_dates 插件限制。';
+$lang["action_dates_reallydelete"] = '当操作日期过期时，是否完全删除资源？如果设置为false，则资源将移动到配置的resource_deletion_state，并且可以恢复。';
+$lang["action_dates_email_admin_days"] = '在到达此日期之前的一定天数内通知系统管理员。如果不需要发送通知，请将此选项留空。';
+$lang["action_dates_email_text_restrict"] = '以下资源将在[days]天后受到限制。';
+$lang["action_dates_email_text_state"] = '以下资源将在[days]天内更改状态。';
+$lang["action_dates_email_text"] = '以下资源将在[days]天内受到限制和/或更改状态。';
+$lang["action_dates_email_range_restrict"] = '以下资源将在 [days_min] 至 [days] 天内受到限制。';
+$lang["action_dates_email_range_state"] = '以下资源将在 [days_min] 至 [days] 天内更改状态。';
+$lang["action_dates_email_range"] = '以下资源将在 [days_min] 至 [days] 天内受到限制和/或更改状态。';
+$lang["action_dates_email_subject_restrict"] = '资源即将受限的通知';
+$lang["action_dates_email_subject_state"] = '资源状态变更通知';
+$lang["action_dates_email_subject"] = '资源即将受限或更改状态的通知';
+$lang["action_dates_new_state"] = '新的状态以移动到（如果上面的选项设置为完全删除资源，则将被忽略）';
+$lang["action_dates_notification_subject"] = '动作日期插件通知';
+$lang["action_dates_additional_settings"] = '附加操作';
+$lang["action_dates_additional_settings_info"] = '此外，当达到指定字段时，将资源移动到所选状态。';
+$lang["action_dates_additional_settings_date"] = '当达到这个日期时';
+$lang["action_dates_additional_settings_status"] = '将资源移动到此存档状态。';
+$lang["action_dates_remove_from_collection"] = '当状态改变时，从所有相关的集合中移除资源？';
+$lang["action_dates_email_for_state"] = '发送资源状态更改通知。需要配置上面的状态更改字段。';
+$lang["action_dates_email_for_restrict"] = '发送资源受限通知。需要配置以上的受限资源字段。';
+$lang["action_dates_workflow_actions"] = '如果启用了高级工作流插件，它的通知是否应用于由此插件发起的状态更改？';
+$lang["action_dates_weekdays"] = '选择处理操作的工作日。';
+$lang["weekday-0"] = '星期日';
+$lang["weekday-1"] = '星期一';
+$lang["weekday-2"] = '星期二';
+$lang["weekday-3"] = '星期三';
+$lang["weekday-4"] = '星期四';
+$lang["weekday-5"] = '星期五';
+$lang["weekday-6"] = '星期六';
+$lang["plugin-action_dates-title"] = '操作日期';
+$lang["plugin-action_dates-desc"] = '启用基于日期字段的资源定期删除或限制';
+
+$lang["page-title_action_dates_setup"] = '设置操作日期插件';

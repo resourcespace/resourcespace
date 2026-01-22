@@ -1,0 +1,57 @@
+<?php
+
+$lang["consent_management"] = 'Rheoli Cydsyniad';
+$lang["new_consent"] = 'Cydsyniad newydd';
+$lang["edit_consent"] = 'Golygu caniatâd';
+$lang["delete_consent"] = 'Dileu cydsyniad';
+$lang["consent_id"] = 'ID Cydsyniad';
+$lang["consentmanager_new"] = 'Cydsyniad newydd';
+$lang["manageconsents"] = 'Cydsyniadau';
+$lang["manageconsent"] = 'Cydsyniad';
+$lang["no_expiry_date"] = 'Dim dyddiad dod i ben';
+$lang["action-unlink"] = 'Diddymu';
+$lang["unlink_consent"] = 'Diddymu cydsyniad';
+$lang["consentsearch"] = 'Chwilio yn ôl enw';
+$lang["linkedresources"] = 'Adnoddau cysylltiedig';
+$lang["linkconsent"] = 'Cydsyniad dolen';
+$lang["unlinkconsent"] = 'Caniatheb ddiddymu';
+$lang["selectconsent"] = 'Dewiswch ID cydsyniad os gwelwch yn dda';
+$lang["name"] = 'Enw';
+$lang["usage"] = 'Defnydd';
+$lang["telephone"] = 'Ffôn';
+$lang["notes"] = 'Nodau';
+$lang["confirmdeleteconsentfile"] = 'A ydych yn siŵr eich bod am DDIWEDDARU\'r ffeil hon? Ni ellir ei ddychwelyd.';
+$lang["consent_manager_mediums"] = 'Cydsyniad ar gyfryngau defnydd';
+$lang["consent_manager_access"] = 'Rheoli data cydsyniad (lle nad yw eisoes wedi\'i galluogi trwy\'r caniatâd "Gall gael mynediad i\'r ardal Gosod System")';
+
+$lang["manageconsent-tooltip"] = 'Creu a rheoli cofrestriadau cydsyniad ar gyfer adnoddau';
+
+$lang["consent_status"] = 'Statws cydsyniad';
+$lang["no_consent_date"] = 'Dim dyddiad cydsyniad';
+$lang["date_of_birth"] = 'Dyddiad geni';
+$lang["address"] = 'Cyfeiriad';
+$lang["parent_guardian"] = 'Enw Rhieni/Gwarcheidwad';
+$lang["date_of_consent"] = 'Dyddiad cydsyniad';
+$lang["consent_expiry_notification"] = 'Hysbysiadau dod i ben cydsyniad';
+$lang["consent_expiry_notification_days"] = 'Nifer y dyddiau cyn i\'r caniatâd ddod i ben pan fydd defnyddwyr gyda\'r awdurdod \'Rheoli caniatâd\' yn cael eu hysbysu';
+$lang["consent_attach_upload"] = 'Caniatáu cofre consent i gael ei gysylltu ar y dudalen Diddymu Metadata ar ôl llwytho i fyny';
+$lang["consent_expired_workflow_state"] = 'Archifwch yn awtomatig adnoddau sy\'n gysylltiedig â chydsyniadau wedi dod i ben i\'r cyflwr llif gwaith hwn';
+$lang["user_pref_consent_notifications"] = 'Anfonwch hysbysiadau cydsynio sy\'n dod i ben?';
+$lang["consent_status_all"] = 'Pob caniatad';
+$lang["consent_status_active"] = 'Cydsyniadau gweithredol';
+$lang["consent_status_expiring"] = 'Cydsyniadau sy\'n dod i ben';
+$lang["consent_status_expired"] = 'Cydsyniadau wedi dod i ben';
+$lang["consent_view_linked_resources_short"] = 'Gweld';
+$lang["consent_no_archiving"] = 'Dim Newid';
+$lang["consent_notification_expiring_soon"] = 'Cydsyniadau\'n Dod i Ben yn Fuan';
+$lang["consent_notification_user_pref"] = 'Newid a ydych yn derbyn y rhybuddion hyn';
+$lang["consent_notification_global_pref"] = 'Anallu\'r hysbysiadau hyn ar gyfer pawb';
+$lang["consent_notification_link"] = 'Gweld nhw yma';
+$lang["consent_notification_message"] = 'Mae rhai caniatâd yn dod i ben yn fuan.';
+$lang["page-title_consentmanager_batch"] = 'Cytundebau Casgliad';
+$lang["page-title_consentmanager_delete"] = 'Dileu Cydsyniad';
+$lang["page-title_consentmanager_download"] = 'Cydsyniad Lawrlwytho';
+$lang["page-title_consentmanager_edit"] = 'Golygu Cydsyniad';
+$lang["page-title_consentmanager_list"] = 'Rheoli Cydsyniadau';
+$lang["page-title_consentmanager_setup"] = 'Sefydlu Plugin Cydsyniad';
+$lang["page-title_consentmanager_unlink"] = 'Diddymu Cydsyniad';

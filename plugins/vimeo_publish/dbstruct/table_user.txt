@@ -1,0 +1,2 @@
+vimeo_access_token,varchar(255),YES,,,
+vimeo_state,varchar(255),YES,,,

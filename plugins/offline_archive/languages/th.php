@@ -1,0 +1,57 @@
+<?php
+
+
+$lang["offline_archive_configuration"]='หน้าแสดงการตั้งค่าอาร์คิฟออฟไลน์';
+$lang["offline_archive_archivefield"]='กรุณาเลือกฟิลด์เมตาดาต้าที่จะเก็บรหัสอ้างอิงของคลังข้อมูล';
+$lang["offline_archive_archivepath"]='กรุณาใส่ตำแหน่งที่เอกสารจะถูกสร้างขึ้น';
+$lang["offline_archive_restorepath"]='สำหรับการกู้คืนทรัพยากรในโฟลเดอร์ StaticSync คุณสามารถป้อนโฟลเดอร์ย่อยของโฟลเดอร์ StaticSync ที่ไฟล์ที่กู้คืนจะถูกวางไว้';
+$lang["offline_archive_preservedate"]='รักษาเวลาไฟล์หรือไม่?';
+$lang["offline_archive_administer_archive"]='จัดการคลังข้อมูล';
+$lang["offline_archive_view_pending"]='ดูทรัพยากรที่รอดการเก็บถาวร';
+$lang["offline_archive_view_pending_restore"]='ดูทรัพยากรที่รอการกู้คืน';
+$lang["offline_archive_view_completed"]='ดูงานที่เก็บถาวร';
+$lang["offline_archive_view_associated"]='ดูทรัพยากรที่เกี่ยวข้อง';
+$lang["offline_archive_view_as_search"]='ดูทรัพยากรเป็นการค้นหา';
+$lang["offline_archive_entername"]='กรุณาใส่ชื่อคลังข้อมูล';
+$lang["offline_archive_input_text"]='กรุณาใส่รายการของทรัพยากรหรือรหัสคอลเลกชันเพื่อทำเครื่องหมายสำหรับการกู้คืน';
+$lang["offline_archive_input_resources"]='กรุณาใส่รหัสทรัพยากรที่ต้องการกู้คืน โดยแยกด้วยเครื่องหมายจุลภาค';
+$lang["offline_archive_input_collection"]='กรุณาใส่รหัสคอลเลกชันเพื่อกู้คืน';
+$lang["offline_archive_name"]='คำนำหน้าเอกสารเก็บถาวร';
+$lang["offline_archive_createnew"]='สร้างงานเก็บถาวรใหม่';
+$lang["offline_archive_archive_created"]='สร้างคลังข้อมูลสำเร็จแล้ว';
+$lang["offline_archive_archive_ref"]='การอ้างอิงเอกสารเก็บถาวร';
+$lang["offline_archive_archive_date"]='วันที่เก็บถาวร';
+$lang["offline_archive_archive_status"]='วันที่เก็บถาวร';
+$lang["offline_archive_request_restore"]='ขอคืนค่า';
+$lang["offline_archive_cancel_restore"]='ยกเลิกการกู้คืน';
+$lang["offline_archive_cancel_confirm"]='คุณแน่ใจหรือว่าต้องการยกเลิกการกู้คืนทรัพยากรนี้';
+$lang["offline_archive_restore_pending"]='รอการกู้คืนจากคลังข้อมูล';
+$lang["offline_archive_restore_confirm"]='ยืนยันการกู้คืน';
+$lang["offline_archive_restore_resources"]='กู้คืนทรัพยากรจากคลังข้อมูล';
+$lang["offline_archive_restore_resource"]='กู้คืนจากคลัง';
+$lang["offline_archive_request_restore_text"]='กรุณากรอกเหตุผลสำหรับคำขอ';
+$lang["offline_archive_request_restore_reason"]='เหตุผลในการขอคืนค่า';
+$lang["offline_archive_request_email_subject"]='คำขอคืนค่าอาร์คิฟออฟไลน์';
+$lang["offline_archive_requestsenttext"]='คำขอคืนค่าเอกสารของคุณได้ถูกส่งแล้วและจะถูกตรวจสอบในไม่ช้า';
+$lang["offline_archive_resources_restore_confirmed"]='ทรัพยากรถูกตั้งค่าเรียบร้อยสำหรับการกู้คืนและจะถูกกู้คืนเมื่อมีการแทรกหรือคัดลอกเอกสารเก่าที่เกี่ยวข้องไปยังตำแหน่งเก็บเอกสารที่กำหนด';
+$lang["offline_archive_resources_restore_cancel_confirmed"]='ทรัพยากรถูกลบออกจากการกู้คืนที่รอดำเนินการเรียบร้อยแล้ว';
+$lang["offline_archive_resource_log_archived"]='- ถูกเก็บถาวรโดยปลั๊กอินเก็บถาวรออฟไลน์ รหัสเก็บถาวร:';
+$lang["offline_archive_resource_log_restored"]='- กู้คืนโดยปลั๊กอินอาร์คไกฟ์ออฟไลน์';
+$lang["offline_archive_resource_log_restore_set"]='ทำเครื่องหมายเพื่อกู้คืนจากคลังข้อมูล';
+$lang["offline_archive_resource_log_restore_removed"]='ยกเลิกการกู้คืนจากคลังข้อมูล';
+$lang["offline_archive_resource_log_restore_request"]='ขอคืนค่าจากคลังข้อมูล';
+$lang["offline_archive_resource_restore"]='กู้คืนทรัพยากร';
+$lang["offline_archive_administer_archive-tooltip"] = 'ย้ายไฟล์ที่เก็บถาวรไปยังตำแหน่งออฟไลน์';
+$lang["offline_archive_statustype"] = array (
+  0 => 'รอดำเนินการ',
+  1 => 'กำลังดำเนินการ',
+  2 => 'เสร็จสิ้น',
+);
+$lang["page-title_offline_archive_administer_archive"] = 'จัดการคลังข้อมูล';
+$lang["page-title_offline_archive_offline_archive_action"] = 'อาร์คิฟออฟไลน์';
+$lang["page-title_offline_archive_pending_restore"] = 'การกู้คืนทรัพยากรที่รอดำเนินการ';
+$lang["page-title_offline_archive_restore_request"] = 'ขอคืนทรัพยากร';
+$lang["page-title_offline_archive_restore"] = 'กู้คืนคลังข้อมูล';
+$lang["page-title_offline_archive_setup"] = 'ตั้งค่า Plugin';
+$lang["page-title_offline_archive_view_archives"] = 'ดูคลังทรัพยากร';
+$lang["page-title_offline_archive_view_pending"] = 'ดูเอกสารที่รอดำเนินการ';

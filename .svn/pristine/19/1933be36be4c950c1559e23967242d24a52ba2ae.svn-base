@@ -1,0 +1,11 @@
+#embed-video {
+    display: none;
+    width: 400px;
+    height: 200px;
+}
+
+#embed-video-help {
+    display: none;
+    width: 400px;
+    float: left;
+}

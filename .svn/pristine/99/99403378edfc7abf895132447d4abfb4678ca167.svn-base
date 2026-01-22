@@ -1,0 +1,135 @@
+@media all {
+  div#content {
+    margin: 0.4em !important;
+  }
+
+  .tableview {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin: 1em;
+    width: 80%;
+  }
+
+  .tableview th,
+  .tableview td {
+    border: 1px solid #ccc;
+    padding: 0 5px;
+  }
+
+  table.timeseries tr.odd td {
+    background-color: #f4f4f4;
+  }
+
+  .tableview tr.total td {
+    color: #500;
+    font-weight: bold;
+  }
+
+  .tableview tr.even td {
+    background: #f5f5f5;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .tableview th {
+    background: #e5e5e5;
+  }
+
+  .tableview th.value,
+  .tableview td.value {
+    text-align: right;
+  }
+
+  table.timeseries td {
+    padding-right: 2em;
+    border: 1px solid #ccc;
+  }
+
+  td.datacontent {
+    text-align: right;
+  }
+
+  table.selecttime {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: #eee;
+    margin: 1px 0;
+    padding: 0;
+  }
+
+  td.selecttime-icon {
+    width: 50px;
+    padding: 0;
+  }
+
+  td.selecttime-icon img {
+    margin: 0;
+  }
+
+  td.selecttime-link-grey {
+    color: #ccc;
+  }
+
+  td.td-right {
+    text-align: right;
+  }
+
+  td.td-next-right {
+    padding-right: 4px;
+  }
+
+  td.td-left {
+    text-align: left;
+  }
+
+  p.p-right {
+    text-align: right;
+  }
+
+  form {
+    display: inline;
+  }
+
+  table#statmeta {
+    width: 100%;
+  }
+
+  ul.tabset-tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.tabset-tabs li {
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  ul.tabset-tabs li.current {
+    background: #ededed;
+    color: #222;
+  }
+
+  .tabset-content {
+    display: none;
+    background: #ededed;
+    padding: 15px;
+  }
+
+  .tabset-content.current {
+    display: inherit;
+  }
+
+  #graph img {
+    max-width: 77%;
+    height: auto;
+  }
+
+  #table img {
+    max-width: 77%;
+    height: auto;
+  }
+}

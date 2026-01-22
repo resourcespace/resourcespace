@@ -1,0 +1,4 @@
+Filter definition. Used for search, edit and derestrict filters on usergroups
+ref,int(11),
+name,varchar(200),Name of filter
+filter_condition,int(11),Defines which rules must be met to satisfy the filter (RS_FILTER_ALL|RS_FILTER_NONE|RS_FILTER_ANY)

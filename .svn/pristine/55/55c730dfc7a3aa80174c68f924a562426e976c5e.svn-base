@@ -1,0 +1,69 @@
+{% set pagetitle = 'Select your identity provider'|trans %}
+{% extends "base.twig" %}
+
+{% block preload %}
+    <link rel="stylesheet" media="screen" href="{{ asset('css/ui-theme-1.13.2/jquery-ui.min.css', 'discopower') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('css/disco.css', 'discopower') }}">
+{% endblock %}
+{% block postload %}
+    <script src="{{ asset('js/jquery-3.6.0.min.js', 'discopower') }}"></script>
+    <script src="{{ asset('js/jquery-ui-1.13.2.min.js', 'discopower') }}"></script>
+    <script src="{{ asset('js/jquery.livesearch.js', 'discopower') }}"></script>
+    <script src="{{ asset('js/' ~ score ~ '.js', 'discopower') }}"></script>
+    <script src="{{ asset('js/tablist.js', 'discopower') }}"></script>
+{% endblock %}
+
+{% block content %}
+    {% if faventry is not empty %}
+    <div class="favourite">{{ 'You have previously chosen to authenticate at'|trans }}
+        <strong>{{ faventry|entityDisplayName }}</strong><br>
+        <form id="idpselectform" class="pure-form" method="get" action="{{ urlpattern }}">
+            <input type="hidden" name="entityID" value="{{ entityID }}">
+            <input type="hidden" name="return" value="{{ return }}">
+            <input type="hidden" name="returnIDParam" value="{{ returnIDParam }}">
+            <input type="hidden" name="idpentityid" value="{{ faventry.entityid }}">
+            <input type="submit" name="formsubmit" id="favouritesubmit" value="{{ 'Login at'|trans }} {{ faventry|entityDisplayName }}" class="pure-button pure-button-primary">
+            {% if rememberenabled %}
+            <label for="remember" id="favouriteremember" class="pure-checkbox" title="{{ "The institution you've chosen will be saved in this browser so that you do not need to select it each time you login."|trans }}">
+                <input type="checkbox" name="remember" id="remember" value="1"{% if rememberchecked %} checked{% endif %}>
+                {{ 'Remember my choice' | trans }}
+            </label>
+            {% endif %}
+        </form>
+    </div>
+    {% endif %}
+
+    <div id="tabdiv">
+        <ul class="tabset_tabs">
+        {% for tab, idps in idplist %}
+            {% if idps is not empty %}
+            {# NOTE: pass through raw to allow HTML in tabNames, e.g. Belgi&euml; #}
+            <li class="tab-link{% if loop.first %}current{% endif %}" data-tab="{{ tab }}"><a href="#{{ tab }}"><span>{{ tabNames[tab]|trans|raw }}</span></a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+
+        {% for tab, idps in idplist %}
+        {% if idps is not empty %}
+          <div id="{{ tab }}" class="tabset_content{% if loop.first %} current{% endif %}">
+          <div class="inlinesearch">
+              <form id="idpselectform" method="get">
+                  <input class="inlinesearch" type="text" value="" name="query_{{ tab }}" id="query_{{ tab }}" placeholder="{{ '{discopower:tabs:incremental_search}'|trans }}" aria-label="{{ '{discopower:tabs:incremental_search}'|trans }}">
+              </form>
+          </div>
+          <div class="metalist" id="list_{{ tab }}">
+          {% for entityid, entity in idps %}
+              <a class="metaentry{% if entity == faventry %} favourite{% endif %}"
+                  href="{{ entity.actionUrl }}"
+                  data-keywords="{{ entity.keywords }}">{{ entity|entityDisplayName }}
+              {% if entity.iconUrl is defined %}
+                    <img alt="Icon for identity provider" class="entryicon" src="{{ entity.iconUrl }}" loading="lazy">
+              {% endif %}
+              </a>
+          {% endfor %}
+          </div>
+          </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

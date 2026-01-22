@@ -1,0 +1,48 @@
+{
+    "name": "simplesamlphp/simplesamlphp-module-sqlauth",
+    "description": "This is a authentication module for authenticating a user against a SQL database",
+    "type": "simplesamlphp-module",
+    "keywords": ["simplesamlphp", "sqlauth"],
+    "license": "LGPL-2.1-or-later",
+    "authors": [
+        {
+            "name": "Olav Morken",
+            "email": "olavmrk@gmail.com"
+        }
+    ],
+    "config": {
+        "preferred-install": {
+            "simplesamlphp/simplesamlphp": "source",
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "simplesamlphp/composer-module-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleSAML\\Module\\sqlauth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleSAML\\Test\\Utils\\": "vendor/simplesamlphp/simplesamlphp/tests/Utils"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "ext-pdo": "*",
+        "simplesamlphp/assert": "^1.1.0",
+        "simplesamlphp/composer-module-installer": "^1.3.4",
+        "simplesamlphp/simplesamlphp": "^2.2"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp-test-framework": "^1.6.0"
+    },
+    "support": {
+        "issues": "https://github.com/simplesamlphp/simplesamlphp-module-sqlauth/issues",
+        "source": "https://github.com/simplesamlphp/simplesamlphp-module-sqlauth"
+    }
+}

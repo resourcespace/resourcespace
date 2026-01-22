@@ -1,0 +1,57 @@
+<?php
+
+$lang["consent_management"] = 'ਸਹਿਮਤੀ ਪ੍ਰਬੰਧਨ';
+$lang["new_consent"] = 'ਨਵੀਂ ਸਹਿਮਤੀ';
+$lang["edit_consent"] = 'ਸਹਿਮਤੀ ਸੋਧੋ';
+$lang["delete_consent"] = 'ਸਹਿਮਤੀ ਮਿਟਾਓ';
+$lang["consent_id"] = 'ਸਹਿਮਤੀ ID';
+$lang["consentmanager_new"] = 'ਨਵੀਂ ਸਹਿਮਤੀ';
+$lang["manageconsents"] = 'ਸਹਿਮਤੀਆਂ';
+$lang["manageconsent"] = 'ਸਹਿਮਤੀ';
+$lang["no_expiry_date"] = 'ਕੋਈ ਮਿਆਦ ਖਤਮ ਹੋਣ ਦੀ ਤਾਰੀਖ ਨਹੀਂ';
+$lang["action-unlink"] = 'ਅਨਲਿੰਕ ਕਰੋ';
+$lang["unlink_consent"] = 'ਸਹਿਮਤੀ ਨੂੰ ਅਨਲਿੰਕ ਕਰੋ';
+$lang["consentsearch"] = 'ਨਾਮ ਦੁਆਰਾ ਖੋਜੋ';
+$lang["linkedresources"] = 'ਲਿੰਕ ਕੀਤੇ ਗਏ ਸਰੋਤ';
+$lang["linkconsent"] = 'ਸਹਿਮਤੀ ਲਿੰਕ ਕਰੋ';
+$lang["unlinkconsent"] = 'ਸਹਿਮਤੀ ਨੂੰ ਅਨਲਿੰਕ ਕਰੋ';
+$lang["selectconsent"] = 'ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਸਹਿਮਤੀ ID ਚੁਣੋ';
+$lang["name"] = 'ਨਾਮ';
+$lang["usage"] = 'ਵਰਤੋਂ';
+$lang["telephone"] = 'ਟੈਲੀਫੋਨ';
+$lang["notes"] = 'ਨੋਟਸ';
+$lang["confirmdeleteconsentfile"] = 'ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਫਾਈਲ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।';
+$lang["consent_manager_mediums"] = 'ਸਹਿਮਤੀ ਉਪਯੋਗ ਮਾਧਿਅਮਾਂ';
+$lang["consent_manager_access"] = 'ਸਹਿਮਤੀ ਡਾਟਾ ਪ੍ਰਬੰਧਿਤ ਕਰੋ (ਜਿੱਥੇ "ਸਿਸਟਮ ਸੈਟਅੱਪ ਖੇਤਰ ਤੱਕ ਪਹੁੰਚ ਸਕਦੇ ਹਨ" ਅਧਿਕਾਰ ਰਾਹੀਂ ਪਹਿਲਾਂ ਹੀ ਯੋਗ ਨਹੀਂ ਕੀਤਾ ਗਿਆ)';
+
+$lang["manageconsent-tooltip"] = 'ਸੰਸਾਧਨਾਂ ਲਈ ਸਹਿਮਤੀ ਰਿਕਾਰਡ ਬਣਾਓ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ';
+
+$lang["consent_status"] = 'ਸਹਿਮਤੀ ਦੀ ਸਥਿਤੀ';
+$lang["no_consent_date"] = 'ਕੋਈ ਸਹਿਮਤੀ ਦੀ ਤਾਰੀਖ ਨਹੀਂ';
+$lang["date_of_birth"] = 'ਜਨਮ ਦੀ ਤਾਰੀਖ';
+$lang["address"] = 'ਪਤਾ';
+$lang["parent_guardian"] = 'ਮਾਪੇ/ਸੁਰੱਖਿਆਕਰਤਾ ਦਾ ਨਾਮ';
+$lang["date_of_consent"] = 'ਸਹਿਮਤੀ ਦੀ ਤਾਰੀਖ';
+$lang["consent_expiry_notification"] = 'ਸਹਿਮਤੀ ਸਮਾਪਤ ਹੋਣ ਦੀ ਸੂਚਨਾ';
+$lang["consent_expiry_notification_days"] = 'ਉਹ ਦਿਨਾਂ ਦੀ ਗਿਣਤੀ ਜਦੋਂ \'ਸਹਿਮਤੀ ਪ੍ਰਬੰਧਨ\' ਅਧਿਕਾਰ ਵਾਲੇ ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਸੂਚਿਤ ਕੀਤਾ ਜਾਵੇਗਾ ਕਿ ਸਹਿਮਤੀ ਦੀ ਮਿਆਦ ਖਤਮ ਹੋਣੀ ਹੈ';
+$lang["consent_attach_upload"] = 'ਅਪਲੋਡ ਕਰਨ ਤੋਂ ਬਾਅਦ ਰਿਫਾਈਨ ਮੈਟਾਡਾਟਾ ਪੰਨੇ \'ਤੇ ਇੱਕ ਸਹਿਮਤੀ ਰਿਕਾਰਡ ਜੁੜਨ ਦੀ ਆਗਿਆ ਦਿਓ';
+$lang["consent_expired_workflow_state"] = 'ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ expired consents ਨਾਲ ਜੁੜੇ ਸਰੋਤਾਂ ਨੂੰ ਇਸ ਵਰਕਫਲੋ ਸਥਿਤੀ ਵਿੱਚ ਆਰਕਾਈਵ ਕਰੋ';
+$lang["user_pref_consent_notifications"] = 'ਕੀ ਤੁਸੀਂ ਮੈਨੂੰ ਸਮਾਪਤੀ ਵਾਲੀਆਂ ਸਹਿਮਤੀ ਸੂਚਨਾਵਾਂ ਭੇਜ ਸਕਦੇ ਹੋ?';
+$lang["consent_status_all"] = 'ਸਾਰੇ ਸਹਿਮਤੀਆਂ';
+$lang["consent_status_active"] = 'ਸਰਗਰਮ ਸਹਿਮਤੀਆਂ';
+$lang["consent_status_expiring"] = 'ਮਿਆਦ ਖਤਮ ਹੋ ਰਹੇ ਸਹਿਮਤੀਆਂ';
+$lang["consent_status_expired"] = 'ਮਿਆਦ ਪੂਰੀ ਹੋ ਚੁੱਕੀਆਂ ਸਹਿਮਤੀਆਂ';
+$lang["consent_view_linked_resources_short"] = 'ਦੇਖੋ';
+$lang["consent_no_archiving"] = 'ਕੋਈ ਬਦਲਾਅ ਨਹੀਂ';
+$lang["consent_notification_expiring_soon"] = 'ਸਹਿਮਤੀਆਂ ਜਲਦੀ ਖਤਮ ਹੋ ਰਹੀਆਂ ਹਨ';
+$lang["consent_notification_user_pref"] = 'ਇਹ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਦੀ ਸਥਿਤੀ ਬਦਲੋ';
+$lang["consent_notification_global_pref"] = 'ਇਹ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਸਭ ਲਈ ਅਯੋਗ ਕਰੋ';
+$lang["consent_notification_link"] = 'ਇਹਾਂ ਉਨ੍ਹਾਂ ਨੂੰ ਵੇਖੋ';
+$lang["consent_notification_message"] = 'ਕੁਝ ਸਹਿਮਤੀਆਂ ਜਲਦੀ ਖਤਮ ਹੋ ਰਹੀਆਂ ਹਨ।';
+$lang["page-title_consentmanager_batch"] = 'ਸੰਗ੍ਰਹਿ ਸਹਿਮਤੀਆਂ';
+$lang["page-title_consentmanager_delete"] = 'ਸਹਿਮਤੀ ਹਟਾਓ';
+$lang["page-title_consentmanager_download"] = 'ਡਾਊਨਲੋਡ ਸਹਿਮਤੀ';
+$lang["page-title_consentmanager_edit"] = 'ਸਹਿਮਤੀ ਸੰਪਾਦਿਤ ਕਰੋ';
+$lang["page-title_consentmanager_list"] = 'ਸਹਿਮਤੀਆਂ ਦਾ ਪ੍ਰਬੰਧ ਕਰੋ';
+$lang["page-title_consentmanager_setup"] = 'ਸਹਿਮਤੀ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+$lang["page-title_consentmanager_unlink"] = 'ਲਿੰਕ ਹਟਾਓ ਸਹਿਮਤੀ';

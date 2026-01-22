@@ -1,0 +1,40 @@
+<?php
+
+$lang["action_dates_configuration"] = 'فیلدهایی را انتخاب کنید که برای انجام خودکار اقدامات مشخص شده استفاده خواهند شد.';
+$lang["action_dates_deletesettings"] = 'تنظیمات خودکار اقدام اولیه منبع - با احتیاط استفاده کنید';
+$lang["action_dates_delete"] = 'به‌طور خودکار منابع را حذف کنید یا وضعیت آن‌ها را تغییر دهید وقتی تاریخ در این فیلد فرا می‌رسد';
+$lang["action_dates_eligible_states"] = 'ایالت‌هایی که برای اقدام خودکار اولیه واجد شرایط هستند. اگر هیچ ایالتی انتخاب نشود، همه ایالت‌ها واجد شرایط هستند.';
+$lang["action_dates_restrict"] = 'به‌طور خودکار دسترسی به منابع را زمانی که تاریخ در این فیلد فرا می‌رسد محدود کنید. این فقط برای منابعی اعمال می‌شود که دسترسی آن‌ها در حال حاضر باز است.';
+$lang["action_dates_delete_logtext"] = '- به‌طور خودکار توسط افزونه action_dates انجام شد';
+$lang["action_dates_restrict_logtext"] = '- به‌طور خودکار توسط افزونه action_dates محدود شده است';
+$lang["action_dates_reallydelete"] = 'آیا منبع را به طور کامل حذف کنید وقتی تاریخ اقدام گذشته است؟ اگر روی false تنظیم شود، منابع به وضعیت حذف منبع پیکربندی شده منتقل می‌شوند و بنابراین قابل بازیابی هستند.';
+$lang["action_dates_email_admin_days"] = 'اطلاع‌رسانی به مدیران سیستم چند روز قبل از رسیدن به این تاریخ. این گزینه را خالی بگذارید تا هیچ اعلانی ارسال نشود.';
+$lang["action_dates_email_text_restrict"] = 'منابع زیر قرار است در [days] روز محدود شوند.';
+$lang["action_dates_email_text_state"] = 'منابع زیر قرار است در [days] روز تغییر وضعیت دهند.';
+$lang["action_dates_email_text"] = 'منابع زیر قرار است در [days] روز محدود شوند و/یا وضعیت تغییر کنند.';
+$lang["action_dates_email_range_restrict"] = 'منابع زیر قرار است در طی [days_min] تا [days_max] روز محدود شوند.';
+$lang["action_dates_email_range_state"] = 'منابع زیر قرار است در مدت [days_min] تا [days_max] روز تغییر وضعیت دهند.';
+$lang["action_dates_email_range"] = 'منابع زیر قرار است در طی [days_min] تا [days_max] روز محدود شوند و/یا وضعیت آنها تغییر کند.';
+$lang["action_dates_email_subject_restrict"] = 'اطلاعیه منابعی که قرار است محدود شوند';
+$lang["action_dates_email_subject_state"] = 'اطلاعیه منابع به دلیل تغییر وضعیت';
+$lang["action_dates_email_subject"] = 'اطلاعیه منابعی که قرار است محدود شوند و/یا وضعیت تغییر کنند';
+$lang["action_dates_new_state"] = 'وضعیت جدید برای انتقال به (اگر گزینه بالا برای حذف کامل منابع تنظیم شده باشد، این گزینه نادیده گرفته می‌شود)';
+$lang["action_dates_notification_subject"] = 'اعلان از افزونه تاریخ‌های اقدام';
+$lang["action_dates_additional_settings"] = 'اقدامات اضافی';
+$lang["action_dates_additional_settings_info"] = 'علاوه بر این، منابع را به وضعیت انتخاب شده منتقل کنید زمانی که فیلد مشخص شده به دست آید';
+$lang["action_dates_additional_settings_date"] = 'هنگامی که این تاریخ فرا برسد';
+$lang["action_dates_additional_settings_status"] = 'انتقال منابع به این حالت بایگانی';
+$lang["action_dates_remove_from_collection"] = 'حذف منابع از تمام مجموعه‌های مرتبط هنگام تغییر وضعیت؟';
+$lang["action_dates_email_for_state"] = 'ارسال اعلان برای تغییر وضعیت منابع. نیاز به پیکربندی فیلدهای تغییر وضعیت در بالا دارد.';
+$lang["action_dates_email_for_restrict"] = 'ارسال اعلان برای محدود کردن منابع. نیاز به پیکربندی فیلدهای محدودیت منابع در بالا دارد.';
+$lang["action_dates_workflow_actions"] = 'اگر افزونه جریان کار پیشرفته فعال باشد، آیا باید اعلان‌های آن به تغییرات وضعیت که توسط این افزونه آغاز شده‌اند اعمال شود؟';
+$lang["action_dates_weekdays"] = 'روزهای هفته را انتخاب کنید که در آن اقدامات پردازش شوند.';
+$lang["weekday-0"] = 'یکشنبه';
+$lang["weekday-1"] = 'دوشنبه';
+$lang["weekday-2"] = 'سه‌شنبه';
+$lang["weekday-3"] = 'چهارشنبه';
+$lang["weekday-4"] = 'پنج‌شنبه';
+$lang["weekday-5"] = 'جمعه';
+$lang["weekday-6"] = 'شنبه';
+
+$lang["page-title_action_dates_setup"] = 'نصب افزونه تاریخ‌های اقدام';

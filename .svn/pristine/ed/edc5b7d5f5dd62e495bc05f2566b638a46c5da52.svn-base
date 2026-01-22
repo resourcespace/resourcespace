@@ -1,0 +1,8 @@
+Defines the contents of a collection.
+collection,int(11),
+resource,int(11),
+date_added,timestamp,Date resource added to collection
+comment,text,Used if $collection_commenting=true
+rating,int(11),Used if $collection_commenting=true
+use_as_theme_thumbnail,int(11),(boolean) Use resource as featured collection thumbnail image (if manual selection is set for collection)
+sortorder,int(11),Sort order

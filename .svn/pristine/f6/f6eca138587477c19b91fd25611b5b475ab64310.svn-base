@@ -1,0 +1,6 @@
+node_keyword,1,node_keyword,1,node,A,16206,,,,BTREE,
+node_keyword,1,node_keyword,2,keyword,A,16206,,,,BTREE,
+node_keyword,1,node,1,node,A,16206,,,,BTREE,
+node_keyword,1,keyword,1,keyword,A,16206,,,,BTREE,
+node_keyword,1,keyword_node,1,keyword,A,16206,,,,BTREE,
+node_keyword,1,keyword_node,1,node,A,16206,,,,BTREE,

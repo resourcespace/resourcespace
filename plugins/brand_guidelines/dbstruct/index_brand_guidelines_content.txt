@@ -1,0 +1,2 @@
+brand_guidelines_content,0,PRIMARY,1,ref,A,23,,,,BTREE,,,YES,
+brand_guidelines_content,1,page,1,page,A,4,,,YES,BTREE,,,YES,

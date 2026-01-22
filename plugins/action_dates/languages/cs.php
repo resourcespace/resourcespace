@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Vyberte pole, která budou použita k automatickému provedení specifikovaných akcí.';
+$lang["action_dates_deletesettings"] = 'Automatická nastavení primární akce zdroje - používejte s opatrností';
+$lang["action_dates_delete"] = 'Automaticky smazat nebo změnit stav zdrojů, když je dosaženo data v tomto poli';
+$lang["action_dates_eligible_states"] = 'Stavy, které jsou způsobilé pro primární automatickou akci. Pokud nejsou vybrány žádné stavy, jsou způsobilé všechny stavy.';
+$lang["action_dates_restrict"] = 'Automaticky omezit přístup k prostředkům, když je dosaženo data v tomto poli. To platí pouze pro prostředky, jejichž přístup je aktuálně otevřený.';
+$lang["action_dates_restrict_logtext"] = '- Automaticky omezeno pluginem action_dates';
+$lang["action_dates_reallydelete"] = 'Plně smazat zdroj po uplynutí data akce? Pokud je nastaveno na false, zdroje budou přesunuty do nakonfigurovaného stavu resource_deletion_state a budou tak obnovitelné';
+$lang["action_dates_email_admin_days"] = 'Upozornit správce systému určitý počet dní před dosažením tohoto data. Nechte tuto možnost prázdnou, pokud nechcete odeslat žádné upozornění.';
+$lang["action_dates_email_text_restrict"] = 'Následující zdroje budou omezeny za [days] dní.';
+$lang["action_dates_email_text_state"] = 'Následující zdroje mají změnit stav za [days] dní.';
+$lang["action_dates_email_text"] = 'Následující zdroje budou omezeny a/nebo změní stav za [days] dní.';
+$lang["action_dates_email_range_restrict"] = 'Následující zdroje budou omezeny během [days_min] až [days_max] dnů.';
+$lang["action_dates_email_range_state"] = 'Následující zdroje mají změnit stav během [days_min] až [days_max] dnů.';
+$lang["action_dates_email_range"] = 'Následující zdroje mají být omezeny a/nebo změnit stav během [days_min] až [days_max] dnů.';
+$lang["action_dates_email_subject_restrict"] = 'Oznámení o zdrojích, které mají být omezeny';
+$lang["action_dates_email_subject_state"] = 'Oznámení o změně stavu zdrojů';
+$lang["action_dates_email_subject"] = 'Oznámení o zdrojích, které mají být omezeny a/nebo změnit stav';
+$lang["action_dates_new_state"] = 'Nový stav pro přesun (pokud je výše uvedená možnost nastavena na úplné smazání zdrojů, bude toto ignorováno)';
+$lang["action_dates_notification_subject"] = 'Oznámení z pluginu akčních dat';
+$lang["action_dates_additional_settings"] = 'Další akce';
+$lang["action_dates_additional_settings_info"] = 'Dále přesunout zdroje do vybraného stavu, když je dosaženo specifikovaného pole';
+$lang["action_dates_additional_settings_date"] = 'Když je dosaženo tohoto data';
+$lang["action_dates_additional_settings_status"] = 'Přesunout zdroje do tohoto archivačního stavu';
+$lang["action_dates_remove_from_collection"] = 'Odebrat zdroje ze všech přiřazených kolekcí při změně stavu?';
+$lang["action_dates_email_for_state"] = 'Odeslat oznámení o změně stavu zdrojů. Vyžaduje konfiguraci výše uvedených polí pro změnu stavu.';
+$lang["action_dates_email_for_restrict"] = 'Odeslat oznámení o omezení zdrojů. Vyžaduje nastavení výše uvedených polí pro omezení zdrojů.';
+$lang["action_dates_workflow_actions"] = 'Pokud je povolen plugin Pokročilý Workflow, měly by se jeho oznámení aplikovat na změny stavu iniciované tímto pluginem?';
+$lang["action_dates_weekdays"] = 'Vyberte dny v týdnu, kdy budou akce zpracovány.';
+$lang["weekday-0"] = 'Neděle';
+$lang["weekday-1"] = 'Pondělí';
+$lang["weekday-2"] = 'Úterý';
+$lang["weekday-3"] = 'Středa';
+$lang["weekday-4"] = 'Čtvrtek';
+$lang["weekday-5"] = 'Pátek';
+$lang["weekday-6"] = 'Sobota';
+$lang["action_dates_delete_logtext"] = '- Automaticky prováděno pluginem action_dates';
+$lang["plugin-action_dates-title"] = 'Data akcí';
+$lang["plugin-action_dates-desc"] = 'Umožňuje naplánované smazání nebo omezení zdrojů na základě datových polí';
+
+$lang["page-title_action_dates_setup"] = 'Nastavení pluginu pro akční data';

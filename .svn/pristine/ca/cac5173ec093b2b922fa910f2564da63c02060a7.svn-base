@@ -1,0 +1,6 @@
+discopower-main:
+    path:       /disco.php
+    defaults:   { _controller: 'SimpleSAML\Module\discopower\Controller\DiscoPower::main' }
+discopower-tablist:
+    path:       /tablist
+    defaults:   { _controller: 'SimpleSAML\Module\discopower\Controller\DiscoPower::tablist' }

@@ -1,0 +1,10 @@
+@font-face
+    {
+    font-family: "Space Grotesk";
+    src: url("../../lib/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf");
+    }
+
+h1,h2,h3,h4,h5,h6,.Title {font-family: Space Grotesk, Arial, Helvetica, sans-serif;}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button,.ui-widget, body, input, textarea, select, button {font-family: Space Grotesk, Arial, Helvetica, sans-serif;font-size:16px;}
+

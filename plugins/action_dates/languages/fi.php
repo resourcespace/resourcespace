@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Valitse kentät, joita käytetään automaattisesti suoritettavien toimintojen määrittämiseen.';
+$lang["action_dates_deletesettings"] = 'Automaattiset ensisijaiset toimintamääritykset resursseille - käytä varoen';
+$lang["action_dates_delete"] = 'Automaattisesti poista tai muuta resurssien tilaa, kun tämän kentän päivämäärä saavutetaan';
+$lang["action_dates_eligible_states"] = 'Osavaltiot, jotka ovat oikeutettuja ensisijaiseen automaattitoimintoon. Jos mitään osavaltioita ei ole valittu, kaikki osavaltiot ovat oikeutettuja.';
+$lang["action_dates_restrict"] = 'Rajoita automaattisesti pääsyä resursseihin, kun tämän kentän päivämäärä saavutetaan. Tämä koskee vain resursseja, joiden pääsy on tällä hetkellä avoinna.';
+$lang["action_dates_delete_logtext"] = 'Automaattisesti käsitelty action_dates -lisäosan toimesta';
+$lang["action_dates_restrict_logtext"] = 'Automaattisesti rajoitettu action_dates -lisäosan toimesta';
+$lang["action_dates_reallydelete"] = 'Täysin poista resurssi, kun toimintapäivämäärä on kulunut? Jos asetus on asetettu epätodeksi, resurssit siirretään määritettyyn resource_deletion_state-tilaan ja ovat siten palautettavissa';
+$lang["action_dates_email_admin_days"] = 'Ilmoita järjestelmänvalvojille asetettu määrä päiviä ennen tämän päivämäärän saavuttamista. Jätä tämä vaihtoehto tyhjäksi, jos ilmoitusta ei lähetetä.';
+$lang["action_dates_email_text_restrict"] = 'Seuraavat resurssit on määrä rajoittaa [days] päivän kuluttua.';
+$lang["action_dates_email_text_state"] = 'Seuraavat resurssit ovat muuttumassa tilassa [days] päivän kuluttua.';
+$lang["action_dates_email_range_restrict"] = 'Seuraavat resurssit on määrä rajoittaa [days_min] - [days] päivän sisällä.';
+$lang["action_dates_email_range_state"] = 'Seuraavat resurssit ovat muuttumassa tilastaan [days_min] - [days] päivän kuluessa.';
+$lang["action_dates_email_range"] = 'Seuraavat resurssit ovat rajoitettuja ja/tai muuttavat tilaa seuraavien [days_min] - [days] päivän aikana.';
+$lang["action_dates_email_subject_restrict"] = 'Ilmoitus resursseista, jotka ovat pian rajoitettuja';
+$lang["action_dates_email_subject_state"] = 'Ilmoitus resursseista, joiden tila on muuttumassa';
+$lang["action_dates_email_subject"] = 'Ilmoitus resursseista, joiden käyttöoikeudet rajoitetaan tai tila muutetaan';
+$lang["action_dates_new_state"] = 'Uusi tila, johon siirrytään (jos yllä oleva vaihtoehto on asetettu poistamaan resurssit kokonaan, tämä ohitetaan)';
+$lang["action_dates_notification_subject"] = 'Ilmoitus toimintopäivämäärä lisäosasta';
+$lang["action_dates_additional_settings"] = 'Lisätoimet';
+$lang["action_dates_additional_settings_info"] = 'Lisäksi siirrä resurssit valittuun tilaan, kun määritetty kenttä on saavutettu';
+$lang["action_dates_additional_settings_date"] = 'Kun tämä päivämäärä saavutetaan';
+$lang["action_dates_additional_settings_status"] = 'Siirrä resurssit tähän arkistotilaan';
+$lang["action_dates_remove_from_collection"] = 'Poista resurssit kaikista niihin liittyvistä kokoelmista, kun tilaa muutetaan?';
+$lang["action_dates_email_for_state"] = 'Lähetä ilmoitus, kun resurssin tila muuttuu. Vaatii yläpuolella olevien tilakenttien määrityksen muuttamisen.';
+$lang["action_dates_email_for_restrict"] = 'Lähetä ilmoitus resurssien rajoittamisesta. Vaatii yläpuolella olevien rajoitettujen resurssikenttien määrityksen.';
+$lang["action_dates_workflow_actions"] = 'Jos Advanced Workflow -liitännäinen on käytössä, pitäisikö sen ilmoitusten koskea tilan muutoksia, jotka on aloitettu tällä liitännäisellä?';
+$lang["action_dates_weekdays"] = 'Valitse viikonpäivät, jolloin toiminnot käsitellään.';
+$lang["weekday-0"] = 'Sunnuntai';
+$lang["weekday-1"] = 'Maanantai';
+$lang["weekday-2"] = 'Tiistai';
+$lang["weekday-3"] = 'Keskiviikko';
+$lang["weekday-4"] = 'Torstai';
+$lang["weekday-5"] = 'Perjantai';
+$lang["weekday-6"] = 'Lauantai';
+$lang["action_dates_email_text"] = 'Seuraavat resurssit on määrä rajoittaa ja/tai muuttaa tilaa [päivien] päivän kuluttua.';
+$lang["plugin-action_dates-title"] = 'Toimintapäivät';
+$lang["plugin-action_dates-desc"] = 'Mahdollistaa resurssien aikataulutetun poistamisen tai rajoittamisen päivämääräkenttien perusteella';
+
+$lang["page-title_action_dates_setup"] = 'Aseta toimintopäivämäärät laajennus';

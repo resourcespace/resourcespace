@@ -1,0 +1,7 @@
+ref,int(11),NO,PRI,,auto_increment
+resource,int(11),YES,MUL,,
+bbox,varchar(255),YES,,,
+det_score,float,YES,,,
+vector_blob,blob,NO,,,
+created,datetime,YES,,CURRENT_TIMESTAMP,
+node,int(11),YES,,,

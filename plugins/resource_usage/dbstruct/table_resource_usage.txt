@@ -1,0 +1,6 @@
+ref,int(11),NO,PRI,,auto_increment
+resource,int(11),YES,,NULL,
+usage_location,varchar(255),YES,,NULL,
+usage_medium,varchar(255),YES,,NULL,
+description,text,YES,,NULL,
+usage_date,date,YES,,NULL,

@@ -1,0 +1,3 @@
+#EmuObjectDetailContainer.Listview tr td:first-child { width: 30%; }
+#emu_test_script_log { width: 100%; height: 350px; }
+.RSButton { height: 30px; display: inline-block; border-radius: 6px; text-align: center; }

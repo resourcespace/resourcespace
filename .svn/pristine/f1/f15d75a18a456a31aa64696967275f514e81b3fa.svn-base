@@ -1,0 +1,3 @@
+Links resource_type_field records to resource_type. Used when the global column in resource_type_field is set to 0;
+resource_type_field,int(11),
+resource_type,int(11),

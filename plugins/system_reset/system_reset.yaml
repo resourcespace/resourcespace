@@ -1,0 +1,8 @@
+name: system_reset
+title: System Reset
+author: Montala Limited
+version: 1.0
+desc: Adds an option to admin/system to erase all data.
+category: System
+icon : eraser
+info_url: https://www.resourcespace.com/knowledge-base/plugins/system-reset

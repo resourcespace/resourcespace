@@ -1,0 +1,13 @@
+Logs all activity relating to a resource.
+ref,int(11),
+date,datetime,Date the log was recorded
+user,int(11),
+resource,int(11),
+type,char(1),Log type. See include/definitions.php for a full list of available types.
+resource_type_field,int(11),
+notes,text,Log notes
+diff,mediumtext,Diff between old value and new one
+usageoption,int(11),The resource download usage option
+access_key,char(50),External access key (added/deleted)
+previous_value,longtext,The original value - before the change being logged.
+alt_ref,int(11),Reference of alternative file, if present. 

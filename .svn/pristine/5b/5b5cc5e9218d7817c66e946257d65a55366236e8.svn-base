@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link';
+$lang["falcon_link_manage"] = 'Falcon cyhoeddi/archifio';
+$lang["falcon_link_publish"] = 'Cyhoeddi i Falcon';
+$lang["falcon_link_archive"] = 'Archif yn Falcon';
+$lang["falcon_link_configuration"] = 'Cyswllt Falcon - Gosod';
+$lang["falcon_link_api_key"] = 'Falcon allwedd API';
+$lang["falcon_link_notconfigured"] = 'Nid yw\'r plwg Falcon Link wedi\'i ffurfweddu. Pleidleisiwch â\'ch gweinyddwr i ffurfweddu\'r plwg.';
+$lang["falcon_link_resource_types_to_include"] = 'Dewiswch fathau Adnoddau Falcon dilys';
+$lang["falcon_link_not_permitted_extension"] = 'Ni ellir uwchlwytho\'r math ffeil %TYPE% i Falcon';
+$lang["falcon_link_text_field"] = 'maes test templed Falcon';
+$lang["falcon_link_default_tag"] = 'Testun tag diffinodol a fydd yn cael ei ychwanegu\'n awtomatig i\'r holl gynnwys a gyhoeddwyd gan Falcon. Os byddwch yn cynnwys y testun \'[ID]\' yna bydd hyn yn cael ei ddisodli gyda\'r ID adnodd yn y tag';
+$lang["falcon_link_template_url"] = 'URL templed Falcon. Mae hyn yn caniatáu i chi weld y gronfa gyhoeddedig yn Falcon yn uniongyrchol. Bydd y tag [id] yn cael ei ddisodli gyda\'r adnabod a roddwyd gan Falcon pan fydd y gronfa yn cael ei chyhoeddi';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Meysydd tag Falcon. Byddant yn cael eu cyfuno a\'u hychwanegu at y tagiau templed Falcon';
+$lang["falcon_link_id_field"] = 'Maes metadata i storio\'r dynodwr Falcon';
+$lang["falcon_link_log_share"] = 'Cyhoeddwyd ar Falcon';
+$lang["falcon_link_archived"] = 'Archifedig';
+$lang["falcon_link_access_denied"] = 'Nid oes gennych ganiatâd i gyhoeddi\'r adnodd(au) a ddewiswyd';
+$lang["falcon_link_already_published"] = 'Mae\'r adnodd hwn wedi\'i gyhoeddi i Falcon';
+$lang["falcon_link_resources_already_published"] = 'Mae rhai adnoddau eisoes wedi\'u cyhoeddi i Falcon ac ni ellir eu cyhoeddi eto.';
+$lang["falcon_link_resource_not_published"] = 'Nid yw\'r adnodd wedi\'i gyhoeddi i Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Ni ellir cyhoeddi\'r adnodd i Falcon';
+$lang["falcon_link_template_description"] = 'Disgrifiad templed';
+$lang["falcon_link_template_tags"] = 'Tagiau templed a fydd yn cael eu hychwanegu';
+$lang["falcon_link_missing_file"] = 'Nid oes gan y gronfa ddata ffeil wreiddiol';
+$lang["falcon_link_existing_id"] = 'ID Falcon presennol';
+$lang["falcon_link_not_uploaded"] = 'Nid yw wedi\'i uwchlwytho';
+$lang["falcon_link_publish_button_text"] = 'Cyhoeddi';
+$lang["falcon_link_archive_button_text"] = 'Archif';
+$lang["falcon_link_publish_success"] = 'Cyhoeddwyd yn llwyddiannus';
+$lang["falcon_link_archived_success"] = 'Archifwyd yn llwyddiannus.<br />Mae rhannau\'r adnoddau yn dal i fod yn weithredol a bydd angen eu dileu â llaw os oes angen.';
+$lang["falcon_link_usergroups"] = 'Grwpiau sydd â mynediad i reoli templedi Falcon';
+$lang["falcon_link_filter"] = 'Filtriwch i benderfynu pa adnoddau y gellir eu cyhoeddi i Falcon';
+$lang["falcon_link_error_no_resources"] = 'Dim adnoddau wedi\'u cyflwyno ar gyfer cyhoeddi';
+$lang["falcon_link_error_falcon_api"] = 'Cafodd gwall ei wneud wrth gyfathrebu â Falcon. Gwiriwch y statws am ragor o fanylion.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Gwall Falcon';
+$lang["falcon_link_view_in_falcon"] = 'Gweld yn Falcon';
+$lang["falcon_link_share_user"] = 'Testun defnyddiwr i\'w ddangos ar gyfer rhannu a grëwyd ar gyfer defnydd Falcon, h.y. \'rhannwyd gyda user@falcon.io\'';
+$lang["falcon_link_log_publish"] = 'Adnodd a rennir trwy Falcon';
+$lang["falcon_link_log_archive"] = 'Adnodd wedi\'i archifo trwy Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Gwnewch yn siŵr nad yw\'r disgrifiad a\'r tagiau yn wag';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Gosod Plugin Cyswllt Falcon';

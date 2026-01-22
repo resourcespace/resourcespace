@@ -1,0 +1,4 @@
+collection_log,0,PRIMARY,1,ref,A,16,,,,BTREE,,
+collection_log,1,user,1,user,A,22,,,YES,BTREE,,
+collection_log,1,collection,1,collection,A,266,,,YES,BTREE,,
+collection_log,1,resource,1,resource,A,1695941,,,YES,BTREE,,

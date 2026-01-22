@@ -1,0 +1,47 @@
+{
+    "name": "simplesamlphp/simplesamlphp-module-radius",
+    "description": "A module that is able perform authentication against a RADIUS server",
+    "type": "simplesamlphp-module",
+    "keywords": ["simplesamlphp", "radius"],
+    "license": "LGPL-2.1-or-later",
+    "authors": [
+        {
+            "name": "Olav Morken",
+            "email": "olavmrk@gmail.com"
+        }
+    ],
+    "config": {
+        "preferred-install": {
+            "simplesamlphp/simplesamlphp": "source",
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "simplesamlphp/composer-module-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleSAML\\Module\\radius\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleSAML\\Test\\Utils\\": "vendor/simplesamlphp/simplesamlphp/tests/Utils"
+        }
+    },
+    "require": {
+        "php": ">=7.4 || ^8.0",
+
+        "dapphp/radius": "^3.0.0",
+        "simplesamlphp/composer-module-installer": "^1.3.2",
+        "simplesamlphp/simplesamlphp": "^2.0.0"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp-test-framework": "~1.6"
+    },
+    "support": {
+        "issues": "https://github.com/tvdijen/simplesamlphp-module-radius/issues",
+        "source": "https://github.com/tvdijen/simplesamlphp-module-radius"
+    }
+}

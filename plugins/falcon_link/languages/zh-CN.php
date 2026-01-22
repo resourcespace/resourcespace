@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = '猎鹰链接';
+$lang["falcon_link_manage"] = '猎鹰发布/归档';
+$lang["falcon_link_publish"] = '发布到Falcon。';
+$lang["falcon_link_archive"] = 'Archive in Falcon 的简体字翻译为：在Falcon中归档。';
+$lang["falcon_link_configuration"] = '猎鹰链接设置';
+$lang["falcon_link_api_key"] = '猎鹰 API 密钥';
+$lang["falcon_link_notconfigured"] = 'Falcon Link插件未配置。请向您的管理员请求配置该插件。';
+$lang["falcon_link_resource_types_to_include"] = '请选择有效的Falcon资源类型。';
+$lang["falcon_link_not_permitted_extension"] = '文件类型 %TYPE% 无法上传到Falcon。';
+$lang["falcon_link_text_field"] = '猎鹰模板文本字段';
+$lang["falcon_link_default_tag"] = '将自动添加到所有Falcon发布内容的默认标签文本。如果您包含文本“[ID]”，则此文本将被替换为标签中的资源ID。';
+$lang["falcon_link_template_url"] = '猎鹰模板URL。这允许您直接在猎鹰中查看已发布的资源。当资源被发布时，[id]标签将被猎鹰分配的标识符替换。';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Falcon标签字段。这些将被连接并添加到Falcon模板标签中。';
+$lang["falcon_link_id_field"] = '用于存储Falcon标识符的元数据字段';
+$lang["falcon_link_log_share"] = '发布于Falcon。';
+$lang["falcon_link_archived"] = '已归档';
+$lang["falcon_link_access_denied"] = '您没有权限发布所选资源。';
+$lang["falcon_link_already_published"] = '此资源已发布到Falcon。';
+$lang["falcon_link_resources_already_published"] = '一些资源已经发布到Falcon，无法重新发布。';
+$lang["falcon_link_resource_not_published"] = '资源尚未发布到Falcon。';
+$lang["falcon_link_resource_publish_unavailable"] = '资源无法发布到Falcon。';
+$lang["falcon_link_template_description"] = '模板描述';
+$lang["falcon_link_template_tags"] = '模板标签将被添加';
+$lang["falcon_link_missing_file"] = '资源没有原始文件。';
+$lang["falcon_link_existing_id"] = '现有的Falcon ID';
+$lang["falcon_link_not_uploaded"] = '未上传';
+$lang["falcon_link_publish_button_text"] = '发布';
+$lang["falcon_link_archive_button_text"] = '存档';
+$lang["falcon_link_publish_success"] = '发布成功';
+$lang["falcon_link_archived_success"] = '归档成功。<br />资源共享仍然有效，如果需要，必须手动删除。';
+$lang["falcon_link_usergroups"] = '可以管理Falcon模板的群组。';
+$lang["falcon_link_filter"] = '筛选器以确定哪些资源可以发布到Falcon。';
+$lang["falcon_link_error_no_resources"] = '没有资源提交进行发布。';
+$lang["falcon_link_error_falcon_api"] = '与Falcon通信时发生错误。请检查状态以获取更多详细信息。';
+$lang["falcon_link_error_falcon_api_detailed"] = '隼错误';
+$lang["falcon_link_view_in_falcon"] = '在Falcon中查看';
+$lang["falcon_link_share_user"] = '为Falcon使用创建的共享的用户文本，例如“与user@falcon.io共享”。';
+$lang["falcon_link_log_publish"] = '共享资源通过Falcon。';
+$lang["falcon_link_log_archive"] = '已通过Falcon存档的资源';
+$lang["falcon_link_error_falcon_check_tags"] = '请检查描述和标签是否为空。';
+$lang["plugin-falcon_link-title"] = '猎鹰链接';
+$lang["plugin-falcon_link-desc"] = '[高级] 发布资源到Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = '设置 Falcon Link 插件';

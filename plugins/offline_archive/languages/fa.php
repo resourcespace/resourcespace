@@ -1,0 +1,57 @@
+<?php
+
+
+$lang["offline_archive_configuration"]='صفحه پیکربندی آرشیو آفلاین';
+$lang["offline_archive_archivefield"]='لطفاً فیلد فراداده‌ای را انتخاب کنید که کد مرجع بایگانی را نگه می‌دارد';
+$lang["offline_archive_archivepath"]='لطفاً مکانی را که آرشیوها در آن ایجاد خواهند شد وارد کنید';
+$lang["offline_archive_restorepath"]='برای بازیابی منابع در پوشه StaticSync می‌توانید یک زیرپوشه از پوشه StaticSync وارد کنید که فایل‌های بازیابی شده در آن قرار خواهند گرفت';
+$lang["offline_archive_preservedate"]='ذخیره زمان‌بندی فایل؟';
+$lang["offline_archive_administer_archive"]='مدیریت آرشیوها';
+$lang["offline_archive_view_pending"]='مشاهده منابع در انتظار بایگانی';
+$lang["offline_archive_view_pending_restore"]='مشاهده منابع در انتظار بازیابی';
+$lang["offline_archive_view_completed"]='مشاهده وظایف بایگانی';
+$lang["offline_archive_view_associated"]='مشاهده منابع مرتبط';
+$lang["offline_archive_view_as_search"]='مشاهده منابع به عنوان جستجو';
+$lang["offline_archive_entername"]='لطفاً نام بایگانی را وارد کنید';
+$lang["offline_archive_input_text"]='لطفاً یا یک لیست از منابع یا یک شناسه مجموعه برای علامت‌گذاری جهت بازیابی وارد کنید';
+$lang["offline_archive_input_resources"]='لطفاً شناسه‌های منبع را برای بازیابی وارد کنید، با کاما جدا شده‌اند';
+$lang["offline_archive_input_collection"]='لطفاً شناسه مجموعه را برای بازیابی وارد کنید';
+$lang["offline_archive_name"]='پیشوند بایگانی';
+$lang["offline_archive_createnew"]='ایجاد کار جدید بایگانی';
+$lang["offline_archive_archive_created"]='آرشیو با موفقیت ایجاد شد';
+$lang["offline_archive_archive_ref"]='مرجع بایگانی';
+$lang["offline_archive_archive_date"]='تاریخ بایگانی';
+$lang["offline_archive_archive_status"]='تاریخ بایگانی';
+$lang["offline_archive_request_restore"]='درخواست بازیابی';
+$lang["offline_archive_cancel_restore"]='لغو بازیابی';
+$lang["offline_archive_cancel_confirm"]='آیا مطمئن هستید که می‌خواهید بازیابی این منبع را لغو کنید؟';
+$lang["offline_archive_restore_pending"]='در انتظار بازیابی از آرشیو';
+$lang["offline_archive_restore_confirm"]='تأیید بازیابی';
+$lang["offline_archive_restore_resources"]='بازیابی منابع از آرشیو';
+$lang["offline_archive_restore_resource"]='بازیابی از آرشیو';
+$lang["offline_archive_request_restore_text"]='لطفاً دلیل درخواست را وارد کنید';
+$lang["offline_archive_request_restore_reason"]='دلیل درخواست بازیابی';
+$lang["offline_archive_request_email_subject"]='درخواست بازیابی آرشیو آفلاین';
+$lang["offline_archive_requestsenttext"]='درخواست بازیابی آرشیو شما ارسال شده و به زودی بررسی خواهد شد.';
+$lang["offline_archive_resources_restore_confirmed"]='منابع با موفقیت برای بازیابی تنظیم شدند و زمانی که آرشیوهای مربوطه در مکان آرشیو پیکربندی شده وارد یا کپی شوند، بازیابی خواهند شد.';
+$lang["offline_archive_resources_restore_cancel_confirmed"]='منبع با موفقیت از بازیابی در انتظار حذف شد';
+$lang["offline_archive_resource_log_archived"]='- بایگانی شده توسط افزونه بایگانی آفلاین. کد بایگانی: ';
+$lang["offline_archive_resource_log_restored"]='- بازیابی شده توسط افزونه آرشیو آفلاین';
+$lang["offline_archive_resource_log_restore_set"]='علامت‌گذاری شده برای بازیابی از آرشیو';
+$lang["offline_archive_resource_log_restore_removed"]='لغو بازیابی از آرشیو';
+$lang["offline_archive_resource_log_restore_request"]='درخواست بازیابی از آرشیو';
+$lang["offline_archive_resource_restore"]='بازیابی منابع';
+$lang["offline_archive_administer_archive-tooltip"] = 'فایل‌های آرشیو شده را به یک مکان آفلاین منتقل کنید';
+$lang["offline_archive_statustype"] = array (
+  0 => 'در حال انتظار',
+  1 => 'در حال انجام',
+  2 => 'تکمیل شده',
+);
+$lang["page-title_offline_archive_administer_archive"] = 'مدیریت آرشیوها';
+$lang["page-title_offline_archive_offline_archive_action"] = 'آرشیو آفلاین';
+$lang["page-title_offline_archive_pending_restore"] = 'بازگردانی منبع در حال انتظار';
+$lang["page-title_offline_archive_restore_request"] = 'درخواست بازیابی منبع';
+$lang["page-title_offline_archive_restore"] = 'بازیابی آرشیو';
+$lang["page-title_offline_archive_setup"] = 'تنظیم افزونه';
+$lang["page-title_offline_archive_view_archives"] = 'مشاهده آرشیو منابع';
+$lang["page-title_offline_archive_view_pending"] = 'مشاهده آرشیوهای معلق';

@@ -1,0 +1,40 @@
+<?php
+
+$lang["action_dates_configuration"] = 'เลือกฟิลด์ที่ใช้ในการดำเนินการตามที่ระบุโดยอัตโนมัติ';
+$lang["action_dates_deletesettings"] = 'การตั้งค่าการดำเนินการหลักของทรัพยากรอัตโนมัติ - ใช้ด้วยความระมัดระวัง';
+$lang["action_dates_delete"] = 'ลบหรือเปลี่ยนสถานะของทรัพยากรโดยอัตโนมัติเมื่อถึงวันที่ในฟิลด์นี้';
+$lang["action_dates_eligible_states"] = 'สถานะที่มีสิทธิ์ได้รับการดำเนินการอัตโนมัติหลัก หากไม่มีสถานะใดถูกเลือก สถานะทั้งหมดจะมีสิทธิ์';
+$lang["action_dates_restrict"] = 'จำกัดการเข้าถึงทรัพยากรโดยอัตโนมัติเมื่อถึงวันที่ในฟิลด์นี้ ซึ่งจะใช้กับทรัพยากรที่การเข้าถึงเปิดอยู่ในขณะนี้เท่านั้น';
+$lang["action_dates_delete_logtext"] = '- ดำเนินการโดยอัตโนมัติจากปลั๊กอิน action_dates';
+$lang["action_dates_restrict_logtext"] = '- ถูกจำกัดโดยอัตโนมัติโดยปลั๊กอิน action_dates';
+$lang["action_dates_reallydelete"] = 'ลบทรัพยากรอย่างสมบูรณ์เมื่อวันที่ดำเนินการผ่านไปหรือไม่? หากตั้งค่าเป็นเท็จ ทรัพยากรจะถูกย้ายไปยังสถานะการลบทรัพยากรที่กำหนดและสามารถกู้คืนได้';
+$lang["action_dates_email_admin_days"] = 'แจ้งผู้ดูแลระบบล่วงหน้าจำนวนวันที่กำหนดก่อนวันที่นี้ถึง ให้เว้นตัวเลือกนี้ว่างไว้หากไม่ต้องการส่งการแจ้งเตือน';
+$lang["action_dates_email_text_restrict"] = 'ทรัพยากรต่อไปนี้จะถูกจำกัดในอีก [days] วัน';
+$lang["action_dates_email_text_state"] = 'ทรัพยากรต่อไปนี้จะต้องเปลี่ยนสถานะใน [days] วัน';
+$lang["action_dates_email_text"] = 'ทรัพยากรต่อไปนี้จะถูกจำกัดและ/หรือลดสถานะใน [days] วัน';
+$lang["action_dates_email_range_restrict"] = 'ทรัพยากรต่อไปนี้จะถูกจำกัดภายใน [days_min] ถึง [days_max] วัน';
+$lang["action_dates_email_range_state"] = 'ทรัพยากรต่อไปนี้จะต้องเปลี่ยนสถานะภายใน [days_min] ถึง [days_max] วัน';
+$lang["action_dates_email_range"] = 'ทรัพยากรต่อไปนี้จะถูกจำกัดและ/หรือลดสถานะภายใน [days_min] ถึง [days_max] วัน';
+$lang["action_dates_email_subject_restrict"] = 'การแจ้งเตือนเกี่ยวกับทรัพยากรที่จะถูกจำกัด';
+$lang["action_dates_email_subject_state"] = 'การแจ้งเตือนเกี่ยวกับทรัพยากรที่มีการเปลี่ยนแปลงสถานะ';
+$lang["action_dates_email_subject"] = 'การแจ้งเตือนเกี่ยวกับทรัพยากรที่จะถูกจำกัดและ/หรือเปลี่ยนสถานะ';
+$lang["action_dates_new_state"] = 'สถานะใหม่ที่จะย้ายไป (หากตัวเลือกข้างต้นถูกตั้งค่าให้ลบทรัพยากรทั้งหมดจะถูกละเว้น)';
+$lang["action_dates_notification_subject"] = 'การแจ้งเตือนจากปลั๊กอินวันที่การดำเนินการ';
+$lang["action_dates_additional_settings"] = 'การดำเนินการเพิ่มเติม';
+$lang["action_dates_additional_settings_info"] = 'นอกจากนี้ย้ายทรัพยากรไปยังสถานะที่เลือกเมื่อถึงฟิลด์ที่กำหนด';
+$lang["action_dates_additional_settings_date"] = 'เมื่อถึงวันที่นี้';
+$lang["action_dates_additional_settings_status"] = 'ย้ายทรัพยากรไปยังสถานะเก็บถาวรนี้';
+$lang["action_dates_remove_from_collection"] = 'ลบทรัพยากรออกจากคอลเลกชันที่เกี่ยวข้องทั้งหมดเมื่อสถานะเปลี่ยนแปลงหรือไม่?';
+$lang["action_dates_email_for_state"] = 'ส่งการแจ้งเตือนเมื่อทรัพยากรเปลี่ยนสถานะ ต้องมีการกำหนดฟิลด์การเปลี่ยนสถานะข้างต้น';
+$lang["action_dates_email_for_restrict"] = 'ส่งการแจ้งเตือนสำหรับทรัพยากรที่จะถูกจำกัด ต้องกำหนดฟิลด์การจำกัดทรัพยากรข้างต้นให้เรียบร้อย';
+$lang["action_dates_workflow_actions"] = 'หากปลั๊กอิน Advanced Workflow ถูกเปิดใช้งาน ควรให้การแจ้งเตือนของมันถูกนำไปใช้กับการเปลี่ยนแปลงสถานะที่เริ่มต้นโดยปลั๊กอินนี้หรือไม่?';
+$lang["action_dates_weekdays"] = 'เลือกวันทำงานที่การดำเนินการจะถูกประมวลผล';
+$lang["weekday-0"] = 'วันอาทิตย์';
+$lang["weekday-1"] = 'วันจันทร์';
+$lang["weekday-2"] = 'วันอังคาร';
+$lang["weekday-3"] = 'วันพุธ';
+$lang["weekday-4"] = 'วันพฤหัสบดี';
+$lang["weekday-5"] = 'วันศุกร์';
+$lang["weekday-6"] = 'วันเสาร์';
+
+$lang["page-title_action_dates_setup"] = 'ตั้งค่าปลั๊กอินวันที่การดำเนินการ';

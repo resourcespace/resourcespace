@@ -1,0 +1,4 @@
+Defines the nodes and conditions that make up a filter rule.
+filter_rule,int(11),
+node_condition,int(11),(boolean) Whether the given node is required to be present or absent to satisfy the rule
+node,int(11),

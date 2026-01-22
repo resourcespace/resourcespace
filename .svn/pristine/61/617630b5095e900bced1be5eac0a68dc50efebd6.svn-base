@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link - Połączenie Sokolnika';
+$lang["falcon_link_manage"] = 'Opublikuj/Zarchiwizuj sokół';
+$lang["falcon_link_publish"] = 'Opublikuj w Falconie';
+$lang["falcon_link_archive"] = 'Archiwum w Falconie';
+$lang["falcon_link_configuration"] = 'Falcon link - Konfiguracja';
+$lang["falcon_link_api_key"] = 'Klucz API Sokół';
+$lang["falcon_link_notconfigured"] = 'Wtyczka Falcon Link nie jest skonfigurowana. Proszę poprosić administratora o skonfigurowanie wtyczki.';
+$lang["falcon_link_resource_types_to_include"] = 'Wybierz poprawne typy zasobów Sokół';
+$lang["falcon_link_not_permitted_extension"] = 'Typ pliku %TYPE% nie może zostać przesłany do Falcon';
+$lang["falcon_link_text_field"] = 'Pole tekstowe szablonu Sokół';
+$lang["falcon_link_default_tag"] = 'Domyślny tekst tagu, który zostanie automatycznie dodany do wszystkich opublikowanych treści Falcon. Jeśli zawierasz tekst \'[ID]\', zostanie on zastąpiony identyfikatorem zasobu w tagu';
+$lang["falcon_link_template_url"] = 'Szablon adresu URL sokoła. Pozwala to na bezpośrednie wyświetlenie opublikowanego zasobu w Falconie. Tag [id] zostanie zastąpiony identyfikatorem wydanym przez Falcona podczas publikacji zasobu';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Pola tagów Falcona. Będą one konkatenowane i dodane do tagów szablonu Falcona';
+$lang["falcon_link_id_field"] = 'Pole metadanych do przechowywania identyfikatora Sokół';
+$lang["falcon_link_log_share"] = 'Opublikowane na Falcon';
+$lang["falcon_link_archived"] = 'Zarchiwizowane';
+$lang["falcon_link_access_denied"] = 'Nie masz uprawnień do publikowania wybranych zasobów';
+$lang["falcon_link_already_published"] = 'Ten zasób został opublikowany na Falconie';
+$lang["falcon_link_resources_already_published"] = 'Niektóre zasoby zostały już opublikowane na Falconie i nie mogą zostać ponownie opublikowane';
+$lang["falcon_link_resource_not_published"] = 'Zasób nie został opublikowany do Falcona';
+$lang["falcon_link_resource_publish_unavailable"] = 'Zasób nie może zostać opublikowany do Falcon';
+$lang["falcon_link_template_description"] = 'Opis szablonu';
+$lang["falcon_link_template_tags"] = 'Szablony tagów, które zostaną dodane';
+$lang["falcon_link_missing_file"] = 'Zasób nie ma pliku oryginalnego';
+$lang["falcon_link_existing_id"] = 'Istniejące ID Sokoła';
+$lang["falcon_link_not_uploaded"] = 'Nie przesłano';
+$lang["falcon_link_publish_button_text"] = 'Opublikuj';
+$lang["falcon_link_archive_button_text"] = 'Archiwum';
+$lang["falcon_link_publish_success"] = 'Opublikowano pomyślnie';
+$lang["falcon_link_archived_success"] = 'Pomyślnie zarchiwizowano.<br />Udziały zasobów są wciąż aktywne i będą musiały zostać usunięte ręcznie, jeśli będzie to wymagane.';
+$lang["falcon_link_usergroups"] = 'Grupy mające dostęp do zarządzania szablonami Sokolich';
+$lang["falcon_link_filter"] = 'Filtr umożliwiający określenie, które zasoby mogą zostać opublikowane na Falconie';
+$lang["falcon_link_error_no_resources"] = 'Nie przesłano żadnych zasobów do publikacji';
+$lang["falcon_link_error_falcon_api"] = 'Wystąpił błąd podczas komunikacji z Falconem. Proszę sprawdzić status, aby uzyskać więcej szczegółów.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Błąd sokoła';
+$lang["falcon_link_view_in_falcon"] = 'Wyświetl w Falconie';
+$lang["falcon_link_share_user"] = 'Tekst użytkownika do wyświetlenia dla udostępnionych zasobów stworzonych dla użytkowników Falcon, np. "udostępnione użytkownikowi@falcon.io"';
+$lang["falcon_link_log_publish"] = 'Udostępniony zasób za pośrednictwem Falcona';
+$lang["falcon_link_log_archive"] = 'Zarchiwizowany zasób za pośrednictwem Falcona';
+$lang["falcon_link_error_falcon_check_tags"] = 'Proszę sprawdzić, czy opis i tagi nie są puste';
+$lang["plugin-falcon_link-title"] = 'Link do Sokoła';
+$lang["plugin-falcon_link-desc"] = 'Publikuj zasoby na Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Konfiguracja wtyczki Falcon Link';

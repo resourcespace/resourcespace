@@ -1,0 +1,9 @@
+ref,int(11),NO,PRI,,auto_increment
+user,int(11),YES,,,
+send_all_users,int(11),YES,,,
+user_groups,varchar(255),YES,,,
+report,int(11),YES,,,
+period,int(11),YES,,,
+email_days,int(11),YES,,,
+last_sent,datetime,YES,,,
+search_params,text,YES,,,

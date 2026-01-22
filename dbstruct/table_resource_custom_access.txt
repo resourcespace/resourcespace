@@ -1,0 +1,5 @@
+resource,int(11),YES,MUL,,
+usergroup,int(11),YES,MUL,,
+user,int(11),YES,MUL,,
+access,int(11),YES,,,
+user_expires,date,YES,,,

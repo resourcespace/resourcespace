@@ -1,0 +1,6 @@
+.AlignLeftBlockText { padding-top: 7px; }
+.WarningBox { padding: 5px; background-color: white; border-radius: 5px; }
+.RedText { color: #FF0000; }
+#resourcespace_instances_cfg { min-height: 10rem; }
+.RecordBox .RecordPanel .PageInformal { margin-top: 25px; }
+.ResourcePanel.ImageBanksResourcePanel { height: 255px; }

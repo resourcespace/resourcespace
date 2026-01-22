@@ -1,0 +1,43 @@
+<?php
+
+$lang["brand_guidelines_permission_bgv"] = 'สามารถดูแนวทางแบรนด์';
+$lang["brand_guidelines_permission_bge"] = 'สามารถแก้ไขแนวทางแบรนด์ได้';
+$lang["brand_guidelines_top_nav_title"] = 'แนวทาง';
+$lang["brand_guidelines_new_resource"] = 'ทรัพยากรใหม่';
+$lang["brand_guidelines_existing_resource"] = 'ทรัพยากรที่มีอยู่';
+$lang["brand_guidelines_new_content"] = 'เพิ่มเนื้อหาใหม่';
+$lang["brand_guidelines_new_page"] = '+ หน้าใหม่';
+$lang["brand_guidelines_new_section"] = '+ หมวดหมู่ใหม่';
+$lang["brand_guidelines_view_table_of_content"] = 'ดูตารางเนื้อหา';
+$lang["brand_guidelines_new_section_title"] = 'สร้างส่วนใหม่';
+$lang["brand_guidelines_new_page_title"] = 'สร้างหน้าหมายใหม่';
+$lang["brand_guidelines_edit_section_title"] = 'แก้ไขส่วน';
+$lang["brand_guidelines_edit_page_title"] = 'แก้ไขหน้า';
+$lang["brand_guidelines_section"] = 'ส่วน';
+$lang["brand_guidelines_full_width"] = 'เต็มความกว้าง';
+$lang["brand_guidelines_half_width"] = 'ครึ่งกว้าง';
+$lang["brand_guidelines_title_new_text"] = 'สร้างรายการข้อความใหม่';
+$lang["brand_guidelines_title_edit_text"] = 'แก้ไขข้อความ';
+$lang["brand_guidelines_title_select_resource"] = 'เลือกทรัพยากรที่มีอยู่แล้ว';
+$lang["brand_guidelines_err_invalid_input"] = 'ข้อมูลที่ส่งไม่ถูกต้อง';
+$lang["brand_guidelines_hex"] = 'HEX';
+$lang["brand_guidelines_hex_help_txt"] = 'เลขฐานสิบหก (0-9A-F). ตัวอย่าง: #0FA, 0FA, 00FFAA';
+$lang["brand_guidelines_rgb"] = 'RGB';
+$lang["brand_guidelines_rgb_help_txt"] = 'RGB (0-255). ตัวอย่าง: 116,182,50';
+$lang["brand_guidelines_cmyk"] = 'CMYK';
+$lang["brand_guidelines_move_left"] = 'ย้ายไปทางซ้าย';
+$lang["brand_guidelines_move_right"] = 'ย้ายไปทางขวา';
+$lang["brand_guidelines_confirm_delete_group_members"] = 'คุณแน่ใจหรือว่าต้องการลบทั้งหมดในกลุ่มนี้?';
+$lang["brand_guidelines_layout"] = 'รูปแบบ';
+$lang["brand_guidelines_view_mode"] = 'โหมดการดู';
+$lang["brand_guidelines_edit_mode"] = 'โหมดแก้ไข';
+$lang["brand_guidelines_configuration"] = 'การกำหนดค่าคู่มือแบรนด์';
+$lang["brand_guidelines_fallback_size_thm"] = 'ขนาดภาพสำรองเลย์เอาต์ภาพขนาดย่อ';
+$lang["brand_guidelines_fallback_size_half_width"] = 'ขนาดภาพสำรองเลย์เอาต์ครึ่งกว้าง';
+$lang["brand_guidelines_fallback_size_full_width"] = 'ขนาดภาพสำรองเลย์เอาต์แบบเต็มความกว้าง';
+$lang["brand_guidelines_cmyk_help_txt"] = 'CMYK (0-100). ตัวอย่าง: 36,0,73,29';
+
+$lang["page-title_brand_guidelines_content"] = 'จัดการเนื้อหาคู่มือแบรนด์';
+$lang["page-title_brand_guidelines_guidelines"] = 'แนวทางแบรนด์';
+$lang["page-title_brand_guidelines_setup"] = 'ตั้งค่าปลั๊กอินแนวทางแบรนด์';
+$lang["page-title_brand_guidelines_toc"] = 'แก้ไขเนื้อหา';

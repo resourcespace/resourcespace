@@ -1,0 +1,6 @@
+Stores all user preferences, and also system configuration.
+ref,int(11),
+user,int(11),
+parameter,varchar(150),Name of preference (variable name) - normally default settings are set in config 
+value,varchar(255),Preference value
+usergroup,int(11),User group ID if this preference applies to a user group.

@@ -1,0 +1,13 @@
+Resource requests made by users and fulfilled by admin users, where they users have only 'restricted' access.
+ref,int(11),
+user,int(11),
+collection,int(11),
+created,datetime,Date request was recorded.
+request_mode,int(11),How the request is managed. Available options: 0 - not managed; 1 - managed via the administrative interface.
+status,int(11),Used to track the progress when fulfulling the request. Available options: Pending (0), Approved (1), Declined (2).
+comments,text,Request comments (e.g reason for request).
+expires,date,The expiry date of an approved request.
+assigned_to,int(11),The administrator handling the request.
+reason,text,The administrators' reason for declining the request.
+reasonapproved,text,The administrators' reason for approving the request.
+approved_declined_by,int(11),The administrator who declined the request.

@@ -1,0 +1,4 @@
+Stored collections shared with user groups.
+usergroup,int(11),
+collection,int(11),
+request_feedback,int(11),(Deprecated) Request feedback is still used in user_collection and external_access_keys 

@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+user,int(11),YES,,,
+userlist_name,varchar(50),YES,,,
+userlist_string,text,YES,,,

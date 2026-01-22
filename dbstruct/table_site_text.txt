@@ -1,0 +1,7 @@
+page,varchar(50),YES,,,
+name,varchar(200),YES,,,
+text,text,YES,,,
+ref,int(11),NO,PRI,,auto_increment
+language,varchar(10),YES,,,
+specific_to_group,int(11),YES,,,
+custom,int(11),YES,,,

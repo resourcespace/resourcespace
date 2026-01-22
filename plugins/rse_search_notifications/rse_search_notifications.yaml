@@ -1,0 +1,11 @@
+name: rse_search_notifications
+title: Search Notifications
+desc: Notify user when changes occur to a saved search.
+icon: bell
+icon-colour: #FFD700
+author: Montala Limited
+version: 1.0
+default_priority: 100
+config_url: /plugins/rse_search_notifications/pages/setup.php
+category: User Interface
+info_url: https://www.resourcespace.com/knowledge-base/plugins/search-notifications

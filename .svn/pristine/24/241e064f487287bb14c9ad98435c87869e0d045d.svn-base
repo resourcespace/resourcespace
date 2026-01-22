@@ -1,0 +1,14 @@
+When externally sharing there will be one row here for each resource shared.
+resource,int(11),
+access_key,char(10),External access key
+user,int(11),
+usergroup,int(11),
+collection,int(11),
+request_feedback,int(11),(boolean) When emailing external contacts, allow recipients to select resources and add feedback when accessing share
+email,varchar(100),Email address share was created for
+date,datetime,Date share created
+lastused,datetime,Date share was last accessed
+access,int(11),Access level 0 = open, 1 = restricted
+expires,datetime,Share expiration date
+password_hash,varchar(100),Hash of share password (NULL if not set)
+upload,int(11),Set to 0 for standard external view access share, 1 for an external upload share for a collection

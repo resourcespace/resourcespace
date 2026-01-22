@@ -1,0 +1,40 @@
+<?php
+
+
+$lang["action_dates_configuration"] = 'Pumili ng mga patlang na gagamitin upang awtomatikong isagawa ang mga tinukoy na aksyon.';
+$lang["action_dates_deletesettings"] = 'Mga awtomatikong setting ng pangunahing aksyon ng yaman - gamitin nang may pag-iingat';
+$lang["action_dates_delete"] = 'Awtomatikong tanggalin o baguhin ang estado ng mga mapagkukunan kapag naabot na ang petsa sa larangang ito';
+$lang["action_dates_eligible_states"] = 'Mga estado na karapat-dapat para sa pangunahing awtomatikong aksyon. Kung walang mga estado na napili, lahat ng estado ay karapat-dapat.';
+$lang["action_dates_restrict"] = 'Awtomatikong limitahan ang pag-access sa mga yaman kapag naabot na ang petsa sa larangang ito. Ito ay nalalapat lamang sa mga yaman na kasalukuyang bukas ang pag-access.';
+$lang["action_dates_delete_logtext"] = '- Awtomatikong isinagawa ng action_dates plugin';
+$lang["action_dates_restrict_logtext"] = '- Awtomatikong nilimitahan ng action_dates plugin';
+$lang["action_dates_reallydelete"] = 'Ganap na tanggalin ang mapagkukunan kapag lumipas na ang petsa ng aksyon? Kung itatakda sa hindi, ang mga mapagkukunan ay ililipat sa nakatakdang estado ng pagtanggal ng mapagkukunan at samakatuwid ay maibabalik.';
+$lang["action_dates_email_admin_days"] = 'Ipaalam sa mga tagapangasiwa ng sistema ng isang tiyak na bilang ng mga araw bago maabot ang petsang ito. Iwanang blangko ang opsyong ito para walang ipadalang abiso.';
+$lang["action_dates_email_text_restrict"] = 'Ang mga sumusunod na yaman ay dapat na ma-restrict sa loob ng [days] na araw.';
+$lang["action_dates_email_text_state"] = 'Ang mga sumusunod na mapagkukunan ay nakatakdang magbago ng estado sa loob ng [days] na araw.';
+$lang["action_dates_email_text"] = 'Ang mga sumusunod na mapagkukunan ay dapat na ma-restrict at/o magbago ng estado sa loob ng [days] na araw.';
+$lang["action_dates_email_range_restrict"] = 'Ang mga sumusunod na yaman ay dapat na limitahan sa loob ng [days_min] hanggang [days_max] na araw.';
+$lang["action_dates_email_range_state"] = 'Ang mga sumusunod na yaman ay nakatakdang magbago ng estado sa loob ng [days_min] hanggang [days_max] na araw.';
+$lang["action_dates_email_range"] = 'Ang mga sumusunod na mapagkukunan ay dapat na ma-restrict at/o magbago ng estado sa loob ng [days_min] hanggang [days_max] na araw.';
+$lang["action_dates_email_subject_restrict"] = 'Pabatid ng mga mapagkukunan na dapat limitahan';
+$lang["action_dates_email_subject_state"] = 'Pabatid ng mga mapagkukunan dahil sa pagbabago ng estado';
+$lang["action_dates_email_subject"] = 'Pabatid ng mga mapagkukunan na dapat limitahan at/o baguhin ang estado';
+$lang["action_dates_new_state"] = 'Bagong estado na lilipatan (kung ang nabanggit na opsyon ay nakatakdang ganap na tanggalin ang mga yaman, ito ay hindi isasaalang-alang)';
+$lang["action_dates_notification_subject"] = 'Pabatid mula sa plugin ng mga petsa ng aksyon';
+$lang["action_dates_additional_settings"] = 'Karagdagang aksyon';
+$lang["action_dates_additional_settings_info"] = 'Dagdag pa, ilipat ang mga yaman sa napiling estado kapag naabot ang tinukoy na larangan';
+$lang["action_dates_additional_settings_date"] = 'Kapag naabot na ang petsang ito';
+$lang["action_dates_additional_settings_status"] = 'Ilipat ang mga yaman sa estado ng archive na ito';
+$lang["action_dates_remove_from_collection"] = 'Alisin ang mga mapagkukunan mula sa lahat ng kaugnay na koleksyon kapag nagbago ang estado?';
+$lang["action_dates_email_for_state"] = 'Magpadala ng abiso para sa mga mapagkukunan na nagbabago ng estado. Nangangailangan ng pagsasaayos ng mga patlang ng pagbabago ng estado sa itaas.';
+$lang["action_dates_email_for_restrict"] = 'Magpadala ng abiso para sa mga mapagkukunan na dapat limitahan. Kinakailangan na i-configure ang mga patlang ng limitasyon ng mapagkukunan sa itaas.';
+$lang["action_dates_workflow_actions"] = 'Kung ang Advanced Workflow plugin ay naka-enable, dapat bang ilapat ang mga notification nito sa mga pagbabago ng estado na sinimulan ng plugin na ito?';
+$lang["action_dates_weekdays"] = 'Pumili ng mga araw ng linggo kung kailan ipoproseso ang mga aksyon.';
+$lang["weekday-0"] = 'Linggo';
+$lang["weekday-1"] = 'Lunes';
+$lang["weekday-2"] = 'Martes';
+$lang["weekday-3"] = 'Miyerkules';
+$lang["weekday-4"] = 'Huwebes';
+$lang["weekday-5"] = 'Biyernes';
+$lang["weekday-6"] = 'Sabado';
+$lang["page-title_action_dates_setup"] = 'I-set up ang Plugin ng Petsa ng Aksyon';

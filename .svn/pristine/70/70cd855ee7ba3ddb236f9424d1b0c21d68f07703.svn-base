@@ -1,0 +1,13 @@
+name: adobe_link
+title: Adobe Link
+desc: Allow ingest of Adobe files from ResourceSpace into Adobe CC.
+icon: palette
+icon-colour: #ff0000
+author: Montala Limited
+version: 1.0
+config_url: /plugins/adobe_link/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/user/plugin-adobe_link
+category: Integrations
+disable_group_select: 0
+info_url: https://www.resourcespace.com/knowledge-base/plugins/adobe_link
+default_priority: 1

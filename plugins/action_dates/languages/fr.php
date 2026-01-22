@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Sélectionnez les champs qui seront utilisés pour effectuer automatiquement les actions spécifiées.';
+$lang["action_dates_deletesettings"] = 'Paramètres d\'action primaire automatique des ressources - à utiliser avec prudence';
+$lang["action_dates_delete"] = 'Supprimer automatiquement ou changer l\'état des ressources lorsque la date de ce champ est atteinte';
+$lang["action_dates_eligible_states"] = 'États éligibles pour l\'action automatique primaire. Si aucun état n\'est sélectionné, tous les états sont éligibles.';
+$lang["action_dates_restrict"] = 'Restreindre automatiquement l\'accès aux ressources lorsque la date de ce champ est atteinte. Cela s\'applique uniquement aux ressources dont l\'accès est actuellement ouvert.';
+$lang["action_dates_delete_logtext"] = 'Automatiquement exécuté par le plugin action_dates';
+$lang["action_dates_restrict_logtext"] = 'Automatiquement restreint par le plugin action_dates';
+$lang["action_dates_reallydelete"] = 'Supprimer complètement la ressource une fois la date d\'action passée ? Si défini sur faux, les ressources seront déplacées vers l\'état de suppression de ressource configuré et donc récupérables';
+$lang["action_dates_email_admin_days"] = 'Notifier les administrateurs système un nombre défini de jours avant que cette date ne soit atteinte. Laissez cette option vide pour ne pas envoyer de notification.';
+$lang["action_dates_email_text_restrict"] = 'Les ressources suivantes doivent être restreintes dans [days] jours.';
+$lang["action_dates_email_text_state"] = 'Les ressources suivantes doivent changer d\'état dans [days] jours.';
+$lang["action_dates_email_text"] = 'Les ressources suivantes doivent être restreintes et/ou changer d\'état dans [days] jours.';
+$lang["action_dates_email_range_restrict"] = 'Les ressources suivantes doivent être restreintes dans les prochains [days_min] à [days] jours.';
+$lang["action_dates_email_range_state"] = 'Les ressources suivantes doivent changer d\'état dans les prochains [days_min] à [days] jours.';
+$lang["action_dates_email_range"] = 'Les ressources suivantes doivent être restreintes et/ou changer d\'état dans les prochains [days_min] à [days] jours.';
+$lang["action_dates_email_subject_restrict"] = 'Notification des ressources devant être restreintes';
+$lang["action_dates_email_subject_state"] = 'Notification de ressources devant changer d\'état';
+$lang["action_dates_email_subject"] = 'Notification des ressources devant être restreintes et/ou changer d\'état';
+$lang["action_dates_new_state"] = 'Nouvel état de déplacement (si l\'option ci-dessus est définie pour supprimer complètement les ressources, cela sera ignoré)';
+$lang["action_dates_notification_subject"] = 'Notification du plugin de dates d\'action';
+$lang["action_dates_additional_settings"] = 'Actions supplémentaires';
+$lang["action_dates_additional_settings_info"] = 'Déplacez également les ressources à l\'état sélectionné lorsque le champ spécifié est atteint';
+$lang["action_dates_additional_settings_date"] = 'Quand cette date est atteinte';
+$lang["action_dates_additional_settings_status"] = 'Déplacer les ressources vers cet état d\'archive';
+$lang["action_dates_remove_from_collection"] = 'Supprimer les ressources de toutes les collections associées lorsqu\'un état est modifié ?';
+$lang["action_dates_email_for_state"] = 'Envoyer une notification pour les ressources dont l\'état a été modifié. Nécessite que les champs d\'état de changement ci-dessus soient configurés.';
+$lang["action_dates_email_for_restrict"] = 'Envoyer une notification pour restreindre des ressources. Nécessite que les champs de restriction de ressources ci-dessus soient configurés.';
+$lang["action_dates_workflow_actions"] = 'Si le plugin Advanced Workflow est activé, ses notifications doivent-elles être appliquées aux changements d\'état initiés par ce plugin ?';
+$lang["action_dates_weekdays"] = 'Sélectionnez les jours de la semaine où les actions seront traitées.';
+$lang["weekday-0"] = 'Dimanche';
+$lang["weekday-1"] = 'Lundi';
+$lang["weekday-2"] = 'Mardi';
+$lang["weekday-3"] = 'Mercredi';
+$lang["weekday-4"] = 'Jeudi';
+$lang["weekday-5"] = 'Vendredi';
+$lang["weekday-6"] = 'Samedi';
+$lang["plugin-action_dates-title"] = 'Dates d\'action';
+$lang["plugin-action_dates-desc"] = 'Permet la suppression ou la restriction programmée des ressources en fonction des champs de date';
+
+$lang["page-title_action_dates_setup"] = 'Configurer le plugin des dates d\'action';

@@ -1,0 +1,4 @@
+The user ratings for a given resource.
+user,int(11),
+rating,int(11),Rating (out of 5) 
+ref,int(11),Resource ID

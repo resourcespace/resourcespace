@@ -1,0 +1,4 @@
+resource,int(11),NO,MUL,,
+user,int(11),YES,MUL,,
+usergroup,int,YES,MUL,,
+expiry,datetime,YES,MUL,,

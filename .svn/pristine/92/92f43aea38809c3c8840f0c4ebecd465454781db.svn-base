@@ -1,0 +1,11 @@
+name: faces
+title: AI Faces - InsightFace
+author: Montala Limited
+version: 1.0
+desc: State-of-the-art automatic face detection and tagging. Search by face.
+icon: scan-face
+icon-colour: seagreen
+category: AI
+config_url: /plugins/faces/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/faces
+disable_group_select: 1

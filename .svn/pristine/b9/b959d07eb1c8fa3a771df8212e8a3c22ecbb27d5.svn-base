@@ -1,0 +1,3 @@
+keyword,0,PRIMARY,1,ref,A,6111,,,,BTREE,
+keyword,1,keyword,1,keyword,A,6111,,,YES,BTREE,
+keyword,1,keyword_hit_count,1,hit_count,A,291,,,,BTREE,

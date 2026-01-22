@@ -1,0 +1,74 @@
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSAMLphp 1.15\n"
+"Report-Msgid-Bugs-To: simplesamlphp-translation@googlegroups.com\n"
+"POT-Creation-Date: 2016-10-12 09:23+0200\n"
+"PO-Revision-Date: 2016-10-14 12:14+0200\n"
+"Last-Translator: \n"
+"Language: el\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+msgid "Yes, continue"
+msgstr "Αποδοχή"
+
+msgid "Return to consent page"
+msgstr "Επιστροφή στη σελίδα δήλωσης συγκατάθεσης"
+
+msgid "Go to information page for the service"
+msgstr "Επιπλέον πληροφορίες για την υπηρεσία"
+
+msgid "Abort login to %SPNAME%"
+msgstr "Ακύρωση εισόδου στην υπηρεσία %SPNAME%"
+
+msgid "The purpose of %SPNAME% is %SPDESC%"
+msgstr "Περιγραφή όπως παρέχεται από την υπηρεσία: %SPDESC%"
+
+msgid ""
+"List the information about you that is about to be transmitted to the "
+"service you are going to login to"
+msgstr ""
+"Εμφάνιση πληροφοριών που θα διαμοιραστούν με την υπηρεσία κατά την "
+"πρόσβαση σε αυτή"
+
+msgid "Consent about releasing personal information"
+msgstr "Δήλωση συγκατάθεσης για τον διαμοιρασμό προσωπικών δεδομένων"
+
+msgid "No consent given"
+msgstr "Μη αποδοχή συγκατάθεσης"
+
+msgid "You did not give consent for transferring your attributes to %SPNAME%."
+msgstr ""
+"Δεν έχετε δώσει συγκατάθεση για τον διαμοιρασμό προσωπικών δεδομένων με "
+"την υπηρεσία %SPNAME%"
+
+msgid "Remember"
+msgstr "Να θυμάσαι την επιλογή μου"
+
+msgid "Show content"
+msgstr "Εμφάνιση λεπτομερειών"
+
+msgid "%SPNAME% requires that the information below is transferred."
+msgstr ""
+"Εάν προχωρήσετε, τα στοιχεία που ακολουθούν θα διαμοιραστούν με την "
+"υπηρεσία <b>%SPNAME%</b>. Συμφωνείτε με την απελευθέρωση των στοιχείων "
+"αυτών στην υπηρεσία κάθε φορά που επιθυμείτε πρόσβαση σε αυτή;"
+
+msgid "Privacy policy for the service"
+msgstr "Πολιτική προστασίας απορρήτου υπηρεσίας"
+
+msgid "No, cancel"
+msgstr "Απόρριψη"
+
+msgid "User information"
+msgstr "Πληροφορίες χρήστη"
+
+msgid "Information that will be sent to %SPNAME%"
+msgstr "Πληροφορίες που θα διαμοιραστούν με την υπηρεσία %SPNAME%"
+

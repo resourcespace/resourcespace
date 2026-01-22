@@ -1,0 +1,10 @@
+name: custom_filename
+title: Custom Filename
+author: Montala Limited
+version: 1.0
+desc: Post-process the filename and save the newly processed value in a separate field.
+icon: pen-line
+config_url: /plugins/custom_filename/pages/setup.php
+default_priority: 100
+category: Asset Processing
+disable_group_select: 1

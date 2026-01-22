@@ -1,0 +1,5 @@
+A list of keywords used when indexing. With stemming enabled (the default) the stems are stored as well as the full keywords.
+ref,int(11),
+keyword,varchar(100),An individual word, used for indexing/searching. When stemming is enabled the word stems are also stored in this table as keywords.
+soundex,varchar(50),A <a href='https://en.wikipedia.org/wiki/Soundex'>Soundex</a> representation of the keyword, used when suggesting searches after zero results - it can show keywords that sound similar and help correct typos.
+hit_count,int(11),How many times this keyword has been used within resource metadata. Used to sort keywords when suggesting alternatives to the user.

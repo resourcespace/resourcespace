@@ -1,0 +1,57 @@
+<?php
+
+
+$lang["offline_archive_configuration"]='Tudalen Gynllunio Archifau Offlinell';
+$lang["offline_archive_archivefield"]='Dewiswch y maes metadata a fydd yn dal y cod cyfeirnod archif.';
+$lang["offline_archive_archivepath"]='Os gwelwch yn dda, rhowch y lleoliad y bydd y archifau\'n cael eu creu ynddo';
+$lang["offline_archive_restorepath"]='Ar gyfer adfer adnoddau yn y ffolder StaticSync gallwch fynd i isffolder o\'r ffolder StaticSync y bydd ffeiliau a adferwyd yn cael eu rhoi ynddo';
+$lang["offline_archive_preservedate"]='Aroswch amseriad ffeil?';
+$lang["offline_archive_administer_archive"]='Rheoli archifau';
+$lang["offline_archive_view_pending"]='Gweld adnoddau yn aros am archif';
+$lang["offline_archive_view_pending_restore"]='Gweld adnoddau yn aros am adfer';
+$lang["offline_archive_view_completed"]='Gweld swyddi archif';
+$lang["offline_archive_view_associated"]='Gweld adnoddau cysylltiedig';
+$lang["offline_archive_view_as_search"]='Gweld adnoddau fel chwiliad';
+$lang["offline_archive_entername"]='Os gwelwch yn dda, rhowch enw\'r archif';
+$lang["offline_archive_input_text"]='Os gwelwch yn dda, rhowch neu restr o adnoddau neu ID casgliad i\'w nodi ar gyfer adfer.';
+$lang["offline_archive_input_resources"]='Os gwelwch yn dda, rhowch IDau adnodd i adfer, wedi\'u separu gan gomau';
+$lang["offline_archive_input_collection"]='Os gwelwch yn dda, rhowch ID y casgliad i adfer';
+$lang["offline_archive_name"]='Cynffon archif';
+$lang["offline_archive_createnew"]='Creu swydd archif newydd';
+$lang["offline_archive_archive_created"]='Archif wedi\'i greu\'n llwyddiannus';
+$lang["offline_archive_archive_ref"]='Cyfeirnod archif';
+$lang["offline_archive_archive_date"]='Dyddiad archif';
+$lang["offline_archive_archive_status"]='Dyddiad archif';
+$lang["offline_archive_request_restore"]='Cais adferiad';
+$lang["offline_archive_cancel_restore"]='Diddymu adfer';
+$lang["offline_archive_cancel_confirm"]='A ydych yn siŵr eich bod am ganslo adfer y gr resource hwn?';
+$lang["offline_archive_restore_pending"]='Aros adfer o archif';
+$lang["offline_archive_restore_confirm"]='Cadarnhau adferiad';
+$lang["offline_archive_restore_resources"]='Adfer adnoddau o archif';
+$lang["offline_archive_restore_resource"]='Adfer o archif';
+$lang["offline_archive_request_restore_text"]='Os gwelwch yn dda, rhowch reswm y cais';
+$lang["offline_archive_request_restore_reason"]='Rheswm am gais adfer';
+$lang["offline_archive_request_email_subject"]='cais adfer archif all-lein';
+$lang["offline_archive_requestsenttext"]='Mae eich cais adfer archif wedi\'i gyflwyno a bydd yn cael ei ystyried yn fuan.';
+$lang["offline_archive_resources_restore_confirmed"]='Mae\'r adnoddau wedi\'u gosod yn llwyddiannus ar gyfer adfer ac fe\'u bydd yn cael eu hadfer pan fydd yr archifau perthnasol wedi\'u mewnosod neu\'u copïo i\'r lleoliad archif a gynhelir.';
+$lang["offline_archive_resources_restore_cancel_confirmed"]='Cafodd y gronfa ei dileu\'n llwyddiannus o adfer yn aros';
+$lang["offline_archive_resource_log_archived"]='- archifwyd gan y plwgyn archif offline. Cod archif:';
+$lang["offline_archive_resource_log_restored"]='- adferwyd gan y plwgyn archif all-lein';
+$lang["offline_archive_resource_log_restore_set"]='Arwyddwyd ar gyfer adfer o archif';
+$lang["offline_archive_resource_log_restore_removed"]='Ail-adfer wedi\'i ganslo o\'r archif';
+$lang["offline_archive_resource_log_restore_request"]='Cais adfer o archif';
+$lang["offline_archive_resource_restore"]='Adfer adnoddau';
+$lang["offline_archive_administer_archive-tooltip"] = 'Dymchwel ffeiliau archifedig i leoliad all-lein';
+$lang["offline_archive_statustype"] = array (
+  0 => 'Ar y gweill',
+  1 => 'Yn y broses',
+  2 => 'Wedi\'i gwblhau',
+);
+$lang["page-title_offline_archive_administer_archive"] = 'Rheoli Archifau';
+$lang["page-title_offline_archive_offline_archive_action"] = 'Archif All-lein';
+$lang["page-title_offline_archive_pending_restore"] = 'Adfer Adnoddau yn aros';
+$lang["page-title_offline_archive_restore_request"] = 'Gofyn am Ail-adfer Adnodd';
+$lang["page-title_offline_archive_restore"] = 'Adfer Archif';
+$lang["page-title_offline_archive_setup"] = 'Gosod Plugin';
+$lang["page-title_offline_archive_view_archives"] = 'View Archifau Adnoddau';
+$lang["page-title_offline_archive_view_pending"] = 'Gweld Archifau ar Goll';

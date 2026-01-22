@@ -1,0 +1,9 @@
+.video_tracks_buttons {
+	width: 350px;	
+	margin: 5px auto;
+}
+
+.video_tracks_button{
+	width: 150px; 
+	margin: 5px;
+}

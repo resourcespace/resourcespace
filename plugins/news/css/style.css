@@ -1,0 +1,67 @@
+#NewsBox {
+	width: 267px;
+	height: 200px;
+	float: right;
+    margin-left: 0px; 
+	margin-top: 10px;
+	padding: 2px 8px 0px 5px;
+	background-color: #346674;
+	color: #FFFFFF;
+	background-image: none;
+	filter: none;
+}
+
+.NewsHeader {
+	font-size: 14px;
+	color: #FFFFFF;	
+}
+
+#title {
+	color: #FFFFFF
+}
+
+#NewsDisplayBox {
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+#NewsBodyDisplay, #NewsBodyDisplay a:link, #NewsBodyDisplay a:visited {
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+#NewsBodyDisplay {
+	color:black;
+}
+
+#NewsPanel h2 {
+	color: #fff;
+	font-size: 1.4em;
+}
+
+#NewsPanel p {
+	padding: 3px 0;
+}
+
+#NewsPanel {
+	margin-bottom: 0;
+	padding: 15px;
+	display: inline-block;
+	width: 485px;
+	background-color: rgba(0, 0, 0, 0.45);
+	border-radius: 8px;
+	color: white;
+}
+
+#NewsPanel a {
+	color: white;
+}
+
+#EditNewsBack {
+	margin-top: 15px;
+	padding-bottom: 0;
+}
+
+#NewsNav {
+	margin-top: 15px;
+}

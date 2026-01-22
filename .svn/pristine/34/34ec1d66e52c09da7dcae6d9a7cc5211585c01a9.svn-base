@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'Kiungo cha Falcon';
+$lang["falcon_link_manage"] = 'Chapisho la Falcon/Hifadhi';
+$lang["falcon_link_publish"] = 'Chapisha kwa Falcon';
+$lang["falcon_link_archive"] = 'Archiwa katika Falcon';
+$lang["falcon_link_configuration"] = 'Kiungo cha Falcon- Sanidi';
+$lang["falcon_link_api_key"] = 'Ufunguo wa API wa Falcon';
+$lang["falcon_link_notconfigured"] = 'Programu-jalizi ya Falcon Link haijasanidiwa. Tafadhali muombe msimamizi wako asanidi programu-jalizi hiyo.';
+$lang["falcon_link_resource_types_to_include"] = 'Chagua Aina za Rasilimali za Falcon zinazofaa';
+$lang["falcon_link_not_permitted_extension"] = 'Aina ya faili %TYPE% haiwezi kupakiwa kwenye Falcon';
+$lang["falcon_link_text_field"] = 'Uwanja wa maandishi wa kiolezo cha Falcon';
+$lang["falcon_link_default_tag"] = 'Maandishi ya lebo chaguo-msingi yatakayoongezwa kiotomatiki kwa maudhui yote yaliyochapishwa ya Falcon. Ikiwa utaweka maandishi \'[ID]\' basi hii itabadilishwa na kitambulisho cha rasilimali kwenye lebo';
+$lang["falcon_link_template_url"] = 'URL ya kiolezo cha Falcon. Hii inakuruhusu kuona rasilimali iliyochapishwa moja kwa moja katika Falcon. Lebo ya [id] itabadilishwa na kitambulisho kilichotolewa na Falcon wakati rasilimali inapochapishwa.';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Sehemu za lebo za Falcon. Hizi zitaunganishwa na kuongezwa kwenye lebo za kiolezo cha Falcon';
+$lang["falcon_link_id_field"] = 'Sehemu ya metadata kuhifadhi kitambulisho cha Falcon';
+$lang["falcon_link_log_share"] = 'Imechapishwa kwenye Falcon';
+$lang["falcon_link_archived"] = 'Imehifadhiwa';
+$lang["falcon_link_access_denied"] = 'Huna ruhusa ya kuchapisha rasilimali zilizochaguliwa';
+$lang["falcon_link_already_published"] = 'Rasilimali hii imechapishwa kwa Falcon';
+$lang["falcon_link_resources_already_published"] = 'Baadhi ya rasilimali tayari zimechapishwa kwa Falcon na haziwezi kuchapishwa tena';
+$lang["falcon_link_resource_not_published"] = 'Rasilimali haijachapishwa kwa Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Rasilimali haiwezi kuchapishwa kwa Falcon';
+$lang["falcon_link_template_description"] = 'Maelezo ya kiolezo';
+$lang["falcon_link_template_tags"] = 'Lebo za kiolezo zitakazoongezwa';
+$lang["falcon_link_missing_file"] = 'Rasilimali haina faili asili';
+$lang["falcon_link_existing_id"] = 'Kitambulisho cha Falcon Kilichopo';
+$lang["falcon_link_not_uploaded"] = 'Haijapakiwa';
+$lang["falcon_link_publish_button_text"] = 'Chapisha';
+$lang["falcon_link_archive_button_text"] = 'Archiwa';
+$lang["falcon_link_publish_success"] = 'Imechapishwa kwa mafanikio';
+$lang["falcon_link_archived_success"] = 'Imehifadhiwa kwa mafanikio.<br />Migawanyo ya rasilimali bado inafanya kazi na itahitaji kufutwa kwa mkono ikiwa inahitajika.';
+$lang["falcon_link_usergroups"] = 'Vikundi ambavyo vina ufikiaji wa kusimamia templeti za Falcon';
+$lang["falcon_link_filter"] = 'Chuja ili kubaini ni rasilimali zipi zinaweza kuchapishwa kwa Falcon';
+$lang["falcon_link_error_no_resources"] = 'Hakuna rasilimali zilizowasilishwa kwa ajili ya kuchapishwa';
+$lang["falcon_link_error_falcon_api"] = 'Hitilafu ilitokea wakati wa kuwasiliana na Falcon. Tafadhali angalia hali kwa maelezo zaidi.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Hitilafu ya Falcon';
+$lang["falcon_link_view_in_falcon"] = 'Tazama katika Falcon';
+$lang["falcon_link_share_user"] = 'Maandishi ya mtumiaji ya kuonyesha kwa hisa zilizoundwa kwa matumizi ya Falcon yaani \'imeshirikiwa na user@falcon.io\'';
+$lang["falcon_link_log_publish"] = 'Rasilimali iliyoshirikiwa kupitia Falcon';
+$lang["falcon_link_log_archive"] = 'Rasilimali iliyohifadhiwa kupitia Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Tafadhali hakikisha kuwa maelezo na vitambulisho haviko tupu';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Weka Plugin ya Falcon Link';

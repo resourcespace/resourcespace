@@ -1,0 +1,2 @@
+resource_related,1,resource_related,1,resource,A,,,,,BTREE,
+resource_related,1,related,1,related,A,,,,,BTREE,

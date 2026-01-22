@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+archive_code,varchar(50),NO,MUL,,
+archive_date,datetime,YES,,,
+archive_status,int(11),YES,,,

@@ -1,0 +1,3 @@
+youtube_username,varchar(200),YES,,,
+youtube_access_token,TEXT,YES,,,
+youtube_refresh_token,varchar(200),YES,,,

@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <h1>{% trans %}Access forbidden{% endtrans %}</h1>
+{% if reject_msg is defined %}
+  <p>{{ reject_msg|translateFromArray|raw }}</p>
+{% else %}
+  <p>{% trans %}You don't have the needed privileges to access this application. Please contact the administrator if you find this to be incorrect.{% endtrans %}</p>
+{% endif %}
+{% if user_attribute is defined %}
+ <p>{% trans %}You are currently logged in as{% endtrans %} {{ user_attribute }}</p>
+{% endif %}
+{% if allow_reauthentication is defined %}
+  <p>
+    <a href="{{ url_reauthentication }}">
+      <button class="pure-button pure-button-red">{% trans %}Change account?{% endtrans %}</button>
+    </a>
+  </p>
+{% endif %}
+{% if errorURL is defined %}
+  <p>
+    {% trans %}Your identity provider provides additional information that may help you solve this.{% endtrans %}
+    <br>
+    <a href="{{ errorURL }}" target="_blank">
+      <button class="pure-button">{% trans %}Additional information{% endtrans %}</button>
+    </a>
+  </p>
+{% endif %}
+{% if LogoutURL is defined %}
+  <p>
+    <a href="{{ LogoutURL }}">
+      <button class="pure-button pure-button-red">{% trans %}Logout{% endtrans %}</button>
+    </a>
+  </p>
+{% endif %}
+{% endblock%}

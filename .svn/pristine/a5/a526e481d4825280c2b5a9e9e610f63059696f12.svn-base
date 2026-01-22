@@ -1,0 +1,8 @@
+Additional metrics for a resource.
+resource,int(11),
+width,int(11),Resource width
+height,int(11),Resource height
+file_size,bigint(20),File size
+resolution,int(11),Resolution - requires $exiftool_resolution_calc
+unit,varchar(11),Unit information - requires $exiftool_resolution_calc.
+page_count,int(11),Total page count for multi-page previews.

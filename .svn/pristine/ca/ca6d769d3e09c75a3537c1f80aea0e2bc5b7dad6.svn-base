@@ -1,0 +1,61 @@
+{% set pagetitle = 'Consent about releasing personal information'|trans %}
+{% extends "base.twig" %}
+
+{% block preload %}
+<link rel="stylesheet" href="{{ asset('css/consent.css', 'consent') }}">
+{% endblock %}
+
+{% block content %}
+<p>{{ '%SPNAME% requires that the information below is transferred.'|trans({'%SPNAME%': destination|entityDisplayName() }) }}</p>
+
+{% if descr_purpose is defined and descr_purpose != "" %}
+    <p>{{ 'The purpose of %SPNAME% is %SPDESC%'|trans({'%SPNAME%': destination|entityDisplayName(), '%SPDESC%': descr_purpose|translateFromArray }) }}</p>
+{% endif %}
+
+<form id="consent-yes" action="{{ moduleURL('consent/getconsent') }}" method="GET">
+    {% if usestorage == true %}
+    <label for="saveconsent" class="pure-checkbox">
+    <input type="checkbox" id="saveconsent" name="saveconsent"{% if checked %} checked="checked"{% endif %} value="1">
+    {{ 'Remember'|trans }}</label>
+    {% endif %}
+
+    <input type="hidden" name="StateId" value="{{ stateId }}">
+    <button type="submit" name="yes" class="btn pure-button" id="yesbutton"
+    {%- if autofocus is defined and autofocus == 'yesbutton' %} autofocus{% endif -%}
+    >{{ 'Yes, continue'|trans }}</button>
+</form>
+
+<form id="consent-no" action="{{ moduleURL('consent/noconsent') }}" method="GET">
+    <input type="hidden" name="StateId" value="{{ stateId }}">
+    <button type="submit" name="no" class="btn pure-button" id="nobutton"
+    {%- if autofocus is defined and autofocus == 'nobutton' %} autofocus{% endif -%}
+    >{{ 'No, cancel'|trans }}</button>
+</form>
+
+{% if sppp != false %}
+<p><a target="_blank" href='{{ sppp }}'>{{ 'Privacy policy for the service'|trans }}
+    {{ destination|entityDisplayName() }}</a>
+</p>
+{% endif %}
+
+<h3 id="attributeheader">{{ 'Information that will be sent to %SPNAME%'|trans({'%SPNAME%': destination|entityDisplayName() }) }}</h3>
+
+{% set items = attributes %}
+
+{% embed '_table.twig' -%}
+
+    {% block namecol -%}
+    {% set translated = name|trans %}
+    <td class="attrname">{% if translated != name %} {{ translated }} <br>{% endif %} <samp>{{ name }}</samp></td>
+    {% endblock %}
+
+
+    {% block value -%}
+    {% if name =='jpegPhoto'-%}
+        <img src="data:image/jpeg;base64,{{ value }}" alt="{{ 'Content of jpegPhoto attribute'|trans }}">
+    {% else %}{{ value }}{% endif -%}
+    {% endblock %}
+
+{%- endembed %}
+
+{% endblock %}

@@ -1,0 +1,8 @@
+name: csv_upload
+title: CSV Upload
+author: Montala Limited
+version: 1.0
+desc: Upload meta data using a CSV file.
+icon: scroll-text
+category: Asset Processing
+info_url: https://www.resourcespace.com/knowledge-base/plugins/csv-upload

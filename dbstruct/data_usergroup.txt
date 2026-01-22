@@ -1,0 +1,6 @@
+1,Administrators,"s,g,c,t,h,r,u,i,e-2,e-1,e0,e1,e3,v,o,m,q,f*,j*,k,R,Ra,Rb,x,hdta,lm,cm",0,,,,,,,,1,0,,,,,,,,
+2,"General Users","s,e-1,e-2,g,d,q,f*,j*,z1,z2,z3",0,,,,,,,,1,1,,,,,,,,
+3,"Super Admin","s,g,c,a,t,h,hdt_ug,u,r,i,e-2,e-1,e0,e1,e2,e3,o,m,g,v,q,f*,j*,k,R,Ra,x,ex",0,,,,,,,,1,0,,,,,,,,
+4,Archivists,"s,g,c,t,h,r,u,i,e1,e2,e3,v,q,f*,j*",0,,,,,,,,1,0,,,,,,,,
+5,"Restricted User - Requests Emailed (manual fulfilment)","s,f*,j*,q,dtu,z1,z2,z3",0,,,,,,,,0,0,,,,,,,,
+6,"Restricted User - Requests Managed","s,f*,j*,q,dtu,z1,z2,z3",0,,,,,,,,1,0,,,,,,,,

@@ -1,0 +1,7 @@
+For free text metadata, stores the indexed keywords. Fixed list indexing is stored separately via resource_node and node_keyword.
+resource,int(11),
+keyword,int(11),
+hit_count,int(11),The live hitcount. This value is copied from the new_hit_count column. See copy_hitcount_to_live()
+position,int(11),The position of the keyword in the indexed string for advanced searching.
+resource_type_field,int(11),
+new_hit_count,int(11),For each matching keyword in a search, the new hitcount is incremented so existing results are not affected. See update_resource_keyword_hitcount()

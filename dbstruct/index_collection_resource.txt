@@ -1,0 +1,4 @@
+collection_resource,1,collection,1,collection,A,228,,,YES,BTREE,
+collection_resource,1,resource_collection,1,collection,A,228,,,YES,BTREE,
+collection_resource,1,resource_collection,2,resource,A,8455,,,YES,BTREE,
+collection_resource,1,resource,1,resource,A,228,,,YES,BTREE,

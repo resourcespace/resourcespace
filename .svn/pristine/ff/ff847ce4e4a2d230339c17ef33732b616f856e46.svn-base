@@ -1,0 +1,17 @@
+.stencilvg-svgouter {
+    float: right;
+    width: 50%;
+}
+
+.stencilvg-svg {
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.stencilvg-svg svg {
+    background-color: white;
+    max-width: 100%;
+    width: 70%;
+    height: auto;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

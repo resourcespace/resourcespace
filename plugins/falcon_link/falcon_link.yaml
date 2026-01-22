@@ -1,0 +1,10 @@
+name: falcon_link
+title: Falcon Link
+desc: Publish resources to Falcon.io for automated social media sharing.
+icon: share-2
+author: Montala Limited
+version: 1.0
+config_url: /plugins/falcon_link/pages/setup.php
+category: Integrations
+disable_group_select: 1
+info_url: https://www.resourcespace.com/knowledge-base/plugins/plugin-falcon

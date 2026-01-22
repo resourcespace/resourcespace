@@ -1,0 +1,40 @@
+<?php
+
+$lang["action_dates_configuration"] = 'ان فیلڈز کو منتخب کریں جو خودکار طور پر مخصوص کردہ اعمال انجام دینے کے لئے استعمال کی جائیں گی۔';
+$lang["action_dates_deletesettings"] = 'خودکار وسائل کی بنیادی کارروائی کی ترتیبات - احتیاط کے ساتھ استعمال کریں';
+$lang["action_dates_delete"] = 'جب اس فیلڈ میں دی گئی تاریخ پہنچ جائے تو وسائل کو خود بخود حذف کریں یا ان کی حالت تبدیل کریں۔';
+$lang["action_dates_eligible_states"] = 'وہ حالتیں جو بنیادی خودکار کارروائی کے لئے اہل ہیں۔ اگر کوئی حالت منتخب نہیں کی گئی تو تمام حالتیں اہل ہوں گی۔';
+$lang["action_dates_restrict"] = 'جب اس فیلڈ میں تاریخ پہنچ جائے تو وسائل تک رسائی خود بخود محدود کر دیں۔ یہ صرف ان وسائل پر لاگو ہوتا ہے جن کی رسائی فی الحال کھلی ہے۔';
+$lang["action_dates_delete_logtext"] = '- خودکار طور پر action_dates پلگ ان کے ذریعے عمل میں لایا گیا';
+$lang["action_dates_restrict_logtext"] = '- خودکار طور پر action_dates پلگ ان کے ذریعے محدود کیا گیا';
+$lang["action_dates_reallydelete"] = 'کیا جب عمل کی تاریخ گزر جائے تو وسائل کو مکمل طور پر حذف کر دیا جائے؟ اگر غلط پر سیٹ کیا گیا تو وسائل کو ترتیب شدہ resource_deletion_state میں منتقل کر دیا جائے گا اور اس طرح قابل بازیافت ہوں گے۔';
+$lang["action_dates_email_admin_days"] = 'سسٹم ایڈمنسٹریٹرز کو اس تاریخ کے پہنچنے سے مقررہ دن پہلے مطلع کریں۔ اگر کوئی اطلاع نہیں بھیجنی تو اس آپشن کو خالی چھوڑ دیں۔';
+$lang["action_dates_email_text_restrict"] = 'مندرجہ ذیل وسائل [days] دنوں میں محدود ہونے والے ہیں۔';
+$lang["action_dates_email_text_state"] = 'مندرجہ ذیل وسائل [days] دنوں میں حالت تبدیل کرنے والے ہیں۔';
+$lang["action_dates_email_text"] = 'مندرجہ ذیل وسائل [days] دنوں میں محدود ہونے اور/یا حالت تبدیل کرنے کے لیے مقرر ہیں۔';
+$lang["action_dates_email_range_restrict"] = 'مندرجہ ذیل وسائل [days_min] سے [days_max] دنوں کے اندر محدود ہونے والے ہیں۔';
+$lang["action_dates_email_range_state"] = 'مندرجہ ذیل وسائل [days_min] سے [days_max] دنوں کے اندر حالت تبدیل کرنے والے ہیں۔';
+$lang["action_dates_email_range"] = 'مندرجہ ذیل وسائل [days_min] سے [days_max] دنوں کے اندر محدود ہونے اور/یا حالت تبدیل کرنے کے لیے مقرر ہیں۔';
+$lang["action_dates_email_subject_restrict"] = 'وسائل کی پابندی کے لیے مقررہ وقت کی اطلاع';
+$lang["action_dates_email_subject_state"] = 'وسائل کی حالت میں تبدیلی کی اطلاع';
+$lang["action_dates_email_subject"] = 'وسائل کی پابندی اور/یا حالت کی تبدیلی کے لیے نوٹیفکیشن';
+$lang["action_dates_new_state"] = 'نئی حالت میں منتقل کریں (اگر اوپر والا آپشن وسائل کو مکمل طور پر حذف کرنے کے لئے سیٹ کیا گیا ہے تو اسے نظرانداز کیا جائے گا)';
+$lang["action_dates_notification_subject"] = 'ایکشن ڈیٹس پلگ ان سے اطلاع';
+$lang["action_dates_additional_settings"] = 'اضافی کارروائیاں';
+$lang["action_dates_additional_settings_info"] = 'جب مخصوص فیلڈ تک پہنچا جائے تو وسائل کو منتخب کردہ حالت میں منتقل کریں۔';
+$lang["action_dates_additional_settings_date"] = 'جب یہ تاریخ پہنچ جائے';
+$lang["action_dates_additional_settings_status"] = 'وسائل کو اس آرکائیو حالت میں منتقل کریں';
+$lang["action_dates_remove_from_collection"] = 'جب حالت تبدیل ہو جائے تو تمام متعلقہ مجموعوں سے وسائل کو ہٹا دیں؟';
+$lang["action_dates_email_for_state"] = 'وسائل کی حالت تبدیل ہونے پر اطلاع بھیجیں۔ اس کے لیے اوپر دیے گئے حالت کی تبدیلی کے فیلڈز کو ترتیب دینا ضروری ہے۔';
+$lang["action_dates_email_for_restrict"] = 'وسائل کے محدود ہونے کے لیے اطلاع بھیجیں۔ اس کے لیے اوپر دیے گئے وسائل کے محدود فیلڈز کو ترتیب دینا ضروری ہے۔';
+$lang["action_dates_workflow_actions"] = 'اگر ایڈوانسڈ ورک فلو پلگ ان فعال ہے، تو کیا اس کے نوٹیفیکیشنز کو اس پلگ ان کے ذریعے شروع کی گئی حالت کی تبدیلیوں پر لاگو کیا جانا چاہیے؟';
+$lang["action_dates_weekdays"] = 'ان ہفتے کے دنوں کا انتخاب کریں جب کارروائیاں عمل میں لائی جائیں گی۔';
+$lang["weekday-0"] = 'اتوار';
+$lang["weekday-1"] = 'پیر';
+$lang["weekday-2"] = 'منگل';
+$lang["weekday-3"] = 'بدھ';
+$lang["weekday-4"] = 'جمعرات';
+$lang["weekday-5"] = 'جمعہ';
+$lang["weekday-6"] = 'ہفتہ';
+
+$lang["page-title_action_dates_setup"] = 'ایکشن تاریخوں کا پلگ ان ترتیب دیں';

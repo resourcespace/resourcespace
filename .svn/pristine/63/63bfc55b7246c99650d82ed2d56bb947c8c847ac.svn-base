@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = 'Otomatik olarak belirtilen eylemleri gerçekleştirmek için kullanılacak alanları seçin.';
+$lang["action_dates_deletesettings"] = 'Otomatik kaynak birincil eylem ayarları - dikkatli kullanın';
+$lang["action_dates_delete"] = 'Bu alandaki tarihe ulaşıldığında kaynakları otomatik olarak sil veya durumunu değiştir';
+$lang["action_dates_eligible_states"] = 'Birincil otomatik işlem için uygun olan durumlar. Hiçbir durum seçilmezse, tüm durumlar uygun olur.';
+$lang["action_dates_restrict"] = 'Bu alandaki tarihe ulaşıldığında kaynaklara erişimi otomatik olarak kısıtla. Bu yalnızca erişimi şu anda açık olan kaynaklar için geçerlidir.';
+$lang["action_dates_delete_logtext"] = '- action_dates eklentisi tarafından otomatik olarak gerçekleştirildi';
+$lang["action_dates_restrict_logtext"] = '- action_dates eklentisi tarafından otomatik olarak kısıtlandı';
+$lang["action_dates_reallydelete"] = 'Eylem tarihi geçtiğinde kaynağı tamamen sil? Yanıta hayır olarak ayarlanırsa, kaynaklar yapılandırılmış resource_deletion_state durumuna taşınacak ve böylece kurtarılabilir olacaktır.';
+$lang["action_dates_email_admin_days"] = 'Bu tarihe ulaşılmadan belirli bir gün önce sistem yöneticilerini bilgilendir. Bildirim gönderilmemesi için bu seçeneği boş bırakın.';
+$lang["action_dates_email_text_restrict"] = 'Aşağıdaki kaynaklar [days] gün içinde kısıtlanacak.';
+$lang["action_dates_email_text_state"] = 'Aşağıdaki kaynaklar [days] gün içinde durum değiştirecek.';
+$lang["action_dates_email_text"] = 'Aşağıdaki kaynaklar [days] gün içinde kısıtlanacak ve/veya durum değiştirecek.';
+$lang["action_dates_email_range_restrict"] = 'Aşağıdaki kaynaklar [days_min] ile [days_max] gün içinde kısıtlanacak.';
+$lang["action_dates_email_range_state"] = 'Aşağıdaki kaynaklar [days_min] ile [days_max] gün içinde durum değiştirecek.';
+$lang["action_dates_email_range"] = 'Aşağıdaki kaynaklar [days_min] ile [days_max] gün içinde kısıtlanacak ve/veya durum değiştirecek.';
+$lang["action_dates_email_subject_restrict"] = 'Kısıtlanacak kaynakların bildirimi';
+$lang["action_dates_email_subject_state"] = 'Durum değiştirecek kaynakların bildirimi';
+$lang["action_dates_email_subject"] = 'Kaynakların kısıtlanması ve/veya durum değiştirmesi hakkında bildirim';
+$lang["action_dates_new_state"] = 'Taşınacak yeni durum (eğer yukarıdaki seçenek kaynakları tamamen silmek için ayarlandıysa bu yok sayılacaktır)';
+$lang["action_dates_notification_subject"] = 'Eylem tarihleri eklentisinden bildirim';
+$lang["action_dates_additional_settings"] = 'Ekstra eylemler';
+$lang["action_dates_additional_settings_info"] = 'Belirtilen alana ulaşıldığında kaynakları seçilen duruma ek olarak taşıyın';
+$lang["action_dates_additional_settings_date"] = 'Bu tarihe ulaşıldığında';
+$lang["action_dates_additional_settings_status"] = 'Kaynakları bu arşiv durumuna taşı';
+$lang["action_dates_remove_from_collection"] = 'Durum değiştirildiğinde kaynakları tüm ilişkili koleksiyonlardan kaldır?';
+$lang["action_dates_email_for_state"] = 'Durum değiştiren kaynaklar için bildirim gönder. Üstteki durum değişikliği alanlarının yapılandırılması gerekir.';
+$lang["action_dates_email_for_restrict"] = 'Kaynakların kısıtlanması için bildirim gönder. Yukarıdaki kaynak alanlarının yapılandırılmasını gerektirir.';
+$lang["action_dates_workflow_actions"] = 'Gelişmiş İş Akışı eklentisi etkinleştirilmişse, bu eklenti tarafından başlatılan durum değişikliklerine bildirimler uygulanmalı mı?';
+$lang["action_dates_weekdays"] = 'İşlemlerin gerçekleştirileceği hafta günlerini seçin.';
+$lang["weekday-0"] = 'Pazar';
+$lang["weekday-1"] = 'Pazartesi';
+$lang["weekday-2"] = 'Salı';
+$lang["weekday-3"] = 'Çarşamba';
+$lang["weekday-4"] = 'Perşembe';
+$lang["weekday-5"] = 'Cuma';
+$lang["weekday-6"] = 'Cumartesi';
+$lang["plugin-action_dates-title"] = 'Eylem Tarihleri';
+$lang["plugin-action_dates-desc"] = 'Tarih alanlarına göre kaynakların planlı silinmesini veya kısıtlanmasını sağlar';
+
+$lang["page-title_action_dates_setup"] = 'Eylem Tarihleri Eklentisini Ayarla';

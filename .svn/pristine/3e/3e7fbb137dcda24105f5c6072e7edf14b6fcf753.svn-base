@@ -1,0 +1,8 @@
+name: video_bookend
+title: Video Bookend
+author: Montala Limited
+version: 1.1
+desc: Adds the ability to download a video with a title and end graphic.
+icon: file-video-camera
+category: Asset Processing
+info_url: https://www.resourcespace.com/knowledge-base/plugins/video-bookend

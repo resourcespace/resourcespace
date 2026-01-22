@@ -1,0 +1,10 @@
+name: track_field_history
+title: Track Field History
+author: Montala Limited
+version: 1.0
+desc: Ability to track fields' edit history.
+icon: history
+config_url: /plugins/track_field_history/pages/setup.php
+default_priority: 999
+category: Workflow And Access
+info_url: https://www.resourcespace.com/knowledge-base/plugins/track-field-changes

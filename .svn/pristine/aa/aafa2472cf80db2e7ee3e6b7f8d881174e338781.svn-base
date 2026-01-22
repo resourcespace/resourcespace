@@ -1,0 +1,2 @@
+research_request,0,PRIMARY,1,ref,A,0,,,,BTREE,
+research_request,1,research_collections,1,collection,A,,,,YES,BTREE,

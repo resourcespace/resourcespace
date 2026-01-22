@@ -1,0 +1,9 @@
+Daily statistics, grouped by day, usergroup and activity type, for easy summaries used by analytics.
+year,int(11),Year the activity took place
+month,int(11),Month the activity took place
+day,int(11),Day the activity took place
+usergroup,int(11),
+activity_type,varchar(50),The activity type code
+object_ref,int(11),The ID of the table in question, such as the resource ID in the case of a resource activity
+count,int(11),How many times this activity was carried out on the object in the day in question by any user
+external,tinyint(1),Did this activity happen via an external share?

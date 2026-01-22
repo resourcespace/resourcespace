@@ -1,0 +1,9 @@
+name: consentmanager
+title: Consent Manager
+author: Montala Limited
+version: 1.0
+desc: Adds the capability to manage consent given by subjects featured within your media files.
+icon: user-check
+category: Compliance
+config_url: /plugins/consentmanager/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/consent-manager

@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'Falcon Link';
+$lang["falcon_link_manage"] = 'Falcon xuất bản/lưu trữ';
+$lang["falcon_link_publish"] = 'Xuất bản lên Falcon';
+$lang["falcon_link_archive"] = 'Lưu trữ trong Falcon';
+$lang["falcon_link_configuration"] = 'Liên kết Falcon - Cài đặt';
+$lang["falcon_link_api_key"] = 'Falcon API key';
+$lang["falcon_link_notconfigured"] = 'Plugin Falcon Link chưa được cấu hình. Vui lòng yêu cầu quản trị viên của bạn cấu hình plugin.';
+$lang["falcon_link_resource_types_to_include"] = 'Chọn loại Tài nguyên Falcon hợp lệ';
+$lang["falcon_link_not_permitted_extension"] = 'Loại tệp %TYPE% không thể được tải lên Falcon';
+$lang["falcon_link_text_field"] = 'Trường văn bản mẫu Falcon';
+$lang["falcon_link_default_tag"] = 'Văn bản thẻ mặc định sẽ được tự động thêm vào tất cả nội dung đã xuất bản của Falcon. Nếu bạn bao gồm văn bản \'[ID]\', thì văn bản này sẽ được thay thế bằng ID tài nguyên trong thẻ';
+$lang["falcon_link_template_url"] = 'URL mẫu Falcon. Điều này cho phép bạn xem tài nguyên đã được xuất bản trong Falcon trực tiếp. Thẻ [id] sẽ được thay thế bằng định danh được cấp bởi Falcon khi tài nguyên được xuất bản';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Các trường thẻ Falcon. Những trường này sẽ được nối lại và thêm vào các thẻ mẫu Falcon';
+$lang["falcon_link_id_field"] = 'Trường metadata để lưu trữ định danh Falcon';
+$lang["falcon_link_log_share"] = 'Được xuất bản trên Falcon';
+$lang["falcon_link_archived"] = 'Lưu trữ';
+$lang["falcon_link_access_denied"] = 'Bạn không có quyền xuất bản tài nguyên đã chọn';
+$lang["falcon_link_already_published"] = 'Tài nguyên này đã được xuất bản lên Falcon';
+$lang["falcon_link_resources_already_published"] = 'Một số tài nguyên đã được xuất bản lên Falcon và không thể được xuất bản lại';
+$lang["falcon_link_resource_not_published"] = 'Tài nguyên chưa được xuất bản lên Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Tài nguyên không thể được xuất bản lên Falcon';
+$lang["falcon_link_template_description"] = 'Mô tả mẫu';
+$lang["falcon_link_template_tags"] = 'Thẻ mẫu sẽ được thêm vào';
+$lang["falcon_link_missing_file"] = 'Tài nguyên không có tệp gốc';
+$lang["falcon_link_existing_id"] = 'ID Falcon hiện có';
+$lang["falcon_link_not_uploaded"] = 'Chưa tải lên';
+$lang["falcon_link_publish_button_text"] = 'Xuất bản';
+$lang["falcon_link_archive_button_text"] = 'Lưu trữ';
+$lang["falcon_link_publish_success"] = 'Xuất bản thành công';
+$lang["falcon_link_archived_success"] = 'Lưu trữ thành công.<br />Chia sẻ tài nguyên vẫn đang hoạt động và sẽ cần được xóa thủ công nếu cần.';
+$lang["falcon_link_usergroups"] = 'Các nhóm có quyền truy cập để quản lý mẫu Falcon';
+$lang["falcon_link_filter"] = 'Lọc để xác định tài nguyên nào có thể được xuất bản lên Falcon';
+$lang["falcon_link_error_no_resources"] = 'Không có tài nguyên nào được gửi để xuất bản';
+$lang["falcon_link_error_falcon_api"] = 'Đã xảy ra lỗi trong quá trình giao tiếp với Falcon. Vui lòng kiểm tra trạng thái để biết thêm chi tiết.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Lỗi Falcon';
+$lang["falcon_link_view_in_falcon"] = 'Xem trong Falcon';
+$lang["falcon_link_share_user"] = 'Chia sẻ với user@falcon.io';
+$lang["falcon_link_log_publish"] = 'Tài nguyên chia sẻ qua Falcon';
+$lang["falcon_link_log_archive"] = 'Tài nguyên đã lưu trữ qua Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Vui lòng kiểm tra rằng mô tả và thẻ không trống';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Cài đặt Plugin Falcon Link';

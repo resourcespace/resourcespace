@@ -1,0 +1,11 @@
+Dash tiles, displayed on the home page.
+ref,int(11),
+title,varchar(255),Title text
+txt,text,Tile text 
+all_users,int(1),(boolean) Is tile published to all users?
+default_order_by,int(11),Default order
+url,text,Anchor link href URL
+link,text,Link text
+reload_interval_secs,int(11),
+resource_count,int(1),Number of resources (if search/collection tile)
+allow_delete,int(1),(boolean) Can tile be deleted?

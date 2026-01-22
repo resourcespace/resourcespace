@@ -1,0 +1,43 @@
+<?php
+
+
+$lang["brand_guidelines_permission_bgv"] = 'Maaaring tingnan ang Mga Patnubay sa Brand';
+$lang["brand_guidelines_permission_bge"] = 'Maaaring i-edit ang Mga Patnubay sa Brand';
+$lang["brand_guidelines_top_nav_title"] = 'Mga Patnubay';
+$lang["brand_guidelines_new_resource"] = 'Bagong yaman';
+$lang["brand_guidelines_existing_resource"] = 'Umiiral na yaman';
+$lang["brand_guidelines_new_content"] = 'Magdagdag ng bagong nilalaman';
+$lang["brand_guidelines_new_page"] = '+ Bagong pahina';
+$lang["brand_guidelines_new_section"] = '+ Bagong seksyon';
+$lang["brand_guidelines_view_table_of_content"] = 'Tingnan ang talahanayan ng nilalaman';
+$lang["brand_guidelines_new_section_title"] = 'Lumikha ng bagong seksyon';
+$lang["brand_guidelines_new_page_title"] = 'Lumikha ng bagong pahina';
+$lang["brand_guidelines_edit_section_title"] = 'I-edit ang seksyon';
+$lang["brand_guidelines_edit_page_title"] = 'I-edit ang pahina';
+$lang["brand_guidelines_section"] = 'Seksyon';
+$lang["brand_guidelines_full_width"] = 'Buong lapad';
+$lang["brand_guidelines_half_width"] = 'Kalahating lapad';
+$lang["brand_guidelines_title_new_text"] = 'Lumikha ng bagong item na teksto';
+$lang["brand_guidelines_title_edit_text"] = 'I-edit ang teksto';
+$lang["brand_guidelines_title_select_resource"] = 'Pumili ng umiiral na yaman';
+$lang["brand_guidelines_err_invalid_input"] = 'Hindi wastong input ang naisumite';
+$lang["brand_guidelines_hex"] = 'HEX';
+$lang["brand_guidelines_hex_help_txt"] = 'Hexadecimal (0-9A-F). Mga halimbawa: #0FA, 0FA, 00FFAA';
+$lang["brand_guidelines_rgb"] = 'RGB';
+$lang["brand_guidelines_rgb_help_txt"] = 'RGB (0-255). Halimbawa: 116,182,50';
+$lang["brand_guidelines_cmyk"] = 'CMYK';
+$lang["brand_guidelines_cmyk_help_txt"] = 'CMYK (0-100). Halimbawa: 36,0,73,29';
+$lang["brand_guidelines_move_left"] = 'Ilipat sa kaliwa';
+$lang["brand_guidelines_move_right"] = 'Ilipat sa kanan';
+$lang["brand_guidelines_confirm_delete_group_members"] = 'Sigurado ka bang nais mong tanggalin ang lahat sa grupong ito?';
+$lang["brand_guidelines_layout"] = 'Ilagay';
+$lang["brand_guidelines_view_mode"] = 'Tingnan ang mode';
+$lang["brand_guidelines_edit_mode"] = 'Mode ng pag-edit';
+$lang["brand_guidelines_configuration"] = 'Pagsasaayos ng Mga Patnubay sa Brand';
+$lang["brand_guidelines_fallback_size_thm"] = 'Sukat ng fallback na imahe ng layout ng thumbnail';
+$lang["brand_guidelines_fallback_size_half_width"] = 'Sukat ng fallback na imahe para sa half-width na layout';
+$lang["brand_guidelines_fallback_size_full_width"] = 'Laki ng fallback na imahe sa layout na buong lapad';
+$lang["page-title_brand_guidelines_content"] = 'Pamahalaan ang Nilalaman ng Mga Patnubay sa Brand';
+$lang["page-title_brand_guidelines_guidelines"] = 'Mga Patnubay sa Brand';
+$lang["page-title_brand_guidelines_setup"] = 'I-set up ang Plugin ng Mga Patnubay sa Brand';
+$lang["page-title_brand_guidelines_toc"] = 'I-edit ang nilalaman';

@@ -1,0 +1,9 @@
+name: api_webhooks
+title: API Webhooks
+author: Montala Limited
+version: 1.0
+desc: Adds support for configurable action buttons that call remote scripts..
+icon: webhook
+icon-colour: #669944
+category: Integrations
+info_url: https://www.resourcespace.com/knowledge-base/plugins/api-webhooks

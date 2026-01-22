@@ -1,0 +1,9 @@
+name: openai_image_edit
+title: OpenAI Image Editing
+author: Montala Limited
+version: 1.0
+desc: Erase parts of an image and have OpenAI DALL-E regenerate them.
+icon: cloud-cog
+icon-colour: seagreen
+category: AI
+info_url: https://www.resourcespace.com/knowledge-base/plugins/openai_image_edit

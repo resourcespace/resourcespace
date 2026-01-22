@@ -1,0 +1,4 @@
+A list of users that have unsubscribed from a periodic email.
+id,int(11),
+user_id,int(11),
+periodic_email_id,int(11),

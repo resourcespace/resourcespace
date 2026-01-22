@@ -1,0 +1,12 @@
+name: cookies_notification
+title: Cookies Notification
+author: Montala Limited
+version: 1.1
+desc: Notify of cookie use by showing a message in the header.
+icon: cookie
+icon-colour: #964B00
+config_url: /plugins/cookies_notification/pages/setup.php
+default_priority: 100
+category: Asset Processing
+disable_group_select: 1
+info_url: https://www.resourcespace.com/knowledge-base/plugins/cookie-notification

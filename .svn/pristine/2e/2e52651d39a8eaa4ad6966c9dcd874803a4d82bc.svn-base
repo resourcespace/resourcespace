@@ -1,0 +1,43 @@
+1,keywords,Keywords - Other,,9,60,1,0,1,,1,2#025,,0,,"IPTC:Keywords,Subject,XMP:Keywords",1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+3,country,Country,,9,80,1,0,1,country,1,2#101,,0,,"IPTC:Country-PrimaryLocationName,XMP:Country",1,0,,0,1,,0,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+8,title,Title,,0,10,1,0,1,title,0,2#005,,1,,"IPTC:ObjectName,XMP:title",1,0,,0,1,,0,0,,,,,,,,,,,,1,1,1,1,0,0,0,
+9,extract,Document extract,,1,7,0,0,0,,1,,"<div class=""RecordStory"">
+  <h1>[title]</h1>
+
+  <p>[value]</p>
+
+</div>",0,,,1,0,,0,1,,0,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+10,credit,Credit,,0,120,1,0,1,,1,2#080,,0,,"IPTC:Credit,XMP:Credit",1,0,,0,1,,0,0,,,,,,,,,,,,1,1,1,1,0,0,0,
+12,date,Date,,4,90,1,0,1,creation_date,1,2#055,,0,,"DateTimeOriginal,IPTC:DateCreated,XMP:DateCreated",0,0,,0,1,,0,0,"if ($value!=''){$value=nicedate($value,false);}",,,,,,,,,,,0,1,1,1,0,0,0,
+18,caption,Caption,,1,20,1,0,1,,1,2#120,"<div class=""item""><h3>[title]</h3><p>[value]</p></div>
+
+<div class=""clearerleft""> </div>",0,,"IPTC:Caption-Abstract,XMP:Description",1,0,,0,1,,0,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+25,notes,Notes,,1,130,0,0,1,,1,2#103,"<div class=""RecordStory"">
+
+  <h1>[title]</h1>
+
+  <p>[value]</p>
+
+</div>",0,,JobID,1,0,,0,1,,0,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+29,person,Named person(s),,9,70,1,0,1,,1,,,0,,"XMP:PersonInImage,XMP:People",1,0,,0,1,,0,0,,,,,,,,,,,,1,1,1,1,0,0,0,
+51,originalfilename,Original filename,,0,100,1,0,1,file_path,1,,,0,,,1,0,,0,1,,1,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+52,camera,Camera make / model,,0,1600,0,0,0,,1,,,0,,Model,1,0,,0,1,,1,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+54,source,Source,,3,1601,0,0,0,,1,,,0,,XMP:FileSource,1,0,,0,1,,0,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+72,text,Extracted text,,5,110,0,0,1,,0,,"<div class=""item""><h3>[title]</h3><p>[value]</p></div><div class=""clearerleft""> </div>",0,,,1,0,,0,1,,1,0,,,,,,,,,,,,0,1,1,1,0,0,0,
+73,subject,Keywords - Subject,,2,30,1,0,1,,1,,,0,,,1,0,,0,1,,0,0,,,0,,,,,,,,,1,1,1,1,0,0,0,
+74,event,Keywords - Event,,2,50,1,0,1,,1,,,0,,,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+75,emotion,Keywords - Emotion,,2,40,1,0,1,,1,,,0,,,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+76,framerate,Frame Rate,,0,0,1,0,0,,1,,,0,,framerate,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+77,videobitrate,Video Bitrate,,0,0,1,0,0,,1,,,0,,videobitrate,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+78,aspectratio,Aspect Ratio,,0,0,1,0,0,,1,,,0,,aspectratio,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+79,videosize,Video Size,,0,0,0,0,0,,1,,,0,,imagesize,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+80,duration,Duration,,0,0,0,0,0,,1,,,0,,duration,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+81,channelmode,Channel Mode,,0,0,1,0,0,,1,,,0,,channelmode,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+82,samplerate,Sample Rate,,0,0,0,0,0,,1,,,0,,samplerate,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+83,audiobitrate,Audio Bitrate,,0,0,1,0,0,,1,,,0,,audiobitrate,1,0,,0,1,,0,0,,,0,,,,,,,,,0,1,1,1,0,0,0,
+84,recognised,Keywords - Recognised,0,9,0,1,0,0,,1,,,0,,,1,0,,0,1,,0,0,,,0,,,,,,,0,,0,1,1,1,0,0,0,
+85,landmark,Keywords - Landmark,0,9,0,1,0,0,,1,,,0,,,1,0,,0,1,,0,0,,,0,,,,,,,0,,0,1,1,1,0,0,0,
+86,accessibilityalttext,Accessibility - Alt Text,0,0,0,0,0,0,,1,,,0,,AltTextAccessibility,1,0,"Enter text describing the appearance of the image from a visual perspective, focusing on details that are relevant to the purpose and meaning of the image.
+
+A maximum of 250 characters can be entered.",0,1,,0,0,,,0,,"^.{0,250}$",,,,,0,,0,1,1,1,0,0,0,
+87,accessibilityextend,Accessibility - Extended Description,,1,0,0,0,0,,1,,,0,,ExtDescrAccessibility,1,0,"Enter the text describing the appearance of an image from a visual perspective, focusing on relevant details that further describe the meaning and purpose of the image.",0,1,,0,0,,,0,,,,,,,0,,0,1,1,1,0,0,0,

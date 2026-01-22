@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ruleset
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
+    name="ResourceSpace Standard"
+>
+    <description>The coding standard for ResourceSpace - https://www.resourcespace.com/knowledge-base/developers/coding_standards</description>
+
+    <!-- Note that this doesn't work for the following command line values: v, l, d, sniffs and standard -->
+    <arg name="extensions" value="php" />
+    <arg name="report" value="code"/>
+    <arg name="parallel" value="75" />
+    <arg name="colors"/>
+    <arg value="sp"/><!-- Show sniff codes and progress "bar" -->
+
+    <!--
+        Note that file and directory paths specified in a ruleset are
+        relative to the ruleset's location, and that specifying any file or
+        directory path on the command line will ignore all file tags.
+    -->
+    <file>index.php</file>
+    <file>login.php</file>
+    <file>api</file>
+    <file>batch</file>
+    <file>css/css_override.php</file>
+    <file>include</file>
+    <file>lib/stemming</file>
+    <file>pages</file>
+    <file>plugins</file>
+    <file>tests</file>
+    <file>upgrade</file>
+
+    <exclude-pattern>plugins/*/lib</exclude-pattern>
+
+    <!--
+        ===== Coding Standard rules =====
+        Check out existing rules - https://github.com/PHPCSStandards/PHP_CodeSniffer/tree/master/src/Standards
+        =====
+    -->
+    <rule ref="PSR12"/>
+
+    <!-- ResourceSpace variation -->
+    <rule ref="Generic.PHP.DisallowShortOpenTag.EchoFound">
+        <severity>5</severity>
+    </rule>
+
+    <!-- <rule ref="Generic.Formatting.SpaceAfterCast"/> -->
+    <!-- End variation -->
+
+    <!-- Ban the use of certain functions -->
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array" extend="true">
+                <!-- General -->
+                <element key="sizeof" value="count"/>
+                <element key="delete" value="unset"/>
+                <element key="print" value="echo"/>
+                <element key="create_function" value="null"/>
+                <!-- Security risks -->
+                <element key="eval" value="null"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>

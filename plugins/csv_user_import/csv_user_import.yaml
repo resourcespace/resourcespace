@@ -1,0 +1,9 @@
+name: csv_user_import
+title: CSV User Import
+desc: Provides the ability to import a batch of users based on a pre-formatted CSV file
+icon: user-round-plus
+author: Montala Limited
+version: 1.0
+default_priority: 100
+category: System
+info_url: https://www.resourcespace.com/knowledge-base/plugins/csv-user-import

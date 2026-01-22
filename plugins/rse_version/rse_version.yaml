@@ -1,0 +1,11 @@
+name: rse_version
+title: Version Control
+desc: Track and restore metadata and file changes.
+icon: history
+author: Montala Limited
+version: 2.0
+default_priority: 100
+category: Asset Processing
+disable_group_select: 1
+config_url: /plugins/rse_version/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/user/version-control

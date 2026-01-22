@@ -1,0 +1,2 @@
+user,0,PRIMARY,1,ref,A,15,,,,BTREE,
+user,1,session,1,session,A,218,,,YES,BTREE,

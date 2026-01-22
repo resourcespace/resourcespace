@@ -1,0 +1,80 @@
+{% set pagetitle = 'SimpleSAMLphp installation page'|trans %}
+{% set frontpage_section = 'main' %}
+{% extends "base.twig" %}
+
+{% block preload %}
+<link rel="stylesheet" href="{{ asset('css/admin.css', 'admin') }}">
+{% endblock %}
+
+{% block content %}
+    {%- include "@admin/includes/menu.twig" %}
+
+    {%- for key, warning in warnings %}
+      {%- if warning is iterable %}
+
+    <div class="message-box warning">{{ warning[0]|trans(warning[1])|raw }}</div>
+      {%- else %}
+
+    <div class="message-box warning">{{ warning|trans|raw }}</div>
+      {%- endif %}
+    {%- endfor %}
+
+    <div class="message-box">
+      {% trans %}SimpleSAMLphp is installed in:{% endtrans %}
+      <kbd>{{ directory }}</kbd><br/>
+      {% trans with {
+          '%version%': version
+      } %}You are running version <kbd>%version%</kbd>.{% endtrans %}
+    </div>
+    <h2>{% trans %}Modules{% endtrans %}</h2>
+    {% trans %}You have the following modules installed{% endtrans %} (<i class="fa fa-ban" title="{% trans %}disabled{% endtrans %}"></i> {% trans %} means the module is not enabled{% endtrans %}):
+    <ul class="modulelist">
+        <li>
+            <i class="fa fa-{%- if enablematrix.saml20idp %}check" title="{% trans %}enabled{% endtrans %}"{% else %}ban" title="{% trans %}disabled{% endtrans %}"{% endif %}></i>
+            SAML 2.0 IdP
+        </li>
+        {% for module, enabled in modulelist %}
+        <li>
+            <i class="fa fa-{%- if enabled %}check" title="{% trans %}enabled{% endtrans %}"{% else %}ban" title="{% trans %}disabled{% endtrans %}"{% endif %}></i>
+            {{ module }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>{% trans %}Details{% endtrans %}</h2>
+    <ul>
+      {%- for key, link in links %}
+
+      <li><a href="{{ link.href }}">{{ link.text|trans }}</a></li>
+      {%- endfor %}
+
+    </ul>
+
+    <h2>{% trans %}Your PHP installation{% endtrans %}</h2>
+    <div class="enablebox">
+        <table>
+        {%- for key, func in funcmatrix %}
+
+          <tr class="{%- if func.enabled %}enabled{% else %}disabled{% endif -%}">
+            <td><i class="fa fa-{%- if func.enabled %}check{% else %}ban{% endif -%}"></i></td>
+            <td>
+            {%- if func.required == 'required' %}
+              {%- trans %}required{% endtrans %}
+            {%- else %}
+              {%- trans %}optional{% endtrans %}
+            {%- endif -%}
+            </td>
+            <td>
+              {%- if func.descr is iterable -%}
+                {{ func.descr[0]|trans(func.descr[1]|raw) }}
+              {%- else -%}
+                {{ func.descr|trans|raw }}
+              {%- endif -%}
+            </td>
+          </tr>
+        {%- endfor %}
+
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<?php
+
+
+$lang["offline_archive_configuration"] = 'Pahina ng Konpigurasyon ng Offline Archive';
+$lang["offline_archive_archivefield"] = 'Paki pili ang patlang ng metadata na maglalaman ng archive reference code';
+$lang["offline_archive_archivepath"] = 'Mangyaring ilagay ang lokasyon kung saan gagawin ang mga archive';
+$lang["offline_archive_restorepath"] = 'Para sa pagbawi ng mga mapagkukunan sa StaticSync folder, maaari kang pumasok sa isang subfolder ng StaticSync folder kung saan ilalagay ang mga naibalik na file.';
+$lang["offline_archive_preservedate"] = 'Panatilihin ang timestamp ng file?';
+$lang["offline_archive_administer_archive"] = 'Pamahalaan ang mga archive';
+$lang["offline_archive_view_pending"] = 'Tingnan ang mga mapagkukunan na nakabinbin para sa pag-archive';
+$lang["offline_archive_view_pending_restore"] = 'Tingnan ang mga mapagkukunan na naghihintay ng pagbawi';
+$lang["offline_archive_view_completed"] = 'Tingnan ang mga trabaho sa archive';
+$lang["offline_archive_view_associated"] = 'Tingnan ang mga kaugnay na yaman';
+$lang["offline_archive_view_as_search"] = 'Tingnan ang mga mapagkukunan bilang paghahanap';
+$lang["offline_archive_entername"] = 'Pakisulat ang pangalan ng archive';
+$lang["offline_archive_input_text"] = 'Mangyaring maglagay ng alinman sa isang listahan ng mga mapagkukunan o isang koleksyon na id upang markahan para sa pagbawi';
+$lang["offline_archive_input_resources"] = 'Mangyaring ilagay ang mga resource id upang maibalik, na pinaghihiwalay ng mga kuwit';
+$lang["offline_archive_input_collection"] = 'Mangyaring ilagay ang koleksyon id upang maibalik';
+$lang["offline_archive_name"] = 'Prefix ng Archive';
+$lang["offline_archive_createnew"] = 'Lumikha ng bagong trabaho sa archive';
+$lang["offline_archive_archive_created"] = 'Matagumpay na nalikha ang archive';
+$lang["offline_archive_archive_ref"] = 'Sanggunian ng archive';
+$lang["offline_archive_archive_date"] = 'Petsa ng pag-archive';
+$lang["offline_archive_archive_status"] = 'Petsa ng pag-archive';
+$lang["offline_archive_request_restore"] = 'Humiling ng pagbawi';
+$lang["offline_archive_cancel_restore"] = 'Kanselahin ang pagbawi';
+$lang["offline_archive_cancel_confirm"] = 'Sigurado ka bang nais mong kanselahin ang pagpapanumbalik ng yaman na ito';
+$lang["offline_archive_restore_pending"] = 'Naghihintay ng pagbawi mula sa archive';
+$lang["offline_archive_restore_confirm"] = 'Kumpirmahin ang pagbawi';
+$lang["offline_archive_restore_resources"] = 'Ibalik ang mga yaman mula sa archive';
+$lang["offline_archive_restore_resource"] = 'Ibalik mula sa archive';
+$lang["offline_archive_request_restore_text"] = 'Pakisulat ang dahilan para sa kahilingan';
+$lang["offline_archive_request_restore_reason"] = 'Dahilan sa kahilingan ng pagbawi';
+$lang["offline_archive_request_email_subject"] = 'kahilingan sa pagbawi ng offline na archive';
+$lang["offline_archive_requestsenttext"] = 'Ang iyong kahilingan para sa pagbawi ng archive ay naisumite na at titingnan ito sa lalong madaling panahon.';
+$lang["offline_archive_resources_restore_confirmed"] = 'Matagumpay na naitakda ang mga mapagkukunan para sa pagbawi at ibabalik ang mga ito kapag ang mga kaugnay na archive ay naipasok o nakopya sa nakatakdang lokasyon ng archive';
+$lang["offline_archive_resources_restore_cancel_confirmed"] = 'Matagumpay na naalis ang resource mula sa nakabinbing pag-restore';
+$lang["offline_archive_resource_log_archived"] = '- na-archive ng offline archive plugin. Archive code:';
+$lang["offline_archive_resource_log_restored"] = '- naibalik ng offline archive plugin';
+$lang["offline_archive_resource_log_restore_set"] = 'Minarkahan para sa pagbawi mula sa archive';
+$lang["offline_archive_resource_log_restore_removed"] = 'Nakanselang ibalik mula sa archive';
+$lang["offline_archive_resource_log_restore_request"] = 'Hiniling na ibalik mula sa archive';
+$lang["offline_archive_resource_restore"] = 'Ibalik ang mga yaman';
+$lang["offline_archive_administer_archive-tooltip"] = 'Ilipat ang mga na-archive na file sa isang offline na lokasyon';
+$lang["offline_archive_statustype"] = array (
+  0 => 'Naka-pending',
+  1 => 'Nasa proseso',
+  2 => 'Kumpleto',
+);
+$lang["page-title_offline_archive_administer_archive"] = 'Pamahalaan ang mga Archive';
+$lang["page-title_offline_archive_offline_archive_action"] = 'Offline Archive';
+$lang["page-title_offline_archive_pending_restore"] = 'Naghihintay na Pagbawi ng Yaman';
+$lang["page-title_offline_archive_restore_request"] = 'Humiling ng Pagbawi ng Yaman';
+$lang["page-title_offline_archive_restore"] = 'Ibalik ang Archive';
+$lang["page-title_offline_archive_setup"] = 'I-set up ang Plugin';
+$lang["page-title_offline_archive_view_archives"] = 'Tingnan ang mga Archive ng Resource';
+$lang["page-title_offline_archive_view_pending"] = 'Tingnan ang Mga Nakatagong Archive';

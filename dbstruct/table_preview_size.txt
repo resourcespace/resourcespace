@@ -1,0 +1,10 @@
+ref,int(11),NO,PRI,,auto_increment
+id,char(3),YES,,,
+width,int(11),YES,,,
+height,int(11),YES,,,
+padtosize,int(11),YES,,0,
+name,varchar(50),YES,,,
+internal,int(11),YES,,0,
+allow_preview,int(11),YES,,0,
+allow_restricted,int(11),YES,,0,
+quality,int(3),YES,,,

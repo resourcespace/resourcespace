@@ -1,0 +1,12 @@
+Alternative files for a resource, definited separately to the main resource.
+ref,int(11),
+resource,int(11),
+name,varchar(100),Name of the alternative file.
+description,varchar(200),Description of the alternative file.
+file_name,varchar(200),File name
+file_extension,varchar(10),File extension
+file_size,bigint(20),File size
+creation_date,datetime,Creation date
+unoconv,int(11),Set to 1 when ResourceSpace processes $unoconv_extensions.
+alt_type,varchar(100),Aternative type.
+page_count,int(11),For multi-page documents, total count of pages.

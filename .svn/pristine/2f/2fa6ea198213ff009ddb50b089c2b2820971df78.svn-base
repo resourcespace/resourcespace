@@ -1,0 +1,12 @@
+ref,int(11),YES,PRI,,auto_increment
+ref_parent,int(11),NO,,,
+created,timestamp,YES,,CURRENT_TIMESTAMP,
+hide,int(1),YES,,0,
+collection_ref,int(11),NO,,,
+resource_ref,int(11),NO,,,
+user_ref,int(11),NO,,,
+fullname,varchar(100),NO,,,
+email,varchar(100),NO,,,
+website_url,text,NO,,,
+body,text,NO,,,
+annotation,int(11),NO,,,

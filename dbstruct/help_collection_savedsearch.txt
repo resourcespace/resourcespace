@@ -1,0 +1,9 @@
+A list of saved searches which can exist within collections.
+ref,int(11),
+collection,int(11),
+search,text,The search string
+restypes,text,The resource types used when searching
+starsearch,int(11),
+archive,varchar(50),Workflow states (comma separated)
+created,timestamp,Date created
+result_limit,int(11),Maximum number of results to return

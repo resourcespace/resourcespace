@@ -1,0 +1,8 @@
+year,int(11),YES,MUL,,
+month,int(11),YES,,,
+day,int(11),YES,,,
+usergroup,int(11),NO,,0,
+activity_type,varchar(50),YES,,,
+object_ref,int(11),YES,,,
+count,int(11),YES,,0,
+external,tinyint(1),YES,,0,

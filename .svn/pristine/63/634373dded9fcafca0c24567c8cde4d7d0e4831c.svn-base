@@ -1,0 +1,43 @@
+<?php
+
+
+$lang["brand_guidelines_permission_bgv"] = 'Có thể xem Hướng dẫn Thương hiệu';
+$lang["brand_guidelines_permission_bge"] = 'Có thể chỉnh sửa Hướng dẫn Thương hiệu';
+$lang["brand_guidelines_top_nav_title"] = 'Hướng dẫn';
+$lang["brand_guidelines_new_resource"] = 'Tài nguyên mới';
+$lang["brand_guidelines_existing_resource"] = 'Tài nguyên hiện có';
+$lang["brand_guidelines_new_content"] = 'Thêm nội dung mới';
+$lang["brand_guidelines_new_page"] = '+ Trang mới';
+$lang["brand_guidelines_new_section"] = '+ Phần mới';
+$lang["brand_guidelines_view_table_of_content"] = 'Xem bảng nội dung';
+$lang["brand_guidelines_new_section_title"] = 'Tạo phần mới';
+$lang["brand_guidelines_new_page_title"] = 'Tạo trang mới';
+$lang["brand_guidelines_edit_section_title"] = 'Chỉnh sửa phần';
+$lang["brand_guidelines_edit_page_title"] = 'Chỉnh sửa trang';
+$lang["brand_guidelines_section"] = 'Phần';
+$lang["brand_guidelines_full_width"] = 'Toàn chiều';
+$lang["brand_guidelines_half_width"] = 'Nửa chiều rộng';
+$lang["brand_guidelines_title_new_text"] = 'Tạo mục văn bản mới';
+$lang["brand_guidelines_title_edit_text"] = 'Chỉnh sửa văn bản';
+$lang["brand_guidelines_title_select_resource"] = 'Chọn tài nguyên hiện có';
+$lang["brand_guidelines_err_invalid_input"] = 'Đầu vào không hợp lệ đã được gửi';
+$lang["brand_guidelines_hex"] = 'HEX';
+$lang["brand_guidelines_hex_help_txt"] = 'Mã thập lục phân (0-9A-F). Ví dụ: #0FA, 0FA, 00FFAA';
+$lang["brand_guidelines_rgb"] = 'RGB';
+$lang["brand_guidelines_rgb_help_txt"] = 'RGB (0-255). Ví dụ: 116,182,50';
+$lang["brand_guidelines_cmyk"] = 'CMYK';
+$lang["brand_guidelines_cmyk_help_txt"] = 'CMYK (0-100). Ví dụ: 36,0,73,29';
+$lang["brand_guidelines_move_left"] = 'Di chuyển sang trái';
+$lang["brand_guidelines_move_right"] = 'Di chuyển sang phải';
+$lang["brand_guidelines_confirm_delete_group_members"] = 'Bạn có chắc chắn muốn xóa tất cả trong nhóm này không?';
+$lang["brand_guidelines_layout"] = 'Bố cục';
+$lang["brand_guidelines_view_mode"] = 'Chế độ xem';
+$lang["brand_guidelines_edit_mode"] = 'Chế độ chỉnh sửa';
+$lang["brand_guidelines_configuration"] = 'Cấu hình Hướng dẫn Thương hiệu';
+$lang["brand_guidelines_fallback_size_thm"] = 'Kích thước hình ảnh dự phòng bố cục hình thu nhỏ';
+$lang["brand_guidelines_fallback_size_half_width"] = 'Kích thước hình ảnh dự phòng bố cục nửa chiều rộng';
+$lang["brand_guidelines_fallback_size_full_width"] = 'Kích thước hình ảnh dự phòng bố cục toàn chiều rộng';
+$lang["page-title_brand_guidelines_content"] = 'Quản lý nội dung hướng dẫn thương hiệu';
+$lang["page-title_brand_guidelines_guidelines"] = 'Hướng dẫn thương hiệu';
+$lang["page-title_brand_guidelines_setup"] = 'Cài đặt Plugin Hướng dẫn Thương hiệu';
+$lang["page-title_brand_guidelines_toc"] = 'Chỉnh sửa nội dung';

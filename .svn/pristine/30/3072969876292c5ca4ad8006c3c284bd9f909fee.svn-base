@@ -1,0 +1,11 @@
+name: tesseract
+title: Tesseract OCR
+author: Montala Limited
+version: 1.0
+desc: Extracts text from images and scanned documents. Runs locally, no subscription needed.
+icon: scan-text
+icon-colour: seagreen
+category: AI
+config_url: /plugins/tesseract/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/tesseract
+disable_group_select: 1

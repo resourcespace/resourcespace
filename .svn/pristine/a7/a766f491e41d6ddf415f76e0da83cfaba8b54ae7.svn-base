@@ -1,0 +1,7 @@
+resource,int(11),YES,MUL,,
+width,int(11),YES,,0,
+height,int(11),YES,,0,
+file_size,bigint(20),YES,,0,
+resolution,int(11),YES,,0,
+unit,varchar(11),YES,,0,
+page_count,int(11),YES,,,

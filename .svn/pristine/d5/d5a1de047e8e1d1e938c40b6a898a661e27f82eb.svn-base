@@ -1,0 +1,3 @@
+comment,1,ref_parent,1,ref_parent,A,,,,,BTREE
+comment,1,collection_ref,1,collection_ref,A,,,,,BTREE
+comment,1,resource_ref,1,resource_ref,A,,,,,BTREE

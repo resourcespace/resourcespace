@@ -1,0 +1,4 @@
+Original filename,resource_type,status,access,Title,Location
+Test_1.jpg,1,0,0,CSV upload 1,"""Alpha building\Floor 1\Meeting room"""
+Test_2.jpg,1,0,0,CSV upload 2,"""Beta building\Floor 3\Store cupboard 202"""
+Test_3.jpg,1,0,0,CSV upload 3,"""Delta building\Floor 2\Board room"""

@@ -1,0 +1,10 @@
+ref,int(11),NO,PRI,,auto_increment
+type,varchar(100),NO,,,
+job_data,longtext,NO,,,
+start_date,datetime,YES,,,
+user,int(11),NO,MUL,,
+status,int(11),NO,MUL,,
+success_text,varchar(250),YES,,,
+failure_text,varchar(250),YES,,,
+job_code,varchar(100),YES,,,
+priority,tinyint(1),YES,,2,

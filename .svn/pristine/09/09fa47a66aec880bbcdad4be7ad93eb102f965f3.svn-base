@@ -1,0 +1,8 @@
+#
+# Sample robots.txt file - ensures that a Google Appliance can still access the spider page (if configured)
+# and assumes an installation in the site root. For sites in a subfolder you must move the robots.txt file
+# to the site root and alter the paths accordingly.
+#
+User-agent: *
+Crawl-delay: 10
+Disallow : /filestore

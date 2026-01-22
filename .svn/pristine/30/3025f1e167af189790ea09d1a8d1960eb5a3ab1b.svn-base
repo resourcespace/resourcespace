@@ -1,0 +1,10 @@
+Users that have subscribed to receive a report regularly.
+ref,int(11),
+user,int(11),
+send_all_users,int(11),Send to all users is deprecated. This will send to $email_notify_usergroups or Super Admin if config option isn't set.
+user_groups,varchar(255),List (CSV) of user groups subscribed to receive this report.
+report,int(11),
+period,int(11),Reported period.
+email_days,int(11),E-mail the report at every X days.
+last_sent,datetime,Date report was last e-mailed to users.
+search_params,text,For reports that apply to search results. This holds the JSON encoded search params.

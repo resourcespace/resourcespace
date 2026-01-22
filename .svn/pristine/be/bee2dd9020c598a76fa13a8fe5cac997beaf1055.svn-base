@@ -1,0 +1,54 @@
+<?php
+
+
+$lang["museumplus_configuration"] = 'MuseumPlus Configuration';
+$lang["museumplus_top_menu_title"] = 'MuseumPlus: persatuan tidak sah';
+$lang["museumplus_api_settings_header"] = 'Butiran API';
+$lang["museumplus_host"] = 'Hos';
+$lang["museumplus_host_api"] = 'Hos API (hanya untuk panggilan API; biasanya sama seperti di atas)';
+$lang["museumplus_application"] = 'Nama aplikasi (tidak diperlukan untuk URL M+ Host yang lebih baru)';
+$lang["user"] = 'Pengguna';
+$lang["museumplus_api_user"] = 'Pengguna';
+$lang["password"] = 'Kata laluan';
+$lang["museumplus_api_pass"] = 'Kata laluan';
+$lang["museumplus_RS_settings_header"] = 'Tetapan ResourceSpace';
+$lang["museumplus_mpid_field"] = 'Medan metadata yang digunakan untuk menyimpan pengenalan MuseumPlus (MpID)';
+$lang["museumplus_module_name_field"] = 'Medan metadata yang digunakan untuk menyimpan nama modul yang mana MpID adalah sah. Jika tidak ditetapkan, plugin akan kembali kepada konfigurasi modul "Objek".';
+$lang["museumplus_secondary_links_field"] = 'Medan metadata yang digunakan untuk menyimpan pautan sekunder ke modul lain. ResourceSpace akan menghasilkan URL MuseumPlus untuk setiap pautan. Pautan akan mempunyai format sintaks khas: module_name:ID (contohnya "Object:1234")';
+$lang["museumplus_object_details_title"] = 'Butiran MuseumPlus';
+$lang["museumplus_script_header"] = 'Tetapan skrip';
+$lang["museumplus_last_run_date"] = 'Skrip terakhir dijalankan';
+$lang["museumplus_enable_script"] = 'Aktifkan skrip MuseumPlus';
+$lang["museumplus_interval_run"] = 'Jalankan skrip pada selang berikut (contoh: +1 hari, +2 minggu, dua minggu). Biarkan kosong dan ia akan dijalankan setiap kali cron_copy_hitcount.php dijalankan';
+$lang["museumplus_log_directory"] = 'Direktori untuk menyimpan log skrip. Jika ini dibiarkan kosong atau tidak sah, maka tiada pencatatan akan berlaku.';
+$lang["museumplus_integrity_check_field"] = 'Medan semakan integriti';
+$lang["museumplus_modules_configuration_header"] = 'Konfigurasi modul';
+$lang["museumplus_module"] = 'Modul';
+$lang["museumplus_add_new_module"] = 'Tambah modul MuseumPlus baharu';
+$lang["museumplus_mplus_field_name"] = 'MuseumPlus field name';
+$lang["museumplus_rs_field"] = 'Medan ResourceSpace';
+$lang["museumplus_view_in_museumplus"] = 'Lihat di MuseumPlus';
+$lang["museumplus_confirm_delete_module_config"] = 'Adakah anda pasti ingin memadam konfigurasi modul ini? Tindakan ini tidak boleh dibatalkan!';
+$lang["museumplus_module_setup"] = 'Persediaan modul';
+$lang["museumplus_module_name"] = 'MuseumPlus module name';
+$lang["museumplus_mplus_id_field"] = 'MuseumPlus ID nama medan';
+$lang["museumplus_mplus_id_field_helptxt"] = 'Biarkan kosong untuk menggunakan ID teknikal \'__id\' (lalai)';
+$lang["museumplus_rs_uid_field"] = 'Medan UID ResourceSpace';
+$lang["museumplus_applicable_resource_types"] = 'Jenis sumber yang berkenaan';
+$lang["museumplus_field_mappings"] = 'MuseumPlus - pemetaan medan ResourceSpace';
+$lang["museumplus_add_mapping"] = 'Tambah pemetaan';
+$lang["museumplus_error_bad_conn_data"] = 'Data Sambungan MuseumPlus tidak sah';
+$lang["museumplus_error_unexpected_response"] = 'Kod respons MuseumPlus yang tidak dijangka diterima - %code';
+$lang["museumplus_error_no_data_found"] = 'Tiada data ditemui dalam MuseumPlus untuk MpID ini - %mpid';
+$lang["museumplus_warning_script_not_completed"] = 'AMARAN: Skrip MuseumPlus tidak selesai sejak \'%script_last_ran\'. 
+Anda boleh mengabaikan amaran ini dengan selamat hanya jika anda menerima pemberitahuan tentang penyelesaian skrip yang berjaya.';
+$lang["museumplus_error_script_failed"] = 'Skrip MuseumPlus gagal dijalankan kerana terdapat kunci proses. Ini menunjukkan bahawa pelaksanaan sebelumnya tidak selesai. Jika anda perlu membersihkan kunci selepas pelaksanaan gagal, jalankan skrip seperti berikut: php museumplus_script.php --clear-lock';
+$lang["museumplus_php_utility_not_found"] = 'Pilihan konfigurasi $php_path HARUS ditetapkan agar fungsi cron dapat berjalan dengan berjaya!';
+$lang["museumplus_error_not_deleted_module_conf"] = 'Tidak dapat memadam konfigurasi modul yang diminta.';
+$lang["museumplus_error_unknown_type_saved_config"] = '\'museumplus_modules_saved_config\' adalah jenis yang tidak diketahui!';
+$lang["museumplus_error_invalid_association"] = 'Persatuan modul yang tidak sah. Sila pastikan bahawa Modul dan/atau ID Rekod yang betul telah dimasukkan!';
+$lang["museumplus_id_returns_multiple_records"] = 'Multiple rekod ditemui - sila masukkan ID teknikal sebagai ganti';
+$lang["museumplus_error_module_no_field_maps"] = 'Tidak dapat menyegerakkan data dari MuseumPlus. Sebab: modul \'%name\' tiada pemetaan medan yang dikonfigurasikan.';
+$lang["page-title_museumplus_museumplus_object_details"] = 'Butiran Objek MuseumPlus';
+$lang["page-title_museumplus_setup_module"] = 'Tetapkan Modul MuseumPlus';
+$lang["page-title_museumplus_setup"] = 'Pasang Plugin MuseumPlus';

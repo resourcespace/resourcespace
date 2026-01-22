@@ -1,0 +1,11 @@
+Resource types, such as photo / video / case study. The choice of resource type will determine the metadata fields a resource has.
+ref,int(11),
+name,varchar(200),Resource type name.
+allowed_extensions,TEXT,List of allowed extensions for this resource type.
+order_by,int(11),Order defined by the adminstrators.
+config_options,text,Supports separate configuration options for resources depending on resource type.
+push_metadata,int(11),If set, the metadata for this resource will be displayed on the resource view page for any related resources.
+colour,smallint,Colour used for map marker when using map view search results. 
+icon,tinytext,Lucide class name for icon displayed in thumbnail search results. 
+tab,int(11),Reference to a system tab. See the "tab" table.
+pull_images,smallint,Use images from related resources if not one present for the current resource? 0 by default

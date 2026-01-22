@@ -1,0 +1,1 @@
+tesseract_processed,int(11),YES,,,

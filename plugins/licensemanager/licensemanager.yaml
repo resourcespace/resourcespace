@@ -1,0 +1,10 @@
+name: licensemanager
+title: License Manager
+author: Montala Limited
+version: 1.0
+desc: Manage resource licensing.
+icon: id-card
+category: Compliance
+config_url: /plugins/licensemanager/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/license-manager
+

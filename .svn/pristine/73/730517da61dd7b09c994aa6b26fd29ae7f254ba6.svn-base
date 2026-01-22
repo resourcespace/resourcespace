@@ -1,0 +1,109 @@
+input[type="checkbox"] {
+   -ms-transform: scale(1);
+   -moz-transform: scale(1);
+   -webkit-transform: scale(1);
+   -o-transform: scale(1);
+   height:auto;
+}
+input {
+   display: inline-block;
+   height: auto;
+}
+.InpageNavLeftBlock a, .InpageNavLeftBlock span  {
+	font-size:1em;
+}
+#SearchBarContainer a {
+  font-size:1em;
+}
+#searchspace p {
+  margin: 3px 0;
+}
+#FooterThemes img {
+  width:11px;
+  height:11px;
+}
+.ResponsiveSimpleSearch .searchbutton {
+  height:auto;
+}
+
+@media(max-width:1200px) {
+  #Header {
+    height:auto;
+  }
+  #HeaderButtons {
+    display: none !important;
+  }
+  #HeaderNav1 {
+    display:block;
+    clear:none;
+  }
+  #HeaderNav2 {
+    display:block;
+    margin-top:-5px;
+  }
+  #HeaderImg {
+    height:47px;
+  }
+  #Header .HorizontalNav ul li a {
+    display: inline-block;
+    text-align: center;
+    background: none;
+    border: 0;
+    height:auto;
+    line-height: 1em;
+    min-width: initial;
+    padding: 0 5px;
+    margin-bottom: 0;
+    color: #fff;
+    opacity: 0.7;
+  }
+  .HorizontalNav ul {
+    padding: 0 0;
+  }
+  #Header.slimheader_darken a:link, #Header.slimheader_darken a:visited, #Header.slimheader_darken a:active {
+    color: #E1E8F0;
+  }
+}
+
+@media(max-width:1100px) {
+  #Header {
+    min-height: 47px;
+  }
+  #HeaderButtons {
+    display: block!important;
+  }
+  #HeaderNav1 {
+    display:none;
+    clear:both;
+  }
+  #HeaderNav2 {
+    display:none;
+  }
+  #Header .HorizontalNav ul li a {
+    color: #4E4646;
+    display:inline-block;
+    text-align: center;
+    background: #d2d2d2;   
+    border: 1px solid white;
+    height: 45px;
+    line-height: 45px;
+    min-width:95px;
+    padding:0 5px;
+    border-radius:6px;
+    margin-bottom:5px;
+  }
+  #Header.slimheader_darken a:link, #Header.slimheader_darken a:visited, #Header.slimheader_darken a:active {
+    color: #565656;
+  }
+}
+@media(max-width:575px) {
+  #HeaderImg {
+    height:auto;
+    max-height:47px;
+  }
+}
+@media(min-width:1101px) {
+  #HeaderNav1, #HeaderNav2  {
+    display:block !important;
+  }
+}

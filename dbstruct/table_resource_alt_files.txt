@@ -1,0 +1,11 @@
+ref,int(11),NO,PRI,,auto_increment
+resource,int(11),YES,MUL,,
+name,varchar(255),YES,,,
+description,varchar(200),YES,,,
+file_name,varchar(255),YES,,,
+file_extension,varchar(10),YES,,,
+file_size,bigint(20),NO,,0,
+creation_date,datetime,YES,,,
+unoconv,int(11),YES,,,
+alt_type,varchar(100),YES,,,
+page_count,int(11),YES,,,

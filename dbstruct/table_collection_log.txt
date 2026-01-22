@@ -1,0 +1,7 @@
+ref,int(11),NO,PRI,,auto_increment
+date,datetime,YES,,,
+user,int(11),YES,,,
+collection,int(11),YES,,,
+type,char(5),YES,,,
+resource,int(11),YES,,,
+notes,varchar(255),YES,,,

@@ -1,0 +1,38 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 1
+    paths:
+        - index.php
+        - login.php
+        - api
+        - batch
+        - css
+        - include
+        - languages
+        - pages
+        - plugins
+        - tests
+        - upgrade
+        - lib/stemming
+    bootstrapFiles:
+        - include/definitions.php
+        - vendor/autoload.php
+
+    scanDirectories:
+      - lib/Diff/
+      - vendor/axiell/imu-api-php/src/
+
+    excludePaths:
+        analyse:
+            - include/ReplaceFunctionCallRector.php
+            - include/EscapeLanguageStringsRector.php
+            - plugins/*/lib/*
+
+    earlyTerminatingFunctionCalls:
+        - errorhandler
+
+    ignoreErrors:
+        - '#^Variable \$[a-zA-Z0-9_]+ might not be defined\.$#'
+

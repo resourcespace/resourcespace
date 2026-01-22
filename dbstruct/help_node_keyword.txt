@@ -1,0 +1,4 @@
+Keyword nodes are indexed - broken down into single word keywords.
+node,int(11),
+keyword,int(11),
+position,int(11),The position within the node string, e.g. node "red cat", keyword "cat" would be in the second position. Used for quoted searching.

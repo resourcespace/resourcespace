@@ -1,0 +1,13 @@
+ref,int(11),NO,PRI,,auto_increment
+created,datetime,YES,,,
+owner,int(11),YES,,,
+title,varchar(500),YES,,,
+search,TEXT,YES,,,
+restypes,TEXT,YES,,,
+archive,varchar(100),YES,,,
+enabled,int(11),YES,,,
+checksum,varchar(100),YES,,,
+checksum_when,datetime,YES,,,
+checksum_matches,int(11),YES,,,
+checksum_data,LONGTEXT,YES,,,
+checksum_data_previous,LONGTEXT,YES,,,

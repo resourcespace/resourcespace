@@ -1,0 +1,43 @@
+A resource is the central record within ResourceSpace mapping to a single asset / file.
+ref,int(11),
+title,varchar(200),The resource title, synchronised with the configured title metadata field
+resource_type,int(11),
+has_image,int(11),Does the resource have a preview image?
+is_transcoding,int(11),Is there a transcoding process underway for this resource?
+hit_count,int(11),How many times this resource has been viewed.
+new_hit_count,int(11),Copied from hit_count by cron so that resource hit counts don't change throughout the day affecting search ordering.
+creation_date,datetime,When the resource record was created.
+rating,int(11),
+user_rating,int(11),The average user rating for this resource.
+user_rating_count,int(11),How many users rated this resource.
+user_rating_total,int(11),Total rating (ie the sum of all the ratings received so far).
+country,varchar(200),This is deprecated. Please use a metadata field to record the country of a resource.
+file_extension,varchar(10),The extension of the uploaded main file e.g. 'jpg'.
+preview_extension,varchar(10),The extension of the chosen preview format, e.g. 'mp4'
+image_red,int(11),The average red component of the image excluding desaturated areas. Used for image placeholders during loading.
+image_green,int(11),The average red component of the image excluding desaturated areas. Used for image placeholders during loading.
+image_blue,int(11),The average red component of the image excluding desaturated areas. Used for image placeholders during loading.
+thumb_width,int(11),The display width of the thumbnail ('thm' preview size)
+thumb_height,int(11),The display height of the thumbnail ('thm' preview size)
+archive,int(11),The delete/archive/custom workflow state of the resource: default states -2 = pending submission, -1 = pending review, 0 = active, 1 = pending archive, 2 = archived, 3 = deleted
+access,int(11),The default access level: 0 = open (all users), 1 = restricted (must be requested by non admin), 2 = confidential (admin only), 3 = custom (defined by <a href="resource_custom_access">resource_custom_access</a>)
+colour_key,varchar(5),A descriptive string listing the main colours in order. Not used.
+created_by,int(11),The user that created the resource record.
+file_path,varchar(500),The path to the file on disk, only used in the case of a staticsync file.
+file_modified,datetime,Date when the file was last modified.
+file_checksum,varchar(32),Stores the main resource file checksum.
+request_count,int(11),Total count of how many times the resource has been requested.
+expiry_notification_sent,int(11),Set to 1 if system sent notifications about resource expiry, 0 otherwise.
+preview_tweaks,varchar(50),Record preview images tweaks. Current format is "rotation|gamma".
+geo_lat,double,Geographical latitude in degrees, extracted from the resource file if configured
+geo_long,double,Geographical longitutude in degrees, extracted from the resource file if configured
+mapzoom,int(11),The map zoom level to use by default, set when manually setting a map coordinate
+disk_usage,bigint(20),Disk usage of all resource files including previews and alternatives in bytes
+disk_usage_last_updated,datetime,The last time disk_usage was updated
+file_size,bigint(20),The file size of the core file in bytes
+preview_attempts,int(11),Set to 0 to indicate resource can be processed to get previews created offline/async. Set to 1 otherwise.
+modified,timestamp,Date resource (metadata) was last modified.
+last_verified,datetime,Date of the last time the primary resource file had it's integrity verified
+integrity_fail,tinyint(1),Set to 1 if integrity check failed, 0 otherwise.
+lock_user,int(11),The ID of the user that has checked out (locked) this resource record
+no_file,tinyint(1),Set to 1 if resource is intended to have no accompanying file e.g. the resource type is in the $data_only_resource_types array. Avoids alerts being raised when no file is found., 0 otherwise.

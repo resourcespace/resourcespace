@@ -1,0 +1,52 @@
+{
+    "name": "simplesamlphp/simplesamlphp-module-metarefresh",
+    "description": "The metarefresh module will download and parse metadata documents and store them locally",
+    "type": "simplesamlphp-module",
+    "keywords": ["simplesamlphp", "metarefresh"],
+    "license": "LGPL-2.1-or-later",
+    "authors": [
+        {
+            "name": "Andreas Åkre Solberg",
+            "email": "andreas.solberg@uninett.no"
+        }
+    ],
+    "config": {
+        "preferred-install": {
+            "simplesamlphp/simplesamlphp": "source",
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "simplesamlphp/composer-module-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true,
+            "simplesamlphp/composer-xmlprovider-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleSAML\\Module\\metarefresh\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleSAML\\Test\\Utils\\": "vendor/simplesamlphp/simplesamlphp/tests/Utils"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "simplesamlphp/assert": "^1.1.0",
+        "simplesamlphp/composer-module-installer": "^1.3.4",
+        "simplesamlphp/simplesamlphp": "^2.2.0",
+        "simplesamlphp/xml-common": "^1.16.0",
+        "symfony/http-foundation": "^6.4.0",
+        "symfony/var-exporter": "^6.4.0"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp-test-framework": "^1.7.0"
+    },
+    "support": {
+        "issues": "https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/issues",
+        "source": "https://github.com/simplesamlphp/simplesamlphp-module-metarefresh"
+    }
+}

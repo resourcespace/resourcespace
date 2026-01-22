@@ -1,0 +1,40 @@
+<?php
+
+
+$lang["action_dates_configuration"] = 'Válaszd ki azokat a mezőket, amelyeket az automatikusan végrehajtandó műveletekhez használnak.';
+$lang["action_dates_deletesettings"] = 'Automatikus erőforrás elsődleges műveleti beállítások - használja óvatosan';
+$lang["action_dates_delete"] = 'Automatikusan törölje vagy változtassa meg az erőforrások állapotát, amikor elérkezik a dátum ezen a mezőn';
+$lang["action_dates_eligible_states"] = 'Olyan államok, amelyek jogosultak elsődleges automatikus intézkedésre. Ha nincs kiválasztva állam, akkor minden állam jogosult.';
+$lang["action_dates_restrict"] = 'Automatikusan korlátozza a hozzáférést az erőforrásokhoz, amikor a dátum elérkezik ebben a mezőben. Ez csak azokra az erőforrásokra vonatkozik, amelyekhez a hozzáférés jelenleg nyitott.';
+$lang["action_dates_delete_logtext"] = '- Automatikusan végrehajtva az action_dates bővítménnyel';
+$lang["action_dates_restrict_logtext"] = 'Automatikusan korlátozva az action_dates bővítmény által';
+$lang["action_dates_reallydelete"] = 'Teljesen törölni az erőforrást, amikor a cselekvés dátuma lejárt? Ha hamisra van állítva, az erőforrások a beállított resource_deletion_state állapotba kerülnek, és így visszaállíthatók.';
+$lang["action_dates_email_admin_days"] = 'Értesítse a rendszeradminisztrátorokat egy meghatározott számú nappal a dátum elérése előtt. Hagyja üresen ezt az opciót, ha nem szeretne értesítést küldeni.';
+$lang["action_dates_email_text_restrict"] = 'A következő erőforrások [days] napon belül korlátozásra kerülnek.';
+$lang["action_dates_email_text_state"] = 'A következő erőforrások állapotváltozásra várnak [days] napon belül.';
+$lang["action_dates_email_text"] = 'A következő erőforrások korlátozásra kerülnek és/vagy állapotot változtatnak [days] napon belül.';
+$lang["action_dates_email_range_restrict"] = 'A következő erőforrások korlátozásra kerülnek [days_min] és [days_max] napon belül.';
+$lang["action_dates_email_range_state"] = 'A következő erőforrások állapotának megváltozása [days_min] és [days_max] napon belül esedékes.';
+$lang["action_dates_email_range"] = 'A következő erőforrások korlátozásra kerülnek és/vagy állapotot változtatnak [days_min] és [days_max] napon belül.';
+$lang["action_dates_email_subject_restrict"] = 'Erőforrások korlátozásának értesítése';
+$lang["action_dates_email_subject_state"] = 'Erőforrások értesítése állapotváltozás miatt';
+$lang["action_dates_email_subject"] = 'Erőforrások értesítése, amelyek korlátozásra kerülnek és/vagy állapotot változtatnak';
+$lang["action_dates_new_state"] = 'Új állapot, amelyre áttérhet (ha a fenti opciót teljesen törölni állítják, ezt figyelmen kívül hagyják)';
+$lang["action_dates_notification_subject"] = 'Értesítés az akció dátumok bővítményből';
+$lang["action_dates_additional_settings"] = 'További műveletek';
+$lang["action_dates_additional_settings_info"] = 'Továbbá mozgassa az erőforrásokat a kiválasztott állapotba, amikor a megadott mezőt elérik';
+$lang["action_dates_additional_settings_date"] = 'Amikor ezt a dátumot elérjük';
+$lang["action_dates_additional_settings_status"] = 'Mozgassa a forrásokat erre az archív állapotra';
+$lang["action_dates_remove_from_collection"] = 'Eltávolítja az erőforrásokat az összes kapcsolódó gyűjteményből, amikor az állapot megváltozik?';
+$lang["action_dates_email_for_state"] = 'Értesítés küldése az erőforrások állapotának megváltozásáról. Szükséges a fenti állapotváltozási mezők konfigurálása.';
+$lang["action_dates_email_for_restrict"] = 'Küldj értesítést a korlátozandó erőforrásokról. Szükséges a fenti erőforrásmezők korlátozása.';
+$lang["action_dates_workflow_actions"] = 'Ha az Advanced Workflow bővítmény engedélyezve van, alkalmazni kell a figyelmeztetéseit az ezen bővítmény által kezdeményezett állapotváltozásokra?';
+$lang["action_dates_weekdays"] = 'Válaszd ki azokat a hétköznapokat, amikor a műveletek végrehajtásra kerülnek.';
+$lang["weekday-0"] = 'Vasárnap';
+$lang["weekday-1"] = 'Hétfő';
+$lang["weekday-2"] = 'Kedd';
+$lang["weekday-3"] = 'Szerda';
+$lang["weekday-4"] = 'Csütörtök';
+$lang["weekday-5"] = 'Péntek';
+$lang["weekday-6"] = 'Szombat';
+$lang["page-title_action_dates_setup"] = 'Akciódátumok plugin beállítása';

@@ -1,0 +1,5 @@
+Reports as listed in the admin area.
+ref,int(11),
+name,varchar(100),Report name.
+query,text,SQL defining the report.
+support_non_correlated_sql,tinyint(1),Can this report run on search results? 1 - yes, 0 - no.

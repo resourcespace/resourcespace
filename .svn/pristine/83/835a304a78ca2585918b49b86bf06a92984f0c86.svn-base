@@ -1,0 +1,2 @@
+resource_type_field,0,PRIMARY,1,ref,A,31,,,,BTREE,
+resource_type_field,1,gloal,1,global,A,,,,YES,BTREE,

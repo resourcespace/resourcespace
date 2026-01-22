@@ -1,0 +1,43 @@
+<?php
+
+
+$lang["brand_guidelines_permission_bgv"] = 'Можа праглядаць кіраўніцтва па брэндах';
+$lang["brand_guidelines_permission_bge"] = 'Можа рэдагаваць кіраўніцтва па брэндах';
+$lang["brand_guidelines_top_nav_title"] = 'Кіраўніцтва';
+$lang["brand_guidelines_new_resource"] = 'Новы рэсурс';
+$lang["brand_guidelines_existing_resource"] = 'Існуючы рэсурс';
+$lang["brand_guidelines_new_content"] = 'Дадаць новы кантэнт';
+$lang["brand_guidelines_new_page"] = '+ Новая старонка';
+$lang["brand_guidelines_new_section"] = '+ Новы раздзел';
+$lang["brand_guidelines_view_table_of_content"] = 'Праглядзець змесціва таблицы';
+$lang["brand_guidelines_new_section_title"] = 'Стварыць новую секцыю';
+$lang["brand_guidelines_new_page_title"] = 'Стварыць новую старонку';
+$lang["brand_guidelines_edit_section_title"] = 'Рэдагаваць раздзел';
+$lang["brand_guidelines_edit_page_title"] = 'Рэдагаваць старонку';
+$lang["brand_guidelines_section"] = 'Раздзел';
+$lang["brand_guidelines_full_width"] = 'Поўная шырыня';
+$lang["brand_guidelines_half_width"] = 'Паўшырыня';
+$lang["brand_guidelines_title_new_text"] = 'Стварыць новы тэкставы элемент';
+$lang["brand_guidelines_title_edit_text"] = 'Рэдагаваць тэкст';
+$lang["brand_guidelines_title_select_resource"] = 'Выберыце існуючы рэсурс';
+$lang["brand_guidelines_err_invalid_input"] = 'Неправільны ўвод прадстаўлены';
+$lang["brand_guidelines_hex"] = 'HEX';
+$lang["brand_guidelines_hex_help_txt"] = 'Шаснаццатковы (0-9A-F). Прыклады: #0FA, 0FA, 00FFAA';
+$lang["brand_guidelines_rgb"] = 'RGB';
+$lang["brand_guidelines_rgb_help_txt"] = 'RGB (0-255). Прыклад: 116,182,50';
+$lang["brand_guidelines_cmyk"] = 'CMYK';
+$lang["brand_guidelines_cmyk_help_txt"] = 'CMYK (0-100). Прыклад: 36,0,73,29';
+$lang["brand_guidelines_move_left"] = 'Перасунуць налева';
+$lang["brand_guidelines_move_right"] = 'Перасунуць направа';
+$lang["brand_guidelines_confirm_delete_group_members"] = 'Вы ўпэўнены, што хочаце выдаліць усё ў гэтай групе?';
+$lang["brand_guidelines_layout"] = 'Макет';
+$lang["brand_guidelines_view_mode"] = 'Рэжым прагляду';
+$lang["brand_guidelines_edit_mode"] = 'Рэжым рэдагавання';
+$lang["brand_guidelines_configuration"] = 'Канфігурацыя кіраўніцтва па брэндах';
+$lang["brand_guidelines_fallback_size_thm"] = 'Памер малюнка запаснога макета мініятюры';
+$lang["brand_guidelines_fallback_size_half_width"] = 'Памер малюнка рэзервовага копіі для паловы шырыні макета';
+$lang["brand_guidelines_fallback_size_full_width"] = 'Памер малюнка для рэзервовага варыянту макета на поўную шырыню';
+$lang["page-title_brand_guidelines_content"] = 'Кіраванне змесцівам кіраўніцтва па брэндах';
+$lang["page-title_brand_guidelines_guidelines"] = 'Кіраўніцтва па брэндах';
+$lang["page-title_brand_guidelines_setup"] = 'Наладзіць плагін кіраўніцтва па брэндах';
+$lang["page-title_brand_guidelines_toc"] = 'Рэдагаваць змест';

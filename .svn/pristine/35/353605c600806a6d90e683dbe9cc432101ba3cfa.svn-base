@@ -1,0 +1,2 @@
+museumplus_log,0,PRIMARY,1,ref,A,0,,,,BTREE,,
+museumplus_log,1,idx_datetime,1,datetime,A,19,,,YES,BTREE,,

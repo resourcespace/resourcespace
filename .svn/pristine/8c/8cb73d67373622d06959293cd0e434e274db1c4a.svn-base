@@ -1,0 +1,10 @@
+ref,int(11),NO,PRI,,auto_increment
+outbound,int(11),YES,MUL,,
+holder,text,YES,,,
+license_usage,text,YES,,,
+description,text,YES,,,
+file,varchar(200),YES,,,
+expires,date,YES,,,
+expiration_notice_sent,tinyint(1),NO,,0,
+created_by,int(11),YES,,,
+created_date,timestamp,YES,,CURRENT_TIMESTAMP,

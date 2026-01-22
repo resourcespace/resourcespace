@@ -1,0 +1,6 @@
+1,thm,200,200,0,Thumbnail,1,0,0,0
+2,pre,900,540,0,Preview,1,0,1,0
+3,scr,1400,800,0,Screen,0,1,0,0
+4,lpr,2000,2000,0,"Low resolution print",0,0,0,0
+5,hpr,999999,999999,0,"High resolution print",0,0,0,0
+6,col,100,75,0,Collection,1,0,0,0

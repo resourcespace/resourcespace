@@ -1,0 +1,4 @@
+Tabs for organising metadata fields on the edit and view pages.
+ref,int(11),
+name,varchar(255),
+order_by,int(11),

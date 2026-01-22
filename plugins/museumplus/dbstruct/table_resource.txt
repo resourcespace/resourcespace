@@ -1,0 +1,2 @@
+museumplus_data_md5,char(32),YES,,,
+museumplus_technical_id,int(11),YES,,,

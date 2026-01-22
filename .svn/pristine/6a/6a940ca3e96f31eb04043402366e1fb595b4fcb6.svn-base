@@ -1,0 +1,12 @@
+name: rse_workflow
+title: Advanced Workflow
+desc: Configure custom workflow states and actions beyond the defaults.
+icon: workflow
+icon-colour: green
+author: Montala Limited
+version: 1.0
+default_priority: 100
+config_url: /plugins/rse_workflow/pages/setup.php
+category: Workflow And Access
+disable_group_select: 1
+info_url: https://www.resourcespace.com/knowledge-base/plugins/workflow

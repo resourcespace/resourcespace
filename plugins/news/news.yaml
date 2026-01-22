@@ -1,0 +1,8 @@
+name: news
+title: News
+desc: Add news articles to the home page.
+icon: newspaper
+author: Montala Limited
+version: 2.0
+category: Collaboration
+info_url: https://www.resourcespace.com/knowledge-base/plugins/plugin-news

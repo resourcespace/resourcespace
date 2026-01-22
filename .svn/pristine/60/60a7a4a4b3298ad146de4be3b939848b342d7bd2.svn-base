@@ -1,0 +1,7 @@
+name: video_timestamp_links
+author: Montala Limited
+version: 1.0
+desc: HH:MM:SS format in metadata is automatically linked to that timestamp in the video.
+category: User Interface
+icon: list-video
+title: Video Timestamp Links

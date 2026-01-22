@@ -1,0 +1,45 @@
+<?php
+
+$lang["falcon_link_title"] = 'لینک فالکون';
+$lang["falcon_link_manage"] = 'فالکون انتشار/بایگانی';
+$lang["falcon_link_publish"] = 'انتشار به Falcon';
+$lang["falcon_link_archive"] = 'بایگانی در فالکون';
+$lang["falcon_link_configuration"] = 'پیوند فالکون - تنظیمات';
+$lang["falcon_link_api_key"] = 'کلید API فالکون';
+$lang["falcon_link_notconfigured"] = 'پلاگین Falcon Link پیکربندی نشده است. لطفاً از مدیر خود بخواهید پلاگین را پیکربندی کند.';
+$lang["falcon_link_resource_types_to_include"] = 'انتخاب انواع منبع فالکون معتبر';
+$lang["falcon_link_not_permitted_extension"] = 'نوع فایل %TYPE% نمی‌تواند به Falcon بارگذاری شود';
+$lang["falcon_link_text_field"] = 'متن قالب فالکون';
+$lang["falcon_link_default_tag"] = 'متن برچسب پیش‌فرض که به‌طور خودکار به تمام محتوای منتشر شده Falcon اضافه خواهد شد. اگر متن \'[ID]\' را وارد کنید، این متن با شناسه منبع در برچسب جایگزین خواهد شد.';
+$lang["falcon_link_template_url"] = 'URL قالب Falcon. این امکان را به شما می‌دهد که منبع منتشر شده را مستقیماً در Falcon مشاهده کنید. برچسب [id] با شناسه‌ای که توسط Falcon هنگام انتشار منبع صادر می‌شود، جایگزین خواهد شد.';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - فیلدهای برچسب فالکون. این‌ها به هم متصل شده و به برچسب‌های قالب فالکون اضافه خواهند شد';
+$lang["falcon_link_id_field"] = 'فیلد فراداده برای ذخیره شناسه فالکون';
+$lang["falcon_link_log_share"] = 'منتشر شده در Falcon';
+$lang["falcon_link_archived"] = 'بایگانی شده';
+$lang["falcon_link_access_denied"] = 'شما اجازه انتشار منبع(های) انتخاب شده را ندارید';
+$lang["falcon_link_already_published"] = 'این منبع به فالکون منتشر شده است';
+$lang["falcon_link_resources_already_published"] = 'برخی از منابع قبلاً در Falcon منتشر شده‌اند و نمی‌توانند دوباره منتشر شوند';
+$lang["falcon_link_resource_not_published"] = 'منبع به Falcon منتشر نشده است';
+$lang["falcon_link_resource_publish_unavailable"] = 'منبع نمی‌تواند به Falcon منتشر شود';
+$lang["falcon_link_template_description"] = 'توضیحات الگو';
+$lang["falcon_link_template_tags"] = 'برچسب‌های قالب که اضافه خواهند شد';
+$lang["falcon_link_missing_file"] = 'منبع فایل اصلی ندارد';
+$lang["falcon_link_existing_id"] = 'شناسه فالکون موجود';
+$lang["falcon_link_not_uploaded"] = 'بارگذاری نشده';
+$lang["falcon_link_publish_button_text"] = 'انتشار';
+$lang["falcon_link_archive_button_text"] = 'بایگانی';
+$lang["falcon_link_publish_success"] = 'با موفقیت منتشر شد';
+$lang["falcon_link_archived_success"] = 'با موفقیت بایگانی شد.<br />اشتراک‌های منبع همچنان فعال هستند و در صورت نیاز باید به صورت دستی حذف شوند.';
+$lang["falcon_link_usergroups"] = 'گروه‌هایی که دسترسی به مدیریت قالب‌های Falcon دارند';
+$lang["falcon_link_filter"] = 'فیلتر برای تعیین اینکه کدام منابع می‌توانند به فالکون منتشر شوند';
+$lang["falcon_link_error_no_resources"] = 'هیچ منبعی برای انتشار ارسال نشده است';
+$lang["falcon_link_error_falcon_api"] = 'هنگام ارتباط با Falcon خطایی رخ داد. لطفاً برای جزئیات بیشتر وضعیت را بررسی کنید.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'خطای Falcon';
+$lang["falcon_link_view_in_falcon"] = 'مشاهده در Falcon';
+$lang["falcon_link_share_user"] = 'متن کاربر برای نمایش اشتراک‌هایی که برای استفاده Falcon ایجاد شده‌اند، به عنوان مثال \'به اشتراک گذاشته شده با user@falcon.io\'';
+$lang["falcon_link_log_publish"] = 'منبع به اشتراک گذاشته شده از طریق Falcon';
+$lang["falcon_link_log_archive"] = 'منبع بایگانی شده از طریق Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'لطفاً بررسی کنید که توضیحات و برچسب‌ها خالی نباشند';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'نصب افزونه لینک فالکن';

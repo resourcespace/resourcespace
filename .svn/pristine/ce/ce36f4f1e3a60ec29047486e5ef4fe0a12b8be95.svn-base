@@ -1,0 +1,4 @@
+usergroup_collection,0,PRIMARY,1,usergroup,A,0,,,,BTREE,,
+usergroup_collection,0,PRIMARY,2,collection,A,0,,,,BTREE,,
+usergroup_collection,1,usergroup,1,usergroup,A,0,,,,BTREE,,
+usergroup_collection,1,collection,1,collection,A,0,,,,BTREE,,

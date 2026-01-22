@@ -1,0 +1,42 @@
+<?php
+
+$lang["action_dates_configuration"] = '자동으로 지정된 작업을 수행할 필드를 선택하세요.';
+$lang["action_dates_deletesettings"] = '자동 리소스 기본 작업 설정 - 주의해서 사용하십시오';
+$lang["action_dates_delete"] = '이 필드의 날짜에 도달하면 리소스를 자동으로 삭제하거나 상태를 변경합니다';
+$lang["action_dates_eligible_states"] = '기본 자동 작업에 적합한 상태. 상태가 선택되지 않으면 모든 상태가 적합합니다.';
+$lang["action_dates_restrict"] = '이 필드의 날짜에 도달하면 리소스에 대한 접근을 자동으로 제한합니다. 이는 현재 접근이 열려 있는 리소스에만 적용됩니다.';
+$lang["action_dates_delete_logtext"] = '- action_dates 플러그인에 의해 자동으로 실행됨';
+$lang["action_dates_restrict_logtext"] = '- action_dates 플러그인에 의해 자동으로 제한됨';
+$lang["action_dates_reallydelete"] = '작업 날짜가 지나면 리소스를 완전히 삭제하시겠습니까? false로 설정하면 리소스가 구성된 resource_deletion_state로 이동되어 복구할 수 있습니다';
+$lang["action_dates_email_admin_days"] = '이 날짜에 도달하기 며칠 전에 시스템 관리자에게 알립니다. 알림을 보내지 않으려면 이 옵션을 비워 두십시오.';
+$lang["action_dates_email_text_restrict"] = '다음 자원들은 [days]일 후에 제한될 예정입니다.';
+$lang["action_dates_email_text_state"] = '다음 리소스는 [days]일 후에 상태가 변경될 예정입니다.';
+$lang["action_dates_email_text"] = '다음 리소스는 [days]일 내에 제한되거나 상태가 변경될 예정입니다.';
+$lang["action_dates_email_range_restrict"] = '다음 자원은 [days_min]일에서 [days_max]일 이내에 제한될 예정입니다.';
+$lang["action_dates_email_range_state"] = '다음 리소스는 [days_min]일에서 [days_max]일 이내에 상태가 변경될 예정입니다.';
+$lang["action_dates_email_range"] = '다음 리소스는 [days_min]일에서 [days_max]일 이내에 제한되거나 상태가 변경될 예정입니다.';
+$lang["action_dates_email_subject_restrict"] = '제한 예정인 리소스 알림';
+$lang["action_dates_email_subject_state"] = '상태 변경 예정 자원 알림';
+$lang["action_dates_email_subject"] = '제한되거나 상태가 변경될 예정인 리소스에 대한 알림';
+$lang["action_dates_new_state"] = '이동할 새 상태 (위 옵션이 리소스를 완전히 삭제하도록 설정된 경우 무시됩니다)';
+$lang["action_dates_notification_subject"] = '작업 날짜 플러그인에서의 알림';
+$lang["action_dates_additional_settings"] = '추가 작업';
+$lang["action_dates_additional_settings_info"] = '지정된 필드에 도달하면 리소스를 선택된 상태로 추가 이동합니다';
+$lang["action_dates_additional_settings_date"] = '이 날짜에 도달하면';
+$lang["action_dates_additional_settings_status"] = '리소스를 이 아카이브 상태로 이동';
+$lang["action_dates_remove_from_collection"] = '상태가 변경될 때 모든 관련 컬렉션에서 리소스를 제거하시겠습니까?';
+$lang["action_dates_email_for_state"] = '리소스 상태 변경에 대한 알림을 보냅니다. 위의 상태 변경 필드를 구성해야 합니다.';
+$lang["action_dates_email_for_restrict"] = '리소스 제한에 대한 알림을 보냅니다. 위의 리소스 필드 제한이 구성되어야 합니다.';
+$lang["action_dates_workflow_actions"] = '고급 워크플로우 플러그인이 활성화된 경우, 이 플러그인에 의해 시작된 상태 변경에 대한 알림을 적용해야 합니까?';
+$lang["action_dates_weekdays"] = '작업이 처리될 요일을 선택하세요.';
+$lang["weekday-0"] = '일요일';
+$lang["weekday-1"] = '월요일';
+$lang["weekday-2"] = '화요일';
+$lang["weekday-3"] = '수요일';
+$lang["weekday-4"] = '목요일';
+$lang["weekday-5"] = '금요일';
+$lang["weekday-6"] = '토요일';
+$lang["plugin-action_dates-title"] = '작업 날짜';
+$lang["plugin-action_dates-desc"] = '날짜 필드를 기반으로 리소스의 예약 삭제 또는 제한을 가능하게 합니다';
+
+$lang["page-title_action_dates_setup"] = '액션 날짜 플러그인 설정';

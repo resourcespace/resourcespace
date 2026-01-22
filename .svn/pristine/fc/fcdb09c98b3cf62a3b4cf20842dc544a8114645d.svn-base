@@ -1,0 +1,57 @@
+<?php
+
+
+$lang["offline_archive_configuration"] = 'Trang cấu hình lưu trữ ngoại tuyến';
+$lang["offline_archive_archivefield"] = 'Vui lòng chọn trường metadata sẽ chứa mã tham chiếu lưu trữ';
+$lang["offline_archive_archivepath"] = 'Vui lòng nhập vị trí mà các kho lưu trữ sẽ được tạo ra trong đó';
+$lang["offline_archive_restorepath"] = 'Để khôi phục tài nguyên trong thư mục StaticSync, bạn có thể nhập một thư mục con của thư mục StaticSync mà các tệp đã khôi phục sẽ được đặt vào.';
+$lang["offline_archive_preservedate"] = 'Có giữ lại dấu thời gian của tệp không?';
+$lang["offline_archive_administer_archive"] = 'Quản lý kho lưu trữ';
+$lang["offline_archive_view_pending"] = 'Xem tài nguyên đang chờ lưu trữ';
+$lang["offline_archive_view_pending_restore"] = 'Xem tài nguyên đang chờ khôi phục';
+$lang["offline_archive_view_completed"] = 'Xem công việc lưu trữ';
+$lang["offline_archive_view_associated"] = 'Xem tài nguyên liên quan';
+$lang["offline_archive_view_as_search"] = 'Xem tài nguyên dưới dạng tìm kiếm';
+$lang["offline_archive_entername"] = 'Vui lòng nhập tên lưu trữ';
+$lang["offline_archive_input_text"] = 'Vui lòng nhập danh sách tài nguyên hoặc mã ID bộ sưu tập để đánh dấu cho việc khôi phục';
+$lang["offline_archive_input_resources"] = 'Vui lòng nhập các ID tài nguyên để khôi phục, cách nhau bằng dấu phẩy';
+$lang["offline_archive_input_collection"] = 'Vui lòng nhập ID bộ sưu tập để khôi phục';
+$lang["offline_archive_name"] = 'Tiền tố lưu trữ';
+$lang["offline_archive_createnew"] = 'Tạo công việc lưu trữ mới';
+$lang["offline_archive_archive_created"] = 'Lưu trữ đã được tạo thành công';
+$lang["offline_archive_archive_ref"] = 'Tham chiếu lưu trữ';
+$lang["offline_archive_archive_date"] = 'Ngày lưu trữ';
+$lang["offline_archive_archive_status"] = 'Ngày lưu trữ';
+$lang["offline_archive_request_restore"] = 'Yêu cầu khôi phục';
+$lang["offline_archive_cancel_restore"] = 'Hủy khôi phục';
+$lang["offline_archive_cancel_confirm"] = 'Bạn có chắc chắn muốn hủy bỏ việc khôi phục tài nguyên này không';
+$lang["offline_archive_restore_pending"] = 'Đang chờ khôi phục từ kho lưu trữ';
+$lang["offline_archive_restore_confirm"] = 'Xác nhận khôi phục';
+$lang["offline_archive_restore_resources"] = 'Khôi phục tài nguyên từ kho lưu trữ';
+$lang["offline_archive_restore_resource"] = 'Khôi phục từ kho lưu trữ';
+$lang["offline_archive_request_restore_text"] = 'Vui lòng nhập lý do cho yêu cầu';
+$lang["offline_archive_request_restore_reason"] = 'Lý do yêu cầu khôi phục';
+$lang["offline_archive_request_email_subject"] = 'yêu cầu khôi phục lưu trữ ngoại tuyến';
+$lang["offline_archive_requestsenttext"] = 'Yêu cầu khôi phục kho lưu trữ của bạn đã được gửi và sẽ được xem xét sớm.';
+$lang["offline_archive_resources_restore_confirmed"] = 'Tài nguyên đã được thiết lập thành công để khôi phục và sẽ được khôi phục khi các kho lưu trữ liên quan đã được chèn hoặc sao chép vào vị trí kho lưu trữ đã cấu hình';
+$lang["offline_archive_resources_restore_cancel_confirmed"] = 'Tài nguyên đã được xóa thành công khỏi phục hồi đang chờ xử lý';
+$lang["offline_archive_resource_log_archived"] = '- được lưu trữ bởi plugin lưu trữ ngoại tuyến. Mã lưu trữ:';
+$lang["offline_archive_resource_log_restored"] = '- được khôi phục bởi plugin lưu trữ ngoại tuyến';
+$lang["offline_archive_resource_log_restore_set"] = 'Được đánh dấu để phục hồi từ kho lưu trữ';
+$lang["offline_archive_resource_log_restore_removed"] = 'Đã hủy khôi phục từ kho lưu trữ';
+$lang["offline_archive_resource_log_restore_request"] = 'Yêu cầu khôi phục từ kho lưu trữ';
+$lang["offline_archive_resource_restore"] = 'Khôi phục tài nguyên';
+$lang["offline_archive_administer_archive-tooltip"] = 'Di chuyển các tệp đã lưu trữ đến một vị trí ngoại tuyến';
+$lang["offline_archive_statustype"] = array (
+  0 => 'Đang chờ',
+  1 => 'Đang tiến hành',
+  2 => 'Đã hoàn thành',
+);
+$lang["page-title_offline_archive_administer_archive"] = 'Quản lý Kho lưu trữ';
+$lang["page-title_offline_archive_offline_archive_action"] = 'Lưu trữ Ngoại tuyến';
+$lang["page-title_offline_archive_pending_restore"] = 'Đang chờ khôi phục tài nguyên';
+$lang["page-title_offline_archive_restore_request"] = 'Yêu cầu khôi phục tài nguyên';
+$lang["page-title_offline_archive_restore"] = 'Khôi phục Lưu trữ';
+$lang["page-title_offline_archive_setup"] = 'Cài đặt Plugin';
+$lang["page-title_offline_archive_view_archives"] = 'Xem Kho Tư Liệu';
+$lang["page-title_offline_archive_view_pending"] = 'Xem Lưu trữ Đang Chờ';

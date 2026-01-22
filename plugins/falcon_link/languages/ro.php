@@ -1,0 +1,47 @@
+<?php
+
+$lang["falcon_link_title"] = 'Legătura Falcon';
+$lang["falcon_link_manage"] = 'Publicare/Arhivare Falcon';
+$lang["falcon_link_publish"] = 'Publică pe Falcon';
+$lang["falcon_link_archive"] = 'Arhivă în Falcon';
+$lang["falcon_link_configuration"] = 'Legătură Falcon - Configurare';
+$lang["falcon_link_api_key"] = 'Cheie API Falcon';
+$lang["falcon_link_notconfigured"] = 'Plugin-ul Falcon Link nu este configurat. Vă rugăm să solicitați administratorului să configureze plugin-ul.';
+$lang["falcon_link_resource_types_to_include"] = 'Selectați tipurile valide de resurse Falcon';
+$lang["falcon_link_not_permitted_extension"] = 'Tipul de fișier %TYPE% nu poate fi încărcat în Falcon';
+$lang["falcon_link_text_field"] = 'Câmpul de text al șablonului Falcon';
+$lang["falcon_link_template_url"] = 'URL-ul șablonului Falcon. Acesta vă permite să vizualizați resursa publicată în Falcon direct. Eticheta [id] va fi înlocuită cu identificatorul emis de Falcon atunci când resursa este publicată';
+$lang["falcon_link_tag_fields"] = 'ResourceSpace - Câmpuri etichetă Falcon. Acestea vor fi concatenate și adăugate la etichetele șablonului Falcon';
+$lang["falcon_link_id_field"] = 'Câmpul de metadate pentru a stoca identificatorul Falcon';
+$lang["falcon_link_log_share"] = 'Publicat pe Falcon';
+$lang["falcon_link_archived"] = 'Arhivat';
+$lang["falcon_link_access_denied"] = 'Nu aveți permisiunea de a publica resursele selectate';
+$lang["falcon_link_already_published"] = 'Acest resursă a fost publicată pe Falcon';
+$lang["falcon_link_resources_already_published"] = 'Unele resurse au fost deja publicate pe Falcon și nu pot fi republicate';
+$lang["falcon_link_resource_not_published"] = 'Resursa nu a fost publicată pe Falcon';
+$lang["falcon_link_resource_publish_unavailable"] = 'Resursa nu poate fi publicată către Falcon';
+$lang["falcon_link_template_description"] = 'Descrierea șablonului';
+$lang["falcon_link_template_tags"] = 'Etichetele șablon care vor fi adăugate';
+$lang["falcon_link_missing_file"] = 'Resursa nu are fișier original';
+$lang["falcon_link_existing_id"] = 'ID-ul Falcon existent';
+$lang["falcon_link_not_uploaded"] = 'Nu a fost încărcat';
+$lang["falcon_link_publish_button_text"] = 'Publică';
+$lang["falcon_link_archive_button_text"] = 'Arhivă';
+$lang["falcon_link_publish_success"] = 'Publicat cu succes';
+$lang["falcon_link_archived_success"] = 'Arhivat cu succes.<br />Partajările de resurse sunt încă active și vor trebui șterse manual dacă este necesar.';
+$lang["falcon_link_usergroups"] = 'Grupurile care au acces pentru a gestiona șabloanele Falcon';
+$lang["falcon_link_filter"] = 'Filtru pentru a determina care resurse pot fi publicate pe Falcon';
+$lang["falcon_link_error_no_resources"] = 'Nu există resurse trimise pentru publicare';
+$lang["falcon_link_error_falcon_api"] = 'A apărut o eroare în timpul comunicării cu Falcon. Vă rugăm să verificați starea pentru mai multe detalii.';
+$lang["falcon_link_error_falcon_api_detailed"] = 'Eroare de la vultur';
+$lang["falcon_link_view_in_falcon"] = 'Vizualizare în Falcon';
+$lang["falcon_link_share_user"] = 'Textul utilizatorului pentru afișarea partajărilor create pentru utilizarea Falcon, adică "partajat cu user@falcon.io"';
+$lang["falcon_link_log_publish"] = 'Resursa partajată prin intermediul Falcon';
+$lang["falcon_link_log_archive"] = 'Resursa arhivată prin intermediul Falcon';
+$lang["falcon_link_error_falcon_check_tags"] = 'Vă rugăm să verificați că descrierea și etichetele nu sunt goale';
+$lang["falcon_link_default_tag"] = 'Textul implicit al etichetei care va fi adăugat automat la toate conținuturile publicate Falcon. Dacă includeți textul \'[ID]\', acesta va fi înlocuit cu ID-ul resursei în etichetă';
+$lang["plugin-falcon_link-title"] = 'Link Falcon';
+$lang["plugin-falcon_link-desc"] = 'Publică resursele pe Falcon.io';
+
+$lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
+$lang["page-title_falcon_link_setup"] = 'Configurare pluginul Falcon Link';

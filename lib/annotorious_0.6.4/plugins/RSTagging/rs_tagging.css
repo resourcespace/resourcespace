@@ -1,0 +1,40 @@
+#RSTagging-tags {
+    clear: right;
+}
+
+.RSTagging-tag {
+    float: left;
+    margin: 0px 5px 5px 0px;
+    border-radius: 3px;
+    padding: 2px 4px;
+    background-color: #79BC41;
+    color: #000;
+}
+
+.suggested {
+    background-color: #e8793e;
+    color: #000;
+}
+
+.RSTagging-tag .icon-triangle-alert,
+.RSTagging-tag .icon-plus,
+.RSTagging-tag .icon-database {
+    margin-right: 3px;
+}
+
+.annotorious-popup-field {
+    clear: both;
+}
+
+.annotorious-editor-field {
+	padding: 6px;
+}
+
+#RSTagging-field-selector {
+    width: 100%;
+}
+
+#RSTagging-author {
+    color: #eee;
+    text-align: end;
+}

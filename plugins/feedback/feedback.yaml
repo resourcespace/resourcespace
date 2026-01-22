@@ -1,0 +1,10 @@
+name: feedback
+title: Feedback
+author: Montala Limited
+version: 1.0
+desc: Adds a general user feedback function with configurable questions.
+icon: message-square-more
+icon-colour: black
+config_url: /plugins/feedback/pages/setup.php
+category: Collaboration
+info_url: https://www.resourcespace.com/knowledge-base/plugins/feedback

@@ -1,0 +1,6 @@
+Defines custom access for a resource - for example that a specific user group has restricted access to a resource.
+resource,int(11),
+usergroup,int(11),User group ID
+user,int(11),
+access,int(11),Custom access level. Available options: 0 - Open; 1 - Restricted; 2 - Confidential. See include/definitions.php
+user_expires,date,Date custom access expires

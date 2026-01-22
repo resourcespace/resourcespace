@@ -1,0 +1,4 @@
+1,Photo,,,,,,icon-image,,
+2,Document,,,,,,icon-file-text,,
+3,Video,,,,,,icon-video,,
+4,Audio,,,,,,icon-music,,

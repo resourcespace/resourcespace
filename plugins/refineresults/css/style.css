@@ -1,0 +1,20 @@
+#question_refine{padding-bottom: 10px;}
+
+#refine_results_button {
+    background-color: white;
+    padding: 5px 8px 4px 5px;
+    border-radius: 4px;
+    color: black;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.1);
+    font-size:0.875rem;
+    width: fit-content;
+    margin: 3px 20px 3px 0;
+}
+
+#refine_results_button a:hover {
+    text-decoration: none;
+}
+
+#refine_results_button .icon-zoom-in  {
+    padding-right: 3px;
+}

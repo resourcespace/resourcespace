@@ -1,0 +1,3 @@
+ldapgroup,varchar(255),NO,PRI,,
+rsgroup,int(10) unsigned,NO,,,
+priority,int(10),NO,,,

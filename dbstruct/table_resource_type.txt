@@ -1,0 +1,10 @@
+ref,int(11),NO,PRI,,auto_increment
+name,varchar(200),YES,,,
+allowed_extensions,text,YES,,,
+order_by,int(11),YES,,,
+config_options,text,YES,,,
+push_metadata,int(11),YES,,,
+colour,smallint,YES,,,
+icon,tinytext,YES,,,
+tab,int(11),YES,,,
+pull_images,smallint,YES,,,

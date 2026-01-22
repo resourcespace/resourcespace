@@ -1,0 +1,74 @@
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSAMLphp 1.15\n"
+"Report-Msgid-Bugs-To: simplesamlphp-translation@googlegroups.com\n"
+"POT-Creation-Date: 2016-10-12 09:23+0200\n"
+"PO-Revision-Date: 2016-10-14 12:14+0200\n"
+"Last-Translator: \n"
+"Language: nl\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+msgid "Yes, continue"
+msgstr "Ja, ik ga akkoord"
+
+msgid "Return to consent page"
+msgstr "Keer terug naar de toestemmingspagina"
+
+msgid "Go to information page for the service"
+msgstr "Ga naar de informatiepagina voor de service"
+
+msgid "Abort login to %SPNAME%"
+msgstr "Inloggen op %SPNAME% afbreken"
+
+msgid "The purpose of %SPNAME% is %SPDESC%"
+msgstr "Het doel van %SPNAME% is %SPDESC%"
+
+msgid ""
+"List the information about you that is about to be transmitted to the "
+"service you are going to login to"
+msgstr ""
+"De informatie die over jou bekend is en naar de service waarop je wilt "
+"inloggen verstuurd zal worden"
+
+msgid "Consent about releasing personal information"
+msgstr "Toestemming voor het vrijgeven van persoonsgegevens"
+
+msgid "No consent given"
+msgstr "Geen toestemming gegeven"
+
+msgid "You did not give consent for transferring your attributes to %SPNAME%."
+msgstr ""
+"U heeft geen toestemming gegeven om uw attributen naar %SPNAME% "
+"te versturen."
+
+msgid "Remember"
+msgstr "Bewaar toestemming"
+
+msgid "Show content"
+msgstr "Toon inhoud"
+
+msgid "%SPNAME% requires that the information below is transferred."
+msgstr ""
+"U gaat inloggen bij de dienst %SPNAME%. Tijdens het loginproces stuurt de "
+"identity provider zgn. attributen met daarin informatie over uw "
+"identiteit voor deze dienst. Bent u het daarmee eens?"
+
+msgid "Privacy policy for the service"
+msgstr "Privacybeleid voor de dienst"
+
+msgid "No, cancel"
+msgstr "Nee, ik weiger"
+
+msgid "User information"
+msgstr "Gerbuikersinformatie"
+
+msgid "Information that will be sent to %SPNAME%"
+msgstr "Informatie die naar %SPNAME% zal worden gestuurd"
+

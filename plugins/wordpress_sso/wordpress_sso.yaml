@@ -1,0 +1,11 @@
+name: wordpress_sso
+title: Wordpress SSO
+desc: SSO via Wordpress; logging in to Wordpress logs you in to ResourceSpace.
+icon: key-round
+icon-colour: #00749C
+author: Montala Limited
+version: 1.0
+config_url: /plugins/wordpress_sso/pages/setup.php
+info_url: https://www.resourcespace.com/knowledge-base/plugins/wordpress_sso
+category: Authentication
+disable_group_select: 1

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg228"
+   width="189.20941"
+   height="218.05472"
+   viewBox="0 0 189.20941 218.05472"
+   sodipodi:docname="rs_outline.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs232" />
+  <sodipodi:namedview
+     id="namedview230"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.8384861"
+     inkscape:cx="94.177755"
+     inkscape:cy="109.28788"
+     inkscape:window-width="1856"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g234" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g234"
+     transform="translate(-40.86005,-28.215859)">
+    <path
+       sodipodi:type="star"
+       style="fill:none;stroke:#68aa30;stroke-width:4.61923756;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path344"
+       inkscape:flatsided="true"
+       sodipodi:sides="6"
+       sodipodi:cx="39.627228"
+       sodipodi:cy="93.623962"
+       sodipodi:r1="75.292809"
+       sodipodi:r2="37.646404"
+       sodipodi:arg1="-0.15583787"
+       sodipodi:arg2="0.36776091"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 114.00763,81.937926 86.937831,152.19626 12.557433,163.88229 -34.75317,105.31 -7.6833755,35.051667 66.697022,23.36563 Z"
+       inkscape:transform-center-x="-20.844099"
+       inkscape:transform-center-y="0.85649483"
+       transform="matrix(1.321078,-0.50814491,0.50717679,1.3236623,35.630197,33.453083)" />
+  </g>
+</svg>

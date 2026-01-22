@@ -1,0 +1,74 @@
+<style>
+/*Custom styling goes here*/
+</style>
+<page backtop="25mm" backbottom="10mm" backleft="5mm" backright="5mm">
+    <page_header>
+        <table cellspacing="0" style="width: 100%;">
+            <tr>
+                <td style="width: 40%;">
+                    <h1>[%resource_type_name%]</h1>
+                </td>
+                <td style="width: 60%;" align=right>
+                    <h1>[%applicationname%]</h1>
+                    <!-- <img style="height: 50px; max-width: 100%" src="[%filestore%]/system/pdf_templates/case_study_logo.jpg" alt="Logo" > -->
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </page_header>
+    <page_footer>
+        <table style="width: 100%;">
+            <tr>
+                <!-- <td style="text-align: left; width: 33%">[%filename%]</td>
+                <td style="text-align: center; width: 34%">page [[page_cu]]/[[page_nb]]</td>
+                <td style="text-align: right; width: 33%">[%date%]</td> -->
+                <td style="text-align: left; width: 33%"></td>
+                <td style="text-align: center; width: 34%"></td>
+                <td style="text-align: right; width: 33%">[[page_cu]]/[[page_nb]]</td>
+            </tr>
+        </table>
+    </page_footer>
+    <!-- Real content starts here -->
+    <h2>[%metadatafield-8:value%]</h2>
+    <table style="width: 90%;" align="center" cellspacing="15">
+        <tbody>
+            <!-- Country -->
+            <tr>
+                <td valign="top" style="text-align: left;"><b>[%metadatafield-3:title%]</b></td>
+                <td style="width: 2%;"></td>
+                <td style="width: 70%; text-align: left;">[%metadatafield-3:value%]</td>
+            </tr>
+            <!-- Date -->
+            <tr>
+                <td valign="top" style="text-align: left;"><b>[%metadatafield-12:title%]</b></td>
+                <td style="width: 2%;"></td>
+                <td style="width: 70%; text-align: left;">[%metadatafield-12:value%]</td>
+            </tr>
+            <!-- Keywords - Subject -->
+            <tr>
+                <td valign="top" style="text-align: left;"><b>[%metadatafield-73:title%]</b></td>
+                <td style="width: 2%;"></td>
+                <td style="width: 70%; text-align: left;">[%metadatafield-73:value%]</td>
+            </tr>
+            <!-- Keywords - Event -->
+            <tr>
+                <td valign="top" style="text-align: left;"><b>[%metadatafield-74:title%]</b></td>
+                <td style="width: 2%;"></td>
+                <td style="width: 70%; text-align: left;">[%metadatafield-74:value%]</td>
+            </tr>
+            <!-- Keywords - Emotion -->
+            <tr>
+                <td valign="top" style="text-align: left;"><b>[%metadatafield-75:title%]</b></td>
+                <td style="width: 2%;"></td>
+                <td style="width: 70%; text-align: left;">[%metadatafield-75:value%]</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Caption -->
+    <h4>[%metadatafield-18:title%]</h4>
+    <p>[%metadatafield-18:value%]</p>
+
+    <!-- Notes -->
+    <h4>[%metadatafield-25:title%]</h4>
+    <p>[%metadatafield-25:value%]</p>
+</page>

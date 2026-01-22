@@ -1,0 +1,4 @@
+ref,int(11),NO,PRI,,auto_increment
+title,varchar(50),NO,,,
+body,text,YES,,,
+date,datetime,YES,,,

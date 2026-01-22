@@ -1,0 +1,43 @@
+<?php
+
+$lang["brand_guidelines_permission_bgv"] = 'Gall weld y Canllawiau Brand';
+$lang["brand_guidelines_permission_bge"] = 'Gall olygu\'r Canllawiau Brand';
+$lang["brand_guidelines_top_nav_title"] = 'Canllawiau';
+$lang["brand_guidelines_new_resource"] = 'Adnodd newydd';
+$lang["brand_guidelines_existing_resource"] = 'Adnodd presennol';
+$lang["brand_guidelines_new_content"] = 'Ychwanegu cynnwys newydd';
+$lang["brand_guidelines_new_page"] = '+ Tudalen newydd';
+$lang["brand_guidelines_new_section"] = '+ Adran newydd';
+$lang["brand_guidelines_view_table_of_content"] = 'Gweld tabl o gynnwys';
+$lang["brand_guidelines_new_section_title"] = 'Creu adran newydd';
+$lang["brand_guidelines_new_page_title"] = 'Creu tudalen newydd';
+$lang["brand_guidelines_edit_section_title"] = 'Golygu adran';
+$lang["brand_guidelines_edit_page_title"] = 'Golygu tudalen';
+$lang["brand_guidelines_section"] = 'Adran';
+$lang["brand_guidelines_full_width"] = 'Lledred llawn';
+$lang["brand_guidelines_half_width"] = 'Hanner lled';
+$lang["brand_guidelines_title_new_text"] = 'Creu eitem testun newydd';
+$lang["brand_guidelines_title_edit_text"] = 'Golygu testun';
+$lang["brand_guidelines_title_select_resource"] = 'Dewiswch adnodd presennol';
+$lang["brand_guidelines_err_invalid_input"] = 'Mewngofnod annilys wedi\'i gyflwyno';
+$lang["brand_guidelines_hex_help_txt"] = 'Hexadecimol (0-9A-F). Enghreifftiau: #0FA, 0FA, 00FFAA';
+$lang["brand_guidelines_rgb"] = 'RGB';
+$lang["brand_guidelines_rgb_help_txt"] = 'RGB (0-255). Enghraifft: 116,182,50';
+$lang["brand_guidelines_cmyk"] = 'CMYK';
+$lang["brand_guidelines_move_left"] = 'Symud i\'r chwith';
+$lang["brand_guidelines_move_right"] = 'Symud i\'r dde';
+$lang["brand_guidelines_confirm_delete_group_members"] = 'Ydych chi\'n siŵr eich bod am ddileu popeth yn y grŵp hwn?';
+$lang["brand_guidelines_layout"] = 'Cynllun';
+$lang["brand_guidelines_view_mode"] = 'Modd gweld';
+$lang["brand_guidelines_edit_mode"] = 'Modd golygu';
+$lang["brand_guidelines_configuration"] = 'Gosodiadau Canllawiau Brand';
+$lang["brand_guidelines_fallback_size_thm"] = 'Maintiad lluniau lluniau llai maint ffeil';
+$lang["brand_guidelines_fallback_size_half_width"] = 'Maintiau llun wrth gefn maint hanner lled';
+$lang["brand_guidelines_fallback_size_full_width"] = 'Maintiad llun maint lluniau eang';
+$lang["brand_guidelines_hex"] = 'HEX';
+$lang["brand_guidelines_cmyk_help_txt"] = 'CMYK (0-100). Enghraifft: 36,0,73,29';
+
+$lang["page-title_brand_guidelines_content"] = 'Rheoli Cynnwys Canllawiau Brand';
+$lang["page-title_brand_guidelines_guidelines"] = 'Canllawiau Brand';
+$lang["page-title_brand_guidelines_setup"] = 'Gosod Plugin Canllawiau Brand';
+$lang["page-title_brand_guidelines_toc"] = 'Golygu cynnwys';
