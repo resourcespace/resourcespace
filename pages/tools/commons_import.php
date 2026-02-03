@@ -128,7 +128,7 @@ function download_file_with_user_agent($url)
         return false;
     }
 
-    curl_close($ch);
+    unset($ch);
     return $data;
 }
 

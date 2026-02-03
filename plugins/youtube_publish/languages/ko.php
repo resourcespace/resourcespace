@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='다른 YouTube 계정을 사용하세요'
 $lang["youtube_publish_accessdenied"]='이 자원을 게시할 권한이 없습니다';
 $lang["youtube_publish_alreadypublished"]='이 리소스는 이미 YouTube에 게시되었습니다.';
 $lang["youtube_access_failed"]='YouTube 업로드 서비스 인터페이스에 접근하지 못했습니다. 관리자에게 문의하거나 설정을 확인하십시오.';
-$lang["youtube_publish_video_title"]='비디오 제목';
 $lang["youtube_publish_video_description"]='비디오 설명';
 $lang["youtube_publish_video_tags"]='비디오 태그';
 $lang["youtube_publish_access"]='접근 설정';

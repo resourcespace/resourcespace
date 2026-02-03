@@ -2226,6 +2226,13 @@ function get_dash_search_data($link = '', $promimg = 0)
 {
     global $search_all_workflow_states, $view_title_field, $lang;
 
+    // Maximum number of preview images to show for a dash tile
+    $dash_tile_preview_count = 4;
+
+    // Maximum number of resources to process for dash tile preview generation
+    // Beyond this count, resource previews will not be considered for display on the dash tile
+    $dash_tile_resource_limit = 50;
+
     $searchdata = [];
     $searchdata["count"] = 0;
     $searchdata["images"] = [];
@@ -2242,7 +2249,7 @@ function get_dash_search_data($link = '', $promimg = 0)
         $search_all_workflow_states = false;
     }
 
-    $results = do_search($search, $restypes, $order_by, $archive, [0, 50], $sort);
+    $results = do_search($search, $restypes, $order_by, $archive, [0, $dash_tile_resource_limit], $sort);
 
     $imagecount = 0;
 
@@ -2262,10 +2269,10 @@ function get_dash_search_data($link = '', $promimg = 0)
                 }
             }
 
-            while ($imagecount < 4 && $n < $resultcount && $n < 50) { // Don't keep trying to find images if none exist
+            while ($imagecount < $dash_tile_preview_count && $n < $resultcount && $n < $dash_tile_resource_limit) { // Don't keep trying to find images if none exist
                 global $access; // Needed by check_use_watermark()
                 $access = get_resource_access($results["data"][$n]);
-                if (in_array($access, [RESOURCE_ACCESS_RESTRICTED,RESOURCE_ACCESS_FULL])) {
+                if (in_array($access, [RESOURCE_ACCESS_RESTRICTED, RESOURCE_ACCESS_FULL])) {
                     $use_watermark = check_use_watermark();
                     if (
                         !resource_has_access_denied_by_RT_size($results["data"][$n]['resource_type'], 'pre')
@@ -2295,10 +2302,10 @@ function get_dash_search_data($link = '', $promimg = 0)
                 }
             }
 
-            while ($imagecount < 4 && $n < $resultcount && $n < 50) { // Don't keep trying to find images if none exist
+            while ($imagecount < $dash_tile_preview_count && $n < $resultcount && $n < $dash_tile_resource_limit) { // Don't keep trying to find images if none exist
                 global $access; // Needed by check_use_watermark()
                 $access = get_resource_access($results[$n]);
-                if (in_array($access, [RESOURCE_ACCESS_RESTRICTED,RESOURCE_ACCESS_FULL])) {
+                if (in_array($access, [RESOURCE_ACCESS_RESTRICTED, RESOURCE_ACCESS_FULL])) {
                     $use_watermark = check_use_watermark();
                     if (
                         !resource_has_access_denied_by_RT_size($results[$n]['resource_type'], 'pre')

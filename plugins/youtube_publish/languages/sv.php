@@ -24,7 +24,6 @@ $lang["youtube_publish_change_login"]="Använd ett annat Youtube-konto";
 $lang["youtube_publish_accessdenied"]="Du har inte tillåtelse att publicera det här materialet";
 $lang["youtube_publish_alreadypublished"]="Detta material har redan publicerats på Youtube.";
 $lang["youtube_access_failed"]="Misslyckades att nå Youtubes gränssnitt för överföringstjänster. Kontakta din administratör eller kontrollera inställningarna. ";
-$lang["youtube_publish_video_title"]="Videotitel";
 $lang["youtube_publish_video_description"]="Videobeskrivning";
 $lang["youtube_publish_video_tags"]="Videotaggar";
 $lang["youtube_publish_access"]="Sekretessinställning";

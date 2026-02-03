@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='استخدم حساب يوتيوب مخت
 $lang["youtube_publish_accessdenied"]='ليس لديك الإذن لنشر هذا المورد';
 $lang["youtube_publish_alreadypublished"]='تم نشر هذا المورد بالفعل على يوتيوب.';
 $lang["youtube_access_failed"]='فشل الوصول إلى واجهة خدمة تحميل يوتيوب. يرجى الاتصال بالمسؤول الخاص بك أو التحقق من التكوين الخاص بك.';
-$lang["youtube_publish_video_title"]='عنوان الفيديو';
 $lang["youtube_publish_video_description"]='وصف الفيديو';
 $lang["youtube_publish_video_tags"]='علامات الفيديو';
 $lang["youtube_publish_access"]='تعيين الوصول';

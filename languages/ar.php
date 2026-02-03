@@ -998,7 +998,6 @@ $lang["hide_collection"] = 'إخفاء من شريط المجموعات';
 $lang["selectall"] = 'تحديد الكل';
 $lang["view_all_resources"] = 'عرض جميع الموارد';
 $lang["edit_all_resources"] = 'تحرير جميع الموارد';
-$lang["toggle"] = 'تبديل الحالة';
 $lang["resize"] = 'تغيير الحجم';
 $lang["geolocatecollection"] = 'تحديد موقع جمعية الموارد الجغرافية';
 $lang["geoemptycollection"] = 'لقد قمت بتقديم مجموعة فارغة. يرجى إضافة الموارد والمحاولة مرة أخرى.';
@@ -2438,15 +2437,7 @@ $lang["collection_restype_blocked"] = 'لا يمكن إضافة أنواع ال�
 $lang["retina_mode"] = 'وضع الشبكية (Retina mode)';
 $lang["private-api-key"] = 'مفتاح API الخاص';
 $lang["force_edit_resource_type"] = 'فرض صلاحية التعديل القسري على نوع المورد:';
-$lang["responsive_configtitle"] = 'متجاوب';
-$lang["responsive_main_menu"] = 'القائمة';
-$lang["responsive_settings_menu"] = 'حساب';
-$lang["responsive_more"] = 'المزيد...';
-$lang["responsive_less"] = 'أقل..';
-$lang["responsive_collectiontogglehide"] = 'إخفاء';
 $lang["linkedheaderimgsrc"] = 'موقع صورة الشعار في الهيدر (يتم تعيين القيمة الافتراضية على ResourceSpace)';
-$lang["responsive_result_settings"] = 'إعدادات النتائج';
-$lang["responsive_view_full_site"] = 'عرض الموقع الكامل';
 $lang["actions_myactions"] = 'الإجراءات';
 $lang["actions_introtext"] = 'يمكنك تكوين معايير الإجراءات التي تظهر هنا عن طريق تغيير تفضيلات المستخدم الخاصة بك';
 $lang["actions_noactions"] = 'ليس لديك أي إجراءات معلقة';

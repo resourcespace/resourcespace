@@ -105,7 +105,7 @@ function do_http_request($url, $basic_auth, $content_type, $request_method, $dat
         }
 
     $response_status_code = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
-    curl_close($curl_handle);
+    unset($curl_handle);
 
     $response = array(
         'status_code' => $response_status_code,

@@ -46,7 +46,6 @@ $lang["youtube_publish_category"]='Categorie';
 $lang["youtube_publish_category_error"]='Eroare la preluarea categoriilor YouTube: -';
 $lang["youtube_chunk_size"]='Dimensiunea bucății de încărcare de utilizat la încărcarea pe YouTube (MB)';
 $lang["youtube_publish_add_anchor"]='Adăugați etichete ancoră la URL-ul atunci când salvați în câmpul de metadate al URL-ului YouTube?';
-$lang["youtube_publish_video_title"]='Titlu video';
 $lang["youtube_publish_authentication"]='Autentificare';
 $lang["youtube_publish_public"]='Public';
 $lang["youtube_publish_private"]='Privat';

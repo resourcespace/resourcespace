@@ -136,7 +136,7 @@ while (
                 $headersize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
                 $header = substr($cresponse, 0, $headersize);
                 $body = substr($cresponse, $headersize);
-                curl_close($ch);
+                unset($ch);
 
                 if ($cerror == 200) {
                     debug("Successfully retrieved tile from " . $url);

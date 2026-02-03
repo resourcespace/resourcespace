@@ -338,8 +338,6 @@ function propose_changes_display_field($n, $field)
     <div class="Label ProposeChangesLabel" ><?php echo escape($field["title"])?></div>
 
     <?php 
-    # Define some Javascript for help actions (applies to all fields)
-    $help_js="onBlur=\"HideHelp(" . $field["ref"] . ");return false;\" onFocus=\"ShowHelp(" . $field["ref"] . ");return false;\"";
 
     #hook to modify field type in special case. Returning zero (to get a standard text box) doesn't work, so return 1 for type 0, 2 for type 1, etc.
     $modified_field_type="";
@@ -434,7 +432,7 @@ function propose_changes_display_field($n, $field)
         # Show inline help for this field.
         # For certain field types that have no obvious focus, the help always appears.
         ?>
-        <div class="FormHelp" style="<?php if (!in_array($field["type"],array(2,4,6,7,10))) { ?>display:none;<?php } else { ?>clear:left;<?php } ?>" id="help_<?php echo $field["ref"]; ?>"><div class="FormHelpInner"><?php echo nl2br(trim(escape(i18n_get_translated($field["help_text"]))))?></div></div>
+        <div class="FormHelp" style="clear:left;" id="help_<?php echo (int)$field["ref"]; ?>"><div class="FormHelpInner"><?php echo strip_tags_and_attributes(nl2br(trim(i18n_get_translated($field["help_text"]))))?></div></div>
         <?php
         }
     ?>

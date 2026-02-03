@@ -38,6 +38,7 @@ $page_def[] = config_add_text_input("clip_results_limit_similar", $lang["clip_re
 
 
 $page_def[] = config_add_section_header($lang["clip-duplicate-images"]);
+$page_def[] = config_add_boolean_select("clip_enable_full_duplicate_search", $lang["clip_enable_full_duplicate_search"]);
 $page_def[] = config_add_percent_range("clip_duplicate_cutoff", $lang["clip_duplicate_cutoff"]);
 
 $page_def[] = config_add_section_header($lang["clip-automatic-tagging"]);
@@ -51,7 +52,7 @@ $page_def[] = config_add_text_input("clip_keyword_count", $lang["clip-keyword-co
 
 if (job_trigger_permission_check()) {
     $page_def[] = config_add_section_header("Offline Jobs");
-    $page_def[] = config_add_html("<p>Configure job to generate CLIP vectors <input type=\"button\" value=\"Configure Job\" onclick=\"window.location.href='" . 
+    $page_def[] = config_add_html("<p>" . escape($lang["clip-configure_job"]) . " <input type=\"button\" value=\"" . escape($lang["job_configure"]) . "\" onclick=\"window.location.href='" . 
                                     generateURL($baseurl_short . "/plugins/clip/pages/offline_jobs/generate_vectors.php", ['job_user' => 0, 'plugin' => 1]) . "'\"></p>");
 }
 

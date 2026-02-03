@@ -22,21 +22,39 @@ function HookRse_versionCollection_logLog_extra_columns_row($log, array $collect
         return;
         }
 
-    $url = generateURL(
+    
+    if (!isset($GLOBALS['cache_rse_version_collection_edit'][$collection_info["ref"]])) {
+    $GLOBALS['cache_rse_version_collection_edit'][$collection_info["ref"]] = collection_writeable($collection_info["ref"]);
+    }
+
+    if ($GLOBALS['cache_rse_version_collection_edit'][$collection_info["ref"]]) {
+        $url = generateURL(
         "{$baseurl}/plugins/rse_version/pages/revert.php",
         array(
             "collection" => $collection_info["ref"],
             "ref"       => $log["ref"],
         )
-    );
-    ?>
-    <td>
+        );
+
+        ?>
+        <td>
         <div class="ListTools">
         <a href="<?php echo $url; ?>"
            onclick="CentralSpaceLoad(this, true); return false;"><?php echo LINK_CARET . $lang["rse_version_revert_state"]; ?></a>
         </div>
-    </td>
-    <?php
+        </td>
+        <?php
+    } else {
+        # Don't offer revert option if user doesn't have permission to update the collection.
+        ?>
+        <td>
+        <div class="ListTools">
+        </div>
+        </td>
+        <?php
+    }
+
+
     }
 
 

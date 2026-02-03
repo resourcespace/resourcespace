@@ -776,12 +776,11 @@ if(!$collectionsearch)
     
 // The sortable method must be enabled regardless of the order_by so that the trash bin is available for interactions from CentralSpace
 // This allows resources to be removed from collection via the trash bin, but will abandon reorder attempts unless order_by is "collection"
-if ($allow_reorder && $display!="list") {
+if ($collectionsearch && $display!="list") {
     global $usersession;
 ?>
     <script type="text/javascript">
-    var allow_reorder = true;
-
+    var allow_reorder = <?php echo $allow_reorder ? 'true' : 'false'; ?>;
     var use_sortable_for_trash_only = false;
     <?php if ($order_by != "collection") { ?>
         var use_sortable_for_trash_only = true;
@@ -856,16 +855,21 @@ if ($allow_reorder && $display!="list") {
 
             update: function(event, ui)
                 {
+                // Don't reorder when top and bottom collections are the same and you drag & reorder from top to bottom
+                if(ui.item[0].parentElement.id == 'CollectionSpace')
+                    {
+                    return false;
+                    }
                 if (use_sortable_for_trash_only)
                     {
                     // We are only using sortable for the ability to use the trash bin when the collection order is not "collection" 
                     // and so we need to abandon the attempted reorder in this scenario
+                    toastNotification('Error', '<?php echo escape($lang["reorder_invalid"]); ?>');
                     return false;    
                     }
-                
-                // Don't reorder when top and bottom collections are the same and you drag & reorder from top to bottom
-                if(ui.item[0].parentElement.id == 'CollectionSpace')
+                if(!allow_reorder) 
                     {
+                    toastNotification('Error', '<?php echo escape($lang["reorder_permissions_fail"]); ?>');
                     return false;
                     }
 
@@ -902,11 +906,6 @@ if ($allow_reorder && $display!="list") {
         jQuery('.ResourcePanelShellLarge').disableSelection();
         jQuery('.ResourcePanelShellSmall').disableSelection();
 
-        // CentralSpace should only be sortable (ie. reorder functionality) for collections only
-        if(!allow_reorder)
-            {
-            jQuery('#CentralSpaceResources').sortable('disable');
-            }
     });
     </script>
 <?php }

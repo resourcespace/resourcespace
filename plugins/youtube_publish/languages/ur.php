@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='مختلف یوٹیوب اکاؤنٹ اس
 $lang["youtube_publish_accessdenied"]='آپ کو اس وسائل کو شائع کرنے کی اجازت نہیں ہے';
 $lang["youtube_publish_alreadypublished"]='یہ وسیلہ پہلے ہی یوٹیوب پر شائع کیا جا چکا ہے۔';
 $lang["youtube_access_failed"]='یوٹیوب اپلوڈ سروس انٹرفیس تک رسائی ناکام ہوگئی۔ براہ کرم اپنے منتظم سے رابطہ کریں یا اپنی ترتیب چیک کریں۔';
-$lang["youtube_publish_video_title"]='ویڈیو عنوان';
 $lang["youtube_publish_video_description"]='ویڈیو کی تفصیل';
 $lang["youtube_publish_video_tags"]='ویڈیو ٹیگز';
 $lang["youtube_publish_access"]='رسائی مقرر کریں';

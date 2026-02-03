@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Verwenden Sie ein anderes YouTube-Konto';
 $lang["youtube_publish_accessdenied"]='Sie haben keine Berechtigung, diese Ressource zu veröffentlichen';
 $lang["youtube_publish_alreadypublished"]='Diese Ressource wurde bereits auf YouTube veröffentlicht.';
 $lang["youtube_access_failed"]='Konnte nicht auf die YouTube Upload-Service-Schnittstelle zugreifen. Bitte kontaktieren Sie Ihren Administrator oder überprüfen Sie Ihre Konfiguration.';
-$lang["youtube_publish_video_title"]='Videotitel';
 $lang["youtube_publish_video_description"]='Videobeschreibung';
 $lang["youtube_publish_video_tags"]='Video-Tags';
 $lang["youtube_publish_access"]='Zugriff festlegen';

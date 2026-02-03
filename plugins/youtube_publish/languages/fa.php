@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='از یک حساب کاربری یوتی�
 $lang["youtube_publish_accessdenied"]='شما اجازه انتشار این منبع را ندارید';
 $lang["youtube_publish_alreadypublished"]='این منبع قبلاً در یوتیوب منتشر شده است.';
 $lang["youtube_access_failed"]='عدم دسترسی به رابط سرویس بارگذاری YouTube. لطفاً با مدیر خود تماس بگیرید یا تنظیمات خود را بررسی کنید.';
-$lang["youtube_publish_video_title"]='عنوان ویدئو';
 $lang["youtube_publish_video_description"]='توضیحات ویدئو';
 $lang["youtube_publish_video_tags"]='برچسب‌های ویدئو';
 $lang["youtube_publish_access"]='تنظیم دسترسی';

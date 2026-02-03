@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Utilitza un compte de YouTube diferent';
 $lang["youtube_publish_accessdenied"]='No teniu permisos per publicar aquest recurs';
 $lang["youtube_publish_alreadypublished"]='Aquest recurs ja ha estat publicat a YouTube.';
 $lang["youtube_access_failed"]='No s\'ha pogut accedir a la interfície del servei de càrrega de YouTube. Si us plau, contacteu amb l\'administrador o comproveu la vostra configuració.';
-$lang["youtube_publish_video_title"]='Títol del vídeo';
 $lang["youtube_publish_video_description"]='Descripció del vídeo';
 $lang["youtube_publish_video_tags"]='Etiquetes de vídeo';
 $lang["youtube_publish_access"]='Establir accés';

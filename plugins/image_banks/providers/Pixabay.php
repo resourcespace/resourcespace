@@ -178,7 +178,7 @@ class Pixabay extends Provider
 
         $result = curl_exec($curl_handle);
         $response_status_code = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
-        curl_close($curl_handle);
+        unset($curl_handle);
 
         $result_json_decoded = json_decode($result, true);
 

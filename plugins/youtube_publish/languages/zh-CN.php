@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='请使用另一个YouTube账户。';
 $lang["youtube_publish_accessdenied"]='您没有权限发布此资源。';
 $lang["youtube_publish_alreadypublished"]='此资源已经发布到YouTube。';
 $lang["youtube_access_failed"]='无法访问YouTube上传服务接口。请联系管理员或检查您的配置。';
-$lang["youtube_publish_video_title"]='视频标题';
 $lang["youtube_publish_video_description"]='视频描述';
 $lang["youtube_publish_video_tags"]='视频标签';
 $lang["youtube_publish_access"]='设置访问权限';

@@ -498,6 +498,7 @@ EOT;
                     <form class="comment_removal_form">
                     <?php generateFormToken("comment_removal_form"); ?>
                         <input type="hidden" name="comment_to_hide" value="<?php echo escape($thisRef); ?>"></input>
+                        <input type="hidden" name="resource_ref" value="<?php echo escape($ref); ?>"></input>
                         <a href="javascript:void(0)" onclick="if (confirm ('<?php echo escape($lang['comments_hide-comment-text-confirm']); ?>')) submitForm(this.parentNode);"><?php echo '<i aria-hidden="true" class="icon-trash-2"></i>&nbsp;' . $lang['comments_hide-comment-text-link']; ?></a>
                     </form>
                     <?php

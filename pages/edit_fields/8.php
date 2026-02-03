@@ -10,7 +10,6 @@ global $tinymce_plugins, $tinymce_toolbar, $user_pref_appearance;
         class="stdwidth"
         name="<?php echo escape($name); ?>"
         id="<?php echo ((isset($modal) && $modal) ? "Modal_" : "CentralSpace_") . escape($name); ?>"
-        <?php echo $help_js; ?>
     ><?php if ($value == strip_tags($value)) {
         $value = nl2br($value);
      }
@@ -64,13 +63,6 @@ global $tinymce_plugins, $tinymce_toolbar, $user_pref_appearance;
                 <?php    
                 }
                 ?>
-            });
-            // Ensure that help text is shown when given focus
-            editor.on('focus', function(e) {
-                ShowHelp('<?php echo $field["ref"]; ?>');
-            });
-            editor.on('blur', function(e) {
-                HideHelp('<?php echo $field["ref"]; ?>');
             });
         },
     });

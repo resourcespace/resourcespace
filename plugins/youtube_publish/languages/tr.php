@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Farklı bir YouTube hesabı kullan';
 $lang["youtube_publish_accessdenied"]='Bu kaynağı yayımlama izniniz yok';
 $lang["youtube_publish_alreadypublished"]='Bu kaynak zaten YouTube\'a yayınlandı.';
 $lang["youtube_access_failed"]='YouTube yükleme hizmeti arayüzüne erişilemedi. Lütfen yöneticinizle iletişime geçin veya yapılandırmanızı kontrol edin.';
-$lang["youtube_publish_video_title"]='Video başlığı';
 $lang["youtube_publish_video_description"]='Video açıklaması';
 $lang["youtube_publish_video_tags"]='Video etiketleri';
 $lang["youtube_publish_access"]='Erişimi ayarla';

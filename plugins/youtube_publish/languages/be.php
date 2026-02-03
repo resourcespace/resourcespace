@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"] = 'Выкарыстоўвайце іншы
 $lang["youtube_publish_accessdenied"] = 'Вы не маеце дазволу на публікацыю гэтага рэсурсу';
 $lang["youtube_publish_alreadypublished"] = 'Гэты рэсурс ужо быў апублікаваны на YouTube.';
 $lang["youtube_access_failed"] = 'Не ўдалося атрымаць доступ да інтэрфейсу службы загрузкі YouTube. Калі ласка, звяжыцеся з вашым адміністратарам або праверце вашу канфігурацыю.';
-$lang["youtube_publish_video_title"] = 'Назва відэа';
 $lang["youtube_publish_video_description"] = 'Апісанне відэа';
 $lang["youtube_publish_video_tags"] = 'Тэгі відэа';
 $lang["youtube_publish_access"] = 'Усталяваць доступ';

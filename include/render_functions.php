@@ -2182,26 +2182,6 @@ function display_field($n, $field, $newtab=false,$modal=false)
       </div>
       <?php
       } 
-    # Define some Javascript for help actions (applies to all fields)
-    # Help actions for TinyMCE fields are set in pages/edit_fields/8.php
-     if (trim($field["help_text"]=="")) 
-       {
-        # No helptext; so no javascript for toggling
-        $help_js="";
-       }
-     else
-       {
-       if ( in_array($field["type"],array(2,3,4,6,7,10,12,14)) )
-         {
-         # For the selected field types the helptext is always shown; so no javascript toggling 
-         $help_js="";
-         }
-       else
-         {
-         # For all other field types setup javascript to toggle helptext depending on loss or gain of focus
-         $help_js="onBlur=\"HideHelp(" . $field["ref"] . ");return false;\" onFocus=\"ShowHelp(" . $field["ref"] . ");return false;\"";
-         }
-       }
 
     #hook to modify field type in special case. Returning zero (to get a standard text box) doesn't work, so return 1 for type 0, 2 for type 1, etc.
      $modified_field_type="";
@@ -2312,7 +2292,7 @@ function display_field($n, $field, $newtab=false,$modal=false)
         # Show inline help for this field.
         # For certain field types that have no obvious focus, the help always appears
        ?>
-       <div class="FormHelp" style="padding:0;<?php if ( in_array($field["type"],array(2,3,4,6,7,10,12,14)) ) { ?> clear:left;<?php } else { ?> display:none;<?php } ?>" id="help_<?php echo $field["ref"]; ?>"><div class="FormHelpInner"><?php echo nl2br(trim(i18n_get_translated($field["help_text"])))?></div></div>
+       <div class="FormHelp" style="padding:0; clear:left;" id="help_<?php echo (int)$field["ref"]; ?>"><div class="FormHelpInner"><?php echo strip_tags_and_attributes(nl2br(trim(i18n_get_translated($field["help_text"]))))?></div></div>
 <?php
      }
     if(($embedded_data_user_select || (isset($embedded_data_user_select_fields) && in_array($field["ref"],$embedded_data_user_select_fields))) && ($ref<0 && !$multiple))
@@ -3551,9 +3531,6 @@ function render_custom_fields(array $cfs)
             $field_value = $field["value"];
 
             $show_help_text = isset($field['help_text']) && trim($field['help_text'] !== '');
-            $help_js = $show_help_text
-                ? sprintf('onblur="HideHelp(\'%1$s\');" onfocus="ShowHelp(\'%1$s\');"', escape($field_id))
-                : '';
 
             global $FIXED_LIST_FIELD_TYPES;
             $selected_options_hashes = array_map(function($opt) use ($field_id)
@@ -3627,7 +3604,6 @@ function render_custom_fields(array $cfs)
                            class="stdwidth"
                            name="<?php echo escape($field_name); ?>"
                            value="<?php echo escape($field_value); ?>"
-                           <?php echo $help_js; ?>
                     >
                     <?php
                     break;
@@ -3635,7 +3611,7 @@ function render_custom_fields(array $cfs)
 
             if ($show_help_text) {
                 ?>
-                <div id="help_<?php echo escape($field_id); ?>" class="FormHelp" style="display: none;">
+                <div id="help_<?php echo escape($field_id); ?>" class="FormHelp" style="clear: left;">
                     <div class="FormHelpInner"><?php echo escape($field['help_text']); ?></div>
                 </div>
                 <?php
@@ -4991,7 +4967,7 @@ function render_featured_collections(array $ctx, array $items)
         if (
             $is_featured_collection
             && !$is_smart_featured_collection
-            && ($collection_data = get_collection($fc['ref']))
+            && ($collection_data = get_collection($fc['ref'], true))
             && allow_upload_to_collection(is_array($collection_data) ? $collection_data : [])
         ) {
             $render_ctx['tools'][] = $tool_upload_to_collection;
@@ -5047,7 +5023,7 @@ function render_featured_collections(array $ctx, array $items)
 
             if (
                 !$fc_category_has_children
-                && ($collection_data = get_collection($fc['ref']))
+                && ($collection_data = get_collection($fc['ref'], true))
                 && allow_upload_to_collection(is_array($collection_data) ? $collection_data : [])
             ) {
                 $render_ctx['tools'][] = $tool_upload_to_collection;

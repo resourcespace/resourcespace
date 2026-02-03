@@ -1760,12 +1760,15 @@ function resolve_users($users)
 /**
  * Verify a supplied external access key
  *
- * @param  array | integer $resources   Resource ID | Array of resource IDs
- * @param  string $key                  The external access key
- * @param  boolean $checkcollection     Check collection access key? true by default but required to prevent infinite recursion
- * @return boolean Valid?
+ * @param   array|integer   $resources         Resource ID | Array of resource IDs
+ * @param   string          $key               The external access key
+ * @param   boolean         $checkcollection   Check collection access key? true by default but required to prevent infinite recursion
+ * @param   boolean         $is_category       True if checking featured collection category. Silently checks collection resources by preventing
+ *                                             excessive updating of external_access_keys. Resource keys will update if collection viewed later.
+ *  
+ * @return  boolean         Valid?
  */
-function check_access_key($resources, $key, $checkcollection = true)
+function check_access_key($resources, $key, $checkcollection = true, $is_category = false)
 {
     global $anonymous_login;
 
@@ -1969,7 +1972,9 @@ function check_access_key($resources, $key, $checkcollection = true)
     }
 
     # Set the 'last used' date for this key
+    if (!$is_category) {
     ps_query("UPDATE external_access_keys SET lastused = now() WHERE resource IN (" . ps_param_insert(count($resources)) . ") AND access_key = ?", array_merge(ps_param_fill($resources, "i"), array("s", $key)));
+    }
 
     return true;
 }
@@ -2068,14 +2073,14 @@ function check_access_key_collection($collection, $key, $checkresource = true)
         return true;
     }
 
-    foreach ($collections as $collection_ref) {
-        $resources_alt = hook("GetResourcesToCheck", "", array($collection));
-        $resources = (is_array($resources_alt) && !empty($resources_alt) ? $resources_alt : get_collection_resources($collection_ref));
-        if (!check_access_key($resources, $key, false)) {
-            return false;
+    if ($checkresource) {
+        foreach ($collections as $collection_ref) {
+            $resources_alt = hook("GetResourcesToCheck", "", array($collection));
+            $resources = (is_array($resources_alt) && !empty($resources_alt) ? $resources_alt : get_collection_resources($collection_ref));
+            if (!check_access_key($resources, $key, false, $is_featured_collection_category)) {
+                return false;
+            }
         }
-
-        ps_query($sql, array("i", $collection_ref, "s", $key));
     }
 
     if ($is_featured_collection_category) {

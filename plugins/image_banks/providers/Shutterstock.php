@@ -162,7 +162,7 @@ class Shutterstock extends Provider
         $handle = curl_init();
         curl_setopt_array($handle, $options);
         $response = curl_exec($handle);
-        curl_close($handle);
+        unset($handle);
         
         return $response;
         }

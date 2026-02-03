@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"] = 'Sử dụng một tài khoản YouTube 
 $lang["youtube_publish_accessdenied"] = 'Bạn không có quyền xuất bản tài nguyên này';
 $lang["youtube_publish_alreadypublished"] = 'Tài nguyên này đã được xuất bản lên YouTube.';
 $lang["youtube_access_failed"] = 'Không thể truy cập giao diện dịch vụ tải lên YouTube. Vui lòng liên hệ với quản trị viên của bạn hoặc kiểm tra cấu hình của bạn.';
-$lang["youtube_publish_video_title"] = 'Tiêu đề video';
 $lang["youtube_publish_video_description"] = 'Mô tả video';
 $lang["youtube_publish_video_tags"] = 'Thẻ video';
 $lang["youtube_publish_access"] = 'Đặt quyền truy cập';

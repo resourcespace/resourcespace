@@ -37,14 +37,6 @@ $add_searched_nodes_function_call = '';
         <?php } ?>
         name="<?php echo $name; ?>_selector"
         placeholder="<?php echo escape($lang['starttypingkeyword']); ?>"
-        onFocus="
-            <?php if ($pagename == "edit") {
-                echo "ShowHelp(" . $field["ref"] . ");";
-            } ?>"
-        onBlur="
-            <?php if ($pagename == "edit") {
-                echo "HideHelp(" . $field["ref"] . ");";
-            } ?>"
     />
     <?php
 

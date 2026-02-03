@@ -29,7 +29,7 @@ if ($clip_image_base64 != "") {
 
     $response = curl_exec($ch);
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    unset($ch);
     unlink($tmpfile);
 
     if ($http_code != 200) {

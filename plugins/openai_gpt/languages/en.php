@@ -26,6 +26,7 @@ $lang["page-title_openai_gpt_setup"]      = "Setup OpenAI GPT Plugin";
 
 $lang["openai_gpt"] = "OpenAI GPT";
 $lang["openai_gpt_process_existing"] = "Process existing GPT fields";
+$lang["openai_gpt_process_existing_configure"] = "Configure job to process existing GPT fields";
 $lang["openai_gpt_process_existing_field_ref"] = "AI Field";
 $lang["openai_gpt_process_existing_overwrite"] = "Overwrite";
 $lang["openai_gpt_process_existing_field_ref_help"] = "This is the target field to be updated.";

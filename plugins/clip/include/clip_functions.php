@@ -31,7 +31,7 @@ function get_vector(bool $is_text, string $input, int $ref): array|false
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
     $response = curl_exec($ch);
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    unset($ch);
 
     if ($http_code !== 200 || empty($response)) {
         logScript("Resource $ref: error from CLIP service (HTTP $http_code)");
@@ -205,7 +205,7 @@ function clip_tag(int $resource)
         $response = curl_exec($ch);
         $response_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         logScript ("CLIP service response: " . $response);
-        curl_close($ch);
+        unset($ch);
 
         if (strlen($response) == 0 || $response_status !== 200) { 
             // CLIP server unresponsive
@@ -236,7 +236,7 @@ function clip_tag(int $resource)
             'top_k' => 1,
         ]);
         $response = curl_exec($ch);
-        curl_close($ch);
+        unset($ch);
 
         $title = urldecode(json_decode($response)[0]->tag);
         update_field($resource, $clip_title_field, $title);

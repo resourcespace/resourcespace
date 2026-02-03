@@ -76,7 +76,6 @@ $page_title = get_page_title($pagename, pluginname());
         <!-- Load jQuery and jQueryUI -->
         <script src="<?php echo $baseurl . $jquery_path; ?>?css_reload_key=<?php echo $css_reload_key; ?>"></script>
         <script src="<?php echo $baseurl . $jquery_ui_path; ?>?css_reload_key=<?php echo $css_reload_key; ?>" type="text/javascript"></script>
-        <script src="<?php echo $baseurl; ?>/lib/js/jquery.layout.js?css_reload_key=<?php echo $css_reload_key; ?>"></script>
         <link type="text/css" href="<?php echo $baseurl; ?>/css/smoothness/jquery-ui.min.css?css_reload_key=<?php echo $css_reload_key; ?>" rel="stylesheet" />
         <script src="<?php echo $baseurl; ?>/lib/js/jquery.ui.touch-punch.min.js"></script>
 
@@ -172,9 +171,9 @@ $page_title = get_page_title($pagename, pluginname());
             var login = '<?php echo escape($lang["login"]); ?>';
             <?php echo "global_trash_html += '" . render_trash("trash", "", true) . "';\n"; ?>
             oktext="<?php echo escape($lang["ok"]) ?>";
-            var scrolltopElementCentral='.ui-layout-center';
-            var scrolltopElementContainer='.ui-layout-container';
-            var scrolltopElementCollection='.ui-layout-south';
+            var scrolltopElementCentral='#UICenter';
+            var scrolltopElementContainer='body';
+            var scrolltopElementCollection='#CollectionDiv';
             var scrolltopElementModal='#modal';
             <?php
             if ($browse_on) {
@@ -328,7 +327,7 @@ $page_title = get_page_title($pagename, pluginname());
             ?>
 
             <div id="Header" class="<?php
-                echo in_array($pagename, $not_authenticated_pages) ? ' LoginHeader ' : ' ui-layout-north ';
+                echo in_array($pagename, $not_authenticated_pages) ? ' LoginHeader ' : '';
                 echo isset($slimheader_darken) && $slimheader_darken ? 'slimheader_darken' : ''; ?>"
             >
                 <div id="HeaderResponsive">
@@ -344,38 +343,6 @@ $page_title = get_page_title($pagename, pluginname());
                         ?>
                         <div class="HeaderImgLink">
                             <img src="<?php echo $header_img_src; ?>" id="HeaderImg" alt="<?php echo $applicationname; ?>">
-                        </div>
-                        <?php
-                    }
-
-                    $user_profile_image = get_profile_image($userref, false);
-
-                    // Responsive
-                    if (isset($username) && ($pagename != "login") && !$loginterms && getval("k", "") == "") {
-                        ?>   
-                        <div id="HeaderButtons" style="display:none;">
-                            <div id="ButtonHolder">
-                                <a href="#" id="HeaderNav2Click" class="ResponsiveHeaderButton ResourcePanel ResponsiveButton">
-                                    <span class="rbText"><?php echo escape($lang["responsive_main_menu"]); ?></span>
-                                    <span class="icon-menu lucide-lg"></span>
-                                </a>
-
-                                <a href="#" id="HeaderNav1Click" class="ResponsiveHeaderButton ResourcePanel ResponsiveButton">
-                                    <span class="rbText">
-                                        <?php if (!$allow_password_change) {
-                                            echo escape((!isset($userfullname) || $userfullname == "" ? $username : $userfullname));
-                                        } else {
-                                            echo escape($lang["responsive_settings_menu"]);
-                                        } ?>
-                                    </span>
-
-                                    <?php if ($user_profile_image != "") { ?>
-                                        <img src='<?php echo $user_profile_image; ?>' alt='Profile icon' class="ProfileImage" id='UserProfileImage'>
-                                    <?php } else { ?>
-                                        <span class="icon-user-round lucide-lg"></span>
-                                    <?php } ?>
-                                </a>
-                            </div>
                         </div>
                         <?php
                     }
@@ -456,6 +423,8 @@ $page_title = get_page_title($pagename, pluginname());
                                 <li>
                                     <a href="<?php echo $baseurl; ?>/pages/user/user_home.php" onclick="ModalClose(); return ModalLoad(this, true, true, 'right');" alt="<?php echo escape($lang['myaccount']); ?>" title="<?php echo escape($lang['myaccount']); ?>">
                                         <?php
+                                        $user_profile_image = get_profile_image($userref, false);
+
                                         if (isset($header_include_username) && $header_include_username) {
                                             if ($user_profile_image != "") {
                                                 ?>
@@ -559,7 +528,7 @@ $page_title = get_page_title($pagename, pluginname());
 
             if (!in_array($pagename, $omit_searchbar_pages) && !$loginterms && ($k == '' || $internal_share_access)) {
                 ?>
-                <div id="SearchBarContainer" class="ui-layout-east" >
+                <div id="SearchBarContainer">
                     <?php include __DIR__ . "/searchbar.php"; ?>
                 </div>
                 <?php
@@ -574,7 +543,7 @@ $page_title = get_page_title($pagename, pluginname());
             || ($pagename == "user_change_password" && !is_authenticated())
         ) {
             $div = "CentralSpaceLogin";
-            $uicenterclass = "NoSearch";
+            $uicenterclass = "NoSearch LoginPage";
         } else {
             $div = "CentralSpace";
             if (in_array($pagename, $omit_searchbar_pages)) {
@@ -590,7 +559,7 @@ $page_title = get_page_title($pagename, pluginname());
         <!-- Global Trash Bin -->
         <?php
         render_trash("trash", "");
-        echo '<div id="UICenter" role="main" class="ui-layout-center ' . $uicenterclass . '">';
+        echo '<div id="UICenter" role="main" class="' . $uicenterclass . '">';
         hook('afteruicenter');
 
         if (!in_array($pagename, $not_authenticated_pages)) {

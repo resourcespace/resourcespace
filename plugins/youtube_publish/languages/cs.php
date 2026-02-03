@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Použijte jiný účet YouTube';
 $lang["youtube_publish_accessdenied"]='Nemáte oprávnění k publikování tohoto zdroje';
 $lang["youtube_publish_alreadypublished"]='Tento zdroj již byl publikován na YouTube.';
 $lang["youtube_access_failed"]='Nepodařilo se získat přístup k rozhraní služby nahrávání na YouTube. Kontaktujte prosím svého administrátora nebo zkontrolujte své nastavení.';
-$lang["youtube_publish_video_title"]='Název videa';
 $lang["youtube_publish_video_description"]='Popis videa';
 $lang["youtube_publish_video_tags"]='Video štítky';
 $lang["youtube_publish_access"]='Nastavit přístup';

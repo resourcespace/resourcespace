@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Użyj innego konta YouTube';
 $lang["youtube_publish_accessdenied"]='Nie masz uprawnień do publikowania tego zasobu';
 $lang["youtube_publish_alreadypublished"]='Ten zasób został już opublikowany na YouTube.';
 $lang["youtube_access_failed"]='Nie udało się uzyskać dostępu do interfejsu usługi przesyłania na YouTube. Skontaktuj się z administratorem lub sprawdź swoją konfigurację.';
-$lang["youtube_publish_video_title"]='Tytuł wideo';
 $lang["youtube_publish_video_description"]='Opis wideo';
 $lang["youtube_publish_video_tags"]='Etykiety wideo';
 $lang["youtube_publish_access"]='Ustaw dostęp';

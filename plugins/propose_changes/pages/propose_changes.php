@@ -546,24 +546,6 @@ if(!$editaccess)
 </div><!-- End of BasicsBox -->
 <script>
 
-function ShowHelp(field)
-    {
-    // Show the help box if available.
-    if (document.getElementById('help_' + field))
-        {
-       jQuery('#help_' + field).fadeIn();
-        }
-    }
-
-function HideHelp(field)
-    {
-    // Hide the help box if available.
-    if (document.getElementById('help_' + field))
-        {
-        document.getElementById('help_' + field).style.display='none';
-        }
-    }
-
 function ShowProposeChanges(fieldref)
     {
     jQuery('#proposed_change_' + fieldref).show();

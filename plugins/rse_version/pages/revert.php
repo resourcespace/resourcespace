@@ -8,6 +8,9 @@ include_once '../include/rse_version_functions.php';
 
 if(is_valid_revert_state_request())
     {
+    if (!collection_writeable((int) getval("collection", 0, true))) {
+        exit($lang['error-permissiondenied']);
+    }
     process_revert_state_form();
     include "../../../include/header.php";
     render_revert_state_form();

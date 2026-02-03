@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Bruk en annen YouTube-konto';
 $lang["youtube_publish_accessdenied"]='Du har ikke tillatelse til å publisere denne ressursen';
 $lang["youtube_publish_alreadypublished"]='Denne ressursen har allerede blitt publisert på YouTube.';
 $lang["youtube_access_failed"]='Klarte ikke å få tilgang til YouTube-opplastingstjenestegrensesnittet. Vennligst kontakt administratoren din eller sjekk konfigurasjonen din.';
-$lang["youtube_publish_video_title"]='Videotittel';
 $lang["youtube_publish_video_description"]='Video beskrivelse';
 $lang["youtube_publish_video_tags"]='Video-tagger';
 $lang["youtube_publish_access"]='Angi tilgang';

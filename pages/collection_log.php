@@ -31,6 +31,10 @@ $jumpcount = 1;
 $colinfo = get_collection($ref);
 $colname = i18n_get_collection_name($colinfo);
 
+if (!can_view_collection_log($colinfo)) {
+    exit($lang['error-permissiondenied']);
+}
+
 if (!checkperm("b")) {
     # Add selection link to collection name.
     $colname = "<a href=\"" . $baseurl_short . "pages/collections.php?collection=" . $ref . "\" onClick=\"return CollectionDivLoad(this);\">" . $colname . "</a>";

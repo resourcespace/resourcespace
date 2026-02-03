@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Utilize uma conta diferente do YouTube';
 $lang["youtube_publish_accessdenied"]='Você não tem permissão para publicar este recurso';
 $lang["youtube_publish_alreadypublished"]='Este recurso já foi publicado no YouTube.';
 $lang["youtube_access_failed"]='Não foi possível acessar a interface de serviço de upload do YouTube. Por favor, entre em contato com o seu administrador ou verifique a sua configuração.';
-$lang["youtube_publish_video_title"]='Título do vídeo';
 $lang["youtube_publish_video_description"]='Descrição do vídeo';
 $lang["youtube_publish_video_tags"]='Tags de vídeo';
 $lang["youtube_publish_access"]='Definir acesso';

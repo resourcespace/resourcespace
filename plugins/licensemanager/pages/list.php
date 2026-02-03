@@ -31,12 +31,13 @@ if ($delete!="" && enforcePostRequest(false)) {
 include __DIR__."/../../../include/header.php";
 
 $url_params = array(
-    'search'     => getval('search',''),
-    'order_by'   => getval('order_by',''),
-    'collection' => getval('collection',''),
-    'offset'     => getval('offset',0),
-    'restypes'   => getval('restypes',''),
-    'archive'    => getval('archive','')
+    'search'         => getval('search',''),
+    'order_by'       => getval('order_by',''),
+    'collection'     => getval('collection',''),
+    'offset'         => getval('offset',0),
+    'restypes'       => getval('restypes',''),
+    'archive'        => getval('archive',''),
+    'license_status' => getval('license_status', '')
 );
 ?>
 <div class="BasicsBox"> 

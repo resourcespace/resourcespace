@@ -121,7 +121,6 @@ if ($show_merge_options) {
     name="<?php echo $name?>"
     id="<?php echo $name?>"
     <?php
-    echo $help_js;
     echo $edit_autosave ? 'onChange="AutoSave(\'' .  $field["ref"] . '\');"' : '';
     ?>
 ><?php echo escape((string) $value)?></textarea>

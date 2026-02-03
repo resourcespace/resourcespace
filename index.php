@@ -12,7 +12,7 @@ if (getval("rp", "") != "") {
 
 # External access support (authenticate only if no key provided, or if invalid access key provided)
 $k = getval('k', '');
-if ('' == $k || (!check_access_key_collection(getval('c', ''), $k) && !check_access_key(getval('r', ''), $k))) {
+if ('' == $k || (!check_access_key_collection(getval('c', ''), $k, false) && !check_access_key(getval('r', ''), $k))) {
     debug("[index.php] External access support, include authenticate.php next.");
     include 'include/authenticate.php';
 }

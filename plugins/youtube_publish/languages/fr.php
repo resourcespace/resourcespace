@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Utilisez un compte YouTube différent';
 $lang["youtube_publish_accessdenied"]='Vous n\'avez pas la permission de publier cette ressource';
 $lang["youtube_publish_alreadypublished"]='Cette ressource a déjà été publiée sur YouTube.';
 $lang["youtube_access_failed"]='Échec d\'accès à l\'interface de service de téléchargement YouTube. Veuillez contacter votre administrateur ou vérifier votre configuration.';
-$lang["youtube_publish_video_title"]='Titre de la vidéo';
 $lang["youtube_publish_video_description"]='Description de la vidéo';
 $lang["youtube_publish_video_tags"]='Étiquettes vidéo';
 $lang["youtube_publish_access"]='Définir l\'accès';

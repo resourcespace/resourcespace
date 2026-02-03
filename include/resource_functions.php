@@ -7730,9 +7730,9 @@ function get_nopreview_html(string $extension, $resource_type = null): string
         $icon = LUCIDE_EXTENSIONS[$extension];
     } else {
         // No icon for this specific extension Get default for this resource type and cache it.
-        $icon = ps_value("select icon value from resource_type where ref=?", ["i",$resource_type], "", "resourcetypeicon");
+        $icon = ps_value("SELECT icon value FROM resource_type WHERE ref = ?", ["i", $resource_type], "", "resourcetypeicon");
         if ($icon == "") {
-            $default = LUCIDE_EXTENSIONS["default"];
+            $icon = LUCIDE_EXTENSIONS["default"];
         }
     }
 

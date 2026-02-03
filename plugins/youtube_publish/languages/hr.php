@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Koristite drugi YouTube račun';
 $lang["youtube_publish_accessdenied"]='Nemate dopuštenje za objavljivanje ovog resursa';
 $lang["youtube_publish_alreadypublished"]='Ovaj resurs je već objavljen na YouTubeu.';
 $lang["youtube_access_failed"]='Nije uspjelo pristupanje sučelju za prijenos na YouTube. Molimo kontaktirajte svog administratora ili provjerite svoju konfiguraciju.';
-$lang["youtube_publish_video_title"]='Naziv videa';
 $lang["youtube_publish_video_description"]='Opis videa';
 $lang["youtube_publish_video_tags"]='Oznake videa';
 $lang["youtube_publish_access"]='Postavi pristup';

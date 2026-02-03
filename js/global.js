@@ -995,7 +995,7 @@ function ModalCentre()
         modalmaxheight = 'auto';
         modalwidth = 'auto';
     } else {
-        modalmaxheight = jQuery('.ui-layout-container').height() - 60;
+        modalmaxheight = "calc(100% - 100px)";
         modalwidth = 1235;
     }
 
@@ -1198,31 +1198,6 @@ jQuery(document).ready(function()
             }
         })
     });
-
-function HideCollectionBar() {
-    if (typeof collection_bar_hidden === "undefined" || collection_bar_hidden==false){
-        colbarresizeon=false;
-        myLayout.options.south.spacing_open = 0;
-        myLayout.options.south.spacing_closed = 0;
-        myLayout.options.south.minSize = 0;
-        myLayout.sizePane("south",1);
-        jQuery('#CollectionDiv').hide();
-        collection_bar_hidden=true;
-        }
-    }
-
-
-function ShowCollectionBar() {
-    if (typeof collection_bar_hidden === "undefined" || collection_bar_hidden==true){
-        colbarresizeon=true;
-        myLayout.options.south.spacing_open = 6;
-        myLayout.options.south.spacing_closed = 6;
-        myLayout.options.south.minSize = 40;
-        collection_bar_hidden=false;
-        jQuery('#CollectionDiv').show();
-        InitThumbs();
-    }
-}
 
 function ChosenDropdownInit(elem, selector)
     {
@@ -1511,7 +1486,7 @@ function showHideLinks()
     jQuery('div#OverFlowLinks').toggle();
     jQuery('div#OverFlowLinks').css('right', 290);
     jQuery('div#OverFlowLinks').css('z-index', 1000);
-    jQuery('div#OverFlowLinks').css('top', 64);
+    jQuery('div#OverFlowLinks').css('top', 60);
     }
 
 /*
@@ -1792,8 +1767,8 @@ function api(name, params, callback, post_data_extra = {}, options = {})
     postobj['query'] = jQuery.param(query);
     postobj['authmode'] = "native";
 
-    var onStart = (options && typeof options.onStart === "function") ? options.onStart : null;
-    var onEnd   = (options && typeof options.onEnd === "function")   ? options.onEnd   : null;
+    const onStart = (options && typeof options.onStart === "function") ? options.onStart : null;
+    const onEnd   = (options && typeof options.onEnd === "function")   ? options.onEnd   : null;
 
     if (onStart) onStart();
 
@@ -1868,37 +1843,6 @@ function deselect_children_of_jstree_node(theJstree, nodeId)
     }
 }
 
-/**
-* Show the help box if available.
-*
-* @param   {string}   id   The identifier (NOT the id attribute) for the div.FormHelp element.
-*
-* @return void
-*/
-function ShowHelp(id)
-    {
-    var el_id = 'help_' + id;
-    if (document.getElementById(el_id))
-        {
-        jQuery('#' + el_id).fadeIn();
-        }
-    }
-
-/**
-* Hide the help box if available.
-*
-* @param   {string}   id   The identifier (NOT the id attribute) for the div.FormHelp element.
-*
-* @return void
-*/
-function HideHelp(id)
-    {
-    var el_id = 'help_' + id;
-    if (document.getElementById(el_id))
-        {
-        document.getElementById(el_id).style.display = 'none';
-        }
-    }
 
 var ProcessingTimersActive=false;
 var ProcessingFirstTimer=0;

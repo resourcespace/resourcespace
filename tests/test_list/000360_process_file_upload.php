@@ -285,7 +285,7 @@ $curl_post_file_response = function (string $file, array $processor = []) use ($
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($ch);
     $result_decoded = json_decode($result, true);
-    curl_close($ch);
+    unset($ch);
     return $result_decoded;
 };
 $test_endpoint_content = <<<EOT

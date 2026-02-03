@@ -364,7 +364,6 @@ $lang["action-editall"] = 'ویرایش همه';
 $lang["edit_all_resources"] = 'ویرایش همه منابع';
 $lang["hidethumbnails"] = 'پنهان کردن تصاویر بندانگشتی';
 $lang["showthumbnails"] = 'نمایش تصاویر بندانگشتی';
-$lang["toggle"] = 'تغییر وضعیت';
 $lang["resize"] = 'تغییر اندازه';
 $lang["contactsheet"] = 'برگه تماس';
 $lang["mycollection"] = 'مجموعه پیش‌فرض';
@@ -2446,15 +2445,7 @@ $lang["collection_restype_blocked"] = 'انواع منابع زیر نمی‌ت�
 $lang["retina_mode"] = 'حالت رتینا';
 $lang["private-api-key"] = 'کلید API خصوصی';
 $lang["force_edit_resource_type"] = 'اجبار دسترسی ویرایش به نوع منبع:';
-$lang["responsive_configtitle"] = 'پاسخگو';
-$lang["responsive_main_menu"] = 'منو';
-$lang["responsive_settings_menu"] = 'حساب کاربری';
-$lang["responsive_more"] = 'بیشتر...';
-$lang["responsive_less"] = 'کمتر...';
-$lang["responsive_collectiontogglehide"] = 'پنهان کردن';
 $lang["linkedheaderimgsrc"] = 'محل تصویر لوگو در سربرگ (به طور پیش‌فرض ResourceSpace):';
-$lang["responsive_result_settings"] = 'تنظیمات نتیجه';
-$lang["responsive_view_full_site"] = 'مشاهده سایت کامل';
 $lang["actions_myactions"] = 'اقدامات';
 $lang["actions_introtext"] = 'می‌توانید معیارهای اقدامات نمایش داده شده در اینجا را با تغییر تنظیمات کاربری خود پیکربندی کنید';
 $lang["actions_noactions"] = 'شما هیچ اقدام معوقه‌ای ندارید';

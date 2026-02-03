@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         'image' => new CURLFile($_FILES['image']['tmp_name'], $_FILES['image']['type'], $_FILES['image']['name'])
     ]);
     $vector_response = curl_exec($ch);
-    curl_close($ch);
+    unset($ch);
 
     $vector = json_decode($vector_response);
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         'top_k' => 5
     ]);
     $tag_response = curl_exec($ch);
-    curl_close($ch);
+    unset($ch);
     $keywords = json_decode($tag_response);
 
     // Get single title
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
         'top_k' => 1
     ]);
     $title_response = curl_exec($ch);
-    curl_close($ch);
+    unset($ch);
     $titles = json_decode($title_response);
 
     header('Content-Type: application/json');

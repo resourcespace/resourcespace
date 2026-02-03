@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Käytä eri YouTube-tiliä';
 $lang["youtube_publish_accessdenied"]='Sinulla ei ole lupaa julkaista tätä resurssia';
 $lang["youtube_publish_alreadypublished"]='Tämä resurssi on jo julkaistu YouTubessa.';
 $lang["youtube_access_failed"]='Ei voitu käyttää YouTube-latauspalvelun käyttöliittymää. Ota yhteyttä järjestelmänvalvojaasi tai tarkista asetukset.';
-$lang["youtube_publish_video_title"]='Videon otsikko';
 $lang["youtube_publish_video_description"]='Videon kuvaus';
 $lang["youtube_publish_video_tags"]='Videotunnisteet';
 $lang["youtube_publish_access"]='Aseta käyttöoikeus';

@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='別のYouTubeアカウントを使用し�
 $lang["youtube_publish_accessdenied"]='このリソースを公開する権限がありません。';
 $lang["youtube_publish_alreadypublished"]='このリソースはすでにYouTubeに公開されています。';
 $lang["youtube_access_failed"]='YouTubeのアップロードサービスインターフェースにアクセスできませんでした。管理者に連絡するか、設定を確認してください。';
-$lang["youtube_publish_video_title"]='ビデオタイトル';
 $lang["youtube_publish_video_description"]='ビデオの説明';
 $lang["youtube_publish_video_tags"]='ビデオタグ';
 $lang["youtube_publish_access"]='アクセス設定';

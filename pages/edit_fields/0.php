@@ -122,7 +122,6 @@ if ($show_merge_options) {
     id="<?php echo $name?>"
     value="<?php echo escape((string)$value); ?>"
     <?php
-    echo $help_js;
     echo $edit_autosave ? 'onChange="AutoSave(\'' .  $field["ref"] . '\');"' : '';
     ?>
 >

@@ -34,10 +34,10 @@ if (count($unconsolidated_rows) > 0) {
             'i', $date['month'],
             'i', $date['day']
         ];
-        ps_query('INSERT INTO daily_stat (year, month, day, usergroup, activity_type, object_ref, count, external)
-                    SELECT ?, ?, ?, usergroup, "Downloaded KB", 0, SUM(count), external FROM daily_stat 
-                    WHERE year = ? AND month = ? AND day = ? AND activity_type = "Downloaded KB" AND object_ref != 0 GROUP BY usergroup', array_merge($query_params, $query_params));
+        ps_query('INSERT INTO daily_stat (`year`, `month`, `day`, usergroup, activity_type, object_ref, count, `external`)
+                    SELECT ?, ?, ?, usergroup, "Downloaded KB", 0, SUM(count), `external` FROM daily_stat 
+                    WHERE `year` = ? AND `month` = ? AND `day` = ? AND activity_type = "Downloaded KB" AND object_ref != 0 GROUP BY usergroup', array_merge($query_params, $query_params));
 
-        ps_query('DELETE FROM daily_stat WHERE year = ? AND month = ? AND day = ? AND activity_type = "Downloaded KB" AND object_ref != 0', $query_params);
+        ps_query('DELETE FROM daily_stat WHERE `year` = ? AND `month` = ? AND `day` = ? AND activity_type = "Downloaded KB" AND object_ref != 0', $query_params);
     }
 }

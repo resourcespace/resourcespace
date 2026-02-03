@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Gebruik een ander YouTube-account';
 $lang["youtube_publish_accessdenied"]='Je hebt geen toestemming om deze bron te publiceren';
 $lang["youtube_publish_alreadypublished"]='Deze bron is al gepubliceerd op YouTube.';
 $lang["youtube_access_failed"]='Toegang tot de YouTube-uploadservice-interface is mislukt. Neem contact op met uw beheerder of controleer uw configuratie.';
-$lang["youtube_publish_video_title"]='Videotitel';
 $lang["youtube_publish_video_description"]='Videobeschrijving';
 $lang["youtube_publish_video_tags"]='Video tags';
 $lang["youtube_publish_access"]='Toegang instellen';

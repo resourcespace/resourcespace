@@ -237,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try_unlink($maskDataSimplified);
     }
 
-    curl_close($ch);
+    unset($ch);
     exit();
 }
 

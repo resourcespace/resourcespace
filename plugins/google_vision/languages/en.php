@@ -32,4 +32,5 @@ $lang["page-title_google_vision_test"]              = "Google Vision Test";
 
 $lang["google_vision"] = "Google Vision";
 $lang["google_vision_process_existing"] = "Process unprocessed resources";
+$lang["google_vision_process_existing_configure"] = "Configure job to process unprocessed resources";
 $lang["google_vision_process_existing_collection_refs_help"] = "Setting this option will mean only resources in the listed collections will be processed. If no collections are specified then ALL suitable resources will be processed. Collections can be specified using a comma-separated list as well as ranges e.g 100,105,110-115";

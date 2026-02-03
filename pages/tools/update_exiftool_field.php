@@ -144,7 +144,7 @@ foreach ($fieldrefs as $fieldref) {
                     exit("ERROR: exiftool tags do not use spaces please check the tags used in the fields options for Field " . (int) $fieldref);
                 }
 
-                $command = $exiftool_fullpath . " -s -s -s -f -m -d \"%Y-%m-%d %H:%M:%S\" -" . trim($current_exiftool_tag) . " " . escapeshellarg($image);
+                $command = $exiftool_fullpath . " -s -s -s -f -m -d \"%Y-%m-%d %H:%M:%S\" -" . escapeshellarg(trim($current_exiftool_tag)) . " " . escapeshellarg($image);
 
                 if (PHP_SAPI == "cli") {
                     echo escape($command) . PHP_EOL;

@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"] = 'Gunakan akaun YouTube yang berbeza';
 $lang["youtube_publish_accessdenied"] = 'Anda tidak mempunyai kebenaran untuk menerbitkan sumber ini';
 $lang["youtube_publish_alreadypublished"] = 'Sumber ini telah pun diterbitkan ke YouTube.';
 $lang["youtube_access_failed"] = 'Gagal mengakses antara muka perkhidmatan muat naik YouTube. Sila hubungi pentadbir anda atau semak konfigurasi anda.';
-$lang["youtube_publish_video_title"] = 'Tajuk video';
 $lang["youtube_publish_video_description"] = 'Penerangan video';
 $lang["youtube_publish_video_tags"] = 'Tag video';
 $lang["youtube_publish_access"] = 'Tetapkan akses';

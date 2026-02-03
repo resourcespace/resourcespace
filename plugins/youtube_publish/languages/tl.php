@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"] = 'Gumamit ng ibang YouTube account';
 $lang["youtube_publish_accessdenied"] = 'Wala kang pahintulot na ilathala ang yaman na ito';
 $lang["youtube_publish_alreadypublished"] = 'Ang mapagkukunan na ito ay nailathala na sa YouTube.';
 $lang["youtube_access_failed"] = 'Nabigo ang pag-access sa interface ng serbisyo ng pag-upload ng YouTube. Mangyaring makipag-ugnayan sa iyong administrador o suriin ang iyong configuration.';
-$lang["youtube_publish_video_title"] = 'Pamagat ng Video';
 $lang["youtube_publish_video_description"] = 'Paglalarawan ng Video';
 $lang["youtube_publish_video_tags"] = 'Mga tag ng video';
 $lang["youtube_publish_access"] = 'Itakda ang access';

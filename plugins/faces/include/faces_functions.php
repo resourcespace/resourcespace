@@ -80,7 +80,7 @@ function faces_detect(int $ref, bool $force = false): bool
 
     $response = curl_exec($curl);
     $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    curl_close($curl);
+    unset($curl);
 
     if ($http_code !== 200) {
         logScript("Face service returned HTTP $http_code for resource $ref");
@@ -181,7 +181,7 @@ function faces_tag(int $resource): bool
 
         $response = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
+        unset($ch);
 
         if ($http_code !== 200 || empty($response)) {
             echo "Error from faces_service (HTTP $http_code)\n";

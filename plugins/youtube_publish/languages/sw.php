@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Tumia akaunti tofauti ya YouTube';
 $lang["youtube_publish_accessdenied"]='Huna ruhusa ya kuchapisha rasilimali hii';
 $lang["youtube_publish_alreadypublished"]='Rasilimali hii tayari imechapishwa kwenye YouTube.';
 $lang["youtube_access_failed"]='Imeshindwa kufikia kiolesura cha huduma ya kupakia YouTube. Tafadhali wasiliana na msimamizi wako au angalia usanidi wako.';
-$lang["youtube_publish_video_title"]='Kichwa cha video';
 $lang["youtube_publish_video_description"]='Maelezo ya video';
 $lang["youtube_publish_video_tags"]='Lebo za video';
 $lang["youtube_publish_access"]='Weka ufikiaji';

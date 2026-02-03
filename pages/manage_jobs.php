@@ -9,7 +9,7 @@ if ($job_user != $userref && !checkperm('a')) {
     $job_user = $userref;
 }
 
-$job_status     = getval("job_status", -1, true);
+$job_status     = getval("job_status", STATUS_ACTIVE, true);
 $job_type       = getval("job_type", "");
 $job_orderby    = getval("job_orderby", "priority");
 $job_boost      = getval("job_boost", 0, true);

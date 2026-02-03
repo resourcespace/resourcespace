@@ -121,9 +121,8 @@ include "../include/header.php";
         }
     </script>
 
-    <form method="post" class="form" enctype="multipart/form-data" action="upload_preview.php">
+    <form method="post" class="form" enctype="multipart/form-data" action="<?php echo generateURL('upload_preview.php', $urlparams); ?>">
         <?php generateFormToken("upload_preview"); ?>
-        <input type="hidden" name="ref" value="<?php echo escape($ref)?>">
         <br/>
 
         <?php if ($status != "") {

@@ -25,7 +25,6 @@ if ((bool) $field['automatic_nodes_ordering']) {
     name="<?php echo $name; ?>"
     id="<?php echo $name; ?>"
     <?php
-    echo $help_js;
     if ($edit_autosave) {
         ?>
         onChange="AutoSave('<?php echo $field['ref']; ?>');"

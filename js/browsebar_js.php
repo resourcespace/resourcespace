@@ -124,6 +124,11 @@ function toggleBrowseElements(browse_id, reload, useraction)
         browse_reloaded = new Array();
         }
 
+    if(typeof browsepostload === "undefined")
+        {
+        browsepostload = new Array();
+        }
+
     var curel = jQuery(".BrowseBarItem[data-browse-id='" + browse_id + "']");
 
     if(!curel.length)
@@ -216,10 +221,6 @@ function toggleBrowseElements(browse_id, reload, useraction)
     b_loading.push(browse_id);
     console.debug("b_loading = %o", b_loading);
     
-    if(typeof browsepostload === "undefined")
-        {
-        browsepostload = new Array();
-        }
     if(typeof browsepostload[browse_id] === "undefined")
         {
         browsepostload[browse_id] = new Array();
@@ -332,7 +333,7 @@ function toggleBrowseElements(browse_id, reload, useraction)
 function ReloadBrowseBar()
     {
     console.debug("ReloadBrowseBar()");
-    var allopen = jQuery.cookie("browseopen") ? decodeURIComponent(jQuery.cookie("browseopen")).split(/,/) : new Array();  
+    var allopen = getCookie("browseopen") ? decodeURIComponent(getCookie("browseopen")).split(/,/) : new Array();  
     console.debug("allopen = %o", allopen);
 
     browse_toload = allopen;   

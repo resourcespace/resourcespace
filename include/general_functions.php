@@ -783,15 +783,15 @@ function formatfilesize(int $bytes, bool $html = true): string
 
     global $lang;
     if ($bytes < $multiple) {
-        return number_format((double)$bytes) . $space . escape($lang["byte-symbol"]);
+        return number_format((float)$bytes) . $space . escape($lang["byte-symbol"]);
     } elseif ($bytes < pow($multiple, 2)) {
-        return number_format((double)ceil($bytes / $multiple)) . $space . escape($lang["kilobyte-symbol" . $lang_suffix]);
+        return number_format((float)ceil($bytes / $multiple)) . $space . escape($lang["kilobyte-symbol" . $lang_suffix]);
     } elseif ($bytes < pow($multiple, 3)) {
-        return number_format((double)$bytes / pow($multiple, 2), 1) . $space . escape($lang["megabyte-symbol" . $lang_suffix]);
+        return number_format((float)$bytes / pow($multiple, 2), 1) . $space . escape($lang["megabyte-symbol" . $lang_suffix]);
     } elseif ($bytes < pow($multiple, 4)) {
-        return number_format((double)$bytes / pow($multiple, 3), 1) . $space . escape($lang["gigabyte-symbol" . $lang_suffix]);
+        return number_format((float)$bytes / pow($multiple, 3), 1) . $space . escape($lang["gigabyte-symbol" . $lang_suffix]);
     } else {
-        return number_format((double)$bytes / pow($multiple, 4), 1) . $space . escape($lang["terabyte-symbol" . $lang_suffix]);
+        return number_format((float)$bytes / pow($multiple, 4), 1) . $space . escape($lang["terabyte-symbol" . $lang_suffix]);
     }
 }
 
@@ -4227,14 +4227,14 @@ function daily_stat($activity_type, $object_ref, int $to_add = 1)
     }
 
     # First check to see if there's a row
-    $count = ps_value("select count(*) value from daily_stat where year = ? and month = ? and day = ? and usergroup = ? and activity_type = ? and object_ref = ? and external = ?", array("i", $year, "i", $month, "i", $day, "i", $usergroup, "s", $activity_type, "i", $object_ref, "i", $external), 0, "daily_stat"); // Cache this as it can be moderately intensive and is called often.
+    $count = ps_value("select count(*) value from daily_stat where year = ? and month = ? and day = ? and usergroup = ? and activity_type = ? and object_ref = ? and `external` = ?", array("i", $year, "i", $month, "i", $day, "i", $usergroup, "s", $activity_type, "i", $object_ref, "i", $external), 0, "daily_stat"); // Cache this as it can be moderately intensive and is called often.
     if ($count == 0) {
         # insert
-        ps_query("insert into daily_stat (year, month, day, usergroup, activity_type, object_ref, external, count) values (? ,? ,? ,? ,? ,? ,? , ?)", array("i", $year, "i", $month, "i", $day, "i", $usergroup, "s", $activity_type, "i", $object_ref, "i", $external, "i", $to_add), false, -1, true, 0);
+        ps_query("insert into daily_stat (year, month, day, usergroup, activity_type, object_ref, `external`, count) values (? ,? ,? ,? ,? ,? ,? , ?)", array("i", $year, "i", $month, "i", $day, "i", $usergroup, "s", $activity_type, "i", $object_ref, "i", $external, "i", $to_add), false, -1, true, 0);
         clear_query_cache("daily_stat"); // Clear the cache to flag there's a row to the query above.
     } else {
         # update
-        ps_query("update daily_stat set count = count+? where year = ? and month = ? and day = ? and usergroup = ? and activity_type = ? and object_ref = ? and external = ?", array("i",$to_add,"i", $year, "i", $month, "i", $day, "i", $usergroup, "s", $activity_type, "i", $object_ref, "i", $external), false, -1, true, 0);
+        ps_query("update daily_stat set count = count+? where year = ? and month = ? and day = ? and usergroup = ? and activity_type = ? and object_ref = ? and `external` = ?", array("i",$to_add,"i", $year, "i", $month, "i", $day, "i", $usergroup, "s", $activity_type, "i", $object_ref, "i", $external), false, -1, true, 0);
     }
 }
 
@@ -5248,7 +5248,7 @@ function check_filestore_browseability()
         curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
         curl_exec($ch);
         $response_status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
+        unset($ch);
     } catch (Throwable $t) {
         $return['status'] = $GLOBALS['lang']['unknown'];
         $return['info'] = $GLOBALS['show_error_messages'] && $GLOBALS['show_detailed_errors'] ? $t->getMessage() : '';
@@ -5974,7 +5974,7 @@ function log_bandwidth(int $bandwidth_usage): void
         'i', $date["mday"],
         'i', $usergroup ?? 0
     ];
-    ps_query("UPDATE daily_stat SET count = count + ? WHERE activity_type = 'Downloaded KB' AND external = ? AND year = ? and month = ? and day = ? and usergroup = ? AND object_ref = 0", $update_params);
+    ps_query("UPDATE daily_stat SET count = count + ? WHERE activity_type = 'Downloaded KB' AND `external` = ? AND `year` = ? and `month` = ? and `day` = ? and usergroup = ? AND object_ref = 0", $update_params);
 
     $select_params = [
         'i', $date["year"],
@@ -5982,9 +5982,9 @@ function log_bandwidth(int $bandwidth_usage): void
         'i', $date["mday"],
         'i', $usergroup ?? 0
     ];
-    $current_usage = ps_value("SELECT count AS `value` FROM daily_stat WHERE activity_type = 'Downloaded KB' AND year = ? and month = ? and day = ? and usergroup = ? AND object_ref = 0", $select_params, 0);
+    $current_usage = ps_value("SELECT count AS `value` FROM daily_stat WHERE activity_type = 'Downloaded KB' AND `year` = ? and `month` = ? and `day` = ? and usergroup = ? AND object_ref = 0", $select_params, 0);
     if ($current_usage == 0) {
-        ps_query("INSERT INTO daily_stat (count, external, year, month, day, usergroup, activity_type, object_ref) VALUES (?, ?, ?, ?, ?, ?, 'Downloaded KB', 0)", $update_params);
+        ps_query("INSERT INTO daily_stat (count, `external`, `year`, `month`, `day`, usergroup, activity_type, object_ref) VALUES (?, ?, ?, ?, ?, ?, 'Downloaded KB', 0)", $update_params);
     }
 }
 

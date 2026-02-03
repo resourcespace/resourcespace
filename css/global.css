@@ -439,13 +439,6 @@ select::-ms-expand
 .headerlink {margin:20px 25px; position: absolute; display: block; width: 400px; height: 55px;  top: 0; left: 0;}
 .TeamCentreAlertIcon { position: relative; top: 3px;}
 
-.ui-layout-container{
-    overflow:auto;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    transition: background-image 1s linear;
-}
 #HeaderNav1, #HeaderNav2 {
     padding: 5px;
     margin: auto 0;
@@ -516,8 +509,9 @@ div#CentralSpaceContainer.SlimHeaderFixedPosition { margin-top: 100px; }
 #login_box #Footer {margin: 0 0 10px 0;}
 
 #UICenter {
-    width: calc(100% - 295px - 30px);
-    margin-left: 30px;
+    width: calc(100% - 295px);
+    height: calc(100% - 66px);
+    overflow-y: scroll;
 }
 
 #CentralSpaceContainer {
@@ -532,7 +526,7 @@ div#CentralSpaceContainer.SlimHeaderFixedPosition { margin-top: 100px; }
 .TopInpageNav {clear: left;margin-bottom:10px;margin-right: 0;position:relative;min-height: 30px;}
 .BottomInpageNav {clear: left;padding-top: 5px;margin: 20px 15px 20px 0; position:relative;}
 .BottomInpageKey {margin-right: 15px; clear: left; text-align: left;}
-.TopInpageNavLeft{float:left; width: 90%;}
+.TopInpageNavLeft{float:left; width: 85%;}
 .TopInpageNavRight{position:absolute;right:0;width:max-content;text-align:right;}
 .InpageNavLeftBlock {display:inline-block;text-align:left;margin: 0 20px 5px 0;}
 .InpageNavRightBlock {display:inline-block;text-align:left;margin: 0 15px 0 0;}
@@ -554,10 +548,9 @@ div#CentralSpaceContainer.SlimHeaderFixedPosition { margin-top: 100px; }
 #CollectionMinRightNav li:first-child {border-left:none;}
 
 /*Collection layout*/
-#CollectionMenu{width: 206px;position: absolute;left: 25px;top: 6px;text-align:left;}
+#CollectionMenu{padding: 10px; text-align:left; position: fixed; margin-left: 15px;}
 #CollectionMenuExp{width: 216px;position: absolute;left: 25px;top: 6px;text-align:left;}
-#CollectionSpace{font-size: 0.95em;text-align:left; margin-top: 3px;}
-.CollectionSpace{position: absolute;left: 249px;top: 6px;}
+#CollectionSpace{font-size: 0.95em;text-align:left; margin-top: 3px; margin-left: 250px; min-height:160px;}
 .CollectionSpaceExp {position: absolute;left: 249px;top: 6px;font-size: 0.95em;text-align:left;}
 .CollectionStatsAnon {margin-bottom:15px;}
 .CollectBack h2 {font-size: 1.3em;}
@@ -579,7 +572,7 @@ div#CentralSpaceContainer.SlimHeaderFixedPosition { margin-top: 100px; }
 #CentralSpace .SplitSearch {float: left; margin-left: 5px;margin-right: 5px;}
 input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 
-.CollectionPanelShell {padding:5px;float: left;margin: 0 10px 10px 0;width: 110px;text-align: left;border-radius: 4px;}
+.CollectionPanelShell {padding:5px;float: left;margin: 10px 10px 10px 0;width: 110px;text-align: left;border-radius: 4px;}
 .CollectionPanelInfo{width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .CollectionPanelThumb{max-height: 75px;}
 .CollectionResourceAlign {width:110px;height:90px;text-align: center;vertical-align: middle;}
@@ -621,8 +614,8 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 #CentralSpace .ChosenDateRangeYear {width:100px !important;}
 
 /*Right Search Box layout*/
-#SearchBarContainer {height: 100%; float: right;}
-#SearchBox {float: right; width: 295px;text-align:left; height: inherit; overflow-x: hidden;}
+#SearchBarContainer {height: 100%; float: right; position: relative; }
+#SearchBox {float: right; width: 295px;text-align:left; height: 100%; overflow-x: hidden;}
 #SearchBoxPanel {width: inherit;}
 #ResearchBoxPanel {width: 100%;}
 #SearchBox .PopupCategoryTree {display: none; text-align: left; z-index: 999; padding: 5px; background: none; overflow-x: scroll;}
@@ -1023,7 +1016,7 @@ div.autocomplete ul li {
 #overlay{position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px;}
 
 .FormHelp{margin: 0 0 10px 310px;padding: 0; word-wrap:break-word;}
-.FormHelpInner{width:408px;padding:5px;margin:10px 0 0 0;font-style: italic;}
+.FormHelpInner{width:408px;margin:10px 0 0 0;font-style: italic;}
 .FormHelpInner a {font-weight: bold;}
 .FormHelpInner p {padding: 0;}
 
@@ -1131,17 +1124,6 @@ div.autocomplete ul li {
 #showlog,#hidelog
     {
     margin-top:10px;
-    }
-    
-.ui-layout-pane
-    {
-    overflow: auto;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    }
-
-    .ui-layout-pane-north {
-        overflow: auto
     }
 
 .InfoBoxResourceTypeIcon
@@ -2197,7 +2179,6 @@ form.FormFilter button.ClearButton {
 .tag-editor li { padding: initial; }
 
 /* Pill-like display for keywords */
-.ResponsiveViewFullSite { display: none; }
 .Question .customFieldLabel {
     width: auto;
     margin: 0;
@@ -2342,7 +2323,7 @@ a.Enabled, a:visited.Enabled {
     display: none;
     position: absolute;
     right: 100px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 6px 6px;
     z-index: 500;
     text-align: left;
 }
@@ -2836,7 +2817,7 @@ input[type="text"]#iconpicker-input {
     top: 0;
     position: -webkit-sticky; 
     position: sticky;
-    z-index: 101;
+    z-index: 100;
     padding-top: 15px;
     margin-top: 0;
 }
@@ -3247,3 +3228,61 @@ label {
     clear:left; 
 }
 
+#CollectionDiv {
+    height: 40px;
+    overflow-y: scroll;
+    position: fixed;
+    width: 100%;
+}
+
+.collection-bar--minimised #CollectionDiv {
+    height: 40px;
+}
+
+.collection-bar--maximised #CollectionDiv {
+    height: 160px;
+}
+
+.collection-bar--minimised #UICenter {
+    height: calc(100% - 40px - 66px)
+}
+
+.collection-bar--maximised #UICenter {
+    height: calc(100% - 160px - 66px)
+}
+
+.collection-bar--maximised #SearchBarContainer {
+    height: calc(100% - 160px - 66px);
+}
+
+.collection-bar--minimised #SearchBarContainer {
+    height: calc(100% - 40px - 66px);
+}
+
+#toggleThumbsLink i {
+    margin-right: 6px;
+    font-size: 20px;
+}
+
+#UICenter.NoSearch {
+    width: 100%;
+}
+
+#UICenter.NoSearch.LoginPage {
+    height: 100%;
+}
+
+/* Prevent issues with slideshow images appearing on top of scrollbars */
+div.slide:not([style]) {
+    display: none;
+}
+
+/* Temporary responsive styling */
+@media(max-width:1200px) {
+    .HeaderLink i {
+        display: none;
+    }
+    .HeaderImgLink img {
+        max-width: 160px;
+    }
+}

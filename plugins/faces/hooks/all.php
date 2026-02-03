@@ -63,7 +63,7 @@ function HookFacesAllAddspecialsearch($search, $select, $sql_join, $sql_filter)
     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $end_time = microtime(true);
     $query_time = round(($end_time - $start_time) * 1000);
-    curl_close($ch);
+    unset($ch);
 
     if ($http_code !== 200 || empty($response)) {
         echo "Error from faces_service (HTTP $http_code)\n";

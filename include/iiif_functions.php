@@ -751,7 +751,7 @@ final class IIIFRequest
             } else {
                 $fulljpgsize = $this->largest_jpg_size($resource);
             }
-            $useextension = strtolower($resource["file_extension"]) == "jpeg" ? $resource["file_extension"] : "jpg";
+            $useextension = strtolower((string) $resource["file_extension"]) == "jpeg" ? $resource["file_extension"] : "jpg";
             $img_path = get_resource_path($this->request["id"], true, $fulljpgsize, false, $useextension);
             $image_size = get_original_imagesize($this->request["id"], $img_path, $useextension);
             if ($image_size === false) {

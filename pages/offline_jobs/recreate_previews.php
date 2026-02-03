@@ -144,11 +144,11 @@ if ($job_add_error) {
                     foreach ($image_size_options as $size_id => $image_size_option) {
                     ?>
                     <input type="checkbox" name="image_sizes[]" 
-                            id="image_sizes_<?php echo $size_id; ?>"
+                            id="image_sizes_<?php echo escape($size_id); ?>"
                             <?php echo ($size_id != "all") ? 'class="image_sizes"' : ""; ?>
-                            value="<?php echo $size_id; ?>"
+                            value="<?php echo escape($size_id); ?>"
                             <?php echo (in_array($size_id, $image_sizes) ? " checked " : ""); ?>/>
-                    <label for="image_sizes_<?php echo $size_id; ?>"><?php echo $image_size_option; ?></label>
+                    <label for="image_sizes_<?php echo escape($size_id); ?>"><?php echo escape($image_size_option); ?></label>
                     <?php
                     }
                     ?>
@@ -180,11 +180,11 @@ if ($job_add_error) {
                     foreach ($resource_type_options as $type_id => $resource_type_option) {
                     ?>
                     <input type="checkbox" name="resource_types[]" 
-                            id="resource_types_<?php echo $type_id; ?>"
+                            id="resource_types_<?php echo escape($type_id); ?>"
                             <?php echo ($type_id != "all") ? 'class="resource_types"' : ""; ?>
-                            value="<?php echo $type_id; ?>"
+                            value="<?php echo escape($type_id); ?>"
                             <?php echo (in_array($type_id, $resource_types) ? " checked " : ""); ?>/>
-                    <label for="resource_types_<?php echo $type_id; ?>"><?php echo $resource_type_option; ?></label>
+                    <label for="resource_types_<?php echo escape($type_id); ?>"><?php echo escape($resource_type_option); ?></label>
                     <?php
                     }
                     ?>

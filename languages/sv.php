@@ -324,7 +324,6 @@ $lang["viewall"] = "Visa alla";
 $lang["action-editall"] = "Redigera alla";
 $lang["hidethumbnails"] = "Dölj miniatyrbilder";
 $lang["showthumbnails"] = "Visa miniatyrbilder";
-$lang["toggle"] = "Växla";
 $lang["resize"] = "Ändra storlek";
 $lang["contactsheet"] = "Kontaktkopia";
 $lang["mycollection"] = "Standardsamling";
@@ -1658,12 +1657,6 @@ $lang["user_request__introtext"] = "Fyll i formuläret nedan om du vill ansöka 
 $lang["view__storyextract"] = "Textutdrag:";
 
 // Responsive
-$lang["responsive_main_menu"] = "Meny";
-$lang["responsive_settings_menu"] = "Konto";
-$lang["responsive_more"] = "Mer...";
-$lang["responsive_less"] = "Mindre...";
-$lang['responsive_collectiontogglehide'] = "Dölja";
-// end of Responsive
 $lang["imagesize-largest"] = 'Största tillgängliga';
 $lang["fieldtype-radio_buttons"] = 'Radioknappar';
 $lang["fieldtype-warning_message"] = 'Varningmeddelande';
@@ -2557,10 +2550,7 @@ $lang["collection_restype_blocked"] = 'Följande resurstyper kan inte läggas ti
 $lang["retina_mode"] = 'Retina-läge';
 $lang["private-api-key"] = 'Privat API-nyckel';
 $lang["force_edit_resource_type"] = 'Tvinga redigeringsåtkomst till resurstyp:';
-$lang["responsive_configtitle"] = 'Responsiv';
 $lang["linkedheaderimgsrc"] = 'Platsen för logobilden i sidhuvudet (standardinställning är ResourceSpace):';
-$lang["responsive_result_settings"] = 'Resultatinställningar';
-$lang["responsive_view_full_site"] = 'Visa hela webbplatsen';
 $lang["actions_myactions"] = 'Åtgärder';
 $lang["actions_introtext"] = 'Du kan konfigurera kriterierna för åtgärder som visas här genom att ändra dina användarinställningar';
 $lang["actions_noactions"] = 'Du har inga utstående åtgärder';

@@ -30,8 +30,6 @@ input[readonly] {
 .DisabledLink:hover {opacity: 0.35; cursor: default;}
 #Header a:hover,
 #Header .current {opacity:1;text-decoration: none}
-/* links in Header overflow dropdown menu */
-#HiddenLinks li a {color:#fff; opacity:0.7;}
 #Header .UploadButton a {color: #fff;}
 
 /* Colours for $header_text_title */
@@ -72,7 +70,7 @@ input[readonly] {
 }
 .ResourcePanel:hover {
     box-shadow: 0 1px 10px 0 rgba(0,0,0,0.3);
-    z-index: 100;
+    z-index: 99;
 }
 .ResourcePanelInfo {
     color: #727272;
@@ -90,8 +88,6 @@ tr[id^="ResourceShell"].Selected { background-color: #d5eafa; /* Used a tint of 
 #SearchBoxPanel h2, #ThemeBoxPanel h2, #ResearchBoxPanel h2, .SearchSpace h2{color: #fff;}
 
 /* Collection Bar */
-.ui-layout-resizer {background: #444444;}
-.ui-layout-toggler-open-hover{border-radius:2px;}
 .CollectBack {color:#E0E0E0;background: #2b2b2b;}
 .CollectBack a:link, .CollectBack a:visited, .CollectBack a:active,.CollectBack h2,.BrowseBar a:link,.BrowseBar a:hover, .BrowseBar a:visited, .BrowseBar a:active,.BrowseBar h2 {color:#E0E0E0;}
 .CollectBack a:hover{color:#FFF;}
@@ -175,7 +171,7 @@ div.autocomplete ul li {color: #000;}
 #imageData{color: #666;}
 #imageData #caption{ font-weight: bold;	}
 #overlay{ background-color: #000;}
-.FormHelpInner{background-color:#ffffff;border:1px solid #2e99e6;border-radius:4px;}
+.FormHelpInner{color: #626262}
 .RecordDownloadSpace .HorizontalWhiteNav a:active, .RecordPanel .RecordDownloadSpace .HorizontalWhiteNav a:hover {color:#FFFFFF;} 
 .NoFind {border: none;background: #FFFFFF;}
 .NoFind .highlight {color:#000000;font-weight: bold;}
@@ -234,7 +230,6 @@ div.autocomplete ul li {color: #000;}
 .meter-wrap{border:1px solid #BBBBBB;}
 
 .Terms{color:#000;border: 1px solid #ccc;background: #fff;}
-.ui-layout-toggler-open-hover{background-color:rgba(255,255,255,0.3);}
 
 .proptitle{color: #FFFFFF;background: rgb(119,119,119);}	
 .propbox{color: #000000;background: #FFFFFF;}
@@ -637,7 +632,7 @@ a.Enabled, a:visited.Enabled {
 }
 
 #OverFlowLinks {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #fff;
 }
 
 #Header #ssearchbox {

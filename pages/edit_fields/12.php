@@ -59,9 +59,6 @@ if (!isset($autoupdate)) {
     $autoupdate = false;
 }
 
-if (!isset($help_js)) {
-    $help_js = '';
-}
 
 if ($display_as_radiobuttons) {
     $active_nodes = array_column(array_filter($field['node_options'], 'node_is_active'), 'ref');
@@ -113,7 +110,7 @@ if ($display_as_radiobuttons) {
                                     onChange="UpdateResultCount();"
                                 <?php
                             }
-                                echo $help_js;?>
+                                ?>
                             >
                     </td>
 

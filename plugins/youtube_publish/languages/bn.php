@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='একটি ভিন্ন ইউটি
 $lang["youtube_publish_accessdenied"]='আপনার এই রিসোর্সটি প্রকাশ করার অনুমতি নেই';
 $lang["youtube_publish_alreadypublished"]='এই রিসোর্সটি ইতিমধ্যে ইউটিউবে প্রকাশিত হয়েছে।';
 $lang["youtube_access_failed"]='YouTube আপলোড সার্ভিস ইন্টারফেসে প্রবেশ করতে ব্যর্থ হয়েছে। অনুগ্রহ করে আপনার প্রশাসকের সাথে যোগাযোগ করুন বা আপনার কনফিগারেশন পরীক্ষা করুন।';
-$lang["youtube_publish_video_title"]='ভিডিও শিরোনাম';
 $lang["youtube_publish_video_description"]='ভিডিও বিবরণ';
 $lang["youtube_publish_video_tags"]='ভিডিও ট্যাগসমূহ';
 $lang["youtube_publish_access"]='অ্যাক্সেস নির্ধারণ করুন';

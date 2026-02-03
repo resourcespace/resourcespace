@@ -629,7 +629,7 @@ function collection_remove_resources($collection, $resources = '', $removeall = 
  */
 function collection_writeable($collection)
 {
-    $collectiondata = get_collection($collection);
+    $collectiondata = get_collection($collection, true);
     if ($collectiondata === false) {
         return false;
     }
@@ -710,7 +710,7 @@ function collection_readable($collection)
     if (!is_numeric($collection)) {
         return false;
     }
-    $collectiondata = get_collection($collection);
+    $collectiondata = get_collection($collection, true);
     if ($collectiondata === false) {
         return false;
     }
@@ -1480,13 +1480,13 @@ function save_collection($ref, $coldata = array())
             // Log the changes
             foreach ($sqlset as $colopt => $colset) {
                 switch ($colopt) {
-                    case "public";
+                    case "public":
                         collection_log($ref, LOG_CODE_COLLECTION_ACCESS_CHANGED, 0, $colset ? 'public' : 'private');
                     break;
-                    case "allow_changes";
+                    case "allow_changes":
                         collection_log($ref, LOG_CODE_UNSPECIFIED, 0, $colset ? 'true' : 'false');
                     break;
-                    default;
+                    default:
                         collection_log($ref, LOG_CODE_EDITED, 0, $colopt  . " = " . $colset);
                     break;
                 }
@@ -4197,7 +4197,7 @@ function compile_collection_actions(array $collection_data, $top_actions, $resou
     }
 
     // Collection log
-    if (($k == "" || $internal_share_access) && ($userref == $collection_data['user'] || (checkperm('h')))) {
+    if (can_view_collection_log($collection_data)) {
         $data_attribute['url'] = generateURL($baseurl_short . "pages/collection_log.php", $urlparams);
         $options[$o]['value'] = 'collection_log';
         $options[$o]['label'] = $lang['action-log'];
@@ -6534,6 +6534,19 @@ function can_create_collections()
         checkperm("b")
          || (is_anonymous_user() && !$anonymous_user_session_collection) // User is an anonymous user
         );
+}
+
+/**
+ * Determines whether the current user has permission to view the collection log.
+ *
+ * @param   array   $collection_data   Array of collection data, typically from get_collection()
+ * 
+ * @return  bool    Returns true if the collection log can be viewed by the current user.
+ */
+function can_view_collection_log(array $collection_data): bool
+{
+    global $userref, $k, $internal_share_access;
+    return ($k == "" || $internal_share_access) && ($userref == $collection_data['user'] || checkperm('h'));
 }
 
 /**

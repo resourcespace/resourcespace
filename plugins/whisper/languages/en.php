@@ -16,3 +16,4 @@ $lang["whisper_cron_enable"] = "Enable processing of unprocessed resources via s
 $lang["whisper"] = "Whisper";
 $lang["whisper_process_existing"] = "Process unprocessed resources";
 $lang["whisper_process_existing_intro"] = "Create a job to start Whisper audio processing here - this job does not require any parameters so can be started as long as there are no other outstanding jobs of this type.";
+$lang["whisper_process_existing_configure"] = "Configure job to process files with Whisper";

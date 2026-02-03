@@ -21,6 +21,10 @@ if ($managed_home_dash && !(checkperm("h") && !checkperm("hdta")) || (checkperm(
     exit($lang["error-permissiondenied"]);
 }
 
+// Limit for showing dash tile select dropdown on Edit dash tile page
+// Above this count, a text box that allows a resource reference to be manually entered will be displayed
+$dash_tile_dropdown_limit = 100;
+
 $error = false;
 $message = false;
 
@@ -556,7 +560,7 @@ if (!$validpage) {
                 $order_by = isset($search_string["order_by"]) ? $search_string["order_by"] : "";
                 $archive = isset($search_string["archive"]) ? $search_string["archive"] : "";
                 $sort = isset($search_string["sort"]) ? $search_string["sort"] : "";
-                $results = do_search($search, $restypes, $order_by, $archive, [0, 100], $sort);
+                $results = do_search($search, $restypes, $order_by, $archive, [0, $dash_tile_dropdown_limit], $sort);
                 $resources = $results["data"];
                 $full_resource_count = $results["total"];
             } elseif ('fcthm' == $tile_type) {
@@ -589,7 +593,7 @@ if (!$validpage) {
                 $full_resource_count = count($resources);
             }
 
-            if ($full_resource_count > 0 && $full_resource_count <= 100) {              
+            if ($full_resource_count > 0 && $full_resource_count <= $dash_tile_dropdown_limit) {              
 
                 ?>
                 <div class="Question" id="promotedresource">
@@ -628,7 +632,7 @@ if (!$validpage) {
                     });
                 </script>
                 <?php
-            } elseif ($full_resource_count > 100) {
+            } elseif ($full_resource_count > $dash_tile_dropdown_limit) {
                 ?>
                 <div class="Question" id="promotedresource">
                     <label for="promoted_image"><?php echo escape($lang['dashtileimage']); ?></label>

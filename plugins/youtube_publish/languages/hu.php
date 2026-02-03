@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"] = 'Használj egy másik YouTube-fiókot';
 $lang["youtube_publish_accessdenied"] = 'Nincs engedélye ennek a forrásnak a közzétételére';
 $lang["youtube_publish_alreadypublished"] = 'Ez az erőforrás már közzétéve lett a YouTube-on.';
 $lang["youtube_access_failed"] = 'Nem sikerült hozzáférni a YouTube feltöltési szolgáltatás interfészéhez. Kérjük, lépjen kapcsolatba a rendszergazdával, vagy ellenőrizze a konfigurációját.';
-$lang["youtube_publish_video_title"] = 'Videó cím';
 $lang["youtube_publish_video_description"] = 'Videó leírása';
 $lang["youtube_publish_video_tags"] = 'Videó címkék';
 $lang["youtube_publish_access"] = 'Hozzáférés beállítása';

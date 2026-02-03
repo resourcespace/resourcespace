@@ -361,7 +361,6 @@ $lang["action-editall"] = 'Editare toate';
 $lang["edit_all_resources"] = 'Editați toate resursele';
 $lang["hidethumbnails"] = 'Ascunde miniaturile';
 $lang["showthumbnails"] = 'Afișează miniaturi';
-$lang["toggle"] = 'Comutare';
 $lang["resize"] = 'Redimensionare';
 $lang["contactsheet"] = 'Foaie de contact';
 $lang["mycollection"] = 'Coleția implicită';
@@ -2312,17 +2311,7 @@ $lang["collection_restype_blocked"] = 'Tipurile de resurse următoare nu pot fi 
 $lang["retina_mode"] = 'Modul Retina';
 $lang["private-api-key"] = 'Cheie API privată';
 $lang["force_edit_resource_type"] = 'Acces forțat la editarea tipului de resursă:';
-$lang["responsive_configtitle"] = 'Vă rugăm să traduceți: Responsive
-
-Răspuns: Receptiv';
-$lang["responsive_main_menu"] = 'Meniu';
-$lang["responsive_settings_menu"] = 'Cont';
-$lang["responsive_more"] = 'Mai mult..';
-$lang["responsive_less"] = 'Mai puțin..';
-$lang["responsive_collectiontogglehide"] = 'Ascunde';
 $lang["linkedheaderimgsrc"] = 'Locația imaginii logo-ului în antet (implicit este setată pe ResourceSpace):';
-$lang["responsive_result_settings"] = 'Configurări Rezultat';
-$lang["responsive_view_full_site"] = 'Vizualizare site complet';
 $lang["actions_myactions"] = 'Acțiuni';
 $lang["actions_introtext"] = 'Puteți configura criteriile pentru acțiunile care apar aici prin schimbarea preferințelor dvs. de utilizator';
 $lang["actions_noactions"] = 'Nu aveți acțiuni în așteptare';

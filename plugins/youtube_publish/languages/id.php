@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Gunakan akun YouTube yang berbeda';
 $lang["youtube_publish_accessdenied"]='Anda tidak memiliki izin untuk mempublikasikan sumber daya ini';
 $lang["youtube_publish_alreadypublished"]='Sumber daya ini sudah dipublikasikan ke YouTube.';
 $lang["youtube_access_failed"]='Gagal mengakses antarmuka layanan unggah YouTube. Silakan hubungi administrator Anda atau periksa konfigurasi Anda.';
-$lang["youtube_publish_video_title"]='Judul video';
 $lang["youtube_publish_video_description"]='Deskripsi video';
 $lang["youtube_publish_video_tags"]='Tag video';
 $lang["youtube_publish_access"]='Atur akses';

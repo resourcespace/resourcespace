@@ -35,9 +35,6 @@ if (getval("ajax", "") == "" && !hook("replace_footer")) {
         ?>
         <!--Global Footer-->
         <div id="Footer">
-        <div class="ResponsiveViewFullSite">
-            <a href="#" onClick="SetCookie('ui_view_full_site', true, 1, true); location.reload();"><?php echo escape($lang['responsive_view_full_site']); ?></a>
-        </div>
 
         <?php
         if (!hook("replace_footernavrightbottom")) {
@@ -263,67 +260,55 @@ if (getval("ajax", "") == "") {
                 $restypes = implode(',', $restypes);
             }
             ?>
-            <div id="CollectionDiv" class="CollectBack AjaxCollect ui-layout-south"></div>
+            <div id="CollectionDiv" class="CollectBack AjaxCollect"></div>
 
             <script type="text/javascript">
             var collection_frame_height=<?php echo COLLECTION_FRAME_HEIGHT ?>;
-            var thumbs="<?php echo escape($thumbs); ?>";                                  
-            function ShowThumbs()
-                {
-                myLayout.sizePane("south", collection_frame_height);
-                jQuery('.ui-layout-south').animate({scrollTop:0}, 'fast');
+            var thumbs="<?php echo escape($thumbs); ?>";
+
+            function ShowThumbs() {
+                jQuery('body').addClass("collection-bar--maximised");
+                jQuery('body').removeClass("collection-bar--minimised");
+
                 jQuery('#CollectionMinDiv').hide();
                 jQuery('#CollectionMaxDiv').show();
+
                 SetCookie('thumbs',"show",1000);
                 ModalCentre();
-                if(typeof chosenCollection !== 'undefined' && chosenCollection)
-                    {
-                    jQuery('#CollectionMaxDiv select').chosen({disable_search_threshold:chosenCollectionThreshold});
-                    }
-                }
-            function HideThumbs()
-                {
-                myLayout.sizePane("south", 40);
-                jQuery('.ui-layout-south').animate({scrollTop:0}, 'fast');          
+            }
+
+            function HideThumbs() {
+                jQuery('body').addClass("collection-bar--minimised");
+                jQuery('body').removeClass("collection-bar--maximised");
+
                 jQuery('#CollectionMinDiv').show();
                 jQuery('#CollectionMaxDiv').hide();
+
                 SetCookie('thumbs',"hide",1000);
                 ModalCentre();
+            }
 
-                if(typeof chosenCollection !== 'undefined' && chosenCollection)
-                    {
-                    jQuery('#CollectionMinDiv select').chosen({disable_search_threshold:chosenCollectionThreshold});
-                    }
-                }
-            function ToggleThumbs()
-                {
+            function ToggleThumbs() {
                 thumbs = getCookie("thumbs");
-                if (thumbs=="show")
-                    {
-                HideThumbs();
-                    }
-                else
-                    { 
-                    ShowThumbs();
-                    }
-                }
-            function InitThumbs()
-                {
-                if(thumbs!="hide")
-                    {
-                    ShowThumbs();
-                    }
-                else if(thumbs=="hide")
-                    {
+                if (thumbs == "show") {
                     HideThumbs();
-                    }
+                } else { 
+                    ShowThumbs();
                 }
+            }
 
-            jQuery(document).ready(function()
-                {
+            function InitThumbs() {
+                if (thumbs != "hide") {
+                    ShowThumbs();
+                } else if (thumbs == "hide") {
+                    HideThumbs();
+                }
+            }
+
+            jQuery(document).ready(function() {
                 CollectionDivLoad('<?php echo generateURL($baseurl_short . 'pages/collections.php', ['thumbs' => $thumbs, 'k' => $k ?? '', 'order_by' => $order_by ?? '', 'sort' => $sort ?? '', 'search' => $search ?? '', 'archive' => $archive ?? '', 'daylimit' => $daylimit ?? '', 'offset' => $offset ?? '', 'resource_count' => $resource_count ?? '']) ?>&collection='+usercollection);
                 InitThumbs();
-                });
+            });
 
             </script>
             <?php
@@ -338,254 +323,6 @@ if (getval("ajax", "") == "") {
             </script>
             <?php
         }
-        ?>
-        <script type="text/javascript">
-        var resizeTimer;
-        myLayout=jQuery('body').layout(
-            {
-            livePaneResizing:true,
-            triggerEventsDuringLiveResize: false,
-            resizerTip: '<?php echo escape($lang["resize"]); ?>',
-
-            east__spacing_open:0,
-            east__spacing_closed:8,
-            east_resizable: true,
-            east__closable: false,
-            east__size: 295,
-
-            north_resizable: false,
-            north__closable:false,
-            north__spacing_closed: 0,
-            north__spacing_open: 0,
-
-            <?php
-            if ($col_on) {?>
-                south__resizable:true,
-                south__minSize:40,
-                south__spacing_open:8,
-                south__spacing_closed:8, 
-                south__togglerLength_open:"200",
-                south__togglerTip_open: '<?php echo escape($lang["toggle"]); ?>',
-                south__onclose_start: function(pane)
-                    {
-                    if (pane=="south" && (typeof colbarresizeon === "undefined" || colbarresizeon==true))
-                        {
-                        if(jQuery('.ui-layout-south').height()>40 && thumbs!="hide")
-                            {
-                            HideThumbs();
-                            }
-                        else if(jQuery('.ui-layout-south').height()<=40 && thumbs=="hide")
-                            {
-                            ShowThumbs();
-                            }
-                        return false;
-                        }
-                    ModalCentre();
-                    },
-                south__onresize: function(pane)
-                    {
-                    if (pane=="south" && (typeof colbarresizeon === "undefined" || colbarresizeon==true))
-                        {
-                        thumbs = getCookie("thumbs");
-                        if(jQuery('.ui-layout-south').height() < collection_frame_height && thumbs!="hide")
-                            {
-                            HideThumbs();
-                            }
-                        else if(jQuery('.ui-layout-south').height()> 40 && thumbs=="hide")
-                            {
-                            ShowThumbs();
-                            }
-                        }
-                    ModalCentre();
-                    },
-                <?php
-            } else {?>                
-                south__initHidden: true,
-                <?php
-            }
-
-            ?>
-            });
-        </script>
-        <?php
-    }
-
-    if (!hook("responsive_footer")) {
-        ?>
-        <!-- Responsive -->
-        <script src="<?php echo $baseurl_short; ?>js/responsive.js?css_reload_key=<?php echo $css_reload_key; ?>"></script>
-        <script>
-        function toggleSimpleSearch()
-            {
-            if(jQuery("#searchspace").hasClass("ResponsiveSimpleSearch"))
-                {
-                jQuery("#searchspace").removeClass("ResponsiveSimpleSearch");
-                jQuery("#SearchBarContainer").removeClass("FullSearch");
-                jQuery("#Rssearchexpand").val("<?php echo escape($lang["responsive_more"]);?>");
-                jQuery('#UICenter').show(0);
-                search_show = false;
-                }
-            else
-                {
-                jQuery("#searchspace").addClass("ResponsiveSimpleSearch");
-                jQuery("#SearchBarContainer").addClass("FullSearch");
-                jQuery("#Rssearchexpand").val(" <?php echo escape($lang["responsive_less"]);?> ");
-                jQuery('#UICenter').hide(0);
-                search_show = true;
-                }
-            }
-
-        /* Responsive Stylesheet inclusion based upon viewing device */
-        if(document.createStyleSheet)
-            {
-            document.createStyleSheet('<?php echo $baseurl ;?>/css/responsive/slim-style.css?rcsskey=<?php echo $css_reload_key; ?>');
-            }
-        else
-            {
-            jQuery("head").append("<link rel='stylesheet' href='<?php echo $baseurl ;?>/css/responsive/slim-style.css?rcsskey=<?php echo $css_reload_key; ?>' type='text/css' media='screen' />");
-            }
-
-        if(!is_touch_device() && jQuery(window).width() <= 1280)
-            {
-            if(document.createStyleSheet)
-                {
-                document.createStyleSheet('<?php echo $baseurl; ?>/css/responsive/slim-non-touch.css?rcsskey=<?php echo $css_reload_key; ?>');
-                }
-            else
-                {
-                jQuery("head").append("<link rel='stylesheet' href='<?php echo $baseurl; ?>/css/responsive/slim-non-touch.css?rcsskey=<?php echo $css_reload_key; ?>' type='text/css' media='screen' />");
-                }
-            }
-
-        var responsive_show = "<?php echo escape($lang['responsive_collectiontogglehide']);?>";
-        var responsive_hide;
-        var responsive_newpage = true;
-
-        if(jQuery(window).width() <= 1100)
-            {
-            jQuery('.ResponsiveViewFullSite').css('display', 'block');
-            SetCookie("selected_search_tab", "search");
-            }
-        else
-            {
-            jQuery('.ResponsiveViewFullSite').css('display', 'none');
-            }
-
-        if(jQuery(window).width()<=700)
-            {
-            touchScroll("UICenter");
-            }
-
-        var lastWindowWidth = jQuery(window).width();
-
-        jQuery(window).resize(function()
-            {
-            // Check if already resizing
-            if(typeof rsresize !== 'undefined')
-                {
-                return;
-                }
-
-            newwidth = jQuery( window ).width();
-
-            if(lastWindowWidth > 1100 && newwidth < 1100)
-                {
-                // Set flag to prevent recursive loop
-                rsresize = true;
-                selectSearchBarTab('search');
-                rsresize = undefined;
-                }
-            else if(lastWindowWidth > 900 && newwidth < 900)
-                {
-                rsresize = true;
-                console.log("hiding collections");
-                hideMyCollectionsCols();
-                responsiveCollectionBar();
-                jQuery('#CollectionDiv').hide(0);
-                rsresize = undefined;
-                }
-            else if(lastWindowWidth < 900 && newwidth > 900)
-                {
-                rsresize = true;
-                showResponsiveCollection();
-                rsresize = undefined;
-                }
-
-            lastWindowWidth = newwidth;            
-            });
-
-        jQuery("#HeaderNav1Click").click(function(event)
-            {
-            event.preventDefault();
-            if(jQuery(this).hasClass("RSelectedButton"))
-                {
-                jQuery(this).removeClass("RSelectedButton");
-                jQuery("#HeaderNav1").slideUp(0);
-                jQuery("#Header").removeClass("HeaderMenu");
-                }
-            else
-                {
-                jQuery("#HeaderNav2Click").removeClass("RSelectedButton");
-                jQuery("#HeaderNav2").slideUp(80);              
-                jQuery("#Header").addClass("HeaderMenu");               
-                jQuery(this).addClass("RSelectedButton");
-                jQuery("#HeaderNav1").slideDown(80);
-                }
-            if(jQuery("#searchspace").hasClass("ResponsiveSimpleSearch"))
-                {
-                toggleSimpleSearch();
-                }      
-            });
-
-        jQuery("#HeaderNav2Click").click(function(event)
-            {
-            event.preventDefault();
-            if(jQuery(this).hasClass("RSelectedButton"))
-                {
-                jQuery(this).removeClass("RSelectedButton");
-                jQuery("#HeaderNav2").slideUp(0);
-                jQuery("#Header").removeClass("HeaderMenu");
-
-                }
-            else
-                {
-                jQuery("#Header").addClass("HeaderMenu");
-                jQuery("#HeaderNav1Click").removeClass("RSelectedButton");
-                jQuery("#HeaderNav1").slideUp(80);
-                jQuery(this).addClass("RSelectedButton");
-                jQuery("#HeaderNav2").slideDown(80);
-                } 
-            if(jQuery("#searchspace").hasClass("ResponsiveSimpleSearch"))
-                {
-                toggleSimpleSearch();
-                }  
-            });
-
-        jQuery("#HeaderNav2").on("click","a",function()
-            {
-            if(jQuery(window).width() <= 1200)
-                {
-                jQuery("#HeaderNav2").slideUp(0);
-                jQuery("#HeaderNav2Click").removeClass("RSelectedButton");
-                }
-            });
-        jQuery("#HeaderNav1").on("click","a",function()
-            {
-            if(jQuery(window).width() <= 1200)
-                {
-                jQuery("#HeaderNav1").slideUp(00);
-                jQuery("#HeaderNav1Click").removeClass("RSelectedButton");
-                }
-            });
-        jQuery("#SearchBarContainer").on("click","#Rssearchexpand",toggleSimpleSearch);
-
-        if(jQuery(window).width() <= 700 && jQuery(".ListviewStyle").length && is_touch_device())
-            {
-            jQuery("td:last-child,th:last-child").hide();
-            }
-        </script>
-        <!-- end of Responsive -->
-        <?php
     }
 
     hook('afteruilayout');
@@ -610,34 +347,6 @@ if (getval("ajax", "") == "") {
         }
     catch(e){console.log(e);
     }
-
-    </script>
-
-    <script>
-
-        /* Destroy tagEditor if below breakpoint window size (doesn't work in responsize mode */
-
-        window_width = jQuery(window).width();
-        window_width_breakpoint = 1100;
-        simple_search_pills_view = <?php echo $simple_search_pills_view ? "true" : "false"; ?>
-
-        /* Page load */
-
-        if(window_width <= window_width_breakpoint && simple_search_pills_view == true)
-            {
-            jQuery('#ssearchbox').tagEditor('destroy');
-            }
-
-        /* Page resized to below breakpoint */
-
-        jQuery(window).resize(function() 
-            {
-            window_width = jQuery(window).width();
-            if(window_width <= window_width_breakpoint && simple_search_pills_view == true)
-                {
-                jQuery('#ssearchbox').tagEditor('destroy');
-                }
-            });
 
     </script>
 

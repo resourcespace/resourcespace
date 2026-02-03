@@ -389,7 +389,6 @@ $lang["action-editall"] = "Upraviť všetko";
 $lang['edit_all_resources'] = 'Upraviť všetky zdroje';
 $lang["hidethumbnails"] = "Skryť miniatúry";
 $lang["showthumbnails"] = "Zobraziť miniatúry";
-$lang["toggle"] = "Prepnúť";
 $lang["resize"] = "Zmeniť veľkosť";
 $lang["contactsheet"] = "Kontaktný list";
 $lang["mycollection"] = "Moja zbierka";
@@ -2427,16 +2426,7 @@ $lang["private-api-key"] = "Súkromný kľúč API";
 $lang["can_edit_resource_type"] = "Vynútiť prístup k úpravám typu zdroja:";
 
 // Responsive
-$lang["responsive_configtitle"] = "Responzívny";
-$lang["responsive_main_menu"] = "Menu";
-$lang["responsive_settings_menu"] = "Účet";
-$lang["responsive_more"] = "Viac...";
-$lang["responsive_less"] = "Menej...";
-$lang['responsive_collectiontogglehide'] = "Skryť";
 $lang['linkedheaderimgsrc'] = "Umiestnenie obrázka loga  pre záhlavie (predvolená hodnota je ResourceSpace):";
-$lang['responsive_result_settings'] = 'Nastavenia výsledkov';
-$lang['responsive_view_full_site'] = 'Zobraziť celú stránku';
-// end of Responsive
 
 /* Actions */
 $lang["actions_myactions"] = "Moje akcie";

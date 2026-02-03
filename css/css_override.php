@@ -230,7 +230,7 @@ if (isset($user_pref_appearance) && !(isset($high_contrast_mode) && $high_contra
             box-shadow: 0 -12px 15px -12px black;
         }
         .FormHelpInner {
-            background-color: #6c6c6c;
+            color: #cbcbcb;
         }
         select, .sp-replacer {
             box-shadow: 0 1px 3px 1px #00000026;
@@ -360,20 +360,6 @@ if (isset($user_pref_appearance) && !(isset($high_contrast_mode) && $high_contra
         .context-menu-row:hover {
             background: #5a5a5a;
         }
-        /* Responsive mode */
-        @media (max-width: 1200px) {
-            #Header .HorizontalNav ul li a {
-                background: #545454 !important;
-                color: white !important; 
-                border: none !important;
-            }
-            #Header .HorizontalNav ul li.UploadButton a {
-                background: #1378BF !important;
-            }
-        }
-        .ResponsiveButton {
-            box-shadow: none !important;
-        }
         /* Quick message modal */
         .messages-modal {
             background: rgb(38, 38, 38);
@@ -463,9 +449,6 @@ if (isset($collection_bar_foreground_override) && $collection_bar_foreground_ove
         font-style:normal;
         background-color: #474747;
         color: #fff;
-    }
-    .ui-layout-resizer {
-        background: <?php echo $collection_bar_foreground_override; ?>;
     } <?php
 }
 
@@ -633,9 +616,6 @@ if (isset($high_contrast_mode) && $high_contrast_mode) { ?>
     textarea, select, .sp-replacer {
         border: 1px solid black;
         box-shadow: none;
-    }
-    .FormHelpInner {
-        border: 1px solid #146cab;
     }
     .uppy-Dashboard-inner {
         border: 1px solid black;

@@ -158,7 +158,7 @@ if (isset($remote_config_url, $remote_config_key) && (isset($_SERVER["HTTP_HOST"
             $errortext = curl_strerror(curl_errno($ch));
             debug("[boot.php][warn] Remote config check failed from '"  . $remote_config_url . "' : " . $errortext . " : " . $r);
         }
-        curl_close($ch);
+        unset($ch);
 
         set_sysvar("remote_config-exp" .  $hostmd, time() + (60 * 10)); # Load again (or try again if failed) in ten minutes
     }

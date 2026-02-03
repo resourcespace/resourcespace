@@ -20,7 +20,6 @@ $lang["youtube_publish_change_login"]='Defnyddiwch gyfrif YouTube gwahanol';
 $lang["youtube_publish_accessdenied"]='Nid oes gennych ganiatâd i gyhoeddi\'r adnodd hwn';
 $lang["youtube_publish_alreadypublished"]='Mae\'r adnodd hwn eisoes wedi\'i gyhoeddi ar YouTube.';
 $lang["youtube_access_failed"]='Methiant i gael mynediad i\'r rhyngwyneb gwasanaeth uwchlwytho YouTube. Cysylltwch â\'ch gweinyddwr neu wirio eich gosodiad.';
-$lang["youtube_publish_video_title"]='Teitl fideo';
 $lang["youtube_publish_video_description"]='Disgrifiad fideo';
 $lang["youtube_publish_video_tags"]='Tagiau fideo';
 $lang["youtube_publish_access"]='Set mynediad';

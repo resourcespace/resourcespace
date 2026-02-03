@@ -24,7 +24,7 @@ if ($remote_system) {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $curl_response = curl_exec($curl);
         $cerror = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        curl_close($curl);
+        unset($curl);
 
         $response_json = json_decode($curl_response, true);
         if ($cerror == 200) {

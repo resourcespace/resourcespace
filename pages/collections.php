@@ -223,17 +223,6 @@ if ($allow_reorder) {
 }
 ?>
 
-<!-- Responsive -->
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-        if (typeof responsive_newpage !== 'undefined' && responsive_newpage === true) {
-            hideMyCollectionsCols();
-            responsiveCollectionBar();
-            responsive_newpage = false;
-        }
-    }); 
-</script>
-
 <!-- Drag and Drop -->
 <script>
     jQuery('#CentralSpace').on('prepareDragDrop', function() {
@@ -382,12 +371,6 @@ if ($allow_reorder) {
     registerResourceSelectDeselectHandlers();
 </script>
 <!-- End of Drag and Drop -->
- 
-<style>
-    #CollectionMenuExp {
-        height:<?php echo COLLECTION_FRAME_HEIGHT - 15?>px;
-    }
-</style>
 
 </head>
 <body class="CollectBack" id="collectbody">
@@ -719,7 +702,7 @@ $feedback = $cinfo ? $cinfo["request_feedback"] : 0;
             }
             ?>
 
-            <a id="toggleThumbsLink" href="#" onclick="ToggleThumbs();return false;"><?php echo escape($lang["hidethumbnails"])?></a>
+            <a id="toggleThumbsLink" href="#" onclick="ToggleThumbs();return false;"><i class="icon-chevron-down"></i><?php echo escape($lang["hidethumbnails"])?></a>
         </div>
         <?php
     } else {
@@ -829,7 +812,7 @@ $feedback = $cinfo ? $cinfo["request_feedback"] : 0;
 
             <ul>
                 <li>
-                    <a id="toggleThumbsLink" href="#" onclick="ToggleThumbs();return false;"><?php echo escape($lang['hidethumbnails']); ?></a>
+                    <a id="toggleThumbsLink" href="#" onclick="ToggleThumbs();return false;"><i class="icon-chevron-down"></i><?php echo escape($lang['hidethumbnails']); ?></a>
                 </li>
             </ul>
         </div>
@@ -1165,7 +1148,7 @@ $feedback = $cinfo ? $cinfo["request_feedback"] : 0;
 
                 <li>
                     <a id="toggleThumbsLink" href="#" onclick="ToggleThumbs();return false;">
-                        <?php echo escape($lang["showthumbnails"])?>
+                        <i class="icon-chevron-up"></i><?php echo escape($lang["showthumbnails"])?>
                     </a>
                 </li>
             </div>
@@ -1174,7 +1157,7 @@ $feedback = $cinfo ? $cinfo["request_feedback"] : 0;
             ?>
             <div class="ToggleThumbsContainer">
                 <a id="toggleThumbsLink" href="#" onclick="ToggleThumbs();return false;">
-                    <?php echo escape($lang['showthumbnails']); ?>
+                    <i class="icon-chevron-up"></i><?php echo escape($lang['showthumbnails']); ?>
                 </a>
             </div>
 
@@ -1187,7 +1170,7 @@ $feedback = $cinfo ? $cinfo["request_feedback"] : 0;
             </div>
 
             <!--Collection Dropdown-->
-            <div id="CollectionMinDropTitle"><?php echo escape($lang['currentcollection']); ?>:&nbsp;</div>
+            <div id="CollectionMinDropTitle"><?php echo escape($lang['currentcollection']); ?>:</div>
 
             <div id="CollectionMinDrop">
                 <form

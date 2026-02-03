@@ -569,7 +569,6 @@ $selected_search_tab = getval("selected_search_tab", "search");
                     }
 
                     $searchbuttons .= "<input name=\"Submit\" id=\"searchbutton\" class=\"searchbutton\" type=\"submit\" value=\"" . escape($lang['searchbutton']) . "\" onclick=\"SimpleSearchFieldsHideOrShow();\" />";
-                    $searchbuttons .= '<input type="button" id="Rssearchexpand" class="searchbutton" style="display:none;" value="' . escape($lang['responsive_more']) . '">';
                     $searchbuttons .= "</div>";
 
                     if (!$basic_simple_search) {
@@ -1065,20 +1064,6 @@ $selected_search_tab = getval("selected_search_tab", "search");
 </div>
 
 <?php
-if ($simple_search_pills_view) {
-    ?>
-    <script>
-        jQuery(document).ready(function () {
-            // For responsive mode we cannot use tag editor. For some reason it doesn't work. I think it has something to do with
-            // jQuery UI/ layout but not sure what exactly.
-            if (750 > jQuery(window).width()) {
-                jQuery('#ssearchbox').tagEditor('destroy');
-            }
-        });
-    </script>
-    <?php
-}
-
 global $selected_search_tab;
 
 if ($selected_search_tab == "browse") {
