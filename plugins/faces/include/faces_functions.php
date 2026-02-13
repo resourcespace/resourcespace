@@ -106,6 +106,10 @@ function faces_detect(int $ref, bool $force = false): bool
             continue;
         }
 
+        if (ps_value("SELECT count(*) value FROM resource_face WHERE resource=? AND bbox=?", ['i', $ref, 's', $bbox], 0) > 0) {
+            continue;
+        }
+
         ps_query(
             "INSERT INTO resource_face (resource, bbox, det_score, vector_blob, created) VALUES (?, ?, ?, ?, NOW())",
             ['i', $ref, 's', $bbox, 'd', $score, 's', $vector]

@@ -20,4 +20,4 @@ if ($groups != "") {
     $userstring .= "," . $groups;
 }
 
-echo $userstring;
+echo escape($userstring);

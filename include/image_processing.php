@@ -2231,10 +2231,10 @@ function AutoRotateImage($src_image, $ref = false)
         # get the orientation
         $orientation = get_image_orientation($file);
         if ($orientation != 0) {
-            $cmd = $convert_fullpath . ' -rotate %%ORIENTATION%% %%SOURCE%% %%DESTINATION%%';
+            $cmd = $convert_fullpath . '%%SOURCE%% -rotate %%ORIENTATION%% %%DESTINATION%%';
             $params = [
-                '%%ORIENTATION%%' => new CommandPlaceholderArg('+' . (int) $orientation, [CommandPlaceholderArg::class, 'alwaysValid']),
                 '%%SOURCE%%' => new CommandPlaceholderArg($src_image, 'is_valid_rs_path'),
+                '%%ORIENTATION%%' => new CommandPlaceholderArg('+' . (int) $orientation, [CommandPlaceholderArg::class, 'alwaysValid']),
                 '%%DESTINATION%%' => new CommandPlaceholderArg($new_image, 'is_valid_rs_path'),
             ];
             run_command($cmd, false, $params);
@@ -3057,7 +3057,13 @@ function transform_file(string $sourcepath, string $outputpath, array $actions)
 
         // Ensure that new ratio of crop matches that of the specified size or we may end up missing the target size
         // If landscape crop, set the width first, then base the height on that
-        $desiredratio = (int)$actions["width"] / (int)$actions["height"];
+        if ((isset($actions["new_width"]) && (int) $actions["new_width"] > 0) && (isset($actions["new_height"]) && (int) $actions["new_height"] > 0)) {
+            // Target dimensions passed, so use those to calculate the final width/height 
+            $desiredratio = (int) $actions["new_width"] / (int) $actions["new_height"];
+        } else {
+            $desiredratio = (int) $actions["width"] / (int) $actions["height"];
+        }
+
         if ($desiredratio > 1) {
             $finalwidth  = round($actions["width"] * $xfactor, 0);
             $finalheight = round($finalwidth / $desiredratio, 0);
@@ -3133,6 +3139,7 @@ function transform_file(string $sourcepath, string $outputpath, array $actions)
             if ($actions["new_height"] > 0) {
                 $cmd_args['%new_height'] = (int) $actions['new_height'];
                 $command .= 'x%new_height';
+                $command .= "!";
             }
         }
     }
@@ -3884,8 +3891,7 @@ function create_previews_using_im(
                 || !$mpr_edited
             ) {
                 // Only add initial binary path source etc. if not using MPR or if this is the first part of the MPR command
-                $command = $convert_fullpath . ' ' . $addcheckbdpre;
-                $command .= "%%SOURCEFILE%%[0] ";
+                $command = $convert_fullpath . " {$addcheckbdpre} %%SOURCEFILE%%[0] ";
                 if ($imagemagick_mpr) {
                     $command .= ' -quiet -depth ' . $GLOBALS['imagemagick_mpr_depth'];
                 }

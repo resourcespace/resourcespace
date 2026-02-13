@@ -6711,6 +6711,12 @@ function copy_locked_fields($ref, &$fields, &$all_selected_nodes, $locked_fields
 {
     debug("copy_locked_fields resource " . $ref . " lastedited: " . $lastedited);
     global $FIXED_LIST_FIELD_TYPES, $tabs_on_edit;
+
+    $extra_locked_fields = hook("copylockedfieldsaddfields", '', array($locked_fields, $lastedited));
+    if (is_array($extra_locked_fields)) {
+        $locked_fields  = $extra_locked_fields;
+    }
+
     foreach ($locked_fields as $locked_field) {
         if (!is_numeric($locked_field)) {
             // These are handled by copy_locked_data

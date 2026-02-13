@@ -47,7 +47,7 @@ from resource_log rl
 join resource r on rl.resource=r.ref
 where rl.type='d'
   and rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
-group by r.ref order by 'Downloads' desc
+group by r.ref order by `Downloads` desc
 ",0
 4,"Resource views","
 select r.ref 'Resource ID',
@@ -233,7 +233,7 @@ left outer join usergroup g on u.usergroup=g.ref
 where
 rl.type='d'
 and rl.date>=date('[from-y]-[from-m]-[from-d]') and rl.date<=adddate(date('[to-y]-[to-m]-[to-d]'),1)
-group by g.ref order by 'Resource Downloads' desc
+group by g.ref order by `Resource Downloads` desc
 ",0
 11,"Resource download detail","
 select
@@ -416,7 +416,7 @@ LIMIT 1 ) AS 'Title',
      AND rl.date >= date('[from-y]-[from-m]-[from-d]') AND rl.date <= adddate(date('[to-y]-[to-m]-[to-d]'), 1)
      AND r.ref IN [non_correlated_sql]
 GROUP BY r.ref
-ORDER BY 'Downloads' DESC;",1
+ORDER BY `Downloads` DESC;",1
 24,"Resources created - with thumbnails (search results)","
          SELECT r.ref AS 'thumbnail',
                 rl.date AS 'Date / Time',

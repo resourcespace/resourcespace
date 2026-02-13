@@ -5,7 +5,7 @@ include_once "include/login_functions.php";
 debug("[login.php] Reached login page...");
 $url = getval("url", $baseurl . "/index.php");
 
-if (is_array($url)) {
+if (is_array($url) || $url == "") {
     $url = $baseurl . "/index.php";
 }
 

@@ -5,6 +5,10 @@
 include "../../include/boot.php";
 include "../../include/authenticate.php";
 
+if (is_anonymous_user()) {
+    exit(escape($lang['error-permissiondenied']));
+}
+
 $user = getval("userref", "");
 $userstring = getval("userstring", "");
 $userlistname = getval("userlistname", "");

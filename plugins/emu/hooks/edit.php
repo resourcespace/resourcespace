@@ -153,3 +153,48 @@ function HookEmuEditAftersaveresourcedata()
 
     return false;
 }
+
+
+/**
+ * When uploading a batch of resources in upload then edit mode, locked fields are copied between resources in the batch.
+ * If the EMu IRN field was locked and it contained a value, this function will add any fields mapped in the EMu plugin to
+ * the list of fields to copy. This allows the EMu data obtained for the first resource to be applied to all without making
+ * another call to EMu.
+ *
+ * @param  array   $locked_fields     Array of metadata field refs that were locked on edit page (values to apply to all uploads)
+ * @param  int     $origin_resource   Ref of resource to copy the locked field data from.
+ 
+ * @return bool|array   False if the EMu IRN field wasn't locked or has no value else array containing the updated list of
+ *                      locked fields (those supplied plus any mapped in the EMu plugin).
+ */
+function HookEmuEditcopylockedfieldsaddfields(array $locked_fields, int $origin_resource): bool|array
+{
+    global $emu_irn_field, $emu_rs_saved_mappings, $emu_data;
+
+    if (!in_array($emu_irn_field, $locked_fields)) {
+        return false;
+    }
+
+    $resource_field_data = get_resource_field_data($origin_resource, false, true, null, false, false, false, false);
+    $irn_field_key = array_search($emu_irn_field, array_column($resource_field_data, 'ref'));
+    if (!$irn_field_key || !isset($resource_field_data[$irn_field_key]['value'])) {
+        return false;
+    }
+
+    $locked_irn_value = $resource_field_data[$irn_field_key]['value'];
+    if (!isset($emu_data[$locked_irn_value])) {
+        # IRN was not in data returned from EMu - user has entered an invalid IRN so don't add mapped fields to copy.
+        return false;
+    }
+
+    $emu_rs_mappings = plugin_decode_complex_configs($emu_rs_saved_mappings);
+    foreach ($emu_rs_mappings as $emu_module_columns) {
+        foreach ($emu_module_columns as $field_mapping) {
+            if (!in_array($field_mapping, $locked_fields)) {
+                $locked_fields[] = $field_mapping;
+            }
+        }
+    }
+
+    return $locked_fields;
+}

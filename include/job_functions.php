@@ -151,8 +151,8 @@ function job_queue_get_jobs($type = "", $status = -1, $user = "", $job_code = ""
         $condition[] = " type IN (" . ps_param_insert(count($types)) . ")";
         $parameters = array_merge($parameters, ps_param_fill($types, "s"));
     }
-    if (!checkperm('a') && PHP_SAPI != 'cli') {
-        // Don't show certain jobs for normal users
+    if (PHP_SAPI != 'cli') {
+        // Don't show certain jobs if not accessing via CLI
         $hiddentypes = array();
         $hiddentypes[] = "delete_file";
         $condition[] = " type NOT IN (" . ps_param_insert(count($hiddentypes)) . ")";

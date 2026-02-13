@@ -163,7 +163,11 @@ if ('' != $userfiledownload) {
     $allowed = $override_key ? true : resource_download_allowed($ref, $size, $resource_data['resource_type'], $alternative);
     debug("PAGES/DOWNLOAD.PHP: \$allowed = " . ($allowed ? 'TRUE' : 'FALSE'));
 
-    if (!$allowed || $ref <= 0) {
+    // additional access check, as the resource download may be allowed, but access restriction should force watermark.
+    $access        = get_resource_access($ref);
+    $use_watermark = check_use_watermark(getval("dl_key", ""), $ref) || $watermarked;
+
+    if (!$allowed || $ref <= 0 || ($access == RESOURCE_ACCESS_RESTRICTED && $page > 1)) {
         $error = $lang['error-permissiondenied'];
         if (getval("ajax", "") != "") {
             error_alert($error, true, 200);
@@ -175,9 +179,6 @@ if ('' != $userfiledownload) {
         exit();
     }
 
-    // additional access check, as the resource download may be allowed, but access restriction should force watermark.
-    $access        = get_resource_access($ref);
-    $use_watermark = check_use_watermark(getval("dl_key", ""), $ref) || $watermarked;
     // If no extension was provided, we fallback to JPG.
     if ('' == $ext) {
         $ext = 'jpg';

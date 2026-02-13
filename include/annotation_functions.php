@@ -958,17 +958,16 @@ function create_annotated_pdf($ref, $is_collection = false, $size = "letter", $c
         }
 
         run_command(
-            "{$convert_fullpath} -resize contact_sheet_preview_size -quality 90 -colorspace imagemagick_colorspace"
-            . " jpgstoragepath jpgstoragepath",
+            "{$convert_fullpath} jpgstoragepath -resize contact_sheet_preview_size -quality 90 -colorspace imagemagick_colorspace"
+            . " jpgstoragepath",
             false,
             [
+                'jpgstoragepath' => new CommandPlaceholderArg($jpgstoragepath, 'is_safe_basename'),
                 'contact_sheet_preview_size' => new CommandPlaceholderArg(
                     $contact_sheet_preview_size,
                     'is_valid_contact_sheet_preview_size'
                 ),
                 'imagemagick_colorspace' => $imagemagick_colorspace,
-                'jpgstoragepath' => new CommandPlaceholderArg($jpgstoragepath, 'is_safe_basename'),
-
             ]
         );
         return true;

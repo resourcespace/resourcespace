@@ -154,7 +154,9 @@ if (!$valid && !isset($system_login)) {
 
     $redirparams = array();
 
-    $redirparams["url"]         = isset($anonymous_login) ? "" : $path;
+    if (!isset($anonymous_login)) {
+        $redirparams["url"] = $path;
+    }
     $redirparams["auto"]        = $autologgedout ? "true" : "";
     $redirparams["nocookies"]   = $nocookies ? "true" : "";
 
@@ -238,6 +240,11 @@ if (hook("replacesitetextloader")) {
 }   /* end replacesitetextloader */
 
 $GLOBALS['plugins'] = register_group_access_plugins($usergroup, $plugins ?? []);
+if (preg_match('/^' . preg_quote($baseurl_short, '/') . 'plugins\/([\w-]+)\//', $_SERVER['REQUEST_URI'], $matches)) {
+    if (!in_array($matches[1], $GLOBALS['plugins'])) {
+        redirect($baseurl);
+    }
+}
 
 // Load user config options
 process_config_options(array('usergroup' => $usergroup));

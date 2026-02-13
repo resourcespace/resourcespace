@@ -157,23 +157,20 @@ if (!$simplesaml_rsconfig
     }
 
     if ($simplesaml_rsconfig !== 0) {
+        $ssp_base_url = sprintf(
+            '%s/plugins/simplesaml/lib/%s/module.php/saml/sp',
+            $baseurl,
+            $simplesaml_use_www ? 'www' : 'public'
+        );
+        $useauthsource = 'resourcespace-sp'; # default SP
+
         if (isset($simplesamlconfig["authsources"])) {
-            $ssp_base_url = sprintf(
-                '%s/plugins/simplesaml/lib/%s/module.php/saml/sp',
-                $baseurl,
-                $simplesaml_use_www ? 'www' : 'public'
-            );
             foreach ($simplesamlconfig['authsources'] as $authsource => $authdata) {
                 if ($authsource == "admin") {
                     continue;
                 }
-            $useauthsource = $authsource;
+                $useauthsource = $authsource;
             }
-
-        } else {
-            // This is now the default
-            $ssp_base_url =  $baseurl . '/plugins/simplesaml/lib/public/module.php/saml/sp';
-            $useauthsource = 'resourcespace-sp';
         }
 
         $spdata = [

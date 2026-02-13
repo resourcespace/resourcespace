@@ -995,7 +995,7 @@ function ModalCentre()
         modalmaxheight = 'auto';
         modalwidth = 'auto';
     } else {
-        modalmaxheight = "calc(100% - 100px)";
+        modalmaxheight = "calc(100vh - 100px)";
         modalwidth = 1235;
     }
 

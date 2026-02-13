@@ -715,7 +715,7 @@ if ((!isset($newfile)) && (!in_array($extension, array_merge($ffmpeg_audio_exten
             $eps_density_x = $eps_data_x / $eps_bbox_x * 72;
             $eps_density_y = $eps_data_y / $eps_bbox_y * 72;
             $eps_target = get_resource_path($ref, true, "", false, "miff");
-            $nfcommand = $convert_fullpath . ' -compress zip -colorspace ' . $imagemagick_colorspace . ' -quality 100 -density ' . sprintf("%.1f", $eps_density_x) . 'x' . sprintf("%.1f", $eps_density_y) . ' ' . escapeshellarg($file) . '[0] ' . escapeshellarg($eps_target);
+            $nfcommand = $convert_fullpath . ' ' .  escapeshellarg($file) . '[0] ' . ' -compress zip -colorspace '. $imagemagick_colorspace . ' -quality 100 -density ' . sprintf("%.1f", $eps_density_x) . 'x' . sprintf("%.1f", $eps_density_y) . ' ' . escapeshellarg($eps_target);
             $output = run_command($nfcommand);
             if (file_exists($eps_target)) {
                 $extension = 'miff';

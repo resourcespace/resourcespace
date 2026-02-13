@@ -111,7 +111,7 @@ foreach ($recentactions as $notifyuser => $user_actions) {
             } else {
                 $actionusername = isset($actionfromuser["fullname"]) ? $actionfromuser["fullname"] : $actionfromuser["username"];
             }
-            $usernotification->append_text('<td>' . escape($actionusername) . '</td>');
+            $usernotification->append_text('<td>' . escape((string) $actionusername) . '</td>');
             $usernotification->append_text('<td>' . escape(tidy_trim((string) $user_action["description"], 200)) . '</td>');
             $usernotification->append_text('<td>');
             $langtype = 'actions_type_' . $user_action['type'];

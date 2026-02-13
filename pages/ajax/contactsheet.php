@@ -317,15 +317,15 @@ if ($preview && isset($imagemagick_path)) {
     ];
     run_command($command, false, $cmdparams);
 
-    $command = "{$convert_fullpath} -resize %%CONTACT_SHEET_PREVIEW_SIZE%% -quality 90 -colorspace %%IMAGEMAGICK_COLORSPACE%% %%CONTACT_SHEET_RIP%% %%CONTACT_SHEET_PREVIEW_IMG%%"
+    $command = "{$convert_fullpath} %%CONTACT_SHEET_RIP%% -resize %%CONTACT_SHEET_PREVIEW_SIZE%% -quality 90 -colorspace %%IMAGEMAGICK_COLORSPACE%% %%CONTACT_SHEET_PREVIEW_IMG%%"
     . (($config_windows) ? '' : ' 2>&1');
     $cmdparams = [
+        '%%CONTACT_SHEET_RIP%%' => new CommandPlaceholderArg($contact_sheet_rip, 'is_safe_basename'),
         '%%CONTACT_SHEET_PREVIEW_SIZE%%' => new CommandPlaceholderArg(
             $contact_sheet_preview_size,
             'is_valid_contact_sheet_preview_size'
         ),
         '%%IMAGEMAGICK_COLORSPACE%%' => $imagemagick_colorspace,
-        '%%CONTACT_SHEET_RIP%%' => new CommandPlaceholderArg($contact_sheet_rip, 'is_safe_basename'),
         '%%CONTACT_SHEET_PREVIEW_IMG%%' => new CommandPlaceholderArg($contact_sheet_preview_img, 'is_safe_basename'),
     ];
     run_command($command, false, $cmdparams);

@@ -36,7 +36,7 @@ function HookLightbox_previewViewRenderbeforerecorddownload($disable_flag)
         }
 
     $title             = get_data_by_field($resource['ref'], $title_field);
-    $page_count        = get_page_count($resource);
+    $page_count        = (get_resource_access($resource) == RESOURCE_ACCESS_RESTRICTED) ? 1 : get_page_count($resource);
 
     for($i = 1; $i < $page_count + 1; $i++)
         {

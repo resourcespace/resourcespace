@@ -705,6 +705,16 @@ function collection_readable($collection)
     global $userref, $usergroup, $ignore_collection_access, $collection_commenting;
 
     $k = getval('k', '');
+    if ($k != '') {
+        # Silent check on access key - not updating lastused in external_access_keys
+        #  *** This check should not replace access checking on load of the page ***
+        if (!isset($GLOBALS['collection_readable_key_check_cache'][$collection . $k])) {
+            $GLOBALS['collection_readable_key_check_cache'][$collection . $k] = check_access_key_collection($collection, $k, false);
+        }
+        $valid_external_access_key = $GLOBALS['collection_readable_key_check_cache'][$collection . $k];
+    } else {
+        $valid_external_access_key = false;
+    }
 
     # Fetch collection details.
     if (!is_numeric($collection)) {
@@ -726,7 +736,7 @@ function collection_readable($collection)
         ($collection_commenting && $collectiondata['request_feedback'] == 1)
         || $collectiondata['type'] == COLLECTION_TYPE_PUBLIC
         || ($collectiondata['type'] == COLLECTION_TYPE_FEATURED && featured_collection_check_access_control($collection))
-        || $k != ""
+        || $valid_external_access_key
         || ($k == "" && $ignore_collection_access)
     ) {
         return true;
@@ -748,7 +758,7 @@ function collection_readable($collection)
             || in_array($userref, $attached)
             || in_array($usergroup, $attached_groups)
             || checkperm("R")
-            || $k != ""
+            || $valid_external_access_key
             || ($k == "" && $ignore_collection_access))
     ) {
         return true;
