@@ -4257,7 +4257,7 @@ function create_previews_using_im(
             // Do not run for alternative uploads
             extract_mean_colour($target, $ref);
             // Flag database. If this was run for e.g. a video or PDF it is not the full set of previews
-            $has_image = (($resource_data["file_extension"] ?? "") === $extension && ($generateall || $previewonly)) ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
+            $has_image = (!in_array($resource_data["file_extension"], $ffmpeg_supported_extensions) && $resource_data["file_extension"] != "pdf" && ($generateall || $previewonly)) ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
 
             ps_query("UPDATE resource SET has_image=?, preview_extension='jpg', preview_attempts=0, file_modified=NOW() WHERE ref = ?", ["i",$has_image, "i", $ref]);
         } else {

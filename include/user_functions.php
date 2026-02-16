@@ -1809,24 +1809,28 @@ function check_access_key($resources, $key, $checkcollection = true, $is_categor
         $anon_params = ['s', $anonymous_login];
     }
 
-    $keys = ps_query(
-        "
-            SELECT k.user,
-                   u.username,
-                   k.usergroup,
-                   k.expires,
-                   k.password_hash, 
-                   k.access,
-                   k.resource
-            FROM external_access_keys k 
-            LEFT JOIN user u ON u.ref = k.user
-            WHERE k.access_key = ?
-               AND k.resource IN (" . ps_param_insert(count($resources)) . ")
-               AND (k.expires IS NULL OR k.expires > now())
-               AND u.approved = 1 {$anon_sql}
-               ORDER BY k.access",
-        array_merge(array("s", $key), ps_param_fill($resources, "i"), $anon_params)
-    );
+    if (empty($resources)) {
+        $keys = [];
+    } else {
+        $keys = ps_query(
+            "
+                SELECT k.user,
+                       u.username,
+                       k.usergroup,
+                       k.expires,
+                       k.password_hash, 
+                       k.access,
+                       k.resource
+                FROM external_access_keys k 
+                LEFT JOIN user u ON u.ref = k.user
+                   WHERE k.access_key = ?
+                   AND k.resource IN (" . ps_param_insert(count($resources)) . ")
+                   AND (k.expires IS NULL OR k.expires > now())
+                   AND u.approved = 1 {$anon_sql}
+                   ORDER BY k.access",
+            array_merge(array("s", $key), ps_param_fill($resources, "i"), $anon_params)
+        );
+    }
 
     if (count($keys) == 0 || count(array_diff($resources, array_column($keys, "resource"))) > 0) {
         // Check if this is a request for a resource uploaded to an upload_share
