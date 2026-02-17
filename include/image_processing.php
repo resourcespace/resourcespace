@@ -3139,7 +3139,11 @@ function transform_file(string $sourcepath, string $outputpath, array $actions)
             if ($actions["new_height"] > 0) {
                 $cmd_args['%new_height'] = (int) $actions['new_height'];
                 $command .= 'x%new_height';
-                $command .= "!";
+
+                // Transform preview generation relies on IM to try to keep aspect ratio, so do not bypass it
+                if (!array_key_exists('preview', $actions) || $actions['preview'] !== true) {
+                    $command .= "!";
+                }
             }
         }
     }
