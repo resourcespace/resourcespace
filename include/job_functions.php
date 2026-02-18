@@ -457,7 +457,6 @@ function get_job_type_priority($type = "")
  */
 function get_job_queue_log_path(string $type = "", string $job_code = "", string $job_ref = ""): string|false
 {
-    global $offline_job_list;
 
     if ($type === "" || $job_code === "" || $job_ref === "" 
             || !triggerable_job_check($type)) {
@@ -614,14 +613,28 @@ function job_trigger_permission_check(): bool
     return $offline_job_queue && checkperm('a') && $access_to_all_wf_states && checkperm('t') && checkperm('v') && checkperm('f*');
 }
 
+/**
+ * Determine whether a job type is user triggerable.
+ * This can stop system jobs from creating unnecessary log files.
+ *
+ * @return bool true if job is user triggerable, so logging is allowed
+ */
 function triggerable_job_check(string $type = ""): bool
 {
     global $offline_job_list;
+
+    // Build list of offline jobs - including from plugins
+    $offline_job_list_full = $offline_job_list;
+    $offline_job_list_hook = hook('addtriggerablejob', '', [], true);
+
+    if (!empty($offline_job_list_hook)) {
+        $offline_job_list_full = array_merge($offline_job_list, $offline_job_list_hook);
+    }
 
     if ($type === "") {
         return false;
     }
     
-    // Check if type is user triggerable - this may be ammended in future to allow some system jobs to create log files etc.
-    return in_array($type, array_values(array_filter(array_column($offline_job_list, 'script_name'))));
+    // Check if type is user triggerable - this may be amended in future to allow some system jobs to create log files etc.
+    return in_array($type, array_values(array_filter(array_column($offline_job_list_full, 'script_name'))));
 }

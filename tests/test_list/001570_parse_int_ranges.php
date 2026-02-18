@@ -14,6 +14,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 $lang['int_ranges_empty'],
             ],
@@ -30,6 +31,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -49,6 +51,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     ['%%PART%%', '%%MAX_VAL%%'],
@@ -69,6 +72,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -88,6 +92,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -107,6 +112,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     ['%%PART%%', '%%MAX_VAL%%'],
@@ -127,6 +133,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -146,6 +153,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     ['%%PART%%', '%%MAX_VAL%%'],
@@ -165,6 +173,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => true,
+            'numbers' => [],
             'errors' => [],
         ],
     ],
@@ -178,6 +187,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => true,
+            'numbers' => [],
             'errors' => [],
         ],
     ],
@@ -191,6 +201,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '*', $lang['int_ranges_not_valid']),
             ],
@@ -207,6 +218,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -226,6 +238,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '*', $lang['int_ranges_not_valid']),
             ],
@@ -241,6 +254,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '*', $lang['int_ranges_not_valid']),
                 str_replace('%%PART%%', '0', $lang['int_ranges_single_below_1']),
@@ -259,6 +273,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -279,6 +294,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(
                     '%%PART%%',
@@ -298,6 +314,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '0', $lang['int_ranges_single_below_1']),
                 str_replace(['%%PART%%','%%MAX_VAL%%'], ['6', 5], $lang['int_ranges_single_above_max']),
@@ -315,6 +332,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '5-3', $lang['int_ranges_range_reversed']),
                 str_replace('%%PART%%', '0-2', $lang['int_ranges_range_below_1']),
@@ -332,6 +350,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', 'abc', $lang['int_ranges_not_valid']),
                 str_replace('%%PART%%', '9-1', $lang['int_ranges_range_reversed']),
@@ -350,6 +369,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '9-*', $lang['int_ranges_not_valid']),
                 str_replace(['%%PART%%','%%MAX_VAL%%'], ['6', 5], $lang['int_ranges_single_above_max']),
@@ -368,6 +388,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(['%%PART%%','%%MAX_VAL%%'], ['11-*', 10], $lang['int_ranges_range_above_max']),
                 str_replace('%%PART%%', '*-3', $lang['int_ranges_not_valid']),
@@ -386,6 +407,7 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace(['%%PART%%','%%MAX_VAL%%'], ['2-9', 6], $lang['int_ranges_range_above_max']),
                 str_replace(['%%PART%%','%%MAX_VAL%%'], ['7', 6], $lang['int_ranges_single_above_max']),
@@ -404,11 +426,97 @@ $use_cases = [
         ],
         'expected' => [
             'ok' => false,
+            'numbers' => [],
             'errors' => [
                 str_replace('%%PART%%', '0', $lang['int_ranges_single_below_1']),
                 str_replace('%%PART%%', '4-2', $lang['int_ranges_range_reversed']),
                 str_replace('%%PART%%', 'abc', $lang['int_ranges_not_valid']),
             ],
+        ],
+    ],
+    // Valid inputs
+    [
+        'name' => 'Valid single number',
+        'input' => [
+            'input' => '3',
+            'max_val' => 0,
+            'optional' => false,
+            'allow_wildcard' => false,
+        ],
+        'expected' => [
+            'ok' => true,
+            'numbers' => [3],
+            'errors' => [],
+        ],
+    ],
+    [
+        'name' => 'Valid multiple numbers',
+        'input' => [
+            'input' => '5,7,90',
+            'max_val' => 0,
+            'optional' => false,
+            'allow_wildcard' => false,
+        ],
+        'expected' => [
+            'ok' => true,
+            'numbers' => [5,7,90],
+            'errors' => [],
+        ],
+    ],
+    [
+        'name' => 'Valid range',
+        'input' => [
+            'input' => '5-11',
+            'max_val' => 0,
+            'optional' => false,
+            'allow_wildcard' => false,
+        ],
+        'expected' => [
+            'ok' => true,
+            'numbers' => [5,6,7,8,9,10,11],
+            'errors' => [],
+        ],
+    ],
+    [
+        'name' => 'Valid multiple ranges',
+        'input' => [
+            'input' => '1-3,5-11',
+            'max_val' => 0,
+            'optional' => false,
+            'allow_wildcard' => false,
+        ],
+        'expected' => [
+            'ok' => true,
+            'numbers' => [1,2,3,5,6,7,8,9,10,11],
+            'errors' => [],
+        ],
+    ],
+    [
+        'name' => 'Valid multiple overlapping ranges',
+        'input' => [
+            'input' => '5-11,7-9',
+            'max_val' => 0,
+            'optional' => false,
+            'allow_wildcard' => false,
+        ],
+        'expected' => [
+            'ok' => true,
+            'numbers' => [5,6,7,8,9,10,11],
+            'errors' => [],
+        ],
+    ],
+    [
+        'name' => 'Valid mix',
+        'input' => [
+            'input' => '6,5-11,7-9,12,1',
+            'max_val' => 0,
+            'optional' => false,
+            'allow_wildcard' => false,
+        ],
+        'expected' => [
+            'ok' => true,
+            'numbers' => [1,5,6,7,8,9,10,11,12],
+            'errors' => [],
         ],
     ],
 

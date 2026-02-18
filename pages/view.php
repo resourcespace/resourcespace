@@ -573,7 +573,7 @@ if ($k!="" && !$internal_share_access) {$edit_access=0;}
                         }
                     }
 
-                    if (!hook('replaceviewtitle')) {
+                    if (!hook('replaceviewtitle') && metadata_field_view_access($title_field)) {
                         // Title should already be present in $fields array, if not use get_data_by_field()
                         $idxtitle = array_search($title_field, array_column($fields, "resource_type_field"));
                         $resourcetitle = $idxtitle ? $fields[$idxtitle]["value"] : get_data_by_field($resource['ref'], $title_field);

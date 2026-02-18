@@ -35,7 +35,7 @@ $triggerjob = getval("trigger_job", "");
 
 // Build list of offline jobs - including from plugins
 $offline_job_list_full = $offline_job_list;
-$offline_job_list_hook = hook('addjobtriggerpage', '', [], true);
+$offline_job_list_hook = hook('addtriggerablejob', '', [], true);
 
 if (!empty($offline_job_list_hook)) {
     $offline_job_list_full = array_merge($offline_job_list, $offline_job_list_hook);

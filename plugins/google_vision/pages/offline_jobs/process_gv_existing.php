@@ -46,7 +46,7 @@ if ($save != '' && enforcePostRequest(false)) {
     
     $valid_data = true;
 
-    $processed_collection_refs = parse_int_ranges($collection_refs, 0, true);
+    $processed_collection_refs = parse_int_ranges($collection_refs, 0, true, false);
     
     if (!empty($processed_collection_refs['errors'])) {
         $field_errors['collection_refs'] = $processed_collection_refs['errors'];

@@ -18,7 +18,7 @@ if (isset($job_data['collection_refs']) && !empty($job_data['collection_refs']))
     $ignore_resource_type_constraint = true;
     $resources = array();
 
-    $collection_refs = parse_int_ranges($job_data['collection_refs'], 0);
+    $collection_refs = parse_int_ranges($job_data['collection_refs'], 0, true, false);
 
     if ($collection_refs["ok"]) {
         $collections = $collection_refs['numbers'];
