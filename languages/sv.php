@@ -1153,7 +1153,7 @@ $lang['reportbug-detail'] = "Följande information har sammanställts till buggr
 $lang['reportbug-login'] = "&gt; Obs! Klicka här för att logga in i bugghanteringssystemet <i>innan</i> du klickar på <b>Förbered&nbsp;buggrapport</b>";
 $lang['reportbug-preparebutton'] = "Förbered buggrapport";
 
-$lang["enterantispamcode"] = "Anti-Spam, vänligen ange följande kod";
+$lang["enterantispamcode"] = "Vänligen ange följande kod";
 
 $lang["groupaccess"] = "Gruppåtkomst";
 $lang["plugin-groupsallaccess"] = "Detta tillägg är aktiverat för alla grupper";

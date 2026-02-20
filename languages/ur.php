@@ -1423,7 +1423,6 @@ $lang["reportbug"] = 'ResourceSpace ٹیم کے لیے بگ رپورٹ تیار 
 $lang["reportbug-detail"] = 'مندرجہ ذیل معلومات بگ رپورٹ میں شامل کرنے کے لیے مرتب کی گئی ہیں۔ آپ رپورٹ جمع کروانے سے پہلے تمام قدروں کو تبدیل کر سکیں گے۔';
 $lang["reportbug-login"] = 'نوٹ: تیار کرنے پر کلک کرنے سے پہلے بگ ٹریکر میں لاگ ان کرنے کے لیے یہاں کلک کریں۔';
 $lang["reportbug-preparebutton"] = 'بگ رپورٹ تیار کریں';
-$lang["enterantispamcode"] = 'اینٹی سپیم، براہ کرم درج ذیل کوڈ درج کریں';
 $lang["groupaccess"] = 'گروپ تک رسائی';
 $lang["plugin-groupsallaccess"] = 'یہ پلگ ان تمام گروپس کے لیے فعال ہے۔';
 $lang["plugin-groupsspecific"] = 'یہ پلگ ان صرف منتخب گروپوں کے لیے فعال ہے۔';

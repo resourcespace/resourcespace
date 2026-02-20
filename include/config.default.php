@@ -2380,6 +2380,9 @@ $resource_contact_link = false;
 // Hide Welcome Text
 $no_welcometext = false;
 
+// Show login page welcome text
+$show_login_welcome_text = false;
+
 // Display fields with display templates in their ordered position instead of at the end of the metadata on the view page.
 $force_display_template_orderby = false;
 
@@ -2917,7 +2920,7 @@ $CORS_whitelist =
 $csp_frame_ancestors = [];
 
 /* Font selection */
-$global_font = "Inter";
+$global_font = "Atkinson Hyperlegible Next";
 
 // Sort tabs alphabetically
 $sort_tabs = true;

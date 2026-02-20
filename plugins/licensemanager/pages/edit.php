@@ -274,7 +274,7 @@ foreach ($license_usage_mediums as $medium)
 
 <div class="Question">
     <label for="expires"><?php echo escape($lang["fieldtitle-expiry_date"]); ?></label>
-    <input type=date name="expires" id="expires" min="<?php echo $minyear . "-01-01"; ?>" max="<?php echo date("Y") + 30 . "-12-31"; ?>" value="<?php echo escape((string) $license["expires"]); ?>" />
+    <input type=date name="expires" id="expires" min="<?php echo escape($minyear) . "-01-01"; ?>" max="<?php echo date("Y") + 30 . "-12-31"; ?>" value="<?php echo escape((string) $license["expires"]); ?>" />
 
     <!-- Option for no expiry date -->
     &nbsp;&nbsp;&nbsp;&nbsp;

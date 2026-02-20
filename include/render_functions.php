@@ -6103,26 +6103,24 @@ function render_antispam_question()
     $imagedata = ob_get_contents();
     ob_end_clean();
     ?>
-    <div class="Question">
+    <div class="field-input">
         <input type="hidden" name="antispamcode" value="<?php echo $rndcode; ?>">
         <input type="hidden" name="antispamtime" value="<?php echo $timestamp; ?>">
-        <label for="antispam"><?php echo escape($lang["enterantispamcode"]); ?> <sup>*</sup><br>
-            <div 
-                id="AntiSpamImage"
-                title="Anti-spam image"
-                style="
-                    margin: 5px 0;
-                    background: url(data:image/gif;base64,<?php echo base64_encode($imagedata); ?>) top left no-repeat;
-                    height: <?php echo $height; ?>px;
-                    width: <?php echo $width; ?>px;
-                    border-radius: 6px;
-                    display: inline-block;
-            ">
-            </div>
-        </label> 
-        <input type="text" name="antispam_user_code" class="stdwidth" value="">
-        <input type=text name="antispam" id="antispam" class="stdwidth" value="" required>
-        <div class="clearerleft"></div>        
+        <label for="antispam"><?php echo escape($lang["antispam"]); ?><br></label> 
+        <div class="field-hint-text"><?php echo escape($lang["enterantispamcode"]); ?></div>
+        <div 
+            id="AntiSpamImage"
+            title="Anti-spam image"
+            style="
+                margin: 4px 0 0 0;
+                background: url(data:image/gif;base64,<?php echo base64_encode($imagedata); ?>) top left no-repeat;
+                height: <?php echo $height; ?>px;
+                width: <?php echo $width; ?>px;
+                display: inline-block;
+        ">
+        </div>
+        <input type="text" name="antispam_user_code" value="">
+        <input type=text name="antispam" id="antispam" value="" required>     
     </div>
     <?php
     }

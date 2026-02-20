@@ -172,7 +172,7 @@ $where_statements = array( // Where Statements
 );
 
 if (
-    count(get_activity_log('sorry, your login', 0, null, $where_statements, "user", false)) == 0
+    count(get_activity_log('username or password are incorrect', 0, null, $where_statements, "user", false)) == 0
     || count(get_activity_log('disabled', 0, null, $where_statements, "user", false)) == 0
     || count(get_activity_log('expired', 0, null, $where_statements, "user", false)) == 0
 ) {

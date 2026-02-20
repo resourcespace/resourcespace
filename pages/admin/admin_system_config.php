@@ -17,17 +17,17 @@ $enable_disable_options = array($lang['userpreference_disable_option'], $lang['u
 $yes_no_options         = array($lang['no'], $lang['yes']);
 
 // System section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead">' . $lang['systemsetup'] . '</h3><div id="SystemConfigSystemSection" class="CollapsibleSection">');
-$page_def[] = config_add_text_input('applicationname', $lang['setup-applicationname'], false, 420, false, '', true);
-$page_def[] = config_add_text_input('email_from', $lang['setup-emailfrom'], false, 420, false, '', true);
-$page_def[] = config_add_text_input('email_notify', $lang['setup-emailnotify'], false, 420, false, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead"><i class="icon-settings"></i>&nbsp;' . $lang['systemsetup'] . '</h3><div id="SystemConfigSystemSection" class="CollapsibleSection">');
+$page_def[] = config_add_text_input('applicationname', $lang['setup-applicationname'], false, 420, false, null, true);
+$page_def[] = config_add_text_input('email_from', $lang['setup-emailfrom'], false, 420, false, null, true);
+$page_def[] = config_add_text_input('email_notify', $lang['setup-emailnotify'], false, 420, false, null, true);
 $page_def[] = config_add_single_select(
     'user_local_timezone',
     $lang['systemconfig_user_local_timezone'],
     timezone_identifiers_list(),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_text_input(
@@ -36,7 +36,7 @@ $page_def[] = config_add_text_input(
     false,
     420,
     false,
-    '',
+    null,
     true,
     false,
     'resourceadmin/download_filename_format'
@@ -44,7 +44,7 @@ $page_def[] = config_add_text_input(
 $page_def[] = config_add_html('</div>');
 
 // User interface section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['userpreference_user_interface'] . '</h3><div id="SystemConfigUserInterfaceSection" class="CollapsibleSection">');
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-users-round"></i>&nbsp;' . $lang['userpreference_user_interface'] . '</h3><div id="SystemConfigUserInterfaceSection" class="CollapsibleSection">');
 
 // Font selection
 $fontsdir = scandir(__DIR__ . "/../../css/fonts/");
@@ -55,7 +55,7 @@ foreach ($fontsdir as $f) {
         $fonts[$fn] = $fn;
     }
 }
-$page_def[] = config_add_single_select('global_font', $lang['font'], $fonts, true, 420, '', true, "jQuery('#global_font_link').attr('href','" .  $baseurl . "/css/fonts/' + this.value + '.css');");
+$page_def[] = config_add_single_select('global_font', $lang['font'], $fonts, true, 420, null, true, "jQuery('#global_font_link').attr('href','" .  $baseurl . "/css/fonts/' + this.value + '.css');");
 
 $page_def[] = config_add_file_input(
     'custom_font',
@@ -138,30 +138,45 @@ $page_def[] = config_add_colouroverride_input(
     true,
     "jQuery('button:not(.search-icon),input[type=submit],input[type=button],.RecordPanel .RecordDownloadSpace .DownloadDBlend a,.UploadButton a').css('background-color',value);"
 );
-$page_def[] = config_add_single_select('thumbs_default', $lang['userpreference_thumbs_default_label'], array('show' => $lang['showthumbnails'], 'hide' => $lang['hidethumbnails']), true, 420, '', true);
-$page_def[] = config_add_boolean_select('resource_view_modal', $lang['userpreference_resource_view_modal_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('modal_default', $lang['systemconfig_modal_default'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('basic_simple_search', $lang['userpreference_basic_simple_search_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('comments_resource_enable', $lang['systemconfig_comments'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_single_select('upload_then_edit', $lang['default_upload_sequence'], array(true => $lang['upload_first_then_set_metadata'], false => $lang['set_metadata_then_upload']), true, 420, '', true);
-$page_def[] = config_add_boolean_select('byte_prefix_mode_decimal', $lang['byte_prefix_mode_decimal'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('tilenav', $lang['userpreference_tilenavdefault'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_single_select('thumbs_default', $lang['userpreference_thumbs_default_label'], array('show' => $lang['showthumbnails'], 'hide' => $lang['hidethumbnails']), true, 420, null, true);
+$page_def[] = config_add_boolean_select('resource_view_modal', $lang['userpreference_resource_view_modal_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('modal_default', $lang['systemconfig_modal_default'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('basic_simple_search', $lang['userpreference_basic_simple_search_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('comments_resource_enable', $lang['systemconfig_comments'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('byte_prefix_mode_decimal', $lang['byte_prefix_mode_decimal'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('tilenav', $lang['userpreference_tilenavdefault'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select(
     'use_native_input_for_date_field',
     $lang['systemconfig_use_native_input_for_date_field'],
     $enable_disable_options,
     420,
-    '',
+    null,
     true,
     null,
     false,
     $lang['systemconfig_native_date_input_no_partials_supported'],
 );
+$page_def[] = config_add_integer_input('slideshow_photo_delay', $lang['systemconfig_slideshow_photo_delay'], 2, 60, 55, null, true);
+$page_def[] = config_add_html('</div>');
+
+// General section
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-notebook-text"></i>&nbsp;' . $lang['systemconfig_general'] . '</h3><div id="SystemConfigGeneralSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('date_yyyy', $lang['systemconfig_date_yyyy'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('imperial_measurements', $lang['systemconfig_imperial_measurements'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('site_text_custom_create', $lang['systemconfig_site_text_custom_create'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('no_welcometext', $lang['systemconfig_no_welcometext'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('internal_preview_sizes_editable', $lang['systemconfig_internal_preview_sizes_editable'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('edit_autosave', $lang['systemconfig_edit_autosave'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('resource_request_reason_required', $lang['systemconfig_resource_request_reason_required'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('iiif_enabled', $lang['iiif_enable_option'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('research_request', $lang['systemconfig_research_request'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('custom_access', $lang['systemconfig_custom_access'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('enable_related_resources', $lang['systemconfig_enable_related_resources'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Annotations section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . escape($lang['annotate_annotations_label']) . '</h3><div id="SystemConfigSystemSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('annotate_enabled', $lang['annotate_annotations_label'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-square-pen"></i>&nbsp;' . escape($lang['annotate_annotations_label']) . '</h3><div id="SystemConfigSystemSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('annotate_enabled', $lang['annotate_annotations_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_multi_rtype_select('annotate_exclude_restypes', $lang['annotate_exclude_restypes'], 420);
 $page_def[] = config_add_multi_select(
     'annotate_fields',
@@ -177,13 +192,13 @@ $page_def[] = config_add_multi_select(
     true,
     412
 );
-$page_def[] = config_add_boolean_select('annotate_text_adds_comment', $lang['annotate_text_adds_comment'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('annotate_public_view', $lang['annotate_public_view'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('annotate_show_author', $lang['annotate_show_author'], $yes_no_options, 420, '', true);
+$page_def[] = config_add_boolean_select('annotate_text_adds_comment', $lang['annotate_text_adds_comment'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('annotate_public_view', $lang['annotate_public_view'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('annotate_show_author', $lang['annotate_show_author'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Watermark section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['watermark_header'] . '</h3><div id="SystemConfigWatermarkSection" class="CollapsibleSection">');
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-image-plus"></i>&nbsp;' . $lang['watermark_header'] . '</h3><div id="SystemConfigWatermarkSection" class="CollapsibleSection">');
 $page_def[] = config_add_file_input(
     'watermark',
     $lang['watermark_label'],
@@ -192,23 +207,25 @@ $page_def[] = config_add_file_input(
     array('png'),
     true
 );
+$page_def[] = config_add_boolean_select('watermark_open', $lang['systemconfig_watermark_open'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('watermark_open_search', $lang['systemconfig_watermark_open_search'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Multilingual section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_multilingual'] . '</h3><div id="SystemConfigMultilingualSection" class="CollapsibleSection">');
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-languages"></i>&nbsp;' . $lang['systemconfig_multilingual'] . '</h3><div id="SystemConfigMultilingualSection" class="CollapsibleSection">');
 
 // Add localised language for display when selecting languages.
 $display_languages = $languages;
 foreach ($display_languages as $key => $value) {
     $display_languages[$key] = get_display_language($key, $value);
 }
-$page_def[] = config_add_single_select('defaultlanguage', $lang['systemconfig_default_language_label'], $display_languages, true, 420, '', true);
-$page_def[] = config_add_boolean_select('disable_languages', $lang['disable_languages'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('browser_language', $lang['systemconfig_browser_language_label'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_single_select('defaultlanguage', $lang['systemconfig_default_language_label'], $display_languages, true, 420, null, true);
+$page_def[] = config_add_boolean_select('disable_languages', $lang['disable_languages'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('browser_language', $lang['systemconfig_browser_language_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Search section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['searchcapability'] . '</h3><div id="SystemConfigSearchSection" class="CollapsibleSection">');
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-zoom-in"></i>&nbsp;' . $lang['searchcapability'] . '</h3><div id="SystemConfigSearchSection" class="CollapsibleSection">');
 
 $sort_order_fields = array('relevance' => $lang['relevance']);
 
@@ -247,7 +264,7 @@ $page_def[] = config_add_single_select(
     $sort_order_fields,
     true,
     420,
-    '',
+    null,
     true
 );
 
@@ -257,7 +274,7 @@ $page_def[] = config_add_single_select(
     ['ASC' => 'Ascending', 'DESC' => 'Descending'],
     true,
     420,
-    '',
+    null,
     true
 );
 $default_display_array = array();
@@ -268,89 +285,116 @@ if ($xlthumbs || $GLOBALS['default_display'] == 'xlthumbs') {
 $default_display_array['list'] = $lang['listtitle'];
 $default_display_array['strip']  = $lang['striptitle'];
 
-$page_def[] = config_add_single_select('default_perpage', $lang['userpreference_default_perpage_label'], $results_display_array, false, 420, '', true);
+$page_def[] = config_add_single_select('default_perpage', $lang['userpreference_default_perpage_label'], $results_display_array, false, 420, null, true);
 $page_def[] = config_add_single_select(
     'default_display',
     $lang['userpreference_default_display_label'],
     $default_display_array,
     true,
     420,
-    '',
+    null,
     true
 );
-$page_def[] = config_add_boolean_select('archive_search', $lang['stat-archivesearch'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('display_resource_id_in_thumbnail', $lang['systemconfig_display_resource_id_in_thumbnail_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('advanced_search_contributed_by', $lang['systemconfig_advanced_search_contributed_by_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('advanced_search_media_section', $lang['systemconfig_advanced_search_media_section_label'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_boolean_select('archive_search', $lang['stat-archivesearch'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('display_resource_id_in_thumbnail', $lang['systemconfig_display_resource_id_in_thumbnail_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('advanced_search_contributed_by', $lang['systemconfig_advanced_search_contributed_by_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('advanced_search_media_section', $lang['systemconfig_advanced_search_media_section_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_integer_input('minyear', $lang['systemconfig_minyear'], 1500, (int) date('Y'), 55, null, true);
+$page_def[] = config_add_boolean_select('searchbyday', $lang['systemconfig_searchbyday'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_single_select('default_collection_sort', $lang['systemconfig_default_collection_sort'], array('date', 'colour', 'collection', 'popularity', 'country', 'resourcetype'), false, 420, null, true);
+$page_def[] = config_add_boolean_select('thumbs_display_archive_state', $lang['systemconfig_systemconfig_searchbyday'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_integer_input('recent_search_quantity', $lang['systemconfig_recent_search_quantity'], 10, 5000, 55, null, true);
+$page_def[] = config_add_boolean_select('category_tree_search_use_and', $lang['systemconfig_category_tree_search_use_and'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('category_tree_search_use_and_logic', $lang['systemconfig_category_tree_search_use_and_logic'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Navigation section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_navigation'] . '</h3><div id="SystemConfigNavigationSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('help_link', $lang['systemconfig_help_link_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('recent_link', $lang['systemconfig_recent_link_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('mycollections_link', $lang['systemconfig_mycollections_link_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('myrequests_link', $lang['systemconfig_myrequests_link_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('research_link', $lang['systemconfig_research_link_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('themes_navlink', $lang['systemconfig_themes_navlink_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('use_theme_as_home', $lang['systemconfig_use_theme_as_home_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('use_recent_as_home', $lang['systemconfig_use_recent_as_home_label'], $yes_no_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-monitor-cog"></i>&nbsp;' . $lang['systemconfig_navigation'] . '</h3><div id="SystemConfigNavigationSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('help_link', $lang['systemconfig_help_link_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('recent_link', $lang['systemconfig_recent_link_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('mycollections_link', $lang['systemconfig_mycollections_link_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('myrequests_link', $lang['systemconfig_myrequests_link_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('research_link', $lang['systemconfig_research_link_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('themes_navlink', $lang['systemconfig_themes_navlink_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('use_theme_as_home', $lang['systemconfig_use_theme_as_home_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('use_recent_as_home', $lang['systemconfig_use_recent_as_home_label'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Browse Bar section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_browse_bar_section'] . '</h3><div id="SystemConfigFeaturedCollectionSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('browse_bar', $lang['systemconfig_browse_bar_enable'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('browse_bar_workflow', $lang['systemconfig_browse_bar_workflow'], $yes_no_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-list-tree"></i>&nbsp;' . $lang['systemconfig_browse_bar_section'] . '</h3><div id="SystemConfigFeaturedCollectionSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('browse_bar', $lang['systemconfig_browse_bar_enable'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('browse_bar_workflow', $lang['systemconfig_browse_bar_workflow'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Collection section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['collections'] . '</h3><div id="SystemConfigCollectionSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('show_collection_name', $lang['systemconfig_show_collection_name'], $yes_no_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-folder"></i>&nbsp;' . $lang['collections'] . '</h3><div id="SystemConfigCollectionSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('show_collection_name', $lang['systemconfig_show_collection_name'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('enable_themes', $lang['systemconfig_enable_themes'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('themes_simple_view', $lang['systemconfig_themes_simple_view'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
-
-// Featured Collection section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_featured_collections'] . '</h3><div id="SystemConfigFeaturedCollectionSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('enable_themes', $lang['systemconfig_enable_themes'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('themes_simple_view', $lang['systemconfig_themes_simple_view'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_html('</div>');
-
-// Workflow section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_workflow'] . '</h3><div id="SystemConfigWorkflowSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('research_request', $lang['researchrequest'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_html('</div>');
-
 
 // Actions section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['actions'] . '</h3><div id="SystemConfigActionsSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('actions_enable', $lang['actions-enable'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('actions_resource_requests', $lang['actions_resource_requests_default'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('actions_account_requests', $lang['actions_account_requests_default'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-square-check"></i>&nbsp;' . $lang['actions'] . '</h3><div id="SystemConfigActionsSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('actions_enable', $lang['actions-enable'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('actions_resource_requests', $lang['actions_resource_requests_default'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('actions_account_requests', $lang['actions_account_requests_default'], $enable_disable_options, 420, null, true);
 
+$page_def[] = config_add_html('</div>');
+
+// Sharing section
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-share-2"></i>&nbsp;' . $lang['systemconfig_sharing'] . '</h3><div id="SystemConfigSharingSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('share_password_required', $lang['systemconfig_external_share_requires_password_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('external_share_groups_config_options', $lang['systemconfig_external_share_groups_config_options'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_integer_input('resource_share_expire_days_default', $lang['systemconfig_resource_share_expire_days_default'], 0, $resource_share_expire_days, 55, null, true);
+$page_def[] = config_add_boolean_select('restricted_share', $lang['systemconfig_restricted_share'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Metadata section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['metadata'] . '</h3><div id="SystemConfigMetadataSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('metadata_report', $lang['metadata-report'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('metadata_read_default', $lang['embedded_metadata'], array($lang['embedded_metadata_donot_extract_option'], $lang['embedded_metadata_extract_option']), 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-form"></i>&nbsp;' . $lang['metadata'] . '</h3><div id="SystemConfigMetadataSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('metadata_report', $lang['metadata-report'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('metadata_read_default', $lang['embedded_metadata'], array($lang['embedded_metadata_donot_extract_option'], $lang['embedded_metadata_extract_option']), 420, null, true);
+$page_def[] = config_add_boolean_select('blank_edit_template', $lang['systemconfig_blank_edit_template'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('enable_copy_data_from', $lang['systemconfig_enable_copy_data_from'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_html('</div>');
+
+// Resource view section
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-wallpaper"></i>&nbsp;' . $lang['systemconfig_resource_view'] . '</h3><div id="SystemConfigResourceViewSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('show_resourceid', $lang['systemconfig_show_resourceid'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('show_resource_type', $lang['systemconfig_show_resource_type'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('show_access_field', $lang['systemconfig_show_access_field'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('show_contributed_by', $lang['systemconfig_show_contributed_by'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('show_related_themes', $lang['systemconfig_show_related_themes'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('metadata_download', $lang['systemconfig_metadata_download'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_html('</div>');
+
+// Uploading section
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-upload"></i>&nbsp;' . $lang['systemconfig_uploading'] . '</h3><div id="SystemConfigUploadingSection" class="CollapsibleSection">');
+$page_def[] = config_add_single_select('upload_then_edit', $lang['default_upload_sequence'], array(true => $lang['upload_first_then_set_metadata'], false => $lang['set_metadata_then_upload']), true, 420, null, true);
+$page_def[] = config_add_boolean_select('upload_add_to_new_collection', $lang['systemconfig_upload_add_to_new_collection'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('upload_add_to_new_collection_opt', $lang['systemconfig_upload_add_to_new_collection_opt'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('upload_do_not_add_to_new_collection_opt', $lang['systemconfig_upload_do_not_add_to_new_collection_opt'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('upload_collection_name_required', $lang['systemconfig_upload_collection_name_required'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // User accounts section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_user_accounts'] . '</h3><div id="SystemConfigUserAccountsSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('allow_account_request', $lang['systemconfig_allow_account_request_label'], $yes_no_options, 420, '', true);
-$page_def[] = config_add_boolean_select('terms_download', $lang['systemconfig_terms_download_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('terms_login', $lang['systemconfig_terms_login_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('terms_upload', $lang['systemconfig_terms_upload_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('user_rating', $lang['systemconfig_user_rating_label'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-user-round"></i>&nbsp;' . $lang['systemconfig_user_accounts'] . '</h3><div id="SystemConfigUserAccountsSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('allow_account_request', $lang['systemconfig_allow_account_request_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('terms_download', $lang['systemconfig_terms_download_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('terms_login', $lang['systemconfig_terms_login_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('terms_upload', $lang['systemconfig_terms_upload_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('user_rating', $lang['systemconfig_user_rating_label'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_integer_input('inactive_user_disable_days', $lang['systemconfig_inactive_user_disable_days'], 30, 1825, 55, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Security section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_security'] . '</h3><div id="SystemConfigSecuritySection" class="CollapsibleSection">');
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-key-round"></i>&nbsp;' . $lang['systemconfig_security'] . '</h3><div id="SystemConfigSecuritySection" class="CollapsibleSection">');
 $page_def[] = config_add_single_select(
     'password_min_length',
     $lang['systemconfig_password_min_length_label'],
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -359,7 +403,7 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -368,7 +412,7 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -377,7 +421,7 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -386,7 +430,7 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -395,7 +439,7 @@ $page_def[] = config_add_single_select(
     array_merge(array(0 => $lang['never']), range(1, 90)),
     true,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -404,7 +448,7 @@ $page_def[] = config_add_single_select(
     range(10, 50),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -413,7 +457,7 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -422,7 +466,7 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
 $page_def[] = config_add_single_select(
@@ -431,26 +475,26 @@ $page_def[] = config_add_single_select(
     range(0, 30),
     false,
     420,
-    '',
+    null,
     true
 );
-$page_def[] = config_add_boolean_select('share_password_required', $lang['systemconfig_external_share_requires_password_label'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_html('</div>');
-
-// API section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['systemconfig_api'] . '</h3><div id="SystemConfigAPISection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('iiif_enabled', $lang['iiif_enable_option'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_boolean_select('allow_password_change', $lang['systemconfig_allow_password_change'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('allow_password_reset', $lang['systemconfig_allow_password_reset'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('allow_keep_logged_in', $lang['systemconfig_allow_keep_logged_in'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select('remember_me_checked', $lang['systemconfig_remember_me_checked'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_integer_input('session_length', $lang['systemconfig_session_length'], 30, 1440, 55, null, true);
+$page_def[] = config_add_boolean_select('session_autologout', $lang['systemconfig_session_autologout'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Search engines section
-$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed">' . $lang['system_config_search_engines'] . '</h3><div id="SystemConfigSearchEngineSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('search_engine_noindex', $lang['search_engine_noindex'], $enable_disable_options, 420, '', true);
-$page_def[] = config_add_boolean_select('search_engine_noindex_external_shares', $lang['search_engine_noindex_external_shares'], $enable_disable_options, 420, '', true);
+$page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-globe"></i>&nbsp;' . $lang['system_config_search_engines'] . '</h3><div id="SystemConfigSearchEngineSection" class="CollapsibleSection">');
+$page_def[] = config_add_boolean_select('search_engine_noindex', $lang['search_engine_noindex'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select('search_engine_noindex_external_shares', $lang['search_engine_noindex_external_shares'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Debug section
 $page_def[] = config_add_html(
-    '<h3 class="CollapsibleSectionHead collapsed">' . escape($lang['systemconfig_debug']) . '</h3>'
+    '<h3 class="CollapsibleSectionHead collapsed"><i class="icon-bug-off"></i>&nbsp;' . escape($lang['systemconfig_debug']) . '</h3>'
     . '<div id="SystemConfigDebugSection" class="CollapsibleSection">'
 );
 
@@ -560,7 +604,7 @@ if ('true' === getval('ajax', '') && 'true' === getval('autosave', '')) {
     // Search for the option name within our defined (allowed) options
     // if it is not there, error and don't allow saving it
     $page_def_option_index = array_search($autosave_option_name, array_column($page_def, 1));
-    if (false === $page_def_option_index) {
+    if (false === $page_def_option_index || !config_check_valid_option($page_def[$page_def_option_index], $autosave_option_value)) {
         $response['success'] = false;
         $response['message'] = $lang['systemconfig_option_not_allowed_error'];
 
@@ -568,7 +612,7 @@ if ('true' === getval('ajax', '') && 'true' === getval('autosave', '')) {
         exit();
     }
 
-    if (!set_config_option(null, $autosave_option_name, $autosave_option_value)) {
+    if (!set_config_option(null, $autosave_option_name, $autosave_option_value, 'System configuration change')) {
         $response['success'] = false;
     }
 

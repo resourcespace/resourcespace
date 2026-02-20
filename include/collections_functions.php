@@ -3022,6 +3022,8 @@ function swap_collection_order($resource1, $resource2, $collection)
  */
 function update_collection_order($neworder, $collection, $offset = 0)
 {
+    global $pagename, $username;
+
     if (!is_array($neworder)) {
         exit("Error: invalid input to update collection function.");
     }
@@ -3041,6 +3043,22 @@ function update_collection_order($neworder, $collection, $offset = 0)
     }
     $updatesql = "update collection_resource set sortorder=99999 WHERE collection= ? and sortorder is NULL";
     ps_query($updatesql, ['i', $collection]);
+    // Only log reordering if there is something new to log, i.e. different user, ordered from a different page
+    $last_log = get_collection_log($collection, 1);
+    if (
+        (
+            count($last_log['data']) > 0
+            && (
+                $last_log['data'][0]['type'] !== LOG_CODE_COLLECTION_REORDER 
+                || date('Y-m-d', strtotime($last_log['data'][0]['date'])) !== date('Y-m-d')
+                || strpos($last_log['data'][0]['notes'], $pagename) == 0
+                || $last_log['data'][0]['username'] !== $username
+            )
+        )
+        || count($last_log['data']) == 0
+    ) {
+        collection_log($collection, LOG_CODE_COLLECTION_REORDER, null, "Collection reordered via " . $pagename);
+    }
 }
 
 /**

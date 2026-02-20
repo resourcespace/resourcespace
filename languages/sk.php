@@ -1365,7 +1365,7 @@ $lang['reportbug-detail'] = "Nasledujúce informácie boli zostavené na zahrnut
 $lang['reportbug-login'] = "POZNÁMKA: Kliknite sem, aby ste sa prihlásili do systému sledovaniu chýb, skôr než kliknete na pripraviť.";
 $lang['reportbug-preparebutton'] = "Pripraviť hlásenie o chybe";
 
-$lang["enterantispamcode"] = "Anti-Spam, zadajte nasledujúci kód";
+$lang["enterantispamcode"] = "Zadajte nasledujúci kód";
 
 $lang["groupaccess"] = "Skupinový prístup";
 $lang["plugin-groupsallaccess"] = "Toto rozšírenie je aktivované pre všetky skupiny";

@@ -113,13 +113,15 @@ function render_text_option($fieldname, $value, $size = 20, $units = '')
 /**
 * Save/ Update config option for user preference or system config. For user group config see set_usergroup_config_option().
 *
-* @param  integer  $user_id      Current user ID. Use NULL for system wide config options
-* @param  string   $param_name   Parameter name
-* @param  string   $param_value  Parameter value
+* @param  integer  $user_id             Current user ID. Use NULL for system wide config options
+* @param  string   $param_name          Parameter name
+* @param  string   $param_value         Parameter value
+* @param  string   $activity_log_note   Optional. Allows a note to be recorded in the activity log entry.
+*                                       Helpful to record the origin of the configuration change.
 *
 * @return boolean
 */
-function set_config_option($user_id, $param_name, $param_value)
+function set_config_option($user_id, $param_name, $param_value, ?string $activity_log_note = null)
 {
     // We do allow for param values to be empty strings or 0 (zero)
     if (empty($param_name) || is_null($param_value)) {
@@ -154,13 +156,12 @@ function set_config_option($user_id, $param_name, $param_value)
         $query = "UPDATE user_preferences SET `value` = ? WHERE " . $user_query . " AND parameter = ?";
         $params[] = "s";
         $params[] = $param_name;
-
-        if (is_null($user_id)) {      // only log activity for system changes, i.e. when user not specified
-            log_activity(null, LOG_CODE_EDITED, $param_value, 'user_preferences', 'value', "parameter='" . $param_name . "'", null, $current_param_value);
-        }
     } else {
         $params  = ["i",$user_id,"s",$param_name,"s",$param_value,];
     }
+
+    log_activity($activity_log_note, LOG_CODE_EDITED, $param_value, 'user_preferences', 'value', "parameter='" . $param_name . "'", null, $current_param_value);
+
     ps_query($query, $params);
 
     // Clear disk cache
@@ -205,6 +206,8 @@ function set_usergroup_config_option(int $usergroup_id, string $param_name, ?str
         $params  = ["i", $usergroup_id, "s", $param_name, "s", $param_value];
     }
 
+    log_activity('User group configuration change', LOG_CODE_EDITED, $param_value, 'user_preferences', 'value', "parameter='" . $param_name . "'", null, $current_param_value);
+
     ps_query($query, $params);
 
     // Clear disk cache
@@ -226,7 +229,7 @@ function set_usergroup_config_option(int $usergroup_id, string $param_name, ?str
  *
  * @return bool       True if preference was deleted else false.
  */
-function delete_config_option(array $config_type, string $param_name): bool
+function delete_config_option(array $config_type, string $param_name, ?string $activity_log_note = null): bool
 {
     if (empty($param_name)) {
         return false;
@@ -262,7 +265,7 @@ function delete_config_option(array $config_type, string $param_name): bool
 
         if (count($config_type) === 0) {
             // only log activity for system changes, i.e. when user not specified
-            log_activity(null, LOG_CODE_DELETED, null, 'user_preferences', 'value', "parameter='" . $param_name . "'", null, $current_param_value);
+            log_activity($activity_log_note, LOG_CODE_DELETED, null, 'user_preferences', 'value', "parameter='" . $param_name . "'", null, $current_param_value);
         }
 
         ps_query($query, $params);
@@ -647,6 +650,85 @@ function config_text_input($name, $label, $current, $password = false, $width = 
     <?php
 }
 
+
+/**
+ * Generate an HTML form element for input of integer only values. Field will include validation for supplied value being of type
+ * int and between supplied min and max values.
+ * ** While this function can handle client side validation, config_check_valid_option() must be used on save to allow for server
+ * side checking of the value. For an example, see pages/admin/admin_system_config.php
+ *
+ * @param  string   $name        The name of the configuration variable to be added.
+ * @param  string   $label       The user text displayed to label the text block. Usually a $lang string.
+ * @param  string   $current     The current value of the config variable being set.
+ * @param  int      $min_value   Minimum value permitted in field.
+ * @param  int      $max_value   Maximum value permitted in field.
+ * @param  int      $width       The width of the input field in pixels. Default: 55.
+ * @param  string   $title       The title attribute of the element
+ * @param  bool     $autosave    Enable auto-saving of changes when focus is lost
+ * @param  bool     $hidden      Whether field is hidden on the page
+ * @param  string   $help_link   Help link to be displayed alongside the label.
+ * 
+ * @return void
+ */
+function config_integer_input($name, $label, $current, $min_value, $max_value, $width = 55, $title = null, $autosave = false, $hidden = false, $help_link = ""): void
+{
+    global $lang;
+
+    if (is_null($title)) {
+        // This is how it was used on plugins setup page. Makes sense for developers when trying to debug and not much for non-technical users
+        $title = str_replace('%cvn', $name, $lang['plugins-configvar']);
+    }
+    ?>
+
+    <div class="Question" id="question_<?php echo escape($name); ?>" <?php echo $hidden ? 'style="display:none;"' : ''; ?>>
+        <label for="<?php echo escape($name); ?>" title="<?php echo escape($title); ?>">
+            <?php
+            echo strip_tags_and_attributes($label, ['a'], ['href', 'target']);
+            if ($help_link !== "") {
+                render_help_link($help_link);
+            }
+            ?>
+        </label>
+        <?php
+        if ($autosave) {
+            ?>
+            <div class="AutoSaveStatus">
+                <span id="AutoSaveStatus-<?php echo escape($name); ?>" style="display:none;"></span>
+            </div>
+            <?php
+        }
+            ?>
+            <input type="text" id="<?php echo escape($name); ?>"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                name="<?php echo escape($name); ?>"
+                value="<?php echo escape((string) $current); ?>"
+                <?php if ($autosave) { ?>
+                    onchange="if (isValidInt<?php echo escape($name); ?>(this.value)) {AutoSaveConfigOption('<?php echo escape($name); ?>');}"
+                <?php } ?>
+                style="width:<?php echo (int) $width; ?>px"
+            />
+            <script>
+                <?php echo escape($name); ?>.addEventListener('input', () => {
+                    <?php echo escape($name); ?>.value = <?php echo escape($name); ?>.value.replace(/\D/g, '');
+                });
+            function isValidInt<?php echo escape($name); ?>(fieldValue)
+            {
+                const inputVal = Number(fieldValue.trim());
+                if (!Number.isInteger(inputVal) || inputVal < <?php echo escape($min_value); ?> || inputVal > <?php echo escape($max_value); ?>) {
+                    styledalert('<?php echo escape($lang["error"]) ?>', '<?php echo escape(str_replace(array('%MIN%', '%MAX%'), array($min_value, $max_value), $lang['config_integer_invalid_range'])); ?>');
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            </script>
+        <div class="clearerleft"></div>
+    </div>
+
+    <?php
+}
+
 /**
  * Return a data structure that will instruct the configuration page generator functions to
  * add a text entry configuration variable to the setup page.
@@ -666,6 +748,11 @@ function config_add_text_input($config_var, $label, $password = false, $width = 
     return array('text_input', $config_var, $label, $password, $width, $textarea, $title, $autosave, $hidden, $help_link);
 }
 
+
+function config_add_integer_input($config_var, $label, $min_value, $max_value, $width = 420, $title = null, $autosave = false, $hidden = false, string $help_link = "")
+{
+    return array('integer_input', $config_var, $label, $min_value, $max_value, $width, $title, $autosave, $hidden, $help_link);
+}
 
 /**
 * Generate a data structure to instruct the configuration page generator to add a hidden input
@@ -687,10 +774,17 @@ function config_add_hidden_input(string $cf_var_name, string $cf_var_value = '')
 * @param string $label
 * @param string $form_action URL where the form should post to
 * @param int    $width       Wdidth of the input file HTML tag. Default - 420
+* @param string $title       Title to be used for the label title. Default: null. Will display as hover text e.g. "Sets configuration variable: $variable_name"
+*                            if $title is supplied as null. Use '' (blank) to disable where no text is required.
 */
-function config_file_input($name, $label, $current, $form_action, $width = 420, $valid_extensions = array(), $file_preview = false)
+function config_file_input($name, $label, $current, $form_action, $width = 420, $valid_extensions = array(), $file_preview = false, ?string $title = null)
 {
     global $lang, $storagedir, $storageurl;
+
+    if (is_null($title)) {
+        // This is how it was used on plugins setup page. Makes sense for developers when trying to debug and not much for non-technical users
+        $title = str_replace('%cvn', $name, $lang['plugins-configvar']);
+    }
 
     if ($current !== '') {
         $origin_in_config = (substr($current, 0, 13) != '[storage_url]') && mb_strpos($current, 'system/config') === false;
@@ -714,6 +808,7 @@ function config_file_input($name, $label, $current, $form_action, $width = 420, 
                     id="config-image-preview-label"
                 <?php } ?>
                 for="<?php echo escape($name); ?>"
+                title="<?php echo escape($title); ?>"
             >
                 <?php echo escape($label); ?>
             </label>
@@ -877,10 +972,12 @@ function config_colouroverride_input($name, $label, $current, $default, $title =
 * @param string  $form_action        URL where the form should post to
 * @param int     $width              Width of the input file HTML tag. Default - 420
 * @param array   $valid_extensions   Optional array of file extensions that will be validated during upload, see config_process_file_input()
+* @param string  $title              Title to be used for the label title. Default: null. Will display as hover text e.g. "Sets configuration variable: $variable_name"
+*                                    if $title is supplied as null. Use '' (blank) to disable where no text is required.
 */
-function config_add_file_input($config_var, $label, $form_action, $width = 420, $valid_extensions = array(), $file_preview = false)
+function config_add_file_input($config_var, $label, $form_action, $width = 420, $valid_extensions = array(), $file_preview = false, ?string $title = null)
 {
-    return array('file_input', $config_var, $label, $form_action, $width, $valid_extensions, $file_preview);
+    return array('file_input', $config_var, $label, $form_action, $width, $valid_extensions, $file_preview, $title);
 }
 
 /**
@@ -1319,7 +1416,7 @@ function config_process_file_input(array $page_def, $file_location, $redirect_lo
                 hook("configdeletefilesuccess", '', array($delete_filename));
             }
 
-            delete_config_option([], $config_name);
+            delete_config_option([], $config_name, 'System configuration change');
             $redirect = true;
         }
 
@@ -1332,7 +1429,7 @@ function config_process_file_input(array $page_def, $file_location, $redirect_lo
             $missing_file = str_replace('[storage_url]' . '/' . $file_location, $file_server_location, $missing_file);
 
             if (!file_exists($missing_file)) {
-                delete_config_option([], $config_name);
+                delete_config_option([], $config_name, 'System configuration change');
                 $redirect = true;
             }
         }
@@ -1357,7 +1454,7 @@ function config_process_file_input(array $page_def, $file_location, $redirect_lo
                 }
             }
 
-            if (isset($uploaded_filename) && set_config_option(null, $config_name, $saved_filename)) {
+            if (isset($uploaded_filename) && set_config_option(null, $config_name, $saved_filename, 'System configuration change')) {
                 $redirect = true;
                 hook("configuploadfilesuccess", '', array($uploaded_filename));
             }
@@ -1390,8 +1487,11 @@ function config_generate_html(array $page_def)
             case 'text_input':
                 config_text_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9]);
                 break;
+            case 'integer_input':
+                config_integer_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9]);
+                break;
             case 'file_input':
-                config_file_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6]);
+                config_file_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6],  $def[7]);
                 break;
             case 'boolean_select':
                 config_boolean_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9], $def[10]);
@@ -1461,7 +1561,7 @@ function config_merge_non_image_types()
  *
  * @return string The resolved URL for the header image.
  */
-function get_header_image(bool $full = false, bool $for_header = false, string $force_appearance = "", bool $for_login = false): string
+function get_header_image(bool $full = false, bool $for_header = false, string $force_appearance = ""): string
 {
     global $linkedheaderimgsrc, $linkedheaderimgsrc_dark, $baseurl_short, $baseurl, $storageurl, $user_pref_appearance;
 
@@ -1513,9 +1613,6 @@ function get_header_image(bool $full = false, bool $for_header = false, string $
             } else {
                 $header_img_src = $baseurl . '/gfx/titles/title-black.svg';
             }
-        } elseif ($for_login) {
-            // When displaying in login return logo with white text
-            $header_img_src = $baseurl . '/gfx/titles/title.svg';
         } else {
             // When displaying in other places simply return the default logo
             $header_img_src = $baseurl . '/gfx/titles/title-black.svg';
@@ -2332,4 +2429,37 @@ function config_percent_range($name, $label, $current, $width = 420, $title = nu
 function config_add_percent_range($config_var, $label, $width = 380, $title = null, string $help_link = "")
 {
     return array('percent_range', $config_var, $label, $width, $title, $help_link);
+}
+
+/**
+ * Server side validation for saving values submitted using the page generation functions "config_add_...()" and
+ * created with config_generate_html(). For example, the system configuration page.
+ *
+ * @param  array   $def     Array containing field definition e.g. from config_add_integer_input()
+ * @param  mixed   $value   User submitted value to be checked.
+ * 
+ * @return bool   True if the option is valid, else false.
+ */
+function config_check_valid_option(array $def, mixed $value): bool
+{
+    $result = false;
+    switch ($def[0]) {
+            case 'integer_input':
+                $range_start = $def[3];
+                $range_end = $def[4];
+                $result = (is_int_loose($value) && (int) $value >= $range_start && (int) $value <= $range_end);
+                break;
+            case 'single_select':
+                $valid_options = $def[3];
+                $result = in_array($value, $valid_options);
+                break;
+            case 'boolean_select':
+                $valid_options = array('0', '1');
+                $result = in_array($value, $valid_options);
+                break;
+            default:
+                $result = true;
+                break;
+        }
+    return $result;
 }

@@ -415,13 +415,10 @@ $lang["downloadsize"] = "Rozmiar pobierania";
 $lang["existingkeywords"] = "Istniejące słowa kluczowe:";
 $lang["extrakeywords"] = "Ekstra słowa kluczowe";
 
-
-
 $lang["backtothemes"] = "Powrót do Tematów";
 $lang["downloadreport"] = "Pobierz raport";
 
-$lang["enterantispamcode"] = "Anti-Spam, wprowadź następujący kod";
-
+$lang["enterantispamcode"] = "Wprowadź następujący kod";
 
 $lang["usergroup-administrators"] = 'Administratorzy';
 $lang["usergroup-general_users"] = 'Zwykli użytkownicy';

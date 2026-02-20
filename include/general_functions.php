@@ -3138,6 +3138,18 @@ function get_slideshow_files_data()
 }
 
 /**
+* Determines if at least one slideshow image is configured for the login page
+*/
+function is_login_slideshow_enabled(): bool
+{
+    return (bool) ps_value("SELECT EXISTS (
+        SELECT 1
+        FROM slideshow
+        WHERE login_show = 1
+    ) AS value", [], 0);
+}
+
+/**
  * Returns a sanitised row from the table in a safe form for use in a form value,
  * suitable overwritten by POSTed data if it has been supplied.
  *

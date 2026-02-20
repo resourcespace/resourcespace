@@ -7,7 +7,10 @@
  */
 
 /* Default text and background colour */
-body,html {color:#474747;background: #ececec;}
+body, html {
+    color:#474747;
+    background: var(--colour-neutral-300);
+}
 
 h1, h2 {color: #000000;}
 a:link {color:#666666;}
@@ -324,15 +327,7 @@ div.MessageBox a {
 }
 
 /* Login box */
-#login_box {background: rgba(0, 0, 0, 0.6)}
-#login_box .Question {border-bottom: none; padding: 0.6em 0 0 0;}
-#login_box .QuestionSubmit {background:none; border: none;}
-#login_box .Question .stdwidth {width: 550px; border-radius: 6px; min-height: 32px;}
-#login_box, #login_box h1,  #login_box a {color: #FFF;}
-#login_box .Question input[type=text], #login_box .Question input[type=password], #login_box textarea {
-    background-color: #9a9a9ad9;
-    color: white;
-}
+#login_box {background: var(--colour-global-white);}
 
 /* Highlighting required fields in certain plugins */
 .highlighted {border: 3px solid #F00 !important;}
@@ -590,10 +585,6 @@ input:focus, textarea:focus, select:focus, .RecordPanel .RecordDownloadSpace .Do
 .FeaturedSimpleTile.FullWidth .FeaturedSimpleTileContents h2 span[data-tag="resources_count"] { background-color: #646B60; }
 
 .FeaturedCallToActionTile.FullWidth .FeaturedSimpleTileContents { background-color: rgba(0,0,0,0.4); }
-#login_box textarea {
-    background-color: #9a9a9ad9;
-    color: white;
-}
 
 #login_box .FormError {
     color: white;
@@ -715,10 +706,6 @@ a.HomePanel:hover {
 }
 
 .FeaturedSimpleTileImage img.TileGroupImageBase {box-shadow: 0 0 25px #000; }
-
-#login_box {
-    box-shadow: 0 1px 10px 1px rgba(0,0,0,0.25);
-}
 
 .ImageStrip:hover {
     box-shadow: 0 1px 4px rgba(0,0,0,0.25);

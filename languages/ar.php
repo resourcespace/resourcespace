@@ -2696,7 +2696,6 @@ $lang["error_invalid_revert_date"] = 'التاريخ المخزن سابقًا \
 $lang["batch_edit_save_warning_message"] = 'تم اكتشاف أخطاء أثناء تحرير الموارد التالية-';
 $lang["batch_edit_save_warning_alert"] = 'تم اكتشاف بعض الأخطاء أثناء تنفيذ هذه العملية. يرجى الرجوع إلى الرسائل الخاصة بك لمزيد من التفاصيل';
 $lang["page_collections_message"] = 'الاستمرار سيؤدي إلى إلغاء تحديد المجموعات المحددة للحذف على هذه الصفحة';
-$lang["enterantispamcode"] = 'مكافحة البريد العشوائي ، الرجاء إدخال الرمز التالي';
 $lang["job_status_2"] = 'اكتمال';
 
 $lang["information_field_restype_deselect_cleanup"] = 'لإزالة بيانات الحقل الحالية من أنواع الموارد التي تم إلغاء تحديدها، انقر فوق الرابط التالي [cleanup_link]';

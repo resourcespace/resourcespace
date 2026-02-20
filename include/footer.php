@@ -22,31 +22,11 @@ if (getval("ajax", "") == "" && !hook("replace_footer")) {
         <?php
     }
     ?>
-    <!-- Footer closures -->
-    <div class="clearer"></div>
 
     <!-- Use aria-live assertive for high priority changes in the content: -->
     <span role="status" aria-live="assertive" class="ui-helper-hidden-accessible"></span>
-    <div class="clearerleft"></div>
-    <div class="clearer"></div>
+    
     <?php hook("footertop");
-
-    if ($pagename == "login") {
-        ?>
-        <!--Global Footer-->
-        <div id="Footer">
-
-        <?php
-        if (!hook("replace_footernavrightbottom")) {
-            ?>
-            <div id="FooterNavRightBottom"><?php echo strip_tags_and_attributes(text("footer"), ['a'], ['href']); ?></div>
-            <?php
-        }
-        ?>
-        <div class="clearer"></div>
-        </div>
-        <?php
-    }
 
     echo $extrafooterhtml;
 } // end ajax

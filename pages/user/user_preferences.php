@@ -302,7 +302,7 @@ include "../../include/header.php";
                 exit();
             }
 
-            if (!set_config_option($userref, $autosave_option_name, $autosave_option_value)) {
+            if (!set_config_option($userref, $autosave_option_name, $autosave_option_value, 'User configuration change')) {
                 $response['success'] = false;
             }
 

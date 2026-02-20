@@ -14,23 +14,40 @@ include "../include/header.php";
 include "../include/login_background.php";
 ?>
 
-<h1><?php echo escape($lang["requestnewpassword"]); ?></h1>
-<p><?php echo escape(text("introtextreset")); ?></p>
+<?php $header_img_src = get_header_image(); ?>
 
-<form method="post" action="<?php echo $baseurl_short?>pages/user_password.php">  
-    <?php generateFormToken("user_password"); ?>
-    <div class="Question">
-        <label for="email"><?php echo escape($lang["youremailaddress"]); ?></label>
-        <input type=text name="email" id="email" class="stdwidth" value="<?php echo escape(getval("email", ""))?>">
-        <div class="clearerleft"></div>
-    </div>
+<div id="LoginHeader">
+    <img src="<?php echo $header_img_src; ?>" class="LoginHeaderImg" alt="<?php echo $applicationname; ?>">
+</div>
 
-    <div class="QuestionSubmit">    
-        <input name="save" type="submit" value="<?php echo escape($lang["sendnewpassword"]); ?>" />
-    </div>
-</form>
+<a class="text-link" href="<?php echo $baseurl_short; ?>login.php">
+    <i class="icon-arrow-left"></i><?php echo escape($lang["back_to_login"]); ?>
+</a>
 
-<div> <!-- end of login_box -->
+<div id="login_box">
+    <form method="post" action="<?php echo $baseurl_short?>pages/user_password.php">  
+        <?php generateFormToken("user_password"); ?>
+        <div>
+            <div class="field-text-only">
+                <label><?php echo escape($lang["requestnewpassword"]); ?></label>
+                <?php echo escape(text("introtextreset")); ?>
+            </div>
+
+            <div class="field-input">
+                <label for="email"><?php echo escape($lang["youremailaddress"]); ?></label>
+                <input type=text name="email" id="email" value="<?php echo escape(getval("email", "")); ?>">
+            </div>
+
+            <div class="button">    
+                <input name="save" type="submit" value="<?php echo escape($lang["sendnewpassword"]); ?>" />
+            </div>
+        </div>
+    </form>
+</div>
+
+</div><!-- Close CentralSpaceLogin -->
+
+<div id="login-slideshow"></div>
 <?php
 include "../include/footer.php";
 ?>

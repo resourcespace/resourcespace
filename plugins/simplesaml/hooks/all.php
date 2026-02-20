@@ -593,7 +593,12 @@ function HookSimplesamlAllLoginformlink()
     $params['usesso'] = 'true';
 
     ?>
-    <a href="<?php echo generateURL($baseurl . $relpath, $params); ?>"><i class="icon-key-round"></i>&nbsp;<?php echo strip_tags_and_attributes($lang['simplesaml_use_sso']); ?></a><br/>
+    <p class="external-login-link">
+        <a href="<?php echo generateURL($baseurl . $relpath, $params); ?>">
+            <i class="icon-key-round"></i><?php echo strip_tags_and_attributes($lang['simplesaml_use_sso']); ?>
+        </a>
+        <br/>
+    </p>
     <?php
 }
 

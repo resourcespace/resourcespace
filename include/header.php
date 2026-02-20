@@ -34,6 +34,7 @@ $noauth_page = in_array(
         "login",
         "user_change_password",
         "user_request",
+        "user_password",
         "done",
     ]
 );
@@ -543,6 +544,7 @@ $page_title = get_page_title($pagename, pluginname());
         ) {
             $div = "CentralSpaceLogin";
             $uicenterclass = "NoSearch LoginPage";
+            $uicenterclass .= is_login_slideshow_enabled() ? " slideshow-enabled" : '';
         } else {
             $div = "CentralSpace";
             if (in_array($pagename, $omit_searchbar_pages)) {

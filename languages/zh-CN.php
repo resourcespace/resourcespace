@@ -774,7 +774,7 @@ $lang['reportbug'] = "为资源小组准备病毒报告";
 $lang['reportbug-detail'] = "下列资料已加入病毒报告中.  在提交前，你可以进行修改.";
 $lang['reportbug-login'] = "提示: 在点击‘准备‘前，你可以透过病毒追踪器查看资料.";
 
-$lang["enterantispamcode"] = "反垃圾邮件，请输入以下代码";
+$lang["enterantispamcode"] = "请输入以下代码";
 
 $lang["groupaccess"] = "组群使用权限";
 $lang["plugin-groupsallaccess"] = "这个plugin已为所有用户群启动";
