@@ -18,12 +18,25 @@ function openai_gpt_update_field($resources,array $target_field,array $values, s
     $openai_gpt_message_output_json, $openai_gpt_message_text, $openai_gpt_processed, $openai_gpt_api_key,$openai_gpt_model,
     $openai_gpt_temperature,$openai_gpt_example_json_user,$openai_gpt_example_json_assistant,$openai_gpt_example_text_user,
     $openai_gpt_example_text_assistant,$openai_gpt_max_tokens, $openai_gpt_max_data_length, $openai_gpt_system_message,
-    $openai_gpt_fallback_model, $openai_gpt_message_output_text, $open_gpt_model_override, $lang, $language, $languages, $openai_gpt_language;
+    $openai_gpt_fallback_model, $openai_gpt_message_output_text, $open_gpt_model_override, $lang, $language, $languages, $openai_gpt_language,
+    $openai_gpt_token_limit, $openai_gpt_token_limit_days;
 
     // Don't update if not a valid field type
     if(!in_array($target_field["type"],$valid_ai_field_types))
         {
         return false;
+        }
+    
+    // Check usage limits if set before any processing starts
+    if ($openai_gpt_token_limit !== 0 && $openai_gpt_token_limit_days !== 0) 
+        {
+        $tokens_used = openai_gpt_get_tokens_used($openai_gpt_token_limit_days);
+
+        if ($tokens_used > $openai_gpt_token_limit) 
+            {
+            debug("openai_gpt_update_field - token limit $openai_gpt_token_limit exceeded - used $tokens_used in last $openai_gpt_token_limit_days days");
+            return false;
+            }
         }
 
     if(!is_array($resources))
@@ -379,4 +392,24 @@ function openai_gpt_get_configured_fields(): array
 
     return $results;
 
+}
+
+/**
+ * Return a count of tokens used by GPT during the number of days passed as a parameter.
+ * Defaults to using 30 days if 0 or less is passed.
+ * 
+ * @return int    Count of tokens used in $days days 
+ */
+function openai_gpt_get_tokens_used(int $days): int
+{
+    if ($days <= 0) {
+        $days = 30;
+    }
+    
+    clear_query_cache("gpt_token_check");
+
+    return (int) ps_value("SELECT SUM(`count`) value 
+                                FROM daily_stat 
+                                WHERE activity_type = 'OpenAI Token Usage'
+                                AND DATEDIFF(NOW(), CONCAT(`year`, '-', LPAD(`month`, 2, '0'), '-', LPAD(`day`, 2, '0'))) <= ?;", array("i", $days), 0, "gpt_token_check");
 }

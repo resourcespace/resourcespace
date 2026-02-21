@@ -32,3 +32,13 @@ $lang["openai_gpt_process_existing_overwrite"] = "Overwrite";
 $lang["openai_gpt_process_existing_field_ref_help"] = "This is the target field to be updated.";
 $lang["openai_gpt_process_existing_collection_refs_help"] = "Setting this option will mean only resources in the listed collections will be processed. If no collections are specified then ALL suitable resources will be processed. Collections can be specified using a comma-separated list as well as ranges e.g 100,105,110-115";
 $lang["openai_gpt_process_existing_overwrite_help"] = "Setting this option will mean any existing data in the target field will be overwritten. Please note that if overwrite is enabled and the input field contains no data then the target field will be cleared.";
+
+
+$lang["openai_gpt_limit_warning"] = "WARNING - Token limit has been exceeded so further OpenAI API calls will not work. GPT fields will not be processed.";
+$lang["openai_gpt_limit_warning_short"] = "WARNING - Token limit has been exceeded so GPT fields will not be processed.";
+$lang["openai_gpt_usage"] = "Usage";
+$lang["openai_gpt_usage_days"] = "Token usage in past %%DAYS%% days";
+$lang["openai_gpt_token_limit"] = "Token limit";
+$lang["openai_gpt_no_token_limit"] = "No token limit configured";
+$lang["openai_gpt_configured_limit"] = "%%TOKEN_LIMIT%% per %%DAYS%% days";
+$lang["openai_gpt_token_count"] = "%%TOKEN_COUNT%% tokens";

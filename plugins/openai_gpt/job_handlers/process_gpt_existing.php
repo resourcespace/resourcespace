@@ -6,12 +6,25 @@
 
 logScript("[process_gpt_existing] Starting process_gpt_existing job", $log_file);
 
+global $openai_gpt_token_limit, $openai_gpt_token_limit_days;
+    
+// Check usage limits if set before any processing starts
+if ($openai_gpt_token_limit !== 0 && $openai_gpt_token_limit_days !== 0) {
+    $tokens_used = openai_gpt_get_tokens_used($openai_gpt_token_limit_days);
+
+    if ($tokens_used > $openai_gpt_token_limit) {
+        logScript("[process_gpt_existing] [ERROR] Token limit $openai_gpt_token_limit exceeded - used $tokens_used in last $openai_gpt_token_limit_days days", $log_file);
+        job_queue_update($jobref, $job_data, STATUS_ERROR);
+        return;
+    }
+}
+
 $collections    = [];
 $collectionset  = false;
 
 if (isset($job_data['collection_refs']) && !empty($job_data['collection_refs'])) {
 
-    $collection_refs = parse_int_ranges($job_data['collection_refs'], 0);
+    $collection_refs = parse_int_ranges($job_data['collection_refs'], 0, true, false);
 
     if ($collection_refs["ok"]) {
         $collections = $collection_refs['numbers'];

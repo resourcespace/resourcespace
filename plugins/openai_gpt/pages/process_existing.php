@@ -5,15 +5,25 @@
 
 include __DIR__ . '/../../../include/boot.php';
 
+global $openai_gpt_token_limit, $openai_gpt_token_limit_days;
+
 command_line_only();
 
 // Add group access controlled plugins to list
 $plugins = register_all_group_access_plugins($plugins ?? []);
 
-if(!in_array("openai_gpt",$plugins))
-    {
+if (!in_array("openai_gpt",$plugins)) {
     exit("OpenAI GPT plugin not enabled. Exiting\n");
+}
+
+// Check usage limits if set before any processing starts
+if ($openai_gpt_token_limit !== 0 && $openai_gpt_token_limit_days !== 0) {
+    $tokens_used = openai_gpt_get_tokens_used($openai_gpt_token_limit_days);
+
+    if ($tokens_used > $openai_gpt_token_limit) {
+        exit("Error - unable to process as token limit exceeded\n");
     }
+}
 
 $collections    = [];
 $targetfield    = 0;

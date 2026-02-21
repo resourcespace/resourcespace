@@ -6,10 +6,30 @@ include '../../../include/authenticate.php'; if (!checkperm('a')) {exit ($lang['
 
 // Specify the name of this plugin and the heading to display for the page.
 $plugin_name = 'openai_gpt';
-if (!in_array($plugin_name, $plugins))
-    {plugin_activate_for_setup($plugin_name);}
+if (!in_array($plugin_name, $plugins)) {
+    plugin_activate_for_setup($plugin_name);
+}
+
 $page_heading = $lang['openai_gpt_title'];
+
 $page_intro = "<p>" . $lang['openai_gpt_intro'] . "</p>";
+
+$token_limit_days = ($openai_gpt_token_limit_days == 0) ? 30 : $openai_gpt_token_limit_days;
+
+$tokens_used = openai_gpt_get_tokens_used($token_limit_days);
+
+if ($openai_gpt_token_limit == 0 || $openai_gpt_token_limit_days == 0) {
+    $token_limit = $lang["openai_gpt_no_token_limit"];
+} else {
+    $token_limit = str_replace(["%%TOKEN_LIMIT%%", "%%DAYS%%"], [number_format($openai_gpt_token_limit), $token_limit_days], $lang["openai_gpt_configured_limit"]);
+
+    if ($tokens_used > $openai_gpt_token_limit) {
+        $page_intro .= "<p><strong>" . escape($lang["openai_gpt_limit_warning"]) . "</strong></p>";
+    }
+}
+
+$tokens_used_label = str_replace("%%DAYS%%", $token_limit_days, $lang["openai_gpt_usage_days"]);
+$tokens_used_text = str_replace("%%TOKEN_COUNT%%", number_format($tokens_used), $lang["openai_gpt_token_count"]);
 
 // Can't use old model since move to chat API
 if(trim($openai_gpt_model) == "text-davinci-003")
@@ -23,6 +43,11 @@ if (!(isset($openai_gpt_hide_api_key) && $openai_gpt_hide_api_key))
  	// Allow key to be hidden from UI via config
 	$page_def[] = config_add_text_input("openai_gpt_api_key",$lang["openai_gpt_api_key"]);
 	}
+
+$page_def[] = config_add_section_header($lang["openai_gpt_usage"]);
+
+$page_def[] = config_add_html("<div class='Question'><label>" . escape($lang["openai_gpt_token_limit"]) . "</label><div class='Fixed'>" . escape($token_limit) . "</div><div class='clearerleft'></div></div>");
+$page_def[] = config_add_html("<div class='Question'><label>" . escape($tokens_used_label) . "</label><div class='Fixed'>" . escape($tokens_used_text) . "</div><div class='clearerleft'></div></div>");
 
 $page_def[] = config_add_section_header($lang["plugin_category_advanced"]);
 $page_def[] = config_add_html("<div class='Question'><strong>" . escape($lang["openai_gpt_advanced"]) . "</strong><div class='clearerleft'></div></div>");

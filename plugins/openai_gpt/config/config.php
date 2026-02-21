@@ -1,8 +1,15 @@
 <?php
 // OpenAI key from https://openai.com/api/
-global $openai_gpt_api_key,$openai_gpt_model;
+global $openai_gpt_api_key, $openai_gpt_model, $openai_gpt_token_limit, $openai_gpt_token_limit_days;
 $openai_gpt_api_key = $openai_gpt_api_key ?? "";
 $openai_gpt_model = $openai_gpt_model ?? "gpt-4o";
+
+// The number of tokens that can be used in the specified time period, 0 is no limit
+$openai_gpt_token_limit = $openai_gpt_token_limit ?? 0;
+
+// The number of days the token limit applies to
+$openai_gpt_token_limit_days = $openai_gpt_token_limit_days ?? 0;
+
 $openai_gpt_fallback_model = "gpt-3.5-turbo";
 $openai_gpt_system_message = "You are a formal API required to extract or convert information from the data provided. For the provided %%IN_TYPE%% input, you will respond with %%OUT_TYPE%%";
 
@@ -47,4 +54,3 @@ $valid_ai_field_types = [
 
 // Allow plugin to overwrite existing data (e.g. exif data)
 $openai_gpt_overwrite_data = false;
-
