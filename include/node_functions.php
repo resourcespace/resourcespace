@@ -1247,7 +1247,7 @@ function add_resource_nodes(int $resourceid, $nodes = array(), $checkperms = tru
         $nodes = array($nodes);
     }
 
-    ps_query("INSERT INTO resource_node(resource, node) VALUES {$sql} ON DUPLICATE KEY UPDATE hit_count=hit_count", $sql_params);
+    ps_query("INSERT IGNORE INTO resource_node(`resource`, node) VALUES {$sql};", $sql_params);
 
     if ($logthis) {
         $field_nodes_arr = array();

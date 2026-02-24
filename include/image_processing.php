@@ -1323,7 +1323,7 @@ function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewo
         if (!isset($has_image)) {
             # preview_preprocessing.php may provide a value e.g. 0 for file type where no image is expected but preview creation successful.
             # For example, a .wma file is expected to produce an .mp3 preview and this has no image.
-            $has_image = $generateall || $previewonly ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
+            $has_image = $generateall ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
         }
         ps_query("UPDATE resource SET has_image=?,preview_extension='jpg',preview_attempts=0,file_modified=now() WHERE ref= ?", ['i',$has_image,'i', $ref]);
     }
@@ -4261,7 +4261,7 @@ function create_previews_using_im(
             // Do not run for alternative uploads
             extract_mean_colour($target, $ref);
             // Flag database. If this was run for e.g. a video or PDF it is not the full set of previews
-            $has_image = (!in_array($resource_data["file_extension"], $ffmpeg_supported_extensions) && $resource_data["file_extension"] != "pdf" && ($generateall || $previewonly)) ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
+            $has_image = (($resource_data["file_extension"] ?? "") === $extension && $generateall) || $previewonly ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
 
             ps_query("UPDATE resource SET has_image=?, preview_extension='jpg', preview_attempts=0, file_modified=NOW() WHERE ref = ?", ["i",$has_image, "i", $ref]);
         } else {
