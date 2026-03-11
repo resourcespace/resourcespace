@@ -422,6 +422,7 @@ function log_node_changes($resource, $nodes_new, $nodes_current, $lognote = "", 
         }
     }
 
+    db_begin_transaction("log_node_changes_$resource");
     foreach ($nodefieldchanges as $key => $value) {
         if (isset($value[0]) && isset($value[1]) && array_diff($value[0], $value[1]) == array_diff($value[1], $value[0])) {
             // No difference
@@ -432,6 +433,7 @@ function log_node_changes($resource, $nodes_new, $nodes_current, $lognote = "", 
         $tovalue    = isset($value[1]) ? implode(NODE_NAME_STRING_SEPARATOR, $value[1]) : "";
         resource_log($resource, LOG_CODE_EDITED, $key, $lognote, $fromvalue, $tovalue);
     }
+    db_end_transaction("log_node_changes_$resource");
 
     return true;
 }

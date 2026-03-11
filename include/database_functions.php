@@ -295,7 +295,11 @@ function sql_connect()
 */
 function db_begin_transaction($name)
 {
-    global $db;
+    global $db, $use_db_transaction;
+
+    if (!$use_db_transaction) {
+        return false;
+    }
 
     if (!is_string($name)) {
         $name = null;
@@ -322,7 +326,11 @@ function db_begin_transaction($name)
 */
 function db_end_transaction($name)
 {
-    global $db;
+    global $db, $use_db_transaction;
+
+    if (!$use_db_transaction) {
+        return false;
+    }
 
     if (!is_string($name)) {
         $name = null;
@@ -348,7 +356,11 @@ function db_end_transaction($name)
 */
 function db_rollback_transaction($name)
 {
-    global $db;
+    global $db, $use_db_transaction;
+
+    if (!$use_db_transaction) {
+        return false;
+    }
 
     if (!is_string($name)) {
         $name = null;
