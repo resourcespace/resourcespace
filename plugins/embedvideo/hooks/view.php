@@ -55,6 +55,7 @@ function HookEmbedvideoViewAfterresourceactions()
         <div style="max-width:' . escape($ffmpeg_preview_max_width) . 'px;aspect-ratio:' . escape($ffmpeg_preview_max_width) . '/' . escape($ffmpeg_preview_max_height) . ';">
         <video id="introvideo' .  (int) $ref . '"
             controls
+            crossorigin="anonymous"
             data-setup="{}"
             preload="' . escape((string) $preload)  . '"
             style="width:100%;height:100%;"

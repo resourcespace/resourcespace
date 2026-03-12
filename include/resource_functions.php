@@ -7,7 +7,7 @@ use Montala\ResourceSpace\CommandPlaceholderArg;
 
 $GLOBALS['get_resource_path_fpcache'] = array();
 /**
-* Get resource path/ resource URL/ download URL for this resource
+* Get resource path / resource URL / download URL for this resource
 *
 * IMPORTANT: the download URL should always be used client side (public)
 *            whilst filstore path is private for internal use only
@@ -16,46 +16,38 @@ $GLOBALS['get_resource_path_fpcache'] = array();
 * @uses get_alternative_file()
 * @uses get_resource_data()
 *
-* @param integer $ref              Resource ID
-* @param boolean $getfilepath      Set to TRUE to get the filestore (physical) path
-* @param string  $size             Specify which size of the resource should be returned. Use '' for original file
-* @param boolean $generate         Generate folder if not found
-* @param string  $extension        Extension of the file we are looking for. For original file, this would be the file
-*                                  extension, otherwise use the preview extension (e.g image preview will have JPG
-*                                  while video preview can have MP4 or others)
-* @param boolean $scramble         Set to TRUE to get the scrambled folder (requires scramble key for it to work)
-* @param integer $page             For documents, use the page number we are trying to get the preview of.
-* @param boolean $watermarked      Get the watermark version?
-* @param int     $file_modified    Specify when the file was last modified as a Unix timestamp
-* @param integer $alternative      ID of the alternative file
-* @param boolean $includemodified  Show when the file was last modified
+* @param  integer       $ref               Resource ID
+* @param  boolean       $getfilepath       Set to TRUE to get the filestore (physical) path
+* @param  string|null   $size              Specify which size of the resource should be returned. Use '' for original file
+* @param  boolean       $generate          Generate folder if not found
+* @param  string|null   $extension         Extension of the file we are looking for. For original file, this would be the file
+*                                          extension, otherwise use the preview extension (e.g image preview will have JPG
+*                                          while video preview can have MP4 or others)
+* @param  boolean       $scramble          Set to TRUE to get the scrambled folder (requires scramble key for it to work)
+* @param  integer       $page              For documents, use the page number we are trying to get the preview of.
+* @param  boolean       $watermarked       Get the watermark version?
+* @param  string|null   $file_modified     Specify when the file was last modified as a Unix timestamp
+* @param  integer       $alternative       ID of the alternative file
+* @param  boolean       $includemodified   Show when the file was last modified
 *
-* @return string
+* @return string   resource path / resource URL / download URL
 */
 function get_resource_path(
-    $ref,
-    $getfilepath,
-    $size = '',
-    $generate = true,
-    $extension = 'jpg',
-    $scramble = true,
-    $page = 1,
-    $watermarked = false,
-    $file_modified = '',
-    $alternative = -1,
-    $includemodified = true
-) {
-    global $storagedir, $originals_separate_storage, $fstemplate_alt_threshold, $fstemplate_alt_storagedir,
-    $fstemplate_alt_storageurl, $fstemplate_alt_scramblekey, $scramble_key, $hide_real_filepath,
-    $migrating_scrambled, $scramble_key_old, $filestore_evenspread, $filestore_migrate,
-    $baseurl, $k, $get_resource_path_extra_download_query_string_params;
-
-    $int_vars = [&$ref, &$page, &$alternative];
-    foreach ($int_vars as $var) {
-        if (!is_int_loose($var)) {
-            $var = (int) $var;
-        }
-    }
+    int $ref,
+    bool $getfilepath,
+    ?string $size = '',
+    bool $generate = true,
+    ?string $extension = 'jpg',
+    bool $scramble = true,
+    int $page = 1,
+    bool $watermarked = false,
+    ?string $file_modified = '',
+    int $alternative = -1,
+    bool $includemodified = true): string
+{
+    global $storagedir, $originals_separate_storage, $fstemplate_alt_threshold, $fstemplate_alt_storagedir, $fstemplate_alt_storageurl,
+    $fstemplate_alt_scramblekey, $scramble_key, $hide_real_filepath, $migrating_scrambled, $scramble_key_old, $filestore_evenspread,
+    $filestore_migrate, $baseurl, $k, $get_resource_path_extra_download_query_string_params;
 
     $size = safe_file_name((string) $size);
     $extension = safe_file_name((string) $extension);
@@ -5816,7 +5808,7 @@ function get_page_count($resource, $alternative = -1)
         $file = get_resource_path($ref, true, "", false, "pdf");
     } elseif ($alternative == -1) {
         # some unoconv files are not pdfs but this needs to use the auto-alt file
-        $alt_ref = ps_value("select ref value from resource_alt_files where resource=? and unoconv=1", array("i",$ref), "");
+        $alt_ref = ps_value("select ref value from resource_alt_files where resource=? and unoconv=1", array("i",$ref), -1);
         $file = get_resource_path($ref, true, "", false, "pdf", -1, 1, false, "", $alt_ref);
     } else {
         $file = get_resource_path($ref, true, "", false, "pdf", -1, 1, false, "", $alternative);
@@ -8782,7 +8774,7 @@ function revert_resource_file($resource, $logentry, $createpreviews = true)
     ps_query("UPDATE resource_log SET previous_file_alt_ref=? WHERE ref=?", $parameters);
 
     // Now perform the revert, copy and recreate previews.
-    $revert_alt_ref = $logentry["previous_file_alt_ref"];
+    $revert_alt_ref = $logentry["previous_file_alt_ref"] ?? -1;
     $revert_ext = ps_value("SELECT file_extension value FROM resource_alt_files WHERE ref=?", array("i",$revert_alt_ref), "");
 
     $revert_path = get_resource_path($resource, true, '', true, $revert_ext, -1, 1, false, "", $revert_alt_ref);
