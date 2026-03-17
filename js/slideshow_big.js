@@ -32,13 +32,20 @@ function SlideshowChange()
         SlideshowCurrent=0;
         }
 
-    SlideshowNext.css("background-image", "url(" + SlideshowImages[SlideshowCurrent] + ")");
-    SlideshowNext.addClass("slide-active").siblings(".slide").removeClass("slide-active");
-    SlideshowCurrent++;
+    var SlideshowLoadImage = new Image();
+    SlideshowLoadImage.src = SlideshowImages[SlideshowCurrent];
 
-    var photo_delay = 1000 * big_slideshow_timer;
-    window.clearTimeout(SlideshowTimer);    
-    if (!StaticSlideshowImage) {SlideshowTimer=window.setTimeout(SlideshowChange, photo_delay);}
+    SlideshowLoadImage.decode().then(function() 
+        {
+        SlideshowNext.css("background-image", "url(" + SlideshowLoadImage.src + ")");
+        SlideshowNext.addClass("slide-active").siblings(".slide").removeClass("slide-active");
+        SlideshowCurrent++;
+
+        var photo_delay = 1000 * big_slideshow_timer;
+        window.clearTimeout(SlideshowTimer);    
+        if (!StaticSlideshowImage) {SlideshowTimer=window.setTimeout(SlideshowChange, photo_delay);}
+        }
+    );
     
     return true;
     }

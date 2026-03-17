@@ -1015,12 +1015,6 @@ function save_resource_data($ref, $multi, $autosave_field = "")
                 }
             }
 
-            // Set empty field with default to be populated if necessary
-            if ($field_has_default_for_user && strlen((string) $val) == 0 && ($nodes_to_remove != [] || in_array($fields[$n]['type'], NON_FIXED_LIST_SINGULAR_RESOURCE_VALUE_FIELD_TYPES))) {
-                $new_checksums[$fields[$n]['ref']] = md5(trim(preg_replace('/\s\s+/', ' ', $val)));
-                $default_fields[] = $fields[$n]['ref'];
-            }
-
             if (
                 $fields[$n]['required'] == 1
                 && check_display_condition($n, $fields[$n], $fields, false, $ref)
@@ -1029,16 +1023,6 @@ function save_resource_data($ref, $multi, $autosave_field = "")
                     (in_array($fields[$n]['type'], $FIXED_LIST_FIELD_TYPES) && count($ui_selected_node_values) == 0)
                     // Required continuous field with no value is a candidate for error
                     || (!in_array($fields[$n]['type'], $FIXED_LIST_FIELD_TYPES) && trim(strip_leading_comma($val)) == '')
-                )
-                && (
-                    // An existing resource node field with neither any nodes submitted nor a resource default
-                    ($ref > 0 && in_array($fields[$n]['type'], $FIXED_LIST_FIELD_TYPES) && count($ui_selected_node_values) == 0 && !$field_has_default_for_user)
-                    // An existing resource continuous field with neither an input value nor a resource default
-                    || ($ref > 0 && !in_array($fields[$n]['type'], $FIXED_LIST_FIELD_TYPES) && strlen((string) $val) == 0 && !$field_has_default_for_user)
-                    // A template node field with neither any nodes submitted nor a resource default
-                    || ($ref < 0 && in_array($fields[$n]['type'], $FIXED_LIST_FIELD_TYPES) && count($ui_selected_node_values) == 0 && !$field_has_default_for_user)
-                    // A template continuous field with neither an input value nor a resource default
-                    || ($ref < 0 && !in_array($fields[$n]['type'], $FIXED_LIST_FIELD_TYPES) && strlen((string) $val) == 0 && !$field_has_default_for_user)
                 )
                 // Not a metadata template
                 && !$is_template
@@ -1162,11 +1146,6 @@ function save_resource_data($ref, $multi, $autosave_field = "")
 
     if (count($nodes_to_add) > 0) {
         add_resource_nodes($ref, $nodes_to_add, false, false);
-    }
-
-    // Populate empty fields with the default if necessary
-    if (!empty($default_fields)) {
-        set_resource_defaults($ref, $default_fields);
     }
     db_end_transaction("update_resource_node");
 
