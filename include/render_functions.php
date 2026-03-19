@@ -6324,8 +6324,18 @@ function display_related_resources($context)
 
     $allrestypes = get_resource_types();
     $allrestypes_names = array_column($allrestypes, 'name', 'ref');
-
-    if ($ref == 0 || count(array_diff(array_column($allrestypes, "ref"), $relatedtypes_shown)) == 0) {
+    $render_related = checkperm("s") && ($k == "" || $internal_share_access);
+    if (
+        $ref == 0
+        || (
+            (
+                $render_related                 // Do you have permission to see the related resources
+                || !is_array($arr_related)      // Would there be any resources to populate it with
+                || count(array_intersect($relatedtypes_shown, array_column($arr_related, 'resource_type'))) == 0
+            )
+            && !$edit_access                    // If there aren't resources but you have access to add
+        )                                       // related resource you still need to be able to see the div
+    ) {
         return;
     }
 
@@ -6338,10 +6348,7 @@ function display_related_resources($context)
                 <div class="RecordResource">
                     <div class="Title"><?php echo escape($lang["relatedresources"]); ?></div>
                     <?php
-                    if (
-                        checkperm("s")
-                        && ($k == "" || $internal_share_access)
-                    ) {
+                    if ($render_related) {
                         if (count(array_diff(array_column($arr_related, "resource_type"), $relatedtypes_shown)) > 0) {
                             ?>
                             <a href="<?php echo generateURL($baseurl . '/pages/search.php', ['search' => "!related$ref", 'restypes' => '']); ?>"

@@ -12,7 +12,7 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
 
             <div class="ResourcePanel">
                 <div class="ImageWrapper" style="position: relative;height:150px;">
-                    <a onClick="return CentralSpaceLoad(this,true);" href="<?php echo $pub_url?>" title="<?php echo escape(str_replace(array("\"","'"), "", i18n_get_collection_name($collections[$n]))) ?>">
+                    <a onClick="return view_collection(this,true);" href="<?php echo $pub_url?>" title="<?php echo escape(str_replace(array("\"","'"), "", i18n_get_collection_name($collections[$n]))) ?>">
                         <?php
                         $images = 0;
                         for ($m = 0; $m < count($resources) && $images <= 4; $m++) {
@@ -53,7 +53,7 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
                             <?php
                         }
                         if ($x == count($df) - 1) { ?>
-                            <a onClick="return CentralSpaceLoad(this, true);"
+                            <a onClick="return view_collection(this, true);"
                                 href="<?php echo $pub_url?>"
                                 title="<?php echo escape(str_replace(array("\"", "'"), "", i18n_get_collection_name($collections[$n]))) ?>">
                                 <?php echo escape(tidy_trim(i18n_get_collection_name($collections[$n]), 32)) ?>
@@ -72,7 +72,7 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
                     <a href="<?php echo $baseurl_short?>pages/collections.php?collection=<?php echo escape($collections[$n]["ref"]); ?>" onClick="return CollectionDivLoad(this);">
                         <?php echo LINK_CARET . escape($lang["action-select"]); ?>
                     </a>&nbsp;&nbsp;&nbsp;
-                    <a onClick="return CentralSpaceLoad(this,true);" href="<?php echo $pub_url?>">
+                    <a onClick="return view_collection(this,true);" href="<?php echo $pub_url?>">
                         <?php echo LINK_CARET . escape($lang["view"]); ?>
                     </a>
                 </div>
@@ -98,7 +98,7 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
                 ?>
                 <td nowrap>
                     <div class="ListTitle">
-                        <a onClick="return CentralSpaceLoad(this,true);" href="<?php echo $pub_url?>" title="<?php echo str_replace(array("\"","'"), "", $collection_prefix . i18n_get_collection_name($collections[$n]))?>">
+                        <a onClick="return view_collection(this,true);" href="<?php echo $pub_url?>" title="<?php echo str_replace(array("\"","'"), "", $collection_prefix . i18n_get_collection_name($collections[$n]))?>">
                             <?php echo escape($collection_prefix . tidy_trim(i18n_get_collection_name($collections[$n]), 45)) ?>
                         </a>
                     </div>
@@ -125,7 +125,7 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
                         <a href="<?php echo $baseurl_short?>pages/collections.php?collection=<?php echo escape($collections[$n]["ref"]); ?>" onClick="return CollectionDivLoad(this);">
                             <?php echo LINK_CARET . escape($lang["action-select"]); ?>
                         </a>&nbsp;&nbsp;
-                        <a onClick="return CentralSpaceLoad(this,true);" href="<?php echo $pub_url?>">
+                        <a onClick="return view_collection(this,true);" href="<?php echo $pub_url?>">
                             <?php echo LINK_CARET . escape($lang["viewall"]); ?>
                         </a>
                     </div>
@@ -134,6 +134,20 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
             <?php
         }
     }
+    ?>
+    <script> 
+        function view_collection(element) {
+            if(typeof(top.history.pushState)=='function') {
+                top.history.pushState(
+                    document.title+'&&&'+jQuery('#CentralSpace').html(), 
+                    applicationname, 
+                    '<?php echo generateURL($baseurl_short . '/pages/search.php', $searchparams); ?>'
+                );
+                return CentralSpaceLoad(element,true);
+            }
+        }
+    </script>
+    <?php
 
     if (($display == "thumbs" || $display == "xlthumbs") && $shownresults) {
         # If any collection results were displayed, carriage return before the results so the collections are visibly separate.
