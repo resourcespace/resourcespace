@@ -2925,8 +2925,6 @@ function render_resource_image($resource, $img_url, $display="thumbs")
     
     list($width, $height, $margin) = calculate_image_display($resource, $img_url, $display);
 
-    $margin = (is_numeric($margin)) ? $margin . "px" : $margin;
-
     // Produce a 'softer' colour for the loading preview (extracted colours tend to have a very high saturation)
     if (  (isset($resource["image_red"]) && isset($resource["image_green"]) && isset($resource["image_blue"]))
        && (is_int_loose($resource["image_red"]) && is_int_loose($resource["image_green"]) && is_int_loose($resource["image_blue"]))  )
@@ -2942,7 +2940,7 @@ function render_resource_image($resource, $img_url, $display="thumbs")
     ?>
     <div class="ImageColourWrapper" 
     style="background-color: rgb(<?php echo $preview_red ?>,<?php echo $preview_green ?>,<?php echo $preview_blue ?>);
-    width:<?php echo $width; ?>px;height:<?php echo $height; ?>px;margin:<?php echo $margin; ?> auto 0 auto; 
+    width:<?php echo $width; ?>px;height:<?php echo $height; ?>px;
     <?php 
     $blurbleedstopper = hook("stopblurbleed"); 
     if ($blurbleedstopper) { echo $blurbleedstopper; }
@@ -2989,8 +2987,8 @@ function calculate_image_display(array $imagedata, string $img_url, string $disp
             break;
 
         case "thumbs":
-            $defaultwidth = 200;
-            $defaultheight = 200;
+            $defaultwidth = 202;
+            $defaultheight = 202;
             break;
 
         case "list":
@@ -4478,7 +4476,9 @@ function display_field_data(array $field,$valueonly=false,$fixedwidth=452)
                 $i++;
                 }
 
-            $extra   .= $template;
+            $extra .= $template;
+            $extra .= $dismisslink ? "<div class=\"clearerleft\"></div><div class=\"RecordStory\">{$dismisslink}</div>" : "";
+
             }
         else
             {

@@ -174,7 +174,6 @@ if ($allow_reorder) {
 
             jQuery('#CollectionSpace').sortable({
                 distance: 20,
-                connectWith: '#CentralSpaceResources',
                 appendTo: 'body',
                 zIndex: 99000,
                 helper: function(event, ui) {
@@ -227,7 +226,7 @@ if ($allow_reorder) {
 <script>
     jQuery('#CentralSpace').on('prepareDragDrop', function() {
         jQuery('#CollectionDiv').droppable({
-            accept: '.ResourcePanel',
+            accept: '.resource-card',
 
             drop: function(event, ui) {
                 var query_strings = getQueryStrings();
@@ -246,7 +245,7 @@ if ($allow_reorder) {
         });
 
         jQuery('#trash_bin').droppable({
-            accept: '.CollectionPanelShell, .ResourcePanel',
+            accept: '.CollectionPanelShell, .resource-card',
             activeClass: "ui-droppable-active ui-state-hover",
             hoverClass: "ui-state-active",
 

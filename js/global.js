@@ -637,15 +637,28 @@ function CollectionDivLoad (anchor,scrolltop)
         jQuery('div.ResourcePanel a.addToCollection').removeClass('DisplayNone');
         jQuery('div.ResourcePanel a.removeFromCollection').addClass('DisplayNone');
 
+        jQuery('.resource-card-add-remove.addToCollection').removeClass('DisplayNone');
+        jQuery('.resource-card-add-remove.removeFromCollection').addClass('DisplayNone');
+
+        jQuery('div.menu-item[data-action="add"]').removeClass('DisplayNone');
+        jQuery('div.menu-item[data-action="remove"]').addClass("DisplayNone");
+
         // For each resource in the collection bar, set all matching items in central space to hide + icon and show - icon
         collection_resources.forEach(function(value) {
-            var resource_in_centralspace=jQuery('#ResourceShell' + value +'.ResourcePanel');
+            var resource_in_centralspace=jQuery('#ResourceShell' + value + '.ResourcePanel');
+            var resource_card = jQuery('#ResourceShell' + value + ".resource-card");
             if(resource_in_centralspace.length == 0)
                 {
                 resource_in_centralspace=jQuery('#CentralSpace [data-identifier="'+jQuery(this).attr('data-identifier')+'"]');
                 }
             resource_in_centralspace.find('div.ResourcePanelIcons > a.addToCollection').addClass('DisplayNone');
             resource_in_centralspace.find('div.ResourcePanelIcons > a.removeFromCollection').removeClass('DisplayNone');
+
+            resource_card.find('.resource-card-add-remove.addToCollection').addClass('DisplayNone');
+            resource_card.find('.resource-card-add-remove.removeFromCollection').removeClass('DisplayNone');
+
+            resource_card.find('div.menu-item[data-action="add"]').addClass('DisplayNone');
+            resource_card.find('div.menu-item[data-action="remove"]').removeClass("DisplayNone");
             });
 
         });

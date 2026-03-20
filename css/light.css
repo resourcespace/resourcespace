@@ -67,9 +67,6 @@ input[readonly] {
 }
 .ResourcePanel {
     background-color: white;
-    border-radius: 10px;
-    transition: all 0.1s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .ResourcePanel:hover {
     box-shadow: 0 1px 10px 0 rgba(0,0,0,0.3);
@@ -86,7 +83,7 @@ tr[id^="ResourceShell"].Selected { background-color: #d5eafa; /* Used a tint of 
 
 .ResourcePanelIcons a.icon-circle-minus { color: #e91d1d }
 
-.ImageWrapper {background-color: #f6f6f6;}
+.ImageWrapper {background-color: var(--colour-neutral-100);}
 
 #SearchBoxPanel h2, #ThemeBoxPanel h2, #ResearchBoxPanel h2, .SearchSpace h2{color: #fff;}
 

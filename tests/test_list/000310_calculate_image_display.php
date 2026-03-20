@@ -15,7 +15,7 @@ $use_cases = [
             'img_url' => '',
             'display' => 'thumbs',
         ],
-        'expected' => [200, 100, 50],
+        'expected' => [202, 101, 50],
     ],
     [
         'name' => 'No height (divison by zero)',
@@ -24,7 +24,7 @@ $use_cases = [
             'img_url' => '',
             'display' => 'thumbs',
         ],
-        'expected' => [200, 200, 'auto'],
+        'expected' => [202, 202, 'auto'],
     ],
 ];
 foreach ($use_cases as $uc) {

@@ -7,7 +7,7 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
 
 $html_class = (empty($class) ? "" : 'class="' . implode(" ", $class) . '"');
 
-$resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_field]);
+$resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_field] ?? "");
 ?>
 
 <!--List Item-->

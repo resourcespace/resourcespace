@@ -2308,7 +2308,7 @@ function error_alert($error, $back = true, $code = 403)
  */
 function format_display_field($value)
 {
-    global $results_title_trim,$results_title_wordwrap,$df,$x,$search;
+    global $df,$x;
 
     $value = strip_tags_and_attributes($value);
 

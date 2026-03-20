@@ -177,7 +177,6 @@ switch ($display)
         $display_fields = $thumbs_display_fields;  
         if (isset($search_result_title_height)) { $result_title_height = $search_result_title_height; }
         $results_title_trim = $search_results_title_trim;
-        $results_title_wordwrap = $search_results_title_wordwrap;
         break;      
     }
 
@@ -754,7 +753,7 @@ if(!$collectionsearch)
             {
             return false;
             }
-        jQuery('.ResourcePanel').draggable({
+        jQuery('.resource-card').draggable({
             distance: 20,
             connectWith: '#CollectionSpace, .BrowseBarLink',
             appendTo: 'body',
@@ -831,15 +830,20 @@ if ($collectionsearch && $display!="list") {
                 
                 return jQuery('#CentralSpaceResourceClone');
                 },
-            items: '.ResourcePanel',
+            items: '.resource-card',
             cancel: '.DisableSort',
             
             start: function (event, ui)
                 {
-                InfoBoxEnabled=false;
+
+                ui.placeholder.css({
+                    width: ui.item.outerWidth(),
+                    height: ui.item.outerHeight()
+                });
+
                 if (jQuery('#InfoBox')) {jQuery('#InfoBox').hide();}
                 if (jQuery('#InfoBoxCollection')) {jQuery('#InfoBoxCollection').hide();}
-                if(is_special_search('!collection', 11))
+                if (is_special_search('!collection', 11))
                     {
                     // get the current collection from the search page (ie. CentralSpace)
                     var query_strings = getQueryStrings();
@@ -905,6 +909,7 @@ if ($collectionsearch && $display!="list") {
         jQuery('.ResourcePanelShell').disableSelection();
         jQuery('.ResourcePanelShellLarge').disableSelection();
         jQuery('.ResourcePanelShellSmall').disableSelection();
+        jQuery('.resource-card').disableSelection();
 
     });
     </script>
@@ -917,6 +922,7 @@ if ($collectionsearch && $display!="list") {
             jQuery('.ResourcePanelShell').enableSelection();
             jQuery('.ResourcePanelShellLarge').enableSelection();
             jQuery('.ResourcePanelShellSmall').enableSelection();
+            jQuery('.resource-card').enableSelection();
         });
     
     </script>
@@ -1881,41 +1887,201 @@ if($display != 'map')
     }
     ?>
 <script>
-function toggle_addremove_to_collection_icon(plus_minus_link)
-    {
+jQuery(document).ready(function() {
+
+    const GAP = 1;
+
+    let lastInteraction = "mouse";
+
+    jQuery(document).on("pointerdown mousedown", function () {
+        lastInteraction = "mouse";
+    });
+
+    jQuery(document).on("keydown", function (e) {
+        // any key press implies keyboard intent
+        lastInteraction = "keyboard";
+    });
+
+    function closeAllMenus() {
+        jQuery('.flyout-menu.is-open').each(function(){
+            const $m = jQuery(this);
+            $m.removeClass('is-open is-confirm').attr('aria-hidden', 'true');
+            $m.css({ display: '' });
+        });
+        jQuery('.resource-card-action-menu').removeClass("is-open");
+        jQuery('.resource-card-action-bar[aria-expanded="true"]').attr('aria-expanded', 'false');
+    }
+
+    function positionMenu($btn, $menu) {
+        const GAP = 0;
+        const PAD = 0;
+
+        const $bar = $btn.closest('.resource-card-action-bar');
+        const $container = $btn.closest('#CentralSpaceResources');
+        if (!$bar.length || !$container.length) return;
+
+        const barRect = $bar[0].getBoundingClientRect();
+        const btnRect = $btn[0].getBoundingClientRect();
+        const contRect = $container[0].getBoundingClientRect();
+
+        // Measure menu
+        const el = $menu[0];
+        const prev = { display: el.style.display, visibility: el.style.visibility };
+        $menu.css({ visibility: 'hidden', display: 'block' });
+        const menuW = $menu.outerWidth();
+        const menuH = $menu.outerHeight();
+        $menu.css(prev);
+
+        const contLeft   = contRect.left + PAD;
+        const contRight  = contRect.right - PAD;
+        const contTop    = contRect.top + PAD;
+        const contBottom = contRect.bottom - PAD;
+
+        // Decide horizontal direction by space (not by the initial guess)
+        const spaceRight = contRight - btnRect.left;   // if left-aligned to button
+        const spaceLeft  = btnRect.right - contLeft;   // if right-aligned to button
+
+        const openRight = spaceRight >= menuW || spaceRight >= spaceLeft;
+
+        // Horizontal: ALIGN EDGE with button
+        let leftVp = openRight
+        ? btnRect.left                      // menu left aligns with button left
+        : (btnRect.right - menuW);          // menu right aligns with button right
+
+        // Vertical
+        let topVp = btnRect.bottom + GAP;
+        if (topVp + menuH > contBottom) topVp = btnRect.top - GAP - menuH;
+
+        // Clamp inside container viewport
+        leftVp = Math.max(contLeft, Math.min(leftVp, contRight - menuW));
+        topVp  = Math.max(contTop,  Math.min(topVp,  contBottom - menuH));
+
+        // Convert viewport -> bar-relative
+        const left = leftVp - barRect.left;
+        const top  = topVp  - barRect.top;
+
+        $menu.css({ left: Math.round(left), top: Math.round(top) });
+    }
+
+    jQuery(document).on('click', '.flyout-menu .menu-item[data-action="delete"]', function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const $menuitem = jQuery(this);
+        $menuitem.addClass("is-selected");
+
+
+        const $flyout = $menuitem.closest('.flyout-menu');
+
+        $flyout.addClass('is-confirm');
+        $flyout.find('.menu-confirm').attr('aria-hidden', 'false');
+
+    });
+
+    // Confirm delete
+    jQuery(document).on('click', '.flyout-menu [data-action="confirm-delete"]', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const $flyout = jQuery(this).closest('.flyout-menu');
+        const $card = $flyout.closest('.resource-card');
+
+        closeAllMenus();
+    });
+
+    // Toggle on kebab click
+    jQuery(document).off("click.resource-card-menu", ".resource-card-action-menu")
+                    .on('click.resource-card-menu', '.resource-card-action-menu', function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const $btn = jQuery(this);
+        const $bar = $btn.closest('.resource-card-action-bar');
+        const $menu = $bar.find('.flyout-menu').first();
+
+        const isOpen = $menu.hasClass('is-open');
+
+        closeAllMenus();
+
+        if (!isOpen) {
+            $btn.addClass("is-open");
+            $menu.addClass('is-open').attr('aria-hidden', 'false');
+            $btn.attr('aria-expanded', 'true');
+            positionMenu($btn, $menu);
+            if (lastInteraction === "keyboard") {
+                $menu.find(".menu-item").first().trigger("focus");
+            }
+        }
+    });
+
+
+    // Click outside closes
+    jQuery(document).on('click', function (e) {
+        if (jQuery(e.target).closest('.flyout-menu, .resource-card-action-menu').length) return;
+        closeAllMenus();
+    });
+
+    // ESC closes
+    jQuery(document).on('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeAllMenus();
+        }
+    });
+
+    // close when clicking an item except delete
+    jQuery(document).on('click', '.menu-item[data-action!="delete"]', function () {
+        closeAllMenus();
+    });
+    jQuery(document).on("dragstart sortstart", function() {
+        closeAllMenus();
+    });    
+});
+
+function toggle_addremove_to_collection_icon(plus_minus_link) {
     // The plus minus link can be from the collection bar or from the resource shell in centralspace  
     var icon = jQuery(plus_minus_link);
 
     // Use the link to locate the resource shell in centralspace  
     var resource_shell = jQuery('#ResourceShell' + icon.data('resource-ref') + ".ResourcePanel");
 
+    var resource_card = jQuery('#ResourceShell' + icon.data('resource-ref') + ".resource-card");
+
     // Each resource shell has one plus icon for addition and one minus icon for removal
     // Each collection bar resource has only one minus icon for removal
 
     // If its a plus icon then it must be from centralspace, so hide it and then show its minus icon sibling
-    if(icon.hasClass('addToCollection'))
-        {
-        icon.addClass('DisplayNone');
-        var rfc = icon.siblings('.removeFromCollection');
-        if(rfc.length > 0)
-            {
-            jQuery(rfc[0]).removeClass('DisplayNone');
-            }
-        }
+    if (icon.hasClass('addToCollection') || icon.data("action") === "add") {
+
+        resource_card.find('.resource-card-add-remove.addToCollection').addClass('DisplayNone');
+        resource_card.find('.resource-card-add-remove.removeFromCollection').removeClass('DisplayNone');
+
+        resource_shell.find('div.ResourcePanelIcons > a.addToCollection').addClass('DisplayNone');
+        resource_shell.find('div.ResourcePanelIcons > a.removeFromCollection').removeClass('DisplayNone');
+
+        resource_card.find('div.menu-item[data-action="add"]').addClass('DisplayNone');
+        resource_card.find('div.menu-item[data-action="remove"]').removeClass("DisplayNone");
+    }
     // If its a minus icon then it can be from the collection bar or centralspace
-    else if(icon.hasClass('removeFromCollection'))
+    else if(icon.hasClass('removeFromCollection') || icon.data("action") === "remove")
         {
         // If there is a plus icon then it must be in centralspace and so show it
         resource_shell.find('div.ResourcePanelIcons > a.addToCollection').removeClass('DisplayNone');
+        
+        resource_card.find('.resource-card-add-remove.addToCollection').removeClass('DisplayNone');
+        resource_card.find('div.menu-item[data-action="add"]').removeClass('DisplayNone');
 
         // Now hide the minus icon in centralspace
         resource_shell.find('div.ResourcePanelIcons > a.removeFromCollection').addClass('DisplayNone');
+        
+        resource_card.find('.resource-card-add-remove.removeFromCollection').addClass('DisplayNone');
+        resource_card.find('div.menu-item[data-action="remove"]').addClass('DisplayNone');
         }
 
     return;
-    }
-
-
+}
+    
 <?php
 if($use_selection_collection)
     {

@@ -786,14 +786,14 @@ const SENSITIVE_VARIABLE_NAMES = [
     'emu_email_notify',
 ];
 
-const WORKFLOW_DEFAULT_ICON = "cog";
+const WORKFLOW_DEFAULT_ICON = "workflow";
 const WORKFLOW_DEFAULT_ICONS = [
-    '-2'    => 'file-input',
-    '-1'    => 'eye',
+    '-2'    => 'clock-arrow-up',
+    '-1'    => 'clock-fading',
     '0'     => 'check',
-    '1'     => 'clock',
-    '2'     => 'archive',
-    '3'     => 'trash-2',
+    '1'     => 'file-clock',
+    '2'     => 'file-archive',
+    '3'     => 'file-x',
     ];
 
 // File extensions that can be natively viewed in the browser

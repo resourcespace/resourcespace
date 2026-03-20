@@ -353,7 +353,7 @@ function BrowseBarInit()
         }
         
     jQuery(".BrowseBarDroppable").droppable({
-        accept: ".ResourcePanel, .CollectionPanelShell",
+        accept: ".resource-card, .CollectionPanelShell",
 
         drop: function(event, ui)
             {

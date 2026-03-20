@@ -3646,3 +3646,9 @@ $lang["requiredfield_multiple"] = "This is a required field when changing the ar
 
 $lang["reorder_invalid"] = "Collection can not be re-ordered unless the sort order is collection order";
 $lang["reorder_permissions_fail"] = "Collection can not be re-ordered as you do not have access to all resources in this collection";
+
+// Resource card menu
+$lang["resource-card-menu-delete"] = "Are you sure you wish to delete this resource?";
+$lang["resource-card-menu-delete-button"] = "Yes, delete resource";
+$lang["resource-card-menu-delete-perm"] = "Are you sure? This action cannot be reversed.";
+$lang["resource-card-menu-delete-perm-button"] = "Yes, delete permanently";

@@ -99,4 +99,13 @@ if ($editable_only) {
             $sql_filter->parameters = array_merge($sql_filter->parameters, $edit_filter_sql->parameters);
         }
     }
+
+    global $edit_access_for_contributor;
+    if ($edit_access_for_contributor) {
+        if ($sql_filter->sql != "") {
+            $sql_filter->sql .= " OR ";
+        }
+        $sql_filter->sql .=  "created_by = ?";
+        $sql_filter->parameters = array_merge($sql_filter->parameters, ["i",$userref]);
+    }
 }

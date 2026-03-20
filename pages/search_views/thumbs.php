@@ -1,81 +1,71 @@
 <?php
 
-$resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_field]);
-
-# Establish various metrics for use in thumbnail rendering
-$resolved_title_trim = 0;
-$field_height = 24;
-$workflow_state_height = 24;
+$resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_field] ?? "");
 
 if ($display == "xlthumbs") {
     $resolved_title_trim = $xl_search_results_title_trim;
-    $resource_panel_height = 352;
 } else {
     $resolved_title_trim = $search_results_title_trim;
-    $resource_panel_height = 232;
 }
-
-$thumbs_displayed_fields_height = $resource_panel_height + ($field_height * (count($thumbs_display_fields))) + 2;
-
-# Add space for number of annotations
-if ($annotate_enabled || (isset($annotate_enabled_adjust_size_all) && $annotate_enabled_adjust_size_all)) {
-    $thumbs_displayed_fields_height += $field_height;
-}
-
-# Increase height of search panel for each extended field
-if (isset($search_result_title_height)) {
-    for ($i = 0; $i < count($df); $i++) {
-        if (in_array($df[$i]['ref'], $thumbs_display_fields) && in_array($df[$i]['ref'], $thumbs_display_extended_fields)) {
-            if ($df[$i]['ref'] == $thumbs_display_fields[0]) {
-                # If extending the taller first field take off more height
-                $thumbs_displayed_fields_height -= 2;
-            }
-            $thumbs_displayed_fields_height += ($search_result_title_height - 19);
-        }
-    }
-}
-
-# Increase height if resource ID is displayed
-if ($display_resource_id_in_thumbnail) {
-    $thumbs_displayed_fields_height += 25;
-}
-
-hook('thumbs_resourceshell_height');
-
-if ($thumbs_display_archive_state) {
-    $thumbs_displayed_fields_height += $workflow_state_height;
-}
-
 $class = array();
+
 if ($use_selection_collection && in_array($ref, $selection_collection_resources)) {
     $class[] = "Selected";
 }
 
-$thumbs_displayed_fields_height = $resource_panel_height_max = max($thumbs_displayed_fields_height, $resource_panel_height_max);
 ?>
 
-<!--Resource Panel -->    
-<div
-    class="ResourcePanel <?php echo implode(" ", $class); ?> <?php echo $display == 'xlthumbs' ? 'ResourcePanelLarge' : ''; ?> ArchiveState<?php echo $result[$n]['archive']; ?> ResourceType<?php echo $result[$n]['resource_type']; ?>"
-    id="ResourceShell<?php echo escape($ref); ?>"
-    style="height: <?php echo (int)$thumbs_displayed_fields_height; ?>px;">
+<div class="resource-card <?php echo implode(" ", $class) . " "; echo $display == "xlthumbs" ? "xl" : "normal" ?>"
+     id="ResourceShell<?php echo escape($ref); ?>">
+    <div class="resource-card-action-bar">
+        <?php 
+            if ($use_selection_collection) {
+                if (!in_array($result[$n]['resource_type'], $collection_block_restypes)) { ?>
+                <label>
+                <input 
+                    type="checkbox" 
+                    id="check<?php echo escape($ref); ?>" 
+                    class="checkselect checkselectmedium"
+                    data-resource="<?php echo escape($result[$n]["ref"]); ?>"
+                    aria-label="<?php echo escape($lang["action-selectresource"]); ?>"
+                    <?php
+                    echo render_csrf_data_attributes("ToggleCollectionResourceSelection_{$result[$n]["ref"]}");
 
-    <?php hook("resourcethumbtop"); ?>
+                    if (in_array($ref, $selection_collection_resources)) { ?>
+                        checked
+                        <?php
+                    }
+                    ?>
+                >
+                <span class="check" aria-hidden="true" title="<?php echo escape($lang['action-selectresource'] . (($resource_view_title != "") ? " - " . $resource_view_title : "")) ?>"></span>
+                </label>
+            <?php } else { ?>
+                <input type="checkbox" class="checkselect" style="opacity: 0;">
+            <?php
+            }
+        }
 
+        include "resource_actions_menu.php";
+
+        ?>
+    </div>
+        
     <a
-        class="<?php echo $display == 'xlthumbs' ? 'ImageWrapperLarge' : 'ImageWrapper'; ?>"
+        class="resource-card-image <?php echo $display == "xlthumbs" ? "xl" : "normal" ?>"
         href="<?php echo $url; ?>"  
         onclick="return <?php echo $resource_view_modal ? 'Modal' : 'CentralSpace'; ?>Load(this,true);" 
         title="<?php echo str_replace(array("\"","'"), "", escape($resource_view_title)); ?>"
     >
+        <?php hook("resourcethumbtop"); ?>
+        
         <?php
         // Render preview image
         if ($display == "xlthumbs") {
             $usesize = $GLOBALS['retina_mode'] && resource_download_allowed($result[$n]['ref'], 'scr', $result[$n]['resource_type']) ? "scr" : "pre";
-        } else {
+        } else {	
             $usesize = $GLOBALS['retina_mode'] ? "pre" : "thm";
         }
-
+        
         $arrsizes = array_unique([$usesize,"pre","thm"]);
         $thumbnail = get_resource_preview($result[$n], $arrsizes, $access, $watermark);
 
@@ -116,40 +106,10 @@ $thumbs_displayed_fields_height = $resource_panel_height_max = max($thumbs_displ
         hook("aftersearchimg", "", array($result[$n], $thumbnail["url"] ?? "", $display))
         ?>
     </a>
+    <div class="resource-card-content">
+        <div class="resource-card-content-top">
 
     <?php
-    hook("icons");
-
-    if ($thumbs_display_archive_state) {
-        $workflow_html = "<div class='ResourcePanelInfo WorkflowState'>";
-        // Add icon
-        $icon = $workflowicons[$result[$n]['archive']] ?? (WORKFLOW_DEFAULT_ICONS[$result[$n]['archive']] ?? WORKFLOW_DEFAULT_ICON);
-        $workflow_html .= "<i class='icon-" . escape($icon) . "'></i>&nbsp;";
-        // Add text for workflow state
-        $workflow_html .= isset($lang["status" . $result[$n]['archive']]) ? (escape($lang["status" . $result[$n]['archive']])) : ($lang["status"] . "&nbsp;" . $result[$n]['archive']);
-        $workflow_html .= "</div>";
-        echo $workflow_html;
-    }
-
-    if (isset($show_annotation_count) && $show_annotation_count) {
-        $annotations_count = $result[$n]["annotation_count"] ?? getResourceAnnotationsCount($ref);
-        $message           = '';
-
-        if (1 < $annotations_count) {
-            $message = $annotations_count . ' ' . mb_strtolower($lang['annotate_annotations_label']);
-        } elseif (1 == $annotations_count) {
-            $message = $annotations_count . ' ' . mb_strtolower($lang['annotate_annotation_label']);
-        }
-        ?>
-        <div class="ResourcePanelInfo AnnotationInfo">
-            <?php if (0 < $annotations_count) { ?>
-                <i class="icon-square-pen" aria-hidden="true"></i>
-                <span><?php echo $message; ?></span>
-            <?php } ?>
-            &nbsp;
-        </div>
-        <?php
-    }
 
     $df_alt = hook("displayfieldsalt");
     $df_normal = $df;
@@ -164,14 +124,7 @@ $thumbs_displayed_fields_height = $resource_panel_height_max = max($thumbs_displ
             continue;
         }
 
-        #value filter plugin -tbd
         $value = $result[$n]['field' . $df[$x]['ref']] ?? "";
-        $plugin = "../plugins/value_filter_" . $df[$x]['name'] . ".php";
-        if ($df[$x]['value_filter'] != "") {
-            eval(eval_check_signed($df[$x]['value_filter']));
-        } elseif (file_exists($plugin)) {
-            include $plugin;
-        }
 
         # swap title fields if necessary
         if (
@@ -187,11 +140,12 @@ $thumbs_displayed_fields_height = $resource_panel_height_max = max($thumbs_displ
         // extended css behavior
         if (
             in_array($df[$x]['ref'], $thumbs_display_extended_fields) &&
-            ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field))
+            ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field)) && 
+            $value !== ""
         ) {
             ?>
             <div
-                class="ResourcePanelInfo ResourceTypeField<?php echo $df[$x]['ref']; echo $x == 0 ? ' ResourcePanelTitle' : ''; ?>"
+                class="ResourceTypeField<?php echo $df[$x]['ref']; echo $x == 0 ? ' resource-card-title ' : ' resource-card-field'; ?>"
                 title="<?php echo str_replace(array("\"","'"), "", escape(i18n_get_translated($value))); ?>"
             >
                 <div class="extended">
@@ -214,10 +168,10 @@ $thumbs_displayed_fields_height = $resource_panel_height_max = max($thumbs_displ
             </div>
             <?php
             // normal behavior
-        } elseif ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field)) {
+        } elseif ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field) && $value !== "") {
             ?>
             <div
-                class="ResourcePanelInfo  ResourceTypeField<?php echo $df[$x]['ref']; echo $x == 0 ? ' ResourcePanelTitle' : ''; ?>"
+                class="ResourceTypeField<?php echo $df[$x]['ref']; echo $x == 0 ? ' resource-card-title' : ' resource-card-field'; ?>"
                 title="<?php echo str_replace(array("\"","'"), "", escape(i18n_get_translated($value))); ?>"
             >
                 <?php
@@ -233,59 +187,117 @@ $thumbs_displayed_fields_height = $resource_panel_height_max = max($thumbs_displ
                     </a>
                     <?php
                 } //end link ?>
-                &nbsp;
             </div>
-            <div class="clearer"></div>
             <?php
         }
     }
-    if ($display_resource_id_in_thumbnail && $ref > 0) {
-        echo "<label for='check" . escape($ref) . "'" . "class='ResourcePanelResourceID'>" . escape($ref) . "</label>";
-    }
-    ?>
-    <div class="clearer"></div>
-    <?php
-    $df = $df_normal;
-    ?>
-    <!-- Checkboxes -->
-    <div class="ResourcePanelIcons">
-        <?php
-        echo '<div class="ResourceTypeIcon ThumbIcon">';
-        foreach ($types as $type) {
-            if (($type["ref"] == $result[$n]['resource_type']) && isset($type["icon"]) && $type["icon"] != "") {
-                echo '<i title="' . escape($type["name"]) . '" class="icon-' . escape($type["icon"]) . '"></i>';
-                }
-            }
-        if (isset($result[$n]['file_extension']) && $result[$n]['file_extension'] != "") { ?>
-            <?php echo strtoupper(escape($result[$n]['file_extension'])); ?>
-            <?php
-        }
-        echo '</div>';
-        
-        if ($use_selection_collection) {
-            if (!in_array($result[$n]['resource_type'], $collection_block_restypes)) { ?>
-                <input 
-                    type="checkbox" 
-                    id="check<?php echo escape($ref); ?>" 
-                    class="checkselect checkselectmedium"
-                    title="<?php echo escape($lang['action-selectresource'] . (($resource_view_title != "") ? " - " . $resource_view_title : "")) ?>"
-                    data-resource="<?php echo escape($result[$n]["ref"]); ?>"
-                    aria-label="<?php echo escape($lang["action-selectresource"]); ?>"
-                    <?php
-                    echo render_csrf_data_attributes("ToggleCollectionResourceSelection_{$result[$n]["ref"]}");
+        hook("icons");
+    ?>  
 
-                    if (in_array($ref, $selection_collection_resources)) { ?>
-                        checked
+        </div>
+        <div class="resource-card-content-bottom">
+            <div class="resource-card-pill-bar">
+                <?php
+                if ($display_resource_id_in_thumbnail && $ref > 0) {
+                ?>
+                    <span class="resource-card-pill resource-card-id"># <?php echo escape($ref); ?></span>
+                <?php } 
+                
+                if ($thumbs_display_archive_state) {
+
+                    switch($result[$n]['archive']) {
+                        case -2:
+                        case -1:
+                            $status_css = "pending";
+                            break;
+                        case 0:
+                            $status_css = "active";
+                            break;
+                        case 1:
+                        case 2:
+                            $status_css = "archive";
+                            break;
+                        case 3:
+                            $status_css = "deleted";
+                            break;
+                        default:
+                            $status_css = "custom";
+                    }
+
+                    $icon = $workflowicons[$result[$n]['archive']] ?? (WORKFLOW_DEFAULT_ICONS[$result[$n]['archive']] ?? WORKFLOW_DEFAULT_ICON);
+                    $workflow_html = "<i class='icon-" . escape($icon) . "'></i>";
+                ?>
+                    <span class="resource-card-pill resource-card-status <?php echo escape($status_css); ?>">
+                        <?php echo $workflow_html; ?>
+                        <?php echo isset($lang["status" . $result[$n]['archive']]) ? (escape($lang["status" . $result[$n]['archive']])) : ($lang["status"] . "&nbsp;" . $result[$n]['archive']); ?>
+                    </span>
+                <?php
+                }
+                if (isset($show_annotation_count) && $show_annotation_count) {
+                    $annotations_count = $result[$n]["annotation_count"] ?? getResourceAnnotationsCount($ref);
+
+                    if ($annotations_count > 0) {
+                        ?>
+                        <span class="resource-card-pill resource-card-annotations"><i class="icon-captions"></i><?php echo (int) $annotations_count; ?></span>
                         <?php
                     }
+                    
+                } ?>
+            </div>
+            <div class="resource-card-type-bar">
+                <?php
+                echo '<div class="resource-card-type">';
+                foreach ($types as $type) {
+                    if (($type["ref"] == $result[$n]['resource_type']) && isset($type["icon"]) && $type["icon"] != "") {
+                        echo '<i title="' . escape($type["name"]) . '" class="icon-' . escape($type["icon"]) . '"></i>';
+                        }
+                    }
+                if (isset($result[$n]['file_extension']) && $result[$n]['file_extension'] != "") { ?>
+                    <?php echo "<span>" . strtoupper(escape($result[$n]['file_extension'])) . "</span>"; ?>
+                    <?php
+                }
+                echo '</div>'; 
+                 ?>
+                <div class="resource-card-tools">
+                    <?php
+                    // Remove from collection icon
+                    if (!checkperm('b') && ($k == '' || $internal_share_access)) {
+                        $col_link_class = ['resource-card-add-remove', 'icon-minus'];
+                        if (
+                            isset($usercollection_resources)
+                            && is_array($usercollection_resources)
+                            && !in_array($ref, $usercollection_resources)
+                        ) {
+                            $col_link_class[] = 'DisplayNone';
+                        }
+
+                        $onclick = 'toggle_addremove_to_collection_icon(this);';
+                        echo remove_from_collection_link($ref, implode(' ', $col_link_class), $onclick, 0, $resource_view_title) . '</a>';
+                    }
+
+                    // Add to collection icon
+                    if (
+                        $pagename != "collections"
+                        && !checkperm('b')
+                        && !in_array($result[$n]['resource_type'], $collection_block_restypes)
+                        && ('' == $k || $internal_share_access)
+                    ) {
+                        $col_link_class = ['resource-card-add-remove', 'icon-plus'];
+
+                        if (
+                            isset($usercollection_resources)
+                            && is_array($usercollection_resources)
+                            && in_array($ref, $usercollection_resources)
+                        ) {
+                            $col_link_class[] = 'DisplayNone';
+                        }
+
+                        $onclick = 'toggle_addremove_to_collection_icon(this);';
+                        echo add_to_collection_link($ref, $onclick, '', implode(' ', $col_link_class), $resource_view_title) . '</a>';
+                    }
                     ?>
-                >
-            <?php } else { ?>
-                <input type="checkbox" class="checkselect" style="opacity: 0;">
-            <?php
-            }
-        }
-        include "resource_tools.php";
-        ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
