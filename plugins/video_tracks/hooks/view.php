@@ -38,14 +38,18 @@ function HookVideo_tracksViewDownloadbuttonreplace()
 function HookVideo_tracksViewAfterresourceactions()
     {    
     global $altfiles, $ref, $resource, $video_tracks_permitted_video_extensions, $baseurl_short, $order_by, $sort,$search, $offset,$archive, $lang, $access;
-    if($access==0 && in_array(mb_strtolower((string) $resource["file_extension"]),$video_tracks_permitted_video_extensions) && count($altfiles)>0)
-        {
+    if(
+        $access == 0 
+        && in_array(mb_strtolower((string) $resource["file_extension"]),$video_tracks_permitted_video_extensions) 
+        && count($altfiles) > 0
+        && !resource_file_readonly($ref)
+    ) {
         ?>
         <li><a href="<?php echo $baseurl_short?>plugins/video_tracks/pages/create_video.php?ref=<?php echo urlencode($ref)?>&amp;search=<?php echo urlencode($search)?>&amp;offset=<?php echo urlencode($offset)?>&amp;order_by=<?php echo urlencode($order_by)?>&amp;sort=<?php echo urlencode($sort)?>&amp;archive=<?php echo urlencode($archive)?>" onClick="if(typeof modalurl != 'undefined' && modalurl.href!=window.location.href){jQuery('#CentralSpace').html('');CentralSpaceLoad(modalurl);}return ModalLoad(this,true,true);">
             <?php echo "<i class='icon-video'></i>&nbsp;" . $lang["video_tracks_create_video_link"]; ?>
             </a></li>
         <?php
-        }
+    }
     
     }
 

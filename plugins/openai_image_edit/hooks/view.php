@@ -7,6 +7,7 @@ function HookOpenai_image_editViewAfterresourceactions () {
     if (
         $access==0
         && (int) $resource['has_image'] !== RESOURCE_PREVIEWS_NONE
+        && !resource_file_readonly($ref)
     ) {
         $urlparams = array(
             "ref"       =>  $ref

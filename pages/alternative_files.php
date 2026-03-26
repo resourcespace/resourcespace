@@ -305,7 +305,7 @@ include "../include/header.php";
                 ?>
             </table>
         </div>
-        <?php if (!resource_is_template($ref)) { ?>
+        <?php if (!resource_file_readonly($ref)) { ?>
             <p>
                 <a onclick="return CentralSpaceLoad(this, true);" href="<?php echo generateURL($baseurl . "/pages/upload_batch.php", $urlparams, array('alternative' => $ref)); ?>">
                     <?php echo LINK_CARET . escape($lang["alternativebatchupload"]); ?>

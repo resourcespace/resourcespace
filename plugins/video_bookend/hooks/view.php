@@ -4,6 +4,10 @@ function HookVideo_bookendViewAfterresourceactions()
     {
     global $ref,$access,$lang,$resource,$baseurl_short;
 
+    if (resource_file_readonly($ref)) {
+        return false;
+    }
+
     $original_file_path=get_resource_path($ref,true,"",false,$resource['file_extension']);
     if(file_exists($original_file_path))
         {

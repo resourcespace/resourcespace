@@ -24,16 +24,17 @@ $error = false;
 // Remove resources with incorrect file extensions
 global $videosplice_allowed_extensions;
 
-foreach ($videos_data as $key => $video)
-    {
-    if(!in_array($video["file_extension"], $videosplice_allowed_extensions))
-        {
+foreach ($videos_data as $key => $video) {
+    if(
+        !in_array($video["file_extension"], $videosplice_allowed_extensions)
+        || resource_file_readonly($video['ref'])
+    ) {
         unset($videos_data[$key]);
         unset($videos[$key]);
         $videos_data = array_values($videos_data);
         $videos = array_values($videos);
-        }
     }
+}
 $min_access = collection_min_access($videos);
 $allowed_actions = [];
 if ($min_access === 0) {

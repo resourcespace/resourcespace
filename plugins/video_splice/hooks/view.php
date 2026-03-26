@@ -13,6 +13,7 @@ function HookVideo_spliceViewAfterresourceactions()
         !in_array($resource["file_extension"], $videosplice_allowed_extensions) 
         || ($resource['ref'] < 0 || !$can_create_resource && !$can_create_alternative && !$can_download)
         || (isset($anonymous_login) && $username == $anonymous_login)
+        || resource_file_readonly($resource['ref'])
     ) {
         
         return false;

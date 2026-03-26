@@ -4,11 +4,12 @@ function HookStencilvgViewAfterresourceactions (){
     global $ref,$access,$lang,$resource,$baseurl_short,$search,$offset,
     $order_by,$sort,$k,$imagemagick_path;
 
-    // Require ImageMagick
-    if(!isset($imagemagick_path))
-        {
+    if(
+        !isset($imagemagick_path)   // Require ImageMagick
+        || resource_file_readonly($ref)
+    ) {
         return false;
-        }
+    }
  
     if ($access==0 && strtoupper($resource['file_extension'])=="SVG")
     {

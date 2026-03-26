@@ -2169,13 +2169,17 @@ form.FormFilter button.ClearButton {
     transform: scale(1.15);
 }
     
-#CentralSpaceResources  
-    {
-        display: flex;
-        padding: var(--space-24);
-        gap: var(--space-32) var(--space-32);
-        flex-wrap: wrap;
-    }
+#CentralSpaceResources {
+    display: flex;
+    padding: var(--space-24);
+    gap: var(--space-32) var(--space-32);
+    flex-wrap: wrap;
+}
+
+#CentralSpaceResources > .BasicsBox {
+    flex: 1;
+}
+
 .ImageTools
     {
     position:absolute;display:inline;visibility:hidden;
@@ -4052,3 +4056,4 @@ a.text-link:visited {
         width: 360px;
     } */
 }
+

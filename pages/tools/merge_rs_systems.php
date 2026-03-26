@@ -303,6 +303,14 @@ $src_api = [
         // \'timeout\' => 5, # in seconds, default is 60
     ],
 ];
+
+/*
+System config options will need to be updated before beginning the merge.
+- In the source system: $api_resource_path_expiry_hours - consider setting to a larger value. This should give enough time for the export and import to be completed and time for offline jobs to pull across all the files.
+This could take many days for a large system merge, potentially weeks!
+- In the destination system: $valid_upload_remote_sources - should be updated to contain the URL of the source system allowing download of the resource files via the offline jobs. Without this, files will not be imported.
+* These changes should be reverted once the migration has completed.
+*/
 ' . PHP_EOL);
     fclose($spec_fh);
     logScript("Successfully generated an example of the spec file. Location: '{$spec_fpath}'");

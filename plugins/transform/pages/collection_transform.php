@@ -58,7 +58,7 @@ if ($replace_resource_preserve_option && getval("keep_original", "true") === 'fa
     foreach($resources as $resource)
         {
         $edit_access=get_edit_access($resource);
-        if (!$edit_access || resource_is_template($resource))
+        if (!$edit_access || resource_file_readonly($resource))
             {
             $errormessages[] = $lang["resourceid"] . " " . $resource . ": " . $lang["error-permissiondenied"];
             $failcount++;

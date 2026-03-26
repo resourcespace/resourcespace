@@ -186,7 +186,7 @@ if ((!url_starts_with($baseurl, $redirecturl) && !hook("modifyredirecturl")) || 
     $redirecturl = '';
 }
 
-if ($replace_resource !== "" && resource_is_template((int) $replace_resource)) {
+if ($replace_resource !== "" && resource_file_readonly((int) $replace_resource)) {
     error_alert($lang['error-permissiondenied']);
 }
 

@@ -13,7 +13,7 @@ $status = "";
 $error = false;
 $resource = get_resource_data($ref);
 
-if (resource_is_template($ref)) {
+if (resource_file_readonly($ref)) {
     error_alert($lang['error-permissiondenied']);
 } elseif (!is_array($resource)) {
     error_alert($lang['resourcenotfound']);

@@ -19,7 +19,7 @@ function HookVideo_spliceAllRender_actions_add_collection_option($top_actions, a
     $collection_resources = do_search("!collection" . $collection, '', 'collection', 0, -1, "ASC");
     $videos = [];
     foreach ($collection_resources as $resource) {
-        if(in_array($resource['file_extension'], $videosplice_allowed_extensions)) {
+        if(in_array($resource['file_extension'], $videosplice_allowed_extensions) && !resource_file_readonly($resource['ref'])) {
             $videos[] = $resource;
         }
     }

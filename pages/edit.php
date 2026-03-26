@@ -1376,7 +1376,7 @@ else
         
     hook("beforeimagecorrection");
 
-    if (!checkperm("F*") && !$resource_file_readonly && !$upload_review_mode)
+    if (!checkperm("F*") && !$resource_file_readonly && !$upload_review_mode && !resource_file_readonly($ref))
         { ?>
         <div class="Question" id="question_imagecorrection">
             <label for="tweak"><?php echo escape($lang["imagecorrection"])?><br/><?php echo escape($lang["previewthumbonly"])?></label>

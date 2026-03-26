@@ -9130,17 +9130,6 @@ function acl_can_edit_resource_of_type(int $ref): bool
 }
 
 /**
- *  Check if a resource is a template resource, dictated by the $fstemplate_alt_threshold config
- * 
- *  @param int $ref resource ref to check
- */
-function resource_is_template(int $ref): bool
-{
-    global $fstemplate_alt_threshold;
-    return $ref < $fstemplate_alt_threshold && $fstemplate_alt_threshold > 0;
-}
-
-/**
  * Check if current user can upload a preview image
  *
  * @param int $ref  Resource ID
@@ -9151,6 +9140,6 @@ function can_upload_preview_image(int $ref): bool
     return !resource_file_readonly($ref)
         && !checkperm("F*")
         && !checkperm("xupr")
-        && !resource_is_template($ref) 
+        && !resource_file_readonly($ref) 
         && !$GLOBALS['custompermshowfile'];
 }
