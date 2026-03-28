@@ -154,7 +154,7 @@ foreach(tms_link_get_modules_mappings() as $module)
         ) {
             $identifiers = tms_link_split_identifiers($tms_resources[$t]["identifier"]);
             foreach($identifiers as $identifier) {
-                if(!$module['tms_uid_field_int'] || is_positive_int_loose($identifier)) {
+                if(!($module['tms_uid_field_int'] ?? true) || is_positive_int_loose($identifier)) {
                     $tms_query_ids[] = $identifier;
                 } else {
                     $logmessage = "Invalid TMS data stored in ResourceSpace: '" . $identifier . "'" . PHP_EOL;
