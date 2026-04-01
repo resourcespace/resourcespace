@@ -6,7 +6,7 @@ $use_cases = [
     ['Simple text should be left alone (treated as string)', 'Foo bar', '"Foo bar"'],
     ['Double quotes should be encoded', '"', '"\u0022"'],
     ['Single quotes should be encoded', "'", '"\u0027"'],
-    ['Less/greater then sign should be encoded', '<>', '"\u003C\u003E"'],
+    ['Less/greater than sign should be encoded', '<>', '"\u003C\u003E"'],
     ['Ampersand should be encoded', '&', '"\u0026"'],
     ['Backslash should be escaped', '\\', '"\\\\"'],
     ['Slashes should NOT be encoded', '/path/to/page.php', '"/path/to/page.php"'],

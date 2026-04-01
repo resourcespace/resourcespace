@@ -17,7 +17,7 @@ if (!checkPermission_dashcreate()) {
 
 global $baseurl,$baseurl_short,$userref,$managed_home_dash;
 
-if ($managed_home_dash && !(checkperm("h") && !checkperm("hdta")) || (checkperm("dta") && !checkperm("h"))) {
+if ($managed_home_dash && !checkPermission_dashadmin()) {
     exit($lang["error-permissiondenied"]);
 }
 
