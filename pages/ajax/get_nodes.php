@@ -51,7 +51,7 @@ if ($node > 0 && get_node($node, $found_node_by_ref)) {
 
 // Fuzzy search by node name:
 // Translate (i18l) all options and return those that have a match for what client code searched (fuzzy searching still applies)
-if ($name != "") {
+if ($name != "" && $resource_type_field > 0) {
     // Set $keywords_remove_diacritics so as to only add versions with diacritics to return array if none are in the submitted string
     $keywords_remove_diacritics = mb_strlen($name) === strlen($name);
     $name = normalize_keyword($name);

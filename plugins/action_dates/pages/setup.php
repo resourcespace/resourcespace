@@ -46,8 +46,9 @@ if (getval('submit', '') != '' || getval('save', '') != '' && enforcePostRequest
     $action_dates_config["action_dates_weekdays"] = getval('action_dates_weekdays', [], false, 'is_array');
 
     // Get the extra rows fom the table
-    $action_date_extra_fields     = getval('action_dates_extra_field', [], false, 'is_array');
-    $action_date_extra_statuses   = getval('action_dates_extra_status', [], false, 'is_array');
+    $action_date_extra_fields           = getval('action_dates_extra_field', [], false, 'is_array');
+    $action_date_extra_statuses         = getval('action_dates_extra_status', [], false, 'is_array');
+    $action_date_extra_email_admin_days = getval('action_dates_extra_email_admin_days', [], false, 'is_array');
 
     $action_dates_extra_config = array();
     $mappingcount = 0;
@@ -58,6 +59,9 @@ if (getval('submit', '') != '' || getval('save', '') != '' && enforcePostRequest
             $action_dates_extra_config[$mappingcount] = array();
             $action_dates_extra_config[$mappingcount]["field"] = (int)$action_date_extra_fields[$i];
             $action_dates_extra_config[$mappingcount]["status"] = (int)$action_date_extra_statuses[$i];
+            if (isset($action_date_extra_email_admin_days[$i]) && $action_date_extra_email_admin_days[$i] !== "") {
+                $action_dates_extra_config[$mappingcount]["email_admin_days"] = (int)$action_date_extra_email_admin_days[$i];
+            }
             $mappingcount++;
         }
     }
@@ -92,7 +96,7 @@ $action_dates_extra_config[] = array('field' => '', 'status' => '');
 // Set up the table in HTML to add the extra config to the page
 $page_def_extra = "<div class='Question'>
 <label>" . $lang['action_dates_additional_settings_info'] . "</label>
-<table id='action_dates_extra_table' class='ListviewStyle' style='width: 420px;'>
+<table id='action_dates_extra_table' class='ListviewStyle' style='width: 360px;'>
 <tr>
     <th>
         <strong>" . $lang['action_dates_additional_settings_date'] . "</strong>
@@ -100,7 +104,10 @@ $page_def_extra = "<div class='Question'>
     <th>
         <strong>" . $lang['action_dates_additional_settings_status'] . "</strong>
     </th>
-</tr>";
+    <th>
+        <strong>" . $lang['action_dates_additional_settings_email_admin_days'] . "</strong>
+    </th>
+    </tr>";
 
 foreach ($action_dates_extra_config as $action_dates_extra_config) {
     $page_def_extra .= "<tr" . (($action_dates_extra_config['field'] == '') ? " id='action_dates_empty' style='display: none'" : "" ) . ">
@@ -115,7 +122,7 @@ foreach ($action_dates_extra_config as $action_dates_extra_config) {
         $page_def_extra .=  ">" . $allowable_field['title'] . "</option>\n";
     }
 
-        $page_def_extra .= "
+    $page_def_extra .= "
         </select>
         </td>
         <td>
@@ -129,8 +136,19 @@ foreach ($action_dates_extra_config as $action_dates_extra_config) {
         }
         $page_def_extra .= ">" . $state_name . "</option>\n";
     }
-        $page_def_extra .= "</select>
+    $value = $action_dates_extra_config['email_admin_days'] ?? "";
+    $page_def_extra .= "</select>
         </td>
+            <td>
+                <input
+                    name='action_dates_extra_email_admin_days[]'
+                    type='number'
+                    min=0 ";
+    if ($value !== "") {
+        $page_def_extra .= "value=$value";
+    }
+    $page_def_extra .= ">
+            </td>
         </tr>";
 }
 

@@ -33,6 +33,7 @@ $lang['action_dates_additional_settings'] = "Additional actions";
 $lang['action_dates_additional_settings_info'] = "Additionally move resources to the selected state when the specified field is reached";
 $lang['action_dates_additional_settings_date'] = "When this date is reached";
 $lang['action_dates_additional_settings_status'] = "Move resources to this archive state";
+$lang['action_dates_additional_settings_email_admin_days'] = "Notify admins this many days before the action takes place (Set blank to disable)";
 $lang['action_dates_remove_from_collection'] = "Remove resources from all associated collections when state is changed?";
 $lang['action_dates_email_for_state'] = "Send notification for resources changing state. Requires change of state fields above to be configured.";
 $lang['action_dates_email_for_restrict'] = "Send notification for resources to be restricted. Requires restrict resource fields above to be configured.";
