@@ -23,7 +23,11 @@ function update_preview($ref, $previewbased, $sizes, $delete_existing)
             $ingested = true;
         }
         if ($delete_existing) {
-            delete_previews($ref);
+            if (resource_has_preview_source($ref, $resourceinfo[0]['file_extension'])) {
+                delete_previews($ref);
+            } else {
+                $previewbased = true;
+            }
         }
         create_previews(
             $ref, 

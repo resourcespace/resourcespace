@@ -90,13 +90,18 @@ if ($collection !== false) {
                         ++ $count_resources_processed;
                         $GLOBALS['processing_message_override'] = str_replace(["[count]", "[total]"], [$count_resources_processed, $colcount], $lang["processing_resource_in_group"]);
                         $ingested = empty($resource['file_path']);
-                        delete_previews($resource);
+                        $previewbased = false;
+                        if (resource_has_preview_source($resource['ref'], $resource['file_extension'])) {
+                            delete_previews($resource);
+                        } else {
+                            $previewbased = true;
+                        }
                         create_previews(
                             $resource['ref'], 
                             false, 
                             in_array($resource["file_extension"], NON_PREVIEW_EXTENSIONS) ? 'jpg' : $resource["file_extension"], 
-                            in_array($resource["file_extension"], NON_PREVIEW_EXTENSIONS), 
                             false, 
+                            $previewbased || in_array($resource["file_extension"], NON_PREVIEW_EXTENSIONS), 
                             -1, 
                             true, 
                             $ingested

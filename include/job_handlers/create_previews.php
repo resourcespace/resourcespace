@@ -38,15 +38,7 @@ if (!$resdata) {
 }
 
 // Check to make sure that there is a valid file that we can generate previews for
-$source_file = get_preview_source_file(
-    $resource, 
-    in_array($extension, NON_PREVIEW_EXTENSIONS) ? 'jpg' : $extension, 
-    $previewonly,
-    in_array($extension, NON_PREVIEW_EXTENSIONS) || $previewbased, 
-    $alternative,
-    $ingested
-);
-$valid_source = file_exists($source_file);
+$valid_source = resource_has_preview_source($resource, $extension);
 
 // Only delete the existing previews if there is something that we can generate more from
 if ($resource > 0 && $valid_source) {
@@ -105,6 +97,5 @@ unset(
     $ignoremaxsize,
     $ingested,
     $checksum_required,
-    $source_file,
     $valid_source
 );

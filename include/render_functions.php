@@ -4007,13 +4007,13 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                             if($GLOBALS["multiple"] === false)
                                 {
                                 ?>
-                                checkDisplayCondition<?php echo $field['ref']; ?>();
+                                checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                                 <?php
                                 }
                             ?>
                             jQuery('#CentralSpace').on('categoryTreeChanged', function(e,node)
                                 {
-                                checkDisplayCondition<?php echo $field['ref']; ?>();
+                                checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                                 });
                             });
                         </script>
@@ -4032,15 +4032,15 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                             if($GLOBALS["multiple"] === false)
                                 {
                                 ?>
-                                console.debug('[document.ready] Going to call checkDisplayCondition<?php echo $field['ref']; ?>()');
-                                checkDisplayCondition<?php echo $field['ref']; ?>();
+                                console.debug('[document.ready] Going to call checkDisplayCondition<?php echo (int) $field['ref']; ?>()');
+                                checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                                 <?php
                                 }
                             ?>
                             jQuery('#CentralSpace').on('dynamicKeywordChanged', function(e,node)
                                 {
-                                console.debug('#CentralSpace-on-dynamicKeywordChanged for field #<?php echo $field['ref']; ?>');
-                                checkDisplayCondition<?php echo $field['ref']; ?>();
+                                console.debug('#CentralSpace-on-dynamicKeywordChanged for field #<?php echo (int) $field['ref']; ?>');
+                                checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                                 });
                             });
                         </script>
@@ -4072,13 +4072,13 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                         if($GLOBALS["multiple"] === false)
                             {
                             ?>
-                            checkDisplayCondition<?php echo $field['ref']; ?>();
+                            checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                             <?php
                             }
                         ?>
                         jQuery('<?php echo $jquery_selector; ?>').change(function ()
                             {
-                            checkDisplayCondition<?php echo $field['ref']; ?>();
+                            checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                             });
                         });
                     </script>
@@ -4094,13 +4094,13 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                         if($GLOBALS["multiple"] === false)
                             {
                             ?>
-                            checkDisplayCondition<?php echo $field['ref']; ?>();
+                            checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                             <?php
                             }
                         ?>
-                        jQuery('#field_<?php echo $display_check_data[$cf]["ref"]; ?>').change(function ()
+                        jQuery('#field_<?php echo (int) $display_check_data[$cf]["ref"]; ?>').change(function ()
                             {
-                            checkDisplayCondition<?php echo $field['ref']; ?>();
+                            checkDisplayCondition<?php echo (int) $field['ref']; ?>();
                             });
                         });
                     </script>
@@ -4118,9 +4118,9 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
         $question_id = '#question_' . $n . ($GLOBALS["multiple"] === true ? '' : '_' . $resource_ref);
         ?>
         <script type="text/javascript">
-        function checkDisplayCondition<?php echo $field["ref"];?>()
+        function checkDisplayCondition<?php echo (int) $field["ref"];?>()
             {
-            console.debug('(<?php echo str_replace(dirname(__DIR__), '', __FILE__) . ':' . __LINE__?>) checkDisplayCondition<?php echo $field["ref"]; ?>()');
+            console.debug('(<?php echo str_replace(dirname(__DIR__), '', __FILE__) . ':' . __LINE__?>) checkDisplayCondition<?php echo (int) $field["ref"]; ?>()');
 
             if (jQuery('#field_<?php echo (int) $field["ref"]; ?>_displayed').length === 0)
                 {
@@ -4129,11 +4129,11 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                 }
 
             // Get current display state for governed field ("block" or "none")
-            field<?php echo $field['ref']; ?>status    = jQuery('<?php echo escape($question_id); ?>').css('display');
-            newfield<?php echo $field['ref']; ?>status = 'none';
+            field<?php echo (int) $field['ref']; ?>status    = jQuery('<?php echo escape($question_id); ?>').css('display');
+            newfield<?php echo (int) $field['ref']; ?>status = 'none';
 
             // Assume visible by default
-            field<?php echo $field['ref']; ?>visibility = true;
+            field<?php echo (int) $field['ref']; ?>visibility = true;
             <?php
             foreach($scriptconditions as $scriptcondition)
                 {
@@ -4143,9 +4143,9 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                     */
                     ?>
 
-                    field<?php echo $field['ref']; ?>valuefound = false;
-                    fieldokvalues<?php echo $scriptcondition['field']; ?> = <?php echo json_encode($scriptcondition['valid']); ?>;
-                    console.debug('[checkDisplayCondition<?php echo $field["ref"]; ?>] fieldokvalues<?php echo $scriptcondition['field']; ?> = %o', fieldokvalues<?php echo $scriptcondition['field']; ?>);
+                    field<?php echo (int) $field['ref']; ?>valuefound = false;
+                    fieldokvalues<?php echo (int) $scriptcondition['field']; ?> = <?php echo json_encode($scriptcondition['valid']); ?>;
+                    console.debug('[checkDisplayCondition<?php echo (int) $field["ref"]; ?>] fieldokvalues<?php echo (int) $scriptcondition['field']; ?> = %o', fieldokvalues<?php echo (int) $scriptcondition['field']; ?>);
 
                     <?php
                     ############################
@@ -4175,16 +4175,16 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                                 {
                                 if(<?php echo $js_conditional_statement; ?>)
                                     {
-                                    field<?php echo $field['ref']; ?>valuefound = true;
+                                    field<?php echo (int) $field['ref']; ?>valuefound = true;
                                     }
                                 });
 
                         <?php
                         }
                     ?>
-                    if(!field<?php echo $field['ref']; ?>valuefound)
+                    if(!field<?php echo (int) $field['ref']; ?>valuefound)
                         {
-                        field<?php echo $field['ref']; ?>visibility = false;
+                        field<?php echo (int) $field['ref']; ?>visibility = false;
                         }
     <?php
                     } else {
@@ -4195,17 +4195,17 @@ function check_display_condition($n, array $field, array $fields, $render_js, in
                 ?>
 
                 // Is field to be displayed
-                if(field<?php echo $field['ref']; ?>visibility)
+                if(field<?php echo (int) $field['ref']; ?>visibility)
                     {
-                    newfield<?php echo $field['ref']; ?>status = 'block';
+                    newfield<?php echo (int) $field['ref']; ?>status = 'block';
                     }
 
                 // If display status changed then toggle the visibility
-                if(newfield<?php echo $field['ref']; ?>status != field<?php echo $field['ref']; ?>status)
+                if(newfield<?php echo (int) $field['ref']; ?>status != field<?php echo (int) $field['ref']; ?>status)
                     {
-                    jQuery('<?php echo escape($question_id); ?>').css("display", newfield<?php echo $field['ref']; ?>status); 
+                    jQuery('<?php echo escape($question_id); ?>').css("display", newfield<?php echo (int) $field['ref']; ?>status); 
                     // The visibility status (block/none) will be sent to the server in the following field
-                    jQuery('#field_<?php echo $field['ref']; ?>_displayed').attr("value",newfield<?php echo $field['ref']; ?>status);
+                    jQuery('#field_<?php echo (int) $field['ref']; ?>_displayed').attr("value",newfield<?php echo (int) $field['ref']; ?>status);
 
                 <?php
                 // Batch edit mode

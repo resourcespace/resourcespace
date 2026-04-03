@@ -1440,7 +1440,7 @@ foreach ($pushed as $pushed_resource)
 
 function RenderPushedMetadata($resource, $field_data, $all_field_data)
     {
-    global $k,$view_title_field,$lang, $internal_share_access, $fields_all, $fields, $ref, $access, $userpermissions, $upload_then_edit, $urlparams;
+    global $k,$view_title_field,$lang, $internal_share_access, $fields_all, $fields, $ref, $access, $userpermissions, $upload_then_edit, $urlparams, $baseurl;
     // Save currentt resource data
     $reset_ref          = $ref;
     $reset_access       = $access;
@@ -1461,7 +1461,7 @@ function RenderPushedMetadata($resource, $field_data, $all_field_data)
     ?>
     <div class="RecordBox PushedRecordBox">
         <div class="RecordPanel PushedRecordPanel">
-            <div class="backtoresults">&gt;<a href="view.php?ref=<?php echo $ref ?>" onClick="return CentralSpaceLoad(this,true);"><?php echo escape($lang["view"]); ?></a>
+            <div class="backtoresults">&gt;<a href="<?php echo $baseurl ?>/pages/view.php?ref=<?php echo $ref ?>" onClick="return CentralSpaceLoad(this,true);"><?php echo escape($lang["view"]); ?></a>
         </div>
         <div class="Title"><?php echo i18n_get_translated($resource["resource_type_name"]) . " : " . $resource["field" . $view_title_field] ?></div>
             <?php

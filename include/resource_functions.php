@@ -9147,3 +9147,15 @@ function can_upload_preview_image(int $ref): bool
         && !resource_file_readonly($ref) 
         && !$GLOBALS['custompermshowfile'];
 }
+
+/**
+ * Check if a resource has a file to derive previews from.
+ */
+function resource_has_preview_source($ref, $extension) 
+{
+    return file_exists( 
+            in_array($extension, NON_PREVIEW_EXTENSIONS) ? 
+                get_preview_source_file($ref, 'jpg', false, true, -1, false) : 
+                get_resource_path($ref, true, '', false,  $extension)
+        );
+}
