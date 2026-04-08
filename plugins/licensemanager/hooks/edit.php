@@ -98,7 +98,7 @@ function HookLicensemanagerEditAftersaveresourcedata(int|array $ref): bool|array
     return true;
 }
 
-function HookLicensemanagerEditCopy_locked_data_extra(array $resource, array $locked_fields, int $last_edited): bool|array
+function HookLicensemanagerEditCopy_locked_data_extra(array $resource, array $locked_fields, int $last_edited, bool $save = false): bool|array
 {
     global $license_attach_upload;
 
@@ -119,6 +119,9 @@ function HookLicensemanagerEditCopy_locked_data_extra(array $resource, array $lo
 
         if (!empty($last_edited_consent)) {
             $resource['resource_license'] = $last_edited_consent[0]['ref'];
+            if ($save) {
+                licensemanager_link_license($last_edited_consent[0]['ref'], $resource['ref']);
+            }
             return $resource;
         } else {
             return false;

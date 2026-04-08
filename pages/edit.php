@@ -687,6 +687,8 @@ if ((getval("autosave","")!="") || (getval("tweak","")=="" && getval("submitted"
                             // Update resource data with locked resource data from last edited resource
                             $resource = copy_locked_data($resource, $locked_fields, $lastedited, true);
                                  
+                            $hookresource = hook('copy_locked_data_extra', '', [$resource, $locked_fields, $lastedited, true]);
+
                             // Update $fields and all_selected_nodes with details of the last resource edited for locked fields
                             // NOTE: $fields and $all_selected_nodes are passed by reference
                             copy_locked_fields($ref,$fields,$all_selected_nodes,$locked_fields,$lastedited, true);

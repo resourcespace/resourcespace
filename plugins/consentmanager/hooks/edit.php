@@ -97,7 +97,7 @@ function HookConsentmanagerEditAftersaveresourcedata(int|array $ref): bool|array
     return true;
 }
 
-function HookConsentmanagerEditCopy_locked_data_extra(array $resource, array $locked_fields, int $last_edited): bool|array
+function HookConsentmanagerEditCopy_locked_data_extra(array $resource, array $locked_fields, int $last_edited, bool $save = false): bool|array
 {
     global $consent_attach_upload;
 
@@ -118,6 +118,9 @@ function HookConsentmanagerEditCopy_locked_data_extra(array $resource, array $lo
 
         if (!empty($last_edited_consent)) {
             $resource['resource_consent'] = $last_edited_consent[0]['ref'];
+            if ($save) {
+                consentmanager_link_consent($last_edited_consent[0]['ref'], $resource['ref']);
+            }
             return $resource;
         } else {
             return false;
