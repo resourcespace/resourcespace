@@ -1,12 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"] = 'OpenAI tích hợp';
-$lang["openai_gpt_intro"] = 'Thêm siêu dữ liệu được tạo ra bằng cách truyền dữ liệu hiện có hoặc hình ảnh xem trước tài nguyên đến API OpenAI với một lời nhắc có thể tùy chỉnh. Tham khảo <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>tài liệu OpenAI</a> để biết thêm thông tin chi tiết.';
-$lang["property-openai_gpt_prompt"] = 'GPT Prompt';
-$lang["property-openai_gpt_input_field"] = 'Đầu vào GPT';
 $lang["openai_gpt_api_key"] = 'OpenAI API key. Lấy API key của bạn từ <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
-$lang["openai_gpt_model"] = 'Tên của mô hình API để sử dụng (ví dụ: \'gpt-4o\')';
 $lang["openai_gpt_temperature"] = 'Nhiệt độ lấy mẫu giữa 0 và 1 (giá trị cao hơn có nghĩa là mô hình sẽ chấp nhận nhiều rủi ro hơn)';
 $lang["openai_gpt_max_tokens"] = 'Số lượng tối đa của token';
 $lang["openai_gpt_advanced"] = 'CẢNH BÁO - Phần này chỉ dành cho mục đích thử nghiệm và không nên thay đổi trên các hệ thống đang hoạt động. Thay đổi bất kỳ tùy chọn plugin nào ở đây sẽ ảnh hưởng đến hành vi của tất cả các trường metadata đã được cấu hình. Thay đổi cẩn thận!';
@@ -15,8 +10,32 @@ $lang["openai_gpt_model_override"] = 'Mô hình đã được khóa trong cấu 
 $lang["openai_gpt_processing_multiple_resources"] = 'Nhiều tài nguyên';
 $lang["openai_gpt_processing_resource"] = 'Tài nguyên [resource]';
 $lang["openai_gpt_processing_field"] = 'Tạo metadata AI cho trường \'[field]\'';
-$lang["property-gpt_source"] = 'GPT Source';
 $lang["openai_gpt_language"] = 'Ngôn ngữ đầu ra';
 $lang["openai_gpt_language_user"] = 'Ngôn ngữ của người dùng hiện tại';
 $lang["openai_gpt_overwrite_data"] = 'Ghi đè dữ liệu hiện có trong các trường đã cấu hình?';
-$lang["page-title_openai_gpt_setup"] = 'Cài đặt Plugin OpenAI GPT';
+$lang["openai_gpt_title"] = 'Xử lý siêu dữ liệu OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Thêm siêu dữ liệu được tạo ra bằng cách chuyển dữ liệu hiện có hoặc hình ảnh xem trước tài nguyên đến API OpenAI (hoặc tương thích, như Ollama) với một lời nhắc có thể tùy chỉnh. Tham khảo <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>tài liệu OpenAI</a> để biết thông tin chi tiết hơn.';
+$lang["property-openai_gpt_prompt"] = 'Lời nhắc xử lý AI';
+$lang["property-openai_gpt_input_field"] = 'Xử lý đầu vào AI';
+$lang["openai_gpt_model"] = 'Mô hình OpenAI để sử dụng (ví dụ: \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Xử lý các trường AI hiện có';
+$lang["openai_gpt_process_existing_configure"] = 'Cấu hình công việc để xử lý các trường AI hiện có';
+$lang["openai_gpt_process_existing_field_ref"] = 'Lĩnh vực AI';
+$lang["openai_gpt_process_existing_overwrite"] = 'Ghi đè';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Đây là trường mục tiêu cần được cập nhật.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Việc thiết lập tùy chọn này có nghĩa là chỉ các tài nguyên trong các bộ sưu tập được liệt kê sẽ được xử lý. Nếu không có bộ sưu tập nào được chỉ định, thì TẤT CẢ các tài nguyên phù hợp sẽ được xử lý. Các bộ sưu tập có thể được chỉ định bằng cách sử dụng danh sách phân tách bằng dấu phẩy cũng như các khoảng, ví dụ 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Việc thiết lập tùy chọn này có nghĩa là bất kỳ dữ liệu nào hiện có trong trường mục tiêu sẽ bị ghi đè. Xin lưu ý rằng nếu tính năng ghi đè được bật và trường nhập không chứa dữ liệu thì trường mục tiêu sẽ bị xóa.';
+$lang["openai_gpt_limit_warning"] = 'CẢNH BÁO - Giới hạn token đã bị vượt quá nên các cuộc gọi API OpenAI tiếp theo sẽ không hoạt động. Các trường GPT sẽ không được xử lý.';
+$lang["openai_gpt_limit_warning_short"] = 'CẢNH BÁO - Giới hạn token đã bị vượt quá nên các trường GPT sẽ không được xử lý.';
+$lang["openai_gpt_usage_days"] = 'Sử dụng token trong %%DAYS%% ngày qua';
+$lang["openai_gpt_token_limit"] = 'Giới hạn token';
+$lang["openai_gpt_no_token_limit"] = 'Chưa cấu hình giới hạn token';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% mỗi %%DAYS%% ngày';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% mã thông báo';
+$lang["openai_gpt_provider"] = 'Nhà cung cấp AI';
+$lang["openai_gpt_provider_override"] = 'Nhà cung cấp đã bị khóa trong cấu hình toàn cầu thành: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Mô hình Ollama để sử dụng (ví dụ: \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Điểm cuối Ollama để sử dụng (ví dụ http://[IP]:11434/v1/chat/completions)';

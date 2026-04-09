@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='OpenAI-integrasjon';
-$lang["property-openai_gpt_prompt"]='GPT-prompt';
-$lang["property-openai_gpt_input_field"]='GPT inntastingsfelt';
-$lang["openai_gpt_model"]='Navn på API-modell som skal brukes (f.eks. \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Prøvetakingstemperatur mellom 0 og 1 (høyere verdier betyr at modellen vil ta flere risikoer)';
 $lang["openai_gpt_max_tokens"]='Maksimum antall tokens';
 $lang["openai_gpt_advanced"]='ADVARSEL - Denne seksjonen er kun for testformål og bør ikke endres på live systemer. Å endre noen av plugin-alternativene her vil påvirke oppførselen til alle metadatafeltene som er konfigurert. Endre med forsiktighet!';
 $lang["openai_gpt_system_message"]='Opprinnelig systemmeldingstekst. Plassholdere %%IN_TYPE%% og %%OUT_TYPE%% vil bli erstattet med \'tekst\' eller \'json\' avhengig av kilde-/mål-felttypene';
-$lang["openai_gpt_intro"]='Legger til metadata generert ved å sende eksisterende data til OpenAI API med en tilpassbar prompt. Se <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> for mer detaljert informasjon.';
 $lang["openai_gpt_api_key"]='OpenAI API-nøkkel. Få din API-nøkkel fra <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='OpenAI API GPT-integrasjon';
 $lang["plugin-openai_gpt-desc"]='OpenAI genererte metadata. Sender konfigurert feltdata til OpenAI API og lagrer den returnerte informasjonen.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Modellen har blitt låst i global konfiguras
 $lang["openai_gpt_processing_multiple_resources"]='Flere ressurser';
 $lang["openai_gpt_processing_resource"]='Ressurs [resource]';
 $lang["openai_gpt_processing_field"]='AI-behandling for feltet \'[field]\'';
-$lang["property-gpt_source"]='GPT-kilde';
 $lang["openai_gpt_language"] = 'Utdata språk';
 $lang["openai_gpt_language_user"] = 'Språket til den nåværende brukeren';
 $lang["openai_gpt_overwrite_data"] = 'Overskriv eksisterende data i konfigurerte felt?';
-$lang["page-title_openai_gpt_setup"] = 'Sett opp OpenAI GPT-plugin';
+$lang["openai_gpt_title"] = 'OpenAI/Ollama metadata behandling';
+$lang["openai_gpt_intro"] = 'Legger til metadata generert ved å sende eksisterende data eller et forhåndsvisningsbilde av ressursen til OpenAI API (eller kompatible, som Ollama) med en tilpassbar prompt. Se <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI-dokumentasjonen</a> for mer detaljert informasjon.';
+$lang["property-openai_gpt_prompt"] = 'AI Behandlingsprompt';
+$lang["property-openai_gpt_input_field"] = 'AI Behandling Inndata';
+$lang["openai_gpt_model"] = 'OpenAI-modell å bruke (f.eks. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Behandle eksisterende AI-felt';
+$lang["openai_gpt_process_existing_configure"] = 'Konfigurer jobb for å behandle eksisterende AI-felt';
+$lang["openai_gpt_process_existing_field_ref"] = 'AI-felt';
+$lang["openai_gpt_process_existing_overwrite"] = 'Overskriv';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Dette er målfeltet som skal oppdateres.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Å sette dette alternativet vil bety at kun ressurser i de oppførte samlingene vil bli behandlet. Hvis ingen samlinger er spesifisert, vil ALLE egnede ressurser bli behandlet. Samlinger kan spesifiseres ved å bruke en kommaseparert liste samt intervaller, f.eks. 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Å sette dette alternativet vil bety at eksisterende data i målfeltet vil bli overskrevet. Vennligst merk at hvis overskrivning er aktivert og inndatafeltet ikke inneholder data, vil målfeltet bli tømt.';
+$lang["openai_gpt_limit_warning"] = 'ADVARSEL - Tokengrensen er overskredet, så videre OpenAI API-anrop vil ikke fungere. GPT-feltene vil ikke bli behandlet.';
+$lang["openai_gpt_limit_warning_short"] = 'ADVARSEL - Tokengrensen er overskredet, så GPT-feltene vil ikke bli behandlet.';
+$lang["openai_gpt_usage_days"] = 'Bruk av token de siste %%DAYS%% dagene';
+$lang["openai_gpt_token_limit"] = 'Tokengrense';
+$lang["openai_gpt_no_token_limit"] = 'Ingen tokengrense konfigurert';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% per %%DAYS%% dager';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% tokens';
+$lang["openai_gpt_provider"] = 'AI-leverandør';
+$lang["openai_gpt_provider_override"] = 'Leverandøren har blitt låst i global konfigurasjon til: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama-modell å bruke (f.eks. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama endepunkt å bruke (f.eks. http://[IP]:11434/v1/chat/completions';

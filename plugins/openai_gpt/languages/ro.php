@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='Integrarea OpenAI';
-$lang["property-openai_gpt_prompt"]='Sugestie GPT';
-$lang["property-openai_gpt_input_field"]='Câmp de intrare GPT';
-$lang["openai_gpt_model"]='Numele modelului API de utilizat (de exemplu, \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Temperatura de eșantionare între 0 și 1 (valori mai mari înseamnă că modelul va lua mai multe riscuri)';
 $lang["openai_gpt_max_tokens"]='Număr maxim de etichete (Maxim de etichete permise)';
 $lang["openai_gpt_advanced"]='ATENȚIE - Această secțiune este destinată doar pentru teste și nu ar trebui să fie modificată în sistemele live. Schimbarea oricăror opțiuni ale plugin-ului aici va afecta comportamentul tuturor câmpurilor de metadate care au fost configurate. Modificați cu prudență!';
 $lang["openai_gpt_system_message"]='Textul inițial al mesajului sistemului. Locurile rezervate %%IN_TYPE%% și %%OUT_TYPE%% vor fi înlocuite cu \'text\' sau \'json\' în funcție de tipurile de câmp sursă/țintă';
-$lang["openai_gpt_intro"]='Adaugă metadate generate prin trimiterea datelor existente către API-ul OpenAI cu un prompt personalizabil. Consultați <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> pentru informații mai detaliate.';
 $lang["openai_gpt_api_key"]='Cheie API OpenAI. Obțineți cheia API de la <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='Integrare API GPT OpenAI';
 $lang["plugin-openai_gpt-desc"]='Metadate generate de OpenAI. Transmite datele câmpului configurat către API-ul OpenAI și stochează informațiile returnate.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Modelul a fost blocat în configurația glob
 $lang["openai_gpt_processing_multiple_resources"]='Resurse multiple';
 $lang["openai_gpt_processing_resource"]='Resursă [resource]';
 $lang["openai_gpt_processing_field"]='Procesare AI pentru câmpul \'[field]\'';
-$lang["property-gpt_source"]='Sursă GPT';
 $lang["openai_gpt_language"] = 'Limba de ieșire';
 $lang["openai_gpt_language_user"] = 'Limba utilizatorului curent';
 $lang["openai_gpt_overwrite_data"] = 'Suprascrieți datele existente în câmpurile configurate?';
-$lang["page-title_openai_gpt_setup"] = 'Configurare plugin OpenAI GPT';
+$lang["openai_gpt_title"] = 'Procesarea metadatelor OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Adaugă metadate generate prin transmiterea datelor existente sau a unei imagini de previzualizare a resursei către API-ul OpenAI (sau compatibil, cum ar fi Ollama) cu un prompt personalizabil. Consultă <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>documentația OpenAI</a> pentru informații mai detaliate.';
+$lang["property-openai_gpt_prompt"] = 'Solicitare procesare AI';
+$lang["property-openai_gpt_input_field"] = 'Procesare AI Input';
+$lang["openai_gpt_model"] = 'Model OpenAI de utilizat (de ex. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Procesează câmpurile AI existente';
+$lang["openai_gpt_process_existing_configure"] = 'Configurează sarcina pentru a procesa câmpurile AI existente';
+$lang["openai_gpt_process_existing_field_ref"] = 'Câmp AI';
+$lang["openai_gpt_process_existing_overwrite"] = 'Suprascrie';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Acesta este câmpul țintă care trebuie actualizat.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Activarea acestei opțiuni va însemna că doar resursele din colecțiile listate vor fi procesate. Dacă nu sunt specificate colecții, atunci TOATE resursele potrivite vor fi procesate. Colecțiile pot fi specificate folosind o listă separată prin virgulă, precum și intervale, de exemplu 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Activarea acestei opțiuni va însemna că orice date existente în câmpul țintă vor fi suprascrise. Vă rugăm să rețineți că, dacă suprascrierea este activată și câmpul de introducere nu conține date, atunci câmpul țintă va fi golit.';
+$lang["openai_gpt_limit_warning"] = 'AVERTISMENT - Limita de token a fost depășită, așa că apelurile suplimentare la API-ul OpenAI nu vor funcționa. Câmpurile GPT nu vor fi procesate.';
+$lang["openai_gpt_limit_warning_short"] = 'AVERTISMENT - Limita de token a fost depășită, așa că câmpurile GPT nu vor fi procesate.';
+$lang["openai_gpt_usage_days"] = 'Utilizarea token-ului în ultimele %%DAYS%% zile';
+$lang["openai_gpt_token_limit"] = 'Limit de token';
+$lang["openai_gpt_no_token_limit"] = 'Nu este configurat un limită de tokenuri';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% pe %%DAYS%% zile';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% tokeni';
+$lang["openai_gpt_provider"] = 'Furnizor AI';
+$lang["openai_gpt_provider_override"] = 'Furnizorul a fost blocat în configurația globală la: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Model Ollama de utilizat (de exemplu, \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Vă rugăm să traduceți: Endpointul Ollama de utilizat (de exemplu http://[IP]:11434/v1/chat/completions';

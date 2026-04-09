@@ -278,9 +278,9 @@ function HookOpenai_gptAllAddtriggerablejob(): array
     }
 
     $scripts = [
-        0 => ['name' => 'OpenAI GPT', 'lang_string' => 'openai_gpt', 'type' => 'group_start'],
+        0 => ['name' => 'OpenAI/Ollama metadata processing', 'lang_string' => 'openai_gpt', 'type' => 'group_start'],
         1 => ['name' => 'Process existing GPT fields', 'lang_string' => 'openai_gpt_process_existing', 'script_name' => 'process_gpt_existing', 'plugin' => 'openai_gpt'],
-        2 => ['name' => 'OpenAI GPT', 'type' => 'group_end'],
+        2 => ['name' => 'OpenAI/Ollama metadata processing', 'type' => 'group_end'],
     ];
 
     return array_merge($existing_scripts, $scripts);

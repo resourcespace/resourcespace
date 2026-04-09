@@ -1,10 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"]='Ujumuishaji wa OpenAI';
-$lang["openai_gpt_intro"]='Huongeza metadata inayozalishwa kwa kupitisha data iliyopo kwa OpenAI API na mwongozo unaoweza kubadilishwa. Rejelea <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> kwa maelezo zaidi.';
 $lang["openai_gpt_api_key"]='Funguo ya API ya OpenAI. Pata funguo yako ya API kutoka <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
-$lang["openai_gpt_model"]='Jina la mfano wa API wa kutumia (mfano \'gpt-4o\')';
 $lang["openai_gpt_temperature"]='Kuchagua joto kati ya 0 na 1 (thamani za juu zinamaanisha mfano utachukua hatari zaidi)';
 $lang["openai_gpt_max_tokens"]='Tokeni za juu zaidi';
 $lang["openai_gpt_advanced"]='ONYO - Sehemu hii ni kwa madhumuni ya majaribio pekee na haipaswi kubadilishwa kwenye mifumo ya moja kwa moja. Kubadilisha chaguo zozote za programu-jalizi hapa kutaathiri tabia ya sehemu zote za metadata ambazo zimepangwa. Badilisha kwa tahadhari!';
@@ -13,10 +10,32 @@ $lang["openai_gpt_model_override"]='Mfano umefungwa katika usanidi wa kimataifa 
 $lang["openai_gpt_processing_multiple_resources"]='Rasilimali nyingi';
 $lang["openai_gpt_processing_resource"]='Rasilimali [resource]';
 $lang["openai_gpt_processing_field"]='Uundaji wa metadata wa AI kwa uwanja \'[field]\'';
-$lang["property-gpt_source"]='Chanzo cha GPT';
-$lang["property-openai_gpt_prompt"]='GPT Prompt';
-$lang["property-openai_gpt_input_field"]='GPT Ingizo';
 $lang["openai_gpt_language"] = 'Lugha ya matokeo';
 $lang["openai_gpt_language_user"] = 'Lugha ya mtumiaji wa sasa';
 $lang["openai_gpt_overwrite_data"] = 'Je, unataka kufuta data zilizopo katika maeneo yaliyo pangwa?';
-$lang["page-title_openai_gpt_setup"] = 'Weka Plugin ya OpenAI GPT';
+$lang["openai_gpt_title"] = 'Usindikaji wa metadata wa OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Huongeza metadata inayozalishwa kwa kupitisha data iliyopo au picha ya hakikisho la rasilimali kwa OpenAI API (au inayolingana, kama Ollama) na mwongozo unaoweza kubadilishwa. Rejelea <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI documentation</a> kwa maelezo zaidi.';
+$lang["property-openai_gpt_prompt"] = 'AI Usindikaji Maagizo';
+$lang["property-openai_gpt_input_field"] = 'Uingizaji wa Usindikaji wa AI';
+$lang["openai_gpt_model"] = 'Mfano wa OpenAI wa kutumia (mfano \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Shughulikia maeneo ya AI yaliyopo';
+$lang["openai_gpt_process_existing_configure"] = 'Sanitize kazi ili kushughulikia maeneo ya AI yaliyopo';
+$lang["openai_gpt_process_existing_field_ref"] = 'Uwanja wa AI';
+$lang["openai_gpt_process_existing_overwrite"] = 'Andika upya';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Hii ni sehemu ya lengo inayopaswa kusasishwa.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Kuweka chaguo hili kutamaanisha kuwa rasilimali tu katika makusanyo yaliyoorodheshwa zitashughulikiwa. Ikiwa hakuna makusanyo yaliyoainishwa basi RASILIMU ZOTE zinazofaa zitashughulikiwa. Makusanyo yanaweza kuainishwa kwa kutumia orodha iliyo na alama za koma pamoja na mipaka mfano 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Kuweka chaguo hili kutamaanisha kwamba data yoyote iliyopo katika uwanja wa lengo itafutwa. Tafadhali kumbuka kwamba ikiwa kufuta kunaruhusiwa na uwanja wa ingizo hauna data, basi uwanja wa lengo utaondolewa.';
+$lang["openai_gpt_limit_warning"] = 'ONYO - Kikomo cha tokeni kimezidi hivyo miito zaidi ya OpenAI API haitafanya kazi. Sehemu za GPT hazitashughulikiwa.';
+$lang["openai_gpt_limit_warning_short"] = 'WARNING - Kiwango cha token kimezidi hivyo maeneo ya GPT hayatachakatwa.';
+$lang["openai_gpt_usage_days"] = 'Matumizi ya token katika siku %%DAYS%% zilizopita';
+$lang["openai_gpt_token_limit"] = 'Kikomo cha tokeni';
+$lang["openai_gpt_no_token_limit"] = 'Hakuna kikomo cha token kilichowekwa';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% kwa %%DAYS%% siku';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% alama';
+$lang["openai_gpt_provider"] = 'Mtoa huduma wa AI';
+$lang["openai_gpt_provider_override"] = 'Mtoa huduma amewekwa kufungwa katika usanidi wa kimataifa kwa: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama model to use (e.g. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Tumia mwisho wa Ollama (k.m. http://[IP]:11434/v1/chat/completions)';

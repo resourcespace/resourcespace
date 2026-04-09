@@ -5,7 +5,7 @@ include "../../../include/authenticate.php";
 
 if (!in_array("openai_gpt" ,$plugins) || !in_array("openai_image_edit", $plugins))
     {
-    exit("The OpenAI GPT and OpenAI Image Editing plugins must be enabled and configured.");
+    exit("The OpenAI/Ollama metadata processing and OpenAI Image Editing plugins must be enabled and configured.");
     }
 
 // Find image

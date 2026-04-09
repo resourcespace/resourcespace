@@ -3,8 +3,10 @@
 function HookOpenai_gptTeam_homeCustomteamfunctionadmin()
 {
     global $lang, $openai_gpt_token_limit, $openai_gpt_token_limit_days;
+    
+    $gpt_provider = openai_gpt_get_provider();
 
-    if ($openai_gpt_token_limit > 0 && $openai_gpt_token_limit_days > 0) {
+    if ($openai_gpt_token_limit > 0 && $openai_gpt_token_limit_days > 0 && $gpt_provider == "openai") {
 
         $tokens_used = openai_gpt_get_tokens_used($openai_gpt_token_limit_days);
 

@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='OpenAI-integratie';
-$lang["property-openai_gpt_input_field"]='GPT Invoerveld';
-$lang["openai_gpt_model"]='Naam van het API-model om te gebruiken (bijv. \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Temperatuurmonstername tussen 0 en 1 (hogere waarden betekenen dat het model meer risico\'s zal nemen)';
 $lang["openai_gpt_max_tokens"]='Maximale tokens';
 $lang["openai_gpt_advanced"]='WAARSCHUWING - Deze sectie is alleen bedoeld voor testdoeleinden en mag niet worden gewijzigd op live systemen. Het wijzigen van een van de plug-in opties hier zal invloed hebben op het gedrag van alle metadata velden die zijn geconfigureerd. Pas op met wijzigingen!';
 $lang["openai_gpt_system_message"]='Initiële systeemberichttekst. Plaatsvervangers %%IN_TYPE%% en %%OUT_TYPE%% worden vervangen door \'tekst\' of \'json\' afhankelijk van de bron/doel veldtypen';
-$lang["property-openai_gpt_prompt"]='GPT Prompt';
-$lang["openai_gpt_intro"]='Voegt metadata toe die wordt gegenereerd door bestaande gegevens door te geven aan de OpenAI API met een aanpasbare prompt. Raadpleeg <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> voor meer gedetailleerde informatie.';
 $lang["openai_gpt_api_key"]='OpenAI API-sleutel. Haal je API-sleutel op van <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='OpenAI API GPT-integratie';
 $lang["plugin-openai_gpt-desc"]='OpenAI gegenereerde metadata. Geeft geconfigureerde veldgegevens door aan de OpenAI API en slaat de teruggestuurde informatie op.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Het model is vergrendeld in de globale confi
 $lang["openai_gpt_processing_multiple_resources"]='Meerdere bronnen';
 $lang["openai_gpt_processing_resource"]='Bron [resource]';
 $lang["openai_gpt_processing_field"]='AI-verwerking voor veld \'[field]\'';
-$lang["property-gpt_source"]='GPT Bron';
 $lang["openai_gpt_language"] = 'Uitvoertaal';
 $lang["openai_gpt_language_user"] = 'De taal van de huidige gebruiker';
 $lang["openai_gpt_overwrite_data"] = 'Overschrijven van bestaande gegevens in geconfigureerde velden?';
-$lang["page-title_openai_gpt_setup"] = 'Instellen OpenAI GPT Plugin';
+$lang["openai_gpt_title"] = 'OpenAI/Ollama metadata verwerking';
+$lang["openai_gpt_intro"] = 'Voegt metadata toe die is gegenereerd door bestaande gegevens of een voorbeeldafbeelding van een resource naar de OpenAI API (of compatibel, zoals Ollama) te sturen met een aanpasbare prompt. Raadpleeg de <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI-documentatie</a> voor meer gedetailleerde informatie.';
+$lang["property-openai_gpt_prompt"] = 'AI Verwerkingsprompt';
+$lang["property-openai_gpt_input_field"] = 'AI Verwerking Invoer';
+$lang["openai_gpt_model"] = 'OpenAI-model om te gebruiken (bijv. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Verwerk bestaande AI-velden';
+$lang["openai_gpt_process_existing_configure"] = 'Configureer taak om bestaande AI-velden te verwerken';
+$lang["openai_gpt_process_existing_field_ref"] = 'AI Veld';
+$lang["openai_gpt_process_existing_overwrite"] = 'Overschrijven';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Dit is het doelveld dat moet worden bijgewerkt.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Het instellen van deze optie betekent dat alleen bronnen in de vermelde collecties zullen worden verwerkt. Als er geen collecties zijn opgegeven, worden ALLE geschikte bronnen verwerkt. Collecties kunnen worden opgegeven met een door komma\'s gescheiden lijst, evenals bereiken, bijvoorbeeld 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Het instellen van deze optie betekent dat alle bestaande gegevens in het doelfield zullen worden overschreven. Houd er rekening mee dat als overschrijven is ingeschakeld en het invoerveld geen gegevens bevat, het doelfield zal worden leeggemaakt.';
+$lang["openai_gpt_limit_warning"] = 'WAARSCHUWING - Tokenlimiet is overschreden, dus verdere OpenAI API-aanroepen zullen niet werken. GPT-velden zullen niet worden verwerkt.';
+$lang["openai_gpt_limit_warning_short"] = 'WAARSCHUWING - Tokenlimiet is overschreden, dus GPT-velden zullen niet worden verwerkt.';
+$lang["openai_gpt_usage_days"] = 'Tokengebruik in de afgelopen %%DAYS%% dagen';
+$lang["openai_gpt_token_limit"] = 'Tokenlimiet';
+$lang["openai_gpt_no_token_limit"] = 'Geen tokenlimiet geconfigureerd';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% per %%DAYS%% dagen';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% tokens';
+$lang["openai_gpt_provider"] = 'AI Provider';
+$lang["openai_gpt_provider_override"] = 'De provider is vergrendeld in de globale configuratie naar: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama-model om te gebruiken (bijv. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama-eindpunt om te gebruiken (bijv. http://[IP]:11434/v1/chat/completions';

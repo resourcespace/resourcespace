@@ -1,5 +1,5 @@
 name: openai_gpt
-title: OpenAI GPT integration
+title: OpenAI/Ollama metadata processing
 author: Montala Limited
 version: 2.0
 desc: Automated processing of metadata and images using AI.

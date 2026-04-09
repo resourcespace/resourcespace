@@ -1,12 +1,6 @@
 <?php
 
-
-$lang["openai_gpt_title"] = 'OpenAI integráció';
-$lang["openai_gpt_intro"] = 'Hozzáadja a meglévő adatok vagy egy erőforrás előnézeti kép átadásával generált metaadatokat az OpenAI API-hoz egy testreszabható kérés segítségével. További részletes információkért lásd a <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI dokumentációt</a>.';
-$lang["property-openai_gpt_prompt"] = 'GPT Prompt';
-$lang["property-openai_gpt_input_field"] = 'GPT Input';
 $lang["openai_gpt_api_key"] = 'OpenAI API kulcs. Szerezd meg az API kulcsodat a <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a> oldalon';
-$lang["openai_gpt_model"] = 'API modell neve, amelyet használni kell (pl. \'gpt-4o\')';
 $lang["openai_gpt_temperature"] = 'Mintavételi hőmérséklet 0 és 1 között (a magasabb értékek azt jelentik, hogy a modell nagyobb kockázatot vállal)';
 $lang["openai_gpt_max_tokens"] = 'Max tokenok';
 $lang["openai_gpt_advanced"] = 'FIGYELEM - Ez a szakasz csak tesztelési célokra szolgál, és nem szabad módosítani éles rendszereken. Bármelyik plugin opció megváltoztatása itt befolyásolja az összes konfigurált metaadat mező viselkedését. Óvatosan módosítsa!';
@@ -15,8 +9,32 @@ $lang["openai_gpt_model_override"] = 'A modell globális konfigurációban záro
 $lang["openai_gpt_processing_multiple_resources"] = 'Több erőforrás';
 $lang["openai_gpt_processing_resource"] = 'Erőforrás [resource]';
 $lang["openai_gpt_processing_field"] = 'AI metaadat-generálás a \'[field]\' mezőhöz';
-$lang["property-gpt_source"] = 'GPT Source';
 $lang["openai_gpt_language"] = 'Kimeneti nyelv';
 $lang["openai_gpt_language_user"] = 'A jelenlegi felhasználó nyelve';
 $lang["openai_gpt_overwrite_data"] = 'Felülírja a meglévő adatokat a konfigurált mezőkben?';
-$lang["page-title_openai_gpt_setup"] = 'OpenAI GPT Plugin beállítása';
+$lang["openai_gpt_title"] = 'OpenAI/Ollama metaadat-feldolgozás';
+$lang["openai_gpt_intro"] = 'Hozzáadja a meglévő adatok vagy egy erőforrás előnézeti kép átadásával generált metaadatokat az OpenAI API-hoz (vagy kompatibilis, például Ollama) egy testreszabható prompttal. További részletes információkért lásd a <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI dokumentációt</a>.';
+$lang["property-openai_gpt_prompt"] = 'AI Feldolgozási Kérdés';
+$lang["property-openai_gpt_input_field"] = 'AI Feldolgozási Bemenet';
+$lang["openai_gpt_model"] = 'OpenAI modell használata (pl. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Forrás';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Feldolgozza a meglévő AI mezőket';
+$lang["openai_gpt_process_existing_configure"] = 'Állítsa be a feladatot a meglévő AI mezők feldolgozásához';
+$lang["openai_gpt_process_existing_field_ref"] = 'AI Mező';
+$lang["openai_gpt_process_existing_overwrite"] = 'Felülírás';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Ez a frissítendő célmező.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Ezen opció beállítása azt jelenti, hogy csak a felsorolt gyűjteményekben lévő erőforrások lesznek feldolgozva. Ha nem ad meg gyűjteményeket, akkor MINDEN megfelelő erőforrás feldolgozásra kerül. A gyűjtemények megadhatók vesszővel elválasztott listaként, valamint tartományokként is, pl. 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Ezen opció beállítása azt jelenti, hogy a célmezőben lévő meglévő adatok felül lesznek írva. Kérjük, vegye figyelembe, hogy ha a felülírás engedélyezve van, és a bemeneti mező nem tartalmaz adatot, akkor a célmező ki lesz ürítve.';
+$lang["openai_gpt_limit_warning"] = 'FIGYELEM - A token limit túllépésre került, így további OpenAI API hívások nem fognak működni. A GPT mezők nem lesznek feldolgozva.';
+$lang["openai_gpt_limit_warning_short"] = 'FIGYELEM - A token limit túllépésre került, így a GPT mezők nem lesznek feldolgozva.';
+$lang["openai_gpt_usage_days"] = 'Token használat az elmúlt %%DAYS%% napban';
+$lang["openai_gpt_token_limit"] = 'Token korlát';
+$lang["openai_gpt_no_token_limit"] = 'Nincs beállítva token korlát';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% per %%DAYS%% nap';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% token';
+$lang["openai_gpt_provider"] = 'AI Szolgáltató';
+$lang["openai_gpt_provider_override"] = 'A szolgáltató globális konfigurációban zárolva lett: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama modell használata (pl. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama végpont használata (pl. http://[IP]:11434/v1/chat/completions';

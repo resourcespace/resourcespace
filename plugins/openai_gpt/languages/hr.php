@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='Integracija OpenAI-ja';
-$lang["property-openai_gpt_prompt"]='GPT uputa';
-$lang["property-openai_gpt_input_field"]='Polje za unos GPT-a';
-$lang["openai_gpt_model"]='Naziv API modela za upotrebu (npr. \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Uzorkovanje temperature između 0 i 1 (više vrijednosti znači da će model preuzeti više rizika)';
 $lang["openai_gpt_max_tokens"]='Maksimalni tokeni';
 $lang["openai_gpt_advanced"]='UPOZORENJE - Ovaj odjeljak je namijenjen samo za testiranje i ne bi se trebao mijenjati na aktivnim sustavima. Promjena bilo koje opcije dodatka ovdje će utjecati na ponašanje svih polja metapodataka koja su konfigurirana. Promijenite s oprezom!';
 $lang["openai_gpt_system_message"]='Početni tekst sistemske poruke. Zamjenski znakovi %%IN_TYPE%% i %%OUT_TYPE%% bit će zamijenjeni s \'text\' ili \'json\' ovisno o vrstama izvornog/ciljnog polja';
-$lang["openai_gpt_intro"]='Dodaje metapodatke generirane prosljeđivanjem postojećih podataka OpenAI API-ju s prilagodljivim upitom. Pogledajte <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> za detaljnije informacije.';
 $lang["openai_gpt_api_key"]='OpenAI API ključ. Nabavite svoj API ključ na <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='Integracija OpenAI API GPT';
 $lang["plugin-openai_gpt-desc"]='OpenAI generirani metapodaci. Prosljeđuje konfigurirane podatke polja OpenAI API-ju i pohranjuje vraćene informacije.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Model je zaključan u globalnoj konfiguracij
 $lang["openai_gpt_processing_multiple_resources"]='Više resursa';
 $lang["openai_gpt_processing_resource"]='Resurs [resource]';
 $lang["openai_gpt_processing_field"]='AI obrada za polje \'[field]\'';
-$lang["property-gpt_source"]='Izvor GPT';
 $lang["openai_gpt_language"] = 'Izlazni jezik';
 $lang["openai_gpt_language_user"] = 'Jezik trenutnog korisnika';
 $lang["openai_gpt_overwrite_data"] = 'Zamijeniti postojeće podatke u konfiguriranim poljima?';
-$lang["page-title_openai_gpt_setup"] = 'Postavljanje OpenAI GPT dodatka';
+$lang["openai_gpt_title"] = 'Obrada metapodataka OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Dodaje metapodatke generirane prosljeđivanjem postojećih podataka ili slike pregleda resursa OpenAI API-ju (ili kompatibilnom, kao što je Ollama) s prilagodljivim upitom. Pogledajte <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI dokumentaciju</a> za detaljnije informacije.';
+$lang["property-openai_gpt_prompt"] = 'AI Obrada Upita';
+$lang["property-openai_gpt_input_field"] = 'AI Obrada Ulaza';
+$lang["openai_gpt_model"] = 'OpenAI model za korištenje (npr. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Izvor';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Obradite postojeća AI polja';
+$lang["openai_gpt_process_existing_configure"] = 'Konfigurirajte zadatak za obradu postojećih AI polja';
+$lang["openai_gpt_process_existing_field_ref"] = 'AI Polje';
+$lang["openai_gpt_process_existing_overwrite"] = 'Zamijeni';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Ovo je ciljano polje koje treba ažurirati.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Postavljanje ove opcije značit će da će se obrađivati samo resursi u navedenim kolekcijama. Ako nisu navedene kolekcije, tada će se obraditi SVI prikladni resursi. Kolekcije se mogu navesti koristeći popis odvojen zarezima, kao i rasponima npr. 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Postavljanje ove opcije značit će da će svi postojeći podaci u ciljnom polju biti prepisani. Imajte na umu da ako je prepisivanje omogućeno i ulazno polje ne sadrži podatke, tada će ciljano polje biti prazno.';
+$lang["openai_gpt_limit_warning"] = 'UPOZORENJE - Prekoračen je limit tokena, stoga daljnji pozivi OpenAI API neće raditi. GPT polja neće biti obrađena.';
+$lang["openai_gpt_limit_warning_short"] = 'UPUTSTVO - Prekoračen je limit tokena pa GPT polja neće biti obrađena.';
+$lang["openai_gpt_usage_days"] = 'Korištenje tokena u proteklih %%DAYS%% dana';
+$lang["openai_gpt_token_limit"] = 'Ograničenje tokena';
+$lang["openai_gpt_no_token_limit"] = 'Nema konfiguriranog ograničenja tokena';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% po %%DAYS%% dana';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% tokena';
+$lang["openai_gpt_provider"] = 'Davatelj AI';
+$lang["openai_gpt_provider_override"] = 'Pružatelj je zaključan u globalnoj konfiguraciji na: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama model za korištenje (npr. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama krajnja točka za korištenje (npr. http://[IP]:11434/v1/chat/completions';

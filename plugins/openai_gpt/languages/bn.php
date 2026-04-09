@@ -1,10 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"]='OpenAI ইন্টিগ্রেশন';
-$lang["openai_gpt_intro"]='বিদ্যমান ডেটা একটি কাস্টমাইজযোগ্য প্রম্পট সহ OpenAI API তে প্রেরণ করে উত্পন্ন মেটাডেটা যোগ করে। আরও বিস্তারিত তথ্যের জন্য <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> দেখুন।';
 $lang["openai_gpt_api_key"]='OpenAI API কী। আপনার API কী পান <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a> থেকে।';
-$lang["openai_gpt_model"]='ব্যবহারের জন্য এপিআই মডেলের নাম (যেমন \'gpt-4o\')';
 $lang["openai_gpt_temperature"]='০ এবং ১ এর মধ্যে স্যাম্পলিং তাপমাত্রা (উচ্চতর মানগুলি মডেলকে আরও ঝুঁকি নিতে উৎসাহিত করে)';
 $lang["openai_gpt_max_tokens"]='সর্বাধিক টোকেন';
 $lang["openai_gpt_advanced"]='সতর্কতা - এই অংশটি শুধুমাত্র পরীক্ষার উদ্দেশ্যে এবং এটি লাইভ সিস্টেমে পরিবর্তন করা উচিত নয়। এখানে প্লাগইন বিকল্পগুলির যেকোনো পরিবর্তন সমস্ত কনফিগার করা মেটাডেটা ক্ষেত্রের আচরণকে প্রভাবিত করবে। সতর্কতার সাথে পরিবর্তন করুন!';
@@ -13,10 +10,32 @@ $lang["openai_gpt_model_override"]='মডেলটি গ্লোবাল ক
 $lang["openai_gpt_processing_multiple_resources"]='একাধিক রিসোর্স';
 $lang["openai_gpt_processing_resource"]='রিসোর্স [resource]';
 $lang["openai_gpt_processing_field"]='ক্ষেত্র \'[field]\' এর জন্য এআই মেটাডেটা উৎপাদন';
-$lang["property-gpt_source"]='GPT উৎস';
-$lang["property-openai_gpt_input_field"]='GPT ইনপুট';
-$lang["property-openai_gpt_prompt"]='GPT প্রম্পট';
 $lang["openai_gpt_language"] = 'আউটপুট ভাষা';
 $lang["openai_gpt_language_user"] = 'বর্তমান ব্যবহারকারীর ভাষা';
 $lang["openai_gpt_overwrite_data"] = 'কনফিগার করা ক্ষেত্রগুলিতে বিদ্যমান ডেটা ওভাররাইট করবেন?';
-$lang["page-title_openai_gpt_setup"] = 'OpenAI GPT প্লাগইন সেটআপ করুন';
+$lang["openai_gpt_title"] = 'OpenAI/Ollama মেটাডেটা প্রক্রিয়াকরণ';
+$lang["openai_gpt_intro"] = 'মেটাডেটা যোগ করে যা বিদ্যমান ডেটা বা একটি রিসোর্স প্রিভিউ ইমেজকে OpenAI API (অথবা সামঞ্জস্যপূর্ণ, যেমন Ollama) এর মাধ্যমে একটি কাস্টমাইজযোগ্য প্রম্পটের সাথে পাস করে তৈরি করা হয়। আরও বিস্তারিত তথ্যের জন্য <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI ডকুমেন্টেশন</a> দেখুন।';
+$lang["property-openai_gpt_prompt"] = 'এআই প্রক্রিয়াকরণ প্রম্পট';
+$lang["property-openai_gpt_input_field"] = 'এআই প্রক্রিয়াকরণ ইনপুট';
+$lang["openai_gpt_model"] = 'OpenAI মডেল ব্যবহার করতে (যেমন \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'বিদ্যমান AI ক্ষেত্রগুলি প্রক্রিয়া করুন';
+$lang["openai_gpt_process_existing_configure"] = 'বিদ্যমান AI ক্ষেত্রগুলি প্রক্রিয়া করার জন্য কাজ কনফিগার করুন';
+$lang["openai_gpt_process_existing_field_ref"] = 'এআই ক্ষেত্র';
+$lang["openai_gpt_process_existing_overwrite"] = 'মুছে নতুন করে লেখা';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'এটি আপডেট করার জন্য লক্ষ্য ক্ষেত্র।';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'এই বিকল্পটি সেট করা হলে শুধুমাত্র তালিকাভুক্ত সংগ্রহগুলির মধ্যে থাকা সম্পদগুলি প্রক্রিয়া করা হবে। যদি কোন সংগ্রহ নির্দিষ্ট না করা হয় তবে সমস্ত উপযুক্ত সম্পদ প্রক্রিয়া করা হবে। সংগ্রহগুলি কমা দ্বারা পৃথক করা তালিকা এবং পরিসীমা ব্যবহার করে নির্দিষ্ট করা যেতে পারে যেমন 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'এই বিকল্পটি সেট করা হলে লক্ষ্য ক্ষেত্রের যে কোনও বিদ্যমান তথ্য মুছে ফেলা হবে। দয়া করে লক্ষ্য করুন যে যদি ওভাররাইট সক্ষম করা হয় এবং ইনপুট ক্ষেত্রের মধ্যে কোনও তথ্য না থাকে তবে লক্ষ্য ক্ষেত্রটি খালি হয়ে যাবে।';
+$lang["openai_gpt_limit_warning"] = 'WARNING - টোকেন সীমা অতিক্রম করা হয়েছে তাই আরও OpenAI API কল কাজ করবে না। GPT ক্ষেত্রগুলি প্রক্রিয়া করা হবে না।';
+$lang["openai_gpt_limit_warning_short"] = 'সতর্কতা - টোকেন সীমা অতিক্রম করা হয়েছে তাই GPT ক্ষেত্রগুলি প্রক্রিয়া করা হবে না।';
+$lang["openai_gpt_usage_days"] = 'গত %%DAYS%% দিনে টোকেন ব্যবহারের পরিমাণ';
+$lang["openai_gpt_token_limit"] = 'টোকেন সীমা';
+$lang["openai_gpt_no_token_limit"] = 'কোন টোকেন সীমা কনফিগার করা হয়নি';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% প্রতি %%DAYS%% দিন';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% টোকেন';
+$lang["openai_gpt_provider"] = 'এআই প্রদানকারী';
+$lang["openai_gpt_provider_override"] = 'প্রদানকারীকে গ্লোবাল কনফিগারেশনে লক করা হয়েছে: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama মডেল ব্যবহার করতে (যেমন \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama এন্ডপয়েন্ট ব্যবহার করতে হবে (যেমন http://[IP]:11434/v1/chat/completions)';

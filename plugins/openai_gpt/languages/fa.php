@@ -1,11 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"]='ادغام OpenAI';
-$lang["openai_gpt_intro"]='افزودن فراداده‌ای که با ارسال داده‌های موجود به API OpenAI با یک درخواست قابل تنظیم تولید می‌شود. برای اطلاعات بیشتر به <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> مراجعه کنید.';
-$lang["property-openai_gpt_input_field"]='ورودی GPT';
 $lang["openai_gpt_api_key"]='کلید API OpenAI. کلید API خود را از <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a> دریافت کنید';
-$lang["openai_gpt_model"]='نام مدل API برای استفاده (مثلاً \'gpt-4o\')';
 $lang["openai_gpt_temperature"]='دمای نمونه‌گیری بین 0 و 1 (مقادیر بالاتر به این معنی است که مدل ریسک بیشتری خواهد کرد)';
 $lang["openai_gpt_max_tokens"]='حداکثر توکن‌ها';
 $lang["openai_gpt_advanced"]='هشدار - این بخش فقط برای اهداف آزمایشی است و نباید در سیستم‌های زنده تغییر کند. تغییر هر یک از گزینه‌های افزونه در اینجا بر رفتار تمام فیلدهای متادیتا که پیکربندی شده‌اند تأثیر خواهد گذاشت. با احتیاط تغییر دهید!';
@@ -14,9 +10,32 @@ $lang["openai_gpt_model_override"]='مدل در پیکربندی جهانی قف
 $lang["openai_gpt_processing_multiple_resources"]='منابع متعدد';
 $lang["openai_gpt_processing_resource"]='منبع [resource]';
 $lang["openai_gpt_processing_field"]='تولید ابرداده هوش مصنوعی برای فیلد \'[field]\'';
-$lang["property-gpt_source"]='منبع GPT';
-$lang["property-openai_gpt_prompt"]='GPT Prompt';
 $lang["openai_gpt_language"] = 'زبان خروجی';
 $lang["openai_gpt_language_user"] = 'زبان کاربر فعلی';
 $lang["openai_gpt_overwrite_data"] = 'آیا می‌خواهید داده‌های موجود در فیلدهای پیکربندی شده را بازنویسی کنید؟';
-$lang["page-title_openai_gpt_setup"] = 'نصب افزونه OpenAI GPT';
+$lang["openai_gpt_title"] = 'پردازش متادیتای OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'افزودن فراداده‌ای که با ارسال داده‌های موجود یا تصویر پیش‌نمایش منبع به API OpenAI (یا سازگار، مانند Ollama) با یک درخواست قابل تنظیم تولید می‌شود. برای اطلاعات بیشتر به <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>مستندات OpenAI</a> مراجعه کنید.';
+$lang["property-openai_gpt_prompt"] = 'دستور پردازش هوش مصنوعی';
+$lang["property-openai_gpt_input_field"] = 'ورودی پردازش هوش مصنوعی';
+$lang["openai_gpt_model"] = 'مدل OpenAI برای استفاده (به عنوان مثال \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'پردازش زمینه‌های هوش مصنوعی موجود';
+$lang["openai_gpt_process_existing_configure"] = 'تنظیم شغل برای پردازش فیلدهای AI موجود';
+$lang["openai_gpt_process_existing_field_ref"] = 'زمینه هوش مصنوعی';
+$lang["openai_gpt_process_existing_overwrite"] = 'بازنویسی';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'این فیلد هدف است که باید به‌روزرسانی شود.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'تنظیم این گزینه به این معنی است که فقط منابع موجود در مجموعه‌های فهرست شده پردازش خواهند شد. اگر هیچ مجموعه‌ای مشخص نشود، آنگاه تمام منابع مناسب پردازش خواهند شد. مجموعه‌ها می‌توانند با استفاده از یک لیست جدا شده با کاما و همچنین بازه‌ها مشخص شوند، به عنوان مثال 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'تنظیم این گزینه به این معنی است که هر داده موجود در فیلد هدف نادیده گرفته خواهد شد. لطفاً توجه داشته باشید که اگر گزینه نادیده‌گیری فعال باشد و فیلد ورودی هیچ داده‌ای نداشته باشد، فیلد هدف پاک خواهد شد.';
+$lang["openai_gpt_limit_warning"] = 'هشدار - حد توکن تجاوز شده است بنابراین تماس‌های بیشتر با API OpenAI کار نخواهد کرد. فیلدهای GPT پردازش نخواهند شد.';
+$lang["openai_gpt_limit_warning_short"] = 'هشدار - حد توکن تجاوز شده است بنابراین فیلدهای GPT پردازش نخواهند شد.';
+$lang["openai_gpt_usage_days"] = 'استفاده از توکن در %%DAYS%% روز گذشته';
+$lang["openai_gpt_token_limit"] = 'محدودیت توکن';
+$lang["openai_gpt_no_token_limit"] = 'هیچ محدودیت توکنی پیکربندی نشده است';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% در %%DAYS%% روز';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% توکن';
+$lang["openai_gpt_provider"] = 'ارائه‌دهنده هوش مصنوعی';
+$lang["openai_gpt_provider_override"] = 'این ارائه‌دهنده در پیکربندی جهانی قفل شده است به: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'مدل Ollama برای استفاده (به عنوان مثال \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama endpoint برای استفاده (مثلاً http://[IP]:11434/v1/chat/completions)';

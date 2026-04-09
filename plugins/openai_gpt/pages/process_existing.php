@@ -13,11 +13,13 @@ command_line_only();
 $plugins = register_all_group_access_plugins($plugins ?? []);
 
 if (!in_array("openai_gpt",$plugins)) {
-    exit("OpenAI GPT plugin not enabled. Exiting\n");
+    exit("OpenAI/Ollama metadata processing plugin not enabled. Exiting\n");
 }
 
+$provider = openai_gpt_get_provider();
+
 // Check usage limits if set before any processing starts
-if ($openai_gpt_token_limit !== 0 && $openai_gpt_token_limit_days !== 0) {
+if ($openai_gpt_token_limit !== 0 && $openai_gpt_token_limit_days !== 0 && $provider == "openai") {
     $tokens_used = openai_gpt_get_tokens_used($openai_gpt_token_limit_days);
 
     if ($tokens_used > $openai_gpt_token_limit) {
@@ -128,7 +130,7 @@ else
 $allstates = get_workflow_states();
 $arr_toprocess = [];
 
-echo"OpenAI GPT plugin - process_existing.php script...\n";
+echo"OpenAI/Ollama metadata processing plugin - process_existing.php script...\n";
 echo" - Overwrite existing data: " . ($overwrite ? "TRUE" : "FALSE") . "\n";
 echo" - Target field : #" . $targetfield  . " - " . $targetfield_data["title"] . " (" . $targetfield_data["name"] . ")\n";
 if ($input_is_file)

@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='التكامل مع OpenAI';
-$lang["property-openai_gpt_prompt"]='النص المحفِّز لـ GPT';
-$lang["property-openai_gpt_input_field"]='حقل إدخال GPT';
-$lang["openai_gpt_model"]='اسم نموذج API المستخدم (على سبيل المثال \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='درجة حرارة العينة بين 0 و 1 (القيم الأعلى تعني أن النموذج سيتحمل مزيدًا من المخاطر)';
 $lang["openai_gpt_max_tokens"]='أقصى عدد من الرموز (التوكنز)';
 $lang["openai_gpt_advanced"]='تحذير - هذا القسم مخصص لأغراض الاختبار فقط ولا ينبغي تغييره على الأنظمة الحية. سيؤثر تغيير أي من خيارات المكون الإضافي هنا على سلوك جميع حقول البيانات الوصفية التي تم تكوينها. يرجى التعديل بحذر!';
 $lang["openai_gpt_system_message"]='النص الأولي لرسالة النظام. سيتم استبدال العناصر النائبة %%IN_TYPE%% و %%OUT_TYPE%% بـ \'text\' أو \'json\' اعتمادًا على أنواع الحقول المصدر/الهدف';
-$lang["openai_gpt_intro"]='يضيف البيانات الوصفية التي يتم إنشاؤها عن طريق تمرير البيانات الحالية إلى واجهة برمجة تطبيقات OpenAI مع مطالبة قابلة للتخصيص. راجع <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> لمزيد من المعلومات التفصيلية.';
 $lang["openai_gpt_api_key"]='مفتاح API الخاص بـ OpenAI. احصل على مفتاح API الخاص بك من <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='تكامل OpenAI API GPT';
 $lang["plugin-openai_gpt-desc"]='تم إنشاء البيانات الوصفية بواسطة OpenAI. ينقل بيانات الحقول المُعدة إلى واجهة برمجة تطبيقات OpenAI ويخزن المعلومات المُعادة.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='تم قفل النموذج في التكوي
 $lang["openai_gpt_processing_multiple_resources"]='موارد متعددة';
 $lang["openai_gpt_processing_resource"]='المورد [resource]';
 $lang["openai_gpt_processing_field"]='المعالجة بالذكاء الاصطناعي للحقل \'[field]\'';
-$lang["property-gpt_source"]='مصدر GPT';
 $lang["openai_gpt_language"] = 'لغة الإخراج';
 $lang["openai_gpt_language_user"] = 'لغة المستخدم الحالي';
 $lang["openai_gpt_overwrite_data"] = 'هل ترغب في الكتابة فوق البيانات الموجودة في الحقول المكونة؟';
-$lang["page-title_openai_gpt_setup"] = 'إعداد مكون OpenAI GPT';
+$lang["openai_gpt_title"] = 'معالجة بيانات التعريف OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'يضيف بيانات التعريف التي تم إنشاؤها عن طريق تمرير البيانات الموجودة أو صورة معاينة المورد إلى واجهة برمجة تطبيقات OpenAI (أو المتوافقة، مثل Ollama) مع مطالبة قابلة للتخصيص. راجع <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>وثائق OpenAI</a> لمزيد من المعلومات التفصيلية.';
+$lang["property-openai_gpt_prompt"] = 'موجه معالجة الذكاء الاصطناعي';
+$lang["property-openai_gpt_input_field"] = 'إدخال معالجة الذكاء الاصطناعي';
+$lang["openai_gpt_model"] = 'نموذج OpenAI للاستخدام (مثل \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'معالجة حقول الذكاء الاصطناعي الحالية';
+$lang["openai_gpt_process_existing_configure"] = 'تكوين وظيفة لمعالجة الحقول الذكية الموجودة';
+$lang["openai_gpt_process_existing_field_ref"] = 'مجال الذكاء الاصطناعي';
+$lang["openai_gpt_process_existing_overwrite"] = 'استبدال';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'هذا هو الحقل المستهدف الذي سيتم تحديثه.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'سيعني تعيين هذا الخيار أنه سيتم معالجة الموارد الموجودة فقط في المجموعات المدرجة. إذا لم يتم تحديد أي مجموعات، فسيتم معالجة جميع الموارد المناسبة. يمكن تحديد المجموعات باستخدام قائمة مفصولة بفواصل بالإضافة إلى النطاقات مثل 100، 105، 110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'سيؤدي تعيين هذا الخيار إلى استبدال أي بيانات موجودة في حقل الهدف. يرجى ملاحظة أنه إذا تم تمكين الاستبدال وكان حقل الإدخال لا يحتوي على بيانات، فسيتم مسح حقل الهدف.';
+$lang["openai_gpt_limit_warning"] = 'تحذير - تم تجاوز حد الرموز لذا لن تعمل مكالمات OpenAI API الإضافية. لن يتم معالجة حقول GPT.';
+$lang["openai_gpt_limit_warning_short"] = 'تحذير - تم تجاوز حد الرمز لذا لن يتم معالجة حقول GPT.';
+$lang["openai_gpt_usage_days"] = 'استخدام الرمز في الأيام %%DAYS%% الماضية';
+$lang["openai_gpt_token_limit"] = 'حد الرمز';
+$lang["openai_gpt_no_token_limit"] = 'لا يوجد حد للتوكنات مُهيأ';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% لكل %%DAYS%% يوم';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% رموز';
+$lang["openai_gpt_provider"] = 'مزود الذكاء الاصطناعي';
+$lang["openai_gpt_provider_override"] = 'تم قفل المزود في التكوين العالمي إلى: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama model to use (e.g. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama endpoint للاستخدام (مثل http://[IP]:11434/v1/chat/completions';

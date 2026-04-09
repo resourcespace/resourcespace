@@ -1,12 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"]='OpenAI entegrasyonu';
-$lang["openai_gpt_intro"]='Mevcut verileri özelleştirilebilir bir istemle OpenAI API\'sine geçirerek oluşturulan meta verileri ekler. Daha ayrıntılı bilgi için <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> adresine bakın.';
-$lang["property-openai_gpt_prompt"]='GPT İstemi';
-$lang["property-openai_gpt_input_field"]='GPT Girişi';
 $lang["openai_gpt_api_key"]='OpenAI API anahtarı. API anahtarınızı <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a> adresinden alın.';
-$lang["openai_gpt_model"]='Kullanılacak API modelinin adı (ör. \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Örnekleme sıcaklığı 0 ile 1 arasında (daha yüksek değerler modelin daha fazla risk alacağı anlamına gelir)';
 $lang["openai_gpt_max_tokens"]='Maksimum jetonlar';
 $lang["openai_gpt_advanced"]='UYARI - Bu bölüm yalnızca test amaçlıdır ve canlı sistemlerde değiştirilmemelidir. Buradaki eklenti seçeneklerinden herhangi birini değiştirmek, yapılandırılmış tüm meta veri alanlarının davranışını etkileyecektir. Dikkatle değiştirin!';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Model, küresel yapılandırmada kilitlendi:
 $lang["openai_gpt_processing_multiple_resources"]='Birden fazla kaynak';
 $lang["openai_gpt_processing_resource"]='Kaynak [resource]';
 $lang["openai_gpt_processing_field"]='\'[field]\' alanı için AI işleme';
-$lang["property-gpt_source"]='GPT Kaynağı';
 $lang["openai_gpt_language"] = 'Çıktı dili';
 $lang["openai_gpt_language_user"] = 'Mevcut kullanıcının dili';
 $lang["openai_gpt_overwrite_data"] = 'Yapılandırılmış alanlardaki mevcut verileri üzerine yazmak ister misiniz?';
-$lang["page-title_openai_gpt_setup"] = 'OpenAI GPT Eklentisini Kurun';
+$lang["openai_gpt_title"] = 'OpenAI/Ollama meta verisi işleme';
+$lang["openai_gpt_intro"] = 'Mevcut verileri veya bir kaynak önizleme görüntüsünü özelleştirilebilir bir istemle OpenAI API\'sine (veya Ollama gibi uyumlu bir API\'ye) geçirerek oluşturulan meta verileri ekler. Daha ayrıntılı bilgi için <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI belgelerine</a> başvurun.';
+$lang["property-openai_gpt_prompt"] = 'Yapay Zeka İşleme İsteği';
+$lang["property-openai_gpt_input_field"] = 'Yapay Zeka İşleme Girişi';
+$lang["openai_gpt_model"] = 'OpenAI modeli kullanılacak (örn. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Kaynağı';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Mevcut AI alanlarını işleyin';
+$lang["openai_gpt_process_existing_configure"] = 'Mevcut AI alanlarını işlemek için görevi yapılandırın';
+$lang["openai_gpt_process_existing_field_ref"] = 'Yapay Zeka Alanı';
+$lang["openai_gpt_process_existing_overwrite"] = 'Üzerine yaz';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Bu güncellenmesi gereken hedef alandır.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Bu seçeneği ayarlamak, yalnızca listelenen koleksiyonlardaki kaynakların işleneceği anlamına gelir. Eğer koleksiyon belirtilmezse, OLAĞANÜSTÜ uygun kaynakların hepsi işlenecektir. Koleksiyonlar, virgülle ayrılmış bir liste ve ayrıca aralıklar kullanılarak belirtilebilir, örneğin 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Bu seçeneği ayarlamak, hedef alandaki mevcut verilerin üzerine yazılacağı anlamına gelecektir. Lütfen üzerine yazma etkinleştirildiğinde ve giriş alanında veri yoksa, hedef alanın temizleneceğini unutmayın.';
+$lang["openai_gpt_limit_warning"] = 'UYARI - Token limiti aşıldı, bu nedenle daha fazla OpenAI API çağrısı çalışmayacaktır. GPT alanları işlenmeyecektir.';
+$lang["openai_gpt_limit_warning_short"] = 'UYARI - Token limiti aşıldı, bu nedenle GPT alanları işlenmeyecek.';
+$lang["openai_gpt_usage_days"] = 'Son %%DAYS%% günde token kullanımı';
+$lang["openai_gpt_token_limit"] = 'Jeton limiti';
+$lang["openai_gpt_no_token_limit"] = 'Token limiti yapılandırılmamış';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% başına %%DAYS%% gün';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% jeton';
+$lang["openai_gpt_provider"] = 'Yapay Zeka Sağlayıcısı';
+$lang["openai_gpt_provider_override"] = 'Sağlayıcı, küresel yapılandırmada şu şekilde kilitlenmiştir: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama modeli kullanılacak (örneğin \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama kullanılacak uç nokta (ör. http://[IP]:11434/v1/chat/completions)';

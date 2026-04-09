@@ -1,10 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"]='OpenAI integreiddio';
-$lang["openai_gpt_intro"]='Ychwanegir metadata a gynhelir trwy basio data presennol neu ddelwedd rhagolwg adnodd i\'r API OpenAI gyda phrompt addasadwy. Cyfeirwch at y <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>dogfennaeth OpenAI</a> am ragor o wybodaeth fanwl.';
 $lang["openai_gpt_api_key"]='OpenAI API allwedd. Cael eich allwedd API o <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
-$lang["openai_gpt_model"]='Enw\'r model API i\'w ddefnyddio (e.e. \'gpt-4o\')';
 $lang["openai_gpt_temperature"]='Temperatur samplu rhwng 0 a 1 (mae gwerthoedd uwch yn golygu y bydd y model yn cymryd mwy o risgiau)';
 $lang["openai_gpt_max_tokens"]='Max tocynnau';
 $lang["openai_gpt_advanced"]='RHAGFYNIAD - Mae\'r adran hon ar gyfer pwrpasau prawf yn unig ac ni ddylid ei newid ar systemau byw. Bydd newid unrhyw un o\'r dewisiadau plugin yma yn effeithio ar ymddygiad yr holl feysydd metadata sydd wedi\'u gosod. Newidwch gyda gofal!';
@@ -13,10 +10,32 @@ $lang["openai_gpt_model_override"]='Mae\'r model wedi\'i gloi yn y gosodiad byd-
 $lang["openai_gpt_processing_multiple_resources"]='Niferus o adnoddau';
 $lang["openai_gpt_processing_resource"]='Adnodd [resource]';
 $lang["openai_gpt_processing_field"]='Cynhyrchu metadata AI ar gyfer maes \'[field]\'';
-$lang["property-gpt_source"]='GPT Source';
-$lang["property-openai_gpt_prompt"]='GPT Prompt';
-$lang["property-openai_gpt_input_field"]='GPT Input';
 $lang["openai_gpt_language"] = 'Iaith allbwn';
 $lang["openai_gpt_language_user"] = 'Iaith y defnyddiwr presennol';
 $lang["openai_gpt_overwrite_data"] = 'Ailywio data presennol yn y meysydd wedi\'u cyfarwyddo?';
-$lang["page-title_openai_gpt_setup"] = 'Gosod Plugin OpenAI GPT';
+$lang["openai_gpt_title"] = 'Prosesu metadata OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Ychwanega metadata a gynhyrchir trwy basio data presennol neu ddelwedd rhagolwg adnodd i\'r API OpenAI (neu un sy\'n gydnaws, fel Ollama) gyda neges addasadwy. Cyfeiriwch at y <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>ddogfennaeth OpenAI</a> am wybodaeth fanylach.';
+$lang["property-openai_gpt_prompt"] = 'Cymorth Prosesu AI';
+$lang["property-openai_gpt_input_field"] = 'Mewnbwn Prosesu AI';
+$lang["openai_gpt_model"] = 'Model OpenAI i\'w ddefnyddio (e.e. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Prosesu meysydd AI presennol';
+$lang["openai_gpt_process_existing_configure"] = 'Ffurfiwch swydd i brosesu meysydd AI presennol';
+$lang["openai_gpt_process_existing_field_ref"] = 'Maes AI';
+$lang["openai_gpt_process_existing_overwrite"] = 'Drosglwyddo';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Dyma\'r maes targed i\'w ddiweddaru.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Mae gosod yr opsiwn hwn yn golygu y bydd dim ond adnoddau yn y casgliadau a restrwyd yn cael eu prosesu. Os na chafwyd unrhyw gasgliadau, yna bydd POB adnoddau addas yn cael eu prosesu. Gellir nodi casgliadau gan ddefnyddio rhestr wedi\'i rhannu gan gomau yn ogystal â thraeanau e.e. 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Mae gosod yr opsiwn hwn yn golygu y bydd unrhyw ddata presennol yn y maes targed yn cael ei orffen. Sylwch, os yw\'r opsiwn orffen wedi\'i actifadu ac nad oes data yn y maes mewnbwn, yna bydd y maes targed yn cael ei glirio.';
+$lang["openai_gpt_limit_warning"] = 'RYBUDD - Mae\'r terfyn tocyn wedi\'i droseddu felly ni fydd galwadau API OpenAI pellach yn gweithio. Ni fydd meysydd GPT yn cael eu prosesu.';
+$lang["openai_gpt_limit_warning_short"] = 'RYBUDD - Mae\'r terfyn token wedi\'i droseddu felly ni chaiff meysydd GPT eu prosesu.';
+$lang["openai_gpt_usage_days"] = 'Defnydd tocyn yn y %%DAYS%% diwrnodau diwethaf';
+$lang["openai_gpt_token_limit"] = 'Terfyn token';
+$lang["openai_gpt_no_token_limit"] = 'Dim terfyn tocyn wedi\'i sefydlu';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% y dyddiau %%DAYS%%';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% tocynnau';
+$lang["openai_gpt_provider"] = 'Darparwr AI';
+$lang["openai_gpt_provider_override"] = 'Mae\'r darparwr wedi\'i gloi yn y gosodiad byd-eang i: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Model Ollama i\'w ddefnyddio (e.e. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama endpoint i\'w ddefnyddio (e.e. http://[IP]:11434/v1/sgwrs/cwblhau';

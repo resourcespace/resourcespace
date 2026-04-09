@@ -1,12 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"] = 'OpenAI integration';
-$lang["openai_gpt_intro"] = 'Nagdaragdag ng metadata na nabuo sa pamamagitan ng pagpapasa ng umiiral na data o isang preview image ng resource sa OpenAI API na may maaaring i-customize na prompt. Tingnan ang <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>dokumento ng OpenAI</a> para sa mas detalyadong impormasyon.';
-$lang["property-openai_gpt_prompt"] = 'Kalakaran ng GPT';
-$lang["property-openai_gpt_input_field"] = 'Paksa ng GPT';
 $lang["openai_gpt_api_key"] = 'OpenAI API key. Kunin ang iyong API key mula sa <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
-$lang["openai_gpt_model"] = 'Pangalan ng API model na gagamitin (hal. \'gpt-4o\')';
 $lang["openai_gpt_temperature"] = 'Temperatura ng sampling sa pagitan ng 0 at 1 (mas mataas na halaga ay nangangahulugang ang modelo ay kukuha ng mas maraming panganib)';
 $lang["openai_gpt_max_tokens"] = 'Maksimum na token';
 $lang["openai_gpt_advanced"] = 'BABALA - Ang seksyong ito ay para lamang sa mga layunin ng pagsubok at hindi dapat baguhin sa mga live na sistema. Ang pagbabago ng alinman sa mga pagpipilian ng plugin dito ay makakaapekto sa pag-uugali ng lahat ng mga patlang ng metadata na na-configure. Mag-ingat sa pagbabago!';
@@ -15,8 +10,32 @@ $lang["openai_gpt_model_override"] = 'Ang modelo ay na-lock sa pandaigdigang con
 $lang["openai_gpt_processing_multiple_resources"] = 'Maramihang yaman';
 $lang["openai_gpt_processing_resource"] = 'Mapagkukunan [resource]';
 $lang["openai_gpt_processing_field"] = 'Pagsasagawa ng AI metadata para sa larangan na \'[field]\'';
-$lang["property-gpt_source"] = 'GPT Source';
 $lang["openai_gpt_language"] = 'Wika ng output';
 $lang["openai_gpt_language_user"] = 'Wika ng kasalukuyang gumagamit';
 $lang["openai_gpt_overwrite_data"] = 'Isusulat muli ang umiiral na data sa mga nakatakdang larangan?';
-$lang["page-title_openai_gpt_setup"] = 'I-set up ang OpenAI GPT Plugin';
+$lang["openai_gpt_title"] = 'Pagproseso ng metadata ng OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Nagdaragdag ng metadata na nabuo sa pamamagitan ng pagpapasa ng umiiral na data o isang preview na imahe ng mapagkukunan sa OpenAI API (o katugma, tulad ng Ollama) gamit ang isang nako-customize na prompt. Sumangguni sa <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>OpenAI documentation</a> para sa mas detalyadong impormasyon.';
+$lang["property-openai_gpt_prompt"] = 'AI Pagpoproseso ng Prompt';
+$lang["property-openai_gpt_input_field"] = 'Pag-input ng AI Processing';
+$lang["openai_gpt_model"] = 'OpenAI model na gagamitin (hal. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Iproseso ang umiiral na mga larangan ng AI';
+$lang["openai_gpt_process_existing_configure"] = 'I-configure ang trabaho upang iproseso ang umiiral na mga patlang ng AI';
+$lang["openai_gpt_process_existing_field_ref"] = 'AI Field';
+$lang["openai_gpt_process_existing_overwrite"] = 'Isulat muli';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Ito ang target na larangan na dapat i-update.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Ang pag-set ng opsyong ito ay nangangahulugang tanging ang mga resources sa nakalistang koleksyon ang ipoproseso. Kung walang nakalistang koleksyon, lahat ng angkop na resources ay ipoproseso. Ang mga koleksyon ay maaaring itakda gamit ang isang listahan na pinaghihiwalay ng kuwit pati na rin ang mga saklaw, halimbawa 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Ang pag-set ng opsyong ito ay nangangahulugang anumang umiiral na data sa target na field ay mapapalitan. Pakitandaan na kung ang overwrite ay naka-enable at ang input field ay walang data, ang target na field ay malilinis.';
+$lang["openai_gpt_limit_warning"] = 'BABALA - Nalampasan na ang limitasyon ng token kaya ang karagdagang tawag sa OpenAI API ay hindi gagana. Ang mga GPT field ay hindi mapoproseso.';
+$lang["openai_gpt_limit_warning_short"] = 'BABALA - Lumagpas na sa limitasyon ng token kaya ang mga GPT field ay hindi mapoproseso.';
+$lang["openai_gpt_usage_days"] = 'Paggamit ng token sa nakaraang %%DAYS%% araw';
+$lang["openai_gpt_token_limit"] = 'Limit ng token';
+$lang["openai_gpt_no_token_limit"] = 'Walang nakatakdang limitasyon sa token';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% bawat %%DAYS%% araw';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% mga token';
+$lang["openai_gpt_provider"] = 'Tagapagbigay ng AI';
+$lang["openai_gpt_provider_override"] = 'Ang tagapagbigay ay na-lock sa pandaigdigang configuration sa: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama model na gagamitin (hal. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Ollama endpoint na gagamitin (hal. http://[IP]:11434/v1/chat/completions)';

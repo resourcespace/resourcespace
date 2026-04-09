@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='Integració amb OpenAI';
-$lang["property-openai_gpt_prompt"]='Prompt de GPT';
-$lang["property-openai_gpt_input_field"]='Camp d\'entrada GPT';
-$lang["openai_gpt_model"]='Nom del model d\'API per utilitzar (per exemple, \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Mostra de temperatura entre 0 i 1 (valors més alts significa que el model prendrà més riscos)';
 $lang["openai_gpt_max_tokens"]='Màxim de tokens';
 $lang["openai_gpt_advanced"]='ATENCIÓ - Aquesta secció és només per a propòsits de prova i no s\'hauria de modificar en sistemes en viu. El canvi de qualsevol opció del connector aquí afectarà el comportament de tots els camps de metadades que s\'hagin configurat. Altereu amb precaució!';
 $lang["openai_gpt_system_message"]='Text inicial del sistema. Els espais reservats %%IN_TYPE%% i %%OUT_TYPE%% seran substituïts per \'text\' o \'json\' depenent dels tipus de camp d\'origen/destinació';
-$lang["openai_gpt_intro"]='Afegeix metadades generades passant dades existents a l\'API d\'OpenAI amb un missatge personalitzable. Consulteu <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> per obtenir informació més detallada.';
 $lang["openai_gpt_api_key"]='Clau API d\'OpenAI. Obteniu la vostra clau API des de <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='Integració de l\'API GPT d\'OpenAI';
 $lang["plugin-openai_gpt-desc"]='Metadades generades per OpenAI. Passa les dades del camp configurat a l\'API d\'OpenAI i emmagatzema la informació retornada.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='El model ha estat bloquejat en la configurac
 $lang["openai_gpt_processing_multiple_resources"]='Múltiples recursos';
 $lang["openai_gpt_processing_resource"]='Recurs [resource]';
 $lang["openai_gpt_processing_field"]='Processament d\'IA per al camp \'[field]\'';
-$lang["property-gpt_source"]='Font GPT';
 $lang["openai_gpt_language"] = 'Idioma d\'exportació';
 $lang["openai_gpt_language_user"] = 'La llengua de l\'usuari actual';
 $lang["openai_gpt_overwrite_data"] = 'Sobreescriure les dades existents als camps configurats?';
-$lang["page-title_openai_gpt_setup"] = 'Configura el complement OpenAI GPT';
+$lang["openai_gpt_title"] = 'Processament de metadades d\'OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Afegeix metadades generades passant dades existents o una imatge de vista prèvia del recurs a l\'API d\'OpenAI (o compatible, com Ollama) amb un missatge personalitzable. Consulta la <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>documentació d\'OpenAI</a> per a més informació detallada.';
+$lang["property-openai_gpt_prompt"] = 'Processament d\'IA';
+$lang["property-openai_gpt_input_field"] = 'Processament d\'entrada d\'IA';
+$lang["openai_gpt_model"] = 'Model OpenAI a utilitzar (p. ex., \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Processar camps d\'IA existents';
+$lang["openai_gpt_process_existing_configure"] = 'Configura la feina per processar els camps d\'IA existents';
+$lang["openai_gpt_process_existing_field_ref"] = 'Camp d\'IA';
+$lang["openai_gpt_process_existing_overwrite"] = 'Sobreescriure';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Aquest és el camp objectiu que s\'ha d\'actualitzar.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Establir aquesta opció significarà que només es processaran els recursos de les col·leccions enumerades. Si no s\'especifiquen col·leccions, es processaran TOTS els recursos adequats. Les col·leccions es poden especificar mitjançant una llista separada per comes així com rangs, per exemple 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Establir aquesta opció significarà que qualsevol dada existent al camp objectiu serà sobreescrita. Tingueu en compte que si la sobreescriptura està habilitada i el camp d\'entrada no conté dades, llavors el camp objectiu es buidarà.';
+$lang["openai_gpt_limit_warning"] = 'AVÍS - S\'ha superat el límit de tokens, així que les futures crides a l\'API d\'OpenAI no funcionaran. Els camps de GPT no seran processats.';
+$lang["openai_gpt_limit_warning_short"] = 'AVÍS - S\'ha superat el límit de tokens, així que els camps GPT no seran processats.';
+$lang["openai_gpt_usage_days"] = 'Ús del token en els darrers %%DAYS%% dies';
+$lang["openai_gpt_token_limit"] = 'Límit de token';
+$lang["openai_gpt_no_token_limit"] = 'No s\'ha configurat cap límit de token';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% per %%DAYS%% dies';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% tokens';
+$lang["openai_gpt_provider"] = 'Proveïdor d\'IA';
+$lang["openai_gpt_provider_override"] = 'El proveïdor ha estat bloquejat en la configuració global a: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Model d\'Ollama a utilitzar (per exemple, \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Punt final d\'Ollama a utilitzar (p. ex. http://[IP]:11434/v1/chat/completions';

@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='Integrazione di OpenAI';
-$lang["property-openai_gpt_prompt"]='Prompt GPT';
-$lang["property-openai_gpt_input_field"]='Campo di input GPT';
-$lang["openai_gpt_model"]='Nome del modello API da utilizzare (ad esempio, \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Temperatura di campionamento compresa tra 0 e 1 (valori più alti significano che il modello assumerà maggiori rischi)';
 $lang["openai_gpt_max_tokens"]='Massimo numero di token';
 $lang["openai_gpt_advanced"]='ATTENZIONE - Questa sezione è solo per scopi di test e non dovrebbe essere modificata sui sistemi in produzione. La modifica di qualsiasi opzione del plugin qui influenzerà il comportamento di tutti i campi di metadati che sono stati configurati. Modificare con cautela!';
 $lang["openai_gpt_system_message"]='Testo iniziale del messaggio di sistema. I segnaposto %%IN_TYPE%% e %%OUT_TYPE%% saranno sostituiti da \'text\' o \'json\' a seconda dei tipi di campo sorgente/target';
-$lang["openai_gpt_intro"]='Aggiunge metadati generati passando dati esistenti all\'API di OpenAI con un prompt personalizzabile. Fare riferimento a <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> per informazioni più dettagliate.';
 $lang["openai_gpt_api_key"]='Chiave API OpenAI. Ottieni la tua chiave API da <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='Integrazione API GPT di OpenAI';
 $lang["plugin-openai_gpt-desc"]='Metadati generati da OpenAI. Trasmette i dati del campo configurato all\'API di OpenAI e memorizza le informazioni restituite.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Il modello è stato bloccato nella configura
 $lang["openai_gpt_processing_multiple_resources"]='Risorse multiple';
 $lang["openai_gpt_processing_resource"]='Risorsa [resource]';
 $lang["openai_gpt_processing_field"]='Elaborazione AI per il campo \'[field]\'';
-$lang["property-gpt_source"]='Fonte GPT';
 $lang["openai_gpt_language"] = 'Lingua di output';
 $lang["openai_gpt_language_user"] = 'La lingua dell\'utente attuale';
 $lang["openai_gpt_overwrite_data"] = 'Sovrascrivere i dati esistenti nei campi configurati?';
-$lang["page-title_openai_gpt_setup"] = 'Imposta il plugin OpenAI GPT';
+$lang["openai_gpt_title"] = 'Elaborazione dei metadati OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Aggiunge metadati generati passando dati esistenti o un\'immagine di anteprima della risorsa all\'API OpenAI (o compatibile, come Ollama) con un prompt personalizzabile. Fare riferimento alla <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>documentazione di OpenAI</a> per ulteriori informazioni dettagliate.';
+$lang["property-openai_gpt_prompt"] = 'Elaborazione AI Prompt';
+$lang["property-openai_gpt_input_field"] = 'Elaborazione Input AI';
+$lang["openai_gpt_model"] = 'Modello OpenAI da utilizzare (ad es. \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Elabora i campi AI esistenti';
+$lang["openai_gpt_process_existing_configure"] = 'Configura il lavoro per elaborare i campi AI esistenti';
+$lang["openai_gpt_process_existing_field_ref"] = 'Campo AI';
+$lang["openai_gpt_process_existing_overwrite"] = 'Sovrascrivere';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Questo è il campo di destinazione da aggiornare.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Impostare questa opzione significa che solo le risorse nelle collezioni elencate verranno elaborate. Se non vengono specificate collezioni, tutte le risorse idonee verranno elaborate. Le collezioni possono essere specificate utilizzando un elenco separato da virgole, così come intervalli ad esempio 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Impostare questa opzione significa che i dati esistenti nel campo di destinazione verranno sovrascritti. Si prega di notare che se la sovrascrittura è abilitata e il campo di input non contiene dati, il campo di destinazione verrà svuotato.';
+$lang["openai_gpt_limit_warning"] = 'ATTENZIONE - Il limite di token è stato superato, quindi ulteriori chiamate all\'API OpenAI non funzioneranno. I campi GPT non verranno elaborati.';
+$lang["openai_gpt_limit_warning_short"] = 'ATTENZIONE - Il limite di token è stato superato, quindi i campi GPT non verranno elaborati.';
+$lang["openai_gpt_usage_days"] = 'Utilizzo del token negli ultimi %%DAYS%% giorni';
+$lang["openai_gpt_token_limit"] = 'Limite del token';
+$lang["openai_gpt_no_token_limit"] = 'Nessun limite di token configurato';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% per %%DAYS%% giorni';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% token';
+$lang["openai_gpt_provider"] = 'Fornitore di IA';
+$lang["openai_gpt_provider_override"] = 'Il fornitore è stato bloccato nella configurazione globale su: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Modello Ollama da utilizzare (ad es. \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Punto finale Ollama da utilizzare (ad es. http://[IP]:11434/v1/chat/completions';

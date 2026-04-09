@@ -1,15 +1,10 @@
 <?php
 
 
-$lang["openai_gpt_title"]='Integrasi OpenAI';
-$lang["property-openai_gpt_prompt"]='Prompt GPT (GPT adalah singkatan dari "Generative Pre-trained Transformer")';
-$lang["property-openai_gpt_input_field"]='Kolom Input GPT';
-$lang["openai_gpt_model"]='Nama model API yang akan digunakan (misalnya \'text-davinci-003\')';
 $lang["openai_gpt_temperature"]='Mengambil sampel suhu antara 0 dan 1 (nilai yang lebih tinggi berarti model akan mengambil risiko lebih banyak)';
 $lang["openai_gpt_max_tokens"]='Maksimum token';
 $lang["openai_gpt_advanced"]='PERINGATAN - Bagian ini hanya untuk tujuan pengujian dan tidak boleh diubah pada sistem langsung. Mengubah opsi plugin di sini akan mempengaruhi perilaku semua bidang metadata yang telah dikonfigurasi. Ubah dengan hati-hati!';
 $lang["openai_gpt_system_message"]='Teks pesan sistem awal. Placeholder %%IN_TYPE%% dan %%OUT_TYPE%% akan digantikan oleh \'teks\' atau \'json\' tergantung pada jenis bidang sumber/target';
-$lang["openai_gpt_intro"]='Menambahkan metadata yang dihasilkan dengan mengirimkan data yang ada ke OpenAI API dengan prompt yang dapat disesuaikan. Lihat <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>https://platform.openai.com/docs/introduction</a> untuk informasi lebih rinci.';
 $lang["openai_gpt_api_key"]='Kunci API OpenAI. Dapatkan kunci API Anda dari <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
 $lang["plugin-openai_gpt-title"]='Integrasi API GPT OpenAI';
 $lang["plugin-openai_gpt-desc"]='OpenAI menghasilkan metadata. Mengirimkan data bidang yang dikonfigurasi ke API OpenAI dan menyimpan informasi yang dikembalikan.';
@@ -17,8 +12,32 @@ $lang["openai_gpt_model_override"]='Model telah dikunci dalam konfigurasi global
 $lang["openai_gpt_processing_multiple_resources"]='Beberapa sumber daya';
 $lang["openai_gpt_processing_resource"]='Sumber [resource]';
 $lang["openai_gpt_processing_field"]='Pemrosesan AI untuk bidang \'[field]\'';
-$lang["property-gpt_source"]='Sumber GPT';
 $lang["openai_gpt_language"] = 'Bahasa keluaran';
 $lang["openai_gpt_language_user"] = 'Bahasa pengguna saat ini';
 $lang["openai_gpt_overwrite_data"] = 'Tulis ulang data yang ada di kolom yang dikonfigurasi?';
-$lang["page-title_openai_gpt_setup"] = 'Setup Plugin OpenAI GPT';
+$lang["openai_gpt_title"] = 'Pengolahan metadata OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Menambahkan metadata yang dihasilkan dengan mengirimkan data yang ada atau gambar pratinjau sumber ke API OpenAI (atau yang kompatibel, seperti Ollama) dengan prompt yang dapat disesuaikan. Lihat <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>dokumentasi OpenAI</a> untuk informasi lebih rinci.';
+$lang["property-openai_gpt_prompt"] = 'Prompt Pemrosesan AI';
+$lang["property-openai_gpt_input_field"] = 'Pemrosesan Input AI';
+$lang["openai_gpt_model"] = 'Model OpenAI yang akan digunakan (misalnya \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Proses bidang AI yang ada';
+$lang["openai_gpt_process_existing_configure"] = 'Konfigurasi pekerjaan untuk memproses bidang AI yang ada';
+$lang["openai_gpt_process_existing_field_ref"] = 'Bidang AI';
+$lang["openai_gpt_process_existing_overwrite"] = 'Tulis ulang';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Ini adalah bidang target yang akan diperbarui.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Mengatur opsi ini berarti hanya sumber daya dalam koleksi yang terdaftar yang akan diproses. Jika tidak ada koleksi yang ditentukan, maka SEMUA sumber daya yang sesuai akan diproses. Koleksi dapat ditentukan menggunakan daftar yang dipisahkan dengan koma serta rentang, misalnya 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Mengatur opsi ini akan berarti bahwa data yang ada di bidang target akan ditimpa. Harap dicatat bahwa jika penimpaan diaktifkan dan bidang input tidak berisi data, maka bidang target akan dikosongkan.';
+$lang["openai_gpt_limit_warning"] = 'PERINGATAN - Batas token telah terlampaui sehingga panggilan API OpenAI selanjutnya tidak akan berfungsi. Bidang GPT tidak akan diproses.';
+$lang["openai_gpt_limit_warning_short"] = 'PERINGATAN - Batas token telah terlampaui sehingga bidang GPT tidak akan diproses.';
+$lang["openai_gpt_usage_days"] = 'Penggunaan token dalam %%DAYS%% hari terakhir';
+$lang["openai_gpt_token_limit"] = 'Batas token';
+$lang["openai_gpt_no_token_limit"] = 'Tidak ada batas token yang dikonfigurasi';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% per %%DAYS%% hari';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% token';
+$lang["openai_gpt_provider"] = 'Penyedia AI';
+$lang["openai_gpt_provider_override"] = 'Penyedia telah dikunci dalam konfigurasi global ke: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Model Ollama yang akan digunakan (misalnya \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Harap terjemahkan: Ollama endpoint yang digunakan (misalnya http://[IP]:11434/v1/chat/completions';

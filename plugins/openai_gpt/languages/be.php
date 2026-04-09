@@ -1,12 +1,7 @@
 <?php
 
 
-$lang["openai_gpt_title"] = 'OpenAI інтэграцыя';
-$lang["openai_gpt_intro"] = 'Дадае метаданыя, якія генеруюцца шляхам перадачы існуючых даных або папярэдняга малюнка рэсурсу ў OpenAI API з наладжвальным запытам. Азнаёмцеся з <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>документацыяй OpenAI</a> для атрымання больш падрабязнай інфармацыі.';
-$lang["property-openai_gpt_prompt"] = 'GPT Prompt';
-$lang["property-openai_gpt_input_field"] = 'Кіраванне GPT';
 $lang["openai_gpt_api_key"] = 'OpenAI API ключ. Атрымаеце ваш API ключ з <a href=\'https://openai.com/api\' target=\'_blank\' >https://openai.com/api</a>';
-$lang["openai_gpt_model"] = 'Назва мадэлі API для выкарыстання (напрыклад, \'gpt-4o\')';
 $lang["openai_gpt_temperature"] = 'Температура выбаркі паміж 0 і 1 (вышэйшыя значэнні азначаюць, што мадэль будзе браць больш рызыкі)';
 $lang["openai_gpt_max_tokens"] = 'Максімальная колькасць токенаў';
 $lang["openai_gpt_advanced"] = 'ПАПЯРЭДЖАННЕ - Гэты раздзел прызначаны толькі для тэставання і не павінен быць зменены на жывых сістэмах. Змена любога з параметраў плагіна тут паўплывае на паводзіны ўсіх метададзеных, якія былі наладжаны. Змяняйце з асцярожнасцю!';
@@ -15,8 +10,32 @@ $lang["openai_gpt_model_override"] = 'Мадэль была заблакаван
 $lang["openai_gpt_processing_multiple_resources"] = 'Многа рэсурсаў';
 $lang["openai_gpt_processing_resource"] = 'Рэсурс [resource]';
 $lang["openai_gpt_processing_field"] = 'Генерацыя метададзеных AI для поля \'[field]\'';
-$lang["property-gpt_source"] = 'GPT Source';
 $lang["openai_gpt_language"] = 'Мова вываду';
 $lang["openai_gpt_language_user"] = 'Мова бягучага карыстальніка';
 $lang["openai_gpt_overwrite_data"] = 'Перазапісаць існуючыя дадзеныя ў наладжаных палях?';
-$lang["page-title_openai_gpt_setup"] = 'Наладка плагіна OpenAI GPT';
+$lang["openai_gpt_title"] = 'Апрацоўка метададзен OpenAI/Ollama';
+$lang["openai_gpt_intro"] = 'Дадае метаданыя, якія генеруюцца шляхам перадачы існуючых даных або папярэдняга малюнка рэсурсу ў OpenAI API (ці сумяшчальнае, напрыклад, Ollama) з наладжвальным запытам. Звярніцеся да <a href=\'https://platform.openai.com/docs/introduction\' target=\'_blank\'>документацыі OpenAI</a> для атрымання больш падрабязнай інфармацыі.';
+$lang["property-openai_gpt_prompt"] = 'Запыт апрацоўкі ІІ';
+$lang["property-openai_gpt_input_field"] = 'Увод апрацоўкі ІІ';
+$lang["openai_gpt_model"] = 'OpenAI мадэль для выкарыстання (напрыклад, \'gpt-4o\')';
+$lang["property-gpt_source"] = 'GPT Source';
+$lang["openai_gpt"] = 'OpenAI GPT';
+$lang["openai_gpt_process_existing"] = 'Апрацоўка існуючых палёў ШІ';
+$lang["openai_gpt_process_existing_configure"] = 'Наладзіць задачу для апрацоўкі існуючых палёў ШІ';
+$lang["openai_gpt_process_existing_field_ref"] = 'Поле ІІ';
+$lang["openai_gpt_process_existing_overwrite"] = 'Перазапісаць';
+$lang["openai_gpt_process_existing_field_ref_help"] = 'Гэта мэтавае поле, якое трэба абнавіць.';
+$lang["openai_gpt_process_existing_collection_refs_help"] = 'Усталёўка гэтай опцыі азначае, што будуць апрацоўвацца толькі рэсурсы з пералічаных калекцый. Калі калекцыі не ўказаны, то будуць апрацоўвацца ЎСЕ адпаведныя рэсурсы. Калекцыі можна ўказваць, выкарыстоўваючы спіс, раздзялены коскамі, а таксама дыяпазоны, напрыклад, 100,105,110-115';
+$lang["openai_gpt_process_existing_overwrite_help"] = 'Усталяванне гэтай опцыі азначае, што любыя існуючыя дадзеныя ў мэтавым полі будуць перазапісаны. Звярніце ўвагу, што калі перазапіс актыўны і поле ўводу не змяшчае дадзеных, то мэтавае поле будзе ачышчана.';
+$lang["openai_gpt_limit_warning"] = 'ПАПЯРЭДЖАННЕ - Ліміт токена перавышаны, таму далейшыя запыты да OpenAI API не будуць працаваць. Поля GPT не будуць апрацоўвацца.';
+$lang["openai_gpt_limit_warning_short"] = 'ПАПЯРЭДЖАННЕ - Ліміт токена быў перавышаны, таму палі GPT не будуць апрацаваны.';
+$lang["openai_gpt_usage_days"] = 'Выкарыстанне токена за апошнія %%DAYS%% дзён';
+$lang["openai_gpt_token_limit"] = 'Ліміт токена';
+$lang["openai_gpt_no_token_limit"] = 'Не наладжаны абмежаванні токена';
+$lang["openai_gpt_configured_limit"] = '%%TOKEN_LIMIT%% за %%DAYS%% дзён';
+$lang["openai_gpt_token_count"] = '%%TOKEN_COUNT%% токена';
+$lang["openai_gpt_provider"] = 'Пастаўшчык ШІ';
+$lang["openai_gpt_provider_override"] = 'Пастаўшчык быў заблакаваны ў глабальнай канфігурацыі на: [provider]';
+$lang["ollama_name"] = 'Ollama';
+$lang["ollama_model"] = 'Ollama мадэль для выкарыстання (напрыклад, \'gemma3:12b\')';
+$lang["ollama_endpoint"] = 'Канечны пункт доступу для выкарыстання (напрыклад, http://[IP]:11434/v1/chat/completions)';
