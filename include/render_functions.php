@@ -79,6 +79,7 @@ function render_search_field($field,$fields,$value="",$autoupdate=false,$class="
                     $scriptconditions[$condref]["name"]                = $fields[$cf]["name"];
                     $scriptconditions[$condref]['type']                = $fields[$cf]['type'];
                     $scriptconditions[$condref]['display_as_dropdown'] = $fields[$cf]['display_as_dropdown'];
+                    $scriptconditions[$condref]['resource_types']      = $fields[$cf]['resource_types'];
                     # Get the node references of the governing field
                     $scriptconditionnodes = get_nodes($fields[$cf]['ref'], null, (FIELD_TYPE_CATEGORY_TREE == $fields[$cf]['type'] ? true : false));
 
@@ -366,10 +367,12 @@ function render_search_field($field,$fields,$value="",$autoupdate=false,$class="
                 <?php
                 }?>
 
-                // If no governing node found then disable this governed field
-                if(!field<?php echo $field['ref']; ?>valuefound)
-                {
-                field<?php echo $field['ref']; ?>visibility = false;
+                if (
+                    !field<?php echo $field['ref']; ?>valuefound 
+                    && ((selectedtypes.includes("<?php echo $scriptcondition['resource_types']; ?>")) 
+                    || <?php echo empty($scriptcondition['resource_types']) ? 'true' : 'false'; ?>)
+                ) {
+                    field<?php echo $field['ref']; ?>visibility = false;
                 }
 
             <?php
