@@ -1,7 +1,7 @@
 <?php
 
 global $openai_gpt_api_key, $openai_gpt_model, $openai_gpt_token_limit, $openai_gpt_token_limit_days, 
-       $openai_gpt_provider, $ollama_endpoint, $ollama_model;
+       $openai_gpt_provider, $ollama_endpoint, $ollama_model, $ai_endpoint_connect_timeout, $ai_endpoint_timeout;
 
 // Provider to use for metadata processing requests - can be overriden remotely.
 $openai_gpt_provider = $openai_gpt_provider ?? "openai";
@@ -70,7 +70,7 @@ $valid_ai_field_types = [
 $openai_gpt_overwrite_data = false;
 
 // Endpoint connect timeout in seconds, used for OpenAI AND Ollama requests
-$ai_endpoint_connect_timeout = 5;
+$ai_endpoint_connect_timeout = $ai_endpoint_connect_timeout ?? 3;
 
 // Endpoint timeout in seconds, used for OpenAI AND Ollama requests
-$ai_endpoint_timeout = 10;
+$ai_endpoint_timeout = $ai_endpoint_timeout ?? 30;
