@@ -1,12 +1,19 @@
-#CookiesUseWrapper { background-color: rgba(0, 0, 0, 0.6); padding: 15px 25px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px}
-#CookieUseMessage { padding: unset; float: left; text-align: left; color: #ECF0F1; }
-#CookiesUseActions { float: right; }
-.CookiesUseBtn { padding: 5px 10px; }
-.HighlightBtn { background-color: #F9BF3B; }
+#CookiesUseWrapper {
+    background-color: var(--colour-transparency-black-60);
+    z-index: 2;
+    position: absolute;
+    width: inherit;
+    backdrop-filter: blur(10px);
+}
 
+#CookieUseMessage {
+    padding: var(--space-24);
+    float: left;
+    text-align: left;
+    color: var(--colour-typography-50);
+}
 
-/* Responsive */
-@media(max-width: 1100px) {
-    #CookieUseMessage { margin-bottom: 10px; }
-    #CookiesUseActions { float: initial; }
+#CookiesUseActions {
+    float: right;
+    padding: var(--space-16);
 }

@@ -54,7 +54,7 @@ function HookCookies_notificationAllAfteruicenter()
                 onclick="setCookiesUse('deny');"
             >
             <input
-                class="CookiesUseBtn HighlightBtn"
+                class="CookiesUseBtn"
                 type="button"
                 value="<?php echo escape($lang['cookies_notification_accept']); ?>"
                 onclick="setCookiesUse('accept');"
