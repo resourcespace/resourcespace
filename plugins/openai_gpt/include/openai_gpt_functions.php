@@ -19,7 +19,7 @@ function openai_gpt_update_field($resources,array $target_field,array $values, s
     $openai_gpt_temperature,$openai_gpt_example_json_user,$openai_gpt_example_json_assistant,$openai_gpt_example_text_user,
     $openai_gpt_example_text_assistant,$openai_gpt_max_tokens, $openai_gpt_max_data_length, $openai_gpt_system_message,
     $openai_gpt_fallback_model, $openai_gpt_message_output_text, $openai_gpt_model_override, $lang, $language, $languages, $openai_gpt_language,
-    $openai_gpt_token_limit, $openai_gpt_token_limit_days, $openai_gpt_endpoint, $ollama_endpoint, $ollama_hide_enpoint, $ollama_model, $ollama_model_override;
+    $openai_gpt_token_limit, $openai_gpt_token_limit_days, $openai_gpt_endpoint, $ollama_endpoint, $ollama_hide_endpoint, $ollama_model, $ollama_model_override;
 
     // Don't update if not a valid field type
     if (!in_array($target_field["type"],$valid_ai_field_types)) {
@@ -170,7 +170,7 @@ function openai_gpt_update_field($resources,array $target_field,array $values, s
 
     // Determine endpoint, api key and model to use
     if ($provider == "ollama") {
-        $endpoint = isset($ollama_hide_enpoint) ? $ollama_hide_enpoint : $ollama_endpoint;
+        $endpoint = isset($ollama_hide_endpoint) ? $ollama_hide_endpoint : $ollama_endpoint;
         // No API key required for Ollama at the moment
         $api_key = "";
         $model = isset($ollama_model_override) ? $ollama_model_override : $ollama_model;

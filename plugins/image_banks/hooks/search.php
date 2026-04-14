@@ -42,7 +42,11 @@ function HookImage_banksSearchSearchaftersearchcookie()
         return;
         }
 
-    global $baseurl_short, $searchparams;
+    global $baseurl_short, $searchparams, $default_sort;
+    // Use the original default_sort value 'relevance' when accessing a different RS instance
+    if ($searchparams['order_by'] === $default_sort && $default_sort !== 'relevance') {
+        $searchparams['order_by'] = 'relevance';
+    }
 
     redirect(
         generateURL(

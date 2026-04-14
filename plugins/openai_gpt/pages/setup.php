@@ -68,7 +68,7 @@ $page_def[] = config_add_html("<div class='Question'><label>" . escape($tokens_u
 // Ollama specific setup
 $page_def[] = config_add_section_header($lang["ollama_name"]);
 
-if (!(isset($ollama_hide_enpoint) && $ollama_hide_enpoint)) {
+if (!(isset($ollama_hide_endpoint) && $ollama_hide_endpoint)) {
  	// Allow key to be hidden from UI via config
 	$page_def[] = config_add_text_input("ollama_endpoint", $lang["ollama_endpoint"]);
 }

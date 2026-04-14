@@ -449,7 +449,7 @@ class ResourceSpace extends Provider implements MultipleInstanceProviderInterfac
     public function getSortOptions(): array
         {
         $sort_options = [
-            $this->configs['default_sort'] => $this->lang[$this->configs['default_sort']] ?? $this->lang['relevance'],
+            'relevance' => $this->lang['relevance'],
         ];
         if ($this->configs['popularity_sort']) {
             $sort_options['popularity'] = $this->lang['popularity'];

@@ -435,10 +435,17 @@ if (!$using_unoconv && (($extension == "odt") || ($extension == "ott") || ($exte
     so it will likely work in most cases, but I think the specs allow it to go anywhere.
    ----------------------------------------
 */
-if (!$using_unoconv && (($extension == "docx") || ($extension == "xlsx") || ($extension == "pptx") || ($extension == "xps")) && !isset($newfile) && in_array($extension, $unoconv_extensions)) {
+if (
+    !$using_unoconv 
+    && in_array($extension, ['docx', 'dotx', 'xlsx', 'pptx', 'xps'])
+    && !isset($newfile) 
+    && in_array($extension, $unoconv_extensions)
+) {
     $cmd = "unzip -p " . escapeshellarg($file) . " \"docProps/thumbnail.jpeg\" > $target";
     $output = run_command($cmd);
-    $newfile = $target;
+    if (filesize_unlimited($target) > 0) {
+        $newfile = $target; 
+    }
 }
 
 /* ----------------------------------------
