@@ -7725,7 +7725,7 @@ function get_nopreview_html(string $extension, $resource_type = null): string
 function get_resource_type_fields($restypes = "", $field_order_by = "ref", $field_sort = "asc", $find = "", $fieldtypes = array(), $include_inactive = false)
 {
     debug_function_call(__FUNCTION__, func_get_args());
-    if ($field_order_by != "ref") {
+    if (!in_array($field_order_by, ["ref", "title"])) {
         // Default order by is not being used so check order by columns supplied are valid for the table
         $fields = columns_in("resource_type_field", null, null, true);
         $fields[] = "tab_name";

@@ -33,7 +33,7 @@ function HookAction_datesCronCron()
         if ('cli' == PHP_SAPI) {
             echo " - Skipping action date cron - last run: " . $last_action_dates_cron . PHP_EOL;
         }
-        //BANGreturn false;
+        return false;
     }
 
     # Store time to update last run date/time after completion
@@ -272,7 +272,7 @@ function HookAction_datesCronCron()
                 LEFT JOIN node n ON n.ref=rn.node
             WHERE r.ref > 0 
                 AND n.resource_type_field = ?
-                AND r.archive<> ?
+                AND r.archive <> ?
             GROUP BY rn.resource";
 
             $sql_params = array(

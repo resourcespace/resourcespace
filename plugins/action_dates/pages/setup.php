@@ -95,17 +95,17 @@ $action_dates_extra_config[] = array('field' => '', 'status' => '');
 
 // Set up the table in HTML to add the extra config to the page
 $page_def_extra = "<div class='Question'>
-<label>" . $lang['action_dates_additional_settings_info'] . "</label>
+<label>" . escape($lang['action_dates_additional_settings_info']) . "</label>
 <table id='action_dates_extra_table' class='ListviewStyle' style='width: 360px;'>
 <tr>
     <th>
-        <strong>" . $lang['action_dates_additional_settings_date'] . "</strong>
+        <strong>" . escape($lang['action_dates_additional_settings_date']) . "</strong>
     </th>
     <th>
-        <strong>" . $lang['action_dates_additional_settings_status'] . "</strong>
+        <strong>" . escape($lang['action_dates_additional_settings_status']) . "</strong>
     </th>
     <th>
-        <strong>" . $lang['action_dates_additional_settings_email_admin_days'] . "</strong>
+        <strong>" . escape($lang['action_dates_additional_settings_email_admin_days']) . "</strong>
     </th>
     </tr>";
 
