@@ -9150,8 +9150,11 @@ function can_upload_preview_image(int $ref): bool
 
 /**
  * Check if a resource has a file to derive previews from.
+ *  
+ * @param int       $ref        Resource ID
+ * @param string    $extension  Resource file extension
  */
-function resource_has_preview_source($ref, $extension) 
+function resource_has_preview_source(int $ref, string $extension) : bool
 {
     return file_exists( 
             in_array($extension, NON_PREVIEW_EXTENSIONS) ? 
