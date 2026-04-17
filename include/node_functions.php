@@ -1103,6 +1103,13 @@ function add_node_keyword_mappings(array $node, $partial_index = false, bool $is
         db_begin_transaction("add_node_keyword_mappings");
     }
     foreach ($translations as $translation) {
+        
+        // Strip html if present so only valid indexable keywords are kept
+        if ($field_data['type'] == 8 && $translation != strip_tags($translation)) {
+            $is_html = true;
+            $translation = strip_tags($translation, '<a>');
+        }
+
         // Only index the first 500 characters
         $translation = mb_substr($translation, 0, $node_keyword_index_chars);
 
