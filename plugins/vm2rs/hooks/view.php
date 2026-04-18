@@ -27,7 +27,7 @@ function isValidVimeoURL($url)
     }
 
 function Hookvm2rsViewrenderinnerresourcepreview()
-    {
+{
     // Replace preview if it's a valid Vimeo URL
     global $ref, $ffmpeg_preview_max_width, $ffmpeg_preview_max_height, $vm2rs_field_id, $vm2rs_videoId;
 
@@ -35,24 +35,31 @@ function Hookvm2rsViewrenderinnerresourcepreview()
     $height = $ffmpeg_preview_max_height;
     $vimeo_url = get_data_by_field($ref, $vm2rs_field_id);
 
-    if ($vimeo_url == "" || !isValidVimeoURL($vimeo_url))
-        {
+    if ($vimeo_url == "" || !isValidVimeoURL($vimeo_url)) {
         return false;
-        }
-    else
-        {
+    } else {
         $vimeo_url_emb = "https://player.vimeo.com/video/" . "$vm2rs_videoId";
         ?>
         <div id="previewimagewrapper">
-            <div class="Picture" id="videoContainer" style="width:<?php echo $width; ?>px;height:<?php echo $height; ?>px;">
-                <iframe title="Vimeo video player" class="vimeo-player" type="text/html" width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="<?php echo $vimeo_url_emb; ?>" frameborder="0" frameborder="0" allowFullScreen>
+            <div class="Picture" id="videoContainer" style="width:<?php echo (int) $width; ?>px;height:<?php echo (int) $height; ?>px;">
+                <iframe
+                    title="Vimeo video player"
+                    class="vimeo-player"
+                    type="text/html"
+                    width="<?php echo (int) $width; ?>"
+                    height="<?php echo (int) $height; ?>"
+                    src="<?php echo escape($vimeo_url_emb); ?>"
+                    frameborder="0"
+                    frameborder="0"
+                    allowFullScreen>
                 </iframe>
             </div>
         </div>
         <?php
         }
+        
     return true;
-    }
+}
 
 function Hookvm2rsViewreplacedownloadoptions()
     {

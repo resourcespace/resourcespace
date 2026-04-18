@@ -646,22 +646,51 @@ if ($keysearch) {
                                             GROUP BY resource ";
                                 } else {
                                     // Use RLIKE to search between word boundaries in the node names
-                                    $union->sql = 
-                                            "SELECT resource, [bit_or_condition] hit_count AS score
+                                    $union->sql =
+                                            "SELECT resource, [bit_or_condition] SUM(hit_count) AS score
                                                 FROM resource_node rn[union_index]
                                                 WHERE rn[union_index].node IN
                                                     (SELECT ref 
                                                         FROM `node` 
                                                         WHERE ";
 
-                                    if (preg_match('/(a-zA-Z0-9]{3,})/', $keyword, $matches)) {
-                                        foreach($matches as $match) {
-                                            if (!in_array($match, $stop_words)) {
-                                                // Full text matching is used to reduce the rows checked by regex where possible
-                                                $union->parameters = array_merge(['s',$match], $union->parameters);
-                                                $union->sql .= "MATCH(name) AGAINST (? IN BOOLEAN MODE) AND ";
+                                    // Full text matching is used to reduce the rows checked by regex where possible
+                                    $pattern = '/
+                                        (
+                                        [a-zA-Z0-9_] # First character cannot be a wildcard
+                                        [a-zA-Z0-9_*]{2,} # Must be three characters long for full text min length
+                                        )
+                                        /x'
+                                    ;
+                                    $or_parts = explode(";", $keyword);
+                                    $boolean_terms = [];
+
+                                    foreach ($or_parts as $or_part) {
+                                        $or_part = trim($or_part);
+                                        if (empty($or_part)) {
+                                            // At least one part of the OR terms lacks enough words to prefilter
+                                            break;
+                                        }
+
+                                        $and_matches = [];
+
+                                        if (preg_match_all($pattern, $or_part, $matches)) {
+                                            foreach (array_unique($matches[1]) as $match) {
+                                                if (preg_match('/[a-zA-Z0-9_]{3,}/', $match) && !in_array($match, $stop_words)) {
+                                                    $and_matches[] = '+' . $match; // + means required
+                                                }
                                             }
                                         }
+
+                                        if (!empty($and_matches)) {
+                                            $boolean_terms[] = '(' . implode(" ", $and_matches) . ')';
+                                        }
+                                    }
+
+                                    if (!empty($boolean_terms)) {
+                                        $boolean_query = implode(' ', $boolean_terms);
+                                        $union->sql .= "MATCH(name) AGAINST (? IN BOOLEAN MODE) AND ";
+                                        $union->parameters = array_merge(['s', $boolean_query], $union->parameters);
                                     }
 
                                     $union->sql .= "name RLIKE ? "

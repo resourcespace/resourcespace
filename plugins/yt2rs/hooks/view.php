@@ -21,42 +21,41 @@ function isValidURL($url)
         return true;
         }
     }
+
 function Hookyt2rsViewrenderinnerresourcepreview()
-    {
+{
     // Replace preview if it's a valid Youtube URL
     global $ref, $ffmpeg_preview_max_width, $ffmpeg_preview_max_height, $yt2rs_field_id, $ytid;
+
     $width = $ffmpeg_preview_max_width;
     $height = $ffmpeg_preview_max_height;
     $youtube_url = get_data_by_field($ref, $yt2rs_field_id);
-    if ($youtube_url == "" || !isValidURL($youtube_url))
-        {
-        return false;
-        }
-      else
-        {
-        $youtube_url_emb = "https://www.youtube.com/embed/" . "$ytid";
-?>
-    <div id="previewimagewrapper">
-       <div class="Picture" id="videoContainer" style="width:<?php
-        echo $width
-?>px;height:<?php
-        echo $height
-?>px;">
-           <iframe title="YouTube video player" class="youtube-player" type="text/html" width="<?php
-        echo $width
-?>" height="<?php
-        echo $height
-?>" src="<?php
-        echo $youtube_url_emb; ?>" frameborder="0" frameborder="0" allowFullScreen></iframe>
-      </div>
-    </div>
-<?php
-        }
-    return true;
-    }
-?>
 
-<?php
+    if ($youtube_url == "" || !isValidURL($youtube_url)) {
+        return false;
+    } else {
+        $youtube_url_emb = "https://www.youtube.com/embed/" . "$ytid";
+        ?>
+        <div id="previewimagewrapper">
+            <div class="Picture" id="videoContainer" style="width:<?php echo (int) $width; ?>px;height:<?php echo (int) $height; ?>px;">
+                <iframe
+                    title="YouTube video player"
+                    class="youtube-player"
+                    type="text/html"
+                    width="<?php echo (int) $width; ?>"
+                    height="<?php echo (int) $height; ?>"
+                    src="<?php echo escape($youtube_url_emb); ?>"
+                    frameborder="0"
+                    frameborder="0"
+                    allowFullScreen>
+                </iframe>
+            </div>
+        </div>
+        <?php
+    }
+    return true;
+}
+
 function Hookyt2rsViewreplacedownloadoptions()
     {
     // Replace download options

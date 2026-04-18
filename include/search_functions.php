@@ -3335,8 +3335,8 @@ function prepare_regex_search_string(string $keyword): string
     if (count($keywords) > 1) {
         $keyword = '(' . implode("|", $keywords) . ')';
     }
-    if (preg_match('/\w/', $keyword) === 0) {
-        // Use lookaheads/lookbehinds for boundary-like behavior when the keyword consists of non-word characters (e.g. ,, &, -)
+    if (preg_match('/^\W|\W$/', $keyword) === 0) {
+        // Use lookaheads/lookbehinds for boundary-like behavior when the keyword starts or ends with non-word characters (e.g. ,, &, -)
         // because \b only works for transitions between word characters (letters, digits, _) and non-word characters.
         $keyword = "(?<!\w)" . $keyword . "(?!\w)";
     } else {
