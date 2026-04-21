@@ -183,10 +183,11 @@ for ($n = 0; $n < count($keywords); $n++) {
     }
 }
 
-# Set the text search box to the stripped value.
+# Set the text search box to the stripped value, and condense consecutive wilcards
 $simple = array_unique($simple);
 $initial_tags = array_unique($initial_tags);
 $quicksearch = join(" ", trim_array($simple));
+$quicksearch = preg_replace('/\*+/', '*', $quicksearch);
 
 # Set the predefined date fields
 $found_year = "";

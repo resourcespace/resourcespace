@@ -16,7 +16,7 @@ if ($keysearch) {
     for ($n = 0; $n < count($keywords); $n++) {
         $canskip = false;
         $search_field_restrict = "";
-        $keyword = $keywords[$n];
+        $keyword = preg_replace('/\*+/', '*', $keywords[$n]);
         debug("do_search(): \$keyword = {$keyword}");
         $quoted_string = (substr($keyword, 0, 1) == "\""  || substr($keyword, 0, 2) == "-\"" ) && substr($keyword, -1, 1) == "\"";
 

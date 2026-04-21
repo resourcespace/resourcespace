@@ -21,7 +21,9 @@ if (-1 != $col) {
     $need_to_authenticate = !check_access_key_collection($col, $k);
 } else {
     $need_to_authenticate = !check_access_key($ref, $k);
-    resource_type_config_override(get_resource_data($ref)['resource_type']);
+    if ($ref != '') {
+        resource_type_config_override(get_resource_data($ref)['resource_type']);
+    }
 }
 
 if ('' == $k || $need_to_authenticate) {
