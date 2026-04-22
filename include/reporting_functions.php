@@ -145,7 +145,7 @@ function do_report($ref, $from_y, $from_m, $from_d, $to_y, $to_m, $to_d, $downlo
             $results = ps_query($sql, $sql_parameters);
         } catch (Exception $e) {
             if (is_process_lock('cron')) {
-                return $lang['error_report_execution'];
+                return escape($lang['error_report_execution']);
             } else { 
                 errorhandler(E_ERROR, $e->getMessage(), $e->getFile(), $e->getLine());
             }

@@ -432,8 +432,11 @@ while ($sent < $file_size) {
 
 fclose($file_handle);
 
-// File send complete, log to daily stat
-log_bandwidth(floor($total_to_send / 1024));
+
+if ($log_download) {
+    // File send complete, log to daily stat
+    log_bandwidth(floor($total_to_send / 1024));
+}
 
 // Deleting Exiftool temp File:
 // Note: Only for downloads (not previews)

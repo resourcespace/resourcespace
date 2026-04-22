@@ -2929,6 +2929,9 @@ input[type="text"]#iconpicker-input {
 .leaflet-touch .leaflet-control-geocoder-icon {
     min-width: unset; 
 }
+.leaflet-container {
+    z-index: 100;
+}
 
 .codeexample
     {
