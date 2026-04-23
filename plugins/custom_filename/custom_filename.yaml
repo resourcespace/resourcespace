@@ -1,8 +1,8 @@
 name: custom_filename
 title: Custom Filename
 author: Montala Limited
-version: 1.0
-desc: Post-process the filename and save the newly processed value in a separate field.
+version: 1.1
+desc: Post-process the filename and save the newly processed value in a separate field (without or with file-extension).
 icon: pen-line
 config_url: /plugins/custom_filename/pages/setup.php
 default_priority: 100
