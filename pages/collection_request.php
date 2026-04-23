@@ -178,7 +178,7 @@ include "../include/header.php";
         <?php # Add custom fields
         if (isset($custom_request_fields)) {
             $custom = explode(",", $custom_request_fields);
-            $required = explode(",", $custom_request_required);
+            $required = explode(",", $custom_request_required ?? "");
 
             for ($n = 0; $n < count($custom); $n++) {
                 $type = 1;
