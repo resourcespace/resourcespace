@@ -232,9 +232,12 @@ function comments_show($ref, $bcollection_mode = false)
 
         // pass this JS function the "this" from the submit button in a form to post it via AJAX call, then refresh the "comments_container"
 
+        if (!$anonymous_mode) {
+            echo '<script src="' . $baseurl_short . 'js/tagging.js"></script>';
+        }
+
         echo<<<EOT
 
-        <script src="{$baseurl_short}js/tagging.js"></script>
         <script type="text/javascript">
 
             var regexEmail = new RegExp ("{$regex_email}");
@@ -282,10 +285,17 @@ EOT;
         generateFormToken("comment_form");
         hook("beforecommentbody");
         $api_native_csrf_gu = generate_csrf_data_for_api_native_authmode('get_users');
+        if (!$anonymous_mode) {
+            $onkeyup = 'onkeyup="TaggingProcess(this)';
+            $placeholder_text_escaped = escape($lang['comments_body-placeholder']);
+        } else {
+            $onkeyup = '';
+            $placeholder_text_escaped = escape($lang['comments_body-placeholder-anon']);
+        }
         echo <<<EOT
                 <input id="comment_form_collection_ref" type="hidden" name="collection_ref" value="{$collection_ref}"></input>
                 <input id="comment_form_resource_ref" type="hidden" name="resource_ref" value="{$resource_ref}"></input>
-                <textarea class="CommentFormBody" id="comment_form_body" name="body" maxlength="{$comments_max_characters}" placeholder="{$lang['comments_body-placeholder']}" onkeyup="TaggingProcess(this)" {$api_native_csrf_gu}></textarea>
+                <textarea class="CommentFormBody" id="comment_form_body" name="body" maxlength="{$comments_max_characters}" placeholder="{$placeholder_text_escaped}" {$onkeyup}" {$api_native_csrf_gu}></textarea>
 
 EOT;
 

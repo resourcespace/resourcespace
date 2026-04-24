@@ -40,7 +40,8 @@ if ($resource !== false && is_null($alternative)) {
             !$job_data["extract"],
             $job_data["revert"],
             $job_data["autorotate"],
-            $job_data["upload_file_by_url"]
+            $job_data["upload_file_by_url"],
+            uniqid()
         );
     } else {
         $status = upload_file($job_data["resource"], !$job_data["extract"], $job_data["revert"], $job_data["autorotate"], "", true);

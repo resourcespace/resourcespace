@@ -2151,6 +2151,7 @@ $lang['comments_in-response-to-on'] = "on";
 $lang['comments_anonymous-user'] = "Anonymous";
 $lang['comments_submit-button-label'] = "Submit";
 $lang['comments_body-placeholder'] = "Add a comment. Use @(username) to tag people.";
+$lang['comments_body-placeholder-anon'] = "Add a comment.";
 $lang['comments_fullname-placeholder'] = "Your Name (required)";
 $lang['comments_email-placeholder'] = "Your E-mail (required)";
 $lang['comments_website-url-placeholder'] = "Website";

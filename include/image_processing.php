@@ -2537,6 +2537,11 @@ function upload_file_by_url(int $ref, bool $no_exif = false, bool $revert = fals
     }
 
     $upload_result = upload_file($ref, $no_exif, $revert, $autorotate, $file_path);   # Process as a normal upload...
+
+    if (!$upload_result && file_exists($file_path)) {
+        unlink($file_path);
+        debug("upload_file_by_url failed. Deleting temp file: $file_path");
+    }
     remove_empty_temp_directory($file_path);
 
     return $upload_result;
