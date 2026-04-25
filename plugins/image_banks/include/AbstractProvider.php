@@ -57,7 +57,7 @@ abstract class Provider
     * @return void  
     */
     final public function registerConfigurationNeeds(array $globals)
-        {
+    {
         foreach($this->configs as $config => $value)
             {
             if(array_key_exists($config, $globals))
@@ -70,7 +70,12 @@ abstract class Provider
 
             $GLOBALS[$config] = $value;
             }
+
+        $config_overrides = $globals['image_banks_overrides'] ?? [];
+        foreach ($config_overrides as $config => $value) {
+            $GLOBALS[$config] = $value;
         }
+    }
 
     /**
     * Search providers' database based on specified keywords

@@ -191,8 +191,8 @@ function get_resource_path(
             } else {
                 $path_suffix = "/original/";
             }
-        } elseif ($size == "") {
-            # Original file (core file or alternative)
+        } elseif (($size == "") || ($extension == 'icc')) {
+            # Original file (core file or alternative) or icc profile
             $path_suffix = "/original/";
         } else {
             # Preview or thumb

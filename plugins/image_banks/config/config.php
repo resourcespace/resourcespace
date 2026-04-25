@@ -17,3 +17,7 @@ Note: multi-instance Providers (e.g. ResourceSpace) will have to be selected by 
 configured at least one instance since in that case the instance represents the provider.
 */
 $image_banks_selected_providers = ['Pixabay', 'Shutterstock'];
+
+/** To override a Providers' configuration use the $image_banks_overrides config option
+ * @example $image_banks_overrides['pixabay_api_key'] = 'Key-v2';
+*/

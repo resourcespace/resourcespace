@@ -103,6 +103,12 @@ while ($s = strpos($svg_source, "[", $e)) {
             value = value.split("__").join("<br />");
             svg_new = svg_new.split('[<?php echo escape($param); ?>]').join(value);
         <?php } ?>
+        svg_new = DOMPurify.sanitize(svg_new, {
+            USE_PROFILES: { svg: true },
+            ADD_TAGS: ['use', 'defs', 'symbol', 'style', 'tspan'],
+            ADD_ATTR: ['xlink:href', 'href', 'id', 'x', 'y', 'transform']
+        });
+
         console.log(svg_new);
         document.getElementById('svgpreview').innerHTML = svg_new;
     }
