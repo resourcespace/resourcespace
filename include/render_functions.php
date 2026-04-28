@@ -1265,7 +1265,7 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
                 </select>
                 <?php } ?>
         <script>
-        function action_onchange_<?php echo $action_selection_id; ?>(v)
+        function action_onchange_<?php echo escape($action_selection_id); ?>(v)
             {
             if(v == '')
                 {
@@ -1399,13 +1399,13 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
             ?>
 
                 case 'save_search_to_collection':
-                    var option_url = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
+                    var option_url = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
                     CollectionDivLoad(option_url);
                     break;
 
                 case 'save_search_to_dash':
-                    var option_url  = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
-                    var option_link = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('link');
+                    var option_url  = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
+                    var option_link = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('link');
                     
                     // Dash requires to have some search parameters (even if they are the default ones)
                     if((basename(option_link).substr(0, 10)) != 'search.php')
@@ -1419,12 +1419,12 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
                     break;
 
                 case 'save_search_smart_collection':
-                    var option_url = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
+                    var option_url = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
                     CollectionDivLoad(option_url);
                     break;
 
                 case 'save_search_items_to_collection':
-                    var option_url = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
+                    var option_url = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
                     CollectionDivLoad(option_url);
                     break;
 
@@ -1434,12 +1434,12 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
                         break;
                         }
 
-                    var option_url = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
+                    var option_url = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
                     CollectionDivLoad(option_url);
                     break;
 
                 case 'copy_collection':
-                    var option_url = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
+                    var option_url = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
                     ModalLoad(option_url, false, true);
                     break;
 
@@ -1491,7 +1491,7 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
                     case 'hide_collection':
                         var action = 'hidecollection';
                         var collection = <?php echo urlencode($collection_data['ref']);?>;
-                        var mycol = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('mycol');
+                        var mycol = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('mycol');
 
                         jQuery.ajax({
                             type: 'POST',
@@ -1512,9 +1512,9 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
                 ?>
 
                 default:
-                    var option_url = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('url');
-                    var option_callback = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('callback');
-                    var option_no_ajax = jQuery('#<?php echo $action_selection_id; ?> option:selected').data('no-ajax');
+                    var option_url = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('url');
+                    var option_callback = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('callback');
+                    var option_no_ajax = jQuery('#<?php echo escape($action_selection_id); ?> option:selected').data('no-ajax');
 
                     // If action option has a defined data-callback attribute, then we can call it
                     // IMPORTANT: never allow callback data attribute to be input/saved by user. Only ResourceSpace should
@@ -1541,7 +1541,7 @@ function render_actions(array $collection_data, $top_actions = true, $two_line =
                 }
                 
                 // Go back to no action option
-                jQuery('#<?php echo $action_selection_id; ?> option[value=""]').prop('selected', true);
+                jQuery('#<?php echo escape($action_selection_id); ?> option[value=""]').prop('selected', true);
                 
 
         }
@@ -2659,7 +2659,7 @@ function render_date_range_field($name,$value,$forsearch=true,$autoupdate=false,
             else
                 {?>
                 <label class="accessibility-hidden" for="<?php echo escape($name) ?>_end-y"><?php echo escape($lang["year"]); ?></label>
-                <input size="5" name="<?php echo escape($name) ?>_end-y" id="<?php echo escape($name) ?>_end-y" type="text" value="<?php echo $found_end_year ?>"
+                <input size="5" name="<?php echo escape($name) ?>_end-y" id="<?php echo escape($name) ?>_end-y" type="text" value="<?php echo (int) $found_end_year ?>"
                     <?php
 
                     if ($forsearch && $autoupdate)

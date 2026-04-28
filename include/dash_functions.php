@@ -559,7 +559,7 @@ function get_default_dash($user_group_id = null, $edit_mode = false)
                 "<?php echo $baseurl?>/pages/ajax/dash_tile.php",
                 {
                     "tile": tile,
-                    "new_index": ((index*10))<?php echo !is_null($user_group_id) ? ", \"selected_user_group\": {$user_group_id}" : ''; ?>,
+                    "new_index": (index*10)<?php echo !is_null($user_group_id) ? ', "selected_user_group": ' . (int) $user_group_id : ''; ?>,
                     <?php echo generateAjaxToken("updateDashTileOrder"); ?>
                 }
             );

@@ -5693,7 +5693,7 @@ function autocomplete_blank_fields($resource, $force_run, $return_changes = fals
     }
 
     $fields = ps_query(
-        "SELECT rtf.ref, rtf.type, rtf.autocomplete_macro
+        "SELECT rtf.ref, rtf.type, rtf.autocomplete_macro, rtf.display_condition
             FROM resource_type_field rtf
             LEFT JOIN resource_type rt ON rt.ref = ?
             WHERE length(rtf.autocomplete_macro) > 0
@@ -5715,6 +5715,14 @@ function autocomplete_blank_fields($resource, $force_run, $return_changes = fals
         $run_autocomplete_macro = $force_run || hook('run_autocomplete_macro');
         # The autocomplete macro will run if the existing value is blank, or if forced to always run
         if (count(get_resource_nodes($resource, $field['ref'], true)) == 0 || $run_autocomplete_macro) {
+            # Check if the field has a unique display condition blocking it from being rendered
+            if ($field['display_condition'] != '') {
+                $field_data = get_resource_field_data($field['ref']);
+                $displaycondition = check_display_condition(0, $field, $field_data, false, $resource);
+                if (!$displaycondition) {
+                    continue;
+                }
+            }
             # Autocomplete and update using the returned value
             $value = eval(eval_check_signed($field['autocomplete_macro']));
             if (in_array($field['type'], $FIXED_LIST_FIELD_TYPES)) {
