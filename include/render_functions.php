@@ -4323,6 +4323,9 @@ function display_field_data(array $field,$valueonly=false,$fixedwidth=452)
 
     if ($field['value_filter']!="")
         {
+        if ($field["type"] != FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE) {
+            $value = nl2br(escape($value));
+        }
         debug('Calling value_filter...');
         eval(eval_check_signed($field['value_filter']));
         }
@@ -4423,7 +4426,7 @@ function display_field_data(array $field,$valueonly=false,$fixedwidth=452)
         # Do not convert HTML formatted fields (that are already HTML) to HTML. Added check for extracted fields set to 
         # TinyMCE that have not yet been edited.
         if(
-            ($field["type"] != FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE && !(in_array($field['type'], $FIXED_LIST_FIELD_TYPES) && is_authenticated()))
+            ($field["type"] != FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE && !(in_array($field['type'], $FIXED_LIST_FIELD_TYPES) && is_authenticated()) && (eval_check_signed($field['value_filter'])==''))
             || ($field["type"] == FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE && $value == strip_tags($value))
             )
             {

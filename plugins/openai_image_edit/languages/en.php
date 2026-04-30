@@ -2,7 +2,7 @@
 $lang["openai_image_edit__edit_with_ai"]="Edit with AI";
 $lang["openai_image_edit__prompt"]="Prompt";
 $lang["openai_image_edit__preparing_images"]="Preparing image mask";
-$lang["openai_image_edit__completing"]="Completing the image";
+$lang["openai_image_edit__completing"]="Completing the image (~2 minutes)";
 $lang["openai_image_edit__sending"]="Transferring the image data";
 $lang["openai_image_edit__pensize"]="Brush size";
 $lang["openai_image_edit__reset"]="Reset";
@@ -17,12 +17,8 @@ $lang["openai_image_edit__generating_alternative_previews"] = "Generating previe
 $lang["openai_image_edit__preparing_image_for_editing"] = "Preparing image for editing";
 $lang["openai_image_edit__new"] = "Save as a new resource";
 $lang["openai_image_edit__mode"] = "Mode";
-$lang["openai_image_edit__mode_edit"] = "Edit image (DALL-E 2)";
-$lang["openai_image_edit__mode_variation"] = "Create variation (DALL-E 2)";
-$lang["openai_image_edit__mode_generate"] = "Generate replacement (DALL-E 3)";
-$lang["openai_image_edit__mode_white"] = "Fill with white";
-$lang["openai_image_edit__mode_black"] = "Fill with black";
-$lang["openai_image_edit__mode_clone"] = "Clone fill";
+$lang["openai_image_edit__mode_edit"] = "Edit image (GPT Image 2)";
+$lang["openai_image_edit__mode_generate"] = "Generate replacement (GPT Image 2)";
 $lang["openai_image_edit__creating_new_resource"] = "Creating new resource";
 
 $lang["page-title_openai_image_edit_edit"]              = "OpenAI Edit";

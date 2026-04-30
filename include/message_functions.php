@@ -1067,7 +1067,12 @@ function get_user_message(int $ref, bool $checkaccess = true)
             return false;
         }
     }
-    $message = ps_query("SELECT message, url, owner FROM message WHERE ref = ?", ["i",$ref]);
+    $message = ps_query("SELECT message, url, owner, type FROM message WHERE ref = ?", ["i",$ref]);
+
+    if ($message[0]['type'] & MESSAGE_ENUM_NOTIFICATION_TYPE_USER_MESSAGE) {
+        # Don't render HTML in messages sent by users (message types 4 and 5).
+        $message[0]["message"] = escape($message[0]["message"]);
+    }
 
     return $message ? ["message" => $message[0]["message"],"url" => $message[0]["url"],"owner" => $message[0]["owner"]] : false;
 }
