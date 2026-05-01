@@ -102,8 +102,8 @@ if (getval("delete", "") != "" && enforcePostRequest($ajax)) {
         }
     } else {
         // User needs to confirm deletion as data will be lost
-        $error_text = str_replace("[affected_resources]", $affected_resources_count, $lang["admin_delete_field_confirm"]);
-        $error_text .= "<br /><a target=\"_blank\" href=\"" . $baseurl  . "/pages/search.php?search=!hasdata" . $ref . "\">" . $lang["show_resources"] . "</a>";
+        $error_text = str_replace("[affected_resources]", $affected_resources_count, escape($lang["admin_delete_field_confirm"]));
+        $error_text .= "<br /><a target=\"_blank\" href=\"" . $baseurl  . "/pages/search.php?search=!hasdata" . (int) $ref . "\">" . escape($lang["show_resources"]) . "</a>";
 
         $confirm_delete = true;
     }
@@ -137,7 +137,7 @@ $existingrestypes = $fielddata["resource_types"] ? explode(",", (string)$fieldda
 
     <?php if (isset($migrate_data)) { ?>
         jQuery(document).ready(function() {
-            window.location.href = '<?php echo $baseurl ?>/pages/tools/migrate_data_to_fixed.php?field=<?php echo $ref ?>';
+            window.location.href = '<?php echo $baseurl ?>/pages/tools/migrate_data_to_fixed.php?field=<?php echo (int) $ref ?>';
         });
     <?php } ?>
 </script>
@@ -237,7 +237,7 @@ $existingrestypes = $fielddata["resource_types"] ? explode(",", (string)$fieldda
             
             <div class="QuestionSubmit">    
                 <input name="save" type="submit" value="<?php echo escape($lang["save"]); ?>" />&nbsp;&nbsp;
-                <input type="button" class="button" onClick="CentralSpaceLoad('<?php echo $baseurl . "/pages/admin/admin_copy_field.php?ref=" . $ref . "&backurl=" . $url ?>',true);return false;" value="<?php echo escape($lang["copy-field"]); ?>">
+                <input type="button" class="button" onClick="CentralSpaceLoad('<?php echo $baseurl . "/pages/admin/admin_copy_field.php?ref=" . (int) $ref . "&backurl=" . $url ?>',true);return false;" value="<?php echo escape($lang["copy-field"]); ?>">
                 <input name="migrate_data" id="migrate_data" type="hidden" value="">
 
                 <?php if ($fielddata["active"] == 0) { ?>

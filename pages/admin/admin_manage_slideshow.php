@@ -220,14 +220,14 @@ include '../../include/header.php';
                     $slideshow_ref = $slideshow_file_info['ref'];
                     ?>
 
-                    <tr id="slideshow_<?php echo $slideshow_ref; ?>">
+                    <tr id="slideshow_<?php echo (int) $slideshow_ref; ?>">
                         <td>
                             <?php if (isset($slideshow_file_info['link'])) { ?>
                                 <a href="<?php echo $slideshow_file_info['link']; ?>" onclick="return ModalLoad(this, true);">
                                     <img 
-                                        id="slideshow_img_<?php echo $slideshow_ref; ?>"
+                                        id="slideshow_img_<?php echo (int) $slideshow_ref; ?>"
                                         src="<?php echo $slideshow_file_info['file_url']; ?>"
-                                        alt="Slideshow Image <?php echo $slideshow_ref; ?>"
+                                        alt="Slideshow Image <?php echo (int) $slideshow_ref; ?>"
                                         width="150"
                                         height="80"
                                     >

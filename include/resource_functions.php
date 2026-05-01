@@ -5718,8 +5718,7 @@ function autocomplete_blank_fields($resource, $force_run, $return_changes = fals
             # Check if the field has a unique display condition blocking it from being rendered
             if ($field['display_condition'] != '') {
                 $field_data = get_resource_field_data($field['ref']);
-                $displaycondition = check_display_condition(0, $field, $field_data, false, $resource);
-                if (!$displaycondition) {
+                if (!check_display_condition(0, $field, $field_data, false, $resource)) {
                     continue;
                 }
             }

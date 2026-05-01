@@ -198,12 +198,12 @@ include "../../include/header.php";
     <?php renderBreadcrumbs($links_trail); ?>
     <h1>
         <form class="ResultsFilterTopRight" method="get">
-            <input type="hidden" name="actasuser" value="<?php echo $actasuser; ?>">
+            <input type="hidden" name="actasuser" value="<?php echo escape($actasuser); ?>">
             <input type="hidden" name="backurl" value="<?php echo urlencode($backurl); ?>">
             <input type="hidden" name="table" value="<?php echo escape($table); ?>">
-            <input type="hidden" name="table_reference" value="<?php echo $table_reference; ?>">
-            <input type="hidden" name="logyear" value="<?php echo $logyear; ?>">
-            <input type="hidden" name="logmonth" value="<?php echo $logmonth; ?>">
+            <input type="hidden" name="table_reference" value="<?php echo escape($table_reference); ?>">
+            <input type="hidden" name="logyear" value="<?php echo escape($logyear); ?>">
+            <input type="hidden" name="logmonth" value="<?php echo escape($logmonth); ?>">
             <input type="text" name="log_search" placeholder="<?php echo escape($log_search); ?>">
             <input type="submit" name="searching" value="<?php echo escape($lang["searchbutton"]); ?>">
             <?php if ($log_search != "") { ?>
@@ -283,7 +283,7 @@ include "../../include/header.php";
 
             if ($table_reference != '') {
                 ?>
-                <input type="hidden" name="table_reference" value="<?php echo $table_reference;?>">
+                <input type="hidden" name="table_reference" value="<?php echo escape($table_reference); ?>">
                 <?php
             }
 

@@ -114,7 +114,7 @@ if ($save != '') {
         <input type=hidden name=copyme id="copyme" value="">
         <input type=hidden name=langswitch id="langswitch" value="">
         <input type=hidden name=groupswitch id="groupswitch" value="">
-        <input type="hidden" name="custom" value="<?php echo getval('custom', 0, true)?>">
+        <input type="hidden" name="custom" value="<?php echo escape(getval('custom', 0, true)); ?>">
 
         <div class="Question">
             <label><?php echo escape($lang["page"]); ?></label>

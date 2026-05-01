@@ -12,6 +12,7 @@ $api_webhooks_urls = [
     [
     "location" => "edit",
     "buttontext" => "Push image to CMS",
-    "url" => "https://www.resourcespace.com/another_script.abc?resource_id="
+    "url" => "https://www.resourcespace.com/another_script.abc?resource_id=",
+    "hash" => "xyzxyz" // Optional hash for security
     ]
 ];

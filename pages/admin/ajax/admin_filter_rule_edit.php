@@ -34,7 +34,7 @@ $saveurl = generateURL($baseurl . "/pages/admin/admin_filter_edit.php", $savepar
     <h2><?php echo escape($lang["filter_rule_edit_text"]); ?></h2>
     <form id="filter_edit_form" name="filter_edit_form" method="post" action="<?php echo $saveurl; ?>" onSubmit="processFilterRules();return CentralSpacePost(this,true);">
         <input type="hidden" name="filter_rule" value="<?php echo (int)$ruleid; ?>" />
-        <input type="hidden" name="filter" value="<?php echo $filterid; ?>" />
+        <input type="hidden" name="filter" value="<?php echo (int) $filterid; ?>" />
         <input type="hidden" name="filter_rule_data" id="filter_rule_data" value="" />
         <?php generateFormToken("filter_rule_edit"); ?>
 

@@ -75,7 +75,7 @@ include "../../include/header.php";
     <form method="post" action="admin_copy_field.php">
         <?php generateFormToken("admin_copy_field"); ?>
         <input type="hidden" name="saveform" value="true">
-        <input type="hidden" name="ref" value="<?php echo $ref; ?>">
+        <input type="hidden" name="ref" value="<?php echo (int) $ref; ?>">
         <p align="right">
             <input type="submit" name="copy" value="<?php echo escape($lang['copy']) ; ?>" style="width:100px;">
         </p>

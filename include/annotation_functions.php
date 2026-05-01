@@ -704,7 +704,7 @@ function get_annotate_file_path($ref, $getfilepath, $extension): string
     global $username, $scramble_key, $baseurl, $annotateid;
     $annotateid = getval("annotateid", $annotateid); //or if sent through a request
     if ($getfilepath) {
-        $path = get_temp_dir(false, '') . "/annotate_" . $ref . "_" . md5($username . $annotateid . $scramble_key) . "." . $extension;
+        $path = get_temp_dir(false, '') . "/annotate_" . (int) $ref . "_" . md5($username . $annotateid . $scramble_key) . "." . $extension;
     } else {
         $path = generateURL(
             $baseurl . "/pages/download.php",

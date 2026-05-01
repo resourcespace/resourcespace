@@ -44,6 +44,12 @@ function HookApi_webhooksEditRedirectaftersave()
 
     // Perform API call.
     $url = $button["url"] . $ref;
+
+    // Support optional hash of ref for security
+    if (isset($button["hash"])) {
+        $url.="&hash=" . hash_hmac("sha256", $ref, $button["hash"]);
+    }
+
     $options = array(
                 'http' => array(
                         'header'  => "Content-type: application/x-www-form-urlencoded\r\n"

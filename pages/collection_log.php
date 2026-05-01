@@ -24,7 +24,7 @@ $results = $log["total"];
 $log     = $log["data"];
 $totalpages = ceil($results / $per_page);
 $curpage = floor($offset / $per_page) + 1;
-$url = $baseurl . "/pages/collection_log.php?ref=" . $ref;
+$url = $baseurl . "/pages/collection_log.php?ref=" . escape($ref);
 $jumpcount = 1;
 
 # Fetch and translate collection name
@@ -37,7 +37,7 @@ if (!can_view_collection_log($colinfo)) {
 
 if (!checkperm("b")) {
     # Add selection link to collection name.
-    $colname = "<a href=\"" . $baseurl_short . "pages/collections.php?collection=" . $ref . "\" onClick=\"return CollectionDivLoad(this);\">" . $colname . "</a>";
+    $colname = "<a href=\"" . $baseurl_short . "pages/collections.php?collection=" . escape($ref) . "\" onClick=\"return CollectionDivLoad(this);\">" . $colname . "</a>";
 }
 ?>
 

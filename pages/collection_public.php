@@ -273,7 +273,7 @@ include "../include/header.php";
                         <td class="name">
                             <div class="ListTitle">
                                 <a href="<?php echo $baseurl_short?>pages/search.php?search=<?php echo urlencode("!collection" . $collections[$n]["ref"])?>" onclick="return CentralSpaceLoad(this,true);">
-                                    <?php echo escape(i18n_get_collection_name($collections[$n])); ?>
+                                    <?php echo strip_tags_and_attributes(htmlspecialchars_decode(i18n_get_collection_name($collections[$n]))); ?>
                                 </a>
                             </div>
                         </td>

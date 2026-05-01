@@ -137,7 +137,7 @@ function sendResourceMessage() {
     jQuery.ajax({
         type: "POST",
         data: jQuery('#contactadminform').serialize(),
-        url: baseurl_short+"pages/ajax/contactadmin.php?ref="+<?php echo $ref ?>+"&insert=true&send=true",
+        url: baseurl_short+"pages/ajax/contactadmin.php?ref="+<?php echo (int) $ref ?>+"&insert=true&send=true",
         success: function(html) {                        
                 //jQuery('#RecordDownload li:last-child').after(html);
                 if (html=="SUCCESS") {
@@ -157,7 +157,7 @@ function sendResourceMessage() {
 <div class="clearerleft"></div>
 <div id="contactadminbox" style="display: none">
     <p><?php echo escape($lang["contactadmin"]); ?></p>
-    <form name="contactadminform" method=post id="contactadminform" action="<?php echo $baseurl_short?>pages/ajax/contactadmin.php?ref=<?php echo $ref ?>">
+    <form name="contactadminform" method=post id="contactadminform" action="<?php echo $baseurl_short?>pages/ajax/contactadmin.php?ref=<?php echo (int) $ref; ?>">
         <?php generateFormToken("contactadminform"); ?>
         <input type=hidden name=ref value="<?php echo urlencode($ref) ?>">
 

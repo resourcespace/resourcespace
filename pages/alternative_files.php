@@ -96,7 +96,7 @@ include "../include/header.php";
 
         files.forEach((file) => {
             postdata = {
-                'resource' : '<?php echo $ref;?>',
+                'resource' : '<?php echo (int) $ref; ?>',
                 'ref'      : file,
             }
 
@@ -256,8 +256,8 @@ include "../include/header.php";
                                     onclick="
                                         if (confirm('<?php echo escape($lang['filedeleteconfirm']); ?>')) {
                                             postdata = {
-                                                'resource' : '<?php echo $ref;?>',
-                                                'ref'      : '<?php echo $files[$n]['ref'];?>',
+                                                'resource' : '<?php echo (int) $ref;?>',
+                                                'ref'      : '<?php echo (int) $files[$n]['ref'];?>',
                                             }
 
                                             api(

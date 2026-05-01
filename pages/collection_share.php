@@ -287,7 +287,7 @@ if (isset($show_error)) { ?>
                         ?>
                         <li>
                             <i aria-hidden="true" class="icon-layout-dashboard"></i>&nbsp;
-                            <a href="<?php echo $baseurl_short;?>pages/dash_tile.php?create=true&tltype=srch&promoted_resource=true&freetext=true&all_users=1&link=/pages/search.php?search=!collection<?php echo $ref?>&order_by=relevance&sort=DESC" onclick="return CentralSpaceLoad(this,true);">
+                            <a href="<?php echo $baseurl_short;?>pages/dash_tile.php?create=true&tltype=srch&promoted_resource=true&freetext=true&all_users=1&link=/pages/search.php?search=!collection<?php echo escape($ref); ?>&order_by=relevance&sort=DESC" onclick="return CentralSpaceLoad(this,true);">
                                 <?php echo escape($lang["createnewdashtile"]); ?>
                             </a>
                         </li>
