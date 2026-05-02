@@ -177,7 +177,7 @@ include "../../include/header.php";
         $atoz .= "<span class='Selected'>";
     }
 
-    $atoz .= "<a href=\"" . $baseurl . "/pages/team/team_user.php?order_by=u.username&group=" . $group . "&find=\" onClick=\"return CentralSpaceLoad(this);\">" . $lang["viewall"] . "</a>";
+    $atoz .= "<a href=\"" . $baseurl . "/pages/team/team_user.php?order_by=u.username&group=" . (int) $group . "&find=\" onClick=\"return CentralSpaceLoad(this);\">" . $lang["viewall"] . "</a>";
 
     if ($find == "") {
         $atoz .= "</span>";
@@ -189,7 +189,7 @@ include "../../include/header.php";
         if ($find == chr($n)) {
             $atoz .= "<span class='Selected'>";
         }
-        $atoz .= "<a href=\"" . $baseurl . "/pages/team/team_user.php?order_by=u.username&group=" . $group . "&find=" . chr($n) . "\" onClick=\"return CentralSpaceLoad(this);\">&nbsp;" . chr($n) . "&nbsp;</a> ";
+        $atoz .= "<a href=\"" . $baseurl . "/pages/team/team_user.php?order_by=u.username&group=" . (int) $group . "&find=" . chr($n) . "\" onClick=\"return CentralSpaceLoad(this);\">&nbsp;" . chr($n) . "&nbsp;</a> ";
         if ($find == chr($n)) {
             $atoz .= "</span>";
         }

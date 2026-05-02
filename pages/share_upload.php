@@ -108,7 +108,7 @@ if ($submitted) {
             $result = edit_collection_external_access($uploadkey, -1, $shareexpires, $shareusergroup, $sharepwd, $shareoptions);
             if ($result) {
                 $messages[] = $lang["saved"];
-                $shareurl = $baseurl . "/?c=" . $share_collection . "&k=" . $uploadkey;
+                $shareurl = $baseurl . "/?c=" . $share_collection . "&k=" . escape($uploadkey);
                 $messages[] = "<a href='" . $shareurl . "'>" . $shareurl  . "</a>";
             } else {
                 $messages[] = $lang["error"];

@@ -139,7 +139,7 @@ if ($print) {
     }
     ?>
     <p>
-        <a target="blank" href="team_analytics_edit.php?ref=<?php echo $ref ?>&print=true"><i class="icon-printer"></i> <?php echo escape($lang["print_report"]); ?></a>
+        <a target="blank" href="team_analytics_edit.php?ref=<?php echo escape($ref); ?>&print=true"><i class="icon-printer"></i> <?php echo escape($lang["print_report"]); ?></a>
     </p>
 
     <h1 id="ReportHeader" class="CollapsibleSectionHead <?php echo ($ref == "") ? 'expanded' : 'collapsed'; ?>">
@@ -152,7 +152,7 @@ if ($print) {
 <div class="CollapsibleSection" id="ReportForm" <?php echo ($ref != "") ? 'style="display:none;"' : ''; ?>>
     <form method="post" id="mainform" onsubmit="return CentralSpacePost(this);">
         <?php generateFormToken("mainform"); ?>
-        <input type="hidden" name="ref" value="<?php echo $ref?>">
+        <input type="hidden" name="ref" value="<?php echo escape($ref); ?>">
 
         <div class="Question">
             <label for="report_name"><?php echo escape($lang["report_name"]); ?></label>

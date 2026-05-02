@@ -191,7 +191,7 @@ include "../../../include/header.php";
     <form method="post" action="<?php echo $baseurl_short?>plugins/consentmanager/pages/edit.php" enctype="multipart/form-data">
         <input type=hidden name="submitted" value="true">
         <input type=hidden name="ref" value="<?php echo $ref?>">
-        <input type=hidden name="resource" value="<?php echo $resource?>">
+        <input type=hidden name="resource" value="<?php echo escape($resource); ?>">
         <?php generateFormToken("consentmanager_edit"); ?>
 
         <div class="Question">
@@ -343,7 +343,7 @@ include "../../../include/header.php";
                 ?>
                 <span>
                     <i class="icon-file"></i>
-                    <a href="download.php?resource=<?php echo $resource ?>&ref=<?php echo $ref ?>"><?php echo $consent['file']; ?></a>
+                    <a href="download.php?resource=<?php echo escape($resource); ?>&ref=<?php echo $ref ?>"><?php echo $consent['file']; ?></a>
                 </span>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" name="clear_file" value="<?php echo escape($lang["clearbutton"]); ?>" onclick="return confirm('<?php echo escape($lang["confirmdeleteconsentfile"]); ?>');">

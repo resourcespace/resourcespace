@@ -92,9 +92,9 @@ if ($saveform) {
 include "../../../include/header.php";
 
 if ($collection == 0) {
-    echo "<a href='" . $baseurl_short . "pages/view.php?ref=" . $resid . "' onClick='return CentralSpaceLoad(this,true);'>" . LINK_CARET_BACK . $lang["backtoresourceview"] . "</a></p>";
+    echo "<a href='" . $baseurl_short . "pages/view.php?ref=" . $resid . "' onClick='return CentralSpaceLoad(this,true);'>" . LINK_CARET_BACK . escape($lang["backtoresourceview"]) . "</a></p>";
 } else {
-    echo "<a href='" . $baseurl_short . "?c=" . $collection . "' onClick='return CentralSpaceLoad(this,true);'>" . LINK_CARET_BACK . $lang["view_all_resources"] . "</a></p>";
+    echo "<a href='" . $baseurl_short . "?c=" . (int) $collection . "' onClick='return CentralSpaceLoad(this,true);'>" . LINK_CARET_BACK . escape($lang["view_all_resources"]) . "</a></p>";
 }
 ?>
 

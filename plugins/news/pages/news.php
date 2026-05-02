@@ -90,7 +90,7 @@ include __DIR__."/../../../include/header.php";
 ?>
  
 <div>
-<form id="NewsNav" action="<?php echo $baseurl . '/plugins/news/pages/news.php?ref=' . $ref ?>" method="post">
+<form id="NewsNav" action="<?php echo $baseurl . '/plugins/news/pages/news.php?ref=' . escape($ref); ?>" method="post">
 <?php generateFormToken("news"); ?> 
     <input name="previous" type="submit" value="&lt;"/> 
     <?php if (checkperm("o")) { ?>  

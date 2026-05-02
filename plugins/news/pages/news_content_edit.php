@@ -56,7 +56,7 @@ include __DIR__."/../../../include/header.php";
 ?>
 
 <p id="EditNewsBack">
-    <a href="news_edit.php?offset=<?php echo $offset?>&findtext=<?php echo escape($findtext)?>"><?php echo LINK_CARET_BACK ?><?php echo escape($lang["news_manage"]); ?></a>
+    <a href="news_edit.php?offset=<?php echo (int) $offset; ?>&findtext=<?php echo escape($findtext)?>"><?php echo LINK_CARET_BACK ?><?php echo escape($lang["news_manage"]); ?></a>
 </p>
 
 <div class="BasicsBox">
@@ -73,7 +73,7 @@ include __DIR__."/../../../include/header.php";
     <form method=post id="mainform">
         <?php generateFormToken("mainform"); ?>
 
-        <input type=hidden name=name value="<?php echo $ref?>">
+        <input type=hidden name=name value="<?php echo escape($ref); ?>">
 
         <div class="Question">
             <label><?php echo escape($lang["date"]); ?></label>

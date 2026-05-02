@@ -174,18 +174,18 @@ return false ;
 </script>
 <div class="BasicsBox" >
 
-    <a href="<?php echo $baseurl_short?>pages/view.php?ref=<?php echo $ref?>&search=<?php echo urlencode($search)?>&offset=<?php echo $offset?>&order_by=<?php echo $order_by?>&sort=<?php echo $sort?>&archive=<?php echo $archive?>" onClick="return CentralSpaceLoad(this,true);"><?php echo LINK_CARET_BACK ?><?php echo escape($lang["backtoresourceview"]); ?></a></p>
+    <a href="<?php echo $baseurl_short?>pages/view.php?ref=<?php echo escape($ref); ?>&search=<?php echo urlencode($search)?>&offset=<?php echo (int) $offset; ?>&order_by=<?php echo escape($order_by); ?>&sort=<?php echo escape($sort); ?>&archive=<?php echo (int) $archive; ?>" onClick="return CentralSpaceLoad(this,true);"><?php echo LINK_CARET_BACK ?><?php echo escape($lang["backtoresourceview"]); ?></a></p>
 
 
     <div class="backtoresults">
-        <a class="prevLink" href="<?php echo $baseurl_short?>plugins/youtube_publish/pages/youtube_upload.php?ref=<?php echo $ref?>&search=<?php echo urlencode($search)?>&offset=<?php echo $offset?>&order_by=<?php echo $order_by?>&sort=<?php echo $sort?>&archive=<?php echo $archive?>&go=previous&<?php echo hook("nextpreviousextraurl") ?>" onClick="return CentralSpaceLoad(this);"><?php echo LINK_CARET_BACK ?><?php echo escape($lang["previousresult"]); ?></a>
+        <a class="prevLink" href="<?php echo $baseurl_short?>plugins/youtube_publish/pages/youtube_upload.php?ref=<?php echo escape($ref); ?>&search=<?php echo urlencode($search)?>&offset=<?php echo (int) $offset; ?>&order_by=<?php echo escape($order_by); ?>&sort=<?php echo escape($sort); ?>&archive=<?php echo (int) $archive; ?>&go=previous&<?php echo hook("nextpreviousextraurl") ?>" onClick="return CentralSpaceLoad(this);"><?php echo LINK_CARET_BACK ?><?php echo escape($lang["previousresult"]); ?></a>
         <?php
         hook("viewallresults");
         ?>
         |
-        <a href="<?php echo $baseurl_short?>pages/search.php?search=<?php echo urlencode($search)?>&offset=<?php echo $offset?>&order_by=<?php echo $order_by?>&sort=<?php echo $sort?>&archive=<?php echo $archive?>" onClick="return CentralSpaceLoad(this);"><?php echo escape($lang["viewallresults"]); ?></a>
+        <a href="<?php echo $baseurl_short?>pages/search.php?search=<?php echo urlencode($search)?>&offset=<?php echo (int) $offset; ?>&order_by=<?php echo escape($order_by); ?>&sort=<?php echo escape($sort); ?>&archive=<?php echo (int) $archive; ?>" onClick="return CentralSpaceLoad(this);"><?php echo escape($lang["viewallresults"]); ?></a>
         |
-        <a class="nextLink" href="<?php echo $baseurl_short?>plugins/youtube_publish/pages/youtube_upload.php?ref=<?php echo $ref?>&search=<?php echo urlencode($search)?>&offset=<?php echo $offset?>&order_by=<?php echo escape($order_by); ?>&sort=<?php echo $sort?>&archive=<?php echo $archive?>&go=next&<?php echo hook("nextpreviousextraurl") ?>" onClick="return CentralSpaceLoad(this);"><?php echo escape($lang["nextresult"]) . "&nbsp;" . LINK_CARET ?></a>
+        <a class="nextLink" href="<?php echo $baseurl_short?>plugins/youtube_publish/pages/youtube_upload.php?ref=<?php echo escape($ref); ?>&search=<?php echo urlencode($search)?>&offset=<?php echo (int) $offset; ?>&order_by=<?php echo escape($order_by); ?>&sort=<?php echo escape($sort); ?>&archive=<?php echo (int) $archive; ?>&go=next&<?php echo hook("nextpreviousextraurl") ?>" onClick="return CentralSpaceLoad(this);"><?php echo escape($lang["nextresult"]) . "&nbsp;" . LINK_CARET ?></a>
     </div>
 </div>
 <div class="BasicsBox" >

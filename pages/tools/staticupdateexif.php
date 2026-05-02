@@ -30,7 +30,7 @@ if (substr($sapi_type, 0, 3) != 'cli') {
     header("Content-type: text/plain");
     $collectionid = getval("col", 0, true);
     $resource_types = array_filter(explode(",", getval("types", "")), "is_int_loose");
-    echo "collection: $collectionid resource types: " . implode(",", $resource_types) . PHP_EOL;
+    echo "collection: " . (int) $collectionid . " resource types: " . implode(",", $resource_types) . PHP_EOL;
 } else {
     $shortopts = "c:t:";
     $longopts = array("col:","types:");

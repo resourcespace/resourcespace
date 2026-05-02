@@ -30,12 +30,12 @@ $countresources = count($collectionresources);
 $percollection = floor($countresources / $numcollections);
 $newcollectionIDs = array();
 
-echo "Splitting collection " . $collectionid . " into " . $numcollections . " collections roughly " . $percollection . " resources in size.<br>";
+echo "Splitting collection " . (int) $collectionid . " into " . (int) $numcollections . " collections roughly " . escape($percollection) . " resources in size.<br>";
 
 # Create the new collections
 for ($i = 0; $i < $numcollections; $i++) {
     $newcollectionIDs[] = create_collection($collectionuser, $collectionname . "_split_" . ($i + 1));
-    echo "Created collection " . $collectionname . "_split_" . ($i + 1) . "<br>";
+    echo "Created collection " . escape($collectionname) . "_split_" . ($i + 1) . "<br>";
 }
 
 $currentcollection = 0;

@@ -31,7 +31,7 @@ $usertoimage    = get_profile_image($msgto)
 // The 'msgto' variable below is  used by message polling to detect and intercept messages from this user to show on this page
 ?>
 <script>
-msgto = <?php echo $msgto; ?>;
+msgto = <?php echo (int) $msgto; ?>;
 
 defaultimghtml =  jQuery("<i />", {
     title           : '<?php echo escape($userfullname); ?>',
@@ -224,7 +224,7 @@ if (isset($_SERVER["HTTP_REFERER"]) && strpos($_SERVER["HTTP_REFERER"], "team_us
             include "../../include/user_select.php";
             echo "<div class='clearerleft'> </div></div>";
         } else {
-            echo "<input type='hidden' id='message_users' name='message_users' value='" . $msgto . "'/>";
+            echo "<input type='hidden' id='message_users' name='message_users' value='" . (int) $msgto . "'/>";
         }
 
         // Show conversation

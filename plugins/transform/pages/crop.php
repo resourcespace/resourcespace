@@ -186,7 +186,7 @@ $imgactions["srgb"] = ($cropper_jpeg_rgb || ($cropper_srgb_option && getval("use
 
 // Generate a preview image for the operation if it doesn't already exist
 $crop_pre_file = get_temp_dir(false,'') . "/transform_" . $ref . "_" . md5($username . date("Ymd",time()) . $scramble_key) . ".jpg";
-$crop_pre_url = $baseurl . "/pages/download.php?tempfile=transform_" . $ref . "_" . date("Ymd",time()) . ".jpg";
+$crop_pre_url = $baseurl . "/pages/download.php?tempfile=transform_" . (int) $ref . "_" . date("Ymd",time()) . ".jpg";
 
 $preview_actions = $imgactions;
 $preview_actions["new_width"] = 600;
@@ -864,7 +864,7 @@ renderBreadcrumbs($links_trail);
             // Update form input
             jQuery("#tfactions").val(tfactions.join());
             var crop_data = {
-                ref: '<?php echo $ref; ?>',
+                ref: '<?php echo (int) $ref; ?>',
                 reload_image: 'true',
                 gamma: jQuery('#gamma').val(),
                 tfactions: tfactions.join(),
@@ -1193,7 +1193,7 @@ renderBreadcrumbs($links_trail);
         <input type='hidden' name='ycoord' id='ycoord' value='0' />
         <input type='hidden' name='width' id='width' value='' />
         <input type='hidden' name='height' id='height'  value='' />
-        <input type='hidden' name='ref' id='ref' value='<?php echo $ref; ?>' />
+        <input type='hidden' name='ref' id='ref' value='<?php echo (int) $ref; ?>' />
         <input type='hidden' name='cropsize' id='cropsize' value='<?php echo $cropper_cropsize; ?>' />
         <input type='hidden' name='lastWidthSetting' id='lastWidthSetting' value='' />
         <input type='hidden' name='lastHeightSetting' id='lastHeightSetting' value='' />

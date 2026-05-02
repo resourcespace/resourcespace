@@ -114,7 +114,7 @@ if (!$valid_coords && getval('geo-loc', '') != '') {
         <p>
             <a
                 onclick="return CentralSpaceLoad(this,true);"
-                href="<?php echo $baseurl_short . ($geocol != '' ? "pages/geolocate_collection.php?ref=" . $geocol : "pages/view.php?ref=" . $ref) ?>"
+                href="<?php echo $baseurl_short . ($geocol != '' ? "pages/geolocate_collection.php?ref=" . escape($geocol) : "pages/view.php?ref=" . (int) $ref) ?>"
             >
                 <?php echo LINK_CARET_BACK . escape($geocol != '' ? $lang['backtogeolocatecollection'] : $lang['backtoresourceview']); ?>
             </a>
@@ -242,7 +242,7 @@ if (!$valid_coords && getval('geo-loc', '') != '') {
                         data: {
                             'submit': 'true',
                             'ajax': 'true',
-                            'ref': '<?php echo $ref ; ?>',
+                            'ref': '<?php echo (int) $ref ; ?>',
                             'geo-loc': geoLat + ',' + geoLong,
                             'map-zoom': currentZoom,
                             csrf_identifier: '<?php echo $CSRF_token_identifier; ?>',
@@ -262,7 +262,7 @@ if (!$valid_coords && getval('geo-loc', '') != '') {
         <!--Resource marker latitude and longitude form-->
         <form id="map-form" method="post" action="<?php echo $baseurl_short?>pages/geo_edit.php">
             <?php generateFormToken("map-form"); ?>
-            <input name="ref" type="hidden" value="<?php echo $ref; ?>" />
+            <input name="ref" type="hidden" value="<?php echo (int) $ref; ?>" />
             <input name="submit" type="hidden" value="true" />
             <input name="geocol" type="hidden" value="<?php echo escape($geocol); ?>" />
             <input name="map-zoom" type="hidden" value="<?php echo escape($zoom ?? ""); ?>" id="map-zoom" />

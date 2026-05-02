@@ -34,7 +34,7 @@ include "../../../include/header.php";
 
     <form method="post" action="<?php echo $baseurl_short?>plugins/consentmanager/pages/batch.php" onSubmit="return CentralSpacePost(this,true);">
         <input type=hidden name="submitted" value="true">
-        <input type=hidden name="collection" value="<?php echo $collection?>">
+        <input type=hidden name="collection" value="<?php echo escape($collection); ?>">
         <input type=hidden name="unlink" value="<?php echo $unlink ? "true" : ""; ?>">
         <?php generateFormToken("consentmanager_batch"); ?>
 

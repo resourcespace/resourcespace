@@ -367,7 +367,7 @@ if (!(isset($resource['is_transcoding']) && $resource['is_transcoding']==1) && f
                          if(count(canSeeAnnotationsFields()) > 0)
                             {
                             ?>
-                            data-original="<?php echo "{$baseurl}/annotation/resource/{$ref}"; ?>"
+                            data-original="<?php echo "{$baseurl}/annotation/resource/" . (int) $ref; ?>"
                             <?php
                             }
                             ?>

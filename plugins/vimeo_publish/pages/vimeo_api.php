@@ -138,7 +138,7 @@ if($vimeo_publish_allow_user_accounts && get_vimeo_user($vimeo_publish_client_id
             {
             ?>
             <p>
-                <a href="<?php echo $vimeo_callback_url; ?>?resource=<?php echo $ref; ?>&delete_token=true">&gt;&nbsp;<?php echo escape($lang['vimeo_publish_delete_token']); ?></a>
+                <a href="<?php echo $vimeo_callback_url; ?>?resource=<?php echo (int) $ref; ?>&delete_token=true">&gt;&nbsp;<?php echo escape($lang['vimeo_publish_delete_token']); ?></a>
             </p>
             <?php
             }?>
@@ -147,7 +147,7 @@ if($vimeo_publish_allow_user_accounts && get_vimeo_user($vimeo_publish_client_id
     }
     ?>
 
-<form method="post" action="<?php echo $vimeo_callback_url; ?>?resource=<?php echo $ref; ?>">
+<form method="post" action="<?php echo $vimeo_callback_url; ?>?resource=<?php echo (int) $ref; ?>">
     <?php generateFormToken("vimeo_api"); ?>
     <input type="hidden" name="upload" value="true"/>
     <div class="Question">

@@ -16,7 +16,7 @@ include "../../include/request_functions.php";
 $ref = getval("ref", "", true);
 $modal = (getval("modal", "") == "true");
 $backurl = getval("backurl", "");
-$url = $baseurl_short . "pages/team/team_request_edit.php?ref=" . $ref . "&backurl=" . urlencode($backurl);
+$url = $baseurl_short . "pages/team/team_request_edit.php?ref=" . escape($ref) . "&backurl=" . urlencode($backurl);
 
 if (getval("submitted", "") != "" && enforcePostRequest(false)) {
     # Save research request data

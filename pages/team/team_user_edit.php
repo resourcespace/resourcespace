@@ -492,7 +492,7 @@ if (getval('loginas', '') != '') {
                 <div class="Question">
                     <label><?php echo escape($lang["login"])?></label>
                     <div class="Fixed">
-                        <a href="<?php echo $baseurl_short?>pages/team/team_user_edit.php?ref=<?php echo $ref?>&loginas=true">
+                        <a href="<?php echo $baseurl_short?>pages/team/team_user_edit.php?ref=<?php echo escape($ref); ?>&loginas=true">
                             <?php echo LINK_CARET . escape($lang["clicktologinasthisuser"])?>
                         </a>
                     </div>

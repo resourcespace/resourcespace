@@ -896,6 +896,13 @@ const API_ISSUE_VALID_DESTINATIONS = [
     "linkrui" => [
         "name" => "LinkrUI",
         "url" => "https://resourcespace.linkrui.com/saml",
+        "querydata" => ["username"],
+        "stateparam" => "state",
+    ],
+    "tagquest" => [
+        "name" => "TagQuest",
+        "url" => "https://resourcespace.tagquest.io/api/auth/rs-callback",
+        "querydata" => ["username", "email", "fullname"],
         "stateparam" => "state",
     ],
 ];

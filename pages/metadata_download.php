@@ -205,7 +205,7 @@ include "../include/header.php";
 
         <form id="metadataDownloadForm" name="metadataDownloadForm" method=post action="<?php echo $baseurl_short; ?>pages/metadata_download.php">
             <?php generateFormToken("metadataDownloadForm"); ?>
-            <input name="ref" type="hidden" value="<?php echo $ref; ?>">
+            <input name="ref" type="hidden" value="<?php echo (int) $ref; ?>">
             <div class="Question" id="fileType">
                 <label for="fileType_option">Download file type</label>
                 <select id="fileType_option" class="stdwidth" name="fileType_option">

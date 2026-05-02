@@ -11,11 +11,28 @@ if ($remote_system) {
     $state = getval($remote_system["stateparam"], "");
     if (isset($_POST['submit']) && enforcePostRequest(false)) {
         // Send session key to remote system with the passed state string
-        $postdata = http_build_query([
+        $params = [
             $remote_system["stateparam"] => $state,
-            "username" => $username,
             "sessionkey" => get_session_api_key($userref),
-        ]);
+        ];
+
+        // Map potential query keys to their values
+        $available = [
+            "username" => $username,
+            "email"    => $useremail,
+            "fullname" => $userfullname,
+        ];
+
+        $querydata = $remote_system["querydata"];
+
+        // Only include keys present in $querydata
+        foreach ($querydata as $key) {
+            if (isset($available[$key])) {
+                $params[$key] = $available[$key];
+            }
+        }
+
+        $postdata = http_build_query($params);
 
         $curl = curl_init($remote_system["url"]);
         curl_setopt($curl, CURLOPT_HEADER, "Content-Type: application/x-www-form-urlencoded");
