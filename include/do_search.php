@@ -343,9 +343,43 @@ function do_search(
     # -------------------------------------------------------------------------------------
     # Standard Searches
     # -------------------------------------------------------------------------------------
-
+ 
     # We've reached this far without returning.
     # This must be a standard (non-special) search.
+
+    # Support external search providers.
+    $external_search_results = hook(
+        'external_search',
+        '',
+        [
+            $search,
+            $keywords,
+            $node_bucket,
+            $node_bucket_not,
+            $restypes,
+            $order_by,
+            $archive,
+            $fetchrows,
+            $sort,
+            $access_override,
+            $ignore_filters,
+            $return_disk_usage,
+            $recent_search_daylimit,
+            $return_refs_only,
+            $editable_only,
+            $returnsql,
+            $access,
+            $smartsearch,
+            $sql_filter,
+            $sql_join,
+            $select,
+        ]
+        );
+
+    if ($external_search_results !== false) {
+        log_keyword_usage($keywords_used, $external_search_results);
+        return $external_search_results;
+    }
 
     # Construct and perform the standard search query.
     $sql = new PreparedStatementQuery();

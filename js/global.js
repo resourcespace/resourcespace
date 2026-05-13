@@ -304,8 +304,6 @@ function CentralSpaceLoad (anchor,scrolltop,modal,keep_fragment = true)
             {
             // Load completed
             CentralSpaceHideProcessing();
-            CentralSpace.trigger('CentralSpaceLoaded');
-
             if (modal)
                 {
                 // Show the modal
@@ -494,21 +492,6 @@ function CentralSpacePost (form, scrolltop, modal, update_history, container_id)
 
     CentralSpaceShowProcessing();
 
-    // Remember focused element
-    let restore = null;
-    const active = document.activeElement;
-    if (active && active.id) {
-    if (active.tagName.toLowerCase() === 'input' || active.tagName.toLowerCase() === 'textarea') {
-            restore = {
-                id: active.id,
-                start: active.selectionStart,
-                end: active.selectionEnd
-            };
-        } else {
-            restore = { id: active.id };
-        }
-    }
-
     pagename=basename(url);
     pagename=pagename.substr(0, pagename.lastIndexOf('.'));
     pluginname=getPluginName(url);
@@ -526,22 +509,6 @@ function CentralSpacePost (form, scrolltop, modal, update_history, container_id)
             }
         CentralSpaceHideProcessing();
         CentralSpace.html(data);
-        CentralSpace.trigger('CentralSpaceLoaded');
-
-        // Restore focus if possible
-        if (restore) {
-            const newEl = document.getElementById(restore.id);
-            if (newEl) {
-                newEl.focus();
-                if (restore.start !== undefined) {
-                    try {
-                        newEl.setSelectionRange(restore.start, restore.end);
-                    } catch(e) {
-                        // not supported (e.g. input type=number), safe to ignore
-                    }
-                }
-            }
-        }
 
         jQuery('#UICenter').show(0);
         jQuery("#SearchBarContainer").removeClass("FullSearch");
@@ -2358,38 +2325,3 @@ function getPluginName(url) {
     
     return '';
 }
-
-// Debounced search for plugins on the team plugins page
-function attachPluginSearchHandler() {
-    const input = document.getElementById("pluginsearch");
-    if (!input) return;
-
-    let debounceTimer;
-
-    input.addEventListener("keyup", function (e) {
-        clearTimeout(debounceTimer);
-
-        // Immediate submit if user presses Enter
-        if (e.key === "Enter") {
-            const form = document.getElementById("SearchSystemPages");
-            if (form) {
-                CentralSpacePost(form);
-            }
-            return;
-        }
-
-        // Debounced submit (1 second after last keypress)
-        debounceTimer = setTimeout(function () {
-            const form = document.getElementById("SearchSystemPages");
-            if (form) {
-                CentralSpacePost(form);
-            }
-        }, 1000);
-    });
-}
-
-// Initial bind
-document.addEventListener("DOMContentLoaded", attachPluginSearchHandler);
-
-// Re-bind every time CentralSpace reloads
-jQuery(document).on("CentralSpaceLoaded", attachPluginSearchHandler);
