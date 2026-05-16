@@ -235,7 +235,7 @@ if ('true' === getval('ajax', '') && 'true' === getval('autosave', '')) {
 include "../../include/header.php";
 
 ?>
-<div id="UsergroupConfig">
+<div class="BasicsBox" id="UsergroupConfig">
     <h1><?php echo escape($lang["page-title_usergroup_config"] . ' - ' . $group["name"]); ?></h1>
     <?php render_config_filter_by_search(getval("filter", ""), getval("only_modified", "no")); ?>
     <div class="CollapsibleSections">

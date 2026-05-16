@@ -640,8 +640,8 @@ if (!checkperm("c")) {
                 if ($offline_limit) {
                     echo "<div class='PageInformal'>" . $offline_text . "</div>";
                 }
-                echo "<h2>" . $lang["csv_upload_create_alternatives_title"] . "</h2>";
-                echo "<p>" . $lang["csv_upload_create_alternatives_notes"] . "</p>";
+                echo "<h2>" . escape($lang["csv_upload_create_alternatives_title"]) . "</h2>";
+                echo "<p>" . escape($lang["csv_upload_create_alternatives_notes"]) . "</p>";
                 ?>
                 <form action="<?php echo $_SERVER["SCRIPT_NAME"]; ?>" id="upload_csv_form" method="post" enctype="multipart/form-data" onSubmit="return CentralSpacePost(this,true);">
                     <?php generateFormToken("upload_csv_form"); ?>
@@ -798,7 +798,7 @@ if (!checkperm("c")) {
             // Map metadata
             // Step 2(b) Update existing
             if ($offline_limit) {
-                echo "<div class='PageInformal'>" . $offline_text . "</div>";
+                echo "<div class='PageInformal'>" . escape($offline_text) . "</div>";
             }
             if (is_array($csv_info)) {
                 echo "<p>" . $lang["csv_upload_map_fields_notes"] . "</p>";

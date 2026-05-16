@@ -673,19 +673,23 @@ if ($processupload)
 
                     if ($replace_alternatives != "") {
                         $sql = new PreparedStatementQuery();
-                        $sql->sql = "UPDATE resource_alt_files SET file_size=?,creation_date=NOW()";
-                        $sql->parameters = ["i",$file_size];
+                        $sql->sql = "UPDATE resource_alt_files SET file_size=?, creation_date=NOW()";
+                        $sql->parameters = ["i", $file_size];
                         if ($name != "") {
                             $sql->sql .= ", name=?";
                             $sql->parameters = array_merge($sql->parameters, ['s', $name]);
                         }
                         $sql->sql .= " WHERE resource=? AND ref=?";
-                        $sql->parameters = array_merge($sql->parameters, ["i",$alternative,"i",$aref]);
+                        $sql->parameters = array_merge($sql->parameters, ["i", $alternative, "i", $aref]);
 
                         ps_query($sql->sql, $sql->parameters);
                     } else {
                         # Save alternative file data.
-                        ps_query("UPDATE resource_alt_files SET file_name=?,file_extension=?,file_size=?,creation_date=NOW() WHERE resource=? AND ref=?",array("s",$upfilename,"s",$extension,"i",$file_size,"i",$alternative,"i",$aref));
+                        ps_query(
+                            "UPDATE resource_alt_files SET file_name=?, file_extension=?, file_size=?, creation_date=NOW()
+                            WHERE resource=? AND ref=?",
+                            array("s", $upfilename, "s", $extension, "i", $file_size, "i", $alternative, "i", $aref)
+                            );
                     }
 
                     if ($alternative_file_previews) {

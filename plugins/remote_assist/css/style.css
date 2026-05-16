@@ -7,13 +7,13 @@
   gap: 10px;
   border-radius: var(--space-4, 4px);
   border: 1px solid var(--colour-feedback-warning-default, #CC8200);
-  background: var(--colour-feedback-warning-lightest, #FFFBF5);
+  background: var(--colour-feedback-warning-50, #FFFBF5);
   box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.10);
 }
 
 #remote_assist p,
 #remote_assist a {
-  color: var(--colour-feedback-warning-dark, #7F530D);
+  color: var(--colour-feeback-warning-200, #7F530D);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -28,7 +28,7 @@
 }
 
 #remote_assist i {
-  color: var(--colour-feedback-warning-dark, #7F530D);
+  color: var(--colour-feeback-warning-200, #7F530D);
   display: flex;
   font-size: 24px;
 }

@@ -89,6 +89,10 @@ if (isset($user_pref_appearance) && !(isset($high_contrast_mode) && $high_contra
             --form-form-required-stroke: var(--colour-neutral-950);
             --form-tooltip-background: var(--colour-surface-mode-surface);
             --form-tooltip-stroke: var(--form-field-border);
+
+            /* Colours feedback - Dark */
+            --colour-feedback-warning-50: var(--colour-neutral-1000);
+            --colour-feeback-warning-200: var(--colour-feedback-warning-lightest);
         }
 
         body, html {

@@ -28,6 +28,8 @@
     --colour-feedback-warning-default: #cc8200;
     --colour-feedback-warning-lighter: #fef7eb;
     --colour-feedback-warning-lightest: #fffbf5;
+    --colour-feeback-warning-50: var(--colour-feedback-warning-lightest);
+    --colour-feeback-warning-200: var(--colour-feedback-warning-dark);
 
     /* Colours - Global */
     --colour-global-black: #000000;

@@ -765,6 +765,7 @@ $selected_search_tab = getval("selected_search_tab", "search");
 
                             // Save the hidden field names for use when searchbar is redisplayed
                             ssearchhiddenfieldsstring = ssearchhiddenfields.join(',');
+                            ssearchhiddenfieldsarray = ssearchhiddenfields;
                             document.getElementById('ssearchhiddenfields').value = ssearchhiddenfieldsstring;
                             SetCookie('ssearchhiddenfields', ssearchhiddenfieldsstring);
                             console.debug("SETCOOKIE SSEARCHHIDDENFIELDS=" + ssearchhiddenfieldsstring);

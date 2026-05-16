@@ -369,11 +369,15 @@ function render_search_field($field,$fields,$value="",$autoupdate=false,$class="
 
                 if (
                     !field<?php echo escape($field['ref']); ?>valuefound
-                    && ((selectedtypes.includes(<?php echo json_encode($scriptcondition['resource_types']); ?>))
-                    || <?php echo escape(empty($scriptcondition['resource_types'])) ? 'true' : 'false'; ?>)
-                ) {
-                    field<?php echo escape($field['ref']); ?>visibility = false;
-                }
+                    && (<?php if ($forsearchbar) { ?>
+                        !(ssearchhiddenfieldsarray.includes("<?php echo escape("simplesearch_{$scriptcondition['field']}") ?>"))
+                    <?php } else { ?>
+                        (selectedtypes.includes(<?php echo json_encode($scriptcondition['resource_types']); ?>))
+                    <?php } ?>
+                        || <?php echo escape(empty($scriptcondition['resource_types'])) ? 'true' : 'false'; ?>)
+                    ) {
+                        field<?php echo escape($field['ref']); ?>visibility = false;
+                    }
 
             <?php
                 echo "// End of checking values on field ".$scriptcondition['field']."\n\n            ";
