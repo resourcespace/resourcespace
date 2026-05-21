@@ -66,13 +66,17 @@ foreach ($resource_alt_files as $alt_file) {
         if ($dry_run) {
             echo "Resource {$alt_file['resource']} - Found alternative file $alt_file_location" . PHP_EOL;
         } else {
-            if (try_unlink($alt_file_location) === true) {
+            $unlink_result = try_unlink($alt_file_location);
+            if ($unlink_result === true) {
                 echo "Resource {$alt_file['resource']} - Deleted alternative file $alt_file_location" . PHP_EOL;
                 ps_query("UPDATE resource_log SET previous_file_alt_ref = NULL WHERE ref = ?;" , array('i', $alt_file['resource_log_ref'])); # Don't show revert option in resource log.
                 ps_query("DELETE FROM resource_alt_files WHERE ref = ?;", array('i', $alt_file['previous_file_alt_ref']));
                 $update_disk_usage = true;
             } else {
                 echo "ERROR - Resource {$alt_file['resource']} - An error occurred when deleting alternative file $alt_file_location" . PHP_EOL;
+                if (!is_bool($unlink_result)) { 
+                    echo "---- $unlink_result" . PHP_EOL;
+                }
             }
         }
     }
@@ -82,11 +86,15 @@ foreach ($resource_alt_files as $alt_file) {
         if ($dry_run) {
             echo "Resource {$alt_file['resource']} - Found alternative file thumb $alt_file_thm_location" . PHP_EOL;
         } else {
-            if (try_unlink($alt_file_thm_location) === true) {
+            $unlink_result_thm = try_unlink($alt_file_thm_location);
+            if ($unlink_result_thm === true) {
                 echo "Resource {$alt_file['resource']} - Deleted alternative file thumb $alt_file_thm_location" . PHP_EOL;
                 $update_disk_usage = true;
             } else {
                 echo "ERROR - Resource {$alt_file['resource']} - An error occurred when deleting alternative file thumb $alt_file_thm_location" . PHP_EOL;
+                if (!is_bool($unlink_result_thm)) { 
+                    echo "---- $unlink_result_thm" . PHP_EOL;
+                }
             }
         }
     }
