@@ -444,9 +444,9 @@ function tile_icon(array $tile, string $tile_id): void
                 if (!empty($tile['title'])) {
                     echo escape(i18n_get_translated($tile['title']));
                 } elseif (!empty($tile['txt']) && isset($lang[strtolower($tile['txt'])])) {
-                    echo escape(i18n_get_translated($lang[$tile['txt']]));
-                } elseif (!empty($tile['txt']) && !isset($lang[strtolower($tile['txt'])])) {
-                    echo escape($tile['txt']);
+                    echo escape($lang[strtolower($tile['txt'])]);
+                } elseif (!empty($tile['txt'])) {
+                    echo escape(i18n_get_translated($tile['txt']));
                 }
             ?>
         </h2>

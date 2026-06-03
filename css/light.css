@@ -93,7 +93,7 @@ tr[id^="ResourceShell"].Selected { background-color: #d5eafa; /* Used a tint of 
 /* Related resources */
 #RelatedResources .CollectionPanelShell {background-color: #fff;}
 /* Default colours for search, dash tiles, browse bar etc */
-#HomeSiteText.dashtext, .PopupCategoryTree {
+.PopupCategoryTree {
     background: rgba(0, 0, 0, 0.51);
     color:#FFF;
 }

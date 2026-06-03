@@ -139,11 +139,9 @@ include "../../include/header.php";
         <?php generateFormToken("permissions"); ?>
         <input type="hidden" name="save" value="1">
 
-        <div class="BasicsBox">
-            <label><?php echo escape($lang["copypermissions"]);?></label>
-            <input type="text" name="copyfrom">
-            <input name="save" type="submit" value="<?php echo escape($lang["copy"]); ?>" onClick="return confirm('<?php echo escape($lang["confirmcopypermissions"]); ?>');">
-        </div>
+        <label><?php echo escape($lang["copypermissions"]);?></label>
+        <input type="text" name="copyfrom">
+        <input name="save" type="submit" value="<?php echo escape($lang["copy"]); ?>" onClick="return confirm('<?php echo escape($lang["confirmcopypermissions"]); ?>');">
     </form>
 
     <form method="post" id="permissions" action="<?php echo $admin_group_permissions_url; ?>" onsubmit="event.preventDefault();">   

@@ -82,7 +82,7 @@ renderBreadcrumbs($links_trail);
 ?>
 <div class="clearerleft" ></div>
 
-<div class="BasicsBox">
+<div>
     <form method="post" name="form_filter_action" id="form_filter_action" action="<?php echo $baseurl_short?>plugins/rse_workflow/pages/edit_workflow_actions.php">
         <?php generateFormToken("form_filter_action"); ?>
         <div class="Question">
@@ -110,7 +110,6 @@ renderBreadcrumbs($links_trail);
     </form>
 </div>
 <h2><?php echo escape($lang['rse_workflow_status_heading']); ?></h2>
-<div class="BasicsBox">
 <div class="Listview">
         <table class="ListviewStyle rse_workflow_table" id='rse_workflow_table'>
             <tr class="ListviewTitleStyle">
@@ -185,7 +184,6 @@ else
 <a href="<?php echo $baseurl_short?>plugins/rse_workflow/pages/edit_action.php?ref=new" onclick="event.preventDefault();CentralSpaceLoad(this,true);"><?php echo LINK_CARET . $lang["rse_workflow_action_new"]; ?></a>
 
 
-</div>
 </div>
 <?php
 

@@ -5247,7 +5247,8 @@ function render_featured_collection_context_menu(string $id, array $options): vo
     }
 
     ?>
-    <div id="<?php echo escape($id); ?>" class="featured-collection context-menu-container" style="display:none;">
+    <div id="<?php echo escape($id); ?>" class="featured-collection flyout-menu" style="display:none;">
+        <div class="menu-items">
         <?php
         foreach ($options as $option) {
             if(isset($option['custom_onclick']) && trim($option['custom_onclick']) != '') {
@@ -5259,13 +5260,14 @@ function render_featured_collection_context_menu(string $id, array $options): vo
                     : "return CentralSpaceLoad('{$href}', true);";
             }
             ?>
-            <button class="context-menu-row" onclick="<?php echo $onclick; ?>">
+            <div class="menu-item" onclick="<?php echo $onclick; ?>">
                 <i class="<?php echo escape($option['icon']); ?>"></i>
                 <span><?php echo escape($option['text']); ?></span>
-            </button>
+            </div>
             <?php
         }
         ?>
+        </div>
     </div>
     <?php
 }

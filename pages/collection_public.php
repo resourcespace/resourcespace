@@ -54,26 +54,24 @@ include "../include/header.php";
         render_help_link("collections-public-and-themes");
         ?>
     </p>
-    <div class="BasicsBox">
-        <form method="post" id="pc_searchform" onsubmit="return CentralSpacePost(this,true);" action="<?php echo $baseurl_short?>pages/collection_public.php">
-            <?php generateFormToken("pc_searchform"); ?>
-            <div class="Question">
-                <label for="find"><?php echo escape($lang["searchpubliccollections"])?></label>
-                <div class="xtickset">
-                    <div class="Inline">
-                        <input type=text name="find" id="find" value="<?php echo escape(unescape($find)) ?>" maxlength="100" class="shrtwidth" />
-                    </div>
-                    <div class="Inline">
-                        <input name="Submit" type="submit" value="<?php echo escape($lang["searchbutton"])?>" />
-                    </div>
-                    <div class="Inline">
-                        <input name="Clear" type="button" onclick="document.getElementById('find').value='';CentralSpacePost(document.getElementById('pc_searchform'),true);" value="<?php echo escape($lang["clearbutton"]); ?>" />
-                    </div>
+    <form method="post" id="pc_searchform" onsubmit="return CentralSpacePost(this,true);" action="<?php echo $baseurl_short?>pages/collection_public.php">
+        <?php generateFormToken("pc_searchform"); ?>
+        <div class="Question">
+            <label for="find"><?php echo escape($lang["searchpubliccollections"])?></label>
+            <div class="xtickset">
+                <div class="Inline">
+                    <input type=text name="find" id="find" value="<?php echo escape(unescape($find)) ?>" maxlength="100" class="shrtwidth" />
                 </div>
-                <div class="clearerleft"></div>
+                <div class="Inline">
+                    <input name="Submit" type="submit" value="<?php echo escape($lang["searchbutton"])?>" />
+                </div>
+                <div class="Inline">
+                    <input name="Clear" type="button" onclick="document.getElementById('find').value='';CentralSpacePost(document.getElementById('pc_searchform'),true);" value="<?php echo escape($lang["clearbutton"]); ?>" />
+                </div>
             </div>
-        </form>
-    </div>
+            <div class="clearerleft"></div>
+        </div>
+    </form>
 
     <?php
     $collections = search_public_collections($find, $col_order_by, $sort, $public_collections_exclude_themes, false, true, $override_group_restrict == "true");

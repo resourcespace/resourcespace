@@ -156,6 +156,7 @@
     --toggle-height: var(--space-60);
     --actions-height: 110px;
     --thumbs-height: 184px;
+    --uicenter-height: calc(100% - 66px);
     
 }
 
@@ -815,7 +816,7 @@ img[src$=".svg"]
 #login_box #Footer {margin: 0 0 10px 0;}
 
 #UICenter {
-    height: calc(100% - 66px);
+    height: var(--uicenter-height);
     transition: height 0.25s ease;
     overflow-y: scroll;
     /*background: var(--colour-surface-view-background);*/
@@ -1406,6 +1407,15 @@ div.autocomplete ul li {
 .uppy-ProviderBrowser-searchInput[type="text"] {
     padding-left: 27px;
     margin: 0 8px;
+}
+
+/* Reduce z-index to prevent overlapping with modals and overlays */
+.uppy-DashboardContent-bar,
+.uppy-StatusBar,
+.uppy-Dashboard-AddFilesPanel,
+.uppy-DashboardContent-panel,
+.uppy-size--md .uppy-Dashboard-Item-action--remove {
+    z-index: 100;
 }
 
 #showlog,#hidelog
@@ -2427,19 +2437,18 @@ a.FeaturedSimpleLink:hover, a.FeaturedSimpleLink:active  {
     margin-left: auto;
 }
 .FeaturedSimpleTile .top-right-menu {
-    grid-area: box;
+    display: flex;
+    flex-shrink: 0;
     place-self: start end;
     margin: 4px;
-    width: 28px;
-    height: 28px;
-    border-radius: 30px;
-    text-align: center;
     font-size: 20px;
     cursor: pointer;
-    z-index: 1;
-    display: flex;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+    transition: background-color 0.15s ease, transform 0.05s ease;
 }
-.FeaturedSimpleTile:hover .top-right-menu { display: block; }
 .FeaturedSimpleLinks .context-menu-container {
     border-radius: 8px;
     padding: 6px;
@@ -3305,14 +3314,8 @@ input[type="text"]#iconpicker-input {
     {
     white-space: pre-wrap;word-wrap: break-word; width:100%;padding:5px;
     }
-    
-
 
 #HomeSiteText {
-    background: var(--Hero-Gradient,
-        linear-gradient(90deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 50.48%),
-        linear-gradient(90deg, rgba(12,13,12,.3) 0%, rgba(106,115,106,.3) 100%)
-    ) !important;
     width: 100%;
     position: relative;
     z-index: 2;
@@ -3320,10 +3323,22 @@ input[type="text"]#iconpicker-input {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 1376px;
+}
+
+#HomeSiteTextPanel{
+    background: var(--Hero-Gradient,
+        linear-gradient(90deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 50.48%),
+        linear-gradient(90deg, rgba(12,13,12,.3) 0%, rgba(106,115,106,.3) 100%)
+    ) !important;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 #HomeSiteTextInner {
-    padding: var(--space-32, 32px) 14%;
     max-width: 656px;
 }
 
@@ -3394,7 +3409,7 @@ input[type="text"]#iconpicker-input {
     to   { stroke-dashoffset: 0; }
     }
 
-@media (max-width: 1365px) {
+@media (max-width: 1440px) {
     .hero-banner-progress{
         z-index: -1; /* Not display:none to keep progress timer running and in sync */
     }
@@ -5158,7 +5173,7 @@ header.LoginHeader {
     background: var(--colour-surface-200);
 }
 
-.resource-card-action-menu.is-open {
+.is-open {
     background-color: var(--colour-surface-1000);
     color: var(--colour-surface-50);
 }
@@ -6027,11 +6042,11 @@ header.LoginHeader {
 }
 
 body:has(.collection-bar-holder.state-actions) #UICenter {
-    height: calc(100% - 66px - var(--actions-height));
+    height: calc(var(--uicenter-height) - var(--actions-height));
 }
 
 body:has(.collection-bar-holder.state-thumbs) #UICenter {
-    height: calc(100% - 66px - var(--actions-height) - var(--thumbs-height));
+    height: calc(var(--uicenter-height) - var(--actions-height) - var(--thumbs-height));
 }
 
 .ui-droppable-active .collection-bar-actions-section, .ui-droppable-active .collection-bar-thumbs-section {
@@ -6056,6 +6071,7 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
     :root {
         --toggle-height: var(--space-48);
         --thumbs-height: 128px;
+        --uicenter-height: calc(100% - 54px);
     }
 
     .collection-bar-holder .collection-bar-toggle-button {
@@ -6089,10 +6105,13 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
         height: var(--space-20);
         line-height: var(--space-20);
     }
-
 }
 
 @media(max-width: 1000px) {
+
+    :root {
+        --uicenter-height: calc(100% - var(--space-64) - 54px);
+    }
 
     .collection-bar-actions-form select {
         width: 328px;
@@ -6117,6 +6136,7 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
 
     :root {
         --actions-height: 268px;
+        --uicenter-height: calc(100% - 54px);
     }
 
     .collection-bar-holder .collection-bar-toggle-button {

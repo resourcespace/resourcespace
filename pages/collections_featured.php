@@ -300,9 +300,10 @@ if ($parent > 0) {
         hideContextMenu();
 
         const top_right_menu_btn = jQuery(el);
+        top_right_menu_btn.addClass('is-open');
         const context_menu = top_right_menu_btn
             .closest('.FeaturedSimpleTile, .BreadcrumbsBox')
-            .find('.context-menu-container');
+            .find('.flyout-menu');
 
         const menu_el_tmp = context_menu.clone().appendTo('body').css({
             display: 'block',
@@ -313,21 +314,24 @@ if ($parent > 0) {
         const btn_bb = el.getBoundingClientRect();
         const menu_bb = menu_el_tmp[0].getBoundingClientRect();
 
+        const container = jQuery('.FeaturedSimpleLinks')[0].getBoundingClientRect();
+
         let top = btn_bb.top;
-        let left = btn_bb.right - 24;
+        let left = btn_bb.right - 28;
 
         // Keep menu inside viewport horizontally
         if (left < 0) {
             left = btn_bb.left;
         }
-        if (left + menu_bb.width > window.innerWidth) {
-            left = left - menu_bb.width - 90;
+        if (left + menu_bb.width > container.right) {
+            left = left - menu_bb.width + 28;
         }
+        
 
         // Show below button by default. If it would overflow bottom then show it above
-        top = btn_bb.bottom - 12;
-        if (top + menu_bb.height > window.innerHeight) {
-            top = btn_bb.top - menu_bb.height - 12;
+        top = btn_bb.bottom;
+        if (top + menu_bb.height > window.outerHeight) {
+            top = btn_bb.top - menu_bb.height;
         }
 
         // Clamp top just in case
@@ -344,7 +348,7 @@ if ($parent > 0) {
                 top: `${top}px`,
                 left: `${left}px`
             })
-            .slideDown(150);
+            .show();
 
         return false;
     }
@@ -352,9 +356,10 @@ if ($parent > 0) {
     /** Hide the Featured Collection (category) context menu */
     function hideContextMenu()
     {
-        let menu_content = jQuery('.FeaturedSimpleTile .context-menu-container, .BreadcrumbsBox .context-menu-container');
+        let menu_content = jQuery('.FeaturedSimpleTile .flyout-menu, .BreadcrumbsBox .flyout-menu');
         if (menu_content.is(':visible')) {
-            menu_content.slideUp(150);
+            menu_content.hide();
+            jQuery('.is-open').removeClass('is-open');
         }
     }
 
@@ -366,7 +371,7 @@ if ($parent > 0) {
     };
     onmousedown = (e) => {
         // Close menus when clicking away
-        if (!e.target.closest('.context-menu-container')) {
+        if (!e.target.closest('.flyout-menu')) {
             hideContextMenu();
         }
     };

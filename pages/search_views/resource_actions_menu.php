@@ -145,7 +145,7 @@ if ($draw_menu) { ?>
             data-action="share"
             data-url="<?php echo generateURL($baseurl_short . 'pages/resource_share.php', ['ref' => $ref,'search' => $search,'offset' => $offset,'order_by' => $order_by,'sort' => $sort,'archive' => $archive,'k' => $k]); ?>"
             onclick="return CentralSpaceLoad(this.dataset.url, true);">
-                <i class="icon-share"></i>
+                <i class="icon-share-2"></i>
                 <?php echo escape($lang["share"]); ?>
         </div>
         <?php } ?>

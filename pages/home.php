@@ -24,14 +24,16 @@ function loadWelcomeText()
     global $no_welcometext, $home_dash, $productversion;
     if (!$no_welcometext) {
         ?>
-        <div class=" <?php echo $home_dash ? 'dashtext' : ''; ?>" id="HomeSiteText">
-            <div id="HomeSiteTextInner">
-                <h1>
-                    <?php # Include version number
-                    echo strip_tags_and_attributes(str_replace("[ver]", str_replace("SVN", "", $productversion), text("welcometitle")));
-                    ?>
-                </h1>
-                <p><?php echo strip_tags_and_attributes(text("welcometext"), ['a'], ['href']); ?></p>
+        <div id="HomeSiteTextPanel">
+            <div class=" <?php echo $home_dash ? 'dashtext' : ''; ?>" id="HomeSiteText">
+                <div id="HomeSiteTextInner">
+                    <h1>
+                        <?php # Include version number
+                        echo strip_tags_and_attributes(str_replace("[ver]", str_replace("SVN", "", $productversion), text("welcometitle")));
+                        ?>
+                    </h1>
+                    <p><?php echo strip_tags_and_attributes(text("welcometext"), ['a'], ['href']); ?></p>
+                </div>
             </div>
         </div>
         <?php

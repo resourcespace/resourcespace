@@ -480,7 +480,7 @@ include '../include/header.php';
         </div>
     </form>
 
-    <div id='share_list_container' class='BasicsBox'>
+    <div id='share_list_container'>
         <?php render_table($tabledata); ?>
     </div>
 </div>

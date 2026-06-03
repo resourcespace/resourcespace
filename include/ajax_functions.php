@@ -1,14 +1,18 @@
 <?php
 
 /**
-* @package ResourceSpace
-* @subpackage AJAX
-*
-* The functions available in this file will help developers provide a consistent response to AJAX requests.
-*
-* All functions (with the exception of ajax_permission_denied) will follow the JSEnd specification (@see https://github.com/omniti-labs/jsend)
-*
-*/
+ * AJAX helper functions.
+ *
+ * The functions available in this file help developers provide a consistent
+ * response to AJAX requests.
+ *
+ * All functions, with the exception of ajax_permission_denied(), follow the
+ * JSend specification.
+ *
+ * @see https://github.com/omniti-labs/jsend
+ *
+ * @package ResourceSpace\AJAX
+ */
 
 /**
 * Returns a standard AJAX response for unauthorised access

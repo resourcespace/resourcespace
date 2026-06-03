@@ -1,19 +1,12 @@
 <script>
 
 (function () {
-    const images = [
-        <?php 
-        $slideshow_configured = false;
-        foreach (get_slideshow_files_data() as $slideshow_file_info) {
-            if ((bool) $slideshow_file_info['homepage_show'] === false) {
-                continue;
-            }
+    <?php
+    $slideshow_img_urls = array_column(array_filter(get_slideshow_files_data(), static fn ($V): bool => (bool) $V['homepage_show'] === true), 'file_url');
+    $slideshow_configured = $slideshow_img_urls !== [];
+    ?>
 
-            echo '"' . "{$baseurl_short}pages/download.php?slideshow=" . escape($slideshow_file_info['ref']) . '",';
-            $slideshow_configured = true;
-        }
-        ?>
-    ];
+    const images = <?php echo encode_js_value($slideshow_img_urls); ?>;
 
     jQuery(document).ready(function() {
 

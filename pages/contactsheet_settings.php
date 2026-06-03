@@ -112,7 +112,7 @@ include '../include/header.php';
             <?php
         }
         ?>
-        <div class="BasicsBox" style="width:450px;float:left;margin-top:0;" >
+        <div style="width:450px;float:left;margin-top:0;" >
             <div id="contact-sheet--collectionname" class="Question">
                 <label><?php echo escape($lang["collectionname"]); ?></label>
                 <span><?php echo i18n_get_collection_name($collectiondata); ?></span>

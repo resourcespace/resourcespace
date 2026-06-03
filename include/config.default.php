@@ -652,11 +652,12 @@ $terms_upload = false;
 $terms_login = false;
 
 // Controls how the collection bar should be displayed ("hide" is better if collections are not going to be heavily used).
+// Will be overriden by local value stored in cookie, or via user preferences/group config override being set
 // Can be:
 //     show - full display, the default option
 //     actions - minimized bar showing selector for collections and actions
 //     hide - show collection button only
-$thumbs_default = "show";
+$thumbs_default = "hide";
 
 // Automatically show thumbs when selecting a collection from My Requests (only if thumbs_default is show)
 $autoshow_thumbs = false;
@@ -2670,10 +2671,10 @@ $daterange_edtf_support = false;
 // Mappings between resource types and file extensions.
 // Can be used to automatically create resources in the system based on the extension of the file.
 $resource_type_extension_mapping_default = 1;
-$resource_type_extension_mapping         = array(
-2 => array('pdf', 'doc', 'docx', 'epub', 'ppt', 'pptx', 'odt', 'ods', 'tpl', 'ott' , 'rtf' , 'txt' , 'xml'),
-3 => array('mov', '3gp', 'avi', 'mpg', 'mp4', 'flv', 'wmv', 'webm'),
-4 => array('flac', 'mp3', '3ga', 'cda', 'rec', 'aa', 'au', 'mp4a', 'wav', 'aac', 'ogg', 'weba'),
+$resource_type_extension_mapping = array(
+    2 => array('pdf', 'doc', 'docx', 'epub', 'ppt', 'pptx', 'odt', 'ods', 'tpl', 'ott' , 'rtf' , 'txt' , 'xml'),
+    3 => array('mov', '3gp', 'avi', 'mpg', 'mp4', 'flv', 'wmv', 'webm'),
+    4 => array('flac', 'mp3', '3ga', 'cda', 'rec', 'aa', 'au', 'mp4a', 'wav', 'aac', 'ogg', 'weba', 'wma'),
 );
 
 // New mode that means the upload goes first, then the users edit and approve resources moving them to the correct stage.
