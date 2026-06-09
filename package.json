@@ -20,7 +20,7 @@
         "chartjs-adapter-date-fns": "^3.0.0",
         "chosen-js": "^1.8.7",
         "date-fns": "^2.30.0",
-        "dompurify": "^3.3.1",
+        "dompurify": "^3.4.8",
         "heatmap.js": "^2.0.5",
         "jcrop": "github:tapmodo/Jcrop#v0.9.15",
         "jquery": "^3.6.0",
@@ -36,10 +36,10 @@
         "lightbox2": "^2.11.5",
         "openseadragon": "^2.4.2",
         "select2": "4.1.0-rc.0",
-        "tinymce": "^7.3.0",
+        "tinymce": "^7.9.3",
         "toastify-js": "^1.12.0",
-        "uppy": "3.17.0",
-        "video.js": "7.14.3",
+        "uppy": "4.10.0",
+        "video.js": "7.21.7",
         "videojs-resolution-switcher-for-videojs-version-7": "github:mzulkiakbari/videojs-resolution-switcher-for-videojs-version-7"
     },
     "scripts": {

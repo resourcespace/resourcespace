@@ -1621,9 +1621,11 @@ function allow_tile_colour_change($tile_type, $tile_style = '')
 function render_dash_tile_colour_chooser($tile_style, $tile_colour)
 {
     global $lang, $baseurl;
-
+    
+    $tile_style  = escape($tile_style);
+    $tile_colour = escape($tile_colour);
     ?>
-    <div id="tile_style_colour_chooser" class="Question"  stlye="<?php echo $tile_style == 'ftxt' ? '' : 'display: none;'?>" >
+    <div id="tile_style_colour_chooser" class="Question"  style="<?php echo $tile_style == 'ftxt' ? '' : 'display: none;'?>" >
 
     <label for="tile_style_colour"><?php echo escape($lang['colour']); ?></label>
     <input id="tile_style_colour" name="tlstylecolour" type="color" onchange="update_tile_preview_colour(this.value);" value="<?php echo $tile_colour; ?>">
@@ -1659,12 +1661,7 @@ function render_dash_tile_colour_chooser($tile_style, $tile_colour)
             });
         <?php } ?>
     </script>
-
-    <?php if ('ftxt' == $tile_style) { ?>
-        </div>
-    <?php } else { ?>
-        </span>
-    <?php } ?>
+    </div>
     <div class="clearerleft"></div>
     <?php
 }
@@ -1785,7 +1782,7 @@ function generate_dash_tile_toolbar(array $tile, $tile_id)
 
     if (!$managed_home_dash && (checkPermission_dashadmin() || checkPermission_dashuser())) {
         ?>
-        <div id="DashTileActions_<?php echo substr($tile_id, 18); ?>" class="DashTileActions">
+        <div id="DashTileActions_<?php echo escape(substr($tile_id, 18)); ?>" class="DashTileActions">
             <?php
                 if ((checkPermission_dashadmin() || (isset($tile['all_users']) && $tile['all_users'] == 0)) && !(isset($tile['no_edit']) && $tile['no_edit'])) {
                     ?>
@@ -1797,7 +1794,7 @@ function generate_dash_tile_toolbar(array $tile, $tile_id)
                     <?php
                 }
             ?>
-            <div class="tool dash-delete_<?php echo substr($tile_id, 18); ?>" title="<?php echo escape($lang["dashtiledelete"]); ?>">
+            <div class="tool dash-delete_<?php echo escape(substr($tile_id, 18)); ?>" title="<?php echo escape($lang["dashtiledelete"]); ?>">
                 <a href="#">
                     <i class="icon-trash-2"></i>
                 </a>

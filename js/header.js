@@ -4,6 +4,7 @@ ResourceSpace.Modules.Header = (() => {
     const primaryNavOverflowThreshold = 6;
     let stickyHeaderLastScrollTop = 0;
     const updateCssHeaderVarsObserver = new ResizeObserver(updateCssHeaderVars);
+    let updateCssHeaderVarsInProgress = false;
 
     function init() {
         if (!header) return;
@@ -73,6 +74,8 @@ ResourceSpace.Modules.Header = (() => {
         const logo = header.querySelector('.logo');
         const actions = header.querySelector('.actions');
 
+        if (updateCssHeaderVarsInProgress) return;
+
         if (currentScroll > stickyHeaderLastScrollTop + scrollThreshold) {
             logo.classList.add('is-collapsed');
             actions.classList.add('is-collapsed');
@@ -94,6 +97,12 @@ ResourceSpace.Modules.Header = (() => {
     }
 
     function updateCssHeaderVars() {
+        updateCssHeaderVarsInProgress = true;
+        requestAnimationFrame(() => {
+            // reset before the next repaint (rendering cycle)
+            updateCssHeaderVarsInProgress = false;
+        });
+
         const headerBB = header.getBoundingClientRect();
 
         document.documentElement.style.setProperty('--js-header-container-bottom', `${headerBB.bottom}px`);

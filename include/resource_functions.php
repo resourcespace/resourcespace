@@ -1289,7 +1289,7 @@ function save_resource_data($ref, $multi, $autosave_field = "")
     // Initialise an array of updates for the resource table
     $resource_update_sql = array();
     $resource_update_params = array();
-    if ($edit_contributed_by) {
+    if ($edit_contributed_by && checkperm('v')) {
         $created_by = $resource_data['created_by'];
         $new_created_by = getval("created_by", 0, true);
         if ((getval("created_by", 0, true) > 0) && $new_created_by != $created_by) {
@@ -2281,7 +2281,7 @@ function save_resource_data_multi($collection, $editsearch = array(), $postvals 
     }
 
     # Also update access level
-    if (($postvals["editthis_created_by"] ?? "") != "" && $edit_contributed_by) {
+    if (($postvals["editthis_created_by"] ?? "") != "" && $edit_contributed_by && checkperm('v')) {
         for ($m = 0; $m < count($list); $m++) {
             $ref = $list[$m];
             $created_by = ps_value("SELECT created_by value FROM resource WHERE ref=?", array("i",$ref), "");

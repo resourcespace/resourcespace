@@ -156,7 +156,7 @@
     --toggle-height: var(--space-60);
     --actions-height: 110px;
     --thumbs-height: 184px;
-    --uicenter-height: calc(100% - 66px);
+    --uicenter-height: calc(100% - var(--js-header-container-bottom));
     
 }
 
@@ -804,9 +804,7 @@ img[src$=".svg"]
 
 #UICenter {
     height: var(--uicenter-height);
-    transition: height 0.25s ease;
     overflow-y: scroll;
-    /*background: var(--colour-surface-view-background);*/
 }
 
 #CentralSpaceContainer {
@@ -6067,7 +6065,6 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
     :root {
         --toggle-height: var(--space-48);
         --thumbs-height: 128px;
-        --uicenter-height: calc(100% - 54px);
     }
 
     .collection-bar-holder .collection-bar-toggle-button {
@@ -6105,10 +6102,6 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
 
 @media(max-width: 1000px) {
 
-    :root {
-        --uicenter-height: calc(100% - var(--space-64) - 54px);
-    }
-
     .collection-bar-actions-form select {
         width: 328px;
     }
@@ -6132,7 +6125,6 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
 
     :root {
         --actions-height: 268px;
-        --uicenter-height: calc(100% - 54px);
     }
 
     .collection-bar-holder .collection-bar-toggle-button {
