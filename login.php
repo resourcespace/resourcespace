@@ -105,7 +105,7 @@ if ($lockouts > 0 || $ulockouts > 0) {
             $accepted = ps_value("SELECT accepted_terms value FROM user WHERE ref = ?", array("i", (int)$result['ref']), 0);
 
             if (0 == $accepted && $terms_login && !checkperm('p')) {
-                $redirect_url = 'pages/terms.php?url=' . urlencode($url);
+                $redirect_url = $baseurl . '/pages/terms.php?url=' . urlencode($url);
             } else {
                 $redirect_url = $url;
             }
