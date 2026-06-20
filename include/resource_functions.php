@@ -7121,8 +7121,7 @@ function get_default_archive_state($requestedstate = "")
     if ($modified_defaultstatus !== false) {
         # Set the modified default status
         return $modified_defaultstatus;
-    } elseif ($override_status_default !== false) {
-        # Set the default status if set in config.
+    } elseif ($override_status_default !== false && is_int($override_status_default)) {
         return $override_status_default;
     } elseif (checkperm("c") && checkperm("e0")) {
         # Set status to Active

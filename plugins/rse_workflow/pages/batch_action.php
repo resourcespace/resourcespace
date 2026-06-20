@@ -65,15 +65,6 @@ $sort = "DESC";
 $recent_search_daylimit = getval("recent_search_daylimit", "");
 $go = getval("go", "");
 
-$search_all_workflow_states_cache = $search_all_workflow_states;
-
-if ($archive == "") {
-    $archive = 0;
-} else {
-    $search_all_workflow_states = false;
-}
-
-// Override if needed
 if(!is_null($collection))
     {
     $search = "!collection{$collection}";
@@ -100,8 +91,6 @@ $result = do_search(
     false,
     $access
 );
-
-$search_all_workflow_states = $search_all_workflow_states_cache;
 
 $resources = array();
 if(is_array($result) && count($result) > 0)

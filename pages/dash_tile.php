@@ -384,7 +384,7 @@ if (!$validpage) {
         <div class="Question">
             <label><?php echo escape($lang["preview"]); ?></label>
             <br />
-            <div class="HomePanel DashTile" style="overflow: initial;">
+            <div class="HomePanel DashTile">
                 <div id="previewdashtile" class="dashtilepreview HomePanelIN HomePanelDynamicDash"></div>
             </div>
             <div class="clearerleft"></div>

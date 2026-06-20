@@ -742,9 +742,7 @@ function search_filter($search, $archive, $restypes, $recent_search_daylimit, $a
     if (!is_array($archive)) {
         $archive = explode(",", $archive);
     }
-    $archive = array_filter($archive, function ($state) {
-        return (string)(int)$state == (string)$state;
-    }); // remove non-numeric values
+    $archive = array_filter($archive, is_int_loose(...));
 
     $sql_filter = new PreparedStatementQuery();
 

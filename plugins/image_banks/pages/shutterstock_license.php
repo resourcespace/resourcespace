@@ -46,7 +46,7 @@ if ($preview_title == "") {
     <tr class="DownloadDBlend" id="DownloadBox0">
         <td class="DownloadFileName"><h2><?php echo escape($lang["image_banks_shutterstock_id"] . " " . $id); ?></h2></td>
         <td class="DownloadButton">
-        <a id="downloadlink" target="_blank" href="https://www.shutterstock.com/image-photo/<?php echo escape($id); ?>"><?php echo escape($lang["download"]); ?></a>
+        <a id="downloadlink" target="_blank" rel="noopener noreferrer" href="https://www.shutterstock.com/image-photo/<?php echo escape($id); ?>"><?php echo escape($lang["download"]); ?></a>
         </td>
     </tr>
     </tbody></table>

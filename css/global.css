@@ -845,7 +845,6 @@ img[src$=".svg"]
 #CollectionSpace{font-size: 0.95em;text-align:left; margin-top: 3px; margin-left: 250px; min-height:160px;}
 
 #CentralSpace .SearchWidth {width: 550px;font-size: 0.9em ;margin: 0 0;}
-#CentralSpace .SearchWidthExp {width:200px;font-size: 0.9em ;margin: 0 0;padding: 0;}
 #CentralSpace .SearchWidthDate {width:120px;}
 #CentralSpace .SplitSearch {float: left; margin-left: 5px;margin-right: 5px;}
 input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}

@@ -113,18 +113,18 @@ function tile_graph(array $tile, string $tile_id): void
         <div class="tile-graph">
             <h2 class="tile-graph-title"><?php echo escape($tile['title']); ?></h2>
             <div class="tile-graph-container <?php echo $graph_params['type'] == 'line' ? 'tile-line-graph' : 'tile-pie-graph'; ?>" >
-                <canvas id="tile_graph_canvas<?php echo $tile_id; ?>"></canvas>
+                <canvas id="tile_graph_canvas<?php echo escape($tile_id); ?>"></canvas>
             </div>
             <?php
                 if($graph_types[$graph_params['type']] == 'doughnut') {
                     ?>
-                        <div id="legend_container_<?php echo $tile_id; ?>" class="tile-graph-legend"></div>
+                        <div id="legend_container_<?php echo escape($tile_id); ?>" class="tile-graph-legend"></div>
                     <?php
                 }
             ?>
             <script>
                 new Chart(
-                    jQuery('#tile_graph_canvas<?php echo $tile_id; ?>'),
+                    jQuery('#tile_graph_canvas<?php echo escape($tile_id); ?>'),
                     {
                         type: "<?php echo $graph_types[$graph_params['type']]; ?>",
                         data: {
@@ -176,7 +176,7 @@ function tile_graph(array $tile, string $tile_id): void
                                     display: false,                                      
                                 },
                                 tile_graph_legend: {
-                                    containerID: 'legend_container_<?php echo $tile_id; ?>'
+                                    containerID: 'legend_container_<?php echo escape($tile_id); ?>'
                                 }
                             },
                             scales: {
@@ -202,10 +202,10 @@ function tile_graph(array $tile, string $tile_id): void
                     }
                 )
 
-                async function load_tile_graph_<?php echo $tile_id; ?>() {
+                async function load_tile_graph_<?php echo escape($tile_id); ?>() {
                     let response = await fetch('<?php echo $graph_build_string ?>');
                     let data     = await response.json();
-                    let canvas   = jQuery('#tile_graph_canvas<?php echo $tile_id; ?>');
+                    let canvas   = jQuery('#tile_graph_canvas<?php echo escape($tile_id); ?>');
                     let chart    = Chart.getChart(canvas);
 
                     <?php 
@@ -233,7 +233,7 @@ function tile_graph(array $tile, string $tile_id): void
                     chart.update();
                 }
 
-                load_tile_graph_<?php echo $tile_id; ?>();
+                load_tile_graph_<?php echo escape($tile_id); ?>();
             </script>
             </div>
             <div class="tile-desc">
@@ -244,7 +244,7 @@ function tile_graph(array $tile, string $tile_id): void
         <?php
     } elseif ($graph_params['type'] == 'summary') {
         ?>
-        <div id="summary_<?php echo $tile_id; ?>" class="tile-graph">
+        <div id="summary_<?php echo escape($tile_id); ?>" class="tile-graph">
             <h2 class="tile-graph-title"><?php echo escape($tile['title']); ?></h2>
             <div class="tile-summary">
                 <p></p>
@@ -261,17 +261,17 @@ function tile_graph(array $tile, string $tile_id): void
             ?>
         </div>
         <script>
-            async function load_tile_graph_<?php echo $tile_id; ?>() {
+            async function load_tile_graph_<?php echo escape($tile_id); ?>() {
                 let response = await fetch('<?php echo $graph_build_string ?>');
                 let data     = await response.json();
-                let parent   = jQuery('#summary_<?php echo $tile_id; ?>');
+                let parent   = jQuery('#summary_<?php echo escape($tile_id); ?>');
                 
                 let totals   = parent.children('.tile-summary')
                 jQuery(totals[0]).children('p').text(data.total)
                 jQuery(totals[1]).children('p').text(data.average)
             }
 
-            load_tile_graph_<?php echo $tile_id; ?>()
+            load_tile_graph_<?php echo escape($tile_id); ?>()
         </script>
         <?php
     }
@@ -357,7 +357,7 @@ function tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height)
                 ?>
                     <p>
                         <?php echo escape($lang['or']); ?>
-                        <a style="padding: 0;" onClick="return CentralSpaceLoad(this,true);" href="<?php echo $url; ?>">
+                        <a onClick="return CentralSpaceLoad(this,true);" href="<?php echo $url; ?>">
                             <?php echo escape($lang['view_all_fcs']); ?>
                             <i class="icon-arrow-right"></i>
                         </a>

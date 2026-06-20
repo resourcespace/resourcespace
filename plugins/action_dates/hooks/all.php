@@ -272,8 +272,7 @@ function HookAction_datesCronCron()
                 LEFT JOIN node n ON n.ref=rn.node
             WHERE r.ref > 0 
                 AND n.resource_type_field = ?
-                AND r.archive <> ?
-            GROUP BY rn.resource";
+                AND r.archive <> ?";
 
             $sql_params = array(
                 "i",$field,
@@ -292,6 +291,7 @@ function HookAction_datesCronCron()
                 $sql_params = array_merge($sql_params, ps_param_fill($validrestypes, "i"));
             }
 
+            $sql .= " GROUP BY rn.resource";
             $additional_resources = ps_query($sql, $sql_params);
 
             foreach ($additional_resources as $resource) {
