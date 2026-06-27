@@ -75,14 +75,18 @@ function execute_api_call($query, $pretty = false)
     $params = [];
     parse_str($query, $params);
     if (!array_key_exists("function", $params)) {
+        debug('API: Missing the "function" parameter!');
         return false;
     }
     $function = $params["function"];
     if (!function_exists("api_" . $function)) {
+        debug("API: Missing the 'api_{$function}' binding!");
         return false;
     }
 
     global $lang;
+
+    debug("API: Preparing to call api_{$function}");
 
     // Check if this is a whitelisted function for browser use (native mode bypasses $enable_remote_apis=false;)
     if (
@@ -99,11 +103,18 @@ function execute_api_call($query, $pretty = false)
         $paramkey = $n + 1;
         $param_name = $fparam->getName();
         debug("API: Checking for parameter " . $param_name . " (param" . $paramkey . ")");
+
+        $is_sensitive_param = $fparam->getAttributes(\SensitiveParameter::class) !== [];
+
         if (array_key_exists("param" . $paramkey, $params)) {
-            debug("API: " . $param_name . " -   value has been passed : '" . $params["param" . $paramkey] . "'");
+            debug("API: " . $param_name . " - value has been passed : '"
+                . ($is_sensitive_param ? '[REDACTED]' : $params["param{$paramkey}"])
+                . "'");
             $setparams[$n] = $params["param" . $paramkey];
         } elseif (array_key_exists($param_name, $params)) {
-            debug("API: {$param_name} - value has been passed (by name): '" . json_encode($params[$param_name]) . "'");
+            debug("API: {$param_name} - value has been passed (by name): '"
+                . ($is_sensitive_param ? '[REDACTED]' : json_encode($params[$param_name]))
+                . "'");
 
             // Check if array;
             $type = $fparam->getType();
@@ -150,7 +161,7 @@ function execute_api_call($query, $pretty = false)
         $n++;
     }
 
-    debug("API: calling api_" . $function);
+    debug_function_call("api_{$function}", $setparams); # before calling the function (in case of errors)
     $result = call_user_func_array("api_" . $function, $setparams);
 
     if ($pretty) {
@@ -192,7 +203,7 @@ function get_session_api_key($user)
  * @param  string $password         Password to validate
  * @return string|false             FALSE if invalid, session API key if valid
 */
-function api_login($username, $password)
+function api_login($username, #[\SensitiveParameter] $password)
 {
     global $session_hash, $scramble_key;
     $user = get_user_by_username($username);

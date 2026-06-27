@@ -343,7 +343,7 @@ $page_def[] = config_add_boolean_select('terms_download', $lang['systemconfig_te
 $page_def[] = config_add_boolean_select('terms_login', $lang['systemconfig_terms_login_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('terms_upload', $lang['systemconfig_terms_upload_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('user_rating', $lang['systemconfig_user_rating_label'], $enable_disable_options, 420, null, true);
-$page_def[] = config_add_integer_input('inactive_user_disable_days', $lang['systemconfig_inactive_user_disable_days'], 30, 1825, 55, null, true);
+$page_def[] = config_add_integer_input('inactive_user_disable_days', $lang['systemconfig_inactive_user_disable_days'], 0, 1825, 55, null, true);
 $page_def[] = config_add_html('</div>');
 
 // Security section

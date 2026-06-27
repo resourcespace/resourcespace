@@ -6,7 +6,7 @@
  *
  * @return array Containing the login details ('valid' determines whether or not the login succeeded).
  */
-function perform_login($loginuser = "", $loginpass = "")
+function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
 {
     global $scramble_key, $lang, $max_login_attempts_wait_minutes, $max_login_attempts_per_ip, $max_login_attempts_per_username,
     $username, $password, $password_hash, $session_hash, $usergroup;
@@ -300,7 +300,7 @@ function set_login_cookies($user, $session_hash, $language = "", $user_preferenc
 *
 * @return string|false Password hash or false on failure
 */
-function rs_password_hash(string $password)
+function rs_password_hash(#[\SensitiveParameter] string $password)
 {
     $phi = get_password_hash_info();
     $algo = $phi['algo'];
@@ -322,7 +322,7 @@ function rs_password_hash(string $password)
 *
 * @return boolean
 */
-function rs_password_verify(string $password, string $hash, array $data)
+function rs_password_verify(#[\SensitiveParameter] string $password, string $hash, array $data)
 {
     // Prevent hashes being entered directly while still supporting direct entry of plain text passwords (for systems that
     // were set up prior to MD5 password encryption was added). If a special key is sent, which is the MD5 hash of the

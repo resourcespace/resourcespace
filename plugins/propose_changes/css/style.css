@@ -39,6 +39,7 @@
 .ProposeChangesCurrent {
 	width:20%;
 	max-width:20%;
+    padding-right: var(--space-16)
 }
 
 .ProposeChangesProposed {

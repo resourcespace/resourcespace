@@ -5,7 +5,7 @@
     "type": "project",
     "license": "documentation/licenses/resourcespace.txt",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-mbstring": "*",
         "ext-intl": "*",
         "ext-curl": "*",

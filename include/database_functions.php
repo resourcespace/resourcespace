@@ -226,6 +226,7 @@ function sql_connect()
         $mysql_server,
         $mysql_server_port,
         $mysql_username,
+        #[\SensitiveParameter]
         $mysql_password,
         $mysql_db
     ) use (

@@ -13,7 +13,7 @@
 *
 * @return  string  Encrypted data
 */
-function rsEncrypt($data, $key, $keylength = 128)
+function rsEncrypt($data, #[\SensitiveParameter] $key, $keylength = 128)
 {
     global $scramble_key;
 
@@ -61,7 +61,7 @@ function rsEncrypt($data, $key, $keylength = 128)
 *
 * @return  false|string  Returns FALSE if MAC check failed, plaintext otherwise
 */
-function rsDecrypt($data, $key)
+function rsDecrypt($data, #[\SensitiveParameter] $key)
 {
     global $scramble_key;
 

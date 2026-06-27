@@ -90,7 +90,9 @@ function debug_function_call($name, array $args)
     foreach ($fct->getParameters() as $param) {
         $value = null;
 
-        if (!$param->isOptional() && isset($args[$param->getPosition()])) {
+        if ($param->getAttributes(\SensitiveParameter::class) !== []) {
+            $value = '[REDACTED]';
+        } elseif (!$param->isOptional() && isset($args[$param->getPosition()])) {
             $value = $args[$param->getPosition()];
         } elseif ($param->isOptional() && isset($args[$param->getPosition()])) {
             $value = $args[$param->getPosition()];

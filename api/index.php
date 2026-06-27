@@ -33,9 +33,6 @@ if (getval("query", "") != "") {
     $query = getval("query", "");
 }
 
-debug("API:". $query);
-
-
 # Remove the pretty, sign and authmode parameters if passed as these would not have been present when signed on the client.
 # For example, pretty JSON is just how the client wants the response back, doesn't need to to be part of the signing key process.
 parse_str($query, $query_params);
@@ -51,10 +48,10 @@ if (isset($query_params['pretty'])) {
 $query = str_replace("&!|!|", "", ltrim($query, "!|!|&")); # remove joining &
 
 $validauthmodes = array("userkey", "native", "sessionkey");
-$function = getval("function", "");
 if (!in_array($authmode, $validauthmodes)) {
     $authmode = "userkey";
 }
+$function = getval("function", $query_params['function'] ?? "");
 if ($function != "login") {
     if ($authmode == "native") {
         debug("API: Native authmode, authenticating");
@@ -87,4 +84,4 @@ if ($function != "login") {
 
 debug("API: Executing API call");
 echo execute_api_call($query, $pretty);
-debug("API: finished execute_api_call({$query});");
+debug("API: finished execute_api_call();");

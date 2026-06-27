@@ -2388,7 +2388,7 @@ function config_check_valid_option(array $def, mixed $value): bool
             $result = (is_int_loose($value) && (int) $value >= $range_start && (int) $value <= $range_end);
             break;
         case 'single_select':
-            $valid_options = array_keys($def[3]);
+            $valid_options = array_merge($def[3], array_keys($def[3]));
             $result = in_array($value, $valid_options);
             break;
         case 'boolean_select':

@@ -353,7 +353,7 @@ function propose_changes_display_field($n, $field)
     if ($value!="")
             {
             # Draw this field normally.         
-            ?><div class="propose_changes_current ProposeChangesCurrent"><?php display_field_data($field,true, false); ?></div><?php
+            ?><div class="propose_changes_current ProposeChangesCurrent"><?php display_field_data($field,true, null); ?></div><?php
             }                        
         else
             {
