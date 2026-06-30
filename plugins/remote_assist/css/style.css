@@ -1,7 +1,8 @@
 #remote_assist {
   display: flex;
-  margin: 24px 20px;
+  margin: 24px auto;
   min-height: var(--space-24, 24px);
+  max-width: 1352px;
   padding: var(--space-12, 12px);
   align-items: center;
   gap: 10px;
@@ -38,4 +39,10 @@
   padding: 5px;
   margin-left: auto;
   cursor: pointer;
+}
+
+@media (max-width:1366px) {
+  #remote_assist {
+      margin: 24px 16px;
+  }
 }

@@ -163,6 +163,7 @@ if (getval("resetform", "") != "") {
     $found_end_date = "";
     $allwords = "";
     $full_text_search = "";
+    $resource_ids = "";
     $restypes = get_search_default_restypes();
     rs_setcookie('restypes', implode(",", $restypes), 0, "", "", false, false);
     $selected_archive_states = array(0);
@@ -177,6 +178,7 @@ if (getval("resetform", "") != "") {
     } else {
         $restypes = explode(",", getval("restypes", ""));
     }
+    $resource_ids = getval("resourceids", "");
 
     for ($n = 0; $n < count($keywords); $n++) {
         $keyword = trim($keywords[$n]);
@@ -662,7 +664,7 @@ include "../include/header.php";
             <!-- Search for resource ID(s) -->
             <div class="Question">
                 <label for="resourceids"><?php echo escape($lang["resourceids"]) ?></label>
-                <input class="SearchWidth" type=text name="resourceids" id="resourceids" value="<?php echo escape(getval("resourceids", "")) ?>" onchange="UpdateResultCount();">
+                <input class="SearchWidth" type=text name="resourceids" id="resourceids" value="<?php echo escape($resource_ids); ?>" onchange="UpdateResultCount();">
                 <div class="clearerleft"></div>
             </div>
 

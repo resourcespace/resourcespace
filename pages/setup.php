@@ -1015,8 +1015,8 @@ if (get_post_bool('ajax')) {
 
                             <?php
                             $continue = true;
-                            if (version_compare(PHP_VERSION, '8.1.0', '<')) {
-                                $result   = $lang["status-fail"] . ": " . str_replace('?', '8.1.0', $lang['shouldbeversion']);
+                            if (version_compare(PHP_VERSION, '8.2.0', '<')) {
+                                $result   = $lang["status-fail"] . ": " . str_replace('?', '8.2.0', $lang['shouldbeversion']);
                                 $pass     = false;
                                 $continue = false;
                             } else {

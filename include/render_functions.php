@@ -280,8 +280,8 @@ function render_search_field(
             field<?php echo $field['ref']; ?>status    = jQuery(idname<?php echo $field['ref']; ?>).css('display');
             newfield<?php echo $field['ref']; ?>status = 'none';
 
-            // Assume visible by default
-            field<?php echo $field['ref']; ?>visibility = true;
+            // Assume visibility is false by default
+            field<?php echo $field['ref']; ?>visibility = false;
 
             <?php
             foreach($scriptconditions as $scriptcondition)
@@ -379,16 +379,16 @@ function render_search_field(
                 }?>
 
                 if (
-                    !field<?php echo escape($field['ref']); ?>valuefound
-                    && (<?php if ($forsearchbar) { ?>
+                    field<?php echo escape($field['ref']); ?>valuefound
+                    && (<?php echo escape(empty($scriptcondition['resource_types'])) ? 'true' : 'false'; ?>
+                    || <?php if ($forsearchbar) { ?>
                         !(ssearchhiddenfieldsarray.includes("<?php echo escape("simplesearch_{$scriptcondition['field']}") ?>"))
                     <?php } else { ?>
-                        (selectedtypes.includes(<?php echo encode_js_value($scriptcondition['resource_types']); ?>))
-                    <?php } ?>
-                        || <?php echo escape(empty($scriptcondition['resource_types'])) ? 'true' : 'false'; ?>)
-                    ) {
-                        field<?php echo escape($field['ref']); ?>visibility = false;
-                    }
+                        (selectedtypes.every(resource_type => (<?php echo encode_js_value($scriptcondition['resource_types']); ?>.split(',')).includes(resource_type)))
+                    <?php } ?> )
+                ) {
+                    field<?php echo escape($field['ref']); ?>visibility = true;
+                }
 
             <?php
                 echo "// End of checking values on field ".$scriptcondition['field']."\n\n            ";

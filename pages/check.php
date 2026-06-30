@@ -254,8 +254,8 @@ include "../include/header.php";
         <?php
         # Check PHP version
         $phpinifile = php_ini_loaded_file();
-        if (version_compare(PHP_VERSION, '8.1.0', '<')) {
-            $result = $lang["status-fail"] . ": " . str_replace("?", "8.1", $lang["shouldbeversion"]);
+        if (version_compare(PHP_VERSION, '8.2.0', '<')) {
+            $result = $lang["status-fail"] . ": " . str_replace("?", "8.2", $lang["shouldbeversion"]);
         } else {
             $result = $lang["status-ok"];
         }
