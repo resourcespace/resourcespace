@@ -1354,9 +1354,9 @@ jQuery(document).ready(function () {
 
     uppy.use(Tus, {
             resume: true,
-            limit: <?php echo $upload_concurrent_limit; ?>,
+            limit: <?php echo escape($upload_concurrent_limit); ?>,
             endpoint: '<?php echo $baseurl ?>/pages/upload_batch.php',
-            retryDelays: <?php echo $upload_retry_delays; ?>,
+            retryDelays: <?php echo escape($upload_retry_delays); ?>,
             withCredentials: true,
             overridePatchMethod: true,
             removeFingerprintOnSuccess: true,

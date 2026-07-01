@@ -55,9 +55,6 @@ $cropperestricted = in_array($usergroup,$cropper_restricteduse_groups);
 $sswidth = 1920; 
 $ssheight = 640;
 
-// Create array to hold errors
-$errors = array();
-
 $blockcrop = false;
 
 // Check sufficient access
@@ -133,8 +130,8 @@ if(file_exists($originalpath))
                 }
             else
                 {
-                $errors[] = "Unable to get image resolution";
-                $origsizes = [0,0];
+                error_alert($lang['error-resolution-zero'], false); 
+                exit();
                 }
             }
         $origwidth  = $origsizes[0];
@@ -224,7 +221,8 @@ if(file_exists($crop_pre_file))
     }
 else
     {
-    $errors[] = "Unable to find preview image";
+    error_alert($lang['error-preview-missing'], false); 
+    exit();
     }
 
 if($cropsizes)
@@ -234,7 +232,8 @@ if($cropsizes)
     }
 else
     {
-    $errors[] = "Unable to determine preview image dimensions";
+    error_alert($lang['error-dimension-zero'], false); 
+    exit();
     }
 
 # check that crop width and crop height are > 0

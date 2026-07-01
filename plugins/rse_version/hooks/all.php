@@ -71,7 +71,7 @@ function HookRse_versionAllSave_resource_data_multi_extra_modes($ref,$field,$exi
     {
     # Process the batch revert action - hooks in to the save operation (save_resource_data_multi())
     global $FIXED_LIST_FIELD_TYPES, $lang, $user_local_timezone;
-    # Remove text/option(s) mode?
+
     if (($postvals["modeselect_" . $field["ref"]] ?? "") == "Revert")
         {
         $revert_date = $postvals["revert_" . $field["ref"]] ?? "";

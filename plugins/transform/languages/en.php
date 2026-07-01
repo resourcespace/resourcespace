@@ -90,3 +90,6 @@ $lang["page-title_transform_crop"]                  = "Crop Resource";
 $lang["page-title_transform_setup"]                 = "Setup Transform Plugin";
 
 $lang["use_filename_as_title"] = "Use filename as title";
+
+$lang['error-resolution-zero'] = "Error: Original image has a calculated width/height of zero.";
+$lang['error-preview-missing'] = "Error: Unable to find preview image";

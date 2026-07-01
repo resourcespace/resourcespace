@@ -1,4 +1,6 @@
 <?php
+$suppress_headers = true; # Suppress headers including the XFRAME limitation so that this page can be remotely embedded.
+
 include "../../../include/boot.php";
 
 # Get variables and check key is valid.

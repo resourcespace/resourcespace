@@ -35,6 +35,9 @@ if (substr($order_by,0,5)=="field"){$default_sort_direction="ASC";}
 $sort=getval("sort",$default_sort_direction);
 if($sort != 'ASC' && $sort != 'DESC') {$sort = $default_sort_direction;}
 
+const PAGE_VIEW_RESTRICTED = -1;
+const PAGE_COUNT_RESTRICTED = -2;
+
 # Get alternative files and configure next and previous buttons relative to the current file
 if($alternative != "-1")
     {
@@ -163,7 +166,7 @@ if (!file_exists(get_resource_path($ref,true,$previewsizes[0],false,$ext,-1,$pre
     && !file_exists(get_resource_path($ref,true,"",false,$ext,-1,$previouspage,$use_watermark,"",$alternative))
     && !file_exists(get_resource_path($ref,true,$previewsizes[1],false,$ext,-1,$previouspage,$use_watermark,"",$alternative))) {        
     
-    $previouspage = -1;        
+    $previouspage = PAGE_VIEW_RESTRICTED;        
 }
 
 //Next page check
@@ -171,7 +174,7 @@ $nextpage = $page + 1;
 if (!file_exists(get_resource_path($ref,true,$previewsizes[0],false,$ext,-1,$nextpage,$use_watermark,"",$alternative))
     && !file_exists(get_resource_path($ref,true,$previewsizes[1],false,$ext,-1,$nextpage,$use_watermark,"",$alternative))) {
     
-    $nextpage = -1;    
+    $nextpage = PAGE_VIEW_RESTRICTED;    
 }
 
 // get mp3 paths if necessary and set $use_mp3_player switch
@@ -275,11 +278,11 @@ else
 
 if (
     !hook("replacepreviewpager")
-    && ($nextpage != -1 || $previouspage != -1) 
+    && ($nextpage != PAGE_VIEW_RESTRICTED || $previouspage != PAGE_VIEW_RESTRICTED) 
     && $nextpage != -0
     ) {
-        $pagecount = ($access == RESOURCE_ACCESS_RESTRICTED) ? -2 : get_page_count($resource,$alternative);
-        if ($pagecount!=null && $pagecount!=-2){
+        $pagecount = ($access == RESOURCE_ACCESS_RESTRICTED) ? PAGE_COUNT_RESTRICTED : get_page_count($resource,$alternative);
+        if ($pagecount != null && $pagecount != PAGE_COUNT_RESTRICTED){
         ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo escape($lang['page']);?>: <select class="ListDropdown" style="width:auto" onChange="CentralSpaceLoad('<?php echo $baseurl_short?>pages/preview.php?ref=<?php echo urlencode($ref) ?>&alternative=<?php echo urlencode($alternative)?>&ext=<?php echo urlencode($ext)?>&k=<?php echo urlencode($k)?>&search=<?php echo urlencode($search)?>&offset=<?php echo urlencode($offset)?>&order_by=<?php echo urlencode($order_by)?>&sort=<?php echo urlencode($sort)?><?php if($saved_thumbs_state=="show"){?>&thumbs=show<?php } ?>&archive=<?php echo urlencode($archive)?>&page='+this.value);"><?php 
         for ($n=1;$n<$pagecount+1;$n++)
             {
@@ -320,13 +323,13 @@ if (!hook("previewimage")) {
 <tr>
 <td valign="middle">
     <?php 
-    if ($resource['file_extension']!="jpg" && $previouspage != -1 && $pagecount != -2 && (resource_download_allowed($ref,"scr",$resource["resource_type"]) || $use_watermark)) {
+    if ($resource['file_extension']!="jpg" && $previouspage != PAGE_VIEW_RESTRICTED && $pagecount != PAGE_COUNT_RESTRICTED && (resource_download_allowed($ref,"scr",$resource["resource_type"]) || $use_watermark)) {
         $urlparams["page"] = $previouspage;
     ?>
     <a onClick="return CentralSpaceLoad(this);" 
         href="<?php echo generateURL($baseurl_short . "pages/preview.php",$urlparams); ?>" class="PDFnav  pagePrev">&lt;</a>
     <?php } 
-    elseif ($nextpage != -1 && $pagecount != -2 && (resource_download_allowed($ref,"scr",$resource["resource_type"]) || $use_watermark)) {
+    elseif ($nextpage != PAGE_VIEW_RESTRICTED && $pagecount != PAGE_COUNT_RESTRICTED && (resource_download_allowed($ref,"scr",$resource["resource_type"]) || $use_watermark)) {
     ?>
     <a href="#" class="PDFnav pagePrev">&nbsp;&nbsp;&nbsp;</a>
     <?php } 
@@ -384,7 +387,7 @@ if (!(isset($resource['is_transcoding']) && $resource['is_transcoding']==1) && f
 
 <td valign="middle">
     <?php 
-    if ($nextpage != -1 && $pagecount != -2 && (resource_download_allowed($ref,"scr",$resource["resource_type"]) || $use_watermark)) {
+    if ($nextpage != PAGE_VIEW_RESTRICTED && $pagecount != PAGE_COUNT_RESTRICTED && (resource_download_allowed($ref,"scr",$resource["resource_type"]) || $use_watermark)) {
         $urlparams["page"] = $nextpage;
     ?>
     <a onClick="return CentralSpaceLoad(this);" 
