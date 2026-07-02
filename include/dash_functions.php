@@ -1619,14 +1619,23 @@ function render_upgrade_available_tile($user)
     if (!is_resourcespace_upgrade_available()) {
         return;
     }
+    $newest_version = trim((string) file_get_contents("https://www.resourcespace.com/current_release.txt"));
     ?>
     <a href="https://www.resourcespace.com/versions"
-       target="_blank"
-       class="HomePanel DashTile"
-       id="upgrade_available_tile">
-        <div id="contents_user_tile_upgrade_available" class="HomePanelIN HomePanelDynamicDash">
-            <h2><?php echo escape($GLOBALS['lang']['upgrade_available_title']); ?></h2>
-            <p><?php echo escape($GLOBALS['lang']['upgrade_available_text']); ?></p>
+        target="_blank"
+        class="HomePanel DashTile"
+        id="upgrade_available_tile">
+        <div class="HomePanelIN HomePanelDynamicDash">
+            <div class="tile-special-content">
+                <div class="tile-special-icon tile-upgrade-icon">
+                        <?php echo escape($newest_version); ?>
+                        <span class="tile-pill"><i class="icon-circle-arrow-up"></i></span>
+                </div>
+            </div>
+            <div class="tile-desc">
+                <h2><?php echo escape($GLOBALS['lang']['upgrade_available_title']); ?></h2>
+                <p><?php echo escape($GLOBALS['lang']['upgrade_available_text']); ?></p>
+            </div>
         </div>
     </a>
     <?php

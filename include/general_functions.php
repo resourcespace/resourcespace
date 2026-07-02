@@ -3042,7 +3042,9 @@ function generateURL(string $url, array $parameters = array(), array $set_params
         $url = $hookurl;
     }
 
-    return $url . '?' . http_build_query($query_string_params);
+    $query_string = http_build_query($query_string_params);
+    
+    return $url .  (mb_strlen($query_string) > 0 ? '?'  . $query_string : "");
 }
 
 /**

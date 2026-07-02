@@ -3215,6 +3215,7 @@ $lang["filter_is_in"]               = "IS ";
 $lang["filter_is_not_in"]           = "IS NOT ";
 $lang["filter_or"]                  = "OR";
 $lang["filter_and"]                 = "AND";
+$lang["filter_err_field_disabled"] = "Field '%NAME' is disabled";
 $lang['error-sessionexpired'] = "Your session has expired or is otherwise invalid";
 
 # Updates to workflow

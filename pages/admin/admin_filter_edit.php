@@ -92,8 +92,7 @@ if ($delete_filter_rule != "" && enforcePostRequest("delete_filter_rule")) {
     }
 }
 
-// Get all fields so we can resolve node field names
-$allfields = get_resource_type_fields();
+$allfields = get_resource_type_fields(include_inactive: true);
 
 $filter = get_filter($filterid);
 $filter_rules = get_filter_rules($filterid);
@@ -103,6 +102,7 @@ $rule_add_url = generateURL($baseurl . "/pages/admin/ajax/admin_filter_rule_edit
 
 // Convert filter so we can display it in a user friendly way
 $rules = array();
+$rules_err = [];
 
 foreach ($filter_rules as $fr_id => $frule) {
     foreach ($frule["nodes_on"] as $rulenode) {
@@ -116,13 +116,17 @@ foreach ($filter_rules as $fr_id => $frule) {
 
         $field_index = array_search($nodeinfo["resource_type_field"], array_column($allfields, 'ref'));
         if ($field_index !== false) {
+            if ((bool) $allfields[$field_index]['active'] === false) {
+                $rules_err[] = str_replace('%NAME', $allfields[$field_index]['name'], text('filter_err_field_disabled'));
+            }
+
             if (!isset($rules[$fr_id]["fields"][$allfields[$field_index]["ref"]])) {
                 $rules[$fr_id]["fields"][$allfields[$field_index]["ref"]]["fieldname"] = i18n_get_translated($allfields[$field_index]["name"]);
                 $rules[$fr_id]["fields"][$allfields[$field_index]["ref"]]["values_on"] = array();
             }
             $rules[$fr_id]["fields"][$allfields[$field_index]["ref"]]["values_on"][] = i18n_get_translated($nodeinfo["name"]);
         } else {
-            echo "filter - node field " . $nodeinfo["resource_type_field"] . " for node:" . $rulenode . " not found ";
+            debug("filter rule #{$fr_id} - node field {$nodeinfo["resource_type_field"]} for node:{$rulenode} not found ");
         }
     }
 
@@ -137,13 +141,17 @@ foreach ($filter_rules as $fr_id => $frule) {
 
         $field_index = array_search($nodeinfo["resource_type_field"], array_column($allfields, 'ref'));
         if ($field_index !== false) {
+            if ((bool) $allfields[$field_index]['active'] === false) {
+                $rules_err[] = str_replace('%NAME', $allfields[$field_index]['name'], text('filter_err_field_disabled'));
+            }
+
             if (!isset($rules[$fr_id]["fields"][$allfields[$field_index]["ref"]])) {
                 $rules[$fr_id]["fields"][$allfields[$field_index]["ref"]]["fieldname"] = i18n_get_translated($allfields[$field_index]["name"]);
                 $rules[$fr_id]["fields"][$allfields[$field_index]["ref"]]["values_off"] = array();
             }
             $rules[$fr_id]["fields"][$allfields[$field_index]["ref"]]["values_off"][] = i18n_get_translated($nodeinfo["name"]);
         } else {
-            echo "filter - node field " . $nodeinfo["resource_type_field"] . " for node:" . $rulenode . " not found ";
+            debug("filter rule #{$fr_id} - node field {$nodeinfo["resource_type_field"]} for node:{$rulenode} not found ");
         }
     }
 }
@@ -154,6 +162,7 @@ include "../../include/header.php";
 <div id="CentralSpaceContainer">
     <div id="CentralSpace">
         <div class="BasicsBox">
+            <?php render_top_page_error_style(implode('; ', $rules_err)); ?>
             <h1><?php echo escape($filterid == 0 ? $lang["filter_new"] : $lang["filter_edit"]); ?></h1>
             <?php
             $links_trail = array(

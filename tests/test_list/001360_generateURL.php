@@ -13,6 +13,11 @@ $use_cases = [
         'expected' => "{$static_url}?p1=v1&p2=v2",
     ],
     [
+        'name' => 'URL with no params',
+        'input' => [$static_url, []],
+        'expected' => "{$static_url}",
+    ],
+    [
         'name' => 'Set params should override the default ones',
         'input' => [$static_url, ['p1' => 'v1', 'p2' => 'v2'], ['p1' => 'newV1']],
         'expected' => "{$static_url}?p1=newV1&p2=v2",
@@ -25,7 +30,7 @@ $use_cases = [
     [
         'name' => 'Both default and set params should block array values',
         'input' => [$static_url, ['p1' => [], 'p2' => ['p2.1' => 1]], ['set1' => [], 'set2' => ['set2.1' => 1]]],
-        'expected' => "{$static_url}?",
+        'expected' => "{$static_url}",
     ],
     [
         'name' => 'URLs within query string params should be encoded',

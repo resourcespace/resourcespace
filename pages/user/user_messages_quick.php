@@ -15,11 +15,11 @@ message_get($messages, $userref, true, true, "DESC", "created", 10);
 <div id="messages-list" class="messages-modal">
     <div class="message-list-header">
         <h1>
-            <a href="<?php echo generateURL($baseurl . '/pages/user/user_messages.php'); ?>" onClick="return CentralSpaceLoad(this, true);"><?php echo escape($lang["mymessages"]); ?></a>
+            <a href="<?php echo $baseurl . '/pages/user/user_messages.php'; ?>" onClick="return CentralSpaceLoad(this, true);"><?php echo escape($lang["mymessages"]); ?></a>
         </h1>
     </div>
     <div class="message-list-newmessage">
-        <a href="<?php echo generateURL($baseurl . '/pages/user/user_message.php'); ?>" onClick="return CentralSpaceLoad(this, true);"><i class="icon-square-pen"></i> <?php echo escape($lang["new_message"]); ?></a>
+        <a href="<?php echo $baseurl . '/pages/user/user_message.php'; ?>" onClick="return CentralSpaceLoad(this, true);"><i class="icon-square-pen"></i> <?php echo escape($lang["new_message"]); ?></a>
     </div>
     <div id="message-list" class="message-list">
     </div>

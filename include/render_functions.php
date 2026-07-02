@@ -5663,10 +5663,8 @@ function render_array_in_table_cells($array)
 * Render the top page error style version
 * 
 * @param string $err_msg Error message
-* 
-* @return void
 */
-function render_top_page_error_style(string $err_msg)
+function render_top_page_error_style(string $err_msg): void
     {
     if(trim($err_msg) === '')
         {

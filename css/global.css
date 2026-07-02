@@ -477,7 +477,7 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     align-items: center;
     border-radius: var(--space-6);
     background: var(--colour-surface-card-icon-container);
-    box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 2px 8px 2px rgba(3, 36, 74, 0.05);
     width: 72px;
     height: 72px;
 }
@@ -485,6 +485,17 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     padding: var(--space-12);
     font-size: 48px;
     color: var(--colour-surface-card-icon)
+}
+.tile-upgrade-icon {
+    color: var(--colour-global-white);
+    text-align: center;
+    font-size: 32px;
+    font-style: normal; 
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.25px;
+
+    background: linear-gradient(180deg, color-mix(in srgb,var(--colour-brand-primary-hover) 80%, transparent) 0%, var(--colour-brand-primary-default) 100%);
 }
 .tile-pill {
     position: absolute;
@@ -508,6 +519,22 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     line-height: 100%;
 
     padding: 2px 5px;
+}
+.tile-upgrade-icon > .tile-pill {
+    background: var(--colour-global-white);
+    min-width: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0px;
+    border-radius: 96px;
+    top: -20px;
+    right: -20px;
+}
+.tile-upgrade-icon > .tile-pill i {
+    color: var(--colour-brand-primary-default);
+    font-size: 22px;
+    padding: 0;
+    width: auto;
 }
 .tile-graph {
     display: flex;
@@ -1679,7 +1706,7 @@ p.tile_corner_box {
     border-radius: var(--space-8);
 }
 .DoubleWidthDashTile > p.tile_corner_box {
-    top: 337px
+    top: 337px;
 }
 .DoubleWidthDashTile .tile-special-icon i {
     font-size: 64px;
@@ -1810,7 +1837,7 @@ p.tile_corner_box {
     .DoubleWidthDashTile .tile-multi,
     .DoubleWidthDashTile .tile-placeholder,
     .DoubleWidthDashTile .tile-special-content {
-        height: 202px;;
+        height: 202px;
     }
     .DoubleWidthDashTile .HomePanelDynamicDash > p.tile_corner_box {
         top: 162px;
@@ -1867,7 +1894,7 @@ p.tile_corner_box {
         width: 96px;
     }
     .DoubleWidthDashTile .HomePanelDynamicDash > p.tile_corner_box {
-        top: 337px
+        top: 337px;
     }
     .DoubleWidthDashTile .tile-special-icon i {
         font-size: 64px;
@@ -1888,7 +1915,7 @@ p.tile_corner_box {
     .DoubleWidthDashTile .tile-multi,
     .DoubleWidthDashTile .tile-placeholder,
     .DoubleWidthDashTile .tile-special-content {
-        height: 202px;;
+        height: 202px;
     }
     .DoubleWidthDashTile .HomePanelDynamicDash > p.tile_corner_box {
         top: 162px;
@@ -1919,7 +1946,7 @@ p.tile_corner_box {
     .DoubleWidthDashTile .tile-multi,
     .DoubleWidthDashTile .tile-placeholder,
     .DoubleWidthDashTile .tile-special-content {
-        height: 202px;;
+        height: 202px;
     }
     .DoubleWidthDashTile .HomePanelDynamicDash > p.tile_corner_box {
         top: 165px;
@@ -4043,7 +4070,7 @@ button[data-menu-trigger-close] {
     padding: 0 var(--space-32) var(--space-6) 0;
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24taWNvbiBsdWNpZGUtY2hldnJvbi1kb3duIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgOSA2IDYgNi02IiBzdHJva2U9IiM0YTRjNDgiLz48L3N2Zz4K);
     background-position: right var(--space-12) bottom var(--space-8);
-    background-position: top var(--space-12) right var(--space-12);;
+    background-position: top var(--space-12) right var(--space-12);
     background-repeat: no-repeat;
     text-align: initial;
 }
