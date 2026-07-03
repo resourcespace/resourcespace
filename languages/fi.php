@@ -3309,3 +3309,4 @@ $lang['language-zh-TW'] = 'Perinteinen kiina';
 
 $lang["home__welcometext"] = 'Kansainvälisen avoimen lähdekoodin yritystason digitaalisen omaisuudenhallintajärjestelmän eturintamassa.';
 $lang["language-ku"] = 'Kurdi';
+$lang["filter_err_field_disabled"] = 'Kenttä \'%NAME\' on poistettu käytöstä';

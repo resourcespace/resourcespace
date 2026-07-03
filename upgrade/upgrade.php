@@ -48,13 +48,12 @@ if (!$cli) {
 
 set_time_limit(60 * 60 * 4);
 $process_locks_max_seconds = 60 * 60;     // allow 1 hour for the upgrade of a single script
-if (is_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS)) {
+
+// set a process lock straight away even before running any upgrade scripts to reduce chance of concurrent upgrades
+if (is_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS) || !set_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS)) {
     show_upgrade_in_progress(false);
     exit;
 }
-
-// set a process lock straight away even before running any upgrade scripts to reduce chance of concurrent upgrades
-set_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS);
 
 // grab a list of files to run as part of the upgrade process
 $new_system_version_files = array();
@@ -117,7 +116,10 @@ foreach ($new_system_version_files as $new_system_version => $files) {
         flush();
 
         if (!is_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS)) {
-            set_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS);
+            if (!set_process_lock(PROCESS_LOCK_UPGRADE_IN_PROGRESS)) {
+                echo "Upgrade script failed. Unable to update process lock" . PHP_EOL;
+                exit;
+            }
         }
         try {
             include_once __DIR__ . '/scripts/' . $file;

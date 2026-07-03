@@ -3248,3 +3248,4 @@ $lang["noresources_collection"] = 'هیچ سەرچاوە لە کۆلەکشنەک
 $lang["hide_collection_bar"] = 'شاردراوە';
 $lang["minimal_collection_bar"] = 'شاردی کەمترین';
 $lang["thumbnails_collection_bar"] = 'وێنە پەڕەکان';
+$lang["filter_err_field_disabled"] = 'مەیدان \'%NAME\' بەردەست نیە';

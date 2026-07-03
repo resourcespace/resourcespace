@@ -3311,3 +3311,4 @@ $lang['language-zh-TW'] = 'Chino tradicional';
 
 $lang["home__welcometext"] = 'El principal sistema de gestión de activos digitales empresarial de código abierto.';
 $lang["language-ku"] = 'Kurdo';
+$lang["filter_err_field_disabled"] = 'El campo \'%NAME\' está deshabilitado';

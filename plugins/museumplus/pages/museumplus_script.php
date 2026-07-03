@@ -181,14 +181,19 @@ if(!$museumplus_check_script_last_run)
     }
 
 // Check for a process lock
-if(is_process_lock(MPLUS_LOCK)) 
-    {
+if(is_process_lock(MPLUS_LOCK)) {
     logScript('[museumplus][error] Script lock is in place. Deferring...', $mplus_log_file);
     logScript('[museumplus] To clear the lock after a failed run, pass either the "-c" -or- "--clear-lock" option.', $mplus_log_file);
     mplus_notify($message_users, $lang['museumplus_error_script_failed']);
     exit(1);
-    }
-set_process_lock(MPLUS_LOCK);
+}
+
+if (!set_process_lock(MPLUS_LOCK)) {
+    logScript('[museumplus][error] Script lock unable to be set. Deferring...', $mplus_log_file);
+    logScript('[museumplus] To clear the lock after a failed run, pass either the "-c" -or- "--clear-lock" option.', $mplus_log_file);
+    mplus_notify($message_users, $lang['museumplus_error_script_failed']);
+    exit(1);
+}
 
 logScript('[museumplus] Starting actual process...', $mplus_log_file);
 logScript('[museumplus] IMPORTANT: for debugging issues with the actual process, please refer to the museumplus_log table!', $mplus_log_file);

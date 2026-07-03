@@ -3263,3 +3263,4 @@ $lang['language-zh-TW'] = 'ਪਰੰਪਰਾਗਤ ਚੀਨੀ';
 
 $lang["home__welcometext"] = 'ਸਭ ਤੋਂ ਅੱਗੇ ਖੁੱਲ੍ਹਾ ਸਰੋਤ ਕਾਰੋਬਾਰੀ ਡਿਜੀਟਲ ਐਸੈੱਟ ਮੈਨੇਜਮੈਂਟ ਸਿਸਟਮ।';
 $lang["language-ku"] = 'ਪੰਜਾਬੀ';
+$lang["filter_err_field_disabled"] = 'ਖੇਤਰ \'%NAME\' ਅਯੋਗ ਹੈ';

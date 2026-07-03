@@ -3320,3 +3320,4 @@ $lang['language-zh-TW'] = 'Chinois traditionnel';
 
 $lang["home__welcometext"] = 'Le principal système de gestion des actifs numériques d\'entreprise en open source.';
 $lang["language-ku"] = 'Kurmandji';
+$lang["filter_err_field_disabled"] = 'Le champ \'%NAME\' est désactivé';

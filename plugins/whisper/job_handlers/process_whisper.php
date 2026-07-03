@@ -15,7 +15,11 @@ if (is_process_lock("whisper_process_unprocessed")) {
     return;
 }
 
-set_process_lock("whisper_process_unprocessed");
+if (!set_process_lock("whisper_process_unprocessed")) {
+    logScript("[process_whisper] [ERROR] unable to set process lock", $log_file);
+    job_queue_update($jobref, $job_data, STATUS_ERROR);
+    return;
+}
 
 global $whisper_extensions;
 

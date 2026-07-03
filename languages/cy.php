@@ -3249,3 +3249,4 @@ $lang['language-zh-TW'] = 'Chineeg traddodiadol';
 
 $lang["home__welcometext"] = 'Y prif system rheoli asedau digidol menter agored ffynhonnell agored.';
 $lang["language-ku"] = 'Cymraeg';
+$lang["filter_err_field_disabled"] = 'Mae\'r maes \'%NAME\' wedi\'i analluogi';

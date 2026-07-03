@@ -3251,3 +3251,4 @@ $lang['language-zh-TW'] = 'Tradisyong Tsino';
 
 $lang["home__welcometext"] = 'Ang nangungunang open source na sistema para sa pamamahala ng digital na asset para sa negosyo.';
 $lang["language-ku"] = 'Kurdish';
+$lang["filter_err_field_disabled"] = 'Ang patlang \'%NAME\' ay naka-disable';

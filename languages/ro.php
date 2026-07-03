@@ -3335,3 +3335,4 @@ $lang['language-zh-TW'] = 'Chineză tradițională';
 
 $lang["home__welcometext"] = 'Cel mai important sistem open source de gestionare a activelor digitale pentru întreprinderi.';
 $lang["language-ku"] = 'Kurmanji';
+$lang["filter_err_field_disabled"] = 'Câmpul \'%NAME\' este dezactivat';

@@ -285,10 +285,9 @@ function faces_detect_missing()
     // Get all resources that haven't had faces processed yet
 
     // Ensure only one instance of this.
-    if (is_process_lock(__FUNCTION__)) {
+    if (is_process_lock(__FUNCTION__) || !set_process_lock(__FUNCTION__)) {
         return false;
     }
-    set_process_lock(__FUNCTION__);
 
     $resources = ps_array("SELECT ref value FROM resource WHERE has_image=1 and (faces_processed is null or faces_processed=0) ORDER BY ref desc");
 

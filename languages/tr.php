@@ -3259,3 +3259,4 @@ $lang['language-zh-TW'] = 'Geleneksel Çince';
 
 $lang["home__welcometext"] = 'Önde gelen açık kaynaklı kurumsal dijital varlık yönetim sistemi.';
 $lang["language-ku"] = 'Kürtçe';
+$lang["filter_err_field_disabled"] = '\'%NAME\' alanı devre dışı bırakıldı';

@@ -74,7 +74,14 @@ if (is_process_lock(EMU_SCRIPT_SYNC_LOCK)) {
     send_mail($email_notify, $emu_script_failed_subject, "The EMu script failed to run because a process lock was in place. This indicates that the previous run did not complete.\r\n\r\nIf you need to clear the lock after a failed run, run the script as follows:\r\n\r\nphp emu_script.php --clearlock\r\n", $email_from);
     exit();
 }
-set_process_lock(EMU_SCRIPT_SYNC_LOCK);
+
+if (!set_process_lock(EMU_SCRIPT_SYNC_LOCK)) {
+    echo 'EMu script unable to set lock. Deferring.' . PHP_EOL . 'To clear the lock after a failed run use --clearlock flag.' . PHP_EOL;
+
+    $emu_script_failed_subject = ($emu_test_mode ? 'TESTING MODE: ' : '') . 'EMu Import script - FAILED';
+    send_mail($email_notify, $emu_script_failed_subject, "The EMu script failed to run because no process lock could be set. This indicates that the process lock folder is unavailable.\r\n\r\nIf you need to clear the lock after a failed run, run the script as follows:\r\n\r\nphp emu_script.php --clearlock\r\n", $email_from);
+    exit();
+}
 
 // Run script as a user of the system
 if (isset($emu_userref)) {

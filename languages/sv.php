@@ -3338,3 +3338,4 @@ $lang['language-zh-TW'] = 'Traditionell Kinesiska';
 
 $lang["home__welcometext"] = 'Det ledande open source-entreprenadssystemet för digitala tillgångar.';
 $lang["language-ku"] = 'Kurdiska';
+$lang["filter_err_field_disabled"] = 'Fältet \'%NAME\' är inaktiverat';

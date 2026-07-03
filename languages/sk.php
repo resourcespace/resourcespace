@@ -3345,3 +3345,4 @@ $lang['language-zh-TW'] = 'Tradičná čínština';
 
 $lang["home__welcometext"] = 'Vedúci open source systém pre správu digitálnych aktív v podniku.';
 $lang["language-ku"] = 'Kurdčina';
+$lang["filter_err_field_disabled"] = 'Pole \'%NAME\' je zakázané';

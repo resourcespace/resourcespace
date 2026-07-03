@@ -91,7 +91,11 @@ if (is_process_lock("staticsync")) {
     echo 'To clear the lock after a failed run use --clearlock flag.' . PHP_EOL;
     exit();
 }
-set_process_lock("staticsync");
+if (!set_process_lock("staticsync")) {
+    echo 'Unable to set process lock. Deferring.' . PHP_EOL;
+    echo 'To clear lock after a failed run use --clearlock flag.' . PHP_EOL;
+    exit();
+}
 
 echo "Preloading data... ";
 
@@ -1122,7 +1126,11 @@ function staticsync_process_alt($alternativefile, $ref = "", $alternative = "")
     echo " - Completed path : " . $shortpath . PHP_EOL;
     $done[$shortpath]["ref"] = $ref;
     $done[$shortpath]["alternative"] = $alternative;
-    set_process_lock("staticsync"); // Update the lock so we know it is still processing resources
+    // Update the lock so we know it is still processing resources
+    if (!set_process_lock("staticsync")) {
+        echo " - Unable to update process lock. Exiting." . PHP_EOL;
+        exit();
+    }
 }
 
 # Recurse through the folder structure.

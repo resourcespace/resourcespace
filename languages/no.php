@@ -3334,3 +3334,4 @@ $lang['language-zh-TW'] = 'Tradisjonell kinesisk';
 
 $lang["home__welcometext"] = 'Den ledende åpne kildekode-bedrifts digitale eiendelsadministrasjonssystem.';
 $lang["language-ku"] = 'Kurdisk';
+$lang["filter_err_field_disabled"] = 'Felt \'%NAME\' er deaktivert';

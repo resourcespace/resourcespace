@@ -3330,3 +3330,4 @@ $lang['language-zh-TW'] = 'Traditionelles Chinesisch';
 
 $lang["home__welcometext"] = 'Das führende Open-Source-Unternehmenssystem für digitales Asset-Management.';
 $lang["language-ku"] = 'Kurdisch';
+$lang["filter_err_field_disabled"] = 'Feld \'%NAME\' ist deaktiviert';

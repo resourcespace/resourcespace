@@ -6066,7 +6066,10 @@ function update_disk_usage_cron()
         echo " - disk_usage_cron process lock is in place. Skipping.\n";
         return;
     }
-    set_process_lock("disk_usage_cron");
+    if (!set_process_lock("disk_usage_cron")) {
+        echo " - Unable to set process lock. Skipping.\n";
+        return;
+    }
 
     $resources = ps_array(
         "SELECT ref value

@@ -3255,3 +3255,4 @@ $lang['language-zh-TW'] = 'Hagyományos kínai';
 
 $lang["home__welcometext"] = 'A vezető nyílt forráskódú vállalati digitális eszközkezelő rendszer.';
 $lang["language-ku"] = 'Kurdis';
+$lang["filter_err_field_disabled"] = 'A \'%NAME\' mező le van tiltva';

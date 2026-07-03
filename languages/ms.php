@@ -3251,3 +3251,4 @@ $lang['language-zh-TW'] = 'Cina Tradisional';
 
 $lang["home__welcometext"] = 'Sistem pengurusan aset digital perusahaan sumber terbuka terkemuka.';
 $lang["language-ku"] = 'Bahasa Melayu';
+$lang["filter_err_field_disabled"] = 'Medan \'%NAME\' telah dinyahdayakan';

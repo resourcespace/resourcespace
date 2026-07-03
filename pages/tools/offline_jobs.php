@@ -110,7 +110,9 @@ if ($offline_job_queue) {
     }
 
     $lock_name = 'offlinejobs_' . time();
-    set_process_lock($lock_name);
+    if (!set_process_lock($lock_name)) {
+        exit("Unable to set process lock. Exiting\n");
+    }
 
     while (!isset($offlinejobs) || count($offlinejobs) > 0) {
         // Get jobs in small batches so that new higher priority jobs won't have to wait if there is a backlog

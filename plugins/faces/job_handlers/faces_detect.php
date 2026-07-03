@@ -15,7 +15,11 @@ if (is_process_lock("faces_detect_missing")) {
     return;
 }
 
-set_process_lock("faces_detect_missing");
+if (!set_process_lock("faces_detect_missing")) {
+    logScript("[faces_detect] [ERROR] unable to start job due to failure to set process lock", $log_file);
+    job_queue_update($jobref, $job_data, STATUS_ERROR);
+    return;
+}
 
 $resources = ps_array("SELECT ref value FROM resource WHERE has_image=1 and (faces_processed is null or faces_processed=0) ORDER BY ref desc");
 

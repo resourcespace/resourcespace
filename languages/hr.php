@@ -3326,3 +3326,4 @@ $lang['language-zh-TW'] = 'Tradicionalni kineski';
 
 $lang["home__welcometext"] = 'Vodeći open source sustav za upravljanje digitalnim resursima za poduzeća.';
 $lang["language-ku"] = 'Kurdski';
+$lang["filter_err_field_disabled"] = 'Polje \'%NAME\' je onemogućeno';

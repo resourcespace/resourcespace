@@ -21,10 +21,14 @@ function whisper_process_unprocessed(int $size_limit = 0)
 
     // Ensure only one instance of this.
     if (is_process_lock(__FUNCTION__)) {
-        logScript("Whisper: Process lock is in place");
+        logScript("Whisper: Process lock is in place\n");
         return false;
     }
-    set_process_lock(__FUNCTION__);
+
+    if (!set_process_lock(__FUNCTION__)) {
+        logScript("Whisper: Process lock unable to be set\n");
+        return false;
+    }
 
     if ($size_limit <= 0) {
         // Process all unprocessed resources

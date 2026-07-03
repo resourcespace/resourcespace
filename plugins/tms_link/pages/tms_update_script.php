@@ -71,7 +71,16 @@ if (is_process_lock("tms_link")) {
     }
     exit();
 }
-set_process_lock("tms_link");
+
+if (!set_process_lock("tms_link")) {
+    echo 'TMS script lock unable to be set. Deferring.' . PHP_EOL;
+    echo 'To clear the lock after a failed run use --clearlock flag.' . PHP_EOL;
+    if (time()>=(strtotime($scriptlaststarted)+$process_locks_max_seconds)) {
+        $tmsfailedsubject=(($tms_link_test_mode)?"TESTING MODE ":"") . "TMS Import script - FAILED";
+        send_mail($email_notify,$tmsfailedsubject,"The TMS script failed to run because a process lock was unable to be set. This indicates that the process lock folder is unavailable. If you need to clear the lock after a failed run, run the script as follows:-" . PHP_EOL . PHP_EOL . " php tms_update_script.php --clearlock" . PHP_EOL ,$email_from);
+    }
+    exit();
+}
 
 // Record the start time
 $tms_script_start_time = microtime(true);

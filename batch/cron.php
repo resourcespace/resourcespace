@@ -10,7 +10,10 @@ include_once __DIR__ . "/../include/request_functions.php";
 if (is_process_lock("cron")) {
     exit($lang["error-processlock-aborting"] . PHP_EOL);
 }
-set_process_lock("cron");
+
+if (!set_process_lock("cron")) {
+    exit($lang["error-processlock-aborting"] . PHP_EOL);
+}
 
 $LINE_END = ('cli' == PHP_SAPI) ? PHP_EOL : "<br>";
 set_time_limit($cron_job_time_limit);

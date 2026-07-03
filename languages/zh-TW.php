@@ -3249,3 +3249,4 @@ $lang['thumbnails_collection_bar'] = '縮圖';
 
 $lang["home__welcometext"] = '領先的開源企業數位資產管理系統。';
 $lang["language-ku"] = '庫爾德語';
+$lang["filter_err_field_disabled"] = '欄位 \'%NAME\' 已被停用';

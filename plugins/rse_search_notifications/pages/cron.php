@@ -20,13 +20,15 @@ $this_run_start = date("Y-m-d H:i:s");
 
 define('THIS_PROCESS_LOCK','watchedsearchescron');
 
-if (is_process_lock(THIS_PROCESS_LOCK))
-    {
-    echo "Process lock in place";
+if (is_process_lock(THIS_PROCESS_LOCK)) {
+    echo "Process lock in place\n";
     return;
-    }
+}
 
-set_process_lock(THIS_PROCESS_LOCK);
+if (!set_process_lock(THIS_PROCESS_LOCK)) {
+    echo "Process lock unable to be set\n";
+    return;
+}
 
 $users = ps_query("SELECT DISTINCT owner FROM search_saved WHERE enabled = 1", array());
 

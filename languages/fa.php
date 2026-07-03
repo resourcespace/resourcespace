@@ -3263,3 +3263,4 @@ $lang['language-zh-TW'] = 'چینی سنتی';
 
 $lang["home__welcometext"] = 'سیستم مدیریت دارایی دیجیتال سازمانی منبع باز پیشرو.';
 $lang["language-ku"] = 'کوردی';
+$lang["filter_err_field_disabled"] = 'فیلد \'%NAME\' غیرفعال است';

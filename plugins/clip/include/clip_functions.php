@@ -252,10 +252,9 @@ function clip_generate_missing_vectors($limit)
     global $clip_resource_types;
 
     // Ensure only one instance of this.
-    if (is_process_lock(__FUNCTION__) || count($clip_resource_types) === 0) {
+    if (is_process_lock(__FUNCTION__) || !set_process_lock(__FUNCTION__)|| count($clip_resource_types) === 0) {
         return false;
     }
-    set_process_lock(__FUNCTION__);
 
     $sql = "
         SELECT r.ref value

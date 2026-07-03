@@ -3307,3 +3307,4 @@ $lang['language-zh-TW'] = 'Xinès tradicional';
 
 $lang["home__welcometext"] = 'El sistema de gestió d\'actius digitals d\'empresa de codi obert líder.';
 $lang["language-ku"] = 'Kurdi';
+$lang["filter_err_field_disabled"] = 'El camp \'%NAME\' està desactivat';

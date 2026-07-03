@@ -3261,3 +3261,4 @@ $lang['thumbnails_collection_bar'] = 'Миниатюри';
 
 $lang["home__welcometext"] = 'Водещата система с отворен код за управление на корпоративни дигитални активи.';
 $lang["language-ku"] = 'Курдски';
+$lang["filter_err_field_disabled"] = 'Полето \'%NAME\' е деактивирано';

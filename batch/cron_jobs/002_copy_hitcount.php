@@ -9,7 +9,9 @@ if (time() - strtotime($last_copy_hitcount) > 24 * 60 * 60) {
         return;
     }
 
-    set_process_lock("copy_hitcount");
+    if (!set_process_lock("copy_hitcount")) {
+        exit("Unable to set process lock. Deferring." . PHP_EOL);
+    }
     copy_hitcount_to_live();
     clear_process_lock("copy_hitcount");
     set_sysvar("last_copy_hitcount", date("Y-m-d H:i:s"));

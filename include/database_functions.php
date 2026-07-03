@@ -847,7 +847,10 @@ function check_db_structs($verbose = false)
         show_upgrade_in_progress(true);
         exit();
     }
-    set_process_lock('database_update_in_progress');
+    if (!set_process_lock('database_update_in_progress')) {
+        show_upgrade_in_progress(true);
+        exit("Unable to set process lock.");
+    }
 
     // Check the structure of the core tables.
     CheckDBStruct("dbstruct", $verbose);

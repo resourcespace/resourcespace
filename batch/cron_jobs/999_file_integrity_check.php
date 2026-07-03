@@ -38,7 +38,9 @@ if (!check_valid_cron_time()) {
     }
     return;
 }
-set_process_lock("file_integrity_check");
+if (!set_process_lock("file_integrity_check")) {
+    exit("Unable to set process lock." . PHP_EOL);
+}
 
 $resources = get_resources_to_validate(1);
 

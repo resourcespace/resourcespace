@@ -3254,3 +3254,4 @@ $lang['language-zh-TW'] = 'পরম্পরাগত চীনা';
 
 $lang["home__welcometext"] = 'অগ্রণী ওপেন সোর্স এন্টারপ্রাইজ ডিজিটাল অ্যাসেট ম্যানেজমেন্ট সিস্টেম।';
 $lang["language-ku"] = 'বাংলা';
+$lang["filter_err_field_disabled"] = 'ক্ষেত্র \'%NAME\' অক্ষম';

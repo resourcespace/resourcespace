@@ -1902,10 +1902,14 @@ function is_process_lock($name)
  */
 function set_process_lock($name)
 {
-    file_put_contents(get_temp_dir() . "/process_locks/" . $name, time());
-    // make sure this is editable by the server in case a process lock could be set by different system users
-    chmod(get_temp_dir() . "/process_locks/" . $name, 0777);
-    return true;
+    try {
+        file_put_contents(get_temp_dir() . "/process_locks/" . $name, time());
+        // make sure this is editable by the server in case a process lock could be set by different system users
+        chmod(get_temp_dir() . "/process_locks/" . $name, 0777);
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
 }
 
 /**
@@ -3042,9 +3046,7 @@ function generateURL(string $url, array $parameters = array(), array $set_params
         $url = $hookurl;
     }
 
-    $query_string = http_build_query($query_string_params);
-    
-    return $url .  (mb_strlen($query_string) > 0 ? '?'  . $query_string : "");
+    return $url . '?' . http_build_query($query_string_params);
 }
 
 /**

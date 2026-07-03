@@ -54,7 +54,10 @@ if ($clear_lock) {
 } elseif (is_process_lock("file_integrity_check")) {
     exit(" - File integrity process lock is in place.Skipping.\n");
 }
-set_process_lock("file_integrity_check");
+
+if (!set_process_lock("file_integrity_check")) {
+    exit (" - Unable to set process lock. Exiting.\n");
+}
 
 $resources = get_resources_to_validate($lastchecked);
 $current_config_fails = $negated_config_fails = $failures = [];

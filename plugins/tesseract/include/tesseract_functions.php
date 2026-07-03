@@ -26,10 +26,14 @@ function tesseract_process_unprocessed()
 
     // Ensure only one instance of this.
     if (is_process_lock(__FUNCTION__)) {
-        logScript("tesseract: Process lock is in place");
+        logScript("tesseract: Process lock is in place\n");
         return false;
     }
-    set_process_lock(__FUNCTION__);
+
+    if (!set_process_lock(__FUNCTION__)) {
+        logScript("tesseract: Process lock unable to be set\n");
+        return false;
+    }
 
     $extensions = explode(",", $tesseract_extensions);
 

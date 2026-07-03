@@ -73,7 +73,19 @@ if (is_process_lock('emu_import')) {
     send_user_notification($adminusers, $message);
     exit();
 }
-set_process_lock('emu_import');
+if (!set_process_lock('emu_import')) {
+    echo 'EMu script unable to set process lock. Deferring.' . PHP_EOL . 'To clear the lock after a failed run use --clearlock flag.' . PHP_EOL;
+
+    $emu_script_failed_subject = ($emu_test_mode ? 'TESTING MODE: ' : '') . 'EMu Import script - FAILED';
+    $adminusers = get_notification_users();
+    $message = new ResourceSpaceUserNotification();
+    $message->set_text("The EMu script failed to run because a process lock was not able to be set. This indicates that the process lock folder is unavailable.\r\n\r\nIf you need to clear the lock after a failed run, run the script as follows:\r\n\r\nphp emu_script.php --clearlock\r\n");
+    $message->set_subject($emu_script_failed_subject);
+    $message->user_preference = ["user_pref_system_management_notifications" => ["requiredvalue" => true,"default" => true]];
+    $message->url =  $baseurl . "/plugins/emu/pages/setup.php";
+    send_user_notification($adminusers, $message);
+    exit();  
+}
 
 $emu_script_start_time = microtime(true);
 $emu_resources         = get_emu_resources();

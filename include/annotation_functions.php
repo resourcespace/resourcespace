@@ -999,7 +999,6 @@ function create_annotated_pdf($ref, $is_collection = false, $size = "letter", $c
 /** Utility function to generate a one-off TCPDF variant (with multiRow method) */
 function annotation_pdf_class()
 {
-    include_once dirname(__DIR__) . '/lib/html2pdf/vendor/tecnickcom/tcpdf/tcpdf.php';
     return new class extends TCPDF {
         public function multiRow($left, $right)
         {

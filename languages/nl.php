@@ -3314,3 +3314,4 @@ $lang['language-zh-TW'] = 'Traditioneel Chinees';
 
 $lang["home__welcometext"] = 'Het toonaangevende open source enterprise digital asset management systeem.';
 $lang["language-ku"] = 'Koerdisch';
+$lang["filter_err_field_disabled"] = 'Veld \'%NAME\' is uitgeschakeld';

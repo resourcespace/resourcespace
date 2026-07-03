@@ -397,7 +397,10 @@ function send_periodic_report_emails($echo_out = true, $toemail = true)
         return;
     }
 
-    set_process_lock("periodic_report_emails");
+    if (!set_process_lock("periodic_report_emails")) {
+        echo " - unable to set process lock. Deferring.\n";
+        return;
+    }
 
     // Keep record of temporary CSV/ZIP files to delete after emails have been sent
     $deletefiles = array();

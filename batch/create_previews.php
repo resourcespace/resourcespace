@@ -48,7 +48,9 @@ if ($argc >= 2) {
 if (is_process_lock("create_previews")) {
     exit("Process lock is in place. Deferring.");
 }
-set_process_lock("create_previews");
+if (!set_process_lock("create_previews")) {
+    exit("Unable to set process lock. Deferring.");
+}
 
 if (function_exists("pcntl_signal")) {
     $multiprocess = true;

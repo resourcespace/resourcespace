@@ -358,7 +358,9 @@ function job_queue_run_job($job, $clear_process_lock): string
         clear_process_lock("job_{$jobref}");
     }
 
-    set_process_lock('job_' . $jobref);
+    if (!set_process_lock('job_' . $jobref)) {
+        return 'Error';
+    }
 
     $logmessage =  "Running job #" . $jobref;
     logScript("[job_handler] " . $logmessage, $log_file);

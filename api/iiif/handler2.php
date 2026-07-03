@@ -321,7 +321,10 @@ if (count($xpath) == 1 && $xpath[0] == "") {
                                 $errors[] = "Requested image is not currently available";
                                 iiif_error(503, $errors);
                             }
-                            set_process_lock('create_previews_' . $resource["ref"] . "_tiles");
+                            if(!set_process_lock('create_previews_' . $resource["ref"] . "_tiles")) {
+                                $errors[] = "Requested image is not currently available";
+                                iiif_error(503, $errors);
+                            }
                             $imgfound = @create_previews($resourceid, false, "jpg", false, true, -1, true, false, false, array("tiles"));
                             clear_process_lock('create_previews_' . $resource["ref"] . "_tiles");
                         } else {

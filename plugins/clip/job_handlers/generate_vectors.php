@@ -19,7 +19,11 @@ if (is_process_lock("clip_generate_missing_vectors")) {
     return; 
 }
 
-set_process_lock("clip_generate_missing_vectors");
+if (!set_process_lock("clip_generate_missing_vectors")) {
+    logScript("[generate_vectors] [ERROR] unable to start job due failure to set process lock", $log_file);
+    job_queue_update($jobref, $job_data, STATUS_ERROR);
+    return; 
+}
 
 $limit = (int) $job_data['limit'] ?? 10000;
 

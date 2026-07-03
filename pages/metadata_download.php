@@ -12,8 +12,6 @@ if ('' == $k || !check_access_key($ref, $k)) {
 include_once '../include/pdf_functions.php';
 
 use Spipu\Html2Pdf\Html2Pdf;
-use Spipu\Html2Pdf\Exception\Html2PdfException;
-use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 ob_start();
 
 $resource = get_resource_data($ref);
@@ -81,7 +79,7 @@ if ($download && $download_file_type == 'text') {
 
 // Process PDF file download
 if ($download && $download_file_type === 'pdf') {
-    $logo_src_path = $baseurl . '/gfx/titles/logo.png';
+    $logo_src_path = RESOURCESPACE_BASE_PATH . '/gfx/titles/logo.png';
     $PDF_filename = $lang['metadata'] . '_' . $filename . '.pdf';
     $content = '';
     ?>

@@ -3251,3 +3251,4 @@ $lang['language-zh-TW'] = 'Традыцыйны кітайскі';
 
 $lang["home__welcometext"] = 'Вядучая сістэма кіравання лічбавымі актывамі з адкрытым зыходным кодам.';
 $lang["language-ku"] = 'Курдская';
+$lang["filter_err_field_disabled"] = 'Поле \'%NAME\' адключана';
