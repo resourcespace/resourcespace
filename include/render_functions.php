@@ -540,11 +540,43 @@ function render_search_field(
         elseif ((int)$field['field_constraint']==1)
             {
              // parse value for to/from simple search
-            $minmax=explode('|',str_replace("numrange","",$value));
-            ($minmax[0]=='')?$minvalue='':$minvalue=str_replace("neg","-",$minmax[0]);
-            (isset($minmax[1]))?$maxvalue=str_replace("neg","-",$minmax[1]):$maxvalue='';
-            echo escape($lang["from"]); ?><input id="<?php echo escape($name) ?>_min" onChange="jQuery('#<?php echo escape($name) ?>').val('numrange'+jQuery(this).val().replace('-','neg')+'|'+jQuery('#<?php echo escape($name) ?>_max').val().replace('-','neg'));" class="NumberSearchWidth" type="number" value="<?php echo escape($minvalue)?>"><?php echo escape($lang["to"]); ?><input id="<?php echo escape($name) ?>_max" onChange="jQuery('#<?php echo escape($name) ?>').val('numrange'+jQuery('#<?php echo escape($name) ?>_min').val().replace('-','neg')+'|'+jQuery(this).val().replace('-','neg'));" class="NumberSearchWidth" type="number" value="<?php echo escape($maxvalue)?>">
-            <input id="<?php echo escape($name) ?>" name="<?php echo escape($name) ?>" type="hidden" value="<?php echo escape($value) ?>">
+            $minmax = explode('|', str_replace("numrange", "", $value));
+            $minvalue = $minmax[0] == '' ? '' : str_replace("neg", "-", $minmax[0]);
+            $maxvalue = isset($minmax[1]) ? str_replace("neg", "-", $minmax[1]) : '';
+            ?>
+            <span>
+                <span>
+                    <span><?php echo escape($lang["from"]); ?></span>
+                    <input
+                        id="<?php echo escape($name); ?>_min"
+                        class="NumberSearchWidth"
+                        type="number"
+                        value="<?php echo escape($minvalue); ?>"
+                        onchange="jQuery('#<?php echo escape($name); ?>').val(
+                            'numrange'
+                            + jQuery(this).val().replace('-', 'neg')
+                            + '|'
+                            + jQuery('#<?php echo escape($name); ?>_max').val().replace('-', 'neg')
+                        );"
+                    >
+                </span>
+                <span>
+                    <span><?php echo escape($lang["to"]); ?></span>
+                    <input
+                        id="<?php echo escape($name); ?>_max"
+                        class="NumberSearchWidth"
+                        type="number"
+                        value="<?php echo escape($maxvalue); ?>"
+                        onchange="jQuery('#<?php echo escape($name); ?>').val(
+                            'numrange'
+                            + jQuery('#<?php echo escape($name); ?>_min').val().replace('-', 'neg')
+                            + '|'
+                            + jQuery(this).val().replace('-', 'neg')
+                        );"
+                    >
+                </span>
+                <input id="<?php echo escape($name) ?>" name="<?php echo escape($name) ?>" type="hidden" value="<?php echo escape($value) ?>">
+            </span>
             <?php 
             # Add to the clear function so clicking 'clear' clears this box.
              $clear_function.="document.getElementById('".$name."_max').value='';";
@@ -553,7 +585,6 @@ function render_search_field(
             }
 
         if ($forsearchbar && $autocomplete_search) { 
-            # Auto-complete search functionality
             ?>
             <script type="text/javascript">
             jQuery(document).ready(function () { 

@@ -97,8 +97,7 @@ if (getval('loginas', '') != '') {
     $_POST['userkey'] = hash_hmac("sha256", "login_as_user" . $user["username"] . date("Ymd"), $scramble_key, true);
     $_POST[$CSRF_token_identifier] = generateCSRFToken($usersession, 'autologin');
 
-    hook('impersonateuser', "", [$user['ref']]);
-
+    rs_setcookie('user_impersonation', json_encode(['ref' => $userref, 'key' => hash_hmac("sha256", $userdata[0]['password'], $scramble_key)]), 1, "/", "", false, true);
     include '../../login.php';
     exit();
 }

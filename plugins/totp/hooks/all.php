@@ -11,9 +11,15 @@ include_once __DIR__ . '/../include/totp_functions.php';
  */
 function HookTotpAllPreheaderoutput()
 {
-    global $userref,$pagename, $anonymous_login, $username;
+    global $userref,$pagename, $anonymous_login, $username, $scramble_key;
     $cookie = getval("totp", "");
     $k = getval('k', '');
+
+    $impersonation_cookie = json_decode(getval('user_impersonation', '{}'), true);
+    if (count($impersonation_cookie) == 2) {
+        $impersonator = get_user($impersonation_cookie['ref']);
+        $key = hash_hmac("sha256", $impersonator['password'], $scramble_key);
+    }
 
     if (
         !in_array($pagename, array('totp', 'user_change_password')) 
@@ -21,6 +27,8 @@ function HookTotpAllPreheaderoutput()
         && (!(isset($anonymous_login) 
         && $username == $anonymous_login)) 
         && $cookie != TOTP_cookie($userref) 
+        && !($impersonation_cookie !== []
+        && $key === $impersonation_cookie['key'])
         && !TOTP_saml_authenticate() 
         && !($k != '' && !$username)
     ) {
@@ -77,13 +85,4 @@ function HookTotpTeam_user_editAdditionaluserfieldssave()
 function HookTotpAllBeforetermsredirect() 
 {
     return ['totp'];
-}
-
-/**
- * Set a TOTP cookie for an admin user when logging in as another user 
- * so that they are not prompted to enter the impersonated users authentication code. 
- */
-function HookTotpAllImpersonateuser($userref)
-{
-    rs_setcookie("totp", TOTP_cookie($userref), 1, "/", "", false, true);
 }

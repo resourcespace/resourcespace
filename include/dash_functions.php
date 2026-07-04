@@ -1616,10 +1616,10 @@ function render_upgrade_available_tile($user)
         return;
     }
 
-    if (!is_resourcespace_upgrade_available()) {
+    $newest_version = is_resourcespace_upgrade_available();
+    if ($newest_version === false) {
         return;
     }
-    $newest_version = trim((string) file_get_contents("https://www.resourcespace.com/current_release.txt"));
     ?>
     <a href="https://www.resourcespace.com/versions"
         target="_blank"
@@ -1628,8 +1628,8 @@ function render_upgrade_available_tile($user)
         <div class="HomePanelIN HomePanelDynamicDash">
             <div class="tile-special-content">
                 <div class="tile-special-icon tile-upgrade-icon">
-                        <?php echo escape($newest_version); ?>
-                        <span class="tile-pill"><i class="icon-circle-arrow-up"></i></span>
+                    <?php echo escape($newest_version); ?>
+                    <span class="tile-pill"><i class="icon-circle-arrow-up"></i></span>
                 </div>
             </div>
             <div class="tile-desc">

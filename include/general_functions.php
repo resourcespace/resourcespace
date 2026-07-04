@@ -3046,7 +3046,7 @@ function generateURL(string $url, array $parameters = array(), array $set_params
         $url = $hookurl;
     }
 
-    return $url . '?' . http_build_query($query_string_params);
+    return $url . (!empty($query_string_params) ? '?' . http_build_query($query_string_params) : '');
 }
 
 /**
@@ -3361,14 +3361,12 @@ function enforcePostRequest($ajax)
 }
 
 /**
-* Check if ResourceSpace is up to date or an upgrade is available
+* Check if ResourceSpace is up to date or an upgrade is available and return the version number if an update is avaiable
 *
 * @uses get_sysvar()
 * @uses set_sysvar()
-*
-* @return boolean
 */
-function is_resourcespace_upgrade_available()
+function is_resourcespace_upgrade_available(): false|string
 {
     $cvn_cache = get_sysvar('centralised_version_number');
     $last_cvn_update = get_sysvar('last_cvn_update');
@@ -3443,7 +3441,7 @@ function is_resourcespace_upgrade_available()
         ($product_version_data['major'] < $cvn_data['major'])
         || ($product_version_data['major'] == $cvn_data['major'] && $product_version_data['minor'] < $cvn_data['minor'])
     ) {
-        return true;
+        return $centralised_version_number;
     }
 
     return false;

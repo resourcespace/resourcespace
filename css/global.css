@@ -3977,6 +3977,7 @@ button[data-menu-trigger-close] {
 
 .field-input input[type="text"],
 .field-input input[type="password"],
+.field-input input[type="number"],
 .field-input textarea,
 .header-search-field #search-panel-main > .field-input .MiniCategoryBox {
     border: 1px solid var(--form-field-border);
@@ -4594,6 +4595,40 @@ header.LoginHeader {
     padding: unset;
     max-height: 219px;
     overflow: auto;
+}
+
+.header-search-field #search-panel-main > .field-input input[type="number"] {
+    min-height: var(--form-field-min-height);
+    padding-right: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.header-search-field #search-panel-main > .field-input:has(input[type="number"]) {
+    gap: var(--space-4);
+}
+
+.header-search-field #search-panel-main > .field-input:has(input[type="number"]) > span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    align-self: stretch;
+}
+
+.header-search-field #search-panel-main > .field-input:has(input[type="number"]) > span > span {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-8);
+}
+
+.header-search-field #search-panel-main > .field-input:has(input[type="number"]) > span > span > span {
+    color: var(--colour-typography-600);
 }
 
 .header-search-field #simplesearchbuttons {

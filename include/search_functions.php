@@ -2842,13 +2842,11 @@ function update_search_from_request($search)
                         continue;
                     }
 
-                    // For fields that can pass multiple node IDs at a time
-                    $node_ref .= ', ';
-
                     foreach ($searched_field_nodes as $searched_node_ref) {
                         $node_ref .= NODE_TOKEN_PREFIX . $searched_node_ref;
                     }
                 }
+                $node_ref = trim($node_ref, ', ');
                 if ($node_ref !== '') {
                     $search .= ", " . $node_ref;
                 }
