@@ -691,15 +691,19 @@ foreach ($resource_types as $resource_type) {
 }
 
 // Convert workflow states
-$workflow_states = ps_query("SELECT ref, name, icon FROM archive_states WHERE icon IS NOT NULL");
-foreach ($workflow_states as $workflow_state) {
-    $icon_name = substr($workflow_state["icon"], strrpos($workflow_state["icon"], ' ') + 1);
+$rse_workflow_enabled = ps_value("SELECT COUNT(*) value FROM plugins WHERE name='rse_workflow' AND inst_version IS NOT NULL", [], 0);
 
-    if (array_key_exists($icon_name, $font_awesome_lucide_mapping)) {
-        logScript("Mapping Font Awesome icon " . $icon_name . " for workflow state " . $workflow_state["ref"] . " - " . $workflow_state["name"] . " to Lucide icon " . $font_awesome_lucide_mapping[$icon_name]);
-        ps_query("UPDATE archive_states SET icon = ? WHERE ref = ?", ["s", $font_awesome_lucide_mapping[$icon_name], "i", $workflow_state["ref"]]);
-    } else {
-        logScript("No suitable Lucide icon found for Font Awesome icon " . $workflow_state["icon"] . " for workflow state " . $workflow_state["ref"] . " - " . $workflow_state["name"]);
+if ($rse_workflow_enabled) {
+    $workflow_states = ps_query("SELECT ref, name, icon FROM archive_states WHERE icon IS NOT NULL");
+    foreach ($workflow_states as $workflow_state) {
+        $icon_name = substr($workflow_state["icon"], strrpos($workflow_state["icon"], ' ') + 1);
+
+        if (array_key_exists($icon_name, $font_awesome_lucide_mapping)) {
+            logScript("Mapping Font Awesome icon " . $icon_name . " for workflow state " . $workflow_state["ref"] . " - " . $workflow_state["name"] . " to Lucide icon " . $font_awesome_lucide_mapping[$icon_name]);
+            ps_query("UPDATE archive_states SET icon = ? WHERE ref = ?", ["s", $font_awesome_lucide_mapping[$icon_name], "i", $workflow_state["ref"]]);
+        } else {
+            logScript("No suitable Lucide icon found for Font Awesome icon " . $workflow_state["icon"] . " for workflow state " . $workflow_state["ref"] . " - " . $workflow_state["name"]);
+        }
     }
 }
 

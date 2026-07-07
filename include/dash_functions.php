@@ -655,7 +655,7 @@ function get_managed_dash()
             class="HomePanel DashTile DashTileDraggable <?php echo 'double' == $tlsize ? 'DoubleWidthDashTile' : ''; ?>" 
             id="tile<?php echo escape($tile["tile"]);?>"
         >
-            <div id="contents_tile<?php echo escape($tile["tile"]);?>" class="HomePanelIN HomePanelDynamicDash <?php echo $buildstring['tlsize'] == 'double' ? 'DoubleWidthDashTile' : '' ;?>">
+            <div id="contents_tile<?php echo escape($tile["tile"]);?>" class="HomePanelIN HomePanelDynamicDash <?php echo $tlsize == 'double' ? 'DoubleWidthDashTile' : '' ;?>">
                 <?php if (strpos($tile["url"], "dash_tile.php") !== false) {
                     # Only pre-render the title if using a "standard" tile and therefore we know the H2 will be in the target data.
                     ?>
