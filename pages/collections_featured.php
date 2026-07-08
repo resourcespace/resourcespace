@@ -27,15 +27,14 @@ $smart_rtf = (int) getval("smart_rtf", 0, true);
 $smart_fc_parent = getval("smart_fc_parent", 0, true);
 $smart_fc_parent = ($smart_fc_parent > 0 ? $smart_fc_parent : null);
 
-if ($smart_rtf > 0) 
-    {
+if ($smart_rtf > 0) {
     $field_data = get_field($smart_rtf);
-    }
-if ($smart_fc_parent > 0) 
-    {
+}
+
+if ($smart_fc_parent > 0) {
     $node_data = array();
     get_node($smart_fc_parent, $node_data);
-    }
+}
 
 $general_url_params = ($k == "" ? array() : array("k" => $k));
 
@@ -199,13 +198,11 @@ if ($parent > 0) {
             ),
     ));
 
-    if ($smart_fc_parent > 0) 
-        {
+    if ($smart_fc_parent > 0) {
         $tree_node_level = get_tree_node_level($smart_fc_parent);
-        if ($tree_node_level !== 0) 
-            {
+        if ($tree_node_level !== 0) {
             $branch_trail = get_smart_fc_branch_trail($smart_fc_parent, $tree_node_level, $field_data, $general_url_params, $branch_trail);
-            }
+        }
 
         $end_trail = array(
             array(
@@ -218,7 +215,7 @@ if ($parent > 0) {
             )
         ); 
         $branch_trail = array_merge($branch_trail, $end_trail);
-        }
+    }
 
     ?>
     <div class="fc-breadcrumbs">

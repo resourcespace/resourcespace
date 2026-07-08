@@ -691,9 +691,7 @@ foreach ($resource_types as $resource_type) {
 }
 
 // Convert workflow states
-$rse_workflow_enabled = ps_value("SELECT COUNT(*) value FROM plugins WHERE name='rse_workflow' AND inst_version IS NOT NULL", [], 0);
-
-if ($rse_workflow_enabled) {
+if (is_plugin_activated('rse_workflow')) {
     $workflow_states = ps_query("SELECT ref, name, icon FROM archive_states WHERE icon IS NOT NULL");
     foreach ($workflow_states as $workflow_state) {
         $icon_name = substr($workflow_state["icon"], strrpos($workflow_state["icon"], ' ') + 1);

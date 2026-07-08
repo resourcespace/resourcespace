@@ -95,6 +95,7 @@ if ($search_titles_searchcrumbs && $use_refine_searchstring) {
 }
 
 if ($search_titles) {
+    $nodedata = array();
     if (substr($search, 0, 11) == "!collection") {
         $col_title_ua = "";
         // add a tooltip to Smart Collection titles (which provides a more detailed view of the searchstring.
@@ -318,59 +319,55 @@ if ($search_titles) {
             $title_strings[] = $lang["status" . $wfstate] ?? $lang["archive"] . ": " . $wfstate;
         }
         $search_title = '<div class="BreadcrumbsBox BreadcrumbsBoxSlim BreadcrumbsBoxTheme"><div class="SearchBreadcrumbs"><a href="' . $search_url . '" onClick="return CentralSpaceLoad(this,true);">' . escape(implode(", ", $title_strings)) . '</a>' . escape($searchcrumbs) . '</div></div> ';
-    } elseif (substr($search, 0, 2) == "@@") {
-        $node = substr(getval("search", 0), 2);
-        $nodedata = array();
-        get_node($node, $nodedata);
-        $field_data = get_field($nodedata['resource_type_field']);
+    } elseif (
+        substr($search, 0, 2) == "@@" 
+        && get_node((substr($search, 2)), $nodedata)
+        && ($field_data = get_field($nodedata['resource_type_field']))['smart_theme_name']
+    ) {
 
-        if ($field_data['smart_theme_name']) {
+        $general_url_params = ($k == "" ? array() : array("k" => $k));
+        $links_trail = array(
+            array(
+                "title" => $lang["themes"],
+                "href"  => generateURL("{$baseurl_short}pages/collections_featured.php", $general_url_params)
+            )
+        );
 
-            $general_url_params = ($k == "" ? array() : array("k" => $k));
-            $links_trail = array(
-                array(
-                    "title" => $lang["themes"],
-                    "href"  => generateURL("{$baseurl_short}pages/collections_featured.php", $general_url_params)
-                )
-            );
+        $branch_trail = array(
+            array(
+                "title" => i18n_get_translated($field_data['smart_theme_name']),
+                "href"  => generateURL(
+                    "{$baseurl_short}pages/collections_featured.php",
+                    $general_url_params,
+                    array("smart_rtf" => $field_data['ref'])
+                ),
+            )
+        );
 
-            $branch_trail = array(
-                array(
-                    "title" => i18n_get_translated($field_data['smart_theme_name']),
-                    "href"  => generateURL(
-                        "{$baseurl_short}pages/collections_featured.php",
-                        $general_url_params,
-                        array("smart_rtf" => $field_data['ref'])
-                    ),
-                )
-            );
-
-            $tree_node_level = get_tree_node_level($node);
-            if ($tree_node_level !== 0) 
-                {
-                $branch_trail = get_smart_fc_branch_trail($node, $tree_node_level, $field_data, $general_url_params, $branch_trail);
-                }
-
-            $end_trail = array(
-                array(
-                    "title" => $nodedata['name'],
-                    "href" => generateURL(
-                        "{$baseurl_short}pages/search.php",
-                        $general_url_params,
-                        array("search" => '@@' . $node)
-                    ),
-                )
-            );
-    
-            $branch_trail = array_merge($branch_trail, $end_trail);
-
-            ob_start();
-            renderBreadcrumbs(array_merge($links_trail, $branch_trail), '', 'BreadcrumbsBoxSlim BreadcrumbsBoxTheme');
-            $renderBreadcrumbs = ob_get_contents();
-            ob_end_clean();
-
-            $search_title .= $renderBreadcrumbs;
+        $tree_node_level = get_tree_node_level($nodedata['ref']);
+        if ($tree_node_level !== 0) {
+            $branch_trail = get_smart_fc_branch_trail($nodedata['ref'], $tree_node_level, $field_data, $general_url_params, $branch_trail);
         }
+
+        $end_trail = array(
+            array(
+                "title" => $nodedata['name'],
+                "href" => generateURL(
+                    "{$baseurl_short}pages/search.php",
+                    $general_url_params,
+                    array("search" => '@@' . $nodedata['ref'])
+                ),
+            )
+        );
+
+        $branch_trail = array_merge($branch_trail, $end_trail);
+
+        ob_start();
+        renderBreadcrumbs(array_merge($links_trail, $branch_trail), '', 'BreadcrumbsBoxSlim BreadcrumbsBoxTheme');
+        $renderBreadcrumbs = ob_get_contents();
+        ob_end_clean();
+
+        $search_title .= $renderBreadcrumbs;
     }
 
     hook("addspecialsearchtitle");

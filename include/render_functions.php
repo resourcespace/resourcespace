@@ -7993,15 +7993,12 @@ function get_smart_fc_branch_trail(int $node, int $tree_node_level, array $field
     $all_node_parents = get_all_ancestors_for_node($node, $tree_node_level);
     $opened_nodes = array();
     
-    if (is_array($all_node_parents)) 
-        {
-        foreach ($all_node_parents[0] as $p_key => $p_ref) 
-            {
+    if (is_array($all_node_parents)) {
+        foreach ($all_node_parents[0] as $p_key => $p_ref) {
             $opened_nodes[] = $p_ref;
-            }
+        }
 
-        foreach (array_reverse($opened_nodes) as $opened_node) 
-            {
+        foreach (array_reverse($opened_nodes) as $opened_node) {
             $subnodedata = array();
             get_node($opened_node, $subnodedata);
             $extra_trail = array(
@@ -8015,7 +8012,7 @@ function get_smart_fc_branch_trail(int $node, int $tree_node_level, array $field
                 )
             );
             $branch_trail = array_merge($branch_trail, $extra_trail);
-            }
         }
+    }
     return $branch_trail;
 }

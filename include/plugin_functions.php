@@ -343,12 +343,10 @@ function set_plugin_config($plugin_name, $config)
 /**
  * Check if a plugin is activated.
  *
- * Returns true is a plugin is activated in the plugins database.
- *
- * @param $name Name of plugin to check
- * @return bool Returns true is plugin is activated.
+ * @param   string  $name Name of plugin to check
+ * @return  bool    Returns true if plugin is activated.
  */
-function is_plugin_activated($name)
+function is_plugin_activated(string $name): bool
 {
     $activated = ps_query("SELECT name FROM plugins WHERE name = ? and inst_version IS NOT NULL", array("s", $name), "plugins");
     return is_array($activated) && count($activated) > 0;
