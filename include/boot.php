@@ -420,8 +420,7 @@ if ($CSRF_enabled && PHP_SAPI != 'cli' && !$suppress_headers && !in_array($pagen
     debug("CSRF: \$CSRF_source_origin = {$CSRF_source_origin}");
     debug("CSRF: \$CSRF_target_origin = {$CSRF_target_origin}");
 
-    // Whitelist match?
-    $cors_is_origin_allowed=cors_is_origin_allowed($CSRF_source_origin, $CORS_whitelist);
+    $cors_is_origin_allowed = cors_is_origin_allowed($CSRF_source_origin, $CORS_whitelist);
 
     // Verifying the Two Origins Match
     if (
@@ -447,7 +446,7 @@ if ($CSRF_enabled && PHP_SAPI != 'cli' && !$suppress_headers && !in_array($pagen
 
         // Handle preflight requests
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-            http_response_code(200);
+            http_response_code(204);
             exit();
         }
     }

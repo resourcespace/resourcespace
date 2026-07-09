@@ -1908,6 +1908,7 @@ function set_process_lock($name)
         chmod(get_temp_dir() . "/process_locks/" . $name, 0777);
         return true;
     } catch (Exception $e) {
+        debug("set_process_lock: Unable to set process lock $name. Reason: {$e->getMessage()}");
         return false;
     }
 }

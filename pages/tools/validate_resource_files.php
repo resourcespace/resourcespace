@@ -56,7 +56,7 @@ if ($clear_lock) {
 }
 
 if (!set_process_lock("file_integrity_check")) {
-    exit (" - Unable to set process lock. Exiting.\n");
+    exit(" - Unable to set process lock. Exiting.\n");
 }
 
 $resources = get_resources_to_validate($lastchecked);

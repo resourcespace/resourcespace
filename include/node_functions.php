@@ -1335,7 +1335,7 @@ function add_resource_nodes_multi($resources = array(), $nodes = array(), $check
         $resource_node_values = ltrim($resource_node_values, ',');
 
         if ($resource_node_values !== '') {
-            ps_query("INSERT INTO resource_node (resource, node) VALUES {$resource_node_values} ON DUPLICATE KEY UPDATE hit_count=hit_count", $sql_params);
+            ps_query("INSERT IGNORE INTO resource_node(`resource`, node) VALUES {$resource_node_values};", $sql_params);
         }
     }
     return true;

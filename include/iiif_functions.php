@@ -703,8 +703,8 @@ final class IIIFRequest
                 foreach ($i18n_titles as $langcode => $langstring) {
                     $metadata[$n]["value"][$langcode] = [$langstring];
                 }
-                $n++;
             }
+            $n++;
         }
         $this->response["metadata"] = $metadata;
     }

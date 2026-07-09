@@ -121,7 +121,7 @@ include "../include/header.php";
         }
     </script>
 
-    <form method="post" class="form" enctype="multipart/form-data" action="<?php echo generateURL('upload_preview.php', $urlparams); ?>">
+    <form method="post" class="form" enctype="multipart/form-data" action="<?php echo generateURL("{$baseurl_short}pages/upload_preview.php", $urlparams); ?>">
         <?php generateFormToken("upload_preview"); ?>
         <br/>
 

@@ -3389,6 +3389,7 @@ input[type="text"]#iconpicker-input {
 
 #HomeSiteTextInner {
     max-width: 656px;
+    overflow: scroll;
 }
 
 #HomeSiteTextInner h1 {
@@ -3468,9 +3469,11 @@ input[type="text"]#iconpicker-input {
     }
 
     #HomeSiteTextInner {
+        /*
         display: flex;
         flex-direction: column;
         justify-content: center;
+        */
         width: 768px;
         height: 256px;
         padding: var(--space-32, 32px);
