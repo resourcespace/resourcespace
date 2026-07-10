@@ -81,7 +81,7 @@ function update_preview($ref, $previewbased, $sizes, $delete_existing)
             $ingested = true;
         }
         if ($delete_existing) {
-            if (resource_has_preview_source($ref, $resourceinfo['file_extension'])) {
+            if (resource_has_preview_source($ref, $resourceinfo[0]['file_extension'])) {
                 delete_previews($ref);
             } else {
                 $previewbased = true;

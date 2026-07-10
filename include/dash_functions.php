@@ -497,7 +497,7 @@ function get_default_dash($user_group_id = null, $edit_mode = false)
             $contents_tile_class .= $hidden_tile_class;
         }
 
-        if ($buildstring['tlsize'] == 'double') {
+        if (isset($buildstring['tlsize']) && $buildstring['tlsize'] == 'double') {
             $contents_tile_class .= " DoubleWidthDashTile";
         }
         ?>

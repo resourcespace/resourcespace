@@ -47,14 +47,21 @@ function is_touch_device()
 
 
 
-function SetCookie (cookieName,cookieValue,nDays)
+function SetCookie(cookieName, cookieValue, nDays, options = {})
     {
     var today = new Date();
     var expire = new Date();
 
     if (nDays==null || nDays==0) nDays=1;
     expire.setTime(today.getTime() + 3600000*24*nDays);
-    path = ";path=" + baseurl_short + ";SameSite=Strict;";
+
+    // Default cookie options
+    const settings = Object.assign({
+        path: baseurl_short,
+        sameSite: "Strict"
+    }, options);
+
+    let path = `;path=${settings.path};SameSite=${settings.sameSite};`;
 
     // Expire first the old cookie which might not be on the desired path (path used to be set to empty string which made
     // certain cookies be set at /pages) causing issues further down the process (e.g collection bar "thumbs" cookie which

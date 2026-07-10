@@ -128,7 +128,7 @@ if (array_key_exists("user", $_COOKIE) || array_key_exists("user", $_GET) || iss
 
     # Set a cookie that we'll check for again on the login page after the redirection.
     # If this cookie is missing, it's assumed that cookies are switched off or blocked and a warning message is displayed.
-    rs_setcookie('cookiecheck', 'true', 0, '/');
+    rs_setcookie('cookiecheck', 'true', 0, '/', samesite: 'Lax');
     hook("removeuseridcookie");
 }
 

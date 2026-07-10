@@ -1149,19 +1149,22 @@ function iptc_return_utf8($text)
  * resizing with ImageMagick or GD library, generating checksums, and setting file attributes.
  * If the file size exceeds a specified limit, it can queue the preview generation as an offline job.
  *
- * @param int $ref The resource ID for which previews are generated.
- * @param bool $thumbonly (optional) If `true`, only the thumbnail will be generated. Default is `false`.
- * @param string $extension (optional) The file extension for the resource. Default is "jpg".
- * @param bool $previewonly (optional) If `true`, only preview images will be generated. Default is `false`.
- * @param bool $previewbased (optional) If `true`, previews are generated based on existing previews rather than original files. Default is `false`.
- * @param int $alternative (optional) If set, specifies an alternative file ID to generate previews for. Default is `-1`.
- * @param bool $ignoremaxsize (optional) If `true`, the file size limit for preview generation is ignored. Default is `false`.
- * @param bool $ingested (optional) If `true`, marks the resource as already ingested into the system. Default is `false`.
- * @param bool $checksum_required (optional) If `true`, generates a checksum for the file. Default is `true`.
- * @param array $onlysizes (optional) Specifies an array of preview sizes to generate. If empty, all sizes are generated.
- * @return bool Returns `true` if previews were generated successfully; `false` otherwise.
+ * @param  int     $ref                 The resource ID for which previews are generated.
+ * @param  bool    $thumbonly           (optional) If `true`, only the thumbnail will be generated. Default is `false`.
+ * @param  string  $extension           (optional) The file extension for the resource. Default is "jpg".
+ * @param  bool    $previewonly         (optional) If `true`, only preview images will be generated. Default is `false`.
+ * @param  bool    $previewbased        (optional) If `true`, previews are generated based on existing previews rather than original files. Default is `false`.
+ * @param  int     $alternative         (optional) If set, specifies an alternative file ID to generate previews for. Default is `-1`.
+ * @param  bool    $ignoremaxsize       (optional) If `true`, the file size limit for preview generation is ignored. Default is `false`.
+ * @param  bool    $ingested            (optional) If `true`, marks the resource as already ingested into the system. Default is `false`.
+ * @param  bool    $checksum_required   (optional) If `true`, generates a checksum for the file. Default is `true`.
+ * @param  array   $onlysizes           (optional) Specifies an array of preview sizes to generate. If empty, all sizes are generated.
+ * @param  bool    $no_tiles            (optional) Set to true to prevent creation of preview tiles (if enabled). Tiles would not be created where the preview
+ *                                      source is a file created by preview_preprocessing.php.
+ * 
+ * @return  bool   Returns `true` if previews were generated successfully; `false` otherwise.
  */
-function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewonly = false, $previewbased = false, $alternative = -1, $ignoremaxsize = false, $ingested = false, $checksum_required = true, $onlysizes = array())
+function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewonly = false, $previewbased = false, $alternative = -1, $ignoremaxsize = false, $ingested = false, $checksum_required = true, $onlysizes = array(), bool $no_tiles = false)
 {
     global $imagemagick_path, $preview_generate_max_file_size, $previews_allow_enlarge, $lang, $ffmpeg_preview_gif;
     global $previews_allow_enlarge, $offline_job_queue, $preview_no_flatten_extensions, $preview_keep_alpha_extensions;
@@ -1272,7 +1275,7 @@ function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewo
 
     if (in_array(strtolower($extension), ["jpg","jpeg","png"]) || (strtolower($extension) == "gif" && !$ffmpeg_preview_gif)) {
         if (isset($imagemagick_path)) {
-            return create_previews_using_im($ref, $thumbonly, $extension, $previewonly, $previewbased, $alternative, $ingested, $onlysizes);
+            return create_previews_using_im($ref, $thumbonly, $extension, $previewonly, $previewbased, $alternative, $ingested, $onlysizes, $no_tiles);
         } else {
             # ----------------------------------------
             # Use the GD library to perform the resize
@@ -3431,11 +3434,13 @@ function start_previews(int $ref, string $extension = ""): int
 /**
  * Get an array of preview size IDs to generate
  *
- * @param string $extension         File extension ('hpr' is only required for non-JPG images)
- * @param array $dimensions         Image source dimensions in format [width,height]
- * @param bool $thumbonly           Generate 'thm' and 'col' only
- * @param bool $previewonly         Generate 'scr', 'pre', 'thm' and 'col' only
- * @param array $onlysizes          Array of requested size IDs to generate
+ * @param  string   $extension     File extension ('hpr' is only required for non-JPG images)
+ * @param  array    $dimensions    Image source dimensions in format [width,height]
+ * @param  bool     $thumbonly     Generate 'thm' and 'col' only
+ * @param  bool     $previewonly   Generate 'scr', 'pre', 'thm' and 'col' only
+ * @param  array    $onlysizes     Array of requested size IDs to generate
+ * @param  bool     $no_tiles      Set to true to prevent creation of preview tiles (if enabled). Tiles would not be created where the preview
+ *                                 source is a file created by preview_preprocessing.php.
  *
  * @return array|bool   Array of size IDs or false on failure.
  *
@@ -3445,7 +3450,8 @@ function get_sizes_to_generate(
     array $dimensions,
     bool $thumbonly = false,
     bool $previewonly = false,
-    array $onlysizes = []
+    array $onlysizes = [],
+    bool $no_tiles = false
 ) {
     $sw = (int) ($dimensions[0] ?? 0);
     $sh = (int) ($dimensions[1] ?? 0);
@@ -3481,7 +3487,8 @@ function get_sizes_to_generate(
     );
 
     if (
-        (count($onlysizes) === 0 || in_array("tiles", $onlysizes))
+        !$no_tiles
+        && (count($onlysizes) === 0 || in_array("tiles", $onlysizes))
         && $GLOBALS["preview_tiles"]
         && $GLOBALS["preview_tiles_create_auto"]
         && !in_array($extension, config_merge_non_image_types())
@@ -3744,15 +3751,18 @@ function transform_apply_icc_profile(int $ref, string $original_file_path): arra
  * applying watermarks, handling color profiles, and managing alternative files.
  * The function includes extensive support for non-standard image formats and configurations.
  *
- * @param int $ref The resource ID for which previews are generated.
- * @param bool $thumbonly (optional) If `true`, only the thumbnail will be generated. Default is `false`.
- * @param string $extension (optional) The file extension for the resource. Default is "jpg".
- * @param bool $previewonly (optional) If `true`, only preview images will be generated. Default is `false`.
- * @param bool $previewbased (optional) If `true`, previews are generated based on existing previews rather than original files. Default is `false`.
- * @param int $alternative (optional) Specifies an alternative file ID to generate previews for, if any. Default is `-1`.
- * @param bool $ingested (optional) If `true`, marks the resource as already ingested into the system. Default is `false`.
- * @param array $onlysizes (optional) Specifies an array of preview sizes to generate. If empty, all sizes are generated.
- * @return bool Returns `true` if previews were generated successfully; `false` otherwise.
+ * @param  int     $ref            The resource ID for which previews are generated.
+ * @param  bool    $thumbonly      (optional) If `true`, only the thumbnail will be generated. Default is `false`.
+ * @param  string  $extension      (optional) The file extension for the resource. Default is "jpg".
+ * @param  bool    $previewonly    (optional) If `true`, only preview images will be generated. Default is `false`.
+ * @param  bool    $previewbased   (optional) If `true`, previews are generated based on existing previews rather than original files. Default is `false`.
+ * @param  int     $alternative    (optional) Specifies an alternative file ID to generate previews for, if any. Default is `-1`.
+ * @param  bool    $ingested       (optional) If `true`, marks the resource as already ingested into the system. Default is `false`.
+ * @param  array   $onlysizes      (optional) Specifies an array of preview sizes to generate. If empty, all sizes are generated.
+ * @param  bool    $no_tiles       (optional) Set to true to prevent creation of preview tiles (if enabled). Tiles would not be created where the preview
+ *                                 source is a file created by preview_preprocessing.php.
+ *
+ * @return  bool   Returns `true` if previews were generated successfully; `false` otherwise.
  */
 function create_previews_using_im(
     int $ref,
@@ -3762,7 +3772,8 @@ function create_previews_using_im(
     bool $previewbased = false,
     int $alternative = -1,
     bool $ingested = false,
-    array $onlysizes = []
+    array $onlysizes = [],
+    bool $no_tiles = false
 ): bool {
     global $keep_for_hpr,$imagemagick_path,$imagemagick_preserve_profiles,$imagemagick_quality,$default_icc_file;
     global $autorotate_no_ingest,$always_make_previews,$previews_allow_enlarge,$alternative_file_previews;
@@ -3845,7 +3856,7 @@ function create_previews_using_im(
         }
 
         $generateall = !($thumbonly || $previewonly || (count($onlysizes) > 0));
-        $ps = get_sizes_to_generate($extension, [$sw,$sh], $thumbonly, $previewonly, $onlysizes);
+        $ps = get_sizes_to_generate($extension, [$sw,$sh], $thumbonly, $previewonly, $onlysizes, $no_tiles);
         if (!$ps) {
             return false;
         }

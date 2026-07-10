@@ -1035,8 +1035,6 @@ $non_image_types = config_merge_non_image_types();
 if (isset($newfile) && file_exists($newfile)) {
     if ($GLOBALS['non_image_types_generate_preview_only'] && in_array($extension, config_merge_non_image_types())) {
         $file_used_for_previewonly = get_resource_path($ref, true, "tmp", false, "jpg");
-        // Don't create tiles for these
-        $GLOBALS['preview_tiles'] = false;
         
         // Remove targeted file if it already exists to prevent permissions errors
         if (file_exists($file_used_for_previewonly)) {
@@ -1050,9 +1048,9 @@ if (isset($newfile) && file_exists($newfile)) {
     }
 
     if ($extension == "eps" && in_array(strtolower($extension), $preview_keep_alpha_extensions)) {
-        $preview_preprocessing_success = create_previews($ref, false, "png", false, false, $alternative, $ignoremaxsize, true, $checksum_required, $onlysizes);
+        $preview_preprocessing_success = create_previews($ref, false, "png", false, false, $alternative, $ignoremaxsize, true, $checksum_required, $onlysizes, true);
     } else {
-        $preview_preprocessing_success = create_previews($ref, false, "jpg", false, false, $alternative, $ignoremaxsize, true, $checksum_required, $onlysizes);
+        $preview_preprocessing_success = create_previews($ref, false, "jpg", false, false, $alternative, $ignoremaxsize, true, $checksum_required, $onlysizes, true);
     }
 
     if (

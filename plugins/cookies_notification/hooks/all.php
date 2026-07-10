@@ -16,7 +16,7 @@ function HookCookies_notificationAllHandleuserref()
     // Update cookie use option first
     $accepted_cookies_use = getval('accepted_cookies_use', null, true);
     if (!is_null($accepted_cookies_use)) {
-        rs_setcookie('accepted_cookies_use', $accepted_cookies_use, 365, '', '', substr($baseurl, 0, 5) == 'https', true);
+        rs_setcookie('accepted_cookies_use', $accepted_cookies_use, 365, '', '', substr($baseurl, 0, 5) == 'https', true, 'Lax');
     }
 
     /*
@@ -27,7 +27,7 @@ function HookCookies_notificationAllHandleuserref()
     if (is_null($accepted_cookies_use) && !$cookies_notification_allow_using_site_on_no_feedback) {
         redirect("{$baseurl}/login.php?logout=true&cookies_use=true&require_option=true");
     } elseif (!is_null($accepted_cookies_use) && (int) $accepted_cookies_use === 0) {
-        rs_setcookie('accepted_cookies_use', '', -1, '', '', substr($baseurl, 0, 5) == 'https', true);
+        rs_setcookie('accepted_cookies_use', '', -1, '', '', substr($baseurl, 0, 5) == 'https', true, 'Lax');
         redirect("{$baseurl}/login.php?logout=true&cookies_use=true");
     }
 }
@@ -71,7 +71,7 @@ function HookCookies_notificationAllAfteruicenter()
                 user_option = 1;
             }
 
-            SetCookie('accepted_cookies_use', user_option, 1);
+            SetCookie('accepted_cookies_use', user_option, 1, {sameSite: "Lax"});
             jQuery('#CookiesUseWrapper').slideUp();
 
             <?php if ($is_authenticated) { ?>
@@ -117,7 +117,7 @@ function HookCookies_notificationLoginPostlogout()
 {
     global $baseurl;
 
-    rs_setcookie('accepted_cookies_use', '', -1, '', '', substr($baseurl, 0, 5) == 'https', true);
+    rs_setcookie('accepted_cookies_use', '', -1, '', '', substr($baseurl, 0, 5) == 'https', true, 'Lax');
 
     $cookies_use = getval('cookies_use', false);
 
@@ -129,5 +129,5 @@ function HookCookies_notificationLoginPostlogout()
 function HookCookies_notificationAllRemoveuseridcookie()
 {
     global $baseurl;
-    rs_setcookie('accepted_cookies_use', '', -1, '', '', substr($baseurl, 0, 5) == 'https', true);
+    rs_setcookie('accepted_cookies_use', '', -1, '', '', substr($baseurl, 0, 5) == 'https', true, 'Lax');
 }

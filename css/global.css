@@ -2587,6 +2587,7 @@ p.LoginLinks {
     width: 20px;
     height: 22px;
     margin-right: var(--space-4);
+    vertical-align: bottom;
 }
 #CentralSpaceLogin .login-links a {
     color: var(--colour-link-primary-default);
