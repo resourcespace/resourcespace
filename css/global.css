@@ -4385,6 +4385,7 @@ header.LoginHeader {
 }
 
 #header-container .logo {
+    height: 48px;
     display: flex;
     line-height: initial;
     grid-area: logo;
@@ -5112,6 +5113,10 @@ header.LoginHeader {
         display: flex;
         padding: var(--space-16) var(--space-32);
         gap: var(--space-32);
+    }
+
+    #header-container .logo {
+        width: 200px;
     }
 
     #header-container .header-search-field {

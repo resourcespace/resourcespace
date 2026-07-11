@@ -659,7 +659,6 @@ final class IIIFRequest
                 }
 
                 // Add all translated node names
-                $arr_showlangs = [];
                 $arr_alllangstrings = [];
                 $arr_lang_default = [];
                 foreach ($resnodes as $resnode) {
@@ -674,10 +673,10 @@ final class IIIFRequest
                             // This is the first time this language has been found for this field
                             // Initialise the language by copying the default array of values found so far
                             $arr_alllangstrings[$langcode] = $arr_lang_default;
+                        } else {
+                            // Add to array
+                            $arr_alllangstrings[$langcode][] = $langstring;
                         }
-                        // Add to array
-                        $arr_alllangs[$langcode][] = $langstring;
-                        $arr_showlangs[] = $langcode;
                     }
 
                     // Check that this node string has been added for all translations found so far

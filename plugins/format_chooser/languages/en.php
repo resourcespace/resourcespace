@@ -17,3 +17,6 @@ $lang['are_available-0'] = $lang['are_available-1'] = $lang['are_available-2'] =
 
 $lang["page-title_format_chooser_convert"]  = "Format Chooser";
 $lang["page-title_format_chooser_setup"]    = "Setup Format Chooser Plugin";
+
+$lang["format_chooser_blocked_inputs"] = "<p>The following formats are not supported for input: %s</p>";
+$lang["format_chooser_blocked_outputs"] = "<p>The following formats are not supported for output: %s</p>";

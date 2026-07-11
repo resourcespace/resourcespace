@@ -514,8 +514,8 @@ if ($addsearch != -1) {
     $default_collection_sort = 'collection';
 }
 
-$result  = do_search("!collection{$usercollection}", '', $default_collection_sort, 0, -1, "ASC", false, 0, false, false, '', false, true, false);
-$count_result = count($result);
+$result  = do_search("!collection{$usercollection}", '', $default_collection_sort, 0, [0, $max_collection_thumbs], "ASC", false, 0, false, false, '', false, true, false);
+$count_result = $result["total"];
 $feedback = $cinfo ? $cinfo["request_feedback"] : 0;
 
 ?>
@@ -888,14 +888,14 @@ jQuery(function () {
             # Display thumbnails for standard display
             if ($count_result > 0) {
                 # Loop through resources for thumbnails for standard display
-                for ($n = 0; $n < count($result) && $n < $count_result && $n < $max_collection_thumbs; $n++) {
-                    if (!isset($result[$n]) || !is_array($result[$n])) {
+                for ($n = 0; $n < count($result["data"]); $n++) {
+                    if (!isset($result["data"][$n]) || !is_array($result["data"][$n])) {
                         # $result can be a list of suggested searches, in this case do not process this item.
                         continue;
                     }
 
-                    $ref = $result[$n]["ref"];
-                    $resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_field]);
+                    $ref = $result["data"][$n]["ref"];
+                    $resource_view_title = i18n_get_translated($result["data"][$n]["field" . $view_title_field]);
 
                     $resource_url = generateURL($baseurl_short . "pages/view.php", [
                         "ref" => $ref,
@@ -914,36 +914,36 @@ jQuery(function () {
                             class="collection-bar-resource-card-link"
                             onclick="return <?php echo $resource_view_modal ? 'Modal' : 'CentralSpace'; ?>Load(this,true);"
                             href="<?php echo $resource_url; ?>"
-                            aria-label="<?php echo escape(i18n_get_translated($result[$n]["field" . $view_title_field])); ?>"
+                            aria-label="<?php echo escape(i18n_get_translated($result["data"][$n]["field" . $view_title_field])); ?>"
                         ></a>
                         
                         <?php
                         if (!hook("rendercollectionthumb")) {
-                            if (isset($result[$n]["access"]) && $result[$n]["access"] == 0 && !checkperm("g") && !$internal_share_access) {
+                            if (isset($result["data"][$n]["access"]) && $result["data"][$n]["access"] == 0 && !checkperm("g") && !$internal_share_access) {
                                 # Resource access is open but user does not have the 'g' permission. Set access to restricted. If they have been granted specific access this will be added next
-                                $result[$n]["access"] = 1;
+                                $result["data"][$n]["access"] = 1;
                             }
 
-                            $access = isset($result[$n]["access"]) ? $result[$n]["access"] : get_resource_access($result[$n]);
+                            $access = isset($result["data"][$n]["access"]) ? $result["data"][$n]["access"] : get_resource_access($result["data"][$n]);
                             $use_watermark = check_use_watermark();
 
                             ?>
 
                             <div class="collection-bar-resource-card-image">
                                 <?php
-                                $colimgpath = get_resource_preview($result[$n], ['thm'], $access, $use_watermark);
+                                $colimgpath = get_resource_preview($result["data"][$n], ['thm'], $access, $use_watermark);
                                 if ($colimgpath !== false && is_safe_url($colimgpath['url'])) {
                                     ?>
                                     <img border="0"
                                         src="<?php echo $colimgpath['url']; ?>"
-                                        title="<?php echo escape(i18n_get_translated($result[$n]["field" . $view_title_field])); ?>"
-                                        alt="<?php echo escape(i18n_get_translated($result[$n]["field" . $view_title_field])); ?>"                                   
+                                        title="<?php echo escape(i18n_get_translated($result["data"][$n]["field" . $view_title_field])); ?>"
+                                        alt="<?php echo escape(i18n_get_translated($result["data"][$n]["field" . $view_title_field])); ?>"                                   
                                     />
                                 <?php
                                 } else {
-                                    echo get_nopreview_html((string) $result[$n]["file_extension"], $result[$n]["resource_type"]);
+                                    echo get_nopreview_html((string) $result["data"][$n]["file_extension"], $result["data"][$n]["resource_type"]);
                                 }
-                                hook("aftersearchimg", "", array($result[$n]));
+                                hook("aftersearchimg", "", array($result["data"][$n]));
                                 ?>
                                 <div class="collection-bar-resource-card-image-overlay"></div>
                             </div>
@@ -974,15 +974,15 @@ jQuery(function () {
                         </div>
                         <?php
 
-                        $title = $result[$n]["field" . $view_title_field];
+                        $title = $result["data"][$n]["field" . $view_title_field];
                         $title_field = $view_title_field;
 
                         if (
                             isset($metadata_template_title_field)
                             && isset($metadata_template_resource_type)
-                            && $result[$n]['resource_type'] == $metadata_template_resource_type
+                            && $result["data"][$n]['resource_type'] == $metadata_template_resource_type
                         ) {
-                            $title = $result[$n]["field" . $metadata_template_title_field];
+                            $title = $result["data"][$n]["field" . $metadata_template_title_field];
                             $title_field = $metadata_template_title_field;
                         }
 

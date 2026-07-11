@@ -37,6 +37,95 @@ function supportsInputFormat($inputFormat)
     }
 
 /**
+ * Fetch a list of formats that Image Magick can support for input and output
+ *
+ * @return array{readable: string[], writeable: string[]}|b
+ */
+function imageMagickFormats():array|bool
+{
+    $identify = get_utility_path("im-convert");
+    $output = run_command("{$identify} -list format");
+
+    $lines = explode("\n", $output);
+    $readable = [];
+    $writable = [];
+    $pattern = '@^
+        \s*                          # Optional leading whitespace
+        (?<format>[\w-]+)               # Format name (letters/digits/underscore)
+        \*?                          # Optional asterisk for multi-extension formats
+        \s+                          # Required whitespace separator  
+        (?<identifier>[\w-]+)           # Format identifier (usually same as format)
+        \s+                          # Required whitespace separator
+        (?<permissions>[r-][w-][+-]) # Three-char permission string (r/w/multi)
+        \s+                          # Required whitespace separator
+        (?<description>.*)           # Everything else (format description)
+        $@x';
+    foreach ($lines as $line) {
+        // Skip header lines and empty lines
+        if (empty(trim($line)) || strpos($line, '---') !== false) {
+            continue;
+        }
+
+        // Parse the line - format is roughly: FORMAT MODULE MODE DESCRIPTION
+        if (preg_match($pattern, $line, $match)) {
+            if ($match['permissions'][0] === 'r') {
+                $readable[] = strtolower($match['identifier']);
+            }
+
+            if ($match['permissions'][1] === 'w') {
+                $writable[] = strtolower($match['identifier']);
+            }
+        }
+    }
+
+    return [
+        'readable' => array_unique($readable),
+        'writable' => array_unique($writable)
+    ];
+
+}
+
+function parseFormatExtensions($input):array
+{
+    $inputs = array_map('strtolower', explode(',', $input));
+    $extension_alias_map = [
+        // JPEG variants
+        'jpg' => 'jpeg',
+        'jpeg' => 'jpeg',
+        'jpe' => 'jpeg',
+        'jfif' => 'jpeg',
+
+        // TIFF variants  
+        'tif' => 'tiff',
+        'tiff' => 'tiff',
+
+        // BMP variants
+        'bmp' => 'bmp',
+        'bitmap' => 'bmp',
+        'dib' => 'bmp',
+
+        // SVG variants
+        'svg' => 'svg',
+        'svgz' => 'svg',  // Compressed SVG
+
+        // EPS variants
+        'eps' => 'eps',
+        'epsf' => 'eps',
+        'epsi' => 'eps',
+
+        // PostScript variants
+        'ps' => 'ps',
+        'postscript' => 'ps',
+
+        // ICO variants
+        'ico' => 'ico',
+        'icon' => 'ico',
+    ];
+
+    return array_map(fn($v) => $extension_alias_map[$v] ?? $v, $inputs);
+}
+
+/**
  * Returns the size record from the database specified by its ID.
  */
 function getImageFormat($size)

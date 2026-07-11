@@ -314,7 +314,11 @@ $page_title = get_page_title($pagename, pluginname());
                 ?>
                 <div id="header-container">
                     <div class="logo">
-                        <a href="<?php echo sanitise_url($linkUrl); ?>" onclick="return CentralSpaceLoad(this, true);">
+                        <a href="<?php echo sanitise_url($linkUrl); ?>"<?php
+                        if ($k === '') {
+                            ?> onclick="return CentralSpaceLoad(this, true);"<?php
+                        }
+                        ?>>
                             <img src="<?php echo sanitise_url(get_header_image(false, true)); ?>" alt="<?php echo escape($applicationname . " - " . $homepage_name); ?>">
                         </a>
                     </div>

@@ -13,6 +13,24 @@ if(!in_array($plugin_name, $plugins))
     {plugin_activate_for_setup($plugin_name);}
 $page_heading = $lang['format_chooser_configuration'];
 
+if ('' != getval('submit', '') || '' != getval('save', '')) {
+    $formats = imageMagickFormats();
+
+    $inputs = parseFormatExtensions(getval('format_chooser_input_formats', ''));
+    $blocked_inputs = array_diff($inputs, $formats['readable']);
+    if (!empty($blocked_inputs)) {
+        $blocked_inputs = implode(', ', $blocked_inputs);
+        $page_def[] = config_add_html(sprintf($lang["format_chooser_blocked_inputs"], $blocked_inputs));
+    }
+
+    $outputs = parseFormatExtensions(getval('format_chooser_output_formats', ''));
+    $blocked_outputs = array_diff($outputs, $formats['readable']);
+    if (!empty($blocked_outputs)) {
+        $blocked_outputs = implode(', ', $blocked_outputs);
+        $page_def[] = config_add_html(sprintf($lang["format_chooser_blocked_outputs"], $blocked_outputs));
+    }
+}
+
 // Build the config page
 $page_def[] = config_add_text_list_input('format_chooser_input_formats', $lang['format_chooser_input_formats']);
 $page_def[] = config_add_text_list_input('format_chooser_output_formats', $lang['format_chooser_output_formats']);
