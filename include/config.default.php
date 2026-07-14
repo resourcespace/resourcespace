@@ -1477,7 +1477,7 @@ $upload_chunk_size = '50mb';
 $upload_concurrent_limit = 5;
 
 // Intervals to retry uploading a chunk, in milliseconds.
-$upload_retry_delays = '[0, 1000, 3000, 5000]';
+$upload_retry_delays = [0, 1000, 3000, 5000];
 
 // Resource deletion state
 // When resources are deleted, the variable below can be set to move the resources into an alternative state instead of removing the resource and its files from the system entirely.

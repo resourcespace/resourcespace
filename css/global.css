@@ -840,7 +840,7 @@ img[src$=".svg"]
 }
 #CentralSpaceContainerRestrict {margin:0 15px 20px 25px;padding:0;text-align:left;}
 #CentralSpaceLogin {
-    margin: var(--space-80) auto;
+    margin: var(--space-48) auto;
     padding: 0 var(--space-16);
     width: 422px;
     text-align: left;
@@ -2614,6 +2614,7 @@ p.LoginLinks {
 }
 #LoginHeader img{
     max-width: 200px;
+    max-height: var(--space-64);
 }
 .login-welcome-text {
     padding-bottom: var(--form-field-margin-bottom);
@@ -4289,7 +4290,7 @@ a.text-link:visited {
 }
 
 .slideshow-enabled > #CentralSpaceLogin {
-    padding: 80px 120px;
+    padding: var(--space-48) 120px;
     margin: 0;
     overflow-y: scroll;
     width: 434px;
@@ -4958,7 +4959,7 @@ header.LoginHeader {
 @media(max-width: 1366px) {
     /* Login page small desktop layout */
     .slideshow-enabled > #CentralSpaceLogin {
-        padding: var(--space-80) var(--space-32);
+        padding: var(--space-48) var(--space-32);
     }
 
     .login-slide {

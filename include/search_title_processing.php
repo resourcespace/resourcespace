@@ -320,9 +320,10 @@ if ($search_titles) {
         }
         $search_title = '<div class="BreadcrumbsBox BreadcrumbsBoxSlim BreadcrumbsBoxTheme"><div class="SearchBreadcrumbs"><a href="' . $search_url . '" onClick="return CentralSpaceLoad(this,true);">' . escape(implode(", ", $title_strings)) . '</a>' . escape($searchcrumbs) . '</div></div> ';
     } elseif (
-        substr($search, 0, 2) == "@@" 
+        substr($search, 0, 2) == "@@"
+        && is_int_loose(substr($search, 2))
         && get_node((substr($search, 2)), $nodedata)
-        && ($field_data = get_field($nodedata['resource_type_field']))['smart_theme_name']
+        && isset(($field_data = get_field($nodedata['resource_type_field']))['smart_theme_name'])
     ) {
 
         $general_url_params = ($k == "" ? array() : array("k" => $k));

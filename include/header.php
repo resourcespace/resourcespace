@@ -505,14 +505,4 @@ if (!$disable_geocoding) {
 </script>
 
 <?php
-// Non-ajax specific hook
-if ($k != "" && !$internal_share_access) {
-    ?>
-    <style>
-        #CentralSpaceContainer {
-            padding-right: 0;
-            margin: 0px 10px 20px 25px;
-        }
-    </style>
-    <?php
-}
+
