@@ -37,9 +37,9 @@ function supportsInputFormat($inputFormat)
     }
 
 /**
- * Fetch a list of formats that Image Magick can support for input and output
+ * Fetch a list of formats that ImageMagick can support for input and output
  *
- * @return array{readable: string[], writeable: string[]}|b
+ * @return array{readable: string[], writeable: string[]}|bool
  */
 function imageMagickFormats():array|bool
 {
@@ -85,7 +85,14 @@ function imageMagickFormats():array|bool
 
 }
 
-function parseFormatExtensions($input):array
+/**
+ * Parse the input string from format chooser setup page and convert into an array
+ * Also normalize the spelling of extensions to be consistent with the output from ImageMagick
+ *
+ * @param  string $input    Value from setup page for extensions
+ * @return string[]         Array containing normalized extensions
+ */
+function parseFormatExtensions(string $input): array
 {
     $inputs = array_map('strtolower', explode(',', $input));
     $extension_alias_map = [

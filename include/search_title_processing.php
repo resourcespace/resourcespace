@@ -323,7 +323,7 @@ if ($search_titles) {
         substr($search, 0, 2) == "@@"
         && is_int_loose(substr($search, 2))
         && get_node((substr($search, 2)), $nodedata)
-        && isset(($field_data = get_field($nodedata['resource_type_field']))['smart_theme_name'])
+        && ($field_data = get_field($nodedata['resource_type_field']))['smart_theme_name']
     ) {
 
         $general_url_params = ($k == "" ? array() : array("k" => $k));
