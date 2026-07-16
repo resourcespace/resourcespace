@@ -897,6 +897,12 @@ const API_ISSUE_VALID_DESTINATIONS = [
         "querydata" => ["username", "email", "fullname"],
         "stateparam" => "state",
     ],
+    "canva" => [
+        "name" => "Canva",
+        "url" => "https://resourcespace-platform-production.up.railway.app/oauth/sso/callback",
+        "querydata" => ["username", "email", "fullname"],
+        "stateparam" => "state",
+    ],
 ];
 
 // Stream wrappers not needed by ResourceSpace, to unregister during boot.php to improve security.

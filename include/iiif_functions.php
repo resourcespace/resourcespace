@@ -660,23 +660,14 @@ final class IIIFRequest
 
                 // Add all translated node names
                 $arr_alllangstrings = [];
-                $arr_lang_default = [];
                 foreach ($resnodes as $resnode) {
                     $node_langs_avail = [];
                     $i18n_names = i18n_get_translations($resnode["name"]);
                     // Set default in case no translation available for any languages
                     $defaultnodename = $i18n_names[$GLOBALS["defaultlanguage"]] ?? reset($i18n_names);
-                    $arr_lang_default[] =  $defaultnodename;
                     foreach ($i18n_names as $langcode => $langstring) {
                         $node_langs_avail[] = $langcode;
-                        if (!isset($arr_alllangstrings[$langcode])) {
-                            // This is the first time this language has been found for this field
-                            // Initialise the language by copying the default array of values found so far
-                            $arr_alllangstrings[$langcode] = $arr_lang_default;
-                        } else {
-                            // Add to array
-                            $arr_alllangstrings[$langcode][] = $langstring;
-                        }
+                        $arr_alllangstrings[$langcode][] = $langstring;
                     }
 
                     // Check that this node string has been added for all translations found so far
@@ -686,10 +677,7 @@ final class IIIFRequest
                         }
                     }
                 }
-                $metadata[$n]["value"] = [];
-                foreach ($arr_alllangstrings as $langcode => $strings) {
-                    $metadata[$n]["value"][$langcode] = [implode(NODE_NAME_STRING_SEPARATOR, $strings)];
-                }
+                $metadata[$n]["value"] = $arr_alllangstrings;
             } elseif (trim((string) $iiif_data_row["value"]) !== "") {
                 $metadata[$n] = [];
                 $metadata[$n]["label"] = [];

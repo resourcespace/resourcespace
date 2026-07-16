@@ -179,7 +179,7 @@ function HookTms_linkEditAftersaveresourcedata(int|array $R, $nodes_to_add, $nod
                 )
                 || (
                     $can_use_updated_resources
-                    && !isset($updated_resources[$resourceref], $updated_resources[$resourceref][$module['rs_uid_field']])
+                    && !isset($updated_resources[$resourceref][$module['rs_uid_field']])
                 )
             ) {
                 continue;
@@ -193,7 +193,10 @@ function HookTms_linkEditAftersaveresourcedata(int|array $R, $nodes_to_add, $nod
                 continue;
             }
 
-            if ($module_rs_uid_field_data[0]['type'] === FIELD_TYPE_TEXT_BOX_SINGLE_LINE) {
+            if (
+                $module_rs_uid_field_data[0]['type'] === FIELD_TYPE_TEXT_BOX_SINGLE_LINE
+                && isset($updated_resources[$resourceref][$module['rs_uid_field']][0])
+            ) {
                 $tms_object_id = $updated_resources[$resourceref][$module['rs_uid_field']][0];
             } else if (
                 !$can_use_updated_resources
