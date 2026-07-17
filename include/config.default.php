@@ -3228,3 +3228,19 @@ $browser_check_message="Performing browser checks..."; // Message to display whe
 
 // Show the shorthand name column in the metadata admin area for easier identification of fields
 $metadata_admin_show_shorthand = false;
+
+// Allowlist of external services to give a user's API credentials to
+$api_issue_valid_destinations = [
+    "linkrui" => [
+        "name" => "LinkrUI",
+        "url" => "https://resourcespace.linkrui.com/saml",
+        "querydata" => ["username"],
+        "stateparam" => "state",
+    ],
+    "tagquest" => [
+        "name" => "TagQuest",
+        "url" => "https://resourcespace.tagquest.io/api/auth/rs-callback",
+        "querydata" => ["username", "email", "fullname"],
+        "stateparam" => "state",
+    ]
+];

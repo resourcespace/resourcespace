@@ -557,7 +557,18 @@ if (!$validpage) {
                     </select>
                     <div class="clearerleft"></div>
                 </div>
-
+                <?php
+            } elseif ($full_resource_count > $dash_tile_dropdown_limit) {
+                ?>
+                <div class="Question" id="promotedresource">
+                    <label for="promoted_image"><?php echo escape($lang['dashtileimage']); ?></label>
+                    <input type="text" id="previewimage" name="promoted_image" value="<?php echo escape($promoted_resource); ?>"/>
+                    <div class="clearerleft"></div>
+                </div>
+                <?php
+            }
+            if ($full_resource_count > 0) {
+                ?>
                 <script>
                     jQuery('.tlstyle').change(function() {
                         checked = jQuery('.tlstyle:checked').val();
@@ -569,14 +580,6 @@ if (!$validpage) {
                         }
                     });
                 </script>
-                <?php
-            } elseif ($full_resource_count > $dash_tile_dropdown_limit) {
-                ?>
-                <div class="Question" id="promotedresource">
-                    <label for="promoted_image"><?php echo escape($lang['dashtileimage']); ?></label>
-                    <input type="text" id="previewimage" name="promoted_image" value="<?php echo escape($promoted_resource); ?>"/>
-                    <div class="clearerleft"></div>
-                </div>
                 <?php
             }
         }

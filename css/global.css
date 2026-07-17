@@ -609,7 +609,7 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
 }
 .tile-summary {
     display: flex;
-    height: 120px;
+    height: 88px;
     padding: var(--space-16);
     flex-direction: column;
     justify-content: center;
@@ -1740,7 +1740,7 @@ p.tile_corner_box {
     font-weight: 500;
     line-height: 125%;
 }
-.DoubleWidthDashTile .tile-summary > h{
+.DoubleWidthDashTile .tile-summary > h2{
     font-size: 18px;
     font-weight: 400;
     line-height: 140%;

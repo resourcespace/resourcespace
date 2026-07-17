@@ -2691,7 +2691,7 @@ function delete_previews($resource, $alternative = -1)
         }
     }
 
-    if (in_array($extension, $ffmpeg_supported_extensions) || $extension == 'gif') {
+    if ($alternative === -1 && (in_array($extension, $ffmpeg_supported_extensions) || $extension == 'gif')) {
         remove_video_previews($resource);
     }
 

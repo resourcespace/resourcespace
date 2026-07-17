@@ -5,7 +5,7 @@ include "../../include/api_functions.php";
 include "../../include/authenticate.php";
 
 $system = getval("system", "");
-$remote_system = API_ISSUE_VALID_DESTINATIONS[$system] ?? false;
+$remote_system = $api_issue_valid_destinations[$system] ?? false;
 
 if ($remote_system) {
     $state = getval($remote_system["stateparam"], "");

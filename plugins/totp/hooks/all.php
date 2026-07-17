@@ -15,10 +15,15 @@ function HookTotpAllPreheaderoutput()
     $cookie = getval("totp", "");
     $k = getval('k', '');
 
-    $impersonation_cookie = json_decode(getval('user_impersonation', '{}'), true);
-    if (count($impersonation_cookie) == 2) {
+    $impersonation_cookie = json_decode(
+        getval('user_impersonation', '{}', false, fn($val) => !empty(trim($val)) && is_string(trim($val)))
+    , true);
+    $impersonator = false;
+    if (is_array($impersonation_cookie) && count($impersonation_cookie) == 2) {
         $impersonator = get_user($impersonation_cookie['ref']);
-        $key = hash_hmac("sha256", $impersonator['password'], $scramble_key);
+        $derived_key = hash_hmac('sha256', $impersonator['password'], $scramble_key);
+        $sign = hash_hmac("sha256", $impersonation_cookie['ref'], $derived_key);
+        $impersonator = $sign == $impersonation_cookie['sign'];   
     }
 
     if (
@@ -27,8 +32,7 @@ function HookTotpAllPreheaderoutput()
         && (!(isset($anonymous_login) 
         && $username == $anonymous_login)) 
         && $cookie != TOTP_cookie($userref) 
-        && !($impersonation_cookie !== []
-        && $key === $impersonation_cookie['key'])
+        && !$impersonator
         && !TOTP_saml_authenticate() 
         && !($k != '' && !$username)
     ) {
