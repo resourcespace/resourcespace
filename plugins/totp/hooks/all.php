@@ -23,7 +23,7 @@ function HookTotpAllPreheaderoutput()
         $impersonator = get_user($impersonation_cookie['ref']);
         $derived_key = hash_hmac('sha256', $impersonator['password'], $scramble_key);
         $sign = hash_hmac("sha256", $impersonation_cookie['ref'], $derived_key);
-        $impersonator = $sign == $impersonation_cookie['sign'];   
+        $impersonator = $sign === $impersonation_cookie['sign'];   
     }
 
     if (

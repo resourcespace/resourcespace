@@ -421,7 +421,9 @@ $remaining = $total_to_send;
 
 while ($remaining > 0 && !feof($file_handle)) {
     $buf = fread($file_handle, min($download_chunk_size, $remaining));
-    if ($buf === false || $buf === '') break;
+    if ($buf === false || $buf === '') {
+        break;
+    }
 
     echo $buf;
     flush();

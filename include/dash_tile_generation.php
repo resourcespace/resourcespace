@@ -181,21 +181,34 @@ function tile_graph(array $tile, string $tile_id): void
                             },
                             scales: {
                                 x: {
-                                    type: 'time',
-                                    time: {
-                                        unit:'day',
-                                        displayFormats :{
-                                            day: 'dd-MM-YYY',
-                                        }
-                                    },
-                                    unit: 'seconds',
-                                    ticks: {
-                                        display: false
-                                    },
+                                    display: false,
                                     border: {
                                         display: false
-                                    }
-                                }
+                                    },
+                                    <?php if ($graph_types[$graph_params['type']] !== 'doughnut') { ?>
+                                        type: 'time',
+                                        time: {
+                                            unit:'day',
+                                            displayFormats :{
+                                                day: 'dd-MM-YYY',
+                                            }
+                                        },
+                                        unit: 'seconds',
+                                        ticks: {
+                                            display: false
+                                        },
+                                        display: true,
+                                    <?php } ?>
+                                },
+                                y: {
+                                    display: false,
+                                    border: {
+                                        display: false
+                                    },
+                                    <?php if ($graph_types[$graph_params['type']] !== 'doughnut') { ?>
+                                        display: true,
+                                    <?php } ?>
+                                },
                             }
                         },
                         plugins: [tile_graph_legend]

@@ -1720,7 +1720,7 @@ function generate_dash_tile_toolbar(array $tile, string $tile_id, bool $display_
                 var tileid = "<?php echo (int) $tile["ref"]; ?>"; //Needs to be set for delete functionality
                 var usertileid = "<?php echo escape(substr($tile_id, 18)); ?>" //Needs to be set for delete functionality
                 var usertileidname = "#<?php echo escape(substr($tile_id, 9)); ?>";
-                var dashtileactionsid = "#DashTileActions_" + usertileid;
+                var dashtileactionsid = "#DashTileActions_" + usertileid + " > .tool";
                 var deletetileid = ".dash-delete_" + usertileid;
                 var editlink = "<?php echo isset($tile["url"]) ? $tile["url"] : ""; ?>";
                 var tilehref; //Used to switch off and on tile link to stop issue clicking on tool bar but opening tile link
