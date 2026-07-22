@@ -86,3 +86,6 @@ $lang["page-title_transform_collection_transform"] = 'Преобразовать
 $lang["page-title_transform_crop"] = 'Обрезать ресурс';
 $lang["page-title_transform_setup"] = 'Настройка плагина преобразования';
 $lang["use_filename_as_title"] = 'Использовать имя файла в качестве заголовка';
+
+$lang["error-resolution-zero"] = 'Ошибка: Исходное изображение имеет вычисленную ширину/высоту равную нулю.';
+$lang["error-preview-missing"] = 'Ошибка: Не удалось найти изображение предварительного просмотра';

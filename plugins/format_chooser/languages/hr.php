@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Izbornik formata';
 $lang["plugin-format_chooser-desc"]='Omogućuje vam odabir različitih formata prilikom preuzimanja datoteka koje se generiraju u hodu.';
 $lang["page-title_format_chooser_convert"] = 'Odabir formata';
 $lang["page-title_format_chooser_setup"] = 'Postavljanje dodatka za odabir formata';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Sljedeći formati nisu podržani za unos: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Sljedeći formati nisu podržani za ispis: %s</p>';

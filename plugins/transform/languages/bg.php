@@ -82,3 +82,6 @@ $lang["page-title_transform_collection_transform"] = 'Преобразуване
 $lang["page-title_transform_crop"] = 'Изрязване на ресурс';
 $lang["page-title_transform_setup"] = 'Настройка на плъгина за преобразуване';
 $lang["use_filename_as_title"] = 'Използвайте името на файла като заглавие';
+
+$lang["error-resolution-zero"] = 'Грешка: Оригиналното изображение има изчислена ширина/височина равна на нула.';
+$lang["error-preview-missing"] = 'Грешка: Не може да се намери изображение за преглед';

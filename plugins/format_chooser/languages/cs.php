@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Výběr formátu';
 $lang["plugin-format_chooser-desc"]='Umožňuje vám vybrat různé formáty při stahování souborů, které jsou generovány za běhu.';
 $lang["page-title_format_chooser_convert"] = 'Výběr formátu';
 $lang["page-title_format_chooser_setup"] = 'Nastavit plugin pro výběr formátu';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Následující formáty nejsou podporovány pro zadání: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Následující formáty nejsou podporovány pro výstup: %s</p>';

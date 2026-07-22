@@ -16,3 +16,6 @@ $lang["are_available-1"]='تبدیل کیا جائے گا';
 $lang["are_available-0"]='تبدیل کیا جائے گا';
 $lang["page-title_format_chooser_convert"] = 'فارمیٹ منتخب کرنے والا';
 $lang["page-title_format_chooser_setup"] = 'فارمیٹ چننے والا پلگ ان ترتیب دیں';
+
+$lang["format_chooser_blocked_inputs"] = '<p>مندرجہ ذیل فارمیٹس ان پٹ کے لیے معاونت یافتہ نہیں ہیں: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>مندرجہ ذیل فارمیٹس آؤٹ پٹ کے لیے معاونت یافتہ نہیں ہیں: %s</p>';

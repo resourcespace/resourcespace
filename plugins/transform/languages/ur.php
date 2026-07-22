@@ -82,3 +82,6 @@ $lang["page-title_transform_collection_transform"] = 'وسائل کو تبدیل
 $lang["page-title_transform_crop"] = 'کٹائی کا وسیلہ';
 $lang["page-title_transform_setup"] = 'ٹرانسفارم پلگ ان سیٹ اپ کریں';
 $lang["use_filename_as_title"] = 'فائل کا نام عنوان کے طور پر استعمال کریں';
+
+$lang["error-resolution-zero"] = 'خرابی: اصل تصویر کی حساب شدہ چوڑائی/اونچائی صفر ہے۔';
+$lang["error-preview-missing"] = 'خرابی: پیش نظارہ تصویر تلاش کرنے سے قاصر';

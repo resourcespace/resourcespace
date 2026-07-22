@@ -6063,8 +6063,9 @@ function allow_unicode_characters(string $text, array $allowlist = []): string
     // \p{L} - any kind of letter from any language
     // \p{N} - any kind of numeric character in any script
     // \s - any kind of invisible character (equivalent to [\p{Z}\h\v])
+    // . - Always allow period as often significant e.g. in identifiers
     return trim_spaces(
-        preg_replace('/[^\p{L}\p{N}\s' . implode('', array_map(preg_quote(...), $allowlist)) . ']+/u', '', $text)
+        preg_replace('/[^\p{L}\p{N}\s.' . implode('', array_map(preg_quote(...), $allowlist)) . ']+/u', '', $text)
     );
 }
 

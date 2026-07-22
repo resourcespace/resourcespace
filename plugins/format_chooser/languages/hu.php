@@ -16,3 +16,6 @@ $lang["are_available-1"] = 'át lesz alakítva';
 $lang["are_available-0"] = 'át lesz alakítva';
 $lang["page-title_format_chooser_convert"] = 'Formátum választó';
 $lang["page-title_format_chooser_setup"] = 'Formátumválasztó bővítmény beállítása';
+
+$lang["format_chooser_blocked_inputs"] = '<p>A következő formátumok nem támogatottak bemenetként: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>A következő formátumok nem támogatottak kimenetként: %s</p>';

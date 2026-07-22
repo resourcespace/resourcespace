@@ -82,3 +82,6 @@ $lang["page-title_transform_collection_transform"] = '轉換資源';
 $lang["page-title_transform_crop"] = '裁剪資源';
 $lang["page-title_transform_setup"] = '設定轉換插件';
 $lang["use_filename_as_title"] = '使用檔名作為標題';
+
+$lang["error-resolution-zero"] = '錯誤：原始圖像的計算寬度／高度為零。';
+$lang["error-preview-missing"] = '錯誤：找不到預覽圖像';

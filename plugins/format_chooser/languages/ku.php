@@ -16,3 +16,6 @@ $lang["are_available-1"] = 'دەگۆڕدرێن';
 $lang["are_available-0"] = 'دەگۆڕدرێن';
 $lang["page-title_format_chooser_convert"] = 'هەڵبژاردنی فۆرمات';
 $lang["page-title_format_chooser_setup"] = 'ڕێکخستنی پلاگینەکانی هەڵبژاردنی فۆرمات';
+
+$lang["format_chooser_blocked_inputs"] = '<p>فورماتەکانی خوارەوە پشتگیری نەکراون بۆ داخل کردن: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>فورماتەکانی خوارەوە پشتگیری نەکراون بۆ دەرخستن: %s</p>';

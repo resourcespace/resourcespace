@@ -499,6 +499,7 @@ if ($editing && !$editexternalurl) {
                 </div>
                 <?php
             }
+            hook("additionalshares");
             ?>
         </div>
     </form>

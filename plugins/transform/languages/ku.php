@@ -82,3 +82,6 @@ $lang["transform_original"] = 'گۆڕینی سەرەکی';
 $lang["priorversion"] = 'وەشانی پێشوو';
 $lang["replaced"] = 'جێگیرکرا';
 $lang["replaceslideshowimage"] = 'وێنەی پێشکەشکردنی وێنە جێگیر بکە';
+
+$lang["error-resolution-zero"] = 'هەڵە: وێنەی سەرەکی قەبارەی دروستکراوەی پێویست نیە.';
+$lang["error-preview-missing"] = 'هەڵە: ناتوانرێت وێنەی پیشاندانی بدۆزیتەوە';

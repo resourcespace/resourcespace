@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'Przekształć zasób';
 $lang["page-title_transform_crop"] = 'Przytnij zasób';
 $lang["page-title_transform_setup"] = 'Ustawienia wtyczki transformacji';
 $lang["use_filename_as_title"] = 'Użyj nazwy pliku jako tytułu';
+
+$lang["error-resolution-zero"] = 'Błąd: Oryginalny obraz ma obliczoną szerokość/wysokość równą zero.';
+$lang["error-preview-missing"] = 'Błąd: Nie można znaleźć podglądu obrazu';

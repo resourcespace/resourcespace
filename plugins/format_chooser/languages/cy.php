@@ -16,3 +16,6 @@ $lang["are_available-1"]='bydd yn cael ei drosi';
 $lang["are_available-0"]='bydd yn cael ei drosi';
 $lang["page-title_format_chooser_convert"] = 'Dewisydd Fformat';
 $lang["page-title_format_chooser_setup"] = 'Gosodwch y Plugin Dewis Fformat';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Nid yw\'r fformatau canlynol yn cael eu cefnogi ar gyfer mewnbwn: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Nid yw\'r fformatau canlynol yn cael eu cefnogi ar gyfer allbwn: %s</p>';

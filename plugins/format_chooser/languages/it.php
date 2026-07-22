@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Selezionatore di Formato';
 $lang["plugin-format_chooser-desc"]='Ti consente di scegliere diversi formati durante il download dei file che vengono generati al volo.';
 $lang["page-title_format_chooser_convert"] = 'Selettore di formato';
 $lang["page-title_format_chooser_setup"] = 'Imposta il plugin di scelta del formato';
+
+$lang["format_chooser_blocked_inputs"] = '<p>I seguenti formati non sono supportati per l\'input: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>I seguenti formati non sono supportati per l\'output: %s</p>';

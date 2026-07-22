@@ -16,3 +16,6 @@ $lang["are_available-1"]='রূপান্তরিত হবে';
 $lang["are_available-0"]='রূপান্তরিত হবে';
 $lang["page-title_format_chooser_convert"] = 'ফরম্যাট নির্বাচনকারী';
 $lang["page-title_format_chooser_setup"] = 'ফরম্যাট চয়নকারী প্লাগইন সেটআপ করুন';
+
+$lang["format_chooser_blocked_inputs"] = '<p>নিম্নলিখিত ফর্ম্যাটগুলি ইনপুটের জন্য সমর্থিত নয়: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>নিম্নলিখিত ফর্ম্যাটগুলি আউটপুটের জন্য সমর্থিত নয়: %s</p>';

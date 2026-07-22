@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Alegător de format';
 $lang["plugin-format_chooser-desc"]='Vă permite să alegeți formate diferite atunci când descărcați fișiere care sunt generate pe loc.';
 $lang["page-title_format_chooser_convert"] = 'Selector de format';
 $lang["page-title_format_chooser_setup"] = 'Configurare pluginul de alegere a formatului';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Următoarele formate nu sunt suportate pentru introducere: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Următoarele formate nu sunt suportate pentru ieșire: %s</p>';

@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Formatvelger';
 $lang["plugin-format_chooser-desc"]='Lar deg velge forskjellige formater når du laster ned filer som genereres på farten.';
 $lang["page-title_format_chooser_convert"] = 'Formatvelger';
 $lang["page-title_format_chooser_setup"] = 'Sett opp Formatvelger-plugin';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Følgende formater støttes ikke for inndata: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Følgende formater støttes ikke for utdata: %s</p>';

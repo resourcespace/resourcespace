@@ -3391,7 +3391,6 @@ input[type="text"]#iconpicker-input {
 
 #HomeSiteTextInner {
     max-width: 656px;
-    overflow: scroll;
 }
 
 #HomeSiteTextInner h1 {
@@ -3418,6 +3417,65 @@ input[type="text"]#iconpicker-input {
 
 #HomeSiteText a:hover {
     color: var(--colour-transparency-white-80);
+}
+
+#HomeSiteTextInner button {
+    display: none;
+    background: transparent;
+    border: 1px solid white; 
+    gap:0.5rem;
+    padding: 20px;
+    height: 46px;
+}
+
+#HomeSiteTextInner button:hover {
+    background: var(--colour-transparency-white-20);
+}
+
+#HomeSiteTextInner i {
+    height:14px;
+    width:14px;
+    border: 2px solid white;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.BasicsBoxHomeText {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+}
+
+.HomeTextClose {
+    position: sticky;
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--space-4);
+    background: var(--colour-surface-200);
+    color: var(--colour-surface-600);
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.HomeTextClose:hover {
+    background: var(--colour-surface-700);
+    color: var(--colour-surface-50);
+}
+
+.HomeTextClose:active {
+    background: var(--colour-surface-900);
+    color: var(--colour-surface-50);
+    opacity: unset;
+}
+
+#modal .HomeTextClose {
+    background: var(--colour-surface-300);
+}
+
+#modal .HomeTextClose:hover {
+    background: var(--colour-surface-700);
 }
 
 #hero_banner {
@@ -3471,11 +3529,9 @@ input[type="text"]#iconpicker-input {
     }
 
     #HomeSiteTextInner {
-        /*
         display: flex;
         flex-direction: column;
         justify-content: center;
-        */
         width: 768px;
         height: 256px;
         padding: var(--space-32, 32px);
@@ -6358,6 +6414,18 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
     .BasicsBoxEdit .FormHelp {
         margin: 0px;
     }
+
+    #HomeSiteTextInner button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #HomeSiteTextInner span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
 }
 
 @media(max-width: 1420px) {

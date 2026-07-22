@@ -82,3 +82,7 @@ $lang["page-title_transform_collection_transform"] = 'I-convert ang Yaman';
 $lang["page-title_transform_crop"] = 'Gupitin ang Yaman';
 $lang["page-title_transform_setup"] = 'I-set up ang Transform Plugin';
 $lang["use_filename_as_title"] = 'Gamitin ang filename bilang pamagat';
+
+$lang["error-resolution-zero"] = 'Error: Ang orihinal na larawan ay may kalkuladong lapad/
+ltura na zero.';
+$lang["error-preview-missing"] = 'Error: Hindi mahanap ang preview na larawan';

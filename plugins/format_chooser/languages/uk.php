@@ -16,3 +16,6 @@ $lang["are_available-1"]='буде перетворено';
 $lang["are_available-0"]='буде перетворено';
 $lang["page-title_format_chooser_convert"] = 'Вибір формату';
 $lang["page-title_format_chooser_setup"] = 'Налаштування плагіна вибору формату';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Наступні формати не підтримуються для вводу: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Наступні формати не підтримуються для виводу: %s</p>';

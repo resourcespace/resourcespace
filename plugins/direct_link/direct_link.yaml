@@ -1,0 +1,8 @@
+name: direct_link
+title: Direct Link
+author: Montala Limited
+version: 1.0
+desc: Provides temporary URLs directly to files on the resource share page.
+icon: file-symlink
+icon-colour: black
+category: Integrations

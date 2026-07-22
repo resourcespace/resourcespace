@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'Transformasi Sumber Daya';
 $lang["page-title_transform_crop"] = 'Potong Sumber Daya';
 $lang["page-title_transform_setup"] = 'Pengaturan Plugin Transformasi';
 $lang["use_filename_as_title"] = 'Gunakan nama file sebagai judul';
+
+$lang["error-resolution-zero"] = 'Kesalahan: Lebar/tinggi gambar asli dihitung sebesar nol.';
+$lang["error-preview-missing"] = 'Kesalahan: Tidak dapat menemukan gambar pratinjau';

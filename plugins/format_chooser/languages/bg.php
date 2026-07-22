@@ -16,3 +16,6 @@ $lang["are_available-1"] = 'ще бъде конвертиран';
 $lang["are_available-0"] = 'ще бъде конвертиран';
 $lang["page-title_format_chooser_convert"] = 'Избор на формат';
 $lang["page-title_format_chooser_setup"] = 'Настройка на плъгина за избор на формат';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Следните формати не се поддържат за въвеждане: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Следните формати не се поддържат за изход: %s</p>';

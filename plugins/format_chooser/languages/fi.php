@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Muodon valitsin';
 $lang["plugin-format_chooser-desc"]='Mahdollistaa erilaisten tiedostomuotojen valitsemisen ladattaessa tiedostoja, jotka luodaan lennossa.';
 $lang["page-title_format_chooser_convert"] = 'Muoto Valitsin';
 $lang["page-title_format_chooser_setup"] = 'Aseta Muoto Valitsija Laajennus';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Seuraavat formaatit eivät ole tuettuja syötteessä: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Seuraavat formaatit eivät ole tuettuja tulosteessa: %s</p>';

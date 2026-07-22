@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='フォーマット選択ツール';
 $lang["plugin-format_chooser-desc"]='ファイルをダウンロードする際に、オンザフライで生成される異なる形式を選択できます。';
 $lang["page-title_format_chooser_convert"] = 'フォーマット選択ツール';
 $lang["page-title_format_chooser_setup"] = 'フォーマット選択プラグインの設定';
+
+$lang["format_chooser_blocked_inputs"] = '<p>次のフォーマットは入力に対応していません: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>次のフォーマットは出力に対応していません: %s</p>';

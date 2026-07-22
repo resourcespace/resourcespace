@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Format Seçici';
 $lang["plugin-format_chooser-desc"]='Dosyaları indirirken anında oluşturulan farklı formatları seçmenize olanak tanır.';
 $lang["page-title_format_chooser_convert"] = 'Format Seçici';
 $lang["page-title_format_chooser_setup"] = 'Ayarlar Format Seçici Eklentisi';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Aşağıdaki formatlar giriş için desteklenmiyor: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Aşağıdaki formatlar çıktı için desteklenmiyor: %s</p>';

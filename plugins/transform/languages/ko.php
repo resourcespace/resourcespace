@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = '리소스 변환';
 $lang["page-title_transform_crop"] = '자원 자르기';
 $lang["page-title_transform_setup"] = '변환 플러그인 설정';
 $lang["use_filename_as_title"] = '파일 이름을 제목으로 사용';
+
+$lang["error-resolution-zero"] = '오류: 원본 이미지의 계산된 너비/높이가 0입니다.';
+$lang["error-preview-missing"] = '오류: 미리보기 이미지를 찾을 수 없습니다.';

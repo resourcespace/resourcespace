@@ -16,3 +16,6 @@ $lang["are_available-1"]='จะถูกแปลง';
 $lang["are_available-0"]='จะถูกแปลง';
 $lang["page-title_format_chooser_convert"] = 'ตัวเลือกฟอร์แมต';
 $lang["page-title_format_chooser_setup"] = 'ตั้งค่า Plugin ตัวเลือกฟอร์แมต';
+
+$lang["format_chooser_blocked_inputs"] = '<p>รูปแบบต่อไปนี้ไม่รองรับสำหรับการนำเข้า: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>รูปแบบต่อไปนี้ไม่รองรับสำหรับการส่งออก: %s</p>';

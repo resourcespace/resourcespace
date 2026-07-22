@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Formaat Kiezer';
 $lang["plugin-format_chooser-desc"]='Hiermee kunt u verschillende formaten kiezen bij het downloaden van bestanden die direct worden gegenereerd.';
 $lang["page-title_format_chooser_convert"] = 'Formaatkiezer';
 $lang["page-title_format_chooser_setup"] = 'Instellen van het Formaat Kiezer Plugin';
+
+$lang["format_chooser_blocked_inputs"] = '<p>De volgende formaten worden niet ondersteund voor invoer: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>De volgende formaten worden niet ondersteund voor uitvoer: %s</p>';

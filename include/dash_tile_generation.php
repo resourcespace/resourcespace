@@ -601,7 +601,8 @@ function tile_featured_collection_thumbs($tile, $tile_id, $tile_width, $tile_hei
 
     if (
         $preview_resource !== null
-        && !resource_has_access_denied_by_RT_size($preview_resource['resource_type'], 'pre')
+        && get_resource_access($preview_resource['ref']) !== RESOURCE_ACCESS_CONFIDENTIAL
+        && resource_download_allowed($preview_resource['ref'], 'pre', $preview_resource['resource_type'])
         && file_exists(get_resource_path($preview_resource['ref'], true, 'pre', false, 'jpg', -1, 1, false))
     ) {
         $preview_path = get_resource_path($preview_resource['ref'], false, 'pre', false, 'jpg', -1, 1, false);
@@ -657,8 +658,10 @@ function tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_heig
     $preview_paths = [];
     foreach (array_rand($resources, min(count($resources), 3)) as $random_picked_resource_key) {
         $resource = $resources[$random_picked_resource_key];
-        if (
-            !resource_has_access_denied_by_RT_size($resource['resource_type'], 'pre')
+        if (get_resource_access($resource['ref']) === RESOURCE_ACCESS_CONFIDENTIAL) {
+            $preview_paths[] = ['path' => null, 'title' => ''];
+        } elseif (
+            resource_download_allowed($resource['ref'], 'pre', $resource['resource_type'])
             && file_exists(get_resource_path($resource['ref'], true, 'pre', false, 'jpg', -1, 1, false))
         ) {
             $preview_paths[] = 

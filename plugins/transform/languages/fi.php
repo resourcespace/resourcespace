@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'Muunna resurssi';
 $lang["page-title_transform_crop"] = 'Rajaa resurssia';
 $lang["page-title_transform_setup"] = 'Aseta muunnosliitännäinen';
 $lang["use_filename_as_title"] = 'Käytä tiedostonimeä otsikkona';
+
+$lang["error-resolution-zero"] = 'Virhe: Alkuperäisen kuvan laskettu leveys/korkeus on nolla.';
+$lang["error-preview-missing"] = 'Virhe: Esikatselukuvaa ei löydy';

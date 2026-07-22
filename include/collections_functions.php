@@ -2940,13 +2940,13 @@ function get_featured_collection_categ_sub_fcs(array $c, array $ctx = array())
 * Get preview URLs for a list of resource IDs
 *
 * @param array  $resource_refs  List of resources
-* @param string $size           Preview size
 *
 * @return array List of resource refs and corresponding images URLs
 */
-function generate_featured_collection_image_urls(array $resource_refs, string $size)
+function generate_featured_collection_image_urls(array $resource_refs)
 {
     $images = array();
+    $size = "pre";
 
     $refs_list = array_filter($resource_refs, 'is_numeric');
     if (empty($refs_list)) {
@@ -2962,6 +2962,8 @@ function generate_featured_collection_image_urls(array $resource_refs, string $s
         if (file_exists(get_resource_path($ref, true, $size, false)) && resource_download_allowed($ref, $size, $resource_type, -1, true)) {
             $images[] = ["ref" => $ref, "path" => get_resource_path($ref, false, $size, false)];
         }
+        // Use thm size for images after first to reduce loading times
+        $size = "thm";
     }
 
     return $images;

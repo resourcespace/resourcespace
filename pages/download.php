@@ -415,20 +415,19 @@ header('Accept-Ranges: bytes');
 
 set_time_limit(0);
 
-fseek($file_handle, $seek_start);
+$sent = (0 == fseek($file_handle, $seek_start) ? $seek_start : 0);
 
-$remaining = $total_to_send;
+while ($sent < $file_size) {
+    echo fread($file_handle, $download_chunk_size);
 
-while ($remaining > 0 && !feof($file_handle)) {
-    $buf = fread($file_handle, min($download_chunk_size, $remaining));
-    if ($buf === false || $buf === '') {
-        break;
-    }
-
-    echo $buf;
+    ob_flush();
     flush();
 
-    $remaining -= strlen($buf);
+    $sent += $download_chunk_size;
+
+    if (0 != connection_status()) {
+        break;
+    }
 }
 
 fclose($file_handle);

@@ -20,3 +20,6 @@ $lang["plugin-format_chooser-title"]='Format-Auswahl';
 $lang["plugin-format_chooser-desc"]='Ermöglicht es Ihnen, beim Herunterladen von Dateien verschiedene Formate auszuwählen, die dynamisch erstellt werden.';
 $lang["page-title_format_chooser_convert"] = 'Formatauswahl';
 $lang["page-title_format_chooser_setup"] = 'Format-Wähler-Plugin einrichten';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Die folgenden Formate werden für die Eingabe nicht unterstützt: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Die folgenden Formate werden für die Ausgabe nicht unterstützt: %s</p>';

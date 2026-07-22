@@ -88,3 +88,6 @@ $lang["page-title_transform_collection_transform"] = 'Transformar Recurso';
 $lang["page-title_transform_crop"] = 'Retallar Recurso';
 $lang["page-title_transform_setup"] = 'Configuració del plugin de transformació';
 $lang["use_filename_as_title"] = 'Utilitza el nom de fitxer com a títol';
+
+$lang["error-resolution-zero"] = 'Error: La imatge original té una amplada/alçada calculada de zero.';
+$lang["error-preview-missing"] = 'Error: No s\'ha pogut trobar la imatge de previsualització';

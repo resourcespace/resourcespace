@@ -436,18 +436,13 @@ if ($CSRF_enabled && PHP_SAPI != 'cli' && !$suppress_headers && !in_array($pagen
 
     // Add CORS headers.
     if ($cors_is_origin_allowed) {
-        $allowed_headers = array_merge(
-            ['Authorization', 'Content-Type'],
-            ($pagename === 'download' ? ['Range'] : [])
-        );
-
         debug("CORS: Origin: {$CSRF_source_origin}");
         debug("CORS: Access-Control-Allow-Origin: {$CSRF_source_origin}");
 
         header("Origin: {$CSRF_target_origin}");
         header("Access-Control-Allow-Origin: {$CSRF_source_origin}");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-        header('Access-Control-Allow-Headers: ' . implode(', ', $allowed_headers));
+        header("Access-Control-Allow-Headers: Authorization, Content-Type");
 
         // Handle preflight requests
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {

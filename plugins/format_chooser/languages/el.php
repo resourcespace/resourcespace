@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Επιλογέας Μορφής';
 $lang["plugin-format_chooser-desc"]='Σας επιτρέπει να επιλέξετε διαφορετικές μορφές κατά τη λήψη αρχείων που δημιουργούνται άμεσα.';
 $lang["page-title_format_chooser_convert"] = 'Επιλογέας Μορφής';
 $lang["page-title_format_chooser_setup"] = 'Ρύθμιση Πρόσθετου Επιλογής Μορφής';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Οι ακόλουθες μορφές δεν υποστηρίζονται για εισαγωγή: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Οι ακόλουθες μορφές δεν υποστηρίζονται για εξαγωγή: %s</p>';

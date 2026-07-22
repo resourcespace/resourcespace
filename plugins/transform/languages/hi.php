@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'संसाधन को 
 $lang["page-title_transform_crop"] = 'फसल संसाधन';
 $lang["page-title_transform_setup"] = 'ट्रांसफॉर्म प्लगइन सेटअप करें';
 $lang["use_filename_as_title"] = 'शीर्षक के रूप में फ़ाइल नाम का उपयोग करें';
+
+$lang["error-resolution-zero"] = 'त्रुटि: मूल छवि की गणना की गई चौड़ाई/ऊंचाई शून्य है।';
+$lang["error-preview-missing"] = 'त्रुटि: पूर्वावलोकन छवि नहीं मिल सकी';

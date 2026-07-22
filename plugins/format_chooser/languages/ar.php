@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='محدد التنسيق';
 $lang["plugin-format_chooser-desc"]='يسمح لك باختيار تنسيقات مختلفة عند تنزيل الملفات التي يتم إنشاؤها في الحال.';
 $lang["page-title_format_chooser_convert"] = 'محدد التنسيق';
 $lang["page-title_format_chooser_setup"] = 'إعداد مكون اختيار التنسيق';
+
+$lang["format_chooser_blocked_inputs"] = '<p>الصيغ التالية غير مدعومة للإدخال: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>الصيغ التالية غير مدعومة للإخراج: %s</p>';

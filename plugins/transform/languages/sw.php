@@ -82,3 +82,6 @@ $lang["page-title_transform_collection_transform"] = 'Badilisha Rasilimali';
 $lang["page-title_transform_crop"] = 'Rasilimali ya Kukata';
 $lang["page-title_transform_setup"] = 'Panga Plugin ya Kubadilisha';
 $lang["use_filename_as_title"] = 'Tumia jina la faili kama kichwa';
+
+$lang["error-resolution-zero"] = 'Hitilafu: Picha asili ina upana/wahusika wa hesabu wa sifuri.';
+$lang["error-preview-missing"] = 'Hitilafu: Haiwezi kupatikana picha ya awali';

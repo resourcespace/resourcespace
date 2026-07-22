@@ -16,3 +16,6 @@ $lang["are_available-1"] = 'sẽ được chuyển đổi';
 $lang["are_available-0"] = 'sẽ được chuyển đổi';
 $lang["page-title_format_chooser_convert"] = 'Trình chọn định dạng';
 $lang["page-title_format_chooser_setup"] = 'Cài đặt Plugin Chọn Định Dạng';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Các định dạng sau không được hỗ trợ để nhập: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Các định dạng sau không được hỗ trợ để xuất: %s</p>';

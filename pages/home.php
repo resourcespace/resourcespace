@@ -21,8 +21,14 @@ if ($slideshow_configured || !$no_welcometext) {
 
 function loadWelcomeText()
 {
-    global $no_welcometext, $home_dash, $productversion;
+    global $no_welcometext, $home_dash, $productversion, $baseurl, $lang;
     if (!$no_welcometext) {
+        $showlink=false;
+        $home_welcometext=text('welcometext');
+        if (strlen($home_welcometext) > 300) {
+            $home_welcometext = tidy_trim((strip_tags($home_welcometext)), 300);
+            $showlink=true;
+        }
         ?>
         <div id="HomeSiteTextPanel">
             <div class=" <?php echo $home_dash ? 'dashtext' : ''; ?>" id="HomeSiteText">
@@ -32,7 +38,19 @@ function loadWelcomeText()
                         echo strip_tags_and_attributes(str_replace("[ver]", str_replace("SVN", "", $productversion), text("welcometitle")));
                         ?>
                     </h1>
-                    <p><?php echo strip_tags_and_attributes(text("welcometext"), ['a'], ['href']); ?></p>
+                    <p><?php echo strip_tags_and_attributes($home_welcometext, ['a'], ['href']); 
+                    if ($showlink) { ?>
+                        <a href="<?php echo $baseurl; ?>/pages/hometext.php" onclick="ModalClose(); return ModalLoad(this,true);"><?php echo escape($lang['readmore']); ?></a>
+                    <?php } ?>
+                    </p>
+                    <div>
+                        <button class="button" onclick="ModalClose(); return ModalLoad('<?php echo $baseurl; ?>/pages/hometext.php',true);">
+                            <i class="icon-plus default-icon-size" aria-hidden="true"></i>
+                            <span>
+                                <?php echo escape($lang['showwelcometext']); ?>
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

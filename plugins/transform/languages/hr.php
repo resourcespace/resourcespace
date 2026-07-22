@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'Transformiraj resurs';
 $lang["page-title_transform_crop"] = 'Izreži resurs';
 $lang["page-title_transform_setup"] = 'Postavljanje Transform Plugin-a';
 $lang["use_filename_as_title"] = 'Koristi naziv datoteke kao naslov';
+
+$lang["error-resolution-zero"] = 'Pogreška: Izvorna slika ima izračunanu širinu/visinu od nula.';
+$lang["error-preview-missing"] = 'Pogreška: Nije moguće pronaći prikaznu sliku';

@@ -16,3 +16,6 @@ $lang["are_available-1"]='itabadilishwa';
 $lang["are_available-0"]='itabadilishwa';
 $lang["page-title_format_chooser_convert"] = 'Mchaguzi wa Muundo';
 $lang["page-title_format_chooser_setup"] = 'Panga Kichaguo cha Muundo wa Plugin';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Miundo ifuatayo haijaungwa mkono kwa ingizo: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Miundo ifuatayo haijaungwa mkono kwa pato: %s</p>';

@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'تحويل المورد';
 $lang["page-title_transform_crop"] = 'قص الموارد';
 $lang["page-title_transform_setup"] = 'إعداد مكون تحويل';
 $lang["use_filename_as_title"] = 'استخدام اسم الملف كعنوان';
+
+$lang["error-resolution-zero"] = 'خطأ: عرض الصورة الأصلية / ارتفاعها محسوبان على أنهما صفر.';
+$lang["error-preview-missing"] = 'خطأ: غير قادر على العثور على صورة المعاينة';

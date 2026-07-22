@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Selector de format';
 $lang["plugin-format_chooser-desc"]='Et permet triar diferents formats quan descarregues fitxers que es generen al moment.';
 $lang["page-title_format_chooser_convert"] = 'Selector de format';
 $lang["page-title_format_chooser_setup"] = 'Configuració del complement de selecció de format';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Els formats següents no són compatibles per a la introducció: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Els formats següents no són compatibles per a la sortida: %s</p>';

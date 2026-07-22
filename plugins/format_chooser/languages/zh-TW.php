@@ -16,3 +16,6 @@ $lang["are_available-1"] = '將被轉換';
 $lang["are_available-0"] = '將被轉換';
 $lang["page-title_format_chooser_convert"] = '格式選擇器';
 $lang["page-title_format_chooser_setup"] = '設定格式選擇器插件';
+
+$lang["format_chooser_blocked_inputs"] = '<p>以下格式不支援輸入：%s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>以下格式不支援輸出：%s</p>';

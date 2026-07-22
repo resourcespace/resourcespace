@@ -16,3 +16,6 @@ $lang["are_available-1"] = 'akan ditukarkan';
 $lang["are_available-0"] = 'akan ditukarkan';
 $lang["page-title_format_chooser_convert"] = 'Pemilih Format';
 $lang["page-title_format_chooser_setup"] = 'Tetapkan Pemilih Format Plugin';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Format berikut tidak disokong untuk input: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Format berikut tidak disokong untuk output: %s</p>';

@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'Transformar Recurso';
 $lang["page-title_transform_crop"] = 'Recortar Recurso';
 $lang["page-title_transform_setup"] = 'Configurar Plugin de Transformação';
 $lang["use_filename_as_title"] = 'Usar nome do arquivo como título';
+
+$lang["error-resolution-zero"] = 'Erro: A imagem original possui uma largura/altura calculada como zero.';
+$lang["error-preview-missing"] = 'Erro: Não foi possível encontrar a imagem de visualização';

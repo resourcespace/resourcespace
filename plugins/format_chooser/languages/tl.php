@@ -16,3 +16,6 @@ $lang["are_available-1"] = 'ay iko-convert';
 $lang["are_available-0"] = 'ika-convert';
 $lang["page-title_format_chooser_convert"] = 'Pumili ng Format';
 $lang["page-title_format_chooser_setup"] = 'I-set up ang Plugin ng Pagpili ng Format';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Ang mga sumusunod na format ay hindi sinusuportahan para sa input: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Ang mga sumusunod na format ay hindi sinusuportahan para sa output: %s</p>';

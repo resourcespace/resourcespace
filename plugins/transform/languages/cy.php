@@ -82,3 +82,6 @@ $lang["page-title_transform_collection_transform"] = 'Trawsnewid Adnodd';
 $lang["page-title_transform_crop"] = 'Torri Adnodd';
 $lang["page-title_transform_setup"] = 'Sefydlu Plugin Trawsnewid';
 $lang["use_filename_as_title"] = 'Defnyddio\'r enw ffeil fel teitl';
+
+$lang["error-resolution-zero"] = 'Gwall: Mae lled / uchder y ddelwedd wreiddiol wedi\'i gyfrifo\'n sero.';
+$lang["error-preview-missing"] = 'Gwall: Methiant wrth ddod o hyd i ddelwedd rhagolwg';

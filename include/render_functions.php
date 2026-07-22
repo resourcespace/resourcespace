@@ -4865,7 +4865,7 @@ function render_featured_collections(array $ctx, array $items)
                     "use_thumbnail_selection_method" => !$is_smart_featured_collection,
                     "all_fcs" => $all_fcs,
                 ));
-            $fc_images = generate_featured_collection_image_urls($fc_resources, "pre");
+            $fc_images = generate_featured_collection_image_urls($fc_resources);
 
             if(!empty($fc_images))
                 {

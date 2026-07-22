@@ -84,3 +84,6 @@ $lang["page-title_transform_collection_transform"] = 'Transformer la ressource';
 $lang["page-title_transform_crop"] = 'Ressource de recadrage';
 $lang["page-title_transform_setup"] = 'Configurer le plugin de transformation';
 $lang["use_filename_as_title"] = 'Utiliser le nom de fichier comme titre';
+
+$lang["error-resolution-zero"] = 'Erreur : La largeur/hauteur calculée de l\'image d\'origine est nulle.';
+$lang["error-preview-missing"] = 'Erreur : Impossible de trouver l\'image de prévisualisation';

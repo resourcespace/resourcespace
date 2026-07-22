@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='格式选择器';
 $lang["plugin-format_chooser-desc"]='允许您在下载文件时选择不同的格式，这些格式是即时生成的。';
 $lang["page-title_format_chooser_convert"] = '格式选择器';
 $lang["page-title_format_chooser_setup"] = '设置格式选择插件';
+
+$lang["format_chooser_blocked_inputs"] = '<p>以下格式不支持输入：%s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>以下格式不支持输出：%s</p>';

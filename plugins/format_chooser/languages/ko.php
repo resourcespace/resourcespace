@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='형식 선택기';
 $lang["plugin-format_chooser-desc"]='파일을 다운로드할 때 실시간으로 생성되는 다양한 형식을 선택할 수 있습니다.';
 $lang["page-title_format_chooser_convert"] = '형식 선택기';
 $lang["page-title_format_chooser_setup"] = '형식 선택기 플러그인 설정';
+
+$lang["format_chooser_blocked_inputs"] = '<p>다음 형식은 입력에 지원되지 않습니다: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>다음 형식은 출력에 지원되지 않습니다: %s</p>';

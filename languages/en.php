@@ -3669,3 +3669,6 @@ $lang['noresources_collection'] = "No resources in collection";
 $lang['hide_collection_bar'] = "Hidden";
 $lang['minimal_collection_bar'] = "Minimal bar";
 $lang['thumbnails_collection_bar'] = "Thumbnails";
+
+$lang['readmore'] = "Read more";
+$lang['showwelcometext'] = "Show welcome info";

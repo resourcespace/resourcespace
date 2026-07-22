@@ -18,3 +18,6 @@ $lang["plugin-format_chooser-title"]='Izbirnik formata';
 $lang["plugin-format_chooser-desc"]='Omogoča izbiro različnih formatov pri prenosu datotek, ki se ustvarijo sproti.';
 $lang["page-title_format_chooser_convert"] = 'Výber formátu';
 $lang["page-title_format_chooser_setup"] = 'Nastaviť plugin na výber formátu';
+
+$lang["format_chooser_blocked_inputs"] = '<p>Naslednji formáti nie sú podporované na vkladanie: %s</p>';
+$lang["format_chooser_blocked_outputs"] = '<p>Naslednji formáti nie sú podporované na výstup: %s</p>';

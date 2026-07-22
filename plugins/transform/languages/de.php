@@ -90,3 +90,6 @@ $lang["page-title_transform_collection_transform"] = 'Ressource transformieren';
 $lang["page-title_transform_crop"] = 'Zuschneiden Ressource';
 $lang["page-title_transform_setup"] = 'Transform-Plugin einrichten';
 $lang["use_filename_as_title"] = 'Dateiname als Titel verwenden';
+
+$lang["error-resolution-zero"] = 'Fehler: Das Originalbild hat eine berechnete Breite/Höhe von null.';
+$lang["error-preview-missing"] = 'Fehler: Vorschau-Bild konnte nicht gefunden werden';
