@@ -73,7 +73,7 @@ unset($GLOBALS['portrait_landscape_field']);
 
 function update_preview($ref, $previewbased, $sizes, $delete_existing)
 {
-    $resourceinfo = ps_query("select file_path, file_extension from resource where ref = ?", array("i", (int)$ref));
+    $resourceinfo = ps_query("select file_path, file_extension from resource where ref = ? and no_file = 0;", array("i", (int) $ref));
     if (count($resourceinfo) > 0 && !hook("replaceupdatepreview", '', array($ref, $resourceinfo[0]))) {
         if (!empty($resourceinfo[0]['file_path'])) {
             $ingested = false;

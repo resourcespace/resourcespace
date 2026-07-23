@@ -80,9 +80,8 @@ $introtext = text("introtext");
                 if ($offline_job_queue) {
                     $failedjobs = job_queue_get_jobs("", STATUS_ERROR, $userref);
                     $failedjobcount = count($failedjobs);
-                    $job_status = ($failedjobcount > 0) ? '5' : '';
                     echo "<li title='" . escape($lang['my_jobs-tooltip']) . "'>";
-                    echo "<a id='user_jobs_link' href='" . generateURL("{$baseurl_short}pages/manage_jobs.php", ['job_user' => $userref, 'job_status' => $job_status]) . "' onClick='return CentralSpaceLoad(this, true);'><i aria-hidden='true' class='icon-list-todo'></i><br />" . escape($lang['my_jobs']) . ($failedjobcount > 0 ? "&nbsp;<span class='FailedJobCountPill Pill'>" . escape($failedjobcount) . "</span>" : "") . "</a>";
+                    echo "<a id='user_jobs_link' href='" . generateURL("{$baseurl_short}pages/manage_jobs.php", ['job_user' => $userref]) . "' onClick='return CentralSpaceLoad(this, true);'><i aria-hidden='true' class='icon-list-todo'></i><br />" . escape($lang['my_jobs']) . ($failedjobcount > 0 ? "&nbsp;<span class='FailedJobCountPill Pill'>" . escape($failedjobcount) . "</span>" : "") . "</a>";
                     echo "</li>";
                 }
 

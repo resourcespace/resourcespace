@@ -2297,7 +2297,12 @@ function display_field($n, $field, $newtab=false,$modal=false)
             }
         elseif($field['type']==FIELD_TYPE_DATE_RANGE && getval("copyfrom","") == "" && getval('metadatatemplate', '') == "" && $check_edit_checksums)
             {
-            $field['node_options'] = get_nodes($field['ref'], null, false);
+            $field['node_options'] = array_filter(
+                get_nodes_by_refs($selected_nodes),
+                function ($node) use ($field) {
+                    return $node['resource_type_field'] == $field['ref'];
+                }
+            );
             $field_nodes = array();
             foreach($selected_nodes as $selected_node)
                 {

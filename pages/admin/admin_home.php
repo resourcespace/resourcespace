@@ -87,7 +87,7 @@ include "../../include/header.php";
                 </li>
 
                 <li title="<?php echo escape($lang['manage_jobs-tooltip']); ?>">
-                    <a href="<?php echo $baseurl_short; ?>pages/manage_jobs.php<?php if ($failedjobcount > 0) {echo '?job_status=5';} ?>" onClick="return CentralSpaceLoad(this, true);">
+                    <a href="<?php echo $baseurl_short; ?>pages/manage_jobs.php" onClick="return CentralSpaceLoad(this, true);">
                         <i aria-hidden="true" class="icon-list-todo "></i>
                         <br /><?php echo escape($lang['manage_jobs']);?>
                     </a>

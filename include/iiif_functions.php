@@ -677,7 +677,8 @@ final class IIIFRequest
                         }
                     }
                 }
-                $metadata[$n]["value"] = $arr_alllangstrings;
+
+                $metadata[$n]["value"] = array_map(fn($s) => [implode(', ', $s)], $arr_alllangstrings);
             } elseif (trim((string) $iiif_data_row["value"]) !== "") {
                 $metadata[$n] = [];
                 $metadata[$n]["label"] = [];
@@ -693,7 +694,7 @@ final class IIIFRequest
             }
             $n++;
         }
-        $this->response["metadata"] = $metadata;
+        $this->response["metadata"] = array_values($metadata);
     }
 
     /**

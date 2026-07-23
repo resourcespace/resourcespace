@@ -9349,10 +9349,10 @@ function can_upload_preview_image(int $ref): bool
  * @param int       $alternative    Alternative file record ID
  *
  */
-function resource_has_preview_source(int $ref, string $extension, int $alternative = -1) : bool
+function resource_has_preview_source(int $ref, ?string $extension, int $alternative = -1) : bool
 {
     return file_exists( 
-            in_array($extension, NON_PREVIEW_EXTENSIONS) ? 
+            is_null($extension) || in_array($extension, NON_PREVIEW_EXTENSIONS) ? 
                 get_preview_source_file($ref, 'jpg', false, true, $alternative, false) : 
                 get_resource_path($ref, true, '', false,  $extension, true, 1, false, '', $alternative)
         );
