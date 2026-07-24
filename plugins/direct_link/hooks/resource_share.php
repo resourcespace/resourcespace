@@ -13,23 +13,20 @@ function HookDirect_LinkResource_ShareAdditionalshares() {
     if ($accesskey !== "") {
             $url.= "&access_key={$accesskey}";
     }
-
-    $label = strtoupper($resource["size_code"])
-        . " ({$resource["width"]}x{$resource["height"]}, {$resource["filesize"]})";
-
     $urls .= '<tr><td>'
-        . '<a style=\'display:block;width:300px;\' target="_blank" href="' . htmlspecialchars($url, ENT_QUOTES) . '">'
-        . $label
+        . '<a style=\'display:block;width:300px;\' target="_blank" href="' . sanitise_url($url) . '">'
+        . strtoupper(escape($resource["size_code"]))
+        . " ({$resource["width"]}x{$resource["height"]}, {$resource["filesize"]})"
         . '</a> </td><td>'
         . '<button type="button" class="copy-url" data-url="'
-        . htmlspecialchars($url, ENT_QUOTES)
+        . sanitise_url($url)
         . '">' . escape($lang["direct_link_copy"]) . '</button>'
         . '</td></tr>';
         
     }
     ?>
     <h2><?php echo escape($lang["direct_link_urls"]); ?></h2>
-    <p><?php echo escape($lang["direct_link_expires"]) . date('j F Y \a\t H:i', strtotime("+{$api_resource_path_expiry_hours} hours")); ?></p>
+    <p><?php echo escape($lang["direct_link_expires"]) . offset_user_local_timezone("+{$api_resource_path_expiry_hours} hours",'j F Y \a\t H:i'); ?></p>
 
     <table><?php echo $urls; ?></table> <?php /* Already sanitised as URLs from above function */ ?>
 
