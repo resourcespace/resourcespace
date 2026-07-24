@@ -1,4 +1,5 @@
-name: Valencia Annotations API
+name: valencia_annotations
+title: Valencia Annotations API
 author: Valencia Kommunikation AG
 version: 1.0
 desc: Exposes resource annotation (comment) APIs for the Valencia DAM macOS app.

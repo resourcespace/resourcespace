@@ -75,8 +75,9 @@ function api_valencia_get_resource_annotations($resource)
             'text' => $text,
             'author' => $author,
             'tags' => $tags,
+            // RS expects (array $annotation, array $ctx) — missing $ctx fatals on PHP 8+
             'editable' => function_exists('annotationEditable')
-                ? (bool) annotationEditable($annotation)
+                ? (bool) annotationEditable($annotation, [])
                 : false,
             'shapes' => [
                 [

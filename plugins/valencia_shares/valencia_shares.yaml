@@ -1,4 +1,5 @@
-name: Valencia Collection Shares API
+name: valencia_shares
+title: Valencia Collection Shares API
 author: Valencia Kommunikation AG
 version: 1.0
 desc: Exposes external collection share URL APIs for the Valencia DAM macOS app.

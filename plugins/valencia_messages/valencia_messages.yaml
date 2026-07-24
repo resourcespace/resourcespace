@@ -1,4 +1,5 @@
-name: Valencia Messages API
+name: valencia_messages
+title: Valencia Messages API
 author: Valencia Kommunikation AG
 version: 1.0
 desc: Exposes user message inbox APIs for the Valencia DAM macOS app.
