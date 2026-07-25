@@ -35,7 +35,6 @@ if ($remote_system) {
         $postdata = http_build_query($params);
 
         $curl = curl_init($remote_system["url"]);
-        curl_setopt($curl, CURLOPT_HEADER, "Content-Type: application/x-www-form-urlencoded");
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -45,6 +44,13 @@ if ($remote_system) {
 
         $response_json = json_decode($curl_response, true);
         if ($cerror == 200) {
+
+            // Support redirect URL in JSON response
+            if (isset($response_json["redirectUrl"])) {
+                // Note: Cannot use redirect() function which is for redirecting to ResourceSpace URLs only.
+                header("Location: " . $response_json["redirectUrl"], true, 303);exit();
+                }
+
             $message = $lang["user_api_session_grant_success"] . " " . ($response_json["message"] ?? $curl_response);
         } else {
             $message = $lang["user_api_session_grant_error"] . " " . ($response_json["message"] ?? $curl_response) . " HTTP code: " . $cerror;
@@ -79,8 +85,7 @@ include "../../include/header.php";
 
         <form
             method="post" 
-            action="<?php echo generateURL("{$baseurl_short}pages/user/user_api_session.php", ['system' => $system]); ?>"
-            onsubmit="return CentralSpacePost(this,true);">        
+            action="<?php echo generateURL("{$baseurl_short}pages/user/user_api_session.php", ['system' => $system]); ?>">        
             <input type="hidden" name="state" value="<?php echo escape($state); ?>">
             <input type="hidden" name="system" value="<?php echo escape($system); ?>">
             <input type="hidden" name="submit" value="true">
