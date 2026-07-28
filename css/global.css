@@ -3445,6 +3445,18 @@ input[type="text"]#iconpicker-input {
     grid-template-columns: 1fr 50px;
 }
 
+#modal .BasicsBoxHomeText {
+    grid-template-columns: 1fr 60px;
+}
+
+#modal .BasicsBox.BasicsBoxHomeText {
+    padding: 0;
+}
+
+#modal .BasicsBox.BasicsBoxHomeText .BasicsBoxLeft {
+    padding: 20px 20px 0 20px;
+}
+
 .HomeTextClose {
     position: sticky;
     display: inline-flex;
@@ -6419,10 +6431,10 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        font-size: 14px !important;
     }
 
     #HomeSiteTextInner span {
-        font-size: 14px;
         font-weight: 500;
     }
 

@@ -5,7 +5,14 @@ include "../include/authenticate.php";
 
 include "../include/header.php";
 
-global $language, $usergroup;
+global $language, $usergroup, $defaultlanguage;
+$text        = get_site_text('home', 'welcometext', $language, $usergroup);
+$defaulttext = get_site_text('home', 'welcometext', $defaultlanguage, '');
+
+$text_usergroup = $usergroup;
+if ($text == $defaulttext && ($language != $defaultlanguage)) {
+    $text_usergroup = '';
+}
 
 ?>
 <div class="BasicsBox BasicsBoxHomeText"> 
@@ -20,10 +27,10 @@ global $language, $usergroup;
     <div class="BasicsBoxLeft">
         <h1><b>
             <?php # Include version number
-            echo strip_tags_and_attributes(str_replace("[ver]", str_replace("SVN", "", $productversion), get_site_text('home', 'welcometitle', $language, $usergroup)));
+            echo strip_tags_and_attributes(str_replace("[ver]", str_replace("SVN", "", $productversion), get_site_text('home', 'welcometitle', $language, $text_usergroup)));
             ?>
         </b></h1>
-        <p><?php echo strip_tags_and_attributes(get_site_text('home', 'welcometext', $language, $usergroup), ['a'], ['href']); ?></p>
+        <p><?php echo strip_tags_and_attributes(get_site_text('home', 'welcometext', $language, $text_usergroup), ['a'], ['href']); ?></p>
     </div>
     <div class="BasicsBoxRight" style="margin-top:0px;">
         <div class="FloatingPreviewContainer">

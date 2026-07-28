@@ -371,7 +371,8 @@ function get_nodes(
         ORDER BY " . $order_by . ", ref ASC
         " . $limit;
 
-    $sqlcache = (is_null($resource_type_field) || in_array($fieldinfo["type"], $FIXED_LIST_FIELD_TYPES)) ? "schema" : "";
+    // If requesting a current use count, do not cache this query in the 'schema' space.
+    $sqlcache = (is_null($resource_type_field) || in_array($fieldinfo["type"], $FIXED_LIST_FIELD_TYPES)) && !$use_count ? "schema" : "";
     $nodes = ps_query($query, $parameters, $sqlcache);
 
     // No need to recurse if no parent was specified as we already have all nodes

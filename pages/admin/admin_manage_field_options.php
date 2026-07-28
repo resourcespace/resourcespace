@@ -525,6 +525,8 @@ if ($ajax) {
 
                         $node_index = getval('offset', 0, true);
 
+                        $archive_states=join(",", array_merge(range(-2, 3), $additional_archive_states));
+
                         foreach ($nodes as $node) {
                             check_node_indexed($node, $field_data['partial_index']);
                             $node_index += 1;
@@ -543,7 +545,7 @@ if ($ajax) {
                                 </td>
 
                                 <td align="left">
-                                    <?php echo $node['use_count']; ?>
+                                    <a href="<?php echo generateURL("{$baseurl}/pages/search.php", ['search' => '@@' . $node['ref'], 'archive' => $archive_states]); ?>" onClick="CentralSpaceLoad(this,true)"><?php echo escape($node['use_count']); ?></a>
                                 </td>
 
                                 <div class="ListTools">

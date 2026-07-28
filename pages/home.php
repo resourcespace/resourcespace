@@ -21,12 +21,12 @@ if ($slideshow_configured || !$no_welcometext) {
 
 function loadWelcomeText()
 {
-    global $no_welcometext, $home_dash, $productversion, $baseurl, $lang;
+    global $no_welcometext, $home_dash, $productversion, $baseurl, $lang, $welcometext_trim;
     if (!$no_welcometext) {
         $showlink=false;
         $home_welcometext=text('welcometext');
-        if (strlen($home_welcometext) > 300) {
-            $home_welcometext = tidy_trim((strip_tags($home_welcometext)), 300);
+        if (strlen($home_welcometext) > $welcometext_trim) {
+            $home_welcometext = tidy_trim((strip_tags($home_welcometext)), $welcometext_trim);
             $showlink=true;
         }
         ?>

@@ -3362,7 +3362,7 @@ function enforcePostRequest($ajax)
 }
 
 /**
-* Check if ResourceSpace is up to date or an upgrade is available and return the version number if an update is avaiable
+* Check if ResourceSpace is up to date or an upgrade is available and return the version number if an update is available
 *
 * @uses get_sysvar()
 * @uses set_sysvar()
