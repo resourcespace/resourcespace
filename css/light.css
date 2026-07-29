@@ -364,9 +364,9 @@ input:checked + .customFieldLabel, .keywordselected {
 ::-webkit-scrollbar:vertical {width:12px;}
 ::-webkit-scrollbar:horizontal {height:12px;}
 ::-webkit-scrollbar,::-webkit-scrollbar-corner {background:none;}
-::-webkit-scrollbar-thumb {background:rgba(0,0,0,0.3);border-radius: 6px;}
-::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,0.35);border-radius: 6px;}
-::-webkit-scrollbar-thumb:active{background:rgba(0,0,0,0.4);border-radius: 6px;}
+::-webkit-scrollbar-thumb {background:var(--colour-surface-500);border-radius: 6px;}
+::-webkit-scrollbar-thumb:hover{background:var(--colour-surface-600);border-radius: 6px;}
+::-webkit-scrollbar-thumb:active{background:var(--colour-surface-700);border-radius: 6px;}
 
 .FeaturedSimpleTile .FeaturedSimpleTileContents h2
     {

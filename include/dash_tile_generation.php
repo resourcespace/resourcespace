@@ -348,10 +348,11 @@ function tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height)
         ?>
     </div>
     <div class="tile-desc">
+        <h2><?php echo escape($lang["themes"]); ?></h2>
         <div class="field-input tile-select">
             <?php if (!empty($fc_categories)) { ?>
-                <select id="themeselect" onChange="CentralSpaceLoad(this.value,true);">
-                    <option value=""><?php echo escape($lang["select"]); ?></option>
+                <select id="themeselect" onClick="event.stopPropagation(); event.preventDefault();" onChange="CentralSpaceLoad(this.value,true);">
+                    <option value=""><?php echo escape($lang["selectcollection"]); ?></option>
                         <?php foreach ($fc_categories as $header) { ?>
                             <option value="<?php echo generateURL($url, array("parent" => $header["ref"])); ?>">
                                 <?php echo escape(i18n_get_translated($header["name"])); ?>
@@ -364,13 +365,12 @@ function tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height)
             }
             ?>
         </div>
-        <h2><?php echo escape($lang["themes"]); ?></h2>
         <?php
             if (!$theme_direct_jump) { 
                 ?>
                     <p>
                         <?php echo escape($lang['or']); ?>
-                        <a onClick="return CentralSpaceLoad(this,true);" href="<?php echo $url; ?>">
+                        <a class="tile-link" onClick="return CentralSpaceLoad(this,true);" href="<?php echo $url; ?>">
                             <?php echo escape($lang['view_all_fcs']); ?>
                             <i class="icon-arrow-right"></i>
                         </a>

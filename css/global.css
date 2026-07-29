@@ -636,7 +636,7 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     line-height: 140%;
 }
 div.tile-select {
-    padding-bottom: var(--space-8);
+    padding: var(--space-8) 0;
     width: 100%;
 }
 .tile-multi {
@@ -679,6 +679,13 @@ div.tile-select {
 }
 .HomePanel.DashTile {
     display: flex;
+}
+.HomePanel.DashTile .tile-link {
+    color: var(--colour-brand-primary-default);
+    text-decoration: underline;
+}
+.HomePanel.DashTile .tile-link:hover {
+    color: var(--colour-brand-primary-darkest);
 }
 #create_dash .HomePanel.DashTile {
     background-color: unset;
@@ -5894,7 +5901,7 @@ header.LoginHeader {
 .collection-bar-actions-form select {
     width: 358px;
     min-height: var(--form-field-min-height);
-    padding: 0 12px;
+    padding: 0 36px 0 12px;
     margin: 0;
     color: #fafafa; /* hardcoded due to dark mode flip */
     background: var(--colour-neutral-900);
