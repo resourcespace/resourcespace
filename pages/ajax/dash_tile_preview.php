@@ -22,7 +22,7 @@ $tile['ref']            = getval('edit', '');
 $tile['link']           = getval('tllink', '');
 $tile['txt']            = getval('tltxt', '');
 $tile['title']          = getval('tltitle', '');
-$tile['resource_count'] = getval('tlrcount', '');
+$tile['resource_count'] = (int) getval('tlrcount', 0); # Display resource count: 1 or 0
 $tile['tlsize']         = ('double' === getval('tlsize', '') ? 'double' : '');
 
 // Simulate URL so we can preview based on requested params
