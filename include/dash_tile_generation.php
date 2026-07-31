@@ -680,7 +680,7 @@ function tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_heig
         <div class="tile-multi"> 
             <?php
                 for ($i = 0;$i <= 2; $i++) {            
-                    if ($preview_paths[$i]['path'] !== null && $i == 0) {
+                    if ($i == 0 && $preview_paths[$i]['path'] !== null) {
                         ?>
                             <img
                                 alt="<?php echo escape($preview_paths[$i]['title']); ?>"
@@ -698,6 +698,8 @@ function tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_heig
                             <div class="tile-sub-multi">
                             <?php
                         }
+
+                        if (($preview_paths[$i] ?? null) !== null) {
                             if ($preview_paths[$i]['path'] !== null) {
                                 ?>
                                     <img
@@ -709,6 +711,12 @@ function tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_heig
                                     <div alt="<?php echo escape($preview_paths[$i]['title']); ?>"></div>
                                 <?php
                             }
+                        } else {
+                            ?>
+                                <div></div>
+                            <?php
+                        }
+
                         if ($i == 2) {
                             ?>
                             </div>

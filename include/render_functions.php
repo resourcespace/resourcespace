@@ -2303,14 +2303,7 @@ function display_field($n, $field, $newtab=false,$modal=false)
                     return $node['resource_type_field'] == $field['ref'];
                 }
             );
-            $field_nodes = array();
-            foreach($selected_nodes as $selected_node)
-                {
-                if(in_array($selected_node,array_column($field['node_options'],"ref")))
-                    {
-                    $field_nodes[] = $selected_node;
-                    }
-                }
+            $field_nodes = array_column($field['node_options'], 'ref');
             sort($field_nodes);         
             debug(sprintf('$field_nodes = %s', json_encode($field_nodes)));
             echo "<input id='field_" . (int) $field['ref']  . "_checksum' name='" . "field_" . (int) $field['ref']  . "_checksum' type='hidden' value='" . md5(implode(",",$field_nodes)) . "'>";
