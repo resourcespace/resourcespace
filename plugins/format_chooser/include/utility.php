@@ -246,7 +246,7 @@ function convertImage($resource, $page, $alternative, $target, $width, $height, 
         }
     }
 
-function sendFile($filename, string $download_filename, $usage = -1, $usagecomment = "")
+function sendFile($filename, string $download_filename, $usage = -1, $usagecomment = "", $email = "")
     {
     $suffix = pathinfo($filename, PATHINFO_EXTENSION);
 
@@ -268,6 +268,7 @@ function sendFile($filename, string $download_filename, $usage = -1, $usagecomme
             'filename'      => strip_extension($download_filename, false),
             'usage'         => $usage,
             'usagecomment'  => $usagecomment,
+            'email'         => $email,
             'k'             => getval('k', ''),
             'ref'           => getval('ref', ''),
             'exif_write'    => ($exiftool_write ? 'true' : '')

@@ -2,7 +2,7 @@
 
 include_once __DIR__ . "/../include/utility.php";
 
-function HookFormat_chooserAllGetdownloadurl($ref, $size, $ext, $page = 1, $alternative = -1, $usage = -1, $usagecomment = "")
+function HookFormat_chooserAllGetdownloadurl($ref, $size, $ext, $page = 1, $alternative = -1, $usage = -1, $usagecomment = "", $email = "")
     {
     global $baseurl_short,$imagemagick_preserve_profiles, $format_chooser_input_formats, $format_chooser_output_formats, $k;
 
@@ -19,6 +19,7 @@ function HookFormat_chooserAllGetdownloadurl($ref, $size, $ext, $page = 1, $alte
         'alt' => $alternative,
         'usage' => $usage,
         'usagecomment' => $usagecomment,
+        'email' => $email,
     ];
     $resource_data = get_resource_data($ref);
 

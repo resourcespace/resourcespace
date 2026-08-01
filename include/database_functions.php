@@ -7,32 +7,50 @@
  */
 
 /**
- * Simple class to use when required to obtain/build SQL (sub) statements from various functions.
+ * Represents a prepared SQL statement or substatement and its bind parameters.
  *
  * @internal
  */
-final class PreparedStatementQuery
+final class PreparedStatementQuery implements \Stringable
 {
     /**
-     * @var string $sql SQL prepared (sub) statement with placeholders in place
+     * @param string $sql       SQL prepared statement with placeholders
+     * @param array $parameters Parameters to bind to the statement
      */
-    public $sql;
-
-    /**
-     * @var array $parameters Bind parameters
-     */
-    public $parameters;
-
-    /**
-     * Create a new PreparedStatementQuery
-     *
-     * @param string $sql        SQL prepared (sub) statement with placeholders in place
-     * @param array  $parameters Bind parameters
-     */
-    public function __construct(string $sql = '', array $parameters = [])
+    public function __construct(public string $sql = '', public array $parameters = [])
     {
-        $this->sql = $sql;
-        $this->parameters = $parameters;
+    }
+
+    /**
+     * Build a new query by appending one or more statements
+     *
+     * Note: SQL and parameters are combined in the supplied order.
+     */
+    public function withStatement(self ...$statements): self
+    {
+        $queries = [$this, ...$statements];
+
+        return new self(
+            sql: implode('', array_map(static fn (self $query): string => $query->sql, $queries)),
+            parameters: array_merge(...array_map(static fn (self $query): array => $query->parameters, $queries)),
+        );
+    }
+
+    /**
+     * Build a query by glueing with UNION if current SQL query isn't empty.  
+     */
+    public function withUnionStatement(self $query): self
+    {
+        if ($this->sql === '') {
+            return $this->withStatement($query);
+        }
+
+        return $this->withStatement(new self(" UNION {$query->sql}", $query->parameters));
+    }
+
+    public function __toString(): string
+    {
+        return sprintf('SQL: %s; Parameters: %s', $this->sql, encode_js_value($this->parameters));
     }
 }
 

@@ -41,19 +41,19 @@ function get_user_actions($countonly = false, $type = "", $order_by = "date", $s
             $generated_title_field = "''";
         }
 
-        # Function get_editable_resource_sql() now returns a query object
         $editable_resource_query = get_editable_resource_sql();
 
-        $actionsql->sql .= "SELECT creation_date as date,ref, created_by as user, "
-           . $generated_title_field . " as description, 'resourcereview' as type FROM (" . $editable_resource_query->sql . ") resources" ;
-        $actionsql->parameters = array_merge($actionsql->parameters, $editable_resource_query->parameters);
+        $actionsql = $actionsql->withStatement(new PreparedStatementQuery(
+            "SELECT creation_date as date,ref, created_by as user, {$generated_title_field} as description, 'resourcereview' as type FROM ({$editable_resource_query->sql}) resources",
+            $editable_resource_query->parameters
+        ));
     }
     if (checkperm("R") && $actions_resource_requests && (!$filtered || 'resourcerequest' == $type)) {
-        # This get_requests call now returns a query object with two properties; sql string and parameters array
         $request_query = get_requests(true, true, true);
-        $actionsql->sql .= (($actionsql->sql != "") ? " UNION " : "") . "SELECT created
-        as date,ref, user, substring(comments,21) as description,'resourcerequest' as type FROM (" . $request_query->sql . ") requests";
-        $actionsql->parameters = array_merge($actionsql->parameters, $request_query->parameters);
+        $actionsql = $actionsql->withUnionStatement(new PreparedStatementQuery(
+            "SELECT created as date,ref, user, substring(comments,21) as description,'resourcerequest' as type FROM ({$request_query->sql}) requests",
+            $request_query->parameters
+        ));
     }
     if (checkperm("u") && $actions_account_requests && (!$filtered || 'userrequest' == $type)) {
         $availgroups = get_usergroups(true);
@@ -61,20 +61,17 @@ function get_user_actions($countonly = false, $type = "", $order_by = "date", $s
 
         $account_requests_query = get_users($get_groups, "", "u.created", true, -1, 0, true, "u.ref,u.created,u.fullname,u.email,u.username, u.comments");
 
-        $actionsql->sql .= (($actionsql->sql != "") ? " UNION " : "") . "SELECT created 
-            as date,ref,ref as user,comments as description,'userrequest' as type FROM (" . $account_requests_query->sql . ") users";
-        $actionsql->parameters = array_merge($actionsql->parameters, $account_requests_query->parameters);
+        $actionsql = $actionsql->withUnionStatement(new PreparedStatementQuery(
+            "SELECT created as date,ref,ref as user,comments as description,'userrequest' as type FROM ({$account_requests_query->sql}) users",
+            $account_requests_query->parameters
+        ));
     }
 
     # Following hook now returns a query object
     $hookactionsql = hook("addtoactions");
 
     if ($hookactionsql != false) {
-        if ($actionsql->sql != "") {
-            $actionsql->sql .= " UNION ";
-        }
-        $actionsql->sql .= $hookactionsql->sql;
-        $actionsql->parameters = array_merge($actionsql->parameters, $hookactionsql->parameters);
+        $actionsql = $actionsql->withUnionStatement($hookactionsql);
     }
 
     if ($actionsql->sql == "") {

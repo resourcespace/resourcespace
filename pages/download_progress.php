@@ -32,7 +32,7 @@ if ($url == '') {
         redirect($baseurl_short . "pages/download_usage.php" . $download_url_suffix);
     }
 
-    if (!($url = hook("getdownloadurl", "", array($ref, $size, $ext, 1, $alternative, $usage, $usagecomment)))) { // used in remotedownload-plugin
+    if (!($url = hook("getdownloadurl", "", array($ref, $size, $ext, 1, $alternative, $usage, $usagecomment, $email)))) { // used in remotedownload-plugin
         $download_url_suffix .= "&usage=" . urlencode($usage) . "&usagecomment=" . urlencode($usagecomment) . "&email=" . urlencode($email);
         $url = $baseurl . "/pages/download.php" . $download_url_suffix;
     }
