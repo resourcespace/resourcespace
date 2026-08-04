@@ -2355,6 +2355,9 @@ $no_welcometext = false;
 // Set the character limit for welcome text rendered before trim is applied
 $welcometext_trim = 300;
 
+// Hide the welcome info button
+$hide_welcomeinfo = false;
+
 // Show login page welcome text
 $show_login_welcome_text = false;
 

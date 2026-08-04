@@ -44,6 +44,7 @@ $targetfield = (int) $job_data['field_ref'] ?? 0;
 $targetfield_data = get_resource_type_field($targetfield);
 
 $overwrite = (bool) $job_data['overwrite'] ?? false;
+$GLOBALS["openai_gpt_overwrite_data"] = $overwrite; # For use in openai_gpt_update_field()
 
 if (!$targetfield_data) {
     logScript("[process_gpt_existing] [ERROR] Invalid field specified", $log_file);

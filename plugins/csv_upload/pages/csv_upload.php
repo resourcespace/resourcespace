@@ -1012,7 +1012,7 @@ if (!checkperm("c")) {
 
             if (count($messages) > 1000) {
                 $messages = array_slice($messages, 0, 1000);
-                echo "<p>" . strip_tags_and_attributes(str_replace("[log_url]", $prelog_url, $lang["csv_upload_full_messages_link"])) . "</p>";
+                echo "<p>" . strip_tags_and_attributes(str_replace("[log_url]", $prelog_url, $lang["csv_upload_full_messages_link"]), ['a'], ['href']) . "</p>";
             }
             ?>
 
@@ -1114,7 +1114,7 @@ if (!checkperm("c")) {
                 // If this is a very large CSV we need to limit the output displayed or it may crash the browser
                 if (count($messages) > 1000) {
                     $messages = array_slice($messages, 0, 1000);
-                    echo "<p>" . strip_tags_and_attributes(str_replace("[log_url]", $log_url, $lang["csv_upload_full_messages_link"])) . "</p>";
+                    echo "<p>" . strip_tags_and_attributes(str_replace("[log_url]", $log_url, $lang["csv_upload_full_messages_link"]), ['a'], ['href']) . "</p>";
                 }
                 ?>
                 <div class="BasicsBox">

@@ -10,6 +10,7 @@ $page = getval('page', 1, true);
 $alternative = getval('alt', -1, true);
 $usage = getval('usage', "-1");
 $usagecomment=getval('usagecomment',"");
+$email=getval('email',"");
 
 $resource = get_resource_data($ref);
 $width = getval('width', 0, true);
