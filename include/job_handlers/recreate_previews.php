@@ -11,7 +11,7 @@ global $ffmpeg_preview_extension, $ffmpeg_supported_extensions, $resource_deleti
 # $job_data['use_existing'] -> Optional. Boolean, will default to false if not specified
 # $job_data['video_update'] -> Optional. Boolean, will default to false if not specified
 # $job_data['delete_existing'] -> Optional. Boolean, will default to false if not specified
-#                                 Delete option cannot be used with sizes, types, use_existing or video_update options
+#                                 Delete option cannot be used with sizes, use_existing or video_update options
 
 function update_preview($ref, $previewbased, $sizes, $delete_existing)
 {
@@ -67,7 +67,7 @@ $previewbased = (bool) $job_data['use_existing'] ?? false;
 $videoupdate = (bool) $job_data['video_update'] ?? false;
 $delete_existing = (bool) $job_data['delete_existing'] ?? false;
 
-if ($delete_existing && (count($sizes) > 0 || count($types) > 0 || $previewbased || $videoupdate)) {
+if ($delete_existing && (count($sizes) > 0 || $previewbased || $videoupdate)) {
     logScript("[recreate_previews] [ERROR] invalid parameters provided for job, cannot use delete_existing with other options", $log_file);
     job_queue_update($jobref, $job_data, STATUS_ERROR);
     return;

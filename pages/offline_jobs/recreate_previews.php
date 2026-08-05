@@ -58,7 +58,6 @@ if ($save != '' && enforcePostRequest(false)) {
     if ($delete_existing) {
         // Delete existing means various parameters should be ignored - set them to default
         $image_sizes = array_keys($image_size_options);
-        $resource_types = array_keys($resource_type_options);
         $use_existing = false;
         $video_update = false;
     }
@@ -137,42 +136,6 @@ if ($job_add_error) {
             <div class="clearerleft"></div>
         </div>
         <div class="Question">
-            <label><?php echo escape($lang['oj_recreate_previews_image_sizes']); ?> *</label>
-            <div class="tickset">
-                <div class="Inline">
-                    <?php
-                    foreach ($image_size_options as $size_id => $image_size_option) {
-                    ?>
-                    <input type="checkbox" name="image_sizes[]" 
-                            id="image_sizes_<?php echo escape($size_id); ?>"
-                            <?php echo ($size_id != "all") ? 'class="image_sizes"' : ""; ?>
-                            value="<?php echo escape($size_id); ?>"
-                            <?php echo (in_array($size_id, $image_sizes) ? " checked " : ""); ?>/>
-                    <label for="image_sizes_<?php echo escape($size_id); ?>"><?php echo escape($image_size_option); ?></label>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="clearerleft"></div>
-            <script>
-                jQuery(document).ready(function () {
-                    jQuery('#image_sizes_all').on('change', function () {
-                        jQuery('.image_sizes').prop('checked', this.checked);
-                    });
-
-                    jQuery('.image_sizes').on('change', function () {
-                        jQuery('#image_sizes_all').prop(
-                            'checked',
-                            jQuery('.image_sizes:checked').length === jQuery('.image_sizes').length
-                        );
-                    });
-
-                    jQuery('.image_sizes').trigger('change');
-                });
-            </script>
-        </div>
-        <div class="Question">
             <label><?php echo escape($lang['oj_recreate_previews_resource_types']); ?> *</label>
             <div class="tickset">
                 <div class="Inline">
@@ -209,6 +172,42 @@ if ($job_add_error) {
             </script>
         </div>
         <div class="Question">
+            <label><?php echo escape($lang['oj_recreate_previews_image_sizes']); ?> *</label>
+            <div class="tickset">
+                <div class="Inline">
+                    <?php
+                    foreach ($image_size_options as $size_id => $image_size_option) {
+                    ?>
+                    <input type="checkbox" name="image_sizes[]" 
+                            id="image_sizes_<?php echo escape($size_id); ?>"
+                            <?php echo ($size_id != "all") ? 'class="image_sizes"' : ""; ?>
+                            value="<?php echo escape($size_id); ?>"
+                            <?php echo (in_array($size_id, $image_sizes) ? " checked " : ""); ?>/>
+                    <label for="image_sizes_<?php echo escape($size_id); ?>"><?php echo escape($image_size_option); ?></label>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="clearerleft"></div>
+            <script>
+                jQuery(document).ready(function () {
+                    jQuery('#image_sizes_all').on('change', function () {
+                        jQuery('.image_sizes').prop('checked', this.checked);
+                    });
+
+                    jQuery('.image_sizes').on('change', function () {
+                        jQuery('#image_sizes_all').prop(
+                            'checked',
+                            jQuery('.image_sizes:checked').length === jQuery('.image_sizes').length
+                        );
+                    });
+
+                    jQuery('.image_sizes').trigger('change');
+                });
+            </script>
+        </div>
+        <div class="Question">
             <label for="use_existing"><?php echo escape($lang['oj_recreate_previews_use_existing']); ?></label>
             <input name="use_existing" id="use_existing" type="checkbox" value="1"<?php echo ($use_existing ? 'checked="checked"' : ''); ?>>
             <div class="FormHelp JobFormHelp">
@@ -241,9 +240,7 @@ if ($job_add_error) {
                     '#use_existing, ' +
                     '#video_update, ' +
                     '#image_sizes_all, ' +
-                    '#resource_types_all, ' +
-                    'input[name="image_sizes[]"], ' +
-                    'input[name="resource_types[]"]'
+                    'input[name="image_sizes[]"]'
                 );
 
                 // Grey out Question containers

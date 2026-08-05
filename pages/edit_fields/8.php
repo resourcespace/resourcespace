@@ -65,6 +65,7 @@ global $tinymce_plugins, $tinymce_toolbar, $user_pref_appearance;
                 ?>
             });
         },
+        cache_suffix: '?v=<?php echo time(); ?>'
     });
 
 </script>

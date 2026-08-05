@@ -761,6 +761,28 @@ function delete_temp_files(): void
     }
 }
 
+
+function purge_query_cache(): void
+{
+    global $query_cache_expires_minutes;
+
+    $query_cache_location = get_query_cache_location();
+    $query_cache_contents = new DirectoryIterator($query_cache_location);
+    foreach ($query_cache_contents as $cache_file) {
+        if (
+            !$cache_file->isDot()
+            && (time() - $cache_file->getMTime()) > $query_cache_expires_minutes * 60
+        ) {
+            $cache_name = $cache_file->getFilename();
+            $success = try_unlink($query_cache_location . DIRECTORY_SEPARATOR . $cache_name);
+            if ('cli' == PHP_SAPI) {
+                echo " - deleting file " . $cache_name . " - " . ($success ? "SUCCESS" : "FAILED")  . PHP_EOL;
+            }
+            debug(" - deleting file " . $cache_name . " - " . ($success ? "SUCCESS" : "FAILED"));
+        }
+    }
+}
+
 /**
  * Are the arguments set in $archiver_settings["arguments"] permitted?
  * Allows word characters, '@', and '-' only

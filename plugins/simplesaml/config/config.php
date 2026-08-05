@@ -72,13 +72,17 @@ $simplesaml_config_defaults = [
     'logging.handler' => 'file',
     'admin.protectmetadata' => false,
     'timezone' => null,
-    /*
-     * This value is the duration of the session in seconds. Make sure that the time duration of
-     * cookies both at the SP and the IdP exceeds this duration.
-     */
-    'session.duration' => ($GLOBALS['session_length'] - 10) * 60,
     'session.cookie.secure' => true,
     'session.cookie.samesite' => 'Lax',
 ];
+
+if ($GLOBALS['session_length'] > 15) {
+    /*
+     * (from SSP config.php)
+     * This value is the duration of the session in seconds. Make sure that the time duration of
+     * cookies both at the SP and the IdP exceeds this duration.
+     */
+    $simplesaml_config_defaults['session.duration'] = ($GLOBALS['session_length'] - 5) * 60;
+}
 
 $simplesaml_metadata_url = "";

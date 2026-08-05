@@ -805,10 +805,8 @@ $selected_search_tab = getval("selected_search_tab", "search");
                                     %s
                                     %s
                                     %s
-                                    %s
                                     ResetTicks(); SimpleSearchFieldsHideOrShow();
                                     return false;',
-                                    !$hide_search_resource_types ? "jQuery('#restypes\\\[\\\]').val('').trigger('change')" : "",
                                     $simple_search_date ? "document.getElementById('basicyear').value='';document.getElementById('basicmonth').value='';" : '',
                                     $searchbyday && $simple_search_date ? "document.getElementById('basicday').value='';" : '',
                                     $resourceid_simple_search ? "document.getElementById('searchresourceid').value='';" : ''

@@ -86,7 +86,11 @@ if ($parent > 0) {
             $collection_data = [];
         }
 
-        if (($is_featured_collection || !$fc_category_has_children) && collection_readable($current_fc_node['ref'])) {
+        if (
+            ($is_featured_collection || !$fc_category_has_children) 
+            && collection_readable($current_fc_node['ref'])
+            && !checkperm('b')
+        ) {
             $fc_branch_path[$current_fc_node_key]['context_menu'][] = [
                 'icon' => 'icon-circle-check',
                 'text' => $lang['action-select'],

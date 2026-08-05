@@ -4900,7 +4900,7 @@ function render_featured_collections(array $ctx, array $items)
                 "icon" => 'icon-share-2',
                 "text" => $lang["share"]);
             }
-        if($is_featured_collection && collection_readable($fc['ref']))
+        if($is_featured_collection && collection_readable($fc['ref']) && !checkperm('b'))
             {
             $render_ctx["tools"][] = $tool_select;
             }
@@ -4956,7 +4956,7 @@ function render_featured_collections(array $ctx, array $items)
             );
 
 
-            if(!$fc_category_has_children && collection_readable($fc['ref']))
+            if(!$fc_category_has_children && collection_readable($fc['ref']) && !checkperm('b'))
                 {
                 $render_ctx["tools"][] = $tool_select;
                 }
