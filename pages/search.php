@@ -400,6 +400,8 @@ if($use_selection_collection)
 
 $hiddenfields=getval("hiddenfields","");
 
+$available_resource_types = array_column(get_resource_types('', true, false, true), 'ref');
+
 # fetch resource types from query string and generate a resource types cookie
 if (getval("resetrestypes","")=="")
     {
@@ -424,7 +426,7 @@ else {
                     ['Global'], # pseudo resource type <=> "All resource types" option
                     array_values(
                         array_diff(
-                            array_map(intval(...), array_column(get_resource_types('', true, false, true), 'ref')),
+                            array_map(intval(...), $available_resource_types),
                             $hide_resource_types
                         )
                     )
@@ -444,6 +446,11 @@ else {
         daily_stat("Search", 0);
     }
 }
+
+if ($restypes === 'Global') {
+    $restypes = implode(',', $available_resource_types);
+}
+
 $modified_restypes=hook("modifyrestypes_aftercookieset");
 if($modified_restypes){$restypes=$modified_restypes;}
 

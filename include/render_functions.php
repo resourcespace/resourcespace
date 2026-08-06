@@ -909,9 +909,10 @@ function render_search_field(
 
             </div>
             <?php
+            $id_prefix = $forsearchbar ? 'searchbar_' : '';
             # Add to clear function
             $clear_function .= "
-                jQuery('#search_tree_{$field['ref']}').jstree({
+                jQuery('#{$id_prefix}search_tree_{$field['ref']}').jstree({
                     'core' : {
                         'themes' : {
                             'name' : 'default-dark',
@@ -921,14 +922,14 @@ function render_search_field(
                 }).deselect_all();
 
                 /* remove the hidden inputs */
-                var elements = document.getElementsByName('nodes_searched[{$field['ref']}][]');
+                var elements = document.getElementsByName('nodes_searched_{$field['ref']}[]');
                 while(elements[0])
                     {
                     elements[0].parentNode.removeChild(elements[0]);
                     }
 
                 /* update status box */
-                var node_statusbox = document.getElementById('nodes_searched_{$field['ref']}_statusbox');
+                var node_statusbox = document.getElementById('{$id_prefix}nodes_searched_{$field['ref']}_statusbox');
                 while(node_statusbox.lastChild)
                     {
                     node_statusbox.removeChild(node_statusbox.lastChild);
@@ -6319,11 +6320,11 @@ function display_related_resources($context)
         $ref == 0
         || (
             (
-                $render_related                 // Do you have permission to see the related resources
+                !$render_related                // Do you have permission to see the related resources
                 || !is_array($arr_related)      // Would there be any resources to populate it with
                 || count(array_intersect($relatedtypes_shown, array_column($arr_related, 'resource_type'))) == 0
             )
-            && !$edit_access                    // If there aren't resources but you have access to add
+            && $edit_access == false            // If there aren't resources but you have access to add
         )                                       // related resource you still need to be able to see the div
     ) {
         return;
