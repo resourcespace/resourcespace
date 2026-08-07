@@ -38,7 +38,7 @@
         "select2": "4.1.0-rc.0",
         "tinymce": "^7.9.3",
         "toastify-js": "^1.12.0",
-        "uppy": "4.10.0",
+        "uppy": "4.12.2",
         "video.js": "7.21.7",
         "videojs-resolution-switcher-for-videojs-version-7": "github:mzulkiakbari/videojs-resolution-switcher-for-videojs-version-7"
     },

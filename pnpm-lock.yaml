@@ -81,8 +81,8 @@ importers:
         specifier: ^1.12.0
         version: 1.12.0
       uppy:
-        specifier: 4.10.0
-        version: 4.10.0
+        specifier: 4.12.2
+        version: 4.12.2
       video.js:
         specifier: 7.21.7
         version: 7.21.7
@@ -176,25 +176,25 @@ packages:
     peerDependencies:
       '@uppy/core': ^4.5.3
 
-  '@uppy/google-drive-picker@0.2.1':
-    resolution: {integrity: sha512-3QFIBP4qSV0nXHmUed3Kz20pd065lzRqzoMw1fL5jFLYNyZJvu/ZcwvKoOBwwuqJyXyRkbmb6obPCOHfdNaQmw==}
+  '@uppy/google-drive-picker@0.3.6':
+    resolution: {integrity: sha512-CwhlFl737UlO0q4e6UB+MuzVUDsY4H+Qh6KoirCvXEmTfov8/n0mA0yosA4VdBhRAU7iAKCxaA8czhFmAEaiCA==}
     peerDependencies:
-      '@uppy/core': ^4.3.1
+      '@uppy/core': ^4.4.7
 
   '@uppy/google-drive@4.4.2':
     resolution: {integrity: sha512-hIxnWZ7WMW1jrRecL+VnMVt9TwY+V3uEpy7KmNxASraQFwS2oYgYUfO5R8MVcmL654wymQgEsRY7Kzp9NQvZGw==}
     peerDependencies:
       '@uppy/core': ^4.5.2
 
-  '@uppy/google-photos-picker@0.2.1':
-    resolution: {integrity: sha512-umOVWe02YCaMm6SK0SAAJ9GAFEEgoLRLtI6NNExEyzg5ZrXaPqGMscRsndcNK9e4mNMN8KAcEDYYf9yn0XmYKA==}
+  '@uppy/google-photos-picker@0.3.6':
+    resolution: {integrity: sha512-kxahIcQhz81SBxwFS/j+JogEneKXtzbhwMD+SspULUh29S3duHJV5nWC03/ImoagbTTO4ys+SWpK/gNjcOAy7w==}
     peerDependencies:
-      '@uppy/core': ^4.3.1
+      '@uppy/core': ^4.4.7
 
-  '@uppy/google-photos@0.4.0':
-    resolution: {integrity: sha512-xvcZYhsJ1lAg6tQ7gggGqDQY5tlOWmBW+QWrYDSDz+re8OGsv45gJeUmPux/MnATvh/50ip6zCaRGfjGa0jJrA==}
+  '@uppy/google-photos@0.5.1':
+    resolution: {integrity: sha512-NWnhCtf6cSR8d/khiCPQo+isnKgojBwK6CR8ikVFA3vvAUtg0k0fYRn5F6zUS70jATjHdH/xEnOls9fNHuZF8A==}
     peerDependencies:
-      '@uppy/core': ^4.3.0
+      '@uppy/core': ^4.4.1
 
   '@uppy/image-editor@3.4.2':
     resolution: {integrity: sha512-cQD/oDa/0xCuZAtdi4P2uLIxgrG/YR24KgKAxQYPzQHQtNB8KzCdl3TPV5ZWF9kjT4mSlUsoB4RfPQl34GbFhA==}
@@ -285,10 +285,10 @@ packages:
     peerDependencies:
       '@uppy/core': ^4.5.2
 
-  '@uppy/webdav@0.2.0':
-    resolution: {integrity: sha512-XGM/m9rhE01aTF6UVwyHxR/1BhZM/GDLiwWhE6wSN8CMMmqCAxKKzJEocRWzK/tFUsQ+aF7EAXeh6g1c7v/N0g==}
+  '@uppy/webdav@0.3.3':
+    resolution: {integrity: sha512-vmKCQVV1a8bfa/dMwnjWCIHU6AP9SUkt6tvO+V2IJMUZgdPgyxgpFYz9TNGKqnoBEUcWvTv7dFxVGAk85ZQuyg==}
     peerDependencies:
-      '@uppy/core': ^4.3.2
+      '@uppy/core': ^4.4.5
 
   '@uppy/xhr-upload@4.4.2':
     resolution: {integrity: sha512-CU66aVn4yghGklEkepCqFPulc6uygznApy2DpD+jCMLNB5q6yT1RPSrQUgRgXsYhpW1YhutZJWsrEnHEDS+Tcw==}
@@ -360,8 +360,8 @@ packages:
     resolution: {integrity: sha512-4m5s3Me2xxlVKG9PkZpQqHQR7bgpnN7joDMJ4yvVkVXngjoITG76IaZmzmywSeRTeTpc6N6r3H3+KyUurV8OYw==}
     engines: {node: '>=18'}
 
-  compressorjs@1.2.1:
-    resolution: {integrity: sha512-+geIjeRnPhQ+LLvvA7wxBQE5ddeLU7pJ3FsKFWirDw6veY3s9iLxAQEw7lXGHnhCJvBujEQWuNnGzZcvCvdkLQ==}
+  compressorjs@1.3.0:
+    resolution: {integrity: sha512-TsvzkRgDm/6mIRUdxJbrTH7kfSW3oJzOw8b1xU60fziQSosTML5TczpO6Z4H1LGF0yRmTotk6r5UNhuRxEwA1A==}
 
   cropperjs@1.6.2:
     resolution: {integrity: sha512-nhymn9GdnV3CqiEHJVai54TULFAE3VshJTXSqSJKa8yXAKyBKDWdhHarnlIPrshJ0WMFTGuFvG02YjLXfPiuOA==}
@@ -410,8 +410,8 @@ packages:
   is-mobile@4.0.0:
     resolution: {integrity: sha512-mlcHZA84t1qLSuWkt2v0I2l61PYdyQDt4aG1mLIXF5FDMm4+haBCxCPYSr/uwqQNRk1MiTizn0ypEuRAOLRAew==}
 
-  is-network-error@1.3.0:
-    resolution: {integrity: sha512-6oIwpsgRfnDiyEDLMay/GqCl3HoAtH5+RUKW29gYkL0QA+ipzpDLA16yQs7/RHCSu+BwgbJaOUqa4A99qNVQVw==}
+  is-network-error@1.3.2:
+    resolution: {integrity: sha512-PhBY86zaxNZUuWP6h13Vu5oFe0XY6/UlKzQnYFELzGVHygP3MxmvTfYSG7GN3aIab/iWudSMgjSnG9Dq+nHrgA==}
     engines: {node: '>=16'}
 
   is-stream@2.0.1:
@@ -436,8 +436,8 @@ packages:
   jquery@3.7.1:
     resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
 
-  js-base64@3.7.8:
-    resolution: {integrity: sha512-hNngCeKxIUQiEUN3GPJOkz4wF/YvdUdbNL9hsBcMQTkKzboD7T/q3OYOuuPZLUE6dBxSGpwhk5mwuDud7JVAow==}
+  js-base64@3.9.2:
+    resolution: {integrity: sha512-6zayE8QlUdiweYI6cETD/XBSqFcoCUlufn/29PJR99r82x1yDnIprRca0YvAYpAW+ez0GuQkVBC6xG5QkD7OjA==}
 
   jstree@3.3.17:
     resolution: {integrity: sha512-V0Pl1B6BIaxHUQMiWkol37QlhlBKoZA9RUeUmm95+UnV2QeZsj2QP1sOQl/m2EIOyZXOOxOHvR0SYZLSDC7EFw==}
@@ -519,8 +519,8 @@ packages:
   namespace-emitter@2.0.1:
     resolution: {integrity: sha512-N/sMKHniSDJBjfrkbS/tpkPj4RAbvW3mr8UAzvlMHyun93XEm83IAvhWtJVHo+RHn/oO8Job5YN4b+wRjSVp5g==}
 
-  nanoid@5.1.11:
-    resolution: {integrity: sha512-v+KEsUv2ps74PaSKv0gHTxTCgMXOIfBEbaqa6w6ISIGC7ZsvHN4N9oJ8d4cmf0n5oTzQz2SLmThbQWhjd/8eKg==}
+  nanoid@5.1.16:
+    resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -546,8 +546,13 @@ packages:
     resolution: {integrity: sha512-afRERtHn54AlwaF2/+LFszyAANTCggGilmcmILUzEjvs3XgFZT+xE6+QWQcAGmu4xajy+Xtj7acLOPdx5/eXWQ==}
     hasBin: true
 
-  preact@10.28.3:
-    resolution: {integrity: sha512-tCmoRkPQLpBeWzpmbhryairGnhW9tKV6c6gr/w+RhoRoKEJwsjzipwp//1oCpGPOchvSLaAPlpcJi9MwMmoPyA==}
+  preact@10.29.8:
+    resolution: {integrity: sha512-ej2aVZ+vZ8WO7tvlQWRM9N63A0KzF9q4mWJfDUHgYaIofWY9hu74QdnQrjoPMmZi2/nZ5gN0bJCQF49xQqx09Q==}
+    peerDependencies:
+      preact-render-to-string: '>=5'
+    peerDependenciesMeta:
+      preact-render-to-string:
+        optional: true
 
   process@0.11.10:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
@@ -599,8 +604,8 @@ packages:
     resolution: {integrity: sha512-ZLeYmjrkaU1fUsKbIi8JML52uAocjEZtBx4DKjRrqzrZa0O4MYwT6db+oqePlspV+FxXJAyFBc/L5gwUi2OFsg==}
     engines: {node: '>=18'}
 
-  uppy@4.10.0:
-    resolution: {integrity: sha512-AgvcNkrdZiFDkH39GQs7VwI1Urqx7xMMhDVul1mHW3/iLqZSkAX65LerO2kb+e1A3EiEPBFeGOKOkoYJBQfR2g==}
+  uppy@4.12.2:
+    resolution: {integrity: sha512-agq3yHtUDR93lGJvlIdXWAGPmoH5M77MpmLsGGfEFc+KluziBSQdlsLzmFziPIS5uuuT76SbnzUu7r2QF8U1qw==}
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
@@ -641,13 +646,17 @@ snapshots:
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/aws-s3@4.3.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/box@3.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -655,7 +664,9 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/companion-client@4.5.2(@uppy/core@4.5.3)':
     dependencies:
@@ -663,15 +674,19 @@ snapshots:
       '@uppy/utils': 6.2.2
       namespace-emitter: 2.0.1
       p-retry: 6.2.1
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/compressor@2.3.2(@uppy/core@4.5.3)':
     dependencies:
       '@transloadit/prettier-bytes': 0.3.5
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      compressorjs: 1.2.1
-      preact: 10.28.3
+      compressorjs: 1.3.0
+      preact: 10.29.8
       promise-queue: 2.2.5
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/core@4.5.3':
     dependencies:
@@ -681,8 +696,10 @@ snapshots:
       lodash: 4.18.1
       mime-match: 1.0.2
       namespace-emitter: 2.0.1
-      nanoid: 5.1.11
-      preact: 10.28.3
+      nanoid: 5.1.16
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/dashboard@4.4.3(@uppy/core@4.5.3)':
     dependencies:
@@ -695,20 +712,26 @@ snapshots:
       '@uppy/utils': 6.2.2
       classnames: 2.5.1
       lodash: 4.18.1
-      nanoid: 5.1.11
-      preact: 10.28.3
+      nanoid: 5.1.16
+      preact: 10.29.8
       shallow-equal: 3.1.0
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/drag-drop@4.2.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/drop-target@3.2.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/dropbox@4.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -716,7 +739,9 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/facebook@4.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -724,33 +749,43 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/file-input@4.2.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/form@4.2.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       get-form-data: 3.0.0
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/golden-retriever@4.2.3(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       lodash: 4.18.1
+    transitivePeerDependencies:
+      - preact-render-to-string
 
-  '@uppy/google-drive-picker@0.2.1(@uppy/core@4.5.3)':
+  '@uppy/google-drive-picker@0.3.6(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/google-drive@4.4.2(@uppy/core@4.5.3)':
     dependencies:
@@ -758,36 +793,46 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
-  '@uppy/google-photos-picker@0.2.1(@uppy/core@4.5.3)':
+  '@uppy/google-photos-picker@0.3.6(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
-  '@uppy/google-photos@0.4.0(@uppy/core@4.5.3)':
+  '@uppy/google-photos@0.5.1(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/image-editor@3.4.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       cropperjs: 1.6.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/informer@4.3.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/instagram@4.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -795,7 +840,9 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/onedrive@4.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -803,22 +850,28 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/progress-bar@4.3.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/provider-views@4.5.3(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       classnames: 2.5.1
-      nanoid: 5.1.11
+      nanoid: 5.1.16
       p-queue: 8.1.1
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/redux-dev-tools@4.1.3(@uppy/core@4.5.3)':
     dependencies:
@@ -837,12 +890,16 @@ snapshots:
       '@uppy/unsplash': 4.4.2(@uppy/core@4.5.3)
       '@uppy/url': 4.3.2(@uppy/core@4.5.3)
       '@uppy/zoom': 3.3.2(@uppy/core@4.5.3)
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/screen-capture@4.4.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/status-bar@4.2.3(@uppy/core@4.5.3)':
     dependencies:
@@ -850,19 +907,23 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       classnames: 2.5.1
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/store-default@4.3.2': {}
 
   '@uppy/store-redux@4.1.2':
     dependencies:
-      nanoid: 5.1.11
+      nanoid: 5.1.16
 
   '@uppy/thumbnail-generator@4.2.3(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       exifr: 7.1.3
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/transloadit@4.3.3(@uppy/core@4.5.3)':
     dependencies:
@@ -872,6 +933,8 @@ snapshots:
       '@uppy/tus': 4.3.2(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
       component-emitter: 2.0.0
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/tus@4.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -879,6 +942,8 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       tus-js-client: 4.3.1
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/unsplash@4.4.2(@uppy/core@4.5.3)':
     dependencies:
@@ -886,41 +951,53 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/url@4.3.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
-      nanoid: 5.1.11
-      preact: 10.28.3
+      nanoid: 5.1.16
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/utils@6.2.2':
     dependencies:
       lodash: 4.18.1
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/webcam@4.3.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
       is-mobile: 4.0.0
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
-  '@uppy/webdav@0.2.0(@uppy/core@4.5.3)':
+  '@uppy/webdav@0.3.3(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/xhr-upload@4.4.2(@uppy/core@4.5.3)':
     dependencies:
       '@uppy/companion-client': 4.5.2(@uppy/core@4.5.3)
       '@uppy/core': 4.5.3
       '@uppy/utils': 6.2.2
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@uppy/zoom@3.3.2(@uppy/core@4.5.3)':
     dependencies:
@@ -928,7 +1005,9 @@ snapshots:
       '@uppy/core': 4.5.3
       '@uppy/provider-views': 4.5.3(@uppy/core@4.5.3)
       '@uppy/utils': 6.2.2
-      preact: 10.28.3
+      preact: 10.29.8
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   '@videojs/http-streaming@2.16.3(video.js@7.21.7)':
     dependencies:
@@ -992,7 +1071,7 @@ snapshots:
 
   component-emitter@2.0.0: {}
 
-  compressorjs@1.2.1:
+  compressorjs@1.3.0:
     dependencies:
       blueimp-canvas-to-blob: 3.29.0
       is-blob: 2.1.0
@@ -1034,7 +1113,7 @@ snapshots:
 
   is-mobile@4.0.0: {}
 
-  is-network-error@1.3.0: {}
+  is-network-error@1.3.2: {}
 
   is-stream@2.0.1: {}
 
@@ -1052,7 +1131,7 @@ snapshots:
 
   jquery@3.7.1: {}
 
-  js-base64@3.7.8: {}
+  js-base64@3.9.2: {}
 
   jstree@3.3.17:
     dependencies:
@@ -1140,7 +1219,7 @@ snapshots:
 
   namespace-emitter@2.0.1: {}
 
-  nanoid@5.1.11: {}
+  nanoid@5.1.16: {}
 
   open-location-code@1.0.3:
     optional: true
@@ -1155,7 +1234,7 @@ snapshots:
   p-retry@6.2.1:
     dependencies:
       '@types/retry': 0.12.2
-      is-network-error: 1.3.0
+      is-network-error: 1.3.2
       retry: 0.13.1
 
   p-timeout@6.1.4: {}
@@ -1164,7 +1243,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.28.6
 
-  preact@10.28.3: {}
+  preact@10.29.8: {}
 
   process@0.11.10: {}
 
@@ -1207,12 +1286,12 @@ snapshots:
       buffer-from: 1.1.2
       combine-errors: 3.0.3
       is-stream: 2.0.1
-      js-base64: 3.7.8
+      js-base64: 3.9.2
       lodash.throttle: 4.1.1
       proper-lockfile: 4.1.2
       url-parse: 1.5.10
 
-  uppy@4.10.0:
+  uppy@4.12.2:
     dependencies:
       '@uppy/audio': 2.2.2(@uppy/core@4.5.3)
       '@uppy/aws-s3': 4.3.2(@uppy/core@4.5.3)
@@ -1229,9 +1308,9 @@ snapshots:
       '@uppy/form': 4.2.2(@uppy/core@4.5.3)
       '@uppy/golden-retriever': 4.2.3(@uppy/core@4.5.3)
       '@uppy/google-drive': 4.4.2(@uppy/core@4.5.3)
-      '@uppy/google-drive-picker': 0.2.1(@uppy/core@4.5.3)
-      '@uppy/google-photos': 0.4.0(@uppy/core@4.5.3)
-      '@uppy/google-photos-picker': 0.2.1(@uppy/core@4.5.3)
+      '@uppy/google-drive-picker': 0.3.6(@uppy/core@4.5.3)
+      '@uppy/google-photos': 0.5.1(@uppy/core@4.5.3)
+      '@uppy/google-photos-picker': 0.3.6(@uppy/core@4.5.3)
       '@uppy/image-editor': 3.4.2(@uppy/core@4.5.3)
       '@uppy/informer': 4.3.2(@uppy/core@4.5.3)
       '@uppy/instagram': 4.3.2(@uppy/core@4.5.3)
@@ -1250,9 +1329,11 @@ snapshots:
       '@uppy/unsplash': 4.4.2(@uppy/core@4.5.3)
       '@uppy/url': 4.3.2(@uppy/core@4.5.3)
       '@uppy/webcam': 4.3.2(@uppy/core@4.5.3)
-      '@uppy/webdav': 0.2.0(@uppy/core@4.5.3)
+      '@uppy/webdav': 0.3.3(@uppy/core@4.5.3)
       '@uppy/xhr-upload': 4.4.2(@uppy/core@4.5.3)
       '@uppy/zoom': 3.3.2(@uppy/core@4.5.3)
+    transitivePeerDependencies:
+      - preact-render-to-string
 
   url-parse@1.5.10:
     dependencies:
