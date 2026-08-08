@@ -5097,7 +5097,7 @@ function render_featured_collection(array $ctx, array $fc)
                                 <div class=\"thumbs-tile-image\"></div>
                            </div>";
     } elseif (count($theme_images) === 1) {
-            $image_html = sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\">", 
+            $image_html = sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", 
                         $theme_images[0]['path'], escape($theme_images[0]['alt_text'] ?? ""));
     } elseif (count($theme_images) >= 3) {
         if ($theme_images[0] === null) {
@@ -5110,15 +5110,15 @@ function render_featured_collection(array $ctx, array $fc)
                            </div> 
                            ";
         } else {
-            $image_html = sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\">", 
+            $image_html = sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", 
             $theme_images[0]['path'], escape($theme_images[0]['alt_text'] ?? ""));
             $image_html .= "<div class=\"tile-sub-multi\">";
             $image_html .= $theme_images[1] === null ? 
                 "<div></div>" : 
-                sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\">", $theme_images[1]['path'], escape($theme_images[1]['alt_text'] ?? ""));
+                sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", $theme_images[1]['path'], escape($theme_images[1]['alt_text'] ?? ""));
             $image_html .= $theme_images[2] === null ? 
                 "<div></div>" : 
-                sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\">", $theme_images[2]['path'], escape($theme_images[2]['alt_text'] ?? ""));
+                sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", $theme_images[2]['path'], escape($theme_images[2]['alt_text'] ?? ""));
             $image_html .= "</div>";
         }
         
@@ -6320,9 +6320,9 @@ function display_related_resources($context)
         $ref == 0
         || (
             (
-                $render_related                 // Do you have permission to see the related resources
+                !$render_related                // Do you have permission to see the related resources
                 || !is_array($arr_related)      // Would there be any resources to populate it with
-                || count(array_intersect($relatedtypes_shown, array_column($arr_related, 'resource_type'))) == 0
+                || count(array_diff(array_column($allrestypes, "ref"), $relatedtypes_shown)) == 0
             )
             && !$edit_access                    // If there aren't resources but you have access to add
         )                                       // related resource you still need to be able to see the div

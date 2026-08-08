@@ -331,7 +331,8 @@ function tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height)
                                 ?>
                                     <img
                                         alt="<?php echo escape($resources[$i]['title']); ?>"
-                                        src="<?php echo get_resource_path($resources[$i]['ref'], false, 'pre', false, 'jpg'); ?>">
+                                        src="<?php echo get_resource_path($resources[$i]['ref'], false, 'pre', false, 'jpg'); ?>"
+                                        loading="lazy">
                                 <?php
                             } else {
                                 ?>
@@ -616,6 +617,7 @@ function tile_featured_collection_thumbs($tile, $tile_id, $tile_width, $tile_hei
                 alt="<?php echo escape(i18n_get_translated(($promoted_image_data["field" . $view_title_field] ?? ""))); ?>"
                 src="<?php echo $preview_path; ?>" 
                 class="thmbs-tile-img"
+                loading="lazy"
             />
         <?php
     } else {
@@ -704,7 +706,8 @@ function tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_heig
                                 ?>
                                     <img
                                         alt="<?php echo escape($preview_paths[$i]['title']); ?>"
-                                        src="<?php echo $preview_paths[$i]['path']; ?>">
+                                        src="<?php echo $preview_paths[$i]['path']; ?>"
+                                        loading="lazy">
                                 <?php
                             } else {
                                 ?>

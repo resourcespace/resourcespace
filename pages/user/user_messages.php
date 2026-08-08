@@ -328,17 +328,29 @@ include "../../include/header.php";
             jQuery('.ListViewBulkActions').children().click(function(e){
                 
                 if ((jQuery(e.target).index()==0)){
-                    jQuery.get('<?php echo $baseurl; ?>/pages/ajax/message.php?deleteselusrmsg='  + JSON.stringify(selected_messages), 
-                        function() {message_poll();CentralSpaceLoad('',true);});
+                    jQuery.post('<?php echo $baseurl; ?>/pages/ajax/message.php', 
+                        {
+                            deleteselusrmsg: selected_messages,
+                            <?php echo generateAjaxToken('delete_messages')?>
+                        },
+                        function() {message_poll();CentralSpaceLoad('',true);}
+                    );
                 } else if ((jQuery(e.target).index()==1)) {
-                    jQuery.get('<?php echo $baseurl; ?>/pages/ajax/message.php?selectedseen='  + JSON.stringify(selected_messages), 
-                        function() {message_poll();CentralSpaceLoad('',true);
-                    });
+                    jQuery.post('<?php echo $baseurl; ?>/pages/ajax/message.php',
+                        {
+                            selectedseen: selected_messages, 
+                            <?php echo generateAjaxToken('seen_messages')?>
+                        },
+                        function() {message_poll();CentralSpaceLoad('',true);}
+                    );
                 } else if ((jQuery(e.target).index()==2)) {
-                    jQuery.get('<?php echo $baseurl; ?>/pages/ajax/message.php?selectedunseen='  + JSON.stringify(selected_messages), 
-                        function() {
-                        message_poll();CentralSpaceLoad('',true);
-                    });
+                    jQuery.get('<?php echo $baseurl; ?>/pages/ajax/message.php',
+                        {
+                            selectedunseen: selected_messages, 
+                            <?php echo generateAjaxToken('unseen_messages')?>
+                        }, 
+                        function() {message_poll();CentralSpaceLoad('',true);}
+                    );
                 } 
                 jQuery('.message-checkbox').prop('checked', false);
                 selected_messages = [];

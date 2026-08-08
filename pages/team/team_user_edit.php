@@ -432,7 +432,7 @@ if (getval('loginas', '') != '') {
 
         <div class="Question">
             <label><?php echo escape($lang['ticktodelete']); ?></label>
-            <input type="checkbox" name="deleteme" value="yes" onclick="return confirm_delete_user(this);">
+            <input type="checkbox" name="deleteme" value="yes">
             <div class="clearerleft"></div>
         </div>
 
@@ -512,14 +512,14 @@ if (getval('loginas', '') != '') {
         ?>
 
         <div class="QuestionSubmit">            
-            <input name="save" type="submit" id="user_edit_save" value="<?php echo escape($lang["save"])?>" />
+            <input name="save" type="submit" id="user_edit_save" value="<?php echo escape($lang["save"])?>" onclick="return confirm_delete_user(this.form);" />
         </div>
     </form>
 </div>
 
 <script>
-    function confirm_delete_user(el) {
-        if (jQuery(el).is(':checked') === false) {
+    function confirm_delete_user(form) {
+        if (!jQuery(form).find('[name="deleteme"]').is(':checked')) {
             return true;
         }
 

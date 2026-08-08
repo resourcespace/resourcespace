@@ -402,10 +402,8 @@ function message_deleteselusrmsg($messages)
     global $userref;
 
     $parameters = array("i",(int)$userref);
-    $messages = json_decode($messages, true);
-    if (count($messages) > 0) {
+    if (is_array($messages) && count($messages) > 0) {
         $parameters = array_merge($parameters, ps_param_fill($messages, "i"));
-
         ps_query("DELETE FROM user_message WHERE user = ? AND ref IN (" . ps_param_insert(count($messages)) . ")", $parameters);
     }
 }
@@ -421,10 +419,8 @@ function message_selectedseen($messages)
     global $userref;
 
     $parameters = array("i",(int)$userref);
-    $messages = json_decode($messages, true);
-    $parameters = array_merge($parameters, ps_param_fill($messages, "i"));
-
     if (is_array($messages) && count($messages) > 0) {
+        $parameters = array_merge($parameters, ps_param_fill($messages, "i"));
         ps_query("UPDATE user_message SET seen = '1' WHERE user = ? AND ref IN (" . ps_param_insert(count($messages)) . ")", $parameters);
     }
 }
@@ -440,10 +436,8 @@ function message_selectedunseen($messages)
     global $userref;
 
     $parameters = array("i",(int)$userref);
-    $messages = json_decode($messages, true);
-    $parameters = array_merge($parameters, ps_param_fill($messages, "i"));
-
     if (is_array($messages) && count($messages) > 0) {
+        $parameters = array_merge($parameters, ps_param_fill($messages, "i"));
         ps_query("UPDATE user_message SET seen = '0' WHERE user = ? AND ref IN (" . ps_param_insert(count($messages)) . ")", $parameters);
     }
 }

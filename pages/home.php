@@ -221,6 +221,7 @@ hook("homebeforepanels");
                         alt="<?php echo escape(i18n_get_translated($resource_data['field' . $view_title_field] ?? "")); ?>"
                         src="<?php echo $home_col_image ?>" 
                         class="thmbs-tile-img"
+                        loading="lazy"
                     />
                     <?php 
                         if ($defaultpreview) {

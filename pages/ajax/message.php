@@ -30,9 +30,9 @@ if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
     $seen            = getval('seen', 0, true);
     $unseen          = getval('unseen', 0, true);
     $allseen         = getval('allseen', 0, true);
-    $deleteselusrmsg = getval('deleteselusrmsg', "");
-    $selectedseen    = getval('selectedseen', "");
-    $selectedunseen  = getval('selectedunseen', "");
+    $deleteselusrmsg = getval('deleteselusrmsg', [], false, 'is_array');
+    $selectedseen    = getval('selectedseen', [], false, 'is_array');
+    $selectedunseen  = getval('selectedunseen', [], false, 'is_array');
     $getrefs         = getval('getrefs', 0, true);
 
     if (0 < $user) {
@@ -68,19 +68,19 @@ if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
     }
 
     // Delete all selected messages
-    if ($deleteselusrmsg != "") {
+    if (count($deleteselusrmsg) > 0) {
         message_deleteselusrmsg($deleteselusrmsg);
         return;
     }
 
     // Mark all selected messages as seen
-    if ($selectedseen != "") {
+    if (count($selectedseen) > 0) {
         message_selectedseen($selectedseen);
         return;
     }
 
     // Mark all selected messages as unseen
-    if ($selectedunseen != "") {
+    if (count($selectedunseen) > 0) {
         message_selectedunseen($selectedunseen);
         return;
     }
