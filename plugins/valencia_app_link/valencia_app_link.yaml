@@ -1,0 +1,9 @@
+name: valencia_app_link
+title: Valencia App Link
+author: Valencia Kommunikation AG
+version: 1.1
+desc: Opens Valencia DAM macOS app from standard ?c= / ?r= HTTPS links (banner + deep link).
+info_url: https://dam.valencia.ch/
+category: Valencia
+default_priority: 95
+disable_group_select: 0
