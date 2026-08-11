@@ -21,7 +21,7 @@ if ($slideshow_configured || !$no_welcometext) {
 
 function loadWelcomeText()
 {
-    global $no_welcometext, $home_dash, $productversion, $baseurl, $lang, $welcometext_trim, $hide_welcomeinfo;
+    global $no_welcometext, $home_dash, $productversion, $baseurl, $lang, $welcometext_trim;
     if (!$no_welcometext) {
         $showlink=false;
         $home_welcometext=text('welcometext');
@@ -43,7 +43,6 @@ function loadWelcomeText()
                         <a href="<?php echo $baseurl; ?>/pages/hometext.php" onclick="ModalClose(); return ModalLoad(this,true);"><?php echo escape($lang['readmore']); ?></a>
                     <?php } ?>
                     </p>
-                    <?php if (!$hide_welcomeinfo && $home_welcometext != "") { ?>
                     <div>
                         <button class="button" onclick="ModalClose(); return ModalLoad('<?php echo $baseurl; ?>/pages/hometext.php',true);">
                             <i class="icon-plus default-icon-size" aria-hidden="true"></i>
@@ -52,7 +51,6 @@ function loadWelcomeText()
                             </span>
                         </button>
                     </div>
-                    <?php } ?>
                 </div>
             </div>
         </div>

@@ -5923,7 +5923,7 @@ header.LoginHeader {
 }
 
 .collection-bar-actions-form select::-webkit-scrollbar-thumb {
-    background: var(--colour-surface-100);
+    background: var(--colour-global-white);
     border-radius: var(--space-4);
 }
 

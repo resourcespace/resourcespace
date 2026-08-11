@@ -51,10 +51,11 @@ function HookEmbeddocumentViewAfterresourceactions2()
     $max_url = generateURL($baseurl . "/plugins/embeddocument/pages/viewer.php", $urlparams, ["width" => (int)$width * 2]);
     $download_url = generateURL($baseurl . "/plugins/embeddocument/pages/viewer.php", $urlparams, ["dk" => $download_key,"ak" => $access_key,"noattach" => true]);
 
-    $embed = "<div id=\"embeddocument_back_" . (int)$ref . "\" style=\"display:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height: 100%;background-color:#000;opacity: .5;filter: alpha(opacity=50);\"></div>
+    $embed = "<div id=\"embeddocument_back_" . (int)$ref . "\" style=\"display:none;position:absolute;top:0;left:0;width:100%;height:" . ((int)$height * 2) + 80 . "px;min-height: 100%;background-color:#000;opacity: .5;filter: alpha(opacity=50);\"></div>
     <div id=\"embeddocument_minimise_" . (int)$ref . "\" style=\"position:absolute;top:5px;left:20px;background-color:white;border:1px solid black;display:none;\"><a href=\"#\" onClick=\"
     var ed=document.getElementById('embeddocument_" . (int)$ref . "');
-    ed.width='" . (int)$width . "';
+    ed.style.maxWidth='" . (int)$width . "px';
+    ed.style.maxHeight='" . (int)$height . "px';
     ed.style.position='relative';
     ed.style.top='0';
     ed.style.left='0';
@@ -65,17 +66,17 @@ function HookEmbeddocumentViewAfterresourceactions2()
     \">" . $lang["embeddocument_minimise"] . "</a></div>
     <div id=\"embeddocument_maximise_" . (int)$ref . "\" class=\"embeddocument_maximise\"><a href=\"#\" onClick=\"
     var ed=document.getElementById('embeddocument_" . (int)$ref . "');
-    ed.width='" . (int)$width * 2 . "';
-    ed.height='" . (int)$height * 2 . "';
+    ed.style.maxWidth='" . (int)$width * 2 . "px';
+    ed.style.maxHeight='" . (int)$height * 2 . "px';
     ed.style.position='absolute';
-    ed.style.top='20px';
+    ed.style.top='40px';
     ed.style.left='20px';
     ed.src='" . $max_url . "';
     ed.style.zIndex=999;
     document.getElementById('embeddocument_minimise_" . (int)$ref . "').style.display='block';
     document.getElementById('embeddocument_maximise_" . (int)$ref . "').style.display='none';	
     document.getElementById('embeddocument_back_" . (int)$ref . "').style.display='block';	
-    \">" . $lang["embeddocument_maximise"] . "</a></div><iframe id=\"embeddocument_" . (int)$ref . "\" Style=\"background-color:#fff;cursor: pointer;\" width=\"$width_w_border\" height=\"$height\" src=\"" . $viewer_url . "\" frameborder=0 scrolling=no>Your browser does not support frames.</iframe>";
+    \">" . $lang["embeddocument_maximise"] . "</a></div><iframe id=\"embeddocument_" . (int)$ref . "\" Style=\"background-color:#fff;cursor: pointer; aspect-ratio:$width/$height; max-width:$width_w_border" . "px;\" src=\"" . $viewer_url . "\" frameborder=0 scrolling=no>Your browser does not support frames.</iframe>";
 
     # Compress embed HTML.
     $embed = str_replace("\n", " ", $embed);

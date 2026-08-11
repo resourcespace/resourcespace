@@ -30,9 +30,9 @@ if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
     $seen            = getval('seen', 0, true);
     $unseen          = getval('unseen', 0, true);
     $allseen         = getval('allseen', 0, true);
-    $deleteselusrmsg = getval('deleteselusrmsg', [], false, 'is_array');
-    $selectedseen    = getval('selectedseen', [], false, 'is_array');
-    $selectedunseen  = getval('selectedunseen', [], false, 'is_array');
+    $deleteselusrmsg = getval('deleteselusrmsg', [], false, 'is_array_of_pos_or_zero_ints');
+    $selectedseen    = getval('selectedseen', [], false, 'is_array_of_pos_or_zero_ints');
+    $selectedunseen  = getval('selectedunseen', [], false, 'is_array_of_pos_or_zero_ints');
     $getrefs         = getval('getrefs', 0, true);
 
     if (0 < $user) {

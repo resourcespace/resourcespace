@@ -2,18 +2,22 @@ body { padding: 0pt; margin: 0pt;}
 
 .embeddocument_player
 	{
+	display: flex;
+	flex-direction: column;
 	background-color: #FFF;
 	width:100%;
 	margin:0px auto;
 	}
 .embeddocument_preview
 	{
+	flex: 1;
 	border:1px solid #BBB;
 	}
 
 ul.embeddocument_controls_standard
 	{
-
+	flex: 0 0 auto;
+	padding: 0px;
 	list-style-type:none; 
 	margin:10px auto;
 	}
@@ -21,7 +25,7 @@ ul.embeddocument_controls_standard
 ul.embeddocument_controls_standard li
 	{color:#666;
 	font: Verdana, Arial, Sans-serif;
-	font-size:12px;	
+	font-size:16px;	
 	margin:auto 2px;
 	float:left;
 	border:1px solid #666;

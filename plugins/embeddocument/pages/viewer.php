@@ -94,7 +94,7 @@ $download = getval("download", "") != "";
                     $height = $width > 0 ? floor($width / $ratio) : 0;
 
                     ?>
-                    embeddocument_pages[<?php echo $page ?>]='<a href="#" onClick="embeddocument_ShowPage(<?php echo $page + 1 ?>,false,false);"><img border="0" width=<?php echo $width ?> height=<?php echo $height ?> src="<?php echo $preview_path ?>"></a>';
+                    embeddocument_pages[<?php echo $page ?>]='<a href="#" onClick="embeddocument_ShowPage(<?php echo $page + 1 ?>,false,false);"><img border="0" width="100%" height="100%" src="<?php echo $preview_path ?>"></a>';
                     <?php
 
                     $page++;
