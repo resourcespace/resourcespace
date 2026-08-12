@@ -1931,9 +1931,9 @@ $use_collection_name_in_zip_name = false;
 // on preview generation (see $pdf_dynamic_rip on how to avoid that)
 $pdf_resolution = 150;
 
-// PDF/EPS dynamic ripping
-// Use pdfinfo (pdfs) or identify (eps) to extract document size in order to calculate an efficient ripping resolution
-// Useful mainly if you have odd sized pdfs, as you might in the printing industry;
+// Dynamic ripping
+// Use pdfinfo (pdfs) or identify (eps, ai) to extract document size in order to calculate an efficient ripping resolution
+// Useful mainly if you have odd or large sized documents, as you might in the printing industry;
 // ex: you have very large PDFs, such as 50 to 200 in (will greatly decrease ripping time and avoid overload)
 // or very small, such as PDFs < 5 in (will improve quality of the scr image)
 $pdf_dynamic_rip = false;

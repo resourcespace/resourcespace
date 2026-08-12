@@ -729,8 +729,14 @@ if ((!isset($newfile)) && (!in_array($extension, array_merge($ffmpeg_audio_exten
             }
         }
     }
-    if (($extension == "pdf") || (($extension == "eps") && !$photoshop_eps) || ($extension == "ai") || ($extension == "ps")) {
-        debug("PDF multi page preview generation starting", RESOURCE_LOG_APPEND_PREVIOUS);
+
+    $multi_page_preview_extensions = array_merge(
+        ['pdf', 'ai', 'ps'],
+        !$photoshop_eps ? ['eps'] : []
+    );
+
+    if (in_array($extension, $multi_page_preview_extensions)) {
+        debug("Multi page preview generation starting", RESOURCE_LOG_APPEND_PREVIOUS);
         $preview_preprocessing_success = false;
 
         # For EPS/PS/PDF files, use GS directly and allow multiple pages.
@@ -741,7 +747,6 @@ if ((!isset($newfile)) && (!in_array($extension, array_merge($ffmpeg_audio_exten
 
         $resolution = $pdf_resolution;
 
-        # Get preview sizes from DB
         $preview_sizes = get_all_image_sizes(true);
 
         $pre_size = array_values(array_filter($preview_sizes, function ($var) {
@@ -774,6 +779,7 @@ if ((!isset($newfile)) && (!in_array($extension, array_merge($ffmpeg_audio_exten
            * scr size preview. So, use PDFinfo to calculate a rip resolution
            * that will give us a source bitmap of approximately 1600 pixels.
            */
+            debug('Dynamic ripping');
 
             if ($extension == "pdf") {
                 $pdfinfocommand = "pdfinfo " . escapeshellarg($file);
@@ -841,6 +847,39 @@ if ((!isset($newfile)) && (!in_array($extension, array_merge($ffmpeg_audio_exten
                      $pdf_target_width  = max($scr_width, $pre_width);
                      $pdf_target_height = max($scr_height, $pre_height);
                      $resolution = ceil((max($pdf_target_width, $pdf_target_height) * 2) / ($pdf_max_dim / 72));
+                }
+            } elseif ($extension === 'ai') {
+                if (!$ghostscript_fullpath) {
+                    return false;
+                }
+
+                $page_width = 0;
+                $page_height = 0;
+                $bbox_info = run_command(
+                    "{$ghostscript_fullpath} -dBATCH -dNOPAUSE -sDEVICE=bbox -dFirstPage=1 -dLastPage=1 %%SOURCE%%",
+                    true,
+                    ['%%SOURCE%%' => new CommandPlaceholderArg($file, 'is_valid_rs_path')]
+                );
+
+                if (preg_match('/%%BoundingBox:\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)/', $bbox_info, $matches)) {
+                    $x1 = (int) $matches[1];
+                    $y1 = (int) $matches[2];
+                    $x2 = (int) $matches[3];
+                    $y2 = (int) $matches[4];
+                    $page_width = $x2 - $x1;
+                    $page_height = $y2 - $y1;
+                }
+
+                if ($page_width > 0 && $page_height > 0) {
+                    $target_width  = max($scr_width, $pre_width);
+                    $target_height = max($scr_height, $pre_height);
+                    $resolution = max(
+                        1,
+                        min(
+                            ceil((max($target_width, $target_height) * 2) / (max($page_width, $page_height) / 72)),
+                            150
+                        )
+                    );
                 }
             }
         }

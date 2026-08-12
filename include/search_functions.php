@@ -1245,10 +1245,12 @@ function search_special($search, $sql_join, $fetchrows, $sql_prefix, $sql_suffix
                 $smartsearch_ref_cache[$collection] = $smartsearch_ref;
             }
 
-            global $php_path;
+            global $php_path, $remote_config_url, $remote_config_key;
             if ($smartsearch_ref != '' && !$return_disk_usage) {
                 if ($smart_collections_async && isset($php_path) && file_exists($php_path . '/php')) {
-                    putenv("RESOURCESPACE_URL=" . ($_SERVER['HTTP_HOST'] ?? "")); // To keep context if remote config is used
+                    if (isset($remote_config_url, $remote_config_key)) {
+                        putenv("RESOURCESPACE_URL=" . ($_SERVER['HTTP_HOST'] ?? "")); // To keep context if remote config is used
+                    }
                     exec($php_path . '/php ' . dirname(__FILE__) . '/../pages/ajax/update_smart_collection.php ' . escapeshellarg($smartsearch_ref) . ' ' . '> /dev/null 2>&1 &');
                 } else {
                     update_smart_collection($smartsearch_ref);
