@@ -522,8 +522,9 @@ if ($extension == "txt" && !isset($newfile)) {
     Try FFMPEG for video files
    ----------------------------------------
 */
-$ffmpeg_fullpath = get_utility_path('ffmpeg');
-$php_fullpath    = get_utility_path("php");
+$ffmpeg_fullpath  = get_utility_path('ffmpeg');
+$ffprobe_fullpath = get_utility_path('ffprobe');
+$php_fullpath     = get_utility_path("php");
 
 global $ffmpeg_preview,$ffmpeg_preview_seconds,$ffmpeg_preview_extension,$ffmpeg_preview_options,
        $ffmpeg_preview_min_width, $ffmpeg_preview_min_height, $ffmpeg_preview_max_width,
@@ -547,14 +548,21 @@ if (($ffmpeg_fullpath != false) && !isset($newfile) && in_array($extension, $ffm
 
     $snapshottime = 1;
     $duration = 0; // Set this as default if the duration is not determined so that previews will always work
-    $cmd = $ffmpeg_fullpath . ' -i ' . escapeshellarg($file);
+    $cmd = $ffprobe_fullpath . ' -v error -show_entries format=duration -of json ' . escapeshellarg($file);
     $out = run_command($cmd, true);
-
+    $data = null;
+    if (json_validate($out)) {
+        $data  = json_decode($out, true);
+    }
     debug("FFMPEG-VIDEO: Running information command: {$cmd}");
 
-    if (preg_match('/Duration: (\d+):(\d+):(\d+)\.\d+, start/', $out, $match)) {
-        $duration = $match[1] * 3600 + $match[2] * 60 + $match[3];
-        debug("FFMPEG-VIDEO: \$duration = {$duration} seconds");
+    if (
+        is_array($data) 
+        && array_key_exists('format', $data)
+        && array_key_exists('duration', $data['format'])
+    ) {
+        $duration = $data['format']['duration'];
+        debug("FFMPEG-VIDEO: \$dur  ation = {$duration} seconds");
 
         if (isset($ffmpeg_snapshot_seconds)) { // Overrides the other settings
             if ($ffmpeg_snapshot_seconds < $duration) {

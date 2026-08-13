@@ -355,7 +355,7 @@ if ($create) {
     }
 }
 
-parse_str(parse_url($url, PHP_URL_QUERY), $url_parts);
+parse_str(parse_url($url, PHP_URL_QUERY) ?? '', $url_parts);
 $data = $url_parts['data'] ?? '';
 
 /* Start Display*/

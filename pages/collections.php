@@ -11,6 +11,8 @@ if (checkperm("b")) {
     exit($lang["error-permissiondenied"]);
 }
 
+include_once __DIR__ . "/../include/research_functions.php";
+
 $sort            = getval('sort', 'ASC');
 $search          = getval('search', '');
 $last_collection = getval('last_collection', '');
@@ -697,7 +699,7 @@ jQuery(function () {
         }
     }
     
-    jQuery('.collection-bar-toggle-button').on('click', function () {
+    jQuery('.collection-bar-toggle-button').off('click.collection-bar-toggle').on('click.collection-bar-toggle', function () {
         if ($bar.hasClass('state-closed')) {
             if (getThumbsShown()) {
                 setBarState('state-thumbs');
@@ -709,7 +711,7 @@ jQuery(function () {
         }
     });
 
-    jQuery('.show-thumbs-button').on('click', function () {
+    jQuery('.show-thumbs-button').off('click.show-thumbs').on('click.show-thumbs', function () {
         if ($bar.hasClass('state-thumbs')) {
             setBarState('state-actions');
             SetCookie('thumbs_shown',"false",1000);
