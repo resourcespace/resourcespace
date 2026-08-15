@@ -91,9 +91,9 @@ ResourceSpace.Modules.Header = (() => {
         const logo = header.querySelector('.logo');
         const actions = header.querySelector('.actions');
 
-        logo.classList.remove('is-collapsed');
-        actions.classList.remove('is-collapsed');
-        header.classList.remove('is-compact');
+        logo?.classList.remove('is-collapsed');
+        actions?.classList.remove('is-collapsed');
+        header?.classList.remove('is-compact');
     }
 
     function updateCssHeaderVars() {

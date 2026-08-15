@@ -19,6 +19,15 @@ function get_user_actions($countonly = false, $type = "", $order_by = "date", $s
     global $default_display, $list_display_fields, $search_all_workflow_states, $actions_approve_hide_groups, $userref, $usergroup,
     $actions_resource_requests, $actions_account_requests, $view_title_field, $actions_on, $messages_actions_usergroup, $actions_notify_states;
 
+    // Validation for the $final_action_sql
+    if (!in_array($order_by, ['date', 'ref', 'description', 'type', 'user', 'usergroup'])) {
+        $order_by = 'date';
+    }
+
+    if (!validate_sort_value($sort)) {
+        $sort = 'DESC';
+    }
+
     // Make sure all states are excluded if they had the legacy option $actions_resource_review set to false.
     get_config_option(['user' => $userref, 'usergroup' => $usergroup], 'actions_resource_review', $actions_resource_review, true);
     if (!$actions_resource_review) {
@@ -44,7 +53,21 @@ function get_user_actions($countonly = false, $type = "", $order_by = "date", $s
         $editable_resource_query = get_editable_resource_sql();
 
         $actionsql = $actionsql->withStatement(new PreparedStatementQuery(
-            "SELECT creation_date as date,ref, created_by as user, {$generated_title_field} as description, 'resourcereview' as type FROM ({$editable_resource_query->sql}) resources",
+            // For each resource independently, sort its resource (workflow state) change logs and number them.
+            // Therefore `lsc.rn = 1` is the last state change (based on the log ID).
+            "WITH latest_state_change AS (
+                SELECT
+                    rl.resource,
+                    rl.date,
+                    ROW_NUMBER() OVER (
+                        PARTITION BY rl.resource
+                        ORDER BY rl.ref DESC
+                    ) AS rn
+                FROM resource_log rl
+                WHERE rl.type = '" . LOG_CODE_STATUS_CHANGED . "'
+            )
+            SELECT lsc.date AS `date`, ref, created_by as user, {$generated_title_field} as `description`, 'resourcereview' as `type` FROM ({$editable_resource_query->sql}) resources
+            LEFT JOIN latest_state_change lsc ON lsc.resource = resources.ref AND lsc.rn = 1",
             $editable_resource_query->parameters
         ));
     }
@@ -81,16 +104,21 @@ function get_user_actions($countonly = false, $type = "", $order_by = "date", $s
     if ($countonly) {
         return ps_value("SELECT COUNT(*) value FROM (" . $actionsql->sql . ") allactions", $actionsql->parameters, 0);
     } else {
-        $final_action_sql = $actionsql;
-        $final_action_sql->sql = "SELECT date, allactions.ref,user.fullname as
-        user,"
-            . ($messages_actions_usergroup ? "usergroup.name as usergroup," : "") .
-        " description, 
-        type FROM (" . $actionsql->sql . ")  allactions LEFT JOIN user ON 
-        allactions.user=user.ref"
-            . ($messages_actions_usergroup ? " LEFT JOIN usergroup ON
-        user.usergroup=usergroup.ref" : "") .
-        " ORDER BY " . $order_by . " " . $sort;
+        $final_action_sql = new PreparedStatementQuery(
+            sprintf(
+                'SELECT `date`, allactions.ref, user.fullname AS user,%s `description`, `type`
+                FROM (%s) allactions
+                LEFT JOIN user ON allactions.user = user.ref
+                %s
+                ORDER BY %s %s',
+                $messages_actions_usergroup ? ' usergroup.name as usergroup,' : '',
+                $actionsql->sql,
+                $messages_actions_usergroup ? ' LEFT JOIN usergroup ON user.usergroup = usergroup.ref' : '',
+                $order_by,
+                $sort
+            ),
+            $actionsql->parameters
+        );
     }
     return ps_query($final_action_sql->sql, $final_action_sql->parameters);
 }

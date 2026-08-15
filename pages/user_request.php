@@ -9,6 +9,7 @@ $error = false;
 $error_extra = "";
 $completed = false;
 $user_email = getval("email", "");
+$ajax = 'true' === getval('ajax', '');
 
 if (getval("save", "") != "") {
     # Check for required fields
@@ -118,7 +119,9 @@ if (getval("save", "") != "") {
     }
 }
 include "../include/header.php";
-include "../include/login_background.php";
+if (!$ajax) {
+    include "../include/login_background.php";
+}
 ?>
 
 <?php $header_img_src = get_header_image(); ?>
