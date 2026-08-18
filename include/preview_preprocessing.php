@@ -551,8 +551,11 @@ if (($ffmpeg_fullpath != false) && !isset($newfile) && in_array($extension, $ffm
     $cmd = $ffprobe_fullpath . ' -v error -show_entries format=duration -of json ' . escapeshellarg($file);
     $out = run_command($cmd, true);
     $data = null;
-    if (json_validate($out)) {
-        $data  = json_decode($out, true);
+    if (function_exists('json_validate') && json_validate($out)) {
+        $data = json_decode($out, true);
+    } else {
+        $data = json_decode($out, true);
+        $data = json_last_error() === JSON_ERROR_NONE ? $data : null;
     }
     debug("FFMPEG-VIDEO: Running information command: {$cmd}");
 

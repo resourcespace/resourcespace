@@ -494,6 +494,7 @@ if ($research != "") {
         $new = create_collection($rr["user"], $name, 1);
         set_user_collection($userref, $new);
         set_research_collection($research, $new);
+        refresh_collection_frame($new);
     } else {
         set_user_collection($userref, $col);
         # Add research request collection for collection bar actions and name fields.

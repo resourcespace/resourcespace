@@ -3245,5 +3245,11 @@ $api_issue_valid_destinations = [
         "url" => "https://resourcespace.tagquest.io/api/auth/rs-callback",
         "querydata" => ["username", "email", "fullname"],
         "stateparam" => "state",
-    ]
+    ],
+    "canva" => [
+        "name" => "Canva",
+        "url" => "https://auth.resourcespace.com/oauth/sso/callback",
+        "querydata" => ["username", "email", "fullname"],
+        "stateparam" => "state",
+    ],
 ];
