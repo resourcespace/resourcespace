@@ -2133,41 +2133,62 @@ if($use_selection_collection)
         }
 
         // Process the clicked box
-        jQuery(".checkselect").click(function(e)
-            {
+        jQuery(document).on("click", function (e) {
             var resource_selections=[];
-            var input = e.target;
+            let input = null;
+            let target = jQuery(e.target);
+
+            if (target.is(".checkselect")) {
+                // Direct checkbox click (valid for list view)
+                input = target[0];
+            } else {
+                // Possibly a click on a styled checkbox label/span (valid for thumbs view)
+                let label = target.closest("label");
+
+                if (label.length) {
+                    let checkbox = label.find(".checkselect").first();
+
+                    if (checkbox.length) {
+                        input = checkbox[0];
+
+                        e.preventDefault();
+                        input.checked = !input.checked;
+                    }
+                }
+            }
+
+            if (!input) {
+                return;
+            }
+
+            if (e.shiftKey && !resource_starting) {
+                styledalert(
+                    '<?php echo escape(text('range_no_start_header')); ?>',
+                    '<?php echo escape(text('range_no_start')); ?>'
+                );
+
+                return false;
+            }
+
             var box_resource = jQuery(input).data("resource");
             var box_checked = jQuery(input).prop("checked");
+
             if (!e.shiftKey) {
                 // Regular click; note the action required if there is a range to be processed
                 primary_action=box_checked;
                 resource_starting=box_resource;
                 resource_ending=null;
             } else {
-                if (!resource_starting) {
-                    styledalert('<?php echo escape($lang["range_no_start_header"]); ?>', '<?php echo escape($lang["range_no_start"]); ?>');
-                    if(jQuery(input).prop("checked")) {
-                        this.removeAttribute("checked");
-                        } 
-                    else  {
-                        this.setAttribute("checked", "checked");
-                        }
-                    return false;
-                }
-                resource_ending=box_resource; // Shifted click resource
+                resource_ending = box_resource;
             }
 
             // Process all clicked boxes
-            jQuery(".checkselect").each(function()
-                {
-                // Fetch the event and store it in the selection array
-                var toggle_event = jQuery.Event("click", { target: this });
-                var toggle_input = toggle_event.target;
-                var box_resource = jQuery(toggle_input).data("resource");
-                var box_checked = jQuery(toggle_input).prop("checked");
-                resource_selections.push({box_resource: box_resource, box_checked: box_checked});
+            jQuery(".checkselect").each(function() {
+                resource_selections.push({
+                    box_resource: jQuery(this).data("resource"),
+                    box_checked: jQuery(this).prop("checked")
                 });
+            });
 
             // Process resources within a clicked range
             var res_list=[];

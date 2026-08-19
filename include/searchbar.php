@@ -27,6 +27,10 @@ if ($simple_search_reset_after_search) {
         $quicksearch = $search;
     }
 }
+$default_res_types = get_search_default_restypes();
+if ($restypes == "") {
+    $restypes = $default_res_types;
+}
 
 $origsearch = $quicksearch;
 
@@ -785,6 +789,14 @@ $selected_search_tab = getval("selected_search_tab", "search");
                                     // Needed to trigger the clear logic (if applicable, e.g. see header.js for resource types filters)
                                     .trigger('select2:clear')
                                 );
+                                <?php 
+                                if (count($default_res_types) > 0) { 
+                                ?>
+                                    const res_type_selector = document.getElementById('restypes[]');
+                                    jQuery(res_type_selector).val(<?php echo json_encode($default_res_types); ?>).trigger('change')
+                                <?php 
+                                } 
+                                ?>
                             }
                         </script>
         

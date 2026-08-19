@@ -2431,6 +2431,7 @@ function draw_performance_footer()
             <?php foreach ($querylog as $query => $details) { ?>
                 <tr>
                     <td><?php echo escape(format_query($query,$details['params'])); ?></td>
+                    <td><?php echo escape(format_duration($details['time'])); ?></td>
                 </tr>
             <?php } ?>
         </table>
@@ -2463,6 +2464,38 @@ function format_query(string $query, array $params): string
 
     // Use sprintf with array unpacking
     return sprintf($formatted_query, ...$values);
+}
+
+/**
+ * Formats a duration in seconds using a human-readable unit.
+ *
+ * Accepts a float or numeric string and automatically selects microseconds,
+ * milliseconds, seconds, or minutes.
+ *
+ * @param float|string $seconds Duration in seconds, such as 0.025 or "0.025".
+ *
+ * @return string The formatted duration, such as "25 ms" or "1m 12.48s".
+ *
+ * @throws InvalidArgumentException If a non-numeric string is provided.
+ */
+function format_duration(float|string $seconds): string
+{
+    if (!is_numeric($seconds)) {
+        throw new InvalidArgumentException('Duration must be numeric.');
+    }
+
+    $seconds = (float) $seconds;
+
+    return match (true) {
+        $seconds < 0.001 => round($seconds * 1_000_000, 1) . ' µs',
+        $seconds < 1     => round($seconds * 1_000, 1) . ' ms',
+        $seconds < 60    => round($seconds, 2) . ' s',
+        default          => sprintf(
+            '%dm %.2fs',
+            intdiv((int) $seconds, 60),
+            fmod($seconds, 60)
+        ),
+    };
 }
 
 /**

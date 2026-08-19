@@ -4655,6 +4655,12 @@ header.LoginHeader {
     width: 100%;
 }
 
+/* Multi-selector for the resource types in the header's search filter panel. Note: select2 is rendering the dropdown
+options in the body so to target the one specifically for the header we had to use its ID. */
+#select2-restypes-results {
+    max-height: 396px;
+}
+
 .header-search-field #search-panel-main > .field-input:has(input#TickBoxFeaturedCollections) {
     text-align: left;
 }

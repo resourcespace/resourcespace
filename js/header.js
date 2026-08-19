@@ -289,12 +289,6 @@ ResourceSpace.Modules.Header = (() => {
      * @see https://select2.org/programmatic-control/events
      */
     function bindResourceTypeSelectorEvents(resource_type_selector) {
-        // When clearing the search filters on the panel, select only the "All resource types" (default behaviour). 
-        resource_type_selector.on('select2:clear', function (e) {
-            const all_resource_types_option = jQuery(this).find('option').first().val();
-            jQuery(this).val(all_resource_types_option).trigger('change');
-        });
-
         resource_type_selector.on('select2:select', function (e) {
             const all_resource_types_option = jQuery(this).find('option').first().val();
 

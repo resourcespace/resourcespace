@@ -6322,7 +6322,7 @@ function display_related_resources($context)
             (
                 !$render_related                // Do you have permission to see the related resources
                 || !is_array($arr_related)      // Would there be any resources to populate it with
-                || count(array_diff(array_column($allrestypes, "ref"), $relatedtypes_shown)) == 0
+                || count(array_diff(array_column($arr_related, "resource_type"), $relatedtypes_shown)) === 0
             )
             && !$edit_access                    // If there aren't resources but you have access to add
         )                                       // related resource you still need to be able to see the div

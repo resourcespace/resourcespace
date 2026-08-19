@@ -146,7 +146,7 @@ $found_month = "";
 $found_day = "";
 $found_start_date = "";
 $found_end_date = "";
-$searched_nodes = array();
+$search_nodes_selected = array();
 $full_text_search = "";
 
 foreach ($advanced_search_properties as $advanced_search_property => $code) {
@@ -245,7 +245,7 @@ if (getval("resetform", "") != "") {
             $nodes = resolve_nodes_from_string($keyword);
 
             foreach ($nodes as $node) {
-                $searched_nodes[] = $node;
+                $search_nodes_selected[] = $node;
             }
         } else {
             if ($allwords == "") {
@@ -778,7 +778,7 @@ include "../include/header.php";
                 }
 
                 # Render this field
-                render_search_field($fields[$n], $fields, $value, true, 'SearchWidth', false, array(), $searched_nodes, $resetform);
+                render_search_field($fields[$n], $fields, $value, true, 'SearchWidth', false, array(), $search_nodes_selected, $resetform);
             }
             debug("QUESTION NEXT n=" . $n);
             ?>
@@ -926,7 +926,7 @@ include "../include/header.php";
                         $value = "";
                     }
                     # Render this field
-                    render_search_field($fields[$n], $fields, $value, true, "SearchWidth", false, array(), $searched_nodes, $resetform);
+                    render_search_field($fields[$n], $fields, $value, true, "SearchWidth", false, array(), $search_nodes_selected, $resetform);
                 }
                 ?>
             </div>
