@@ -91,6 +91,10 @@ if (isset($user_pref_appearance) && !(isset($high_contrast_mode) && $high_contra
             /* Colours feedback - Dark */
             --colour-feedback-warning-50: var(--colour-neutral-1000);
             --colour-feedback-warning-200: var(--colour-feedback-warning-lightest);
+
+            /* Link colours */
+            --colour-link-primary-default: var(--colour-brand-primary-light);
+            --colour-link-primary-hover: var(--colour-brand-primary-lightest);
         }
 
         body, html {

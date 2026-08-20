@@ -20,7 +20,7 @@ $url_params = array(
     'restypes'   => getval('restypes',''),
     'archive'    => getval('archive','')
 );
-$redirect_url = generateURL($baseurl_short . "/pages/view.php",$url_params);
+$redirect_url = generateURL($baseurl_short . "pages/view.php",$url_params);
 
 if (getval("submitted","")!="" && enforcePostRequest(false))
     {

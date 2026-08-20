@@ -1149,36 +1149,73 @@ function array_diff(array_1, array_2)
     return diff;
     }
 
-function StripResizeResults(targetImageHeight)
-{
-    var screenWidth = jQuery('#CentralSpaceResources').width()-15;
-    var images = jQuery('.ImageStrip');
-    var accumulatedWidth = 0;
-    var imageGap = 15;
-    var processArray = [];
+function StripResizeResults(targetImageHeight) {
+    const container = jQuery("#CentralSpaceResources");
+    const screenWidth = container.width();
+    const images = jQuery(".ImageStrip");
 
-    for (var i = 0; i < images.length; i++) {
-        // Take a copy to get the unscaled image size
-        var imageCopy = new Image();imageCopy.src=images[i].src;
-        var ratio = imageCopy.width/imageCopy.height;
-        var presentationWidth = (targetImageHeight * ratio);
-        accumulatedWidth += presentationWidth+imageGap; // add to our calculation of the row width
+    // Reset all images to their target height.
+    images.css("height", targetImageHeight + "px");
 
-        if (accumulatedWidth > screenWidth) {
-            // Work out a height for the row (excluding the current image which will fall to the next row)
-            var factor = screenWidth / (accumulatedWidth-presentationWidth - imageGap);
+    // Use the actual CSS spacing so the calculation stays in sync with the
+    // flex layout rather than relying on hard-coded values.
+    const imageGap = parseFloat(container.css("column-gap")) || 0;
+    const imageMargin = parseFloat(jQuery(images[0]).css("margin-right")) || 0;
 
-            // Rescale images on current row
-            for (var n=0; n< processArray.length; n++) {
-                jQuery(processArray[n]).css("height", Math.floor(factor * targetImageHeight) + "px");
+    let accumulatedImageWidth = 0;
+    let processArray = [];
+
+    for (let i = 0; i < images.length; i++) {
+        const image = images[i];
+        const naturalWidth = image.naturalWidth;
+        const naturalHeight = image.naturalHeight;
+
+        // The intrinsic dimensions may not yet be available if an image has
+        // failed to load or the function is called before it has loaded.
+        if (!naturalWidth || !naturalHeight) {
+            continue;
+        }
+
+        // Calculate the width this image would have at the standard height.
+        const ratio = naturalWidth / naturalHeight;
+        const presentationWidth = targetImageHeight * ratio;
+
+        // Calculate the total row width if this image were added. Flex gaps
+        // exist only between items, whereas each image has its own right margin.
+        const newImageCount = processArray.length + 1;
+        const spacingWidth =
+            (newImageCount - 1) * imageGap + newImageCount * imageMargin;
+
+        const proposedRowWidth =
+            accumulatedImageWidth + presentationWidth + spacingWidth;
+
+        // If the new image would overflow, resize the existing row so that it
+        // fills the available width exactly. The current image will then become
+        // the first image on the next row.
+        if (processArray.length > 0 && proposedRowWidth > screenWidth) {
+            const currentSpacingWidth =
+                (processArray.length - 1) * imageGap +
+                processArray.length * imageMargin;
+
+            const availableImageWidth = screenWidth - currentSpacingWidth;
+
+            const factor = availableImageWidth / accumulatedImageWidth;
+
+            const rowHeight = Math.floor(targetImageHeight * factor);
+
+            for (const rowImage of processArray) {
+                jQuery(rowImage).css("height", rowHeight + "px");
             }
 
-            // Empty process array
+            // Start a new row.
             processArray = [];
-            accumulatedWidth = images[i].width + imageGap;
-            }
-        processArray.push(images[i]);
+            accumulatedImageWidth = 0;
+        }
+
+        processArray.push(image);
+        accumulatedImageWidth += presentationWidth;
     }
+    // The final incomplete row is intentionally left at targetImageHeight.
 }
 
 /**

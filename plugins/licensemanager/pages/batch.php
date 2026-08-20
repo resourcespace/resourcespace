@@ -26,7 +26,7 @@ if (getval("submitted","")!="" && enforcePostRequest(false))
         'restypes'   => getval('restypes',''),
         'archive'    => getval('archive','')
     );
-    $redirect_url = generateURL($baseurl_short . "/plugins/licensemanager/pages/edit.php",$url_params);
+    $redirect_url = generateURL($baseurl_short . "plugins/licensemanager/pages/edit.php",$url_params);
 
     foreach ($resources as $resource)
         {

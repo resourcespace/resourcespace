@@ -340,10 +340,10 @@ c.created>=date('[from-y]-[from-m]-[from-d]') and c.created<=adddate(date('[to-y
 order by c.created DESC;",0
 19,"File integrity check report","
 SELECT * FROM 
-(SELECT 'Oldest' AS State, ref 'Resource', ifnull(last_verified,'NEVER') 'Verified' FROM resource WHERE ref>0 AND integrity_fail=0 ORDER BY last_verified ASC LIMIT 1) AS a 
+(SELECT 'Oldest' AS State, ref 'Resource', ifnull(last_verified, 'NEVER') 'Verified' FROM resource WHERE ref > 0 AND integrity_fail = 0 AND no_file != 1 ORDER BY last_verified ASC LIMIT 1) AS a 
 UNION ALL 
 SELECT * FROM 
-(SELECT 'Newest' AS State, ref 'Resource', ifnull(last_verified,'NEVER') 'Verified' FROM resource WHERE ref>0 AND integrity_fail=0 ORDER BY last_verified DESC LIMIT 1) AS b;",0
+(SELECT 'Newest' AS State, ref 'Resource', ifnull(last_verified, 'NEVER') 'Verified' FROM resource WHERE ref > 0 AND integrity_fail = 0 AND no_file != 1 ORDER BY last_verified DESC LIMIT 1) AS b;",0
 20,"Request details","
 SELECT
     cres.resource 'Resource ID',

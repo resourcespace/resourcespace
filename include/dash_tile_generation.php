@@ -225,7 +225,7 @@ function tile_graph(array $tile, string $tile_id): void
                         if ($graph_types[$graph_params['type']] == 'doughnut') {
                         ?>
                             chart.data.labels = data.map(d => d['name']);
-                            chart.data.datasets[0].data = data.map(d => d['c']);
+                            chart.data.datasets[0].data = data.map(d => Number(d['c']));
                             chart.data.datasets[0].backgroundColor = dash_chart_palette;
                         <?php 
                         } else {

@@ -192,7 +192,7 @@ $existingrestypes = $fielddata["resource_types"] ? explode(",", (string)$fieldda
             <input name="confirmdelete" id="confirmdelete" type="hidden" value="">
             <div class="textcenter">
                 <input name="delete" type="button" value="<?php echo escape($lang["action-delete"])?>" onClick="jQuery('#field_edit_delete').val('yes');jQuery('#confirmdelete').val('yes');this.form.submit();" />
-                <input type="button" class="button" onClick="CentralSpaceLoad('<?php generateURL($baseurl_short . "/pages/admin/admin_resource_type_field_edit.php", $url_params, array("ref" => "")); ?>',true);return false;" value="&nbsp;&nbsp;<?php echo escape($lang["cancel"]); ?>&nbsp;&nbsp;" >
+                <input type="button" class="button" onClick="CentralSpaceLoad('<?php generateURL($baseurl_short . "pages/admin/admin_resource_type_field_edit.php", $url_params, array("ref" => "")); ?>',true);return false;" value="&nbsp;&nbsp;<?php echo escape($lang["cancel"]); ?>&nbsp;&nbsp;" >
             </div>
             <?php
         } else {

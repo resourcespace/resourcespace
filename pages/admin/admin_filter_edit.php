@@ -53,7 +53,7 @@ if ($delete_filter != "" && enforcePostRequest("admin_filter_edit")) {
         $errors = array();
         $errors[] = escape($lang["filter_delete_error"]) . ":- ";
         foreach ($result["groups"] as $group) {
-            $errors[] = escape($lang["group"]) . ": <a href='" . $baseurl_short . "/pages/admin/admin_group_management_edit.php?ref=" . (int) $group . "' target='_blank' >" . (int) $group . "</a>";
+            $errors[] = escape($lang["group"]) . ": <a href='" . $baseurl_short . "pages/admin/admin_group_management_edit.php?ref=" . (int) $group . "' target='_blank' >" . (int) $group . "</a>";
         }
 
         foreach ($result["users"] as $user) {

@@ -22,7 +22,7 @@ if (getval("submitted", "") != "" && enforcePostRequest(false)) {
         'restypes'   => getval('restypes', ''),
         'archive'    => getval('archive', '')
     );
-    $redirect_url = generateURL($baseurl_short . "/plugins/consentmanager/pages/edit.php", $url_params);
+    $redirect_url = generateURL($baseurl_short . "plugins/consentmanager/pages/edit.php", $url_params);
     redirect($redirect_url);
 }
 

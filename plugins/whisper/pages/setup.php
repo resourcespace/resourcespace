@@ -21,7 +21,7 @@ $page_def[] = config_add_boolean_select("whisper_transcript", $lang["whisper_tra
 if (job_trigger_permission_check()) {
     $page_def[] = config_add_section_header("Offline Jobs");
     $page_def[] = config_add_html("<p>" . escape($lang["whisper_process_existing_configure"]) . " <input type=\"button\" value=\"" . escape($lang["job_configure"]) . "\" onclick=\"window.location.href='" . 
-                                    generateURL($baseurl_short . "/plugins/whisper/pages/offline_jobs/process_whisper.php", ['job_user' => 0, 'plugin' => 1]) . "'\"></p>");
+                                    generateURL($baseurl_short . "plugins/whisper/pages/offline_jobs/process_whisper.php", ['job_user' => 0, 'plugin' => 1]) . "'\"></p>");
 }
 
 // Do the page generation ritual

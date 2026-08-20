@@ -141,7 +141,7 @@ if ((substr($search, 0, 11) != "!collection") && ($collections != "") && is_arra
                 top.history.pushState(
                     document.title+'&&&'+jQuery('#CentralSpace').html(), 
                     applicationname, 
-                    '<?php echo generateURL($baseurl_short . '/pages/search.php', $searchparams); ?>'
+                    '<?php echo generateURL($baseurl_short . 'pages/search.php', $searchparams); ?>'
                 );
                 return CentralSpaceLoad(element,true);
             }

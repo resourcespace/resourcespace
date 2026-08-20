@@ -18,7 +18,7 @@ $url_params = array(
     'restypes'   => getval('restypes', ''),
     'archive'    => getval('archive', '')
 );
-$redirect_url = generateURL($baseurl_short . "/plugins/consentmanager/pages/list.php", $url_params);
+$redirect_url = generateURL($baseurl_short . "plugins/consentmanager/pages/list.php", $url_params);
 
 if (getval("submitted", "") != "" && enforcePostRequest(false)) {
     consentmanager_delete_consent($ref);

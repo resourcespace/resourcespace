@@ -20,7 +20,7 @@ $url_params = array(
     'archive'    => getval('archive', '')
 );
 
-$redirect_url = generateURL($baseurl_short . "/pages/view.php", $url_params);
+$redirect_url = generateURL($baseurl_short . "pages/view.php", $url_params);
 
 if (getval("submitted", "") != "" && enforcePostRequest(false)) {
     consentmanager_unlink_consent($ref, $resource);

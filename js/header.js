@@ -281,7 +281,10 @@ ResourceSpace.Modules.Header = (() => {
     function handleResourceTypesFilter() {
         const resource_type_selector = jQuery('#restypes\\[\\]');
 
-        resource_type_selector.select2();
+        resource_type_selector.select2({
+            closeOnSelect: false,
+        });
+
         bindResourceTypeSelectorEvents(resource_type_selector);
     }
 
@@ -289,13 +292,30 @@ ResourceSpace.Modules.Header = (() => {
      * @see https://select2.org/programmatic-control/events
      */
     function bindResourceTypeSelectorEvents(resource_type_selector) {
+        // When clearing the search filters on the panel, select only the "All resource types" (default behaviour). 
+        resource_type_selector.on('select2:clear', function (e, options = {}) {
+            console.debug('[bindResourceTypeSelectorEvents] select2:clear', e);
+
+            const all_resource_types_option = jQuery(this).find('option').first().val();
+            jQuery(this).val(all_resource_types_option).trigger('change');
+
+            // Temporary solution: https://github.com/select2/select2/issues/6255
+            if (options.suppressReopen === true) {
+                resource_type_selector.select2('close');
+            } else {
+                resource_type_selector.select2('close').select2('open');
+            }
+        });
+
         resource_type_selector.on('select2:select', function (e) {
+            console.debug('[bindResourceTypeSelectorEvents] select2:select - e.params.data = %o', e.params.data);
+
             const all_resource_types_option = jQuery(this).find('option').first().val();
 
             // If the user selects the "All resource types" option then any manually selected resource types are cleared 
             if (e.params.data.id === all_resource_types_option) {
                 // This event clears all selections (default) and our bind (see above) will reselect the all RTs option
-                jQuery(this).trigger('select2:clear');
+                jQuery(this).trigger('select2:clear', {suppressReopen: true});
                 return;
             }
 
@@ -304,11 +324,18 @@ ResourceSpace.Modules.Header = (() => {
             jQuery(this)
                 .val(jQuery(this).val().filter(v => v !== all_resource_types_option))
                 .trigger('change');
+
+            // closeOnSelect: false is causing the selected results to lag behind the actual changes. This code is
+            // simply trying to force it recalculate it (may be more of a hack)  
+            // Temporary solution: https://github.com/select2/select2/issues/6255
+            resource_type_selector.select2('close').select2('open');
         });
 
         // Triggered whenever an option is selected or removed. Note that clearing can end up running this twice
         // depending on the selectors' state (once for the selected event and once for the removal one).
         resource_type_selector.on('change', function (e) {
+            console.debug("[bindResourceTypeSelectorEvents] select2:onchange", e);
+
             SimpleSearchFieldsHideOrShow(true);
         });
     }
