@@ -27,6 +27,12 @@ if ($simple_search_reset_after_search) {
         $quicksearch = $search;
     }
 }
+$default_res_types = array_filter(get_search_default_restypes(), function ($type) {
+    return is_int_loose($type) || $type === 'Global';
+});
+if ($restypes == "") {
+    $restypes = $default_res_types;
+}
 
 $origsearch = $quicksearch;
 
@@ -331,7 +337,7 @@ $selected_search_tab = getval("selected_search_tab", "search");
                                 ? ['Global']
                                 : $current_rt_options,
                             // Style needed for the width - @see https://select2.org/appearance#container-width
-                            extra: 'multiple="multiple" style="width: 100%;"',
+                            extra: 'multiple="multiple" style="width: 100%;" data-default-restypes='. implode(',', $default_res_types),
                             ctx: [
                                 'div_class' => ['field-input'],
                                 'no_div_class_question' => true,

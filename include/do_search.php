@@ -37,6 +37,7 @@
 * @param boolean     $editable_only
 * @param boolean     $returnsql               Returns the query as a PreparedStatementQuery instance
 * @param integer     $access                  Search for resources with this access
+* @param boolean     $smartsearch
 *
 * @return null|string|array|PreparedStatementQuery
 */

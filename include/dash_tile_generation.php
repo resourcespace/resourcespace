@@ -154,7 +154,8 @@ function tile_graph(array $tile, string $tile_id): void
                             ?>
                             plugins: {
                                 colors: {
-                                    enabled: false,
+                                    enabled: true,
+                                    forceOverride: true,
                                 },
                                 legend: {
                                     display: false,
@@ -226,7 +227,6 @@ function tile_graph(array $tile, string $tile_id): void
                         ?>
                             chart.data.labels = data.map(d => d['name']);
                             chart.data.datasets[0].data = data.map(d => Number(d['c']));
-                            chart.data.datasets[0].backgroundColor = dash_chart_palette;
                         <?php 
                         } else {
                         ?>

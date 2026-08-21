@@ -2,11 +2,6 @@
 
 $resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_field] ?? "");
 
-if ($display == "xlthumbs") {
-    $resolved_title_trim = $xl_search_results_title_trim;
-} else {
-    $resolved_title_trim = $search_results_title_trim;
-}
 $class = array();
 
 if ($use_selection_collection && in_array($ref, $selection_collection_resources)) {
@@ -137,41 +132,15 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
             $value = $result[$n]['field' . $metadata_template_title_field];
         }
 
-        // extended css behavior
-        if (
-            in_array($df[$x]['ref'], $thumbs_display_extended_fields) &&
-            ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field)) && 
-            $value !== ""
-        ) {
-            ?>
-            <div
-                class="ResourceTypeField<?php echo $df[$x]['ref']; echo $x == 0 ? ' resource-card-title ' : ' resource-card-field'; ?>"
-                title="<?php echo str_replace(array("\"","'"), "", escape(i18n_get_translated($value))); ?>"
-            >
-                <div class="extended">
-                    <?php
-                    if ($x == 0) { // add link if necessary ?>
-                        <a 
-                            href="<?php echo $url; ?>"  
-                            onClick="return <?php echo $resource_view_modal ? "Modal" : "CentralSpace"; ?>Load(this,true);" 
-                        >
-                        <?php
-                    } //end link
-                    echo format_display_field($value);
+        if ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field) && $value !== "") {
 
-                    if ($x == 0) { // add link if necessary ?>
-                        </a>
-                        <?php
-                    } //end link?> 
-                    &nbsp;
-                </div>
-            </div>
-            <?php
-            // normal behavior
-        } elseif ((isset($metadata_template_title_field) && $df[$x]['ref'] != $metadata_template_title_field) || !isset($metadata_template_title_field) && $value !== "") {
+            $field_class = "ResourceTypeField" . $df[$x]['ref'];
+            $field_class .= $x == 0 ? ' resource-card-title' : ' resource-card-field';
+            $field_class .= in_array($df[$x]['ref'], $thumbs_display_extended_fields) ? ' multi-line' : '';
+            
             ?>
             <div
-                class="ResourceTypeField<?php echo $df[$x]['ref']; echo $x == 0 ? ' resource-card-title' : ' resource-card-field'; ?>"
+                class="<?php echo $field_class; ?>"
                 title="<?php echo str_replace(array("\"","'"), "", escape(i18n_get_translated($value))); ?>"
             >
                 <?php
@@ -184,12 +153,9 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
                 } //end link
                 if (isset($df[$x]['type']) && $df[$x]['type'] == FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE) {
                     $displayed_value = strip_tags($value);
-                    if (strlen($displayed_value) > $resolved_title_trim) {
-                        $value = str_replace(($displayed_value), tidy_trim(($displayed_value), $resolved_title_trim), $value);
-                    }
                     echo strip_tags_and_attributes(TidyList(i18n_get_translated($value)));
                 } else {
-                    echo escape(tidy_trim(TidyList(i18n_get_translated($value)), $resolved_title_trim));
+                    echo escape(TidyList(i18n_get_translated($value)));
                 }
                 if ($x == 0) { // add link if necessary ?>
                     </a>

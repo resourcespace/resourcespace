@@ -165,7 +165,6 @@ switch ($display)
     {
     case "list":
         $display_fields = $list_display_fields; 
-        $results_title_trim = $list_search_results_title_trim;
         break;
         
     case "xlthumbs":            
@@ -176,7 +175,6 @@ switch ($display)
     default:
         $display_fields = $thumbs_display_fields;  
         if (isset($search_result_title_height)) { $result_title_height = $search_result_title_height; }
-        $results_title_trim = $search_results_title_trim;
         break;      
     }
 

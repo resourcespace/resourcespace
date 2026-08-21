@@ -478,11 +478,6 @@ input:focus, textarea:focus, select:focus, .RecordPanel .RecordDownloadSpace .Do
     background-color: unset;
 }
 
-.uppy-ProviderBrowserItem-inner {
-    color: #000;
-    background-color: #F0F0F0;
-}
-
 .CollapsibleSectionHead:hover
     {
     color: #757575;

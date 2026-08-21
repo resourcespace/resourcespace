@@ -768,5 +768,6 @@ if (isset($high_contrast_mode) && $high_contrast_mode) { ?>
 ?>
 
 :root {
---slideshow-photo-delay: <?php echo (int) $slideshow_photo_delay . 's'; ?> 
+--slideshow-photo-delay: <?php echo (int) $slideshow_photo_delay . 's'; ?>;
+--extended-field-lines: <?php echo (int) $thumbs_display_extended_field_lines; ?>;
 }

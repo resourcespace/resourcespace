@@ -2674,7 +2674,7 @@ function allow_multi_edit($collection, $collectionid = 0)
 function get_featured_collection_resources(array $c, array $ctx)
 {
     global $usergroup, $userref, $CACHE_FC_RESOURCES, $themes_simple_images,$collection_allow_not_approved_share;
-    global $FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS;
+    global $FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS,$query_cache_expires_minutes;
 
     if (!isset($c["ref"]) || !is_int((int) $c["ref"])) {
         return array();
@@ -2701,7 +2701,13 @@ function get_featured_collection_resources(array $c, array $ctx)
         $limit = (!is_null($limit) ? $limit : 1);
 
         // Access control is still in place (i.e. permissions are honoured)
-        $smart_fc_resources = do_search($node_search, '', 'hit_count', 0, $limit, 'desc', false, 0, false, false, '', true, false, true);
+        $smart_fc_resources = do_search($node_search, '', 'hit_count', 0, $limit, 'desc', false, 0, false, false, '', true, false, true, false, true);
+
+        $query_cache_expires_minutes_cache = $query_cache_expires_minutes;
+        $query_cache_expires_minutes = max(24 * 60, $query_cache_expires_minutes);
+        $smart_fc_resources = ps_query($smart_fc_resources->sql, $smart_fc_resources->parameters, "smart_fc_thumbs", 3);
+        $query_cache_expires_minutes = $query_cache_expires_minutes_cache;
+
         $smart_fc_resources = (is_array($smart_fc_resources) ? array_column($smart_fc_resources, "ref") : array());
 
         $CACHE_FC_RESOURCES[$cache_id] = $smart_fc_resources;

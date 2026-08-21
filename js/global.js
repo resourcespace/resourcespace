@@ -2167,16 +2167,3 @@ const tile_graph_legend = {
         legendContainer.append(ul);
     }
 };
-
-const dash_chart_palette = [
-    '#6186CC',
-    '#8979FF',
-    '#FF928A',
-    '#2BB7DC',
-    '#FFAE4C',
-    '#537FF1',
-    '#6FD195',
-    '#8C63DA',
-    '#3CC3DF',
-    '#55C4AE',
-];

@@ -1411,17 +1411,15 @@ $partial_index_min_word_length = 3;
 
 // ---------------------
 // Search Display
-// Thumbs Display Fields: array of fields to display on the large thumbnail view.
+// Thumbs Display Fields: array of fields to display on the standard thumbnail view.
 $thumbs_display_fields = array(8); // ** SEE NOTE (1)
 
 // array of defined thumbs_display_fields to apply CSS modifications to (via $search_results_title_trim)
 $thumbs_display_extended_fields = array();
-# $search_result_title_height=26;
-$search_results_title_trim = 26;
+$thumbs_display_extended_field_lines = 2;
 
 // Enable extra large thumbnails option for search screen
 $xlthumbs = true;
-$xl_search_results_title_trim = 41;
 
 // SORT Fields: display fields to be added to the sort links in large,small, and xlarge thumbnail views
 $sort_fields = array(12); // ** SEE NOTE (1)

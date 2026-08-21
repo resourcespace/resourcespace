@@ -296,8 +296,16 @@ ResourceSpace.Modules.Header = (() => {
         resource_type_selector.on('select2:clear', function (e, options = {}) {
             console.debug('[bindResourceTypeSelectorEvents] select2:clear', e);
 
+            let default_restypes = jQuery(this).attr('data-default-restypes').split(',');
             const all_resource_types_option = jQuery(this).find('option').first().val();
-            jQuery(this).val(all_resource_types_option).trigger('change');
+
+            let selected_options = options.clearSelection !== true 
+                && default_restypes != ""
+                && default_restypes[0] !== all_resource_types_option
+                    ? default_restypes
+                    : all_resource_types_option;
+
+            jQuery(this).val(selected_options).trigger('change');
 
             // Temporary solution: https://github.com/select2/select2/issues/6255
             if (options.suppressReopen === true) {
@@ -315,7 +323,7 @@ ResourceSpace.Modules.Header = (() => {
             // If the user selects the "All resource types" option then any manually selected resource types are cleared 
             if (e.params.data.id === all_resource_types_option) {
                 // This event clears all selections (default) and our bind (see above) will reselect the all RTs option
-                jQuery(this).trigger('select2:clear', {suppressReopen: true});
+                jQuery(this).trigger('select2:clear', {suppressReopen: true, clearSelection: true});
                 return;
             }
 

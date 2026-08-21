@@ -1378,11 +1378,7 @@ div.autocomplete ul li {
 .uppy-DashboardTab-btn {
     max-height:73px; 
 }
- 
-.uppy-ProviderBrowserItem-inner {
-    width: 100%;
-}
- 
+  
 .uppy-ProviderBrowser-searchInput[type="text"] {
     padding-left: 27px;
     margin: 0 8px;
@@ -5453,6 +5449,7 @@ options in the body so to target the one specifically for the header we had to u
     align-items: flex-start;
     align-self: stretch;
     row-gap: var(--space-8);
+    overflow: hidden;
 }
 
 .resource-card-title {
@@ -5461,7 +5458,11 @@ options in the body so to target the one specifically for the header we had to u
     font-style: normal;
     font-weight: 400;
     line-height: 125%;
+    max-width: 100%;
     letter-spacing: -0.25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .resource-card-field {
@@ -5469,7 +5470,25 @@ options in the body so to target the one specifically for the header we had to u
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
+    max-width: 100%;
     line-height: 125%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.resource-card-title.multi-line, .resource-card-field.multi-line {
+    overflow-wrap: anywhere;
+    white-space: normal;
+    overflow: hidden;
+    line-clamp: var(--extended-field-lines);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--extended-field-lines);
+}
+
+.resource-card-title.multi-line, .resource-card-field.multi-line > p {
+    padding: 0;
 }
 
 .resource-card-title a:is(:active, a:hover, :link, :visited) {
