@@ -186,10 +186,6 @@ $page_title = get_page_title($pagename, pluginname());
         <link href="<?php echo $baseurl; ?>/css/light.css?css_reload_key=<?php echo $css_reload_key; ?>" rel="stylesheet" type="text/css" media="screen,projection,print" />
         <!-- Override stylesheet -->
         <link href="<?php echo $baseurl; ?>/css/css_override.php?k=<?php echo escape($k); ?>&css_reload_key=<?php echo $css_reload_key; ?>&noauth=<?php echo $noauth_page; ?>" rel="stylesheet" type="text/css" media="screen,projection,print" />
-        <!-- Load specified font CSS -->
-        <?php if (!isset($custom_font) || $custom_font == '') { ?>
-            <link id="global_font_link" href="<?php echo $baseurl; ?>/css/fonts/<?php echo $global_font; ?>.css?css_reload_key=<?php echo $css_reload_key; ?>" rel="stylesheet" type="text/css" />
-        <?php } ?>
         <!-- Web app manifest -->
         <link rel="manifest" href="<?php echo $baseurl . escape($web_app_manifest_location); ?>">
         <!--Leaflet.js files-->

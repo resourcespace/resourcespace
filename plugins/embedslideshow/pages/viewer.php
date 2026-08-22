@@ -34,7 +34,6 @@ ob_start();
     <head>
         <link href="../css/embedslideshow.css?css_reload_key=<?php echo $css_reload_key; ?>" rel="stylesheet" type="text/css" media="screen,projection,print" /> 
         <link rel="stylesheet" href="<?php echo $baseurl?>/lib/lucide/lucide.css?css_reload_key=<?php echo $css_reload_key?>">
-        <link id="global_font_link" href="<?php echo $baseurl?>/css/fonts/<?php echo $global_font ?>.css?css_reload_key=<?php echo $css_reload_key?>" rel="stylesheet" type="text/css" />
         <script src="../../..<?php echo $jquery_path ?>?css_reload_key=<?php echo $css_reload_key; ?>" type="text/javascript"></script>
     </head>
     <body>

@@ -31,6 +31,10 @@ if (isset($condition) && getval("purge2", "") != "" && enforcePostRequest(false)
     if ($user_purge_disable) {
         ps_query("UPDATE user SET approved=2 WHERE $condition AND approved=1", $params ?? []);
     } else {
+        $users_to_delete = ps_query("SELECT ref, username FROM user WHERE $condition", $params ?? []);
+        foreach ($users_to_delete as $log_deleted_user) {
+            log_activity("Purge users - deleted: {$log_deleted_user['username']} ({$log_deleted_user['ref']})", LOG_CODE_DELETED, null, 'user', null, $log_deleted_user['ref']);
+            }
         ps_query("DELETE FROM user WHERE $condition", $params ?? []);
     }
     redirect("pages/team/team_user.php");

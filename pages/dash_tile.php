@@ -509,7 +509,7 @@ if (!$validpage) {
                 $parent_col_data = get_collection($parent);
                 $parent_col_data = (is_array($parent_col_data) ? $parent_col_data : array());
 
-                $resources = dash_tile_featured_collection_get_resources($parent_col_data, array());
+                $resources = dash_tile_featured_collection_get_resources($parent_col_data, array("limit" => $dash_tile_dropdown_limit + 1));
                 // The resource manually selected for a category doesn't have to be part of the branch (or any FCs). Add it
                 // to the list of resources as if it is.
                 if (
@@ -663,7 +663,11 @@ if (!$validpage) {
     </form>
 
     <script>
+        var dashTilePreview = null;
         function updateDashTilePreview() {
+            if (dashTilePreview) {
+                dashTilePreview.abort();
+            }
             var prevstyle = jQuery(".tlstyle:checked").val();
             var width = 250;
             var height = 160;
@@ -716,8 +720,12 @@ if (!$validpage) {
                 jQuery('#previewdashtile').addClass('DoubleWidthDashTile');
                 width = 515;
             }
-                
-            jQuery("#previewdashtile").load("<?php echo escape($previewurl); ?>?tltype=<?php echo urlencode($tile_type)?>&tlsize=" + tlsize + "&tlstyle="+prevstyle+"&tlwidth="+width+"&tlheight="+height+tile+'&data='+data);
+
+            dashTilePreview = jQuery.get(
+                "<?php echo escape($previewurl); ?>?tltype=<?php echo urlencode($tile_type)?>&tlsize=" + tlsize + "&tlstyle="+prevstyle+"&tlwidth="+width+"&tlheight="+height+tile+'&data='+data
+            ).done(function(response) {
+                jQuery("#previewdashtile").html(response);
+            });
         }
         
         jQuery("#previewtitle").change(updateDashTilePreview);

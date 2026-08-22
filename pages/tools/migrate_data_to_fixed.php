@@ -71,8 +71,8 @@ if ('cli' != PHP_SAPI) {
     $field_info     = get_resource_type_field($migrate_field);
     $splitvalue     = $parameters["separator"];
     $maxrows        = $parameters["maxrows"] ?? 0;
-    $dryrun         = $parameters["dryrun"] ?? false;
-    $deletedata     = $parameters["deletedata"] ?? false;
+    $dryrun         = isset($parameters["dryrun"]);
+    $deletedata     = isset($parameters["deletedata"]);
 }
 
 set_time_limit(0);

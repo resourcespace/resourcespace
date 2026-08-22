@@ -2764,6 +2764,7 @@ $lang['userpreference_high_contrast_mode'] = 'Higher contrast mode';
 /* System Config */
 $lang['systemconfig'] = 'Configuration';
 $lang['systemconfig_customfont_label'] = 'Custom font file';
+$lang['systemconfig_customheadingfont_label'] = 'Custom heading font file';
 $lang['systemconfig_invalid_extension'] = "File type not valid for this selection. Please choose from: [extensions]";
 $lang['systemconfig_linkedheaderimgsrc_label'] = 'Application logo';
 $lang['systemconfig_linkedheaderimgsrc_dark_label'] = 'Application logo - Dark';

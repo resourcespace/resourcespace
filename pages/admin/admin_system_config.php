@@ -46,20 +46,17 @@ $page_def[] = config_add_html('</div>');
 // User interface section
 $page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-users-round"></i>&nbsp;' . $lang['userpreference_user_interface'] . '</h3><div id="SystemConfigUserInterfaceSection" class="CollapsibleSection">');
 
-// Font selection
-$fontsdir = scandir(__DIR__ . "/../../css/fonts/");
-$fonts = array();
-foreach ($fontsdir as $f) {
-    if (strpos($f, ".css") !== false) { // Valid font CSS definition
-        $fn = substr($f, 0, strlen($f) - 4);
-        $fonts[$fn] = $fn;
-    }
-}
-$page_def[] = config_add_single_select('global_font', $lang['font'], $fonts, true, 420, null, true, "jQuery('#global_font_link').attr('href','" .  $baseurl . "/css/fonts/' + this.value + '.css');");
-
 $page_def[] = config_add_file_input(
     'custom_font',
     $lang['systemconfig_customfont_label'],
+    $baseurl . '/pages/admin/admin_system_config.php',
+    316,
+    array('woff2', 'woff', 'ttf', 'otf')
+);
+
+$page_def[] = config_add_file_input(
+    'custom_heading_font',
+    $lang['systemconfig_customheadingfont_label'],
     $baseurl . '/pages/admin/admin_system_config.php',
     316,
     array('woff2', 'woff', 'ttf', 'otf')
@@ -648,10 +645,7 @@ include '../../include/header.php';
     </template>
 
     <script>registerCollapsibleSections(false);</script>
-    <?php if ($custom_font != "") { ?>
-        <script>document.getElementById("question_global_font").hidden = true;</script>
-        <?php
-    }
+    <?php
     config_generate_AutoSaveConfigOption_function($baseurl . '/pages/admin/admin_system_config.php');
     ?>
     <script>

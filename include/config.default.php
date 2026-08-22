@@ -196,6 +196,9 @@ $colour_theme = "blue";
 // Used by system settings page when setting a custom system font
 $custom_font = '';
 
+// Used by system settings page when setting a custom system heading font
+$custom_heading_font = '';
+
 // Available languages
 // If $defaultlanguage is not set, the brower's default language will be used instead
 $defaultlanguage = "en"; // default language, uses ISO 639-1 language codes ( en, es etc.)
@@ -2894,9 +2897,6 @@ $CORS_whitelist =
 // $csp_frame_ancestors = ["'self'", "https://example.org", "https://example.com", "https://store.example.com"];
 // NOTE - single quotes are required for 'self' or 'none'
 $csp_frame_ancestors = [];
-
-/* Font selection */
-$global_font = "Atkinson Hyperlegible Next";
 
 // Sort tabs alphabetically
 $sort_tabs = true;
