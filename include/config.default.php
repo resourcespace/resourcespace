@@ -238,6 +238,7 @@ $home_dash = true;
 $tile_styles['srch']  = array('thmbs', 'multi', 'blank');
 $tile_styles['ftxt']  = array('ftxt');
 $tile_styles['conf']  = array('blank', 'analytics','thmsl','custm','pend', 'upld');
+$tile_styles['thmsl'] = array('thmbs', 'multi', 'blank');
 $tile_styles['fcthm'] = array('thmbs', 'multi', 'blank');
 
 // All user permissions for the dash are revoked and the dash admin can manage a single dash for all users.

@@ -161,7 +161,7 @@ if (getval("submit", "") != "" || $command_line) {
 
             $logtext = "";
             $nodes_to_add = [];
-            $resources = explode(",", $node["resources"]);
+            $resources = explode(",", $node["resources"] ?? "");
             $nodename = $node["name"];
             $logtext .= ($dryrun ? "TESTING: " : "") . "Checking data for node id #" . $node["ref"] . ". Value: '" . $nodename . "'" . PHP_EOL;
 

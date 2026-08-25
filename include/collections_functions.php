@@ -2873,6 +2873,32 @@ function get_featured_collection_resources(array $c, array $ctx)
 }
 
 /**
+ *  Get a list of all resources that are in FCs
+ * 
+ *  @param int $limit The number of resources that should be returned, if unset return all resources
+ */
+function get_all_resources_in_fcs(int $limit = 0): array
+{
+    $top_level_collections = ps_array("SELECT ref `value` FROM collection WHERE type = ? AND parent IS NULL", ['i', COLLECTION_TYPE_FEATURED]);
+    $all_resources = [];
+    foreach ($top_level_collections as $collection) {
+        $resources = get_collection_resources($collection);
+        if (is_array($resources) && count($resources) > 0) {
+            $all_resources = array_merge($all_resources, $resources);
+        } else {
+            $collection = get_collection($collection);
+            $collection['has_resources'] = false;
+            $resources = get_featured_collection_resources($collection, []);
+            $all_resources = array_merge($all_resources, $resources);
+        }
+        if ($limit > 0 && count($all_resources) > $limit) {
+            break;
+        }
+    }
+    return $all_resources;
+}
+
+/**
 * Get a list of featured collections based on a higher level featured collection category. This returns all direct/indirect
 * collections under that category.
 *

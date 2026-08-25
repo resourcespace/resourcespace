@@ -108,13 +108,14 @@ include "../../include/header.php";
             <li>
                 <a href="<?php echo generateURL($baseurl . '/pages/dash_tile.php',
                     [
-                        "create"        => "true",
-                        "tltype"        => "conf",
-                        "tlstyle"       => "thmsl",
-                        "title"         => "themeselector",
-                        "tile_audience" => "true",
-                        "link"          => "pages/collections_featured.php",
-                        "url"           => "pages/ajax/dash_tile.php?tltype=conf&tlstyle=thmsl"
+                        "create"            => "true",
+                        "tltype"            => "thmsl",
+                        "tlstyle"           => "multi",
+                        "promoted_resource" => "true", 
+                        "title"             => "themeselector",
+                        "tile_audience"     => "true",
+                        "link"              => "pages/collections_featured.php",
+                        "url"               => "pages/ajax/dash_tile.php?tltype=thmsl&tlstyle=multi&promimg="
                     ]); ?>"
                 >
                     <?php echo escape($lang["createdashtilethemeselector"]);?>

@@ -1597,7 +1597,7 @@ function allowPromotedResources($tile_type)
         return false;
     }
 
-    $allowed_types = array('srch', 'fcthm');
+    $allowed_types = array('srch', 'fcthm', 'thmsl');
 
     return in_array($tile_type, $allowed_types);
 }

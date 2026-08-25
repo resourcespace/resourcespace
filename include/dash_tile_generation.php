@@ -11,39 +11,40 @@
  */
 function tile_select($tile_type, $tile_style, $tile, $tile_id, $tile_width, $tile_height)
 {
-    /*
-     * Preconfigured and the legacy tiles controlled by config.
-     */
-    if ($tile_type == "conf") {
-        switch ($tile_style) {
-            case "thmsl":
-                tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height);
-                exit;
-            case "custm":
-                tile_freetext($tile, $tile_id);
-                exit;
-            case "pend":
-            case "upld":
-                tile_icon($tile, $tile_id);
-                exit;
-            case "analytics":
-                tile_graph($tile, $tile_id);
-                exit();
-        }
-    }
-    /*
-     * Free Text Tile
-     */
-    if ($tile_type == "ftxt") {
-        tile_freetext($tile, $tile_id);
-        exit;
-    }
-
-    /*
-     * Search Type tiles
-     */
-    if ($tile_type == "srch") {
-        switch ($tile_style) {
+    switch ($tile_type) {
+        /*
+        * Preconfigured and the legacy tiles controlled by config.
+        */
+        case "conf":
+            switch ($tile_style) {
+                case "thmsl":
+                    tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height);
+                    exit;
+                case "custm":
+                    tile_freetext($tile, $tile_id);
+                    exit;
+                case "pend":
+                case "upld":
+                    tile_icon($tile, $tile_id);
+                    exit;
+                case "analytics":
+                    tile_graph($tile, $tile_id);
+                    exit();
+            }
+        case "thmsl":
+            tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height);
+            exit;
+        /*
+        * Free Text Tile
+        */
+        case "ftxt":
+            tile_freetext($tile, $tile_id);
+            exit;
+        /*
+        * Search Type tiles
+        */
+        case "srch":
+            switch ($tile_style) {
             case "thmbs":
                 $promoted_image = getval("promimg", false);
                 tile_search_thumbs($tile, $tile_id, $tile_width, $tile_height, $promoted_image);
@@ -54,27 +55,22 @@ function tile_select($tile_type, $tile_style, $tile, $tile_id, $tile_width, $til
             case "blank":
                 tile_freetext($tile, $tile_id);
                 exit;
-        }
-    }
-
-    // Featured collection - themes specific tiles
-    if ('fcthm' == $tile_type) {
+            }
+        /*
+        * Featured collection - themes specific tiles
+        */
         switch ($tile_style) {
             case 'thmbs':
                 tile_featured_collection_thumbs($tile, $tile_id, $tile_width, $tile_height, getval('promimg', 0));
-                break;
-
+                exit;
             case 'multi':
                 tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_height, getval('promimg', 0));
-                break;
-
+                exit;
             case 'blank':
             default:
                 tile_freetext($tile, $tile_id);
-                break;
+                exit;
         }
-
-        exit();
     }
 }
 
@@ -297,57 +293,92 @@ function tile_graph(array $tile, string $tile_id): void
 
 function tile_config_themeselector($tile, $tile_id, $tile_width, $tile_height)
 {
-    global $lang,$pagename,$baseurl_short, $theme_direct_jump;
+    global $lang,$baseurl_short, $theme_direct_jump, $view_title_field;
 
     $url = "{$baseurl_short}pages/collections_featured.php";
     $fc_categories = get_featured_collection_categories(0, []);    
-    
-    $resources = dash_tile_featured_collection_get_top_resources();
-    $resources = array_pad($resources, 3, null);
 
-    ?>
-    <div class="tile-multi">
-        <?php
-            for ($i = 0;$i <= 2; $i++) {            
-                if ($resources[$i] !== null && $i == 0) {
-                    ?>
-                        <img
-                            alt="<?php echo escape($resources[$i]['title']); ?>"
-                            src="<?php echo get_resource_path($resources[$i]['ref'], false, 'pre', false, 'jpg'); ?>">
-                    <?php
-                } elseif ($i == 0) { 
-                    ?>
-                        <div class="tile-placeholder">
-                            <div class="thumbs-tile-image"></div>
-                        </div>
-                    <?php
-                } else {
-                    if ($i == 1) {
+    $url_parts = parse_url($tile['url'], PHP_URL_QUERY);
+    parse_str($url_parts, $url_parts);
+
+    if ($url_parts['tltype'] === 'conf' || $url_parts['tlstyle'] === 'multi') {
+        # Legacy/multi theme select
+        $resources = dash_tile_featured_collection_get_top_resources();
+        $resources = array_pad($resources, 3, null);
+        ?>
+        <div class="tile-multi">
+            <?php
+                for ($i = 0;$i <= 2; $i++) {            
+                    if ($resources[$i] !== null && $i == 0) {
                         ?>
-                        <div class="tile-sub-multi">
-                        <?php    
-                    }
-                            if ($resources[$i] !== null) {
-                                ?>
-                                    <img
-                                        alt="<?php echo escape($resources[$i]['title']); ?>"
-                                        src="<?php echo get_resource_path($resources[$i]['ref'], false, 'pre', false, 'jpg'); ?>"
-                                        loading="lazy">
-                                <?php
-                            } else {
-                                ?>
-                                    <div></div>
-                                <?php
-                            }
-                    if ($i == 2) {
+                            <img
+                                alt="<?php echo escape($resources[$i]['title']); ?>"
+                                src="<?php echo get_resource_path($resources[$i]['ref'], false, 'pre', false, 'jpg'); ?>">
+                        <?php
+                    } elseif ($i == 0) { 
                         ?>
-                        </div>
-                        <?php    
+                            <div class="tile-placeholder">
+                                <div class="thumbs-tile-image"></div>
+                            </div>
+                        <?php
+                    } else {
+                        if ($i == 1) {
+                            ?>
+                            <div class="tile-sub-multi">
+                            <?php    
+                        }
+                                if ($resources[$i] !== null) {
+                                    ?>
+                                        <img
+                                            alt="<?php echo escape($resources[$i]['title']); ?>"
+                                            src="<?php echo get_resource_path($resources[$i]['ref'], false, 'pre', false, 'jpg'); ?>"
+                                            loading="lazy">
+                                    <?php
+                                } else {
+                                    ?>
+                                        <div></div>
+                                    <?php
+                                }
+                        if ($i == 2) {
+                            ?>
+                            </div>
+                            <?php    
+                        }
                     }
                 }
+            ?>
+        </div>
+        <?php
+    } else {
+        $promoted_image = $url_parts['promimg'] ?? getval('promimg', null) ?? false;
+        $path = null;
+        if ($promoted_image !== false && $url_parts['tlstyle'] !== 'blank') {
+            $resource_data = get_resource_data($promoted_image);
+            if (is_array($resource_data) && resource_download_allowed($promoted_image, 'pre', $resource_data['resource_type'])) {
+                $path = get_resource_path($promoted_image, false, 'pre', false, 'jpg');
+                
+                $resource_data = get_resource_field_data($promoted_image);
+                $resource_data = array_column($resource_data, 'value', 'ref');
+                $alt =  $resource_data[$view_title_field];
             }
-        ?>
-    </div>
+        }
+        if ($path !== null) {
+            ?>
+            <img
+                alt="<?php echo $alt; ?>"
+                src="<?php echo $path; ?>"
+                class="thmbs-tile-img"
+            >
+            <?php
+        } else { 
+            ?>
+            <div class="tile-placeholder">
+                <div class="thumbs-tile-image"></div>
+            </div>
+            <?php
+        }
+    }
+    ?>
     <div class="tile-desc">
         <h2><?php echo escape($lang["themes"]); ?></h2>
         <div class="field-input tile-select">

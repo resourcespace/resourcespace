@@ -104,13 +104,17 @@ if ($submitdashtile && enforcePostRequest(false)) {
         parse_str(str_replace("&amp;", "&", ($buildstring[1] ?? "")), $buildstring);
 
         $buildstring['tltype'] = $buildstring['tltype'] ?? 'ftxt';
+        if ($buildstring['tltype'] === 'conf' && $buildstring['tltype'] === 'thmsl') {
+            $buildurl = str_replace("tltype=conf", "tltype=thmsl", $buildurl);
+            $buildstring['tlstyle'] = 'multi';
+        }
 
         #Change of tilestyle?
         $tile_style     = getval('tlstyle', false);
         $promoted_image = getval('promoted_image', false);
 
         if ($tile_style) {
-            $buildurl = str_replace("tlstyle=" . $buildstring["tlstyle"], "tlstyle=" . $tile_style, $tile["url"]);
+            $buildurl = str_replace("tlstyle=" . $buildstring["tlstyle"], "tlstyle=" . $tile_style, $buildurl);
         }
 
         if ($promoted_image) {
@@ -304,8 +308,13 @@ if ($create) {
     #edit contains the dash_tile record ref
     $tile = get_tile($edit);
 
-    $allusers = $tile["all_users"];
     $url = $tile["url"];
+    // Swap legacy url for new format to allow for stylings to be applied to theme select tiles
+    if (strpos($url, "pages/ajax/dash_tile.php?tltype=conf&tlstyle=thmsl") === 0) {
+        $url = $tile["url"] = "pages/ajax/dash_tile.php?tltype=thmsl&tlstyle=multi&promimg=1";
+    }
+
+    $allusers = $tile["all_users"];
     $link = $tile["link"];
     $title = $tile["title"];
     $resource_count = $tile["resource_count"];
@@ -319,7 +328,6 @@ if ($create) {
         if (isset($buildstring[1])) {
             parse_str(str_replace("&amp;", "&", $buildstring[1]), $buildstring);
         }
-
         if (isset($buildstring["tltype"])) {
             $tile_type = $buildstring["tltype"];
             $tile_nostyle = isset($buildstring["tlstyle"]) && $tile_type != "conf" ? false : true;
@@ -449,7 +457,7 @@ if (!$validpage) {
             <?php
         }
 
-        if (in_array($tile_type, ['srch', 'fcthm'])) {
+        if (in_array($tile_type, ['srch', 'fcthm', 'thmsl'])) {
             if (isset($tile_style)) {
                 tileStyle($tile_type, $tile_style);
             } else {
@@ -486,7 +494,10 @@ if (!$validpage) {
         }
 
         // Show promoted resource selector
-        if (($promoted_resource || 'fcthm' == $tile_type) && allowPromotedResources($tile_type)) {
+        if (
+            ($promoted_resource || 'fcthm' == $tile_type || 'thmsl' == $tile_type) 
+            && allowPromotedResources($tile_type)
+        ) {
             $resources = array();
 
             if ('srch' == $tile_type) {
@@ -528,6 +539,10 @@ if (!$validpage) {
                     $promoted_resource = (!empty($promoted_resource) ? $promoted_resource[0]["ref"] : 0);
                 }
 
+                $full_resource_count = count($resources);
+            }  elseif ('thmsl' == $tile_type) {
+                $resources = get_all_resources_in_fcs($dash_tile_dropdown_limit + 1);
+                $resources = array_column(get_resource_data_batch($resources), "field{$view_title_field}", 'ref');
                 $full_resource_count = count($resources);
             }
 
@@ -695,7 +710,6 @@ if (!$validpage) {
                 tile = tile + "&tlrcount=" + encodeURIComponent(count);
                 <?php
             }
-
             if ($promoted_resource && allowPromotedResources($tile_type)) {
                 ?>
                 tile = tile + '&promimg=' + encodeURIComponent(jQuery('#previewimage').val()); 
