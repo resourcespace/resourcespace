@@ -1346,7 +1346,7 @@ $lang['map_esriimagery'] = 'Vizualizare';
 $lang['map_esriterrain'] = 'Teren';
 $lang['map_esrirelief'] = 'Relief umbrit';
 $lang['map_esriphysical'] = 'Fizic';
-$lang['map_esriocean'] = 'Ocean = Ocean';
+$lang['map_esriocean'] = 'Ocean';
 $lang['map_esrigray'] = 'Pânză gri';
 $lang['map_nasagibscolor'] = 'Imagistica color Modis/Terra';
 $lang['map_nasagibsfalsecolor'] = 'Imaginile False Color Modis/Terra';

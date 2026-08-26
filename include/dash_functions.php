@@ -1886,44 +1886,46 @@ function validate_build_url($buildurl)
             $buildurl = "";
         } else {
             parse_str(($build_url_parts[1] ?? ""), $build_url_parts_param);
-            foreach ($build_url_parts_param as $param => $value) {
-                switch ($param) {
-                    case 'tltype':
-                        # type checks
-                        if (!array_key_exists($value, $tile_styles)) {
-                            $buildurl = "";
-                        }
-                        break;
-                    case 'tlsize':
-                        # size checks
-                        if (!in_array($value, array('single','double',''))) {
-                            $buildurl = "";
-                        }
-                        break;
-                    case 'tlstyle':
-                        # style checks
-                        $all_tile_styles = array();
-                        foreach ($tile_styles as $tile_type_style) {
-                            $all_tile_styles = array_merge($all_tile_styles, $tile_type_style);
-                        }
-                        if (
-                            !in_array($value, $all_tile_styles) 
-                            && 
-                                (
-                                    $value !== ""
-                                    && isset($build_url_parts_param['tltype'])
-                                    && $build_url_parts_param['tltype'] == 'ftxt'
-                                )
-                            ) {
-                            $buildurl = "";
-                        }
-                        break;
-                    case 'promimg':
-                        # img checks
-                        if (!is_int_loose($value) && !is_bool($build_url_parts_param[1])) {
-                            $buildurl = "";
-                        }
-                        break;
+            if (is_array($build_url_parts_param) && count($build_url_parts_param) > 0) {
+                foreach ($build_url_parts_param as $param => $value) {
+                    switch ($param) {
+                        case 'tltype':
+                            # type checks
+                            if (!array_key_exists($value, $tile_styles)) {
+                                $buildurl = "";
+                            }
+                            break;
+                        case 'tlsize':
+                            # size checks
+                            if (!in_array($value, array('single','double',''))) {
+                                $buildurl = "";
+                            }
+                            break;
+                        case 'tlstyle':
+                            # style checks
+                            $all_tile_styles = array();
+                            foreach ($tile_styles as $tile_type_style) {
+                                $all_tile_styles = array_merge($all_tile_styles, $tile_type_style);
+                            }
+                            if (
+                                !in_array($value, $all_tile_styles) 
+                                && 
+                                    (
+                                        $value !== ""
+                                        && isset($build_url_parts_param['tltype'])
+                                        && $build_url_parts_param['tltype'] == 'ftxt'
+                                    )
+                                ) {
+                                $buildurl = "";
+                            }
+                            break;
+                        case 'promimg':
+                            # img checks
+                            if (!is_int_loose($value)) {
+                                $buildurl = "";
+                            }
+                            break;
+                    }
                 }
             }
         }

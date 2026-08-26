@@ -277,7 +277,14 @@ function get_collection_resources($collection)
         return $plugin_collection_resources;
     }
 
-    return ps_array("SELECT resource value FROM collection_resource WHERE collection = ? ORDER BY sortorder ASC, date_added DESC, resource ASC", array("i",$collection));
+    return ps_array("
+        SELECT resource value 
+            FROM collection_resource cr
+        JOIN resource r ON r.ref = cr.resource
+            WHERE collection = ? 
+        ORDER BY sortorder ASC, date_added DESC, resource ASC"
+        , array("i",$collection)
+    );
 }
 
 /**

@@ -15,7 +15,7 @@ $lang["museumplus_RS_settings_header"]='ResourceSpace instellingen';
 $lang["museumplus_mpid_field"]='Metadataveld gebruikt om de MuseumPlus-identificatie (MpID) op te slaan';
 $lang["museumplus_module_name_field"]='Metagegevensveld dat wordt gebruikt om de naam van de modules op te slaan waarvoor de MpID geldig is. Als dit niet is ingesteld, zal de plugin terugvallen op de configuratie van de "Object" module.';
 $lang["museumplus_secondary_links_field"]='Metadataveld gebruikt om secundaire links naar andere modules op te slaan. ResourceSpace genereert een MuseumPlus-URL voor elk van de links. Links hebben een speciale syntaxis-indeling: module_naam:ID (bijv. "Object:1234")';
-$lang["museumplus_object_details_title"]='MuseumPlus details = MuseumPlus details';
+$lang["museumplus_object_details_title"]='MuseumPlus details';
 $lang["museumplus_script_header"]='Script instellingen';
 $lang["museumplus_last_run_date"]='Laatste uitvoering van script';
 $lang["museumplus_enable_script"]='Inschakelen van MuseumPlus-script';

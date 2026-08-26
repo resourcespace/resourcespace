@@ -23,7 +23,7 @@ $lang["youtube_access_failed"]='Nu s-a putut accesa interfața serviciului de î
 $lang["youtube_publish_video_description"]='Descriere video';
 $lang["youtube_publish_video_tags"]='Etichete video';
 $lang["youtube_publish_access"]='Setare acces';
-$lang["youtube_public"]='public = public';
+$lang["youtube_public"]='public';
 $lang["youtube_private"]='viziune';
 $lang["youtube_publish_unlisted"]='Nelistat';
 $lang["youtube_publish_button_text"]='Publică';

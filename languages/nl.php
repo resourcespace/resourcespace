@@ -2416,7 +2416,7 @@ $lang['filter_criteria_all'] = 'ALLE regels moeten worden nageleefd';
 $lang['filter_criteria_none'] = 'GEEN van de regels moet worden voldaan';
 $lang['filter_criteria_any'] = 'EEN van de regels moet worden voldaan';
 $lang['filter_is_not_in'] = 'IS NIET';
-$lang['filter_or'] = 'OR = OF';
+$lang['filter_or'] = 'OF';
 $lang['filter_and'] = 'EN';
 $lang['error-sessionexpired'] = 'Uw sessie is verlopen of is anderszins ongeldig';
 $lang['userresources_status_change'] = 'Bronnen die je hebt bijgedragen zijn verplaatst naar de status:';

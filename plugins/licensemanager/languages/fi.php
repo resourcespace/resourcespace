@@ -4,7 +4,7 @@
 $lang["license_usage-book"]='Kirja';
 $lang["license_usage-web"]='Verkko';
 $lang["license_usage-merchandise"]='Tuotevalikoima';
-$lang["license_usage-tv"]='TV = Televisio';
+$lang["license_usage-tv"]='Televisio';
 $lang["license_management"]='Lisenssinhallinta';
 $lang["licensor_licensee"]='Lisenssinmyöntäjä / lisenssinhaltija';
 $lang["new_license"]='Uusi lisenssi';
