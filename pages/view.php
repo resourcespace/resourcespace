@@ -1269,7 +1269,7 @@ if ($k!="" && !$internal_share_access) {$edit_access=0;}
                                                 ) { ?>
                                                     <li>
                                                         <a id="view_replace_link" href="<?php echo generateURL($baseurl_short . "pages/upload_" . $replace_upload_type . ".php", $urlparams, array("replace_resource"=>$ref, "resource_type"=>$resource['resource_type'])); ?>" 
-                                                            onClick="return CentralSpaceLoad(this,true);">
+                                                            onClick="if(jQuery('#uploader').length){return CentralSpaceLoad(this,true);} else {return ModalLoad(this,true);}">
                                                             <?php if ($resource["file_extension"] != "")
                                                                 { ?>
                                                                 <i class='icon-replace '></i>&nbsp;<?php echo escape($lang["replacefile"]);

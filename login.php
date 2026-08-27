@@ -115,13 +115,13 @@ if ($lockouts > 0 || $ulockouts > 0) {
             if (!$modal) {
                 ?>
                 <script type="text/javascript">
-                    window.location.href = '<?php echo escape($redirect_url); ?>';
+                    window.location.href = <?php echo encode_js_value($redirect_url); ?>;
                 </script>
                 <?php
             } else {
                 ?>
                 <script type="text/javascript">
-                    CentralSpaceLoad('<?php echo $baseurl . "/" . escape($redirect_url); ?>',true);
+                    CentralSpaceLoad('<?php echo $baseurl . "/" . trim(encode_js_value($redirect_url), '"'); ?>',true);
                 </script>
                 <?php
             }

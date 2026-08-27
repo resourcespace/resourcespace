@@ -474,7 +474,13 @@ if (count($xpath) == 1 && $xpath[0] == "") {
                             // Keep on until we find a label
                             $iiif_label = get_data_by_field($iiif_results[0]["ref"], $view_title_field);
                             if (trim($iiif_label) != "") {
-                                $response["label"] = $iiif_label;
+                                $o = 0;
+                                $translations = i18n_get_translations($iiif_label);
+                                foreach ($translations as $langcode => $langstring) {
+                                    $response["label"][$o]["@value"] = $langstring;
+                                    $response["label"][$o]["@language"] = $langcode;
+                                    $o++;
+                                }
                                 break;
                             }
                         }
@@ -542,7 +548,13 @@ if (count($xpath) == 1 && $xpath[0] == "") {
 
 
                                 $response["metadata"][$n] = array();
-                                $response["metadata"][$n]["label"] = $iiif_data_row["title"];
+                                $o = 0;
+                                $translations = i18n_get_translations($iiif_data_row["title"]);
+                                foreach ($translations as $langcode => $langstring) {
+                                    $response["metadata"][$n]["label"][$o]["@value"] = $langstring;
+                                    $response["metadata"][$n]["label"][$o]["@language"] = $langcode;
+                                    $o++;
+                                }
                                 $response["metadata"][$n]["value"] = array();
 
                                 // Add each tag
@@ -555,9 +567,21 @@ if (count($xpath) == 1 && $xpath[0] == "") {
                                 }
                                 $n++;
                             } elseif (trim((string) $iiif_data_row["value"]) != "") {
-                                $response["metadata"][$n] = array();
-                                $response["metadata"][$n]["label"] = $iiif_data_row["title"];
-                                $response["metadata"][$n]["value"] = $iiif_data_row["value"];
+                                $response["metadata"][$n] = [];
+                                $o = 0;
+                                $translations = i18n_get_translations($iiif_data_row["title"]);
+                                foreach ($translations as $langcode => $langstring) {
+                                    $response["metadata"][$n]["label"][$o]["@value"] = $langstring;
+                                    $response["metadata"][$n]["label"][$o]["@language"] = $langcode;
+                                    $o++;
+                                }
+                                $o = 0;
+                                $translations = i18n_get_translations($iiif_data_row["value"]);
+                                foreach ($translations as $langcode => $langstring) {
+                                    $response["metadata"][$n]["value"][$o]["@value"] = $langstring;
+                                    $response["metadata"][$n]["value"][$o]["@language"] = $langcode;
+                                    $o++;
+                                }
                                 $n++;
                             }
                         }

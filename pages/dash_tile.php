@@ -678,7 +678,7 @@ if (!$validpage) {
     </form>
 
     <script>
-        var dashTilePreview = null;
+        let dashTilePreview = null;
         function updateDashTilePreview() {
             if (dashTilePreview) {
                 dashTilePreview.abort();

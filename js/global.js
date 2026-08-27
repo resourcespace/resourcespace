@@ -924,7 +924,7 @@ function ModalCentre()
         modalwidth = 'auto';
     } else {
         modalmaxheight = "calc(100vh - 100px)";
-        modalwidth = 1235;
+        modalwidth = Math.min(jQuery(window).width() - 100, 1235);
     }
 
     jQuery('#modal').css({
@@ -1150,6 +1150,11 @@ function array_diff(array_1, array_2)
     }
 
 function StripResizeResults(targetImageHeight) {
+
+    if (typeof targetImageHeight !== "number" || targetImageHeight <= 0) {
+        return;
+    }
+
     const container = jQuery("#CentralSpaceResources");
     const screenWidth = container.width();
     const images = jQuery(".ImageStrip");
