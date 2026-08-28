@@ -121,7 +121,7 @@ if ($lockouts > 0 || $ulockouts > 0) {
             } else {
                 ?>
                 <script type="text/javascript">
-                    CentralSpaceLoad('<?php echo $baseurl . "/" . trim(encode_js_value($redirect_url), '"'); ?>',true);
+                    CentralSpaceLoad(<?php echo encode_js_value($baseurl . "/" . $redirect_url); ?>, true);
                 </script>
                 <?php
             }

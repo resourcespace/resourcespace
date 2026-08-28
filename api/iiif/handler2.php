@@ -495,6 +495,10 @@ if (count($xpath) == 1 && $xpath[0] == "") {
                         $response["metadata"] = array();
                         $n = 0;
                         foreach ($iiif_data as $iiif_data_row) {
+                            $full_title = get_fields([$iiif_data_row['resource_type_field']])[0];
+                            $full_title = is_array($full_title) && array_key_exists('title', $full_title) 
+                                ? $full_title['title']
+                                : $full_title = $iiif_data['title'];
                             if (in_array($iiif_data_row["type"], $FIXED_LIST_FIELD_TYPES)) {
                                 // Don't use the data as this has already concatentated the translations, add an entry for each node translation by building up a new array
                                 $resnodes = get_resource_nodes($iiif_results[0]["ref"], $iiif_data_row["resource_type_field"], true);
@@ -549,7 +553,7 @@ if (count($xpath) == 1 && $xpath[0] == "") {
 
                                 $response["metadata"][$n] = array();
                                 $o = 0;
-                                $translations = i18n_get_translations($iiif_data_row["title"]);
+                                $translations = i18n_get_translations($full_title);
                                 foreach ($translations as $langcode => $langstring) {
                                     $response["metadata"][$n]["label"][$o]["@value"] = $langstring;
                                     $response["metadata"][$n]["label"][$o]["@language"] = $langcode;
@@ -569,7 +573,7 @@ if (count($xpath) == 1 && $xpath[0] == "") {
                             } elseif (trim((string) $iiif_data_row["value"]) != "") {
                                 $response["metadata"][$n] = [];
                                 $o = 0;
-                                $translations = i18n_get_translations($iiif_data_row["title"]);
+                                $translations = i18n_get_translations($full_title);
                                 foreach ($translations as $langcode => $langstring) {
                                     $response["metadata"][$n]["label"][$o]["@value"] = $langstring;
                                     $response["metadata"][$n]["label"][$o]["@language"] = $langcode;

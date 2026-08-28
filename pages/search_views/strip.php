@@ -1,12 +1,16 @@
 <?php
 $thumbnail = get_resource_preview($result[$n], ["pre","thm"], $access, $use_watermark);
+$strip_width = $thumbnail !== false ? $thumbnail["width"] : 150;
+$strip_height = $thumbnail !== false ? $thumbnail["height"] : 150;
 ?>
 <a
     id="ResourceStrip<?php echo $ref ?>"
     class="ImageStripLink"
     href="<?php echo $url; ?>"  
     onClick="return <?php echo $resource_view_modal ? 'Modal' : 'CentralSpace'; ?>Load(this, true);" 
-    title="">
+    title=""
+    style="--width: <?php echo $strip_width; ?>; --height: <?php echo $strip_height; ?>;"
+    >
     <?php if ($thumbnail !== false) { ?>
         <img 
             src="<?php echo $thumbnail["url"]; ?>" 

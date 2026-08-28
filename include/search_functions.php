@@ -2151,7 +2151,6 @@ function cleanse_string($string, $preserve_separators, $for_search = false): str
 
     if ($for_search) {
         $unicode_allowlist[] = '*'; # wildcard
-        $unicode_allowlist[] = '@'; # for NODE_TOKEN_PREFIX
 
         // Preserve hyphen so we know which keywords to omit from the search (for a NOT search)
         if ((substr($string, 0, 1) == "-" || strpos($string, " -") !== false) && strpos($string, " - ") === false) {

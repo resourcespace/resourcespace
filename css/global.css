@@ -2734,8 +2734,9 @@ form.FormFilter button.ClearButton {
 
 
 .ImageStrip {
-    height:150px;
-    width:auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     margin: 0;
     transform: scale(1);
     transition: all 0.1s ease-in-out;
@@ -2746,14 +2747,30 @@ form.FormFilter button.ClearButton {
 }
     
 #CentralSpaceResources {
+    --strip-target-height: 150px;
     display: flex;
     padding: var(--space-24);
     gap: var(--space-32) var(--space-32);
     flex-wrap: wrap;
 }
 
+.ImageStripLink {
+    flex-grow: calc(var(--width) * (100000 / var(--height)));
+    flex-basis: calc(
+        var(--strip-target-height) * (var(--width) / var(--height))
+    );
+    aspect-ratio: var(--width) / var(--height);
+    position: relative;
+    margin: 0;
+}
+
 #CentralSpaceResources:has(.ImageStripLink) {
     gap: var(--space-20) var(--space-20);
+}
+
+#CentralSpaceResources:has(.ImageStripLink)::after {
+    content: "";
+    flex-grow: 1000000000;
 }
 
 #CentralSpaceResources > .BasicsBox {

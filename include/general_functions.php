@@ -6098,7 +6098,7 @@ function allow_unicode_characters(string $text, array $allowlist = []): string
     // \s - any kind of invisible character (equivalent to [\p{Z}\h\v])
     // . - Always allow period as often significant e.g. in identifiers
     return trim_spaces(
-        preg_replace('/[^\p{L}\p{N}\s.' . implode('', array_map(preg_quote(...), $allowlist)) . ']+/u', '', $text)
+        preg_replace('/[^\p{L}\p{N}\s.@' . implode('', array_map(preg_quote(...), $allowlist)) . ']+/u', '', $text)
     );
 }
 

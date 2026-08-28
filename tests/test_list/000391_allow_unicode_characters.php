@@ -40,7 +40,7 @@ $use_cases = [
     ],
     [
         'name' => 'Allow @ (used by search with the NODE_TOKEN_PREFIX format)',
-        'input' => ['@@1234', ['@']],
+        'input' => ['@@1234', []],
         'expected' => '@@1234',
     ],
     [

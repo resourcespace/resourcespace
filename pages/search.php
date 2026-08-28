@@ -1878,12 +1878,6 @@ if (!hook("replacesearchheader")) # Always show search header now.
         <?php
         }
     
-if ($display=="strip")
-    {
-    #  ---------------------------- Extra footer for strip view ----------------------------
-    include 'search_views/strip_footer.php';
-    }
-
 $url=generateURL($baseurl . "/pages/search.php",$searchparams); 
 
 ?>

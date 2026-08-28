@@ -206,7 +206,7 @@ include '../../include/header.php';
         // Make all table rows sortable (except the header)
         jQuery('.BasicsBox .Listview.SystemTabs > table').sortable({
             items: 'tr:not(:first-child)',
-            handle: 'td > i.arrow-down-up',
+            handle: 'td > i.icon-arrow-down-up',
             containment: 'div.SystemTabs > table',
             distance: 20,
             update: function(event, ui) {
