@@ -2712,7 +2712,12 @@ function get_featured_collection_resources(array $c, array $ctx)
 
         $query_cache_expires_minutes_cache = $query_cache_expires_minutes;
         $query_cache_expires_minutes = max(24 * 60, $query_cache_expires_minutes);
-        $smart_fc_resources = ps_query($smart_fc_resources->sql, $smart_fc_resources->parameters, "smart_fc_thumbs", 3);
+        $smart_fc_resources = ps_query(
+            $smart_fc_resources->sql,
+            $smart_fc_resources->parameters,
+            "smart_fc_thumbs",
+            THEME_IMAGES_NUMBER
+        );
         $query_cache_expires_minutes = $query_cache_expires_minutes_cache;
 
         $smart_fc_resources = (is_array($smart_fc_resources) ? array_column($smart_fc_resources, "ref") : array());

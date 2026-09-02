@@ -285,7 +285,7 @@ function set_login_cookies($user, $session_hash, $language = "", $user_preferenc
     rs_setcookie("user", "", 0, $baseurl_short . "pages/ajax");
 
     # Set user cookie, setting secure only flag if a HTTPS site, and also setting the HTTPOnly flag so this cookie cannot be probed by scripts (mitigating potential XSS vuln.)
-    rs_setcookie("user", $session_hash, $expires, $baseurl_short, "", substr($baseurl, 0, 5) == "https", true);
+    rs_setcookie("user", $session_hash, $expires, $baseurl_short, "", substr($baseurl, 0, 5) == "https", true, "Lax");
 
     # Set default resource types
     rs_setcookie('restypes', $default_res_types);

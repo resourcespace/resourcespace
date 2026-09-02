@@ -106,14 +106,7 @@ if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
     }
 
     if (checkperm("R")) {
-        $requestcondition = "";
-        $requestparams = array();
-        if (checkperm("Rb")) {
-            $requestcondition = "and assigned_to=?";
-            $requestparams[] = "i";
-            $requestparams[] = $userref;
-        }
-        $requestcount = ps_value("SELECT COUNT(*) value FROM request WHERE status = 0 $requestcondition", $requestparams, 0);
+        $requestcount = count(get_requests(true, true));
         if ($requestcount > 0) {
             $extramessage['requestcount'] = $requestcount;
             $extramessages = true;
@@ -128,7 +121,7 @@ if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
         }
     }
 
-    if ($offline_job_queue) {
+    if (checkperm("a")) {
         $userfailedjobs = count(job_queue_get_jobs("", STATUS_ERROR, $userref));
         $allfailedjobs  = count(job_queue_get_jobs("", STATUS_ERROR));
         $jobcounts      = [];

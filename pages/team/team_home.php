@@ -66,22 +66,16 @@ include "../../include/header.php";
                 <?php
             }
 
-            if (checkperm("R")) { ?>
+            if (checkperm("R")) {
+                include_once __DIR__ . "/../../include/request_functions.php";
+                 ?>
                 <li title="<?php echo escape($lang["managerequestsorders-tooltip"]); ?>">
                     <a href="<?php echo $baseurl_short ?>pages/team/team_request.php" onClick="return CentralSpaceLoad(this,true);">
                         <i aria-hidden="true" class="icon-shopping-cart"></i>
                         <br /><?php echo escape($lang["managerequestsorders"]); ?>
                         <?php
-                        $condition = "";
-                        $params = array();
 
-                        if (checkperm("Rb")) {
-                            $condition = "and assigned_to=?";
-                            $params[] = "i";
-                            $params[] = $userref;
-                        } # Only show pending for this user?
-
-                        $pending = ps_value("select count(*) value from request where status = 0 $condition", $params, 0);
+                        $pending = count(get_requests(true, true));
 
                         if ($pending > 0) {
                             ?>

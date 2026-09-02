@@ -65,7 +65,7 @@ if ($argc == 2)
 if (is_process_lock("tms_link")) {
     echo 'TMS script lock is in place. Deferring.' . PHP_EOL;
     echo 'To clear the lock after a failed run use --clearlock flag.' . PHP_EOL;
-    if (time()>=(strtotime($scriptlaststarted)+$process_locks_max_seconds)) {
+    if (time() >= (strtotime($scriptlaststarted) + $tms_link_script_failure_notify_seconds)) {
         $tmsfailedsubject=(($tms_link_test_mode)?"TESTING MODE ":"") . "TMS Import script - FAILED";
         send_mail($email_notify,$tmsfailedsubject,"The TMS script failed to run because a process lock was in place. This indicates that the previous run did not complete. If you need to clear the lock after a failed run, run the script as follows:-" . PHP_EOL . PHP_EOL . " php tms_update_script.php --clearlock" . PHP_EOL ,$email_from);
     }
