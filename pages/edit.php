@@ -103,8 +103,7 @@ $uploadparams["redirecturl"] = $redirecturl;
 debug(sprintf('$uploadparams = %s', http_build_query($uploadparams)));
 
 # Upload review mode will be true if we are coming from upload_batch and then editing (config $upload_then_edit)
-#   or if it's a special collection search where the collection is the negated user reference meaning its resources are to be edited 
-$upload_review_mode=(getval("upload_review_mode","")!="" || $search=="!collection-" . $userref);
+$upload_review_mode = getval("upload_review_mode","") != "";
 $lastedited = getval('lastedited',0,true);
 $locked_fields = (!$resetform && getval("lockedfields","") != "") ? trim_array(explode(",",getval("lockedfields",""))) : array();
 $save_auto_next = getval("save_auto_next","") != "";

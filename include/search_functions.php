@@ -672,14 +672,15 @@ function compile_search_actions($top_actions)
         $options[$o]['value']            = 'csv_export_results_metadata';
         $options[$o]['label']            = $lang['csvExportResultsMetadata'];
         $options[$o]['data_attr']['url'] = sprintf(
-            '%spages/csv_export_results_metadata.php?search=%s&restypes=%s&order_by=%s&archive=%s&sort=%s&access=%s',
+            '%spages/csv_export_results_metadata.php?search=%s&restypes=%s&order_by=%s&archive=%s&sort=%s&access=%s&count=%s',
             $baseurl_short,
             urlencode((string) $search),
             urlencode((string) $restypes),
             urlencode((string) $order_by),
             urlencode((string) $archive),
             urlencode((string) $sort),
-            urlencode((string) $search_access)
+            urlencode((string) $search_access),
+            urlencode((string) $resources_count)
         );
         $options[$o]['category'] = ACTIONGROUP_ADVANCED;
         $options[$o]['order_by']  = 290;

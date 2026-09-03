@@ -4324,7 +4324,7 @@ function compile_collection_actions(array $collection_data, $top_actions, $resou
     ) {
         $options[$o]['value']            = 'csv_export_results_metadata';
         $options[$o]['label']            = $lang['csvExportResultsMetadata'];
-        $data_attribute['url'] = generateURL($baseurl_short . "pages/csv_export_results_metadata.php", $urlparams);
+        $data_attribute['url'] = generateURL($baseurl_short . "pages/csv_export_results_metadata.php", $urlparams, array('count' => $count_result));
         $options[$o]['data_attr'] = $data_attribute;
         $options[$o]['category']  = ACTIONGROUP_ADVANCED;
         $options[$o]['order_by']  = 260;

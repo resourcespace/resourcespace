@@ -99,6 +99,32 @@ function whisper_process(int $resource): bool
     $file_path = get_resource_path($resource, true, '', false, $extension);
     if (!file_exists($file_path)) {
         logScript("Whisper: Could not find file for resource $resource, path was $file_path");
+        return false;
+    }
+
+    $video_info = get_video_info($file_path);
+
+    if (!isset($video_info["streams"]) || !is_array($video_info["streams"])) {
+        logScript("Whisper: Unable to determine media streams.");
+        return false;
+    }
+
+    $has_audio = false;
+
+    foreach ($video_info["streams"] as $stream) {
+        if (($stream["codec_type"] ?? "") === "audio") {
+            $has_audio = true;
+            break;
+        }
+    }
+
+    if (!$has_audio) {
+        logScript("Whisper: No audio stream found. Marking resource as processed.");
+        ps_query(
+            "UPDATE resource SET whisper_processed = 1 WHERE ref = ?",
+            ["i", $resource]
+        );
+        return true;
     }
 
     // File exists, process to the required audio format.
@@ -112,6 +138,7 @@ function whisper_process(int $resource): bool
         ];
         logScript("Whisper: Starting audio proxy creation...");
         run_command($shell_exec_cmd, false, $shell_exec_params);
+
         if (!file_exists($audio_file)) {
             logScript("Whisper: Audio proxy was not created");
             return false;
