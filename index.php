@@ -12,9 +12,13 @@ if (getval("rp", "") != "") {
 
 # External access support (authenticate only if no key provided, or if invalid access key provided)
 $k = getval('k', '');
-if ('' == $k || (!check_access_key_collection(getval('c', ''), $k, false) && !check_access_key(getval('r', ''), $k))) {
+$c = getval('c', '');
+if ('' == $k || (!check_access_key_collection($c, $k, false) && !check_access_key(getval('r', ''), $k))) {
     debug("[index.php] External access support, include authenticate.php next.");
     include 'include/authenticate.php';
+    // check_access_key_collection skips some setup if authenticating so run again
+    check_access_key_collection($c, $k, false);
+    global $upload_share_active;
 }
 
 $topurl = "pages/home.php?login=true";
@@ -25,8 +29,7 @@ if ($use_recent_as_home) {
     $topurl = "pages/search.php?search=" . urlencode("!last" . $recent_search_quantity);
 }
 
-$c = trim(getval("c", ""));
-if ($c != "") {
+if ($c != "" && !$upload_share_active) {
     $collection = get_collection($c);
     if ($collection === false) {
         exit($lang["error-collectionnotfound"]);
@@ -77,7 +80,7 @@ if (getval('dr', '') != '') {
     $topurl = 'pages/team/team_report.php?delete=' . $dr;
 }
 
-if (getval("upload", "") != "") {
+if (getval("upload", "") != "" || $upload_share_active) {
     # Redirect to upload page
     $topurl = get_upload_url($c, $k);
 }

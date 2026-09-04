@@ -6267,6 +6267,7 @@ function upload_share_setup(string $key, $shareopts = array())
         "add_keyword",
         "download", // Required to see newly created thumbnails if $hide_real_filepath=true;
         "terms",
+        "index",
         );
 
     if (!in_array($pagename, $validpages)) {

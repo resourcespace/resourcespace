@@ -2127,7 +2127,10 @@ if($use_selection_collection)
         }
 
         // Process the clicked box
-        jQuery(document).on("click", function (e) {
+        jQuery(document)
+            .off("click.searchResourceSelection")
+            .on("click.searchResourceSelection", function (e) {
+
             var resource_selections=[];
             let input = null;
             let target = jQuery(e.target);
