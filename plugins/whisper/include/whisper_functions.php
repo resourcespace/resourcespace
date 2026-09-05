@@ -93,7 +93,12 @@ function whisper_process(int $resource): bool
 {
     global $lang, $whisper_prompt, $whisper_field, $whisper_subtitles, $whisper_transcript;
 
-    logScript("Whisper: processing resource " . $resource);
+    if ($whisper_field == '' && !$whisper_subtitles && !$whisper_transcript) {
+        logScript("Whisper: Processing resource " . $resource . " cancelled - plugin has no output configured.");
+        return false;
+    }
+
+    logScript("Whisper: Processing resource " . $resource);
     $data = get_resource_data($resource);
     $extension = $data["file_extension"];
     $file_path = get_resource_path($resource, true, '', false, $extension);

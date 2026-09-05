@@ -29,7 +29,7 @@ if ($use_recent_as_home) {
     $topurl = "pages/search.php?search=" . urlencode("!last" . $recent_search_quantity);
 }
 
-if ($c != "" && !$upload_share_active) {
+if ($c != "" && !($upload_share_active ?? false)) {
     $collection = get_collection($c);
     if ($collection === false) {
         exit($lang["error-collectionnotfound"]);
@@ -80,7 +80,7 @@ if (getval('dr', '') != '') {
     $topurl = 'pages/team/team_report.php?delete=' . $dr;
 }
 
-if (getval("upload", "") != "" || $upload_share_active) {
+if (getval("upload", "") != "" || ($upload_share_active ?? false)) {
     # Redirect to upload page
     $topurl = get_upload_url($c, $k);
 }
