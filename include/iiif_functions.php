@@ -892,7 +892,10 @@ final class IIIFRequest
                         // Full/max image region requested
                         if ($this->max_width >= $this->imagewidth && $this->max_height >= $this->imageheight) {
                             $this->request["getext"] = strtolower($resource["file_extension"]) == "jpeg" ? "jpeg" : "jpg";
-                            if (in_array($resource["file_extension"], $this->media_extensions)) {
+                            if ($this->request["size"] == "thm") {
+                                // thm has been specifically requested
+                                $this->request["getsize"] = "thm";
+                            } elseif (in_array($resource["file_extension"], $this->media_extensions)) {
                                 // The largest available size for these is 'pre'
                                 $this->request["getsize"] = "pre";
                             } else {
@@ -900,7 +903,11 @@ final class IIIFRequest
                             }
                         } else {
                             $this->request["getext"] = "jpg";
-                            $this->request["getsize"] = count($availsizes) > 0 ? $availsizes[0]["id"] : "thm";
+                            if ($this->request["size"] == "thm") {
+                                $this->request["getsize"] = "thm";
+                            } else {
+                                $this->request["getsize"] = count($availsizes) > 0 ? $availsizes[0]["id"] : "thm";
+                            }
                         }
                     }
                 } else {

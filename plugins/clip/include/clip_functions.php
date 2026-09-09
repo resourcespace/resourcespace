@@ -266,6 +266,7 @@ function clip_generate_missing_vectors($limit)
         AND r.file_checksum IS NOT NULL
         AND 
             (v_image.checksum IS NULL OR v_image.checksum != r.file_checksum)
+        GROUP BY r.ref
         ORDER BY r.ref ASC
         LIMIT ?";
 

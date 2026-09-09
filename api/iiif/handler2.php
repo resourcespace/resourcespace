@@ -262,7 +262,10 @@ if (count($xpath) == 1 && $xpath[0] == "") {
                             }
                         }
                     }
-                } elseif ($size == "full"  || $size == "max" || $size == "thm") {
+                } elseif ($size == "thm") {
+                    $getext = "jpg";
+                    $getsize = "thm";
+                } elseif ($size == "full"  || $size == "max") {
                     if ($tile_request) {
                         if ($size == "full"  || $size == "max") {
                             $getsize = "tile_" . $regionx . "_" . $regiony . "_" . $regionw . "_" . $regionh;

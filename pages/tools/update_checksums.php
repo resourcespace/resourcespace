@@ -31,14 +31,17 @@ if (array_key_exists('recreate', $cli_options)) {
 
 $recreate = (bool) getval("recreate", $recreate);
 if ($recreate) {
-    $resources = ps_query("SELECT ref, file_extension FROM resource WHERE ref > 0 AND integrity_fail = 0 AND length(file_extension) > 0 ORDER by ref ASC");
+    $resources = ps_query("SELECT ref, file_extension, resource_type FROM resource WHERE ref > 0 AND integrity_fail = 0 AND length(file_extension) > 0 ORDER by ref ASC");
 } else {
-    $resources = ps_query("SELECT ref, file_extension FROM resource WHERE ref > 0 AND integrity_fail = 0 AND length(file_extension) > 0 AND (file_checksum IS NULL OR file_checksum = '')");
+    $resources = ps_query("SELECT ref, file_extension, resource_type FROM resource WHERE ref > 0 AND integrity_fail = 0 AND length(file_extension) > 0 AND (file_checksum IS NULL OR file_checksum = '')");
 }
 
 for ($n = 0; $n < count($resources); $n++) {
     if (generate_file_checksum($resources[$n]["ref"], $resources[$n]["file_extension"], true)) {
         echo "Key for " . $resources[$n]["ref"] . " generated<br />\n";
+        if ($recreate) {
+            hook('copy_checksum', '', array($resources[$n]));
+        }
     } else {
         echo "Key for " . $resources[$n]["ref"] . " NOT generated<br />\n";
     }
