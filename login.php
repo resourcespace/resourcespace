@@ -192,7 +192,7 @@ if (getval("langupdate", "") != "") {
 
 $autocomplete_attr = $login_autocomplete ? '' : ' autocomplete="off"';
 $aria_describedby_attr = $error == '' ? '' : ' aria-describedby="error-panel"';
-$login_header_img_src = get_header_image();
+$login_header_img_src = get_header_image(false, true);
 
 include "include/header.php";
 include "include/login_background.php";

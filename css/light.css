@@ -292,7 +292,7 @@ div.MessageBox a {
 }
 
 /* Login box */
-#login_box {background: var(--colour-global-white);}
+#login_box {background: var(--colour-surface-50);}
 
 /* Highlighting required fields in certain plugins */
 .highlighted {border: 3px solid #F00 !important;}

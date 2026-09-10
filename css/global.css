@@ -4146,6 +4146,7 @@ button[data-menu-trigger-close] {
     width: 36px;
     height: 36px;
     border: 1px solid var(--form-field-border);
+    background-color: var(--form-form-field-background);
     border-radius: var(--space-4);
     display: grid;
     place-items: center;
@@ -4157,7 +4158,7 @@ button[data-menu-trigger-close] {
 }
 
 .checkbox-label input:checked+span {
-    color: var(--colour-brand-primary-default);
+    color: var(--colour-link-primary-default);
 }
 
 .checkbox-label input:checked+span::before {
@@ -4348,7 +4349,7 @@ button[data-menu-trigger-close] {
 a.text-link:link,
 a.text-link:visited {
     text-decoration: underline;
-    color: var(--colour-brand-primary-default);
+    color: var(--colour-link-primary-default);
 }
 
 /* Form field label "required" */
@@ -4443,7 +4444,7 @@ a.text-link:visited {
 /* Show / hide password link */
 .show-hide-password a:link,
 .show-hide-password a:hover {
-    color: var(--colour-brand-primary-default);
+    color: var(--colour-link-primary-default);
     font-weight: 500;
     text-decoration: underline;
     font-size: 14px;

@@ -124,7 +124,7 @@ if (!$ajax) {
 }
 ?>
 
-<?php $header_img_src = get_header_image(); ?>
+<?php $header_img_src = get_header_image(false, true); ?>
 
 <div id="LoginHeader">
     <img src="<?php echo $header_img_src; ?>" class="LoginHeaderImg" alt="<?php echo escape($applicationname); ?>">
