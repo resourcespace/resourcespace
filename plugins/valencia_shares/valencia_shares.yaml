@@ -1,0 +1,9 @@
+name: valencia_shares
+title: Valencia Collection Shares API
+author: Valencia Kommunikation AG
+version: 1.0
+desc: Exposes external collection share URL APIs for the Valencia DAM macOS app.
+info_url: https://dam.valencia.ch/
+category: API
+default_priority: 100
+disable_group_select: 0

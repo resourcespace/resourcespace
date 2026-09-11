@@ -14,6 +14,7 @@ if (!in_array($plugin_name, $plugins)) {
 }
 
 $page_def[] = config_add_single_ftype_select('cf_field', $lang['custom_filename_field_label'], 420);
+$page_def[] = config_add_boolean_select('cf_keep_extension', $lang['custom_filename_keep_extension']);
 
 config_gen_setup_post($page_def, $plugin_name);
 include '../../../include/header.php';
