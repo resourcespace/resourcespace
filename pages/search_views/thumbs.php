@@ -242,7 +242,7 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
                     <?php
                     // Remove from collection icon
                     if (!checkperm('b') && ($k == '' || $internal_share_access)) {
-                        $col_link_class = ['resource-card-add-remove', 'icon-minus'];
+                        $col_link_class = ['resource-card-add-remove'];
                         if (
                             isset($usercollection_resources)
                             && is_array($usercollection_resources)
@@ -262,7 +262,7 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
                         && !in_array($result[$n]['resource_type'], $collection_block_restypes)
                         && ('' == $k || $internal_share_access)
                     ) {
-                        $col_link_class = ['resource-card-add-remove', 'icon-plus'];
+                        $col_link_class = ['resource-card-add-remove'];
 
                         if (
                             isset($usercollection_resources)

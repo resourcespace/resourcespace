@@ -41,6 +41,8 @@ foreach ($selected_nodes as $selected_node) {
     }
 }
 
+$parents = ps_array('SELECT DISTINCT parent `value` from node WHERE active = 1', [], 'schema');
+
 foreach ($nodes as $node) {
     $node_opened = false;
 
@@ -60,7 +62,7 @@ foreach ($nodes as $node) {
                 'opened'   => $node_opened,
                 'selected' => in_array($node['ref'], $selected_nodes)
             ),
-            'children' => is_parent_node($node['ref'], true)
+            'children' => (is_array($parents) && in_array($node['ref'], $parents))
         );
 }
 

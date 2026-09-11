@@ -184,6 +184,10 @@ function csv_upload_process($filename, &$meta, $resource_types, &$messages, $csv
             $error_count++;
             continue;
         }
+        if (count(array_filter($line, fn($col) => mb_strlen($col) > 0)) === 0) {
+            # Empty row
+            continue;
+        }
 
         $processed_columns = array();
 

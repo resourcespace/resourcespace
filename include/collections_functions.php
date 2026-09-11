@@ -6248,8 +6248,8 @@ function upload_share_setup(string $key, $shareopts = array())
 
     if (!$upload_share_active || $upload_share_active != $collection) {
         // Create a new session even if one exists to ensure a new temporary collection is created for this share
-        rs_setcookie("rs_session", '', 7, "", "", substr($baseurl, 0, 5) == "https", true);
-        rs_setcookie("upload_share_active", $collection, 1, "", "", substr($baseurl, 0, 5) == "https", true);
+        rs_setcookie("rs_session", '', 7, "", "", substr($baseurl, 0, 5) == "https", true, "Lax");
+        rs_setcookie("upload_share_active", $collection, 1, "", "", substr($baseurl, 0, 5) == "https", true, "Lax");
         $upload_share_active = true;
     }
 

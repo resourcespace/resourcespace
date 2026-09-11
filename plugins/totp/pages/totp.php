@@ -26,7 +26,7 @@ if (getval("skip", "") != "" && checkperm("a")) {
 }
 
 if ($valid) {
-    rs_setcookie("totp", TOTP_cookie($userref), 365, "/", "", false, true); // Note - expires in a year, but the validity depends on the config, which may be much shorter.
+    rs_setcookie("totp", TOTP_cookie($userref), 365, "/", "", false, true, "Lax"); // Note - expires in a year, but the validity depends on the config, which may be much shorter.
     redirect("pages/home.php");
 }
 

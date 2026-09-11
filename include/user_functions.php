@@ -833,6 +833,10 @@ function save_user($ref, array $data=[])
             search_filter_override = ?, search_filter_o_id = ?, comments = ?, approved = ? " . $additional_sql . " where ref = ?", $sql_params);
     }
 
+    if ($passsql !== '') {
+        ps_query('INSERT INTO activity_log (logged, `user`, log_code, note) VALUES (NOW(), ?, ?, ?);', array('i', $GLOBALS['userref'], 's', LOG_CODE_EDITED, 's', "Set password for user: $username [$ref]"));
+    }
+
         // Add user group dash tiles as soon as we've changed the user group
     if (
             $home_dash

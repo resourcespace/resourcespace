@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <mask id="circle-plus-cutout">
+    <circle cx="12" cy="12" r="10" fill="white"/>
+    <path
+      d="M8 12h8M12 8v8"
+      fill="none"
+      stroke="black"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+  </mask>
+
+  <rect
+    width="24"
+    height="24"
+    fill="white"
+    mask="url(#circle-plus-cutout)"
+  />
+</svg>

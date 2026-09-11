@@ -5653,14 +5653,44 @@ options in the body so to target the one specifically for the header we had to u
     align-items: center;
     gap: 10px; 
     cursor: pointer;
-    height: 16px;
-    width: 16px;
-    color: var(--colour-surface-900);
-    background: transparent;
+    height: 20px;
+    width: 20px;
     font-size: 13px;
     font-weight: bold;
-    border: 2px solid var(--colour-surface-900);
-    border-radius: 50%;
+}
+
+.resource-card-add-remove.addToCollection {
+    background-color: var(--colour-surface-900);
+    mask-image: url('../gfx/interface/circle-plus.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    
+    -webkit-mask-image: url('../gfx/interface/circle-plus.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+}
+.resource-card-add-remove.addToCollection:is(:hover) {
+    mask-image: url('../gfx/interface/circle-plus-solid.svg');
+    -webkit-mask-image: url('../gfx/interface/circle-plus-solid.svg');
+}
+
+.resource-card-add-remove.removeFromCollection {
+    background-color: var(--colour-surface-900);
+    mask-image: url('../gfx/interface/circle-minus-solid.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    
+    -webkit-mask-image: url('../gfx/interface/circle-minus-solid.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+}
+.resource-card-add-remove.removeFromCollection:is(:hover) {
+    mask-image: url('../gfx/interface/circle-minus-solid.svg');
+    -webkit-mask-image: url('../gfx/interface/circle-minus-solid.svg');
 }
 
 .resource-card-add-remove:is(:active, :hover, :link, :visited ) {
