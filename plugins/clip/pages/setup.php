@@ -43,7 +43,7 @@ $page_def[] = config_add_percent_range("clip_duplicate_cutoff", $lang["clip_dupl
 
 $page_def[] = config_add_section_header($lang["clip-automatic-tagging"]);
 
-$page_def[] = config_add_single_ftype_select("clip_title_field", $lang["clip-title-field"], 300, false, $TEXT_FIELD_TYPES);
+$page_def[] = config_add_single_ftype_select("clip_title_field", $lang["clip-title-field"], 300, false, $TEXT_FIELD_TYPES, false, array($GLOBALS['filename_field']));
 $page_def[] = config_add_text_input("clip_title_url", $lang["clip-title-url"], false, 600);
 
 $page_def[] = config_add_single_ftype_select("clip_keyword_field", $lang["clip-keyword-field"], 300, false, $FIXED_LIST_FIELD_TYPES);

@@ -90,7 +90,7 @@ $lang["csv_upload_check_removebom"]             = "CSV file has BOM which was no
 
 $lang['csv_upload_validating'] = 'Validating';
 $lang['csv_upload_processing'] = 'Processing';
-$lang['processing_batch_edit_save'] = 'row [row_number] of [rows_count]';
+$lang['csv_upload_processing_row'] = 'row [row_number] of [rows_count]';
 
 $lang["page-title_csv_upload_csv_upload"] = "Upload CSV";
 

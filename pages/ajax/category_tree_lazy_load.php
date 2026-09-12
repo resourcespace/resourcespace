@@ -41,7 +41,7 @@ foreach ($selected_nodes as $selected_node) {
     }
 }
 
-$parents = ps_array('SELECT DISTINCT parent `value` from node WHERE active = 1', [], 'schema');
+$parents = ps_array('SELECT DISTINCT parent `value` from node WHERE active = 1 AND resource_type_field = ?', ['i', $field], 'schema');
 
 foreach ($nodes as $node) {
     $node_opened = false;

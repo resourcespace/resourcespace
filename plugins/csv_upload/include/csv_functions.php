@@ -198,7 +198,7 @@ function csv_upload_process($filename, &$meta, $resource_types, &$messages, $csv
             } else {
                 $set_processing_message = $lang["csv_upload_validating"];
             }
-            $set_processing_message .= ' ' . str_replace(["[row_number]","[rows_count]"], [$line_count, $estimate_csv_row_count], $lang["processing_batch_edit_save"]);
+            $set_processing_message .= ' ' . str_replace(["[row_number]","[rows_count]"], [$line_count, $estimate_csv_row_count], $lang["csv_upload_processing_row"]);
             set_processing_message($set_processing_message);
             $last_update_line = $line_count;
         }

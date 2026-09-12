@@ -563,7 +563,7 @@ function config_gen_setup_html($page_def, $plugin_name, $upload_status, $plugin_
                         config_multi_user_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3]);
                         break;
                     case 'single_ftype_select':
-                        config_single_ftype_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6]);
+                        config_single_ftype_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7]);
                         break;
                     case 'multi_ftype_select':
                         config_multi_ftype_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5]);

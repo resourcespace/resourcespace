@@ -1181,27 +1181,29 @@ function config_add_colouroverride_input($config_var, $label = '', $default = ''
  * Return a data structure that will instruct the configuration page generator functions to
  * add a single RS field-type select configuration variable to the setup page.
  *
- * @param string $config_var the name of the configuration variable to be added.
- * @param string $label the user text displayed to label the select block. Usually a $lang string.
- * @param integer $width the width of the input field in pixels. Default: 300.
- * @param integer $rtype optional to specify a resource type to get fields for
- * @param integer array $ftypes an array of field types e.g. (4,6,10) will return only fields of a date type
+ * @param  string    $config_var        The name of the configuration variable to be added.
+ * @param  string    $label             The user text displayed to label the select block. Usually a $lang string.
+ * @param  integer   $width             The width of the input field in pixels. Default: 300.
+ * @param  integer   $rtype             Optional to specify a resource type to get fields for
+ * @param  array     $ftypes            An array of field types e.g. (4,6,10) will return only fields of a date type
+ * @param  array     $excluded_fields   Array of resource type field refs that shouldn't be displayed, typically fields with defined functions.
  */
-function config_add_single_ftype_select($config_var, $label, $width = 300, $rtype = false, $ftypes = array(), $autosave = false)
+function config_add_single_ftype_select($config_var, $label, $width = 300, $rtype = false, $ftypes = array(), $autosave = false, array $excluded_fields = array()) : array
 {
-    return array('single_ftype_select', $config_var, $label, $width, $rtype, $ftypes,$autosave);
+    return array('single_ftype_select', $config_var, $label, $width, $rtype, $ftypes, $autosave, $excluded_fields);
 }
 
 /**
  * Generate an html single-select + options block for selecting one of the RS field types. The
  * selected field type is posted as the value of the "ref" column of the selected field type.
  *
- * @param string $name the name of the select block. Usually the name of the config variable being set.
- * @param string $label the user text displayed to label the select block. Usually a $lang string.
- * @param integer $current the current value of the config variable being set
- * @param integer $width the width of the input field in pixels. Default: 300.
+ * @param  string    $name              The name of the select block. Usually the name of the config variable being set.
+ * @param  string    $label             The user text displayed to label the select block. Usually a $lang string.
+ * @param  integer   $current           The current value of the config variable being set
+ * @param  integer   $width             The width of the input field in pixels. Default: 300.
+ * @param  array     $excluded_fields   Array of resource type field refs that shouldn't be displayed, typically fields with defined functions.
  */
-function config_single_ftype_select($name, $label, $current, $width = 300, $rtype = false, $ftypes = array(), $autosave = false)
+function config_single_ftype_select($name, $label, $current, $width = 300, $rtype = false, $ftypes = array(), $autosave = false, array $excluded_fields = array())
 {
     global $lang;
 
@@ -1234,7 +1236,11 @@ function config_single_ftype_select($name, $label, $current, $width = 300, $rtyp
             <option value="" <?php echo $current == "" ? ' selected' : ''; ?>>
                 <?php echo escape($lang["select"]); ?>
             </option>
-            <?php foreach ($fields as $field) { ?>
+            <?php foreach ($fields as $field) { 
+                if (in_array($field['ref'], $excluded_fields)) {
+                    continue;
+                }
+                ?>
                 <option value="<?php echo (int) $field['ref']; ?>" <?php echo $current == $field['ref'] ? ' selected' : ''; ?>>
                     <?php echo escape(lang_or_i18n_get_translated($field['title'], 'fieldtitle-')); ?>
                 </option>
@@ -1430,7 +1436,7 @@ function config_generate_html(array $page_def)
                 config_multi_rtype_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3]);
                 break;
             case 'single_ftype_select':
-                config_single_ftype_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6]);
+                config_single_ftype_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7]);
                 break;
             case 'multi_archive_select':
                 config_multi_archive_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4]);
