@@ -300,7 +300,6 @@ include "../include/header.php";
     $results = count($collections);
     $totalpages = ceil($results / $per_page);
     $curpage = floor($offset / $per_page) + 1;
-    $jumpcount = 1;
 
     # Create an a-z index
     $atoz = "<div class=\"InpageNavLeftBlock\">";

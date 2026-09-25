@@ -1611,7 +1611,7 @@ function rs_quoted_printable_encode_subject($string, $encoding = 'UTF-8')
  */
 function pager($break = false, $scrolltotop = true, $options = array())
 {
-    global $curpage, $url, $url_params, $totalpages, $offset, $per_page, $jumpcount, $pagename, $confirm_page_change, $lang;
+    global $curpage, $url, $url_params, $totalpages, $offset, $per_page, $pagename, $confirm_page_change, $lang;
 
     $curpage = $options['curpage'] ?? $curpage;
     $url = $options['url'] ?? $url;
@@ -1619,12 +1619,10 @@ function pager($break = false, $scrolltotop = true, $options = array())
     $totalpages = $options['totalpages'] ?? $totalpages;
     $offset = $options['offset'] ?? $offset;
     $per_page = $options['per_page'] ?? $per_page;
-    $jumpcount = $options['jumpcount'] ?? $jumpcount;
     $confirm_page_change = $options['confirm_page_change'] ?? $confirm_page_change;
 
     $modal  = ('true' == getval('modal', ''));
     $scroll =  $scrolltotop ? "true" : "false";
-    $jumpcount++;
 
     // If pager URL includes query string params, remove them and store in $url_params array
     if (!isset($url_params) && strpos($url, "?") !== false) {
@@ -1651,16 +1649,16 @@ function pager($break = false, $scrolltotop = true, $options = array())
             <?php } ?>
             <i aria-hidden="true" class="icon-arrow-left"></i><?php echo ($curpage > 1) ? "</a>" : ''; ?>&nbsp;&nbsp;
 
-            <div class="JumpPanel" id="jumppanel<?php echo $jumpcount?>" style="display:none;">
+            <div class="JumpPanel" style="display:none;">
                 <?php echo escape($lang["jumptopage"]) ?>: 
                 <input
                     type="text"
                     size="1"
-                    id="jumpto<?php echo $jumpcount?>"
+                    class="JumpTo"
                     onkeydown="
                         var evt = event || window.event;
                         if (evt.keyCode == 13) {
-                            var jumpto = document.getElementById('jumpto<?php echo $jumpcount?>').value;
+                            var jumpto = this.value;
                             if (jumpto < 1) {
                                 jumpto = 1;
                             };
@@ -1675,19 +1673,22 @@ function pager($break = false, $scrolltotop = true, $options = array())
                     class="icon-circle-x"
                     href="#"
                     onclick="
-                        document.getElementById('jumppanel<?php echo $jumpcount?>').style.display='none';
-                        document.getElementById('jumplink<?php echo $jumpcount?>').style.display='inline';">
+                        var pager = this.closest('.TopInpageNavRight');
+                        pager.querySelector('.JumpPanel').style.display='none';
+                        pager.querySelector('.JumpLink').style.display='inline';
+                        return false;">
                 </a>
             </div>
 
             <a
                 href="#"
-                id="jumplink<?php echo $jumpcount?>"
+                class="JumpLink"
                 title="<?php echo escape($lang["jumptopage"]) ?>"
                 onclick="
-                    document.getElementById('jumppanel<?php echo $jumpcount?>').style.display='inline';
-                    document.getElementById('jumplink<?php echo $jumpcount?>').style.display='none';
-                    document.getElementById('jumpto<?php echo $jumpcount?>').focus();
+                    var pager = this.closest('.TopInpageNavRight');
+                    pager.querySelector('.JumpPanel').style.display='inline';
+                    this.style.display='none';
+                    pager.querySelector('.JumpTo').focus();
                     return false;">
                 <?php echo escape($lang["page"]) ?>&nbsp;<?php echo escape($curpage) ?>&nbsp;<?php echo escape($lang["of"]) ?>&nbsp;<?php echo $totalpages?>
             </a>

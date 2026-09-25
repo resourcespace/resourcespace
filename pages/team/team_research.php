@@ -48,7 +48,6 @@ include "../../include/header.php";
     $totalpages = ceil($results / $per_page);
     $curpage = floor($offset / $per_page) + 1;
     $url = "team_research.php?find=" . urlencode($find) . "&order_by=" . $order_by . "&sort=" . $sort . "&find=" . urlencode($find) . "";
-    $jumpcount = 1;
     ?>
 
     <div class="TopInpageNav"><?php pager(); ?></div>

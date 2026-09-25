@@ -120,7 +120,7 @@ function get_user_actions($countonly = false, $type = "", $order_by = "date", $s
     } else {
         $final_action_sql = new PreparedStatementQuery(
             sprintf(
-                'SELECT date, allactions.ref, user.fullname AS user,%s `description`, `type`
+                'SELECT `date`, allactions.ref, user.fullname AS user,%s `description`, `type`
                 FROM (%s) allactions
                 LEFT JOIN user ON allactions.user = user.ref
                 %s

@@ -43,7 +43,6 @@ $results=count($news);
 $totalpages=ceil($results/$per_page);
 $curpage=floor($offset/$per_page)+1;
 $url="news_edit.php?findtext=".urlencode($findtext)."&offset=". $offset;
-$jumpcount=1;
 ?>
 
 <div class="BasicsBox">

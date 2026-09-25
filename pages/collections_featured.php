@@ -251,16 +251,18 @@ if ($parent > 0) {
 <div class="BasicsBox FeaturedSimpleLinks">
     <?php
 
-    $featured_collections = ($smart_rtf == 0 ? get_featured_collections($parent, array()) : array());
-    usort($featured_collections, "order_featured_collections");
-    render_featured_collections(
-            [
-                "general_url_params" => $general_url_params,
-                "all_fcs" => $all_fcs,
-                "reorder" => can_reorder_featured_collections()
-            ],
-        $featured_collections
-    );
+    if ($smart_rtf == 0) {
+        $featured_collections = get_featured_collections($parent, array());
+        usort($featured_collections, "order_featured_collections");
+        render_featured_collections(
+                [
+                    "general_url_params" => $general_url_params,
+                    "all_fcs" => $all_fcs,
+                    "reorder" => can_reorder_featured_collections()
+                ],
+            $featured_collections
+        );
+    }
 
     $smart_fcs_list = array();
 

@@ -69,7 +69,6 @@ $url_params = array(
         $totalpages = ceil($results / $per_page);
         $curpage = floor($offset / $per_page) + 1;
         $url = "list.php?findtext=" . urlencode($findtext) . "&offset=" . $offset;
-        $jumpcount = 1;
         ?>
 
         <p>

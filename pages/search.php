@@ -358,8 +358,6 @@ if($resetlockedfields)
     rs_setcookie('lockedfields', '',0,"","",false,false);
     }
 
-$jumpcount=0;
-
 if (getval('recentdaylimit', '', true)!="") //set for recent search, don't set cookie
     {
     $daylimit=getval('recentdaylimit', '', true);

@@ -42,7 +42,6 @@ include "../../include/header.php";
     $totalpages = ceil($results / $per_page);
     $curpage = floor($offset / $per_page) + 1;
     $url = "team_related_keywords.php?find=" . urlencode($find);
-    $jumpcount = 1;
     ?>
     
     <div class="TopInpageNav"><?php pager();  ?></div>

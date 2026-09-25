@@ -42,8 +42,6 @@ $offset = getval("offset", 0, true);
     $totalpages = ceil($results / $per_page);
     $curpage = floor($offset / $per_page) + 1;
     $url = "team_request.php?";
-    $jumpcount = 1;
-
     ?>
     <div class="TopInpageNav">
         <?php pager();  ?>

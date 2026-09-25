@@ -45,33 +45,33 @@ function tile_select($tile_type, $tile_style, $tile, $tile_id, $tile_width, $til
         */
         case "srch":
             switch ($tile_style) {
-            case "thmbs":
-                $promoted_image = getval("promimg", false);
-                tile_search_thumbs($tile, $tile_id, $tile_width, $tile_height, $promoted_image);
-                exit;
-            case "multi":
-                tile_search_multi_or_blank($tile, $tile_id, $tile_width, $tile_height);
-                exit;
-            case "blank":
-                tile_freetext($tile, $tile_id);
-                exit;
+                case "thmbs":
+                    $promoted_image = getval("promimg", false);
+                    tile_search_thumbs($tile, $tile_id, $tile_width, $tile_height, $promoted_image);
+                    exit;
+                case "multi":
+                    tile_search_multi_or_blank($tile, $tile_id, $tile_width, $tile_height);
+                    exit;
+                case "blank":
+                    tile_freetext($tile, $tile_id);
+                    exit;
             }
         /*
         * Featured collection - themes specific tiles
         */
         case "fcthm":
-        switch ($tile_style) {
-            case 'thmbs':
-                tile_featured_collection_thumbs($tile, $tile_id, $tile_width, $tile_height, getval('promimg', 0));
-                exit;
-            case 'multi':
-                tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_height, getval('promimg', 0));
-                exit;
-            case 'blank':
-            default:
-                tile_freetext($tile, $tile_id);
-                exit;
-        }
+            switch ($tile_style) {
+                case 'thmbs':
+                    tile_featured_collection_thumbs($tile, $tile_id, $tile_width, $tile_height, getval('promimg', 0));
+                    exit;
+                case 'multi':
+                    tile_featured_collection_multi($tile, $tile_id, $tile_width, $tile_height, getval('promimg', 0));
+                    exit;
+                case 'blank':
+                default:
+                    tile_freetext($tile, $tile_id);
+                    exit;
+            }
     }
 }
 

@@ -404,7 +404,6 @@ $per_page    = (int) getval('per_page_list', $default_perpage_list, true);
 $count_nodes = get_nodes_count($field, $filter_by_name);
 $totalpages  = ceil($count_nodes / $per_page);
 $curpage     = floor($offset / $per_page) + 1;
-$jumpcount   = 0;
 
 // URL used for redirect on JS - AddNode() when used in combination with the pager in order to add the node at the end of
 // the options list

@@ -67,7 +67,6 @@ include "../../include/header.php";
     $totalpages = ceil($results / $per_page);
     $curpage = floor($offset / $per_page) + 1;
     $url = $baseurl_short . "pages/admin/admin_content.php?findpage=" . urlencode($findpage) . "&findname=" . urlencode($findname) . "&findtext=" . urlencode($findtext);
-    $jumpcount = 1;
     ?>
     
     <div style="float:right;margin-top:-5px;">

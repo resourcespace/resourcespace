@@ -80,7 +80,6 @@ $archive = getval("archive", 0);
 if (strpos($search, "!") === false) {
     setcookie("saved_archive", $archive, 0, '', '', false, true);
 }
-$jumpcount = 0;
 
 # fetch resource types from query string and generate a resource types cookie
 if (getval("resetrestypes", "") == "") {

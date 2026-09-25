@@ -1779,31 +1779,19 @@ function get_smart_themes_nodes($field, $is_category_tree, $parent = null, array
         return $return;
     }
 
-    /*
-    Tidy list so it matches the storage format used for keywords
-    The translated version is fetched as each option will be indexed in the local language version of each option
-    */
-    $options_base = array();
-    for ($n = 0; $n < count($nodes); $n++) {
-        $options_base[$n] = trim(mb_convert_case(i18n_get_translated($nodes[$n]['name']), MB_CASE_LOWER, 'UTF-8'));
-    }
+    $parent_nodes = ps_array('SELECT DISTINCT parent `value` from node', [], 'schema');
+    $parent_is_parent = !is_null($parent) && in_array($parent, $parent_nodes);
 
     // For each option, if it is in use, add it to the return list
     for ($n = 0; $n < count($nodes); $n++) {
-        $cleaned_option_base = preg_replace('/\W/', ' ', $options_base[$n]);      // replace any non-word characters with a space
-        $cleaned_option_base = trim($cleaned_option_base);      // trim (just in case prepended / appended space characters)
-
         $tree_node_depth    = 0;
         $parent_node_to_use = 0;
         $is_parent          = false;
-
-        if (is_parent_node($nodes[$n]['ref'])) {
+        if (in_array($nodes[$n]['ref'], $parent_nodes)) {
             $parent_node_to_use = $nodes[$n]['ref'];
             $is_parent          = true;
-
             $tree_node_depth = get_tree_node_level($nodes[$n]['ref']);
-
-            if (!is_null($parent) && is_parent_node($parent)) {
+            if ($parent_is_parent) {
                 $tree_node_depth--;
             }
         }

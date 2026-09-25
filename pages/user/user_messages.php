@@ -61,7 +61,6 @@ include "../../include/header.php";
             $results = count($messages);
             $totalpages = ceil($results / $per_page);
             $curpage = floor($offset / $per_page) + 1;
-            $jumpcount = 1;
 
             $unread = false;
 

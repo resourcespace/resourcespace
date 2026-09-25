@@ -38,7 +38,6 @@ $revsort = ($sort == "ASC") ? "DESC" : "ASC";
 $all_actions = get_user_actions(false, $actiontype, $order_by, $sort);
 
 # pager
-$jumpcount = 1;
 $per_page = getval("per_page_list", $default_perpage_list);
 $results = count($all_actions);
 $totalpages = ceil($results / $per_page);

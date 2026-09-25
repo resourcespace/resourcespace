@@ -168,8 +168,6 @@ include "../../include/header.php";
         "find"      => $find]
     );
 
-    $jumpcount = 1;
-
     # Create an a-z index
     $atoz = "<div class=\"InpageNavLeftBlock\">";
 

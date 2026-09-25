@@ -69,7 +69,6 @@ $offset=getval('offset',0,true);
 $totalpages=ceil(count($watched_searches)/WATCHED_SEARCHES_ITEMS_PER_PAGE);
 $curpage=floor($offset/WATCHED_SEARCHES_ITEMS_PER_PAGE)+1;
 $per_page=WATCHED_SEARCHES_ITEMS_PER_PAGE;
-$jumpcount=1;
 
 $url_set_params = array();
 if($find != "")

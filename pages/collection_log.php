@@ -25,7 +25,6 @@ $log     = $log["data"];
 $totalpages = ceil($results / $per_page);
 $curpage = floor($offset / $per_page) + 1;
 $url = $baseurl . "/pages/collection_log.php?ref=" . escape($ref);
-$jumpcount = 1;
 
 # Fetch and translate collection name
 $colinfo = get_collection($ref);

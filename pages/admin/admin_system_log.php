@@ -105,7 +105,6 @@ $per_page = (int) getval('per_page_list', $default_perpage_list, true);
 $all_records = get_activity_log($log_search, null, null, $log_tables_where_statements, $table, $table_reference, true);
 $totalpages = ceil($all_records / $per_page);
 $curpage = floor($offset / $per_page) + 1;
-$jumpcount = 0;
 // End of paging functionality
 
 include "../../include/header.php";
