@@ -4992,10 +4992,18 @@ function render_featured_collections(array $ctx, array $items)
             $fc_category_url = generateURL("{$baseurl_short}pages/collections_featured.php", $general_url_params, array("parent" => $fc["ref"]));
             $fc_category_has_children = (isset($fc["has_children"]) ? (bool) $fc["has_children"] : false);
 
+            $fc_category_has_resources = !empty(
+                get_featured_collection_categ_sub_fcs(
+                    $fc,
+                    array("all_fcs" => $all_fcs)
+                )
+            );
+
+
             $render_ctx["href"] = $fc_category_url;
             $render_ctx["tools"] = array();
 
-            if(checkPermission_dashmanage())
+            if(checkPermission_dashmanage() && $fc_category_has_resources)
                 {
                 $render_ctx["tools"][] = array(
                     "href" => generateURL(

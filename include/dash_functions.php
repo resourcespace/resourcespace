@@ -480,7 +480,6 @@ function get_default_dash($user_group_id = null, $edit_mode = false)
     }
 
     foreach ($tiles as $tile) {
-        maybe_update_stale_featured_collection_dash_tile($tile);
         $contents_tile_class = '';
 
         if (($order != $tile["order_by"] || ($tile["order_by"] % 10) > 0) && is_null($user_group_id)) {
@@ -632,7 +631,6 @@ function get_managed_dash()
     );
 
     foreach ($tiles as $tile) {
-        maybe_update_stale_featured_collection_dash_tile($tile);
         $buildstring = explode('?', $tile['url']);
         list($url_page, $buildstring) = $buildstring;
         parse_str(str_replace('&amp;', '&', $buildstring), $buildstring);
@@ -1267,7 +1265,6 @@ function get_user_dash($user)
     $order = 10;
 
     foreach ($user_tiles as $tile) {
-        maybe_update_stale_featured_collection_dash_tile($tile);
         if ($order != $tile["order_by"] || ($tile["order_by"] % 10) > 0) {
             update_user_dash_tile_order($user, $tile["user_tile"], $order);
         }
@@ -1435,113 +1432,6 @@ function render_delete_dialog_JS($all_users = false)
     <?php
 }
 
-/**
- * Check whether a featured collection dash tile has become stale and update it if required.
- *
- * A featured collection added to the dash while empty is stored as an "fcthm" tile linking to
- * collections_featured.php?parent={collection}. If resources are subsequently added, the same
- * collection should instead behave as a search tile linking to search.php?search=!collection{ref}.
- *
- * @param array $tile Dash tile data
- *
- * @return bool True if the dash tile was updated, otherwise false
- */
-function maybe_update_stale_featured_collection_dash_tile(array &$tile): bool
-{
-    if (
-        strpos($tile['url'], 'tltype=fcthm') === false
-        || strpos($tile['link'], 'collections_featured.php') === false
-    ) {
-        return false;
-    }
-
-    $url_query = parse_url($tile['url'], PHP_URL_QUERY);
-
-    if ($url_query === false || is_null($url_query)) {
-        return false;
-    }
-
-    parse_str(str_replace('&amp;', '&', $url_query), $url_params);
-
-    // Only old featured collection/category tiles are relevant here.
-    if (($url_params['tltype'] ?? '') !== 'fcthm') {
-        return false;
-    }
-
-    // Extract the featured collection reference from the stored tile link.
-    $link_query = parse_url($tile['link'], PHP_URL_QUERY);
-
-    if ($link_query === false || is_null($link_query)) {
-        return false;
-    }
-
-    parse_str(str_replace('&amp;', '&', $link_query), $link_params);
-
-    $collection_ref = (int) ($link_params['parent'] ?? 0);
-
-    if ($collection_ref <= 0) {
-        return false;
-    }
-
-    // Confirm that the linked collection still exists.
-    $collection_data = get_collection($collection_ref);
-
-    if (!is_array($collection_data)) {
-        return false;
-    }
-
-    // Only normal featured collections can transition from an empty category-style tile
-    // to a populated search-style tile. Leave other collection types and smart FCs alone.
-    if (
-        $collection_data['type'] != COLLECTION_TYPE_FEATURED
-        || (isset($collection_data['smart']) && (bool) $collection_data['smart'])
-    ) {
-        return false;
-    }
-
-    // Recalculate the current resource state because the collection may have been empty
-    // when the dash tile was originally created.
-    $collection_resources = get_collection_resources($collection_ref);
-    $collection_data['has_resources'] = !empty($collection_resources) ? 1 : 0;
-
-    // If it is still a featured collection category, the existing tile is still valid.
-    $is_featured_collection_category = (
-        is_featured_collection_category($collection_data)
-        || is_featured_collection_category_by_children($collection_ref)
-    );
-
-    if ($is_featured_collection_category) {
-        return false;
-    }
-
-    // The collection is now populated, so make the tile equivalent to one created
-    // after resources had already been added.
-    $new_link = "pages/search.php?search=!collection" . $collection_ref;
-
-    $new_url = preg_replace(
-        '/([?&])tltype=fcthm(?=&|$)/',
-        '$1tltype=srch',
-        $tile['url'],
-        1
-    );
-
-    if (!is_string($new_url)) {
-        return false;
-    }
-
-    // Persist the corrected tile type and destination so this check is only needed once.
-    ps_query(
-        "UPDATE dash_tile SET url = ?, link = ? WHERE ref = ?",
-        ['s', $new_url, 's', $new_link, 'i', $tile['tile']]
-    );
-
-    // Also update the current in-memory tile so the first page load uses the corrected
-    // destination without requiring a refresh.
-    $tile['url'] = $new_url;
-    $tile['link'] = $new_link;
-
-    return true;
-}
 /*
  * Helper Functions
  */
