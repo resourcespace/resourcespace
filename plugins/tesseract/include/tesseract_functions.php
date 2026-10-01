@@ -11,9 +11,11 @@ use Montala\ResourceSpace\CommandPlaceholderArg;
  * - Selects resources with supported file extensions that have not yet been transcribed.
  * - Invokes tesseract_process() for each selected resource.
  *
+ * @param  bool   $run_as_cron   Applies batch size limit when running via cron_copy_hitcount.php
+ *
  * @return int|false Returns the number of resources processed, or false if a process lock is active.
  */
-function tesseract_process_unprocessed()
+function tesseract_process_unprocessed(bool $run_as_cron = false)
 {
     // Process all resources that haven't had text extracted yet.
     global $tesseract_extensions, $tesseract_field;
@@ -37,7 +39,14 @@ function tesseract_process_unprocessed()
 
     $extensions = explode(",", $tesseract_extensions);
 
-    $resources = ps_array("SELECT ref value FROM resource WHERE file_extension in (" .     ps_param_insert(count($extensions)) . ") and (tesseract_processed is null or tesseract_processed=0) ORDER BY ref desc", ps_param_fill($extensions, "s"));
+    $sql = "SELECT ref AS `value` FROM `resource` WHERE file_extension IN (" . ps_param_insert(count($extensions)) . ") and (tesseract_processed is null or tesseract_processed = 0) ORDER BY ref DESC";
+    $params = ps_param_fill($extensions, "s");
+    if ($run_as_cron) {
+        global $cron_tesseract_resources_per_batch;
+        $sql .= " LIMIT ?";
+        $params = array_merge($params, array('i', $cron_tesseract_resources_per_batch));
+    }
+    $resources = ps_array($sql, $params);
 
     logScript("tesseract: " . count($resources) . " resources to process.");
     foreach ($resources as $resource) {

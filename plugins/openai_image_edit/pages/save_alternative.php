@@ -1,46 +1,57 @@
 <?php
+
+use function Montala\ResourceSpace\Plugins\OpenAiImageEdit\process_encoded_file;
+
 include "../../../include/boot.php";
 include "../../../include/authenticate.php";
 include_once "../../../include/image_processing.php";
+include_once '../../../include/ajax_functions.php';
+include_once '../include/openai_image_edit_functions.php';
 // Save the submitted file as an alternative file to the resource record
+
+header('Content-Type: application/json');
 
 $ref=getval("ref",0,true);
 $access=get_resource_access($ref);
 $edit_access=get_edit_access($ref);
 
-if ($access!=0 || !$edit_access)
+if ($access != RESOURCE_ACCESS_FULL || !$edit_access)
     {
-    // They shouldn't arrive here
-    exit("Access denied");
+    ajax_send_response(403, ajax_response_fail(ajax_build_message(text('error-permissiondenied'))));
     }
 
 set_processing_message($lang["openai_image_edit__saving_alternative"]);
 
-// Extract the base64-encoded image data
-$imageData = getval('imageData','');
-// Remove the data URL scheme part (e.g., 'data:image/jpeg;base64,')
-$imageData = str_replace('data:image/jpeg;base64,', '', $imageData);
-$imageData = str_replace('data:image/png;base64,', '', $imageData);
-$imageData = str_replace('data:image/webp;base64,', '', $imageData);
+$process_encoded_file = process_encoded_file(getval('imageData', ''), getval('imageType', ''));
+if ($process_encoded_file['status'] !== 'success') {
+    ajax_send_response($process_encoded_file['code'], array_diff_key($process_encoded_file, ['code' => null]));
+}
 
-// Replace any spaces with '+', as they may have been incorrectly encoded
-$imageData = str_replace(' ', '+', $imageData);
+$processed_tmp_file = new SplFileInfo($process_encoded_file['data']['file_path']);
+$extension = $processed_tmp_file->getExtension();
 
-// Decode the base64-encoded image data
-$imageData = base64_decode($imageData);
+$alt = add_alternative_file(
+    $ref,
+    $lang["openai_image_edit__filename"] . " (" . $username . ", " . strtoupper($extension). ")",
+    "",
+    $processed_tmp_file->getFilename(),
+    $extension,
+    $processed_tmp_file->getSize()
+);
 
-$imageType = getval('imageType','');
-$extension = explode("/",$imageType)[1];
+$process_file_upload = process_file_upload(
+    $processed_tmp_file,
+    new SplFileInfo(get_resource_path($ref, true, '', true, $extension, true, 1, false, '', $alt)),
+    ['allow_extensions' => ['jpg', 'png', 'webp']]
+);
+if (!$process_file_upload['success']) {
+    ajax_send_response(
+        403,
+        ajax_response_fail(ajax_build_message($process_file_upload['error']->i18n($GLOBALS['lang'])))
+    );
+}
 
-$alt=add_alternative_file($ref,$lang["openai_image_edit__filename"] . " (" . $username . ", " . strtoupper($extension). ")","",$imageType,$extension,strlen($imageData));
-
-// Save file
-$path=get_resource_path($ref,true,'',true,$extension,true,1,false,'',$alt);
-file_put_contents($path,$imageData);
-
-// Create previews
 set_processing_message($lang["openai_image_edit__generating_alternative_previews"]);
 create_previews($ref,false,$extension,false,false,$alt);
 
-header('Content-Type: application/json');
-echo json_encode(["status"=>"OK"]);
+ajax_send_response(200, ajax_response_ok_no_data());

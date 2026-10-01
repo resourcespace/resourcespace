@@ -220,16 +220,24 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(async response => {
+            const result = await response.json();
+
+            if (!response.ok || result.status !== 'success') {
+                throw new Error(result.data?.message ?? `HTTP error ${response.status}`);
+            }
+
+            return result.data;
+        })
         .then(result => {
             if (downloadAction === 'alternative') {
                 window.location.href = view_url;
             } else {
-                window.location.href = view_new_url + result['resource'];
+                window.location.href = view_new_url + result.resource;
             }
         })
         .catch(error => {
-            alert('Error submitting image:' + error);
+            alert('Error submitting image: ' + error.message);
         });
     }
 });

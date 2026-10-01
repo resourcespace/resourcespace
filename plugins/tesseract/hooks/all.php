@@ -9,7 +9,7 @@ include_once dirname(__FILE__, 2) . '/include/tesseract_functions.php';
  */
 function HookTesseractAllCron()
 {
-    tesseract_process_unprocessed();
+    tesseract_process_unprocessed(true);
 }
 
 /**
