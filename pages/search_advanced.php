@@ -82,7 +82,7 @@ if (getval("submitted", "") == "yes" && getval("resetform", "") == "") {
     if (getval("countonly", "") != "") {
         # Only show the results (this will appear in an iframe)
         if (substr($restypes, 0, 19) != "FeaturedCollections") {
-            $result = do_search($search, $restypes, "relevance", $archive, ($matching_results_total + 1), "", false, DEPRECATED_STARSEARCH, false, false, "", false, false, true, false, false, $access);
+            $result = do_search($search, $restypes, "relevance", $archive, [0,0], "", false, DEPRECATED_STARSEARCH, false, false, "", false, false, true, false, false, $access);
         } else {
             $order_by = $default_collection_sort;
             $sort = "DESC";
@@ -112,8 +112,6 @@ if (getval("submitted", "") == "yes" && getval("resetform", "") == "") {
 
             <?php if ($count == 0) { ?>
                 populate_view_buttons("<?php echo escape($lang["nomatchingresults"]); ?>");
-            <?php } elseif ($count > $matching_results_total) { ?>
-                populate_view_buttons("<?php echo escape($lang["view"] . " " . $matching_results_total . "+ " . $lang["matchingresults"]); ?>");
             <?php } else { ?>
                 populate_view_buttons("<?php echo escape($lang["view"] . " " . number_format($count) . " " . $lang["matchingresults"]); ?>");
             <?php } ?>

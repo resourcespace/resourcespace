@@ -3261,7 +3261,3 @@ $api_issue_valid_destinations = [
         "stateparam" => "state",
     ],
 ];
-
-// Total resurce count the "matching results" value in advanced search should check for.
-$matching_results_total = 100000;
- 
