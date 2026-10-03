@@ -419,37 +419,43 @@ if ($addsearch != -1) {
 
                 if (!empty($resourcesnotadded)) {
                     $warningtext = "";
-                    if (isset($resourcesnotadded["blockedtypes"])) {
-                        // There are resource types blocked due to $collection_block_restypes
-                        $warningtext = $lang["collection_restype_blocked"] . "<br /><br />";
-                        $blocked_types = get_resource_types(implode(",", $resourcesnotadded["blockedtypes"]));
 
-                        foreach ($blocked_types as $blocked_type) {
-                            if ($warningtext == "") {
-                                $warningtext .= "<ul>";
+                    if (isset($resourcesnotadded['category'])) {
+                        $warningtext = $lang['collection_category_blocked'] . implode(", ", $resourcesnotadded['category']) . "<br />";
+                    } else {
+
+                        if (isset($resourcesnotadded["blockedtypes"])) {
+                            // There are resource types blocked due to $collection_block_restypes
+                            $warningtext = $lang["collection_restype_blocked"] . "<br /><br />";
+                            $blocked_types = get_resource_types(implode(",", $resourcesnotadded["blockedtypes"]));
+
+                            foreach ($blocked_types as $blocked_type) {
+                                if ($warningtext == "") {
+                                    $warningtext .= "<ul>";
+                                }
+                                $warningtext .= "<li>" . $blocked_type["name"] . "</li>";
                             }
-                            $warningtext .= "<li>" . $blocked_type["name"] . "</li>";
+
+                            $warningtext .= "</ul>";
+                            unset($resourcesnotadded["blockedtypes"]);
                         }
 
-                        $warningtext .= "</ul>";
-                        unset($resourcesnotadded["blockedtypes"]);
-                    }
-
-                    if (isset($resourcesnotadded["blockedshares"])) {
-                        // There are resources blocked from being added due to share permissions
-                        if ($warningtext != "") {
-                            $warningtext .= "<br />";
+                        if (isset($resourcesnotadded["blockedshares"])) {
+                            // There are resources blocked from being added due to share permissions
+                            if ($warningtext != "") {
+                                $warningtext .= "<br />";
+                            }
+                            $warningtext .= $lang["notsharableresources"] . implode(", ", $resourcesnotadded["blockedshares"]) . "<br />";
+                            unset($resourcesnotadded["blockedshares"]);
                         }
-                        $warningtext .= $lang["notsharableresources"] . implode(", ", $resourcesnotadded["blockedshares"]) . "<br />";
-                        unset($resourcesnotadded["blockedshares"]);
-                    }
-                    
-                    if (!empty($resourcesnotadded)) {
-                        // There are resources blocked from being added due to archive state
-                        if ($warningtext != "") {
-                            $warningtext .= "<br />";
+                        
+                        if (!empty($resourcesnotadded)) {
+                            // There are resources blocked from being added due to archive state
+                            if ($warningtext != "") {
+                                $warningtext .= "<br />";
+                            }
+                            $warningtext .= $lang["notapprovedresources"] . implode(", ", $resourcesnotadded);
                         }
-                        $warningtext .= $lang["notapprovedresources"] . implode(", ", $resourcesnotadded);
                     }
 
                     ?>

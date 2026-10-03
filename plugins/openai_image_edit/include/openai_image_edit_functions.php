@@ -8,7 +8,7 @@ use finfo;
 use Throwable;
 
 /**
- * Process an unstrusted submitted file that has been base64 encoded.
+ * Process an untrusted submitted file that has been base64 encoded.
  *
  * @param string $image_data File data as submitted
  * @param string $output_image_type The desired file type of the final image

@@ -7,3 +7,4 @@ starsearch,int(11),
 archive,varchar(50),Workflow states (comma separated)
 created,timestamp,Date created
 result_limit,int(11),Maximum number of results to return
+last_updated,datetime,Last time smart collection was asynchronously updated 

@@ -2432,6 +2432,11 @@ function add_saved_search_items(
         return false;
     }
 
+    if ($sub_fcs = get_featured_collections($collection, [])) {
+        $titles['category'] = array_column($sub_fcs, 'ref');
+        return $titles;
+    }
+
     global $collection_share_warning, $collection_allow_not_approved_share, $userref, $collection_block_restypes, $search_all_workflow_states;
 
     # Adds resources from a search to the collection.

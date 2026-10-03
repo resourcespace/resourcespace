@@ -2869,10 +2869,10 @@ function update_search_from_request($search)
                         continue;
                     } elseif (!is_array($searched_field_nodes)) {
                         $node_ref .= ', ' . NODE_TOKEN_PREFIX . $searched_field_nodes;
-
                         continue;
                     }
 
+                    $node_ref .= ', ';
                     foreach ($searched_field_nodes as $searched_node_ref) {
                         $node_ref .= NODE_TOKEN_PREFIX . $searched_node_ref;
                     }

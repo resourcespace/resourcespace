@@ -3673,3 +3673,5 @@ $lang['thumbnails_collection_bar'] = "Thumbnails";
 
 $lang['readmore'] = "Read more";
 $lang['showwelcometext'] = "Show welcome info";
+
+$lang['collection_category_blocked'] = "Can't add resources to a featured collection category, blocked by the following collections: ";
