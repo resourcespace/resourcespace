@@ -4200,7 +4200,7 @@ function compile_collection_actions(array $collection_data, $top_actions, $resou
     }
 
     // Add option to publish as featured collection
-    if ($enable_themes && ($k == '' || $internal_share_access) && checkperm("h") && !in_array($collection_data['type'], [COLLECTION_TYPE_REQUEST,COLLECTION_TYPE_SELECTION])) {
+    if ($enable_themes && ($k == '' || $internal_share_access) && checkperm("h") && !in_array($collection_data['type'], [COLLECTION_TYPE_REQUEST,COLLECTION_TYPE_SELECTION]) && $collection_data["cant_delete"] != 1) {
         $data_attribute['url'] = generateURL($baseurl_short . "pages/collection_set_category.php", $urlparams);
         $options[$o]['value'] = 'collection_set_category';
         $options[$o]['label'] = $lang['collection_set_theme_category'];

@@ -256,6 +256,7 @@ $page_title = get_page_title($pagename, pluginname());
     </head>
 
     <body lang="<?php echo escape($language); ?>">
+        <a href="#UICenter" class="skip-to-main-content"><?php echo escape($lang["skip-to-main-content"]); ?></a>
         <!-- Processing graphic -->
         <div id='ProcessingBox' style='display: none'>
             <i aria-hidden="true" class="icon-settings lucide--spin"></i>

@@ -4608,7 +4608,8 @@ function cleanup_files($files)
 }
 
 /**
- * Validate if value is integer or string integer
+ * Validate if value is integer or string integer, 
+ * string integers may be proceeded with 0s such as in date selection
  *
  * @param  mixed $var - variable to check
  * @return boolean true if variable resolves to integer value
@@ -4618,7 +4619,8 @@ function is_int_loose($var)
     if (is_array($var)) {
         return false;
     }
-    return (string)(int)$var === (string)$var;
+    return (string)(int)$var === (string)$var
+        || (string)(int)$var === ltrim((string)$var, '0');
 }
 
 /**

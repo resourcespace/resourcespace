@@ -923,7 +923,12 @@ function save_resource_data($ref, $multi, $autosave_field = "")
                     // A proper input:date field
                     if ($GLOBALS['use_native_input_for_date_field'] && $fields[$n]['type'] === FIELD_TYPE_DATE) {
                         $val = getval("field_{$fields[$n]['ref']}", '');
-                        if ($val !== '' && !validateDatetime($val, 'Y-m-d')) {
+                        // Only validate changed dates, using the same value comparison as the save below.
+                        if (
+                            $val !== ''
+                            && str_replace("\r\n", "\n", trim((string) $fields[$n]['value'])) !== str_replace("\r\n", "\n", trim((string) $val))
+                            && !validateDatetime($val, 'Y-m-d')
+                        ) {
                             $errors[$fields[$n]['ref']] = $lang['error_invalid_date'] . ' : ' . $val;
                             continue;
                         }

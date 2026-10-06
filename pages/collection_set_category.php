@@ -20,6 +20,11 @@ if ($collection === false) {
     exit();
 }
 
+if ($collection["cant_delete"] == 1) {
+    error_alert($lang["mycollection_notpublic"], true);
+    exit();
+}
+
 if (
     (!in_array($collection["type"], array(COLLECTION_TYPE_STANDARD, COLLECTION_TYPE_PUBLIC, COLLECTION_TYPE_FEATURED)))
     || ($collection["type"] == COLLECTION_TYPE_FEATURED
