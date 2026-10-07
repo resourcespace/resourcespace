@@ -247,6 +247,9 @@ if ($parent > 0) {
         }
         ?>
     </h1>
+    <?php if ($parent > 0 && $parent_collection_data['description'] != '') { ?> 
+        <p> <?php echo escape(i18n_get_translated($parent_collection_data['description'])); ?> </p>
+    <?php } ?>
 </div>
 <div class="BasicsBox FeaturedSimpleLinks">
     <?php

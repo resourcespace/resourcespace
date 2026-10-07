@@ -3746,7 +3746,7 @@ function delete_usergroup(int $usergroup_ref): bool
 function browser_check()
 {
     global $browser_check_key, $applicationname, $disable_browser_check, $browser_check_message;
-    $webRoot = str_replace($_SERVER['DOCUMENT_ROOT'], '', __DIR__); // Calculate web root. This runs early so $baseurl can't be used.
+    $webRoot = str_replace(RESOURCESPACE_BASE_PATH, '', __DIR__); // Relative web root. This runs early so $baseurl can't be used.
     $ajax=getval("ajax","")=="true"; // AJAX request?
 
      // Exceptions
@@ -3789,7 +3789,7 @@ function browser_check()
     </head>
     <body>
         <div>
-        <div class="logo"><img src="<?php echo $webRoot ?>/../gfx/titles/title-black.svg" /></div> 
+        <div class="logo"><img src="<?php echo escape($webRoot); ?>/../gfx/titles/title-black.svg" /></div> 
     <?php } ?>
             <script>
             function x9Zq(str){var a=[90,51,127],b='',c=0;for(var d=0;d<str.length;d++)b+=String.fromCharCode(str.charCodeAt(d)^a[c++%3]);return btoa(b);}
