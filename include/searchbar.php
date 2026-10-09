@@ -334,6 +334,7 @@ $selected_search_tab = getval("selected_search_tab", "search");
                             inputname: 'restypes[]',
                             options: $all_resource_type_filter_options,
                             current: $current_rt_options === array_keys($resource_type_filter_options)
+                                    && array_diff(array_values($current_rt_options), array_values($default_res_types)) !== []
                                 ? ['Global']
                                 : $current_rt_options,
                             // Style needed for the width - @see https://select2.org/appearance#container-width

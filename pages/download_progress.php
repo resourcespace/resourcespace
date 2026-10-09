@@ -42,22 +42,15 @@ if ($url == '') {
         $url = $baseurl . "/pages/download.php" . $download_url_suffix;
     }
 } else {
-    // check that the download redirect is complete i.e. contains, usage, email 
-    $url_parts = [];
-    $link_parts = parse_url($url);
-    parse_str($link_parts['query'] ?? '', $url_parts);
-
-    $url = generateURL(
-        ($link_parts['scheme'] ?? '')
-            . ($link_parts['host'] ?? '')
-            . $link_parts ['path']
-        , $url_parts
-        , [
-            'usage'         => $usage, 
-            'usagecomment'  => $usagecomment, 
-            'email'         => $email,
-        ]
-    );
+    $url = sanitise_url($url);
+    if ($url !== '#') {
+        // check that the download redirect is complete i.e. contains, usage, email 
+        $url_parts = [];
+        $link_parts = parse_url($url);
+        $url = explode('?', $url)[0];
+        parse_str($link_parts['query'] ?? '', $url_parts);
+        $url = generateURL($url, $url_parts, ['usage' => $usage, 'usagecomment' => $usagecomment, 'email' => $email]);
+    }
 }
 
 include "../include/header.php";

@@ -167,6 +167,7 @@ function search_form_to_search_query($fields, $fromsearchbar = false)
 {
     global $auto_order_checkbox,$checkbox_and,$resource_field_verbatim_keyword_regex;
     $search = "";
+    $identifier = $fromsearchbar ? 'name' : 'ref';
     if (getval("basicyear", "") != "") {
         if ($search != "") {
             $search .= ", ";
@@ -229,11 +230,14 @@ function search_form_to_search_query($fields, $fromsearchbar = false)
             $search .= "-12-31";
         }
     }
-    if (getval("allfields", "") != "") {
+    if (    
+        (!$fromsearchbar && getval("allfields", "") != "") 
+        || ($fromsearchbar && getval("search", "") != "")) 
+    {
         if ($search != "") {
             $search .= ", ";
         }
-        $search .= join(", ", explode(" ", getval("allfields", ""))); # prepend 'all fields' option
+        $search .= join(", ", explode(" ", getval($fromsearchbar ? "search" : "allfields", ""))); # prepend 'all fields' option
     }
     if (getval("resourceids", "") != "") {
         $listsql = "!list" . join(":", trim_array(split_keywords(getval("resourceids", ""))));
@@ -253,7 +257,7 @@ function search_form_to_search_query($fields, $fromsearchbar = false)
             case FIELD_TYPE_TEXT_BOX_MULTI_LINE:
             case FIELD_TYPE_TEXT_BOX_LARGE_MULTI_LINE:
             case FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE:
-                $name = "field_" . $fields[$n]["ref"];
+                $name = "field_" . $fields[$n][$identifier];
                 $value = getval($name, "");
                 if ($value != "") {
                     if (
@@ -281,7 +285,7 @@ function search_form_to_search_query($fields, $fromsearchbar = false)
             case FIELD_TYPE_CHECK_BOX_LIST:
                 if ($fields[$n]["display_as_dropdown"]) {
                     # Process dropdown box
-                    $name = "field_" . $fields[$n]["ref"];
+                    $name = "field_" . $fields[$n][$identifier];
                     $value = getval($name, "");
                     if ($value !== "") {
                         if ($search != "") {
@@ -296,7 +300,7 @@ function search_form_to_search_query($fields, $fromsearchbar = false)
                     $p = "";
                     $c = 0;
                     for ($m = 0; $m < count($options); $m++) {
-                        $name = $fields[$n]["ref"] . "_" . md5($options[$m]);
+                        $name = $fields[$n][$identifier] . "_" . md5($options[$m]);
                         $value = getval($name, "");
                         if ($value == "yes") {
                             $c++;
@@ -330,12 +334,15 @@ function search_form_to_search_query($fields, $fromsearchbar = false)
             case FIELD_TYPE_EXPIRY_DATE:
             case FIELD_TYPE_DATE:
             case FIELD_TYPE_DATE_RANGE:
-                $search .= convert_search_form_date_to_search_query($fields[$n]);
+                $search .= ($search == "" ? "" : ", " ) . 
+                    convert_search_form_date_to_search_query($fields[$n], 
+                        $fromsearchbar ? ['html_field_name' => "field_{$fields[$n]['name']}"] : []
+                    );
                 break;
 
             case FIELD_TYPE_TEXT_BOX_SINGLE_LINE: # -------- Text boxes
             default:
-                $value = getval('field_' . $fields[$n]["ref"], '');
+                $value = getval('field_' . $fields[$n][$identifier], '');
                 if ($value != "") {
                     if (
                         isset($resource_field_verbatim_keyword_regex[$fields[$n]["ref"]])
