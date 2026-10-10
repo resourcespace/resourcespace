@@ -421,12 +421,12 @@ if ($addsearch != -1) {
                     $warningtext = "";
 
                     if (isset($resourcesnotadded['category'])) {
-                        $warningtext = $lang['collection_category_blocked'] . implode(", ", $resourcesnotadded['category']) . "<br />";
+                        $warningtext = escape($lang['collection_category_blocked']) . implode(", ", $resourcesnotadded['category']) . "<br />";
                     } else {
 
                         if (isset($resourcesnotadded["blockedtypes"])) {
                             // There are resource types blocked due to $collection_block_restypes
-                            $warningtext = $lang["collection_restype_blocked"] . "<br /><br />";
+                            $warningtext = escape($lang["collection_restype_blocked"]) . "<br /><br />";
                             $blocked_types = get_resource_types(implode(",", $resourcesnotadded["blockedtypes"]));
 
                             foreach ($blocked_types as $blocked_type) {
@@ -445,7 +445,7 @@ if ($addsearch != -1) {
                             if ($warningtext != "") {
                                 $warningtext .= "<br />";
                             }
-                            $warningtext .= $lang["notsharableresources"] . implode(", ", $resourcesnotadded["blockedshares"]) . "<br />";
+                            $warningtext .= escape($lang["notsharableresources"]) . implode(", ", $resourcesnotadded["blockedshares"]) . "<br />";
                             unset($resourcesnotadded["blockedshares"]);
                         }
                         
@@ -454,7 +454,7 @@ if ($addsearch != -1) {
                             if ($warningtext != "") {
                                 $warningtext .= "<br />";
                             }
-                            $warningtext .= $lang["notapprovedresources"] . implode(", ", $resourcesnotadded);
+                            $warningtext .= escape($lang["notapprovedresources"]) . implode(", ", $resourcesnotadded);
                         }
                     }
 
