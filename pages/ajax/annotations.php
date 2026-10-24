@@ -47,7 +47,7 @@ if ('get_resource_annotations' == $action) {
 }
 
 // Create new annotation
-if ('create' == $action && 0 < $resource) {
+if ('create' == $action && 0 < $resource && enforcePostRequest(true)) {
     debug('[annotations][annotations.php] Request to create new annotation...');
     debug('[annotations][annotations.php] annotation object is ' . json_encode($annotation));
     if (0 === count($annotation)) {
@@ -79,7 +79,7 @@ if ('create' == $action && 0 < $resource) {
 }
 
 // Update annotation
-if ('update' == $action && 0 < $resource) {
+if ('update' == $action && 0 < $resource && enforcePostRequest(true)) {
     if (0 === count($annotation)) {
         $return['error'] = array(
             'status' => 400,
@@ -94,7 +94,7 @@ if ('update' == $action && 0 < $resource) {
 }
 
 // Delete annotation
-if ('delete' == $action && 0 < $annotation_id && 0 !== count($annotation)) {
+if ('delete' == $action && 0 < $annotation_id && 0 !== count($annotation) && enforcePostRequest(true)) {
     $delete_linked_comment = false;
     cast_echo_to_string(static function () use ($annotation, &$delete_linked_comment, $request_ctx) {
         if (!annotationEditable($annotation, $request_ctx)) {

@@ -2,11 +2,15 @@
 
 include_once '../../include/boot.php';
 include_once '../../include/authenticate.php';
+include_once RESOURCESPACE_BASE_PATH . '/include/ajax_functions.php';
+
+if (!enforcePostRequest(false)) {
+    ajax_send_response(405, ['status' => 405, 'message' => text("error-method-not_allowed")]);
+}
 
 // Generic endpoint that can be used for ajax calls
 $action = getval('action', '');
-$return = array();
-$return['status'] = 400; // set to default
+$return = ['status' => 400];
 
 switch ($action) {
     case 'submitpending':
@@ -72,7 +76,5 @@ switch ($action) {
         $return['message'] = $lang["error_generic"] ;
         break;
 }
-http_response_code($return['status']);
-header('Content-type: application/json');
-echo json_encode($return);
-exit();
+
+ajax_send_response($return['status'], $return);

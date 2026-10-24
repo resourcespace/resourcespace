@@ -43,7 +43,7 @@ if ($action == "" || !in_array($action, $allowed_actions)) {
     ajax_send_response(400, ajax_response_fail(ajax_build_message($fail_msg)));
 }
 
-if ($action == "clear_selection_collection_resources") {
+if ($action == "clear_selection_collection_resources" && enforcePostRequest(true)) {
     remove_all_resources_from_collection($USER_SELECTION_COLLECTION);
     ajax_send_response(200, ajax_response_ok_no_data());
 }
@@ -70,7 +70,7 @@ if ($action == "render_edit_selected_btn") {
     ajax_send_text_response(200, cast_echo_to_string('render_edit_selected_btn'));
 }
 
-if ($action == "remove_selected_from_collection") {
+if ($action == "remove_selected_from_collection" && enforcePostRequest(true)) {
     if (isset($selection_collection_only)) {
         ajax_unauthorized();
     }

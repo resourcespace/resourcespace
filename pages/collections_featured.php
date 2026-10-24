@@ -45,7 +45,10 @@ $general_url_params = ($k == "" ? array() : array("k" => $k));
 $parent_collection_data = get_collection($parent);
 $parent_collection_data = (is_array($parent_collection_data) ? $parent_collection_data : array());
 
-
+if ($parent > 0 && empty($parent_collection_data)) {
+    $onload_message = ["title" => $lang["error"], "text" => $lang["error-collectionnotfound"]];
+    $parent = 0;
+}
 if (getval("new", "") == "true" && getval("cta", "") == "true") {
     new_featured_collection_form($parent);
     exit();

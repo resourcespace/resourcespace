@@ -45,42 +45,42 @@ if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
     }
 
     // It is an acknowledgement so set as seen and get out of here
-    if (0 < $seen) {
+    if (0 < $seen && enforcePostRequest(true)) {
         message_seen($seen);
         return;
     }
 
-    if (0 < $unseen) {
+    if (0 < $unseen && enforcePostRequest(true)) {
         message_unseen($unseen);
         return;
     }
 
     // Acknowledgement all messages then get out of here
-    if (0 < $allseen) {
+    if (0 < $allseen && enforcePostRequest(true)) {
         message_seen_all($allseen);
         return;
     }
 
     // Purge messages that have an expired TTL then get out of here
-    if ('' != getval('purge', '')) {
+    if ('' != getval('purge', '') && enforcePostRequest(true)) {
         message_purge();
         return;
     }
 
     // Delete all selected messages
-    if (count($deleteselusrmsg) > 0) {
+    if (count($deleteselusrmsg) > 0 && enforcePostRequest(true)) {
         message_deleteselusrmsg($deleteselusrmsg);
         return;
     }
 
     // Mark all selected messages as seen
-    if (count($selectedseen) > 0) {
+    if (count($selectedseen) > 0 && enforcePostRequest(true)) {
         message_selectedseen($selectedseen);
         return;
     }
 
     // Mark all selected messages as unseen
-    if (count($selectedunseen) > 0) {
+    if (count($selectedunseen) > 0 && enforcePostRequest(true)) {
         message_selectedunseen($selectedunseen);
         return;
     }

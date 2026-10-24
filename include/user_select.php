@@ -243,9 +243,16 @@ if (!isset($autocomplete_user_scope)) {
         }
 
         function <?php echo escape($autocomplete_user_scope); ?>saveUserList() {
-            var parameters = 'userref=<?php echo escape($userref); ?>&userstring=' + document.getElementById("<?php echo escape($autocomplete_user_scope); ?>users").value+'&userlistname='+document.getElementById("<?php echo escape($autocomplete_user_scope); ?>userlist_name_value").value;
+            const parameters = {
+                userref: <?php echo encode_js_value($userref); ?>,
+                userstring: document.getElementById("<?php echo escape($autocomplete_user_scope); ?>users").value,
+                userlistname: document.getElementById("<?php echo escape($autocomplete_user_scope); ?>userlist_name_value").value,
+                ...<?php echo generate_csrf_js_object("{$autocomplete_user_scope}_userlist_save"); ?>
+            };
+
             jQuery.ajax("<?php echo $baseurl; ?>/pages/ajax/userlist_save.php",
                 {
+                type: 'POST',
                 data: parameters,
                 complete: function(){
                     document.getElementById("<?php echo escape($autocomplete_user_scope); ?>userlist_name_div").style.display='none';
@@ -257,8 +264,19 @@ if (!isset($autocomplete_user_scope)) {
         }
 
         function <?php echo escape($autocomplete_user_scope); ?>deleteUserList() {
-            var parameters = 'delete=true&userlistref='+document.getElementById('<?php echo escape($autocomplete_user_scope); ?>userlist_select').options[document.getElementById('<?php echo escape($autocomplete_user_scope); ?>userlist_select').selectedIndex].id;
+            const userlist_select_el_selector = <?php
+                echo encode_js_value("{$autocomplete_user_scope}userlist_select");
+            ?>;
+            const parameters = {
+                delete: true,
+                userlistref: document.getElementById(userlist_select_el_selector)
+                    .options[document.getElementById(userlist_select_el_selector).selectedIndex]
+                    .id,
+                ...<?php echo generate_csrf_js_object("{$autocomplete_user_scope}_userlist_save"); ?>
+            };
+
             jQuery.ajax("<?php echo $baseurl; ?>/pages/ajax/userlist_save.php", {
+                type: 'POST',
                 data: parameters,
                 complete: function() {
                     <?php echo escape($autocomplete_user_scope); ?>updateUserSelect();

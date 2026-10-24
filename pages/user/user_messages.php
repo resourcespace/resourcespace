@@ -343,7 +343,7 @@ include "../../include/header.php";
                         function() {message_poll();CentralSpaceLoad('',true);}
                     );
                 } else if ((jQuery(e.target).index()==2)) {
-                    jQuery.get('<?php echo $baseurl; ?>/pages/ajax/message.php',
+                    jQuery.post('<?php echo $baseurl; ?>/pages/ajax/message.php',
                         {
                             selectedunseen: selected_messages, 
                             <?php echo generateAjaxToken('unseen_messages')?>

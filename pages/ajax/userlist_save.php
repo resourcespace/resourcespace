@@ -5,6 +5,8 @@
 include "../../include/boot.php";
 include "../../include/authenticate.php";
 
+enforcePostRequest(true);
+
 if (is_anonymous_user()) {
     exit(escape($lang['error-permissiondenied']));
 }

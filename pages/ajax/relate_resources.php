@@ -3,6 +3,8 @@
 include_once '../../include/boot.php';
 include_once '../../include/authenticate.php';
 
+enforcePostRequest(true);
+
 $ref        = getval('ref', 0, true);
 $related    = getval('related', 0, true);
 $add        = getval('action', 'add') == "add";

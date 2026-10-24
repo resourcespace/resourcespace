@@ -226,7 +226,10 @@ message_get($messages, $userref, true, true, "DESC", "created", 10);
 
                 jQuery('#messages-list').fadeOut(200, function() {
                     jQuery('#message-detail').fadeIn(200, function() {
-                        jQuery.get('<?php echo $baseurl; ?>/pages/ajax/message.php?ajax=true&seen=' + ref);                      
+                        jQuery.post(
+                            '<?php echo $baseurl; ?>/pages/ajax/message.php?ajax=true&seen=' + ref,
+                            {<?php echo generateAjaxToken('seen_message'); ?>}
+                        );
                     });
                 });
 

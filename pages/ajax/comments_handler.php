@@ -15,11 +15,11 @@ $can_view_resource = get_resource_access($ref) < RESOURCE_ACCESS_CONFIDENTIAL;
 
 $resource_ref = (int) getval('resource_ref', 0, true);
 if (
-    'POST' == $_SERVER['REQUEST_METHOD']
-    && !empty($username)
+    !empty($username)
     && $resource_ref === $ref
     && $can_view_resource
-     ) {
+    && enforcePostRequest(false)
+) {
         comments_submit();
 }
 
