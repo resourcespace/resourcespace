@@ -8352,8 +8352,9 @@ function create_resource_type_field($name, $restype = 0, $type = FIELD_TYPE_TEXT
 */
 function metadata_field_view_access($field)
 {
+    global $offline_job_in_progress;
     return
-        (PHP_SAPI == 'cli' && !defined("RS_TEST_MODE"))
+        (PHP_SAPI == 'cli' && !defined("RS_TEST_MODE") && !$offline_job_in_progress)
         || ((checkperm("f*") || checkperm("f" . $field)) && !checkperm("f-" . $field));
 }
 

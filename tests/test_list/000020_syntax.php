@@ -6,8 +6,17 @@ $php_path = PHP_BINARY;
 
 // Collect files
 $exclude_paths = ["/lib/", "/filestore/", "/vendor/", "rector.php"];
-$Directory = new RecursiveDirectoryIterator(__DIR__ . "/../../");
-$Iterator  = new RecursiveIteratorIterator($Directory);
+$Directory = new RecursiveDirectoryIterator(__DIR__ . "/../../", FilesystemIterator::SKIP_DOTS);
+// Prune excluded directories before descending into them (especially filestore).
+$filtered_directory = new RecursiveCallbackFilterIterator($Directory, function ($entry) use ($exclude_paths) {
+    foreach ($exclude_paths as $ex_path) {
+        if (strpos($entry->getPathname() . ($entry->isDir() ? '/' : ''), $ex_path) !== false) {
+            return false;
+        }
+    }
+    return true;
+});
+$Iterator = new RecursiveIteratorIterator($filtered_directory);
 
 $pages = [];
 foreach ($Iterator as $i) {
@@ -31,24 +40,33 @@ $shown   = -1;
 $parallel = 8; // tweak to CPU cores
 
 // Split into chunks
-$chunks = array_chunk($pages, ceil($total / $parallel));
+$chunks = array_chunk($pages, max(1, (int) ceil($total / $parallel)));
 
 $pipes = [];
 $procs = [];
 
 foreach ($chunks as $chunk) {
-    $cmd = $php_path . ' -l ' . implode(' ', array_map('escapeshellarg', $chunk));
+    $cmd = escapeshellarg($php_path) . ' -l ' . implode(' ', array_map('escapeshellarg', $chunk));
 
+    // Files avoid workers blocking on full stdout/stderr pipes while another is read.
+    $output = tmpfile();
+    if ($output === false) {
+        throw new RuntimeException('Could not create syntax check output file');
+    }
     $procPipes = [];
     $proc = proc_open(
         $cmd,
-        [["pipe", "r"], ["pipe", "w"], ["pipe", "w"]],
+        [0 => ['pipe', 'r'], 1 => $output, 2 => $output],
         $procPipes
     );
 
     if (is_resource($proc)) {
+        fclose($procPipes[0]);
         $procs[] = $proc;
-        $pipes[] = $procPipes;
+        $pipes[] = $output;
+    } else {
+        fclose($output);
+        throw new RuntimeException('Could not start syntax checker');
     }
 }
 
@@ -56,12 +74,13 @@ foreach ($chunks as $chunk) {
 $errors = [];
 foreach ($procs as $idx => $proc) {
     if (is_resource($proc)) {
-        $stdout = stream_get_contents($pipes[$idx][1]);
-        $stderr = stream_get_contents($pipes[$idx][2]);
-        fclose($pipes[$idx][1]);
-        fclose($pipes[$idx][2]);
-
-        proc_close($proc);
+        $exit_code = proc_close($proc);
+        rewind($pipes[$idx]);
+        $stdout = stream_get_contents($pipes[$idx]);
+        fclose($pipes[$idx]);
+        if ($exit_code !== 0) {
+            $errors[] = 'Syntax checker exited with status ' . $exit_code;
+        }
 
         // Progress update (fake-percentage from chunks)
         $counter += count($chunks[$idx]);
@@ -73,7 +92,7 @@ foreach ($procs as $idx => $proc) {
         }
 
         // Capture errors
-        foreach (explode("\n", $stdout . $stderr) as $line) {
+        foreach (explode("\n", $stdout) as $line) {
             if ($line && strpos($line, "No syntax errors") === false) {
                 $errors[] = $line;
             }

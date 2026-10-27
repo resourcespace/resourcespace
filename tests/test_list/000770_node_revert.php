@@ -49,9 +49,13 @@ if (
 
 // Subtest B - Simulate revert to date/time functionality
 $revert_time = ps_value("select now() value", array(), "");
-sleep(2);
 // Update value
 update_field($resourcea, $revert_field, "~en:Apple~fr:Pomme");
+// Put the new log entry after the cutoff explicitly, avoiding a wall-clock wait.
+ps_query(
+    'UPDATE resource_log SET date=DATE_ADD(?, INTERVAL 2 SECOND) WHERE resource=? AND resource_type_field=? AND ref>?',
+    ['s', $revert_time, 'i', $resourcea, 'i', $revert_field, 'i', $lastlog['ref']]
+);
 
 // Perform revert
 $colrevert = create_collection($userref, "Test 00125 revert");

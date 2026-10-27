@@ -992,6 +992,9 @@ function CheckDBStruct($path, $verbose = false)
                 $data = str_replace("table_", "data_", $file);
                 if (file_exists($path . "/" . $data)) {
                     $f = fopen($path . "/" . $data, "r");
+                    // CREATE TABLE implicitly commits the transaction started above. Start a new one
+                    // so loading the initial data does not require a disk flush for every row.
+                    db_begin_transaction("CheckDBStructData");
                     while (($row = fgetcsv($f, 5000, escape: '\\')) !== false) {
                         $sql_params = [];
                         for ($n = 0; $n < count($row); $n++) {
@@ -1018,6 +1021,7 @@ function CheckDBStruct($path, $verbose = false)
                             false
                         );
                     }
+                    db_end_transaction("CheckDBStructData");
                 }
             } else {
                 # Table already exists, so check all columns exist

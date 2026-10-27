@@ -209,6 +209,7 @@ if ($submitted & !$totalsizeerror) {
         'count_data_only_types'     => $count_data_only_types,
         'usage'                     => $usage,
         'usagecomment'              => str_replace(array('\r','\n'), " ", $usagecomment),
+        'email'                     => $email,
         'settings_id'               => $settings_id,
         'include_csv_file'          => $include_csv_file,
         'include_alternatives'      => $include_alternatives,

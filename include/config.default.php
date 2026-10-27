@@ -3238,6 +3238,9 @@ $browser_check_message="Performing browser checks..."; // Message to display whe
 $metadata_admin_show_shorthand = false;
 
 // Allowlist of external services to give a user's API credentials to
+// Each "url" can be a single URL (used automatically) or an array of allowed callback URLs.
+// For an array, callers must pass a "url" parameter to pages/user/user_api_session.php that exactly matches an entry.
+// For example: "url" => ["https://example.com/production/callback", "https://example.com/testing/callback"].
 $api_issue_valid_destinations = [
     "linkrui" => [
         "name" => "LinkrUI",
@@ -3257,4 +3260,27 @@ $api_issue_valid_destinations = [
         "querydata" => ["username", "email", "fullname"],
         "stateparam" => "state",
     ],
+    "cihub" => [
+        "name" => "CI-HUB",
+        "url" => [
+                    "https://app-aagcgsdkbdg.canva-apps.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://app-aagppabnsou.canva-apps.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://live.ci-hub.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://stage.ci-hub.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://dev.ci-hub.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://ci-hub.azurewebsites.net/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://ci-hub-test.azurewebsites.net/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://ci-hub-beta.azurewebsites.net/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "http://localhost:8080/api/v1/system/providerInternal/resourceSpaceAuthCallback",
+                    "https://localhost:8080/api/v1/system/providerInternal/resourceSpaceAuthCallback"
+                ],
+        "querydata" => ["username", "email", "fullname"],
+        "stateparam" => "state",
+    ]
 ];
+
+# Where a web application firewall (WAF) is being used to manage website sessions and protect against malicious traffic, cookies created
+# by this application only in the browser maybe needed for filestore browseability checking to correctly obtain a result. It should be 
+# getting a http 403 from the filestore rather than an http 200 from a WAF redirect page due to missing validation cookies. Add into this
+# array the partial names of any WAF cookies that should be passed in the curl request during filestore browseability checking.
+// $provide_waf_cookies = array('waf_cookie_name_starts_with_');

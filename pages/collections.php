@@ -421,13 +421,13 @@ if ($addsearch != -1) {
                     $warningtext = "";
 
                     if (isset($resourcesnotadded['category'])) {
-                        $warningtext = escape($lang['collection_category_blocked']) . implode(", ", $resourcesnotadded['category']) . "<br />";
+                        $warningtext = escape($lang['collection_category_blocked']) . implode(", ", array_map('escape', $resourcesnotadded['category'])) . "<br />";
                     } else {
 
                         if (isset($resourcesnotadded["blockedtypes"])) {
                             // There are resource types blocked due to $collection_block_restypes
                             $warningtext = escape($lang["collection_restype_blocked"]) . "<br /><br />";
-                            $blocked_types = get_resource_types(implode(",", $resourcesnotadded["blockedtypes"]));
+                            $blocked_types = get_resource_types(implode(",", array_map('escape', $resourcesnotadded["blockedtypes"])));
 
                             foreach ($blocked_types as $blocked_type) {
                                 if ($warningtext == "") {
@@ -445,7 +445,7 @@ if ($addsearch != -1) {
                             if ($warningtext != "") {
                                 $warningtext .= "<br />";
                             }
-                            $warningtext .= escape($lang["notsharableresources"]) . implode(", ", $resourcesnotadded["blockedshares"]) . "<br />";
+                            $warningtext .= escape($lang["notsharableresources"]) . implode(", ", array_map('escape', $resourcesnotadded["blockedshares"])) . "<br />";
                             unset($resourcesnotadded["blockedshares"]);
                         }
                         
@@ -454,7 +454,7 @@ if ($addsearch != -1) {
                             if ($warningtext != "") {
                                 $warningtext .= "<br />";
                             }
-                            $warningtext .= escape($lang["notapprovedresources"]) . implode(", ", $resourcesnotadded);
+                            $warningtext .= escape($lang["notapprovedresources"]) . implode(", ", array_map('escape', $resourcesnotadded));
                         }
                     }
 

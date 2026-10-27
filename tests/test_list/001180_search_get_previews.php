@@ -5,13 +5,26 @@ command_line_only();
 // Create a test field
 $field2502 = create_resource_type_field("field2502", 0, FIELD_TYPE_TEXT_BOX_SINGLE_LINE, "field2502", true);
 
-// Create 50 resources
+// The search needs real thumbnail files, but does not test preview generation.
+// Reuse one JPEG instead of running the preview pipeline for every resource.
+$thumbnail2502 = create_random_image(['text' => 'Search preview', 'width' => 100, 'height' => 100]);
+if (isset($thumbnail2502['error'])) {
+    echo $thumbnail2502['error'];
+    return false;
+}
+
+// Keep all 50 resources to exercise the same pagination boundaries.
 $resources = [];
 for ($n = 0; $n < 50; $n++) {
     $resources[$n] = create_resource(1, 0, -1);
-    resource_random_jpg($resources[$n], 100, 100);
+    if (!copy($thumbnail2502['path'], get_resource_path($resources[$n], true, 'thm', true, 'jpg'))) {
+        unlink($thumbnail2502['path']);
+        return false;
+    }
+    ps_query('UPDATE resource SET has_image=?, preview_extension=? WHERE ref=?', ['i', RESOURCE_PREVIEWS_ALL, 's', 'jpg', 'i', $resources[$n]]);
     update_field($resources[$n], $field2502, 'text2502');
 }
+unlink($thumbnail2502['path']);
 
 // Default $fetchrows = -1
 $results = search_get_previews('text2502', '', '', 0, -1, 'DESC', false, false, false, '', false, false, false, false, false, ["thm"]);

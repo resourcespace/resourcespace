@@ -7,6 +7,17 @@ include "../../include/authenticate.php";
 $system = getval("system", "");
 $remote_system = $api_issue_valid_destinations[$system] ?? false;
 
+// Existing string destinations need no callback parameter. Array destinations must explicitly select an allowed URL.
+if ($remote_system) {
+    $callback_url = $remote_system["url"];
+    if (is_array($callback_url)) {
+        $callback_url = getval("url", "");
+        if (!is_string($callback_url) || !in_array($callback_url, $remote_system["url"], true)) {
+            $remote_system = false;
+        }
+    }
+}
+
 if ($remote_system) {
     $state = getval($remote_system["stateparam"], "");
     if (isset($_POST['submit']) && enforcePostRequest(false)) {
@@ -34,7 +45,7 @@ if ($remote_system) {
 
         $postdata = http_build_query($params);
 
-        $curl = curl_init($remote_system["url"]);
+        $curl = curl_init($callback_url);
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -88,6 +99,7 @@ include "../../include/header.php";
             action="<?php echo generateURL("{$baseurl_short}pages/user/user_api_session.php", ['system' => $system]); ?>">        
             <input type="hidden" name="state" value="<?php echo escape($state); ?>">
             <input type="hidden" name="system" value="<?php echo escape($system); ?>">
+            <input type="hidden" name="url" value="<?php echo escape($callback_url); ?>">
             <input type="hidden" name="submit" value="true">
             <?php
             generateFormToken("user_api_session");
