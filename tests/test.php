@@ -162,6 +162,11 @@ echo "Filestore is now at $storagedir\n";
 $password_min_length = 7;
 $password_min_alpha = $password_min_numeric = 1;
 $password_min_uppercase = $password_min_special = 0;
+// Exercise real password hashing without production work factors for fixture users.
+// Password-specific tests can override these settings for their own assertions.
+if (!$performancetest) {
+    $password_hash_info['options'] = ['memory_cost' => 1024, 'time_cost' => 1, 'threads' => 1];
+}
 
 $test_dir = __DIR__ . "/" . ($performancetest ? "performance_tests" : "test_list");
 # Get a list of core tests

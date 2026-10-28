@@ -148,7 +148,6 @@ function HookGrant_editEditEditstatushide()
 function HookGrant_editEditAppendcustomfields()
     {
     global $ref,$lang,$baseurl,$grant_editusers, $multiple, $usergroup, $grant_edit_groups, $collapsible_sections;
-    global $sharing_userlists;
 
     // Do we have access to see this?
     if(!in_array($usergroup, $grant_edit_groups) || $ref<0){return;}
@@ -274,8 +273,6 @@ function HookGrant_editEditAppendcustomfields()
         </script>
         <?php
     }
-
-    $sharing_userlists=false;
     ?>
     <div id="grant_edit_fields" <?php if ($multiple) {?>style="display:none;"<?php } ?>>
         <div class="Question" id="grant_edit_select" >

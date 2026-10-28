@@ -3790,7 +3790,7 @@ function browser_check()
     </head>
     <body>
         <div>
-        <div class="logo"><img src="<?php echo escape(getUrlRelativeWebRoot()); ?>/../gfx/titles/title-black.svg" /></div> 
+        <div class="logo"><img src="<?php echo escape(getUrlRelativeWebRoot()); ?>/gfx/titles/title-black.svg" /></div> 
     <?php } ?>
             <script>
             function x9Zq(str){var a=[90,51,127],b='',c=0;for(var d=0;d<str.length;d++)b+=String.fromCharCode(str.charCodeAt(d)^a[c++%3]);return btoa(b);}

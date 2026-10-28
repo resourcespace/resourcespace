@@ -49,7 +49,7 @@ if (!$exportresources) {
     $exportresources = array();
 
     if ($resources_found > 0) {
-        $search_chunk_size = 100000;
+        $search_chunk_size = SYSTEM_CSV_SEARCH_CHUNK_SIZE;
         $chunk_offset = 0; // Return data in batches. Required for particularly large csv export where there is a risk of PHP memory_limit being exceeded by search returning too many results.
 
         while ($chunk_offset < $resources_found) {

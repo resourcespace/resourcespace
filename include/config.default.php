@@ -2239,8 +2239,6 @@ Note: selecting level 3, will also show debug info for level 1 and 2.
 */
 $smtp_debug_lvl = 2;
 
-$sharing_userlists = false; // enable users to save/select predefined lists of users/groups when sharing collections and resources.
-
 // Automatically save the edit form after making changes?
 $edit_autosave = true;
 
@@ -3278,9 +3276,3 @@ $api_issue_valid_destinations = [
         "stateparam" => "state",
     ]
 ];
-
-# Where a web application firewall (WAF) is being used to manage website sessions and protect against malicious traffic, cookies created
-# by this application only in the browser maybe needed for filestore browseability checking to correctly obtain a result. It should be 
-# getting a http 403 from the filestore rather than an http 200 from a WAF redirect page due to missing validation cookies. Add into this
-# array the partial names of any WAF cookies that should be passed in the curl request during filestore browseability checking.
-// $provide_waf_cookies = array('waf_cookie_name_starts_with_');

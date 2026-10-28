@@ -2326,7 +2326,6 @@ else
     // Edit the 'contributed by' value of the resource table
     if($ref > 0 && !is_anonymous_user() && acl_can_edit_contributed_by())
       {
-      $sharing_userlists = false;
       $single_user_select_field_id = "created_by";
       $autocomplete_user_scope = "created_by";
       $single_user_select_field_value = $resource["created_by"];

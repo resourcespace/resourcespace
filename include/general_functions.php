@@ -5337,28 +5337,6 @@ function check_filestore_browseability()
         'index_disabled' => false,
     ];
 
-    $include_cookies = isset($GLOBALS['provide_waf_cookies']) && count($GLOBALS['provide_waf_cookies']) > 0;
-    $cookie_string = '';
-    if ($include_cookies) {
-        # Cookies may be required if connection uses a proxy.
-        $matches = $GLOBALS['provide_waf_cookies'];
-        $filtered_cookies = array_filter(
-            $_COOKIE,
-            function ($key) use ($matches) {
-                foreach ($matches as $match) {
-                    if (str_starts_with((string) $key, $match)) {
-                        return true;
-                    }
-                }
-                return false;
-            },
-            ARRAY_FILTER_USE_KEY
-        );
-
-        $cookie_string = implode('; ', array_map(fn($name, $value) => $name . '=' . $value, array_keys($filtered_cookies), array_values($filtered_cookies)));
-        $include_cookies = $cookie_string != '';
-    }
-
     $GLOBALS['use_error_exception'] = true;
     try {
         $ch = curl_init();
@@ -5368,9 +5346,6 @@ function check_filestore_browseability()
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
-        if ($include_cookies) {
-            curl_setopt($ch, CURLOPT_COOKIE, $cookie_string);
-        }
         curl_exec($ch);
         $response_status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         unset($ch);

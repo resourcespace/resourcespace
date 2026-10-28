@@ -1996,10 +1996,6 @@ $lang["owned_by_you-2"] = "(<strong>%mynumber</strong> owned by you)"; # %mynumb
 $lang["listresources"] = "Resources:";
 $lang["action-log"] = "View log";
 
-$lang["saveuserlist"] = "Save this list";
-$lang["deleteuserlist"] = "Delete this list";
-$lang["typeauserlistname"] = "Type a user list name...";
-$lang["loadasaveduserlist"] = "Load a saved user list";
 
 $lang["searchbypage"] = "Search page";
 $lang["searchbyname"] = "Search name";

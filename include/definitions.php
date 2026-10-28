@@ -476,6 +476,9 @@ const SYSTEM_REQUIRED_PHP_MODULES = [
 // Chunking a list of IDs (with the highest ID length) in batches of this size should be well within the default max_allowed_packet size
 const SYSTEM_DATABASE_IDS_CHUNK_SIZE = 500;
 
+// Chunk size used for CSV export search results
+const SYSTEM_CSV_SEARCH_CHUNK_SIZE = 100000;
+
 // How many times should we retry our previous action before giving up?
 // NOTE: don't set too high or your script may sit and wait for minutes depending on database configuration.
 const SYSTEM_DATABASE_MAX_RETRIES = 2;
