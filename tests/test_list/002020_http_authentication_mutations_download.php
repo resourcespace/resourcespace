@@ -19,9 +19,12 @@ return (static function () {
     $cookie_file = $directory . '/cookies';
     try {
         mkdir($directory, 0700);
+        // Earlier tests may configure filename overrides on the standard resource types.
+        $resource_type = create_resource_type('HTTP fixture ' . test_generate_random_ID(8));
+        $check($resource_type !== false, 'Could not create HTTP resource type');
         // Multi-digit IDs exercise the runner's even-spread filestore layout.
         do {
-            $resource = create_resource(1, 0);
+            $resource = create_resource($resource_type, 0);
         } while ($resource < 10);
         $collection = create_collection($user, 'HTTP selection');
         add_resource_to_collection($resource, $collection, true);

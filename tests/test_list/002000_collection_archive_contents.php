@@ -26,12 +26,16 @@ return (static function () {
         $GLOBALS['restricted_full_download'] = false;
         $GLOBALS['open_access_for_contributor'] = false;
         $GLOBALS['download_filename_format'] = '%resource.%extension';
-        $GLOBALS['userpermissions'] = ['s', 'g'];
+        $GLOBALS['userpermissions'] = ['a'];
         $collection = create_collection($GLOBALS['userref'], 'Archive fixture');
+        // Earlier tests may configure filename overrides on the standard resource types.
+        $resource_type = create_resource_type('Archive fixture ' . test_generate_random_ID(8));
+        $check($resource_type !== false, 'Could not create archive resource type');
+        $GLOBALS['userpermissions'] = ['s', 'g'];
         $resources = [];
         $contents = [];
         foreach ([0, 0, 2] as $index => $access) {
-            $resource = create_resource(1, 0);
+            $resource = create_resource($resource_type, 0);
             ps_query('UPDATE resource SET file_extension = ?, access = ? WHERE ref = ?', ['s', 'txt', 'i', $access, 'i', $resource]);
             $path = get_resource_path($resource, true, '', true, 'txt');
             $contents[$resource] = 'Archive member ' . $index;
@@ -50,7 +54,9 @@ return (static function () {
         $zip = new ZipArchive();
         $check($zip->open($archive) === true, 'Archive cannot be opened');
         foreach (array_slice($resources, 0, 2) as $row) {
-            $check($zip->getFromName($row['ref'] . '.txt') === $contents[$row['ref']], 'Archive member bytes incorrect');
+            $filename = $row['ref'] . '.txt';
+            $check($zip->locateName($filename) !== false, 'Archive member missing: ' . $filename);
+            $check($zip->getFromName($filename) === $contents[$row['ref']], 'Archive member bytes incorrect');
         }
         $check($zip->locateName($resources[2]['ref'] . '.txt') === false, 'Confidential resource disclosed in archive');
         $check($zip->numFiles === 3, 'Archive missing summary or contains unexpected members');

@@ -10,11 +10,26 @@ return (static function () {
     };
 
     $saved = $GLOBALS['use_db_transaction'];
+    $connection_settings = [];
+    foreach (['db', 'prepared_statement_cache', 'read_only_db_username', 'read_only_db_password',
+        'db_connection_mode'] as $setting) {
+        $connection_settings[$setting] = $GLOBALS[$setting] ?? null;
+    }
+    $test_connections = [];
     $key = 'transaction_test_' . test_generate_random_ID(8);
     $other = $key . '_insert';
     try {
+        // Exercise distinct connections even when this installation normally uses only one.
+        $GLOBALS['read_only_db_username'] = $GLOBALS['mysql_username'];
+        $GLOBALS['read_only_db_password'] = $GLOBALS['mysql_password'];
+        $GLOBALS['db'] = [];
+        $GLOBALS['prepared_statement_cache'] = [];
+        sql_connect();
+        $test_connections = $GLOBALS['db'];
         $GLOBALS['use_db_transaction'] = true;
         $value = static fn ($name) => ps_value('SELECT value FROM sysvars WHERE name = ?', ['s', $name], null);
+        // Prime the SELECT on the read connection before reading uncommitted writes.
+        ps_query('SELECT value FROM sysvars WHERE name = ?', ['s', $key]);
         $check(db_begin_transaction('contents_commit'), 'Could not begin transaction');
         ps_query('INSERT INTO sysvars (name,value) VALUES (?,?)', ['s', $key, 's', 'original']);
         $check(db_end_transaction('contents_commit'), 'Commit failed');
@@ -49,5 +64,16 @@ return (static function () {
         ps_query('DELETE FROM sysvars WHERE name IN (?,?)', ['s', $key, 's', $other]);
         $GLOBALS['use_db_transaction'] = $saved;
         db_clear_connection_mode();
+        $GLOBALS['prepared_statement_cache'] = [];
+        foreach ($test_connections as $connection) {
+            $connection->close();
+        }
+        foreach ($connection_settings as $setting => $value) {
+            if ($value === null) {
+                unset($GLOBALS[$setting]);
+            } else {
+                $GLOBALS[$setting] = $value;
+            }
+        }
     }
 })();

@@ -487,26 +487,29 @@ function ps_query($sql, array $parameters = array(), $cache = "", $fetchrows = -
         db_clear_connection_mode();
     }
 
+    // Prepared statements belong to the connection that prepared them.
+    $statement_cache_key = $db_connection->thread_id . ':' . $sql;
+
     if (count($parameters) > 0) {
         // Execute prepared statement
-        if (!isset($prepared_statement_cache[$sql])) {
+        if (!isset($prepared_statement_cache[$statement_cache_key])) {
             if (!isset($prepared_statement_cache)) {
                 $prepared_statement_cache = array();
             }
 
             $use_error_exception_cache = $GLOBALS['use_error_exception'] ?? false;
             try {
-                $prepared_statement_cache[$sql] = $db_connection->prepare($sql);
+                $prepared_statement_cache[$statement_cache_key] = $db_connection->prepare($sql);
             } catch (Throwable $t) {
-                $prepared_statement_cache[$sql] = false;
+                $prepared_statement_cache[$statement_cache_key] = false;
                 debug("Failed to prepare the database statement. {$t}");
             }
             $GLOBALS['use_error_exception'] = $use_error_exception_cache;
 
-            if ($prepared_statement_cache[$sql] === false) {
+            if ($prepared_statement_cache[$statement_cache_key] === false) {
                 if ($dbstruct) {
                     // Clear out the cache for this query before running check_db_structs()
-                    unset($prepared_statement_cache[$sql]);
+                    unset($prepared_statement_cache[$statement_cache_key]);
                     db_clear_connection_mode();
                     check_db_structs();
                     db_set_connection_mode($db_connection_mode);
@@ -544,24 +547,24 @@ function ps_query($sql, array $parameters = array(), $cache = "", $fetchrows = -
             $use_error_exception_cache = $GLOBALS["use_error_exception"] ?? false;
             $GLOBALS["use_error_exception"] = true;
             try {
-                mysqli_stmt_bind_param($prepared_statement_cache[$sql], $types, ...$params_array); // splat operator
-                mysqli_stmt_execute($prepared_statement_cache[$sql]);
+                mysqli_stmt_bind_param($prepared_statement_cache[$statement_cache_key], $types, ...$params_array); // splat operator
+                mysqli_stmt_execute($prepared_statement_cache[$statement_cache_key]);
             } catch (Exception $e) {
                 $error = $e->getMessage();
             }
             $GLOBALS["use_error_exception"] = $use_error_exception_cache;
 
-            $error = $error ?? mysqli_stmt_error($prepared_statement_cache[$sql]);
+            $error = $error ?? mysqli_stmt_error($prepared_statement_cache[$statement_cache_key]);
         }
 
         if ($error == "") {
             // Results section
 
             // Buffering of result set
-            $prepared_statement_cache[$sql]->store_result();
+            $prepared_statement_cache[$statement_cache_key]->store_result();
 
             // Fetch result set
-            $metadata = $prepared_statement_cache[$sql]->result_metadata();
+            $metadata = $prepared_statement_cache[$statement_cache_key]->result_metadata();
             if ($metadata === false) {
                 // Did not return a result set, execution of an update/insert etc.
                 $result = true;
@@ -573,14 +576,14 @@ function ps_query($sql, array $parameters = array(), $cache = "", $fetchrows = -
                     $key = str_replace(' ', '_', $field->name);
                     $args[$key] = &$field->name;
                 }
-                call_user_func_array(array($prepared_statement_cache[$sql], "bind_result"), array_values($args));
+                call_user_func_array(array($prepared_statement_cache[$statement_cache_key], "bind_result"), array_values($args));
                 $result = array();
                 $count = 0;
-                while ($prepared_statement_cache[$sql]->fetch() && ($fetchrows == -1 || $count < $fetchrows)) { // Return requested no. of rows
+                while ($prepared_statement_cache[$statement_cache_key]->fetch() && ($fetchrows == -1 || $count < $fetchrows)) { // Return requested no. of rows
                     $count++;
                     $result[] = array_map("copy_value", $args);
                 }
-                $prepared_statement_cache[$sql]->free_result();
+                $prepared_statement_cache[$statement_cache_key]->free_result();
             }
         }
     } else {
@@ -634,7 +637,7 @@ function ps_query($sql, array $parameters = array(), $cache = "", $fetchrows = -
         } elseif (strpos($error, "has gone away") !== false && $reconnect) {
             // SQL server connection has timed out or been killed. Try to reconnect and run query again.
             // Unset the cache for this no longer valid
-            unset($prepared_statement_cache[$sql]);
+            unset($prepared_statement_cache[$statement_cache_key]);
             sql_connect();
             db_set_connection_mode($db_connection_mode);
             return ps_query($sql, $parameters, $cache, $fetchrows, $dbstruct, $logthis, false, $fetch_specific_columns);
