@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Editar Estados do Fluxo
 
 $lang["page-title_rse_workflow_setup"] = 'Configurar Plugin de Fluxo de Trabalho';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Editar Fluxo de Trabalho';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Não foi possível alterar o estado do arquivo para %%ARCHIVE%%. Acesso ausente para limpar campos obrigatórios.';

@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Chỉnh sửa OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'Lấy PNG của OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Lưu Thay Thế của OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Lưu Mới của OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Dữ liệu hình ảnh không hợp lệ';
+$lang["openai_image_edit_error_invalid_image"] = 'Hình ảnh không hợp lệ';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Không thể ghi tệp tạm thời';

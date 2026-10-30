@@ -2,6 +2,7 @@
 
 command_line_only();
 include_once dirname(__DIR__, 2) . '/include/api_functions.php';
+include_once dirname(__DIR__, 2) . '/include/user_api_session_functions.php';
 
 return (static function () {
     $directory = sys_get_temp_dir() . '/rs_api_session_' . bin2hex(random_bytes(8));
@@ -12,6 +13,7 @@ return (static function () {
     $saved_cookie = $_COOKIE;
     $saved_server = $_SERVER;
     $saved_cwd = getcwd();
+    $saved_destinations = $GLOBALS['api_issue_valid_destinations'];
     $check = static function ($condition, $message) {
         if (!$condition) {
             throw new RuntimeException($message);
@@ -22,7 +24,7 @@ return (static function () {
         mkdir($directory . '/include');
         // Exercise the complete, unmodified page with the runner's authenticated user and configuration.
         // Boot, authentication and site chrome are already supplied by the runner; isolate those includes.
-        foreach (['boot', 'api_functions', 'authenticate', 'header', 'footer'] as $include) {
+        foreach (['boot', 'api_functions', 'user_api_session_functions', 'authenticate', 'header', 'footer'] as $include) {
             file_put_contents($directory . '/include/' . $include . '.php', '<?php');
         }
         copy(dirname(__DIR__, 2) . '/pages/user/user_api_session.php', $directory . '/pages/user/user_api_session.php');
@@ -65,7 +67,7 @@ PHP
             // Each request gets fresh page-local variables, including $message.
             extract($GLOBALS, EXTR_SKIP);
             unset($message);
-            $api_issue_valid_destinations = ['callback_test' => $destination + ['url' => $urls]];
+            $GLOBALS['api_issue_valid_destinations'] = ['callback_test' => $destination + ['url' => $urls]];
             $_GET = ['system' => 'callback_test'] + $get;
             $_POST = $post;
             $_COOKIE = [];
@@ -141,6 +143,7 @@ PHP
         return false;
     } finally {
         $_GET = $saved_get;
+        $GLOBALS['api_issue_valid_destinations'] = $saved_destinations;
         $_POST = $saved_post;
         $_COOKIE = $saved_cookie;
         $_SERVER = $saved_server;

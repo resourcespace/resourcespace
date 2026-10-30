@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Redigera';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Hämta PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Spara Alternativ';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Spara Ny';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Ogiltiga bilddata';
+$lang["openai_image_edit_error_invalid_image"] = 'Ogiltig bild';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Kan inte skriva till temporär fil';

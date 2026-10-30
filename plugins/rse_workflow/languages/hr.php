@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Uredi stanje radnog tok
 
 $lang["page-title_rse_workflow_setup"] = 'Postavljanje dodatka za radni tijek';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Uredi tijek rada';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Nije moguće promijeniti stanje arhive u %%ARCHIVE%%. Nedostaje pristup za praznjenje obaveznih polja.';

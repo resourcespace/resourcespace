@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Workflow-Zustände bear
 
 $lang["page-title_rse_workflow_setup"] = 'Workflow-Plugin einrichten';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Workflow bearbeiten';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Archivstatus kann nicht auf %%ARCHIVE%% geändert werden. Fehlender Zugriff zum Leeren erforderlicher Felder.';

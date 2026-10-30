@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'تحرير إجراء�
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'تحرير حالات سير العمل';
 $lang["page-title_rse_workflow_edit_workflow"] = 'تعديل سير العمل';
 $lang["page-title_rse_workflow_setup"] = 'إعداد مكون سير العمل';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'غير قادر على تغيير حالة الأرشيف إلى %%ARCHIVE%%. الوصول إلى الحقول المطلوبة الفارغة مفقود.';

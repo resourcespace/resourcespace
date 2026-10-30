@@ -65,3 +65,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Рэдагаваць с
 
 $lang["page-title_rse_workflow_setup"] = 'Наладзіць плагін працоўнага патоку';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Рэдагаваць працэс працы';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Немагчыма змяніць стан архіва на %%ARCHIVE%%. Адсутнічае доступ для ачысткі неабходных палёў.';

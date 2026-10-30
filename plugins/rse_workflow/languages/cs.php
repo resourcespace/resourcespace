@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Upravit stavy pracovní
 
 $lang["page-title_rse_workflow_setup"] = 'Nastavit plugin pro pracovní postup';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Upravit pracovní postup';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Nelze změnit stav archivu na %%ARCHIVE%%. Chybí přístup k vyprázdnění povinných polí.';

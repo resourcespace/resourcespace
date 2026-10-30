@@ -64,3 +64,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = '編輯工作流程動�
 $lang["page-title_rse_workflow_edit_workflow_states"] = '編輯工作流程狀態';
 $lang["page-title_rse_workflow_edit_workflow"] = '編輯工作流程';
 $lang["page-title_rse_workflow_setup"] = '設定工作流程插件';
+
+$lang["rse_workflow_state_change_failed_permissions"] = '無法將存檔狀態更改為 %%ARCHIVE%%。缺少清空必填欄位的權限。';

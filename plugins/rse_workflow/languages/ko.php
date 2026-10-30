@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = '워크플로우 작업
 $lang["page-title_rse_workflow_edit_workflow_states"] = '워크플로우 상태 편집';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw 워크플로우';
 $lang["page-title_rse_workflow_setup"] = '워크플로우 플러그인 설정';
+
+$lang["rse_workflow_state_change_failed_permissions"] = '아카이브 상태를 %%ARCHIVE%%(으)로 변경할 수 없습니다. 필수 필드를 비우기 위한 접근 권한이 없습니다.';

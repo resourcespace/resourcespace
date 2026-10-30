@@ -3246,3 +3246,8 @@ $lang['thumbnails_collection_bar'] = '縮圖';
 $lang["home__welcometext"] = '領先的開源企業數位資產管理系統。';
 $lang["language-ku"] = '庫爾德語';
 $lang["filter_err_field_disabled"] = '欄位 \'%NAME\' 已被停用';
+
+$lang["systemconfig_customheadingfont_label"] = '自訂標題字型檔案';
+$lang["readmore"] = '閱讀更多';
+$lang["showwelcometext"] = '顯示歡迎資訊';
+$lang["collection_category_blocked"] = '無法將資源新增至精選集合類別，因以下集合阻擋：';

@@ -3250,3 +3250,8 @@ $lang['language-zh-TW'] = 'Традыцыйны кітайскі';
 $lang["home__welcometext"] = 'Вядучая сістэма кіравання лічбавымі актывамі з адкрытым зыходным кодам.';
 $lang["language-ku"] = 'Курдская';
 $lang["filter_err_field_disabled"] = 'Поле \'%NAME\' адключана';
+
+$lang["systemconfig_customheadingfont_label"] = 'Файл шрыфта для карыстацкага загалоўка';
+$lang["readmore"] = 'Чытаць далей';
+$lang["showwelcometext"] = 'Паказаць прывітальны тэкст';
+$lang["collection_category_blocked"] = 'Немагчыма дадаць рэсурсы ў катэгорыю выбранай калекцыі, заблакавана наступнымі калекцыямі: ';

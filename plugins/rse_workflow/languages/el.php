@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Επεξεργασία 
 
 $lang["page-title_rse_workflow_setup"] = 'Ρύθμιση Πρόσθετου Ροής Εργασίας';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Επεξεργασία Ροής Εργασίας';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Αδυναμία αλλαγής κατάστασης αρχείου σε %%ARCHIVE%%. Λείπει πρόσβαση για την εκκαθάριση απαιτούμενων πεδίων.';

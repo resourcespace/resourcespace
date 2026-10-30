@@ -65,3 +65,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'I-edit ang mga Estado n
 
 $lang["page-title_rse_workflow_setup"] = 'I-set up ang Plugin ng Workflow';
 $lang["page-title_rse_workflow_edit_workflow"] = 'I-edit ang Workflow';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Hindi mabago ang estado ng archive sa %%ARCHIVE%%. Kulang ang access upang punan ang mga kinakailangang patlang.';

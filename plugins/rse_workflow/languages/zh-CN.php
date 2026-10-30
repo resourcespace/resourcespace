@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = '编辑工作流操作'
 $lang["page-title_rse_workflow_edit_workflow_states"] = '编辑工作流状态';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw 工作流';
 $lang["page-title_rse_workflow_setup"] = '设置工作流插件';
+
+$lang["rse_workflow_state_change_failed_permissions"] = '无法将归档状态更改为 %%ARCHIVE%%。缺少清空必填字段的权限。';

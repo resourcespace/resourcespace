@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Golygu OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'Cael PNG OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Cadw Amgen OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Cadw Newydd OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Data delwedd annilys';
+$lang["openai_image_edit_error_invalid_image"] = 'Delwedd annilys';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Methu ysgrifennu\'r ffeil dros dro';

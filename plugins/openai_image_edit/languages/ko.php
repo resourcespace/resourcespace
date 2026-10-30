@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI 편집';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNG 가져오기';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI 저장 대안';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI 새로 저장';
+
+$lang["openai_image_edit_error_invalid_image_data"] = '잘못된 이미지 데이터';
+$lang["openai_image_edit_error_invalid_image"] = '잘못된 이미지';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = '임시 파일을 쓸 수 없습니다';

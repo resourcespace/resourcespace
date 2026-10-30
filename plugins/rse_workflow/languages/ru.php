@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Редактирова�
 
 $lang["page-title_rse_workflow_setup"] = 'Настройка плагина рабочего процесса';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Редактировать рабочий процесс';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Не удалось изменить состояние архива на %%ARCHIVE%%. Отсутствует доступ для очистки обязательных полей.';

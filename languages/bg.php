@@ -3258,3 +3258,8 @@ $lang['thumbnails_collection_bar'] = 'Миниатюри';
 $lang["home__welcometext"] = 'Водещата система с отворен код за управление на корпоративни дигитални активи.';
 $lang["language-ku"] = 'Курдски';
 $lang["filter_err_field_disabled"] = 'Полето \'%NAME\' е деактивирано';
+
+$lang["systemconfig_customheadingfont_label"] = 'Персонализиран файл с шрифт за заглавия';
+$lang["readmore"] = 'Прочетете повече';
+$lang["showwelcometext"] = 'Показване на приветствена информация';
+$lang["collection_category_blocked"] = 'Не може да се добавят ресурси към категория на представена колекция, блокирана от следните колекции: ';

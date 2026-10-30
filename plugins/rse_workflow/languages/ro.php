@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Editează Stările Flux
 
 $lang["page-title_rse_workflow_setup"] = 'Configurare Plugin Workflow';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Editare flux de lucru';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Imposibil de schimbat starea arhivei la %%ARCHIVE%%. Lipsesc permisiunile pentru a goli câmpurile obligatorii.';

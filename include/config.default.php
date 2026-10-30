@@ -3239,6 +3239,11 @@ $metadata_admin_show_shorthand = false;
 // Each "url" can be a single URL (used automatically) or an array of allowed callback URLs.
 // For an array, callers must pass a "url" parameter to pages/user/user_api_session.php that exactly matches an entry.
 // For example: "url" => ["https://example.com/production/callback", "https://example.com/testing/callback"].
+// Delivery defaults to "post" (the existing server-to-server callback).
+// Set "delivery" => "redirect_code" to return a single-use, 120-second code through the browser instead.
+// In this mode "url" must contain the integration's browser return URL(s), not its POST callback URL(s).
+// Requests must include a non-empty state and S256 PKCE challenge; redeem via user_api_session_exchange.php.
+// See documentation/user_api_session_code.md and codex_cihub.txt for the protocol and CI-HUB setup.
 $api_issue_valid_destinations = [
     "linkrui" => [
         "name" => "LinkrUI",
@@ -3260,17 +3265,19 @@ $api_issue_valid_destinations = [
     ],
     "cihub" => [
         "name" => "CI-HUB",
+        "delivery" => "redirect_code",
+        // Browser return URLs for CI-HUB integrations using supportsNewLoginUrl: true.
         "url" => [
-                    "https://app-aagcgsdkbdg.canva-apps.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://app-aagppabnsou.canva-apps.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://live.ci-hub.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://stage.ci-hub.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://dev.ci-hub.com/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://ci-hub.azurewebsites.net/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://ci-hub-test.azurewebsites.net/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://ci-hub-beta.azurewebsites.net/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "http://localhost:8080/api/v1/system/providerInternal/resourceSpaceAuthCallback",
-                    "https://localhost:8080/api/v1/system/providerInternal/resourceSpaceAuthCallback"
+                    "https://app-aagcgsdkbdg.canva-apps.com/api/v1/auth/login",
+                    "https://app-aagppabnsou.canva-apps.com/api/v1/auth/login",
+                    "https://live.ci-hub.com/api/v1/auth/login",
+                    "https://stage.ci-hub.com/api/v1/auth/login",
+                    "https://dev.ci-hub.com/api/v1/auth/login",
+                    "https://ci-hub.azurewebsites.net/api/v1/auth/login",
+                    "https://ci-hub-test.azurewebsites.net/api/v1/auth/login",
+                    "https://ci-hub-beta.azurewebsites.net/api/v1/auth/login",
+                    "http://localhost:8080/api/v1/auth/login",
+                    "https://localhost:8080/api/v1/auth/login"
                 ],
         "querydata" => ["username", "email", "fullname"],
         "stateparam" => "state",

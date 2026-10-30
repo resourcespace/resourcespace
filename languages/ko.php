@@ -3260,3 +3260,8 @@ $lang['language-zh-TW'] = '번체 중국어';
 $lang["home__welcometext"] = '선도적인 오픈 소스 엔터프라이즈 디지털 자산 관리 시스템.';
 $lang["language-ku"] = '쿠르드어';
 $lang["filter_err_field_disabled"] = '필드 \'%NAME\'이 비활성화되었습니다';
+
+$lang["systemconfig_customheadingfont_label"] = '사용자 정의 제목 글꼴 파일';
+$lang["readmore"] = '더 읽기';
+$lang["showwelcometext"] = '환영 정보 표시';
+$lang["collection_category_blocked"] = '추천 컬렉션 카테고리에 리소스를 추가할 수 없습니다. 다음 컬렉션에 의해 차단됨: ';

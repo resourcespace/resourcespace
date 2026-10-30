@@ -3298,3 +3298,8 @@ $lang['language-zh-TW'] = 'Xinès tradicional';
 $lang["home__welcometext"] = 'El sistema de gestió d\'actius digitals d\'empresa de codi obert líder.';
 $lang["language-ku"] = 'Kurdi';
 $lang["filter_err_field_disabled"] = 'El camp \'%NAME\' està desactivat';
+
+$lang["systemconfig_customheadingfont_label"] = 'Fitxer de font personalitzat per a títols';
+$lang["readmore"] = 'Llegir més';
+$lang["showwelcometext"] = 'Mostra informació de benvinguda';
+$lang["collection_category_blocked"] = 'No es poden afegir recursos a una categoria de col·lecció destacada, bloquejada per les següents col·leccions: ';

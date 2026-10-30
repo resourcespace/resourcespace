@@ -3330,3 +3330,8 @@ $lang['language-zh-TW'] = 'Традиционен китайски';
 $lang["home__welcometext"] = 'Ведущая система управления цифровыми активами с открытым исходным кодом для предприятий.';
 $lang["language-ku"] = 'Курдский';
 $lang["filter_err_field_disabled"] = 'Поле \'%NAME\' отключено';
+
+$lang["systemconfig_customheadingfont_label"] = 'Пользовательский файл шрифта заголовка';
+$lang["readmore"] = 'Читать далее';
+$lang["showwelcometext"] = 'Показать приветственную информацию';
+$lang["collection_category_blocked"] = 'Невозможно добавить ресурсы в категорию избранной коллекции, заблокированную следующими коллекциями: ';

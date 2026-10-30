@@ -3350,3 +3350,8 @@ $lang['language-zh-TW'] = 'صينية تقليدية';
 $lang["home__welcometext"] = 'نظام إدارة الأصول الرقمية المؤسسي مفتوح المصدر الرائد.';
 $lang["language-ku"] = 'الكردية';
 $lang["filter_err_field_disabled"] = 'الحقل \'%NAME\' معطل';
+
+$lang["systemconfig_customheadingfont_label"] = 'ملف خط العنوان المخصص';
+$lang["readmore"] = 'اقرأ المزيد';
+$lang["showwelcometext"] = 'عرض معلومات الترحيب';
+$lang["collection_category_blocked"] = 'لا يمكن إضافة الموارد إلى فئة مجموعة مميزة، محظورة بواسطة المجموعات التالية: ';

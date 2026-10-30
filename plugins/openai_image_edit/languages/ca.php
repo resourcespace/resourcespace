@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Edit';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Obtenir PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Desa Alternativa';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Desa Nou';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Dades d\'imatge no vàlides';
+$lang["openai_image_edit_error_invalid_image"] = 'Imatge no vàlida';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'No s\'ha pogut escriure el fitxer temporal';

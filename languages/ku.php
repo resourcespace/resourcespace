@@ -3245,3 +3245,8 @@ $lang["hide_collection_bar"] = 'شاردراوە';
 $lang["minimal_collection_bar"] = 'شاردی کەمترین';
 $lang["thumbnails_collection_bar"] = 'وێنە پەڕەکان';
 $lang["filter_err_field_disabled"] = 'مەیدان \'%NAME\' بەردەست نیە';
+
+$lang["systemconfig_customheadingfont_label"] = 'فایلی فۆنتی سەرپەڕەی تایبەتی';
+$lang["readmore"] = 'زۆرتر بخوێنەوە';
+$lang["showwelcometext"] = 'پیشاندانی زانیاری بەخێربێن';
+$lang["collection_category_blocked"] = 'ناتوانرێت سەرچاوەکان بۆ پۆلی کۆکردنەوەی تایبەتی زیاد بکرێن، لەلایەن کۆکردنەوەکانی خوارەوە داخراوە: ';

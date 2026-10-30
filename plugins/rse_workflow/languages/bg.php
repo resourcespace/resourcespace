@@ -64,3 +64,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'Редактиране
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'Редактиране на състоянията на работния процес';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Редактиране на работния процес';
 $lang["page-title_rse_workflow_setup"] = 'Настройка на плъгина за работен процес';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Неуспешна промяна на състоянието на архива на %%ARCHIVE%%. Липсва достъп за изчистване на задължителни полета.';

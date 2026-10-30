@@ -3317,3 +3317,8 @@ $lang['language-zh-TW'] = 'Chinês Tradicional';
 $lang["home__welcometext"] = 'O principal sistema de gerenciamento de ativos digitais empresarial de código aberto.';
 $lang["language-ku"] = 'Curdo';
 $lang["filter_err_field_disabled"] = 'O campo \'%NAME\' está desativado';
+
+$lang["systemconfig_customheadingfont_label"] = 'Arquivo de fonte personalizada para cabeçalho';
+$lang["readmore"] = 'Leia mais';
+$lang["showwelcometext"] = 'Mostrar informações de boas-vindas';
+$lang["collection_category_blocked"] = 'Não é possível adicionar recursos a uma categoria de coleção em destaque, bloqueada pelas seguintes coleções: ';

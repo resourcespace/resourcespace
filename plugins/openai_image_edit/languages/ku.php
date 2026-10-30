@@ -24,3 +24,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI دەسکاریکردن';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI وەرگرتنی PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI پاشەکەوتکردنی هەڵبژاردن';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI پاشەکەوتکردنی نوێ';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'داتای وێنەی نادروست';
+$lang["openai_image_edit_error_invalid_image"] = 'وێنەی نادروست';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'ناتوانرێت پەڕگەی کاتی بنووسرێت';

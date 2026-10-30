@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Hariri OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'Pata PNG ya OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Hifadhi Mbadala ya OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Hifadhi Mpya ya OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Data ya picha si halali';
+$lang["openai_image_edit_error_invalid_image"] = 'Picha si halali';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Haiwezi kuandika faili la muda';

@@ -3251,3 +3251,8 @@ $lang['language-zh-TW'] = 'Tiếng Trung Phồn thể';
 $lang["home__welcometext"] = 'Hệ thống quản lý tài sản kỹ thuật số doanh nghiệp mã nguồn mở hàng đầu.';
 $lang["language-ku"] = 'Tiếng Kurd';
 $lang["filter_err_field_disabled"] = 'Trường \'%NAME\' đã bị vô hiệu hóa';
+
+$lang["systemconfig_customheadingfont_label"] = 'Tệp phông chữ tiêu đề tùy chỉnh';
+$lang["readmore"] = 'Đọc thêm';
+$lang["showwelcometext"] = 'Hiển thị thông tin chào mừng';
+$lang["collection_category_blocked"] = 'Không thể thêm tài nguyên vào danh mục bộ sưu tập nổi bật, bị chặn bởi các bộ sưu tập sau: ';

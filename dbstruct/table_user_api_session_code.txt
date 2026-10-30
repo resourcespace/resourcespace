@@ -1,0 +1,8 @@
+code_hash,varchar(64),NO,PRI,,
+user,int(11),NO,,,
+system,varchar(100),NO,,,
+redirect_uri,text,NO,,,
+code_challenge,varchar(43),NO,,,
+key_hash,varchar(64),NO,,,
+querydata,text,NO,,,
+expires,int(11),NO,MUL,,

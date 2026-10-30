@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Editar Estados del Fluj
 
 $lang["page-title_rse_workflow_setup"] = 'Configurar el complemento de flujo de trabajo';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Editar flujo de trabajo';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'No se puede cambiar el estado de archivo a %%ARCHIVE%%. Falta acceso para vaciar los campos obligatorios.';

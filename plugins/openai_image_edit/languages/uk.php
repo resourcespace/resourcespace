@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Редагування OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'Отримати PNG від OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Зберегти альтернативу OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Зберегти нове OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Недійсні дані зображення';
+$lang["openai_image_edit_error_invalid_image"] = 'Недійсне зображення';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Не вдалося записати тимчасовий файл';

@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'İş Akışı Eylemler
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'İş Akışı Durumlarını Düzenle';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw İş Akışı';
 $lang["page-title_rse_workflow_setup"] = 'İş Akışı Eklentisini Ayarla';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Arşiv durumu %%ARCHIVE%% olarak değiştirilemedi. Gerekli alanları boşaltma erişimi eksik.';

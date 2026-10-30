@@ -3328,3 +3328,8 @@ $lang['language-zh-TW'] = 'Tradisjonell kinesisk';
 $lang["home__welcometext"] = 'Den ledende åpne kildekode-bedrifts digitale eiendelsadministrasjonssystem.';
 $lang["language-ku"] = 'Kurdisk';
 $lang["filter_err_field_disabled"] = 'Felt \'%NAME\' er deaktivert';
+
+$lang["systemconfig_customheadingfont_label"] = 'Egendefinert overskriftsfontfil';
+$lang["readmore"] = 'Les mer';
+$lang["showwelcometext"] = 'Vis velkomstinformasjon';
+$lang["collection_category_blocked"] = 'Kan ikke legge til ressurser i en utvalgt samlingskategori, blokkert av følgende samlinger: ';

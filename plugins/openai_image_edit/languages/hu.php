@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Szerkesztés';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNG letöltése';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Alternatív mentése';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Új mentése';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Érvénytelen képadat';
+$lang["openai_image_edit_error_invalid_image"] = 'Érvénytelen kép';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nem sikerült írni az ideiglenes fájlt';

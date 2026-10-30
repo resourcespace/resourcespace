@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI แก้ไข';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI รับ PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI บันท ทางเลือก';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI บันทึกใหม่';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'ข้อมูลรูปภาพไม่ถูกต้อง';
+$lang["openai_image_edit_error_invalid_image"] = 'รูปภาพไม่ถูกต้อง';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'ไม่สามารถเขียนไฟล์ชั่วคราวได้';

@@ -3248,3 +3248,8 @@ $lang['language-zh-TW'] = 'Tradisyong Tsino';
 $lang["home__welcometext"] = 'Ang nangungunang open source na sistema para sa pamamahala ng digital na asset para sa negosyo.';
 $lang["language-ku"] = 'Kurdish';
 $lang["filter_err_field_disabled"] = 'Ang patlang \'%NAME\' ay naka-disable';
+
+$lang["systemconfig_customheadingfont_label"] = 'Pasadyang font file ng pamagat';
+$lang["readmore"] = 'Basahin pa';
+$lang["showwelcometext"] = 'Ipakita ang impormasyon ng pagtanggap';
+$lang["collection_category_blocked"] = 'Hindi maaaring magdagdag ng mga mapagkukunan sa isang tampok na kategorya ng koleksyon, hinaharangan ng mga sumusunod na koleksyon: ';

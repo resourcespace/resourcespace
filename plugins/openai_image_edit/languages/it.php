@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Modifica OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'Ottieni PNG OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Salva Alternativa OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Salva Nuovo OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Dati immagine non validi';
+$lang["openai_image_edit_error_invalid_image"] = 'Immagine non valida';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Impossibile scrivere il file temporaneo';

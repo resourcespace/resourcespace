@@ -3316,3 +3316,8 @@ $lang['language-zh-TW'] = 'Tionghoa Tradisional';
 $lang["home__welcometext"] = 'Sistem manajemen aset digital perusahaan sumber terbuka terkemuka.';
 $lang["language-ku"] = 'Bahasa Kurdi';
 $lang["filter_err_field_disabled"] = 'Field \'%NAME\' dinonaktifkan';
+
+$lang["systemconfig_customheadingfont_label"] = 'File font judul khusus';
+$lang["readmore"] = 'Baca selengkapnya';
+$lang["showwelcometext"] = 'Tampilkan info sambutan';
+$lang["collection_category_blocked"] = 'Tidak dapat menambahkan sumber daya ke kategori koleksi unggulan, diblokir oleh koleksi berikut: ';

@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'कार्यप्�
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'कार्यप्रवाह स्थितियाँ संपादित करें';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw वर्कफ़्लो';
 $lang["page-title_rse_workflow_setup"] = 'कार्यप्रवाह प्लगइन सेटअप करें';
+
+$lang["rse_workflow_state_change_failed_permissions"] = '%%ARCHIVE%% में संग्रह स्थिति बदलने में असमर्थ। आवश्यक खाली फ़ील्ड्स तक पहुँच नहीं है।';

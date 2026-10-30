@@ -3334,3 +3334,8 @@ $lang['language-zh-TW'] = '繁体中文';
 $lang["home__welcometext"] = '领先的开源企业数字资产管理系统。';
 $lang["language-ku"] = '库尔德语';
 $lang["filter_err_field_disabled"] = '字段 \'%NAME\' 已被禁用';
+
+$lang["systemconfig_customheadingfont_label"] = '自定义标题字体文件';
+$lang["readmore"] = '阅读更多';
+$lang["showwelcometext"] = '显示欢迎信息';
+$lang["collection_category_blocked"] = '无法将资源添加到精选集合类别，被以下集合阻止：';

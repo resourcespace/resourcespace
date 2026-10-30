@@ -3252,3 +3252,8 @@ $lang['language-zh-TW'] = 'Hagyományos kínai';
 $lang["home__welcometext"] = 'A vezető nyílt forráskódú vállalati digitális eszközkezelő rendszer.';
 $lang["language-ku"] = 'Kurdis';
 $lang["filter_err_field_disabled"] = 'A \'%NAME\' mező le van tiltva';
+
+$lang["systemconfig_customheadingfont_label"] = 'Egyedi címsor betűtípus fájl';
+$lang["readmore"] = 'Olvass tovább';
+$lang["showwelcometext"] = 'Üdvözlő információ megjelenítése';
+$lang["collection_category_blocked"] = 'Nem lehet erőforrásokat hozzáadni egy kiemelt gyűjtemény kategóriához, a következő gyűjtemények blokkolják: ';

@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI 編集';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNGを取得';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI 代替保存';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI 新規保存';
+
+$lang["openai_image_edit_error_invalid_image_data"] = '無効な画像データです';
+$lang["openai_image_edit_error_invalid_image"] = '無効な画像です';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = '一時ファイルを書き込めません';

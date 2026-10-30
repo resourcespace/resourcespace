@@ -65,3 +65,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'ویرایش وضعیت
 
 $lang["page-title_rse_workflow_setup"] = 'تنظیم افزونه گردش کار';
 $lang["page-title_rse_workflow_edit_workflow"] = 'ویرایش جریان کار';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'امکان تغییر وضعیت بایگانی به %%ARCHIVE%% وجود ندارد. دسترسی به فیلدهای الزامی خالی وجود ندارد.';

@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Bewerken';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNG ophalen';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Alternatief opslaan';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Nieuw opslaan';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Ongeldige afbeeldingsgegevens';
+$lang["openai_image_edit_error_invalid_image"] = 'Ongeldige afbeelding';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Kan tijdelijke bestand niet schrijven';

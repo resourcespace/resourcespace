@@ -3342,3 +3342,8 @@ $lang['language-zh-TW'] = 'Tradičná čínština';
 $lang["home__welcometext"] = 'Vedúci open source systém pre správu digitálnych aktív v podniku.';
 $lang["language-ku"] = 'Kurdčina';
 $lang["filter_err_field_disabled"] = 'Pole \'%NAME\' je zakázané';
+
+$lang["systemconfig_customheadingfont_label"] = 'Súbor vlastného písma nadpisu';
+$lang["readmore"] = 'Čítať viac';
+$lang["showwelcometext"] = 'Zobraziť uvítacie informácie';
+$lang["collection_category_blocked"] = 'Nie je možné pridať zdroje do kategórie vybranej kolekcie, zablokované nasledujúcimi kolekciami: ';

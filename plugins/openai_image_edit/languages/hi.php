@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI संपादन';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI पीएनजी प्राप्त करें';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI विकल्प सहेजें';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI नया सहेजें';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'अमान्य छवि डेटा';
+$lang["openai_image_edit_error_invalid_image"] = 'अमान्य छवि';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'अस्थायी फ़ाइल लिखने में असमर्थ';

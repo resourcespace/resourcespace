@@ -3263,3 +3263,8 @@ $lang['language-zh-TW'] = 'چینی سنتی';
 $lang["home__welcometext"] = 'سیستم مدیریت دارایی دیجیتال سازمانی منبع باز پیشرو.';
 $lang["language-ku"] = 'کوردی';
 $lang["filter_err_field_disabled"] = 'فیلد \'%NAME\' غیرفعال است';
+
+$lang["systemconfig_customheadingfont_label"] = 'فایل قلم عنوان سفارشی';
+$lang["readmore"] = 'ادامه مطلب';
+$lang["showwelcometext"] = 'نمایش اطلاعات خوش‌آمدگویی';
+$lang["collection_category_blocked"] = 'امکان افزودن منابع به دسته مجموعه ویژه وجود ندارد، توسط مجموعه‌های زیر مسدود شده است: ';

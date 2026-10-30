@@ -3244,3 +3244,8 @@ $lang['language-zh-TW'] = 'Chineeg traddodiadol';
 $lang["home__welcometext"] = 'Y prif system rheoli asedau digidol menter agored ffynhonnell agored.';
 $lang["language-ku"] = 'Cymraeg';
 $lang["filter_err_field_disabled"] = 'Mae\'r maes \'%NAME\' wedi\'i analluogi';
+
+$lang["systemconfig_customheadingfont_label"] = 'Ffeil ffont pennawd arferol';
+$lang["readmore"] = 'Darllen mwy';
+$lang["showwelcometext"] = 'Dangos gwybodaeth groeso';
+$lang["collection_category_blocked"] = 'Methu ychwanegu adnoddau i gategori casgliad dan sylw, wedi\'i rwystro gan y casgliadau canlynol: ';

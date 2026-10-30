@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Bewerk Workflow Statuss
 
 $lang["page-title_rse_workflow_setup"] = 'Instellen Workflow Plugin';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Bewerk Workflow';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Kan archiefstatus niet wijzigen naar %%ARCHIVE%%. Toegang tot het leegmaken van verplichte velden ontbreekt.';

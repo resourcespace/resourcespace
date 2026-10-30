@@ -3324,3 +3324,8 @@ $lang['language-zh-TW'] = 'Tradicionalni kineski';
 $lang["home__welcometext"] = 'Vodeći open source sustav za upravljanje digitalnim resursima za poduzeća.';
 $lang["language-ku"] = 'Kurdski';
 $lang["filter_err_field_disabled"] = 'Polje \'%NAME\' je onemogućeno';
+
+$lang["systemconfig_customheadingfont_label"] = 'Prilagođena datoteka fonta naslova';
+$lang["readmore"] = 'Pročitaj više';
+$lang["showwelcometext"] = 'Prikaži uvodne informacije';
+$lang["collection_category_blocked"] = 'Nije moguće dodati resurse u kategoriju istaknute kolekcije, blokirano od sljedećih kolekcija: ';

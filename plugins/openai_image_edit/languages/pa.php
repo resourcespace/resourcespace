@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI ਸੰਪਾਦਨ';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNG ਪ੍ਰਾਪਤ ਕਰੋ';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI ਬਦਲ ਵਿਕਲਪ ਸੇਵ ਕਰੋ';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI ਨਵਾਂ ਸੇਵ ਕਰੋ';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'ਅਵੈਧ ਚਿੱਤਰ ਡੇਟਾ';
+$lang["openai_image_edit_error_invalid_image"] = 'ਅਵੈਧ ਚਿੱਤਰ';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'ਅਸਥਾਈ ਫਾਈਲ ਲਿਖਣ ਵਿੱਚ ਅਸਮਰੱਥ';

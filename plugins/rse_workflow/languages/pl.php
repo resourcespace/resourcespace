@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Edytuj stany przepływu
 
 $lang["page-title_rse_workflow_setup"] = 'Ustawienia wtyczki przepływu pracy';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Edytuj Workflow';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Nie można zmienić stanu archiwum na %%ARCHIVE%%. Brak dostępu do wymaganych pustych pól.';

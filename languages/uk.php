@@ -3250,3 +3250,8 @@ $lang['language-zh-TW'] = 'Традиційна китайська';
 $lang["home__welcometext"] = 'Провідна система управління цифровими активами з відкритим кодом для підприємств.';
 $lang["language-ku"] = 'Курдська';
 $lang["filter_err_field_disabled"] = 'Поле \'%NAME\' вимкнено';
+
+$lang["systemconfig_customheadingfont_label"] = 'Файл шрифту для заголовків користувача';
+$lang["readmore"] = 'Читати далі';
+$lang["showwelcometext"] = 'Показати вітальну інформацію';
+$lang["collection_category_blocked"] = 'Не можна додати ресурси до категорії рекомендованої колекції, заблоковано наступними колекціями: ';

@@ -65,3 +65,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'কর্মপ্র�
 
 $lang["page-title_rse_workflow_setup"] = 'ওয়ার্কফ্লো প্লাগইন সেটআপ করুন';
 $lang["page-title_rse_workflow_edit_workflow"] = 'কর্মপ্রবাহ সম্পাদনা';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'আর্কাইভ অবস্থা %%ARCHIVE%% এ পরিবর্তন করতে অক্ষম। প্রয়োজনীয় ফাঁকা ক্ষেত্রগুলিতে প্রবেশাধিকার নেই।';

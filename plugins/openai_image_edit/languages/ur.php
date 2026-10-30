@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI ترمیم';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNG حاصل کریں';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI متبادل محفوظ کریں';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI نئی محفوظ کریں';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'غلط تصویر کا ڈیٹا';
+$lang["openai_image_edit_error_invalid_image"] = 'غلط تصویر';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'عارضی فائل لکھنے میں ناکام';

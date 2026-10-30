@@ -3313,3 +3313,8 @@ $lang['language-zh-TW'] = 'Traditionel Kinesisk';
 $lang["home__welcometext"] = 'Den førende open source virksomhedsdigital asset management system.';
 $lang["language-ku"] = 'Kurdiske';
 $lang["filter_err_field_disabled"] = 'Felt \'%NAME\' er deaktiveret';
+
+$lang["systemconfig_customheadingfont_label"] = 'Brugerdefineret skrifttype til overskrifter';
+$lang["readmore"] = 'Læs mere';
+$lang["showwelcometext"] = 'Vis velkomstinformation';
+$lang["collection_category_blocked"] = 'Kan ikke tilføje ressourcer til en fremhævet samlingskategori, blokeret af følgende samlinger: ';

@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Edit Status Alur Kerja'
 
 $lang["page-title_rse_workflow_setup"] = 'Atur Plugin Alur Kerja';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Edit Alur Kerja';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Tidak dapat mengubah status arsip ke %%ARCHIVE%%. Tidak memiliki akses untuk mengosongkan kolom yang wajib diisi.';

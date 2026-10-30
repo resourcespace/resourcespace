@@ -64,3 +64,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'ورک فلو کے ا�
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'ورک فلو کی حالتیں تبدیل کریں';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw ورک فلو';
 $lang["page-title_rse_workflow_setup"] = 'ورک فلو پلگ ان سیٹ اپ کریں';
+
+$lang["rse_workflow_state_change_failed_permissions"] = '%%ARCHIVE%% پر آرکائیو کی حالت تبدیل کرنے میں ناکامی۔ ضروری خالی فیلڈز تک رسائی نہیں ہے۔';

@@ -3259,3 +3259,8 @@ $lang['language-zh-TW'] = 'Kichina cha Jadi';
 $lang["home__welcometext"] = 'Mfumo wa usimamizi wa mali za kidijitali wa kampuni wa chanzo huria unaoongoza.';
 $lang["language-ku"] = 'Kiswahili';
 $lang["filter_err_field_disabled"] = 'Sehemu \'%NAME\' imezimwa';
+
+$lang["systemconfig_customheadingfont_label"] = 'Faili la fonti ya kichwa maalum';
+$lang["readmore"] = 'Soma zaidi';
+$lang["showwelcometext"] = 'Onyesha taarifa ya kukaribisha';
+$lang["collection_category_blocked"] = 'Haiwezi kuongeza rasilimali kwenye aina ya mkusanyiko uliotajwa, imezuiwa na mikusanyiko ifuatayo: ';

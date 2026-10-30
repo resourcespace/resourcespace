@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Muokkaa';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Hae PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Tallenna Vaihtoehto';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Tallenna Uusi';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Virheellinen kuvatiedosto';
+$lang["openai_image_edit_error_invalid_image"] = 'Virheellinen kuva';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Väliaikaistiedoston kirjoittaminen epäonnistui';

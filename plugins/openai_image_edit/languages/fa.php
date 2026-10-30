@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'ویرایش OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'دریافت PNG از OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'ذخیره جایگزین OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'ذخیره جدید OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'داده تصویر نامعتبر است';
+$lang["openai_image_edit_error_invalid_image"] = 'تصویر نامعتبر است';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'امکان نوشتن فایل موقت وجود ندارد';

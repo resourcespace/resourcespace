@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Edit OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'Dapatkan PNG OpenAI';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Simpan Alternatif OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Simpan Baru OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Data gambar tidak valid';
+$lang["openai_image_edit_error_invalid_image"] = 'Gambar tidak valid';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Tidak dapat menulis file sementara';

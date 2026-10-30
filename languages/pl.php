@@ -3317,3 +3317,8 @@ $lang['language-zh-TW'] = 'Tradycyjny chiński';
 $lang["home__welcometext"] = 'Wiodący otwartoźródłowy system zarządzania zasobami cyfrowymi dla przedsiębiorstw.';
 $lang["language-ku"] = 'Kurdyjski';
 $lang["filter_err_field_disabled"] = 'Pole \'%NAME\' jest wyłączone';
+
+$lang["systemconfig_customheadingfont_label"] = 'Niestandardowy plik czcionki nagłówka';
+$lang["readmore"] = 'Czytaj więcej';
+$lang["showwelcometext"] = 'Pokaż informacje powitalne';
+$lang["collection_category_blocked"] = 'Nie można dodać zasobów do kategorii kolekcji wyróżnionej, zablokowane przez następujące kolekcje: ';

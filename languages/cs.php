@@ -3251,3 +3251,8 @@ $lang['language-zh-TW'] = 'Tradiční čínština';
 $lang["home__welcometext"] = 'Přední open source systém pro správu digitálních aktiv pro podniky.';
 $lang["language-ku"] = 'Kurdština';
 $lang["filter_err_field_disabled"] = 'Pole \'%NAME\' je zakázáno';
+
+$lang["systemconfig_customheadingfont_label"] = 'Vlastní soubor písma nadpisu';
+$lang["readmore"] = 'Číst více';
+$lang["showwelcometext"] = 'Zobrazit uvítací informace';
+$lang["collection_category_blocked"] = 'Nelze přidat zdroje do kategorie vybrané kolekce, blokováno následujícími kolekcemi: ';

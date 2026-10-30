@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Redigera arbetsflödess
 
 $lang["page-title_rse_workflow_setup"] = 'Konfigurera arbetsflödesplugin';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Redigera arbetsflöde';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Kan inte ändra arkivstatus till %%ARCHIVE%%. Saknar åtkomst för att tömma obligatoriska fält.';

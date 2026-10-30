@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Rediger arbejdsflow-til
 
 $lang["page-title_rse_workflow_setup"] = 'Opsæt Workflow Plugin';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Rediger arbejdsflow';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Kan ikke ændre arkivtilstand til %%ARCHIVE%%. Mangler adgang til at tømme påkrævede felter.';

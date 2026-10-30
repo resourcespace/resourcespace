@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'ワークフローア�
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'ワークフローの状態を編集';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw ワークフロー';
 $lang["page-title_rse_workflow_setup"] = 'ワークフロープラグインの設定';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'アーカイブ状態を%%ARCHIVE%%に変更できません。必須フィールドを空にするアクセス権がありません。';

@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Επεξεργασία';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Λήψη PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Αποθήκευση Εναλλακτικής';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Αποθήκευση Νέου';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Μη έγκυρα δεδομένα εικόνας';
+$lang["openai_image_edit_error_invalid_image"] = 'Μη έγκυρη εικόνα';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Αδυναμία εγγραφής προσωρινού αρχείου';

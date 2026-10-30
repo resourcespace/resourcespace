@@ -3305,3 +3305,8 @@ $lang['language-zh-TW'] = 'Traditioneel Chinees';
 $lang["home__welcometext"] = 'Het toonaangevende open source enterprise digital asset management systeem.';
 $lang["language-ku"] = 'Koerdisch';
 $lang["filter_err_field_disabled"] = 'Veld \'%NAME\' is uitgeschakeld';
+
+$lang["systemconfig_customheadingfont_label"] = 'Aangepast lettertype voor koptekstbestand';
+$lang["readmore"] = 'Lees meer';
+$lang["showwelcometext"] = 'Welkomtekst tonen';
+$lang["collection_category_blocked"] = 'Kan geen bronnen toevoegen aan een uitgelichte collectiecategorie, geblokkeerd door de volgende collecties: ';

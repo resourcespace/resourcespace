@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Редактировать OpenAI'
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Получить PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Сохранить альтернативу';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Сохранить новое';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Недопустимые данные изображения';
+$lang["openai_image_edit_error_invalid_image"] = 'Недопустимое изображение';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Не удалось записать временный файл';

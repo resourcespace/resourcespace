@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI 编辑';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI 获取 PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI 保存备选方案';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI 保存新建';
+
+$lang["openai_image_edit_error_invalid_image_data"] = '无效的图像数据';
+$lang["openai_image_edit_error_invalid_image"] = '无效的图像';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = '无法写入临时文件';

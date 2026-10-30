@@ -3308,3 +3308,8 @@ $lang['language-zh-TW'] = 'Perinteinen kiina';
 $lang["home__welcometext"] = 'Kansainvälisen avoimen lähdekoodin yritystason digitaalisen omaisuudenhallintajärjestelmän eturintamassa.';
 $lang["language-ku"] = 'Kurdi';
 $lang["filter_err_field_disabled"] = 'Kenttä \'%NAME\' on poistettu käytöstä';
+
+$lang["systemconfig_customheadingfont_label"] = 'Mukautettu otsikkokirjasintiedosto';
+$lang["readmore"] = 'Lue lisää';
+$lang["showwelcometext"] = 'Näytä tervetuloviesti';
+$lang["collection_category_blocked"] = 'Resursseja ei voi lisätä esitellyn kokoelman kategoriaan, seuraavat kokoelmat estävät: ';

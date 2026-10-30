@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Upraviť stavy pracovn�
 
 $lang["page-title_rse_workflow_setup"] = 'Nastaviť plugin pracovného postupu';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Upraviť pracovný tok';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Nepodarilo sa zmeniť stav archívu na %%ARCHIVE%%. Chýba prístup na vyprázdnenie požadovaných polí.';

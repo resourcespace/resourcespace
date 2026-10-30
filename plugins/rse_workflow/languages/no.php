@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'Rediger arbeidsflyt ha
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'Rediger arbeidsflyttilstander';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw arbeidsflyt';
 $lang["page-title_rse_workflow_setup"] = 'Sett opp arbeidsflyt-plugin';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Kan ikke endre arkivstatus til %%ARCHIVE%%. Mangler tilgang til å tømme nødvendige felt.';

@@ -3244,3 +3244,8 @@ $lang['language-zh-TW'] = 'ภาษาจีนแบบดั้งเดิ�
 $lang["home__welcometext"] = 'ระบบการจัดการสินทรัพย์ดิจิทัลสำหรับองค์กรแบบเปิดซอร์สชั้นนำ';
 $lang["language-ku"] = 'ภาษาไทย';
 $lang["filter_err_field_disabled"] = 'ฟิลด์ \'%NAME\' ถูกปิดใช้งาน';
+
+$lang["systemconfig_customheadingfont_label"] = 'ไฟล์ฟอนต์หัวเรื่องที่กำหนดเอง';
+$lang["readmore"] = 'อ่านเพิ่มเติม';
+$lang["showwelcometext"] = 'แสดงข้อมูลต้อนรับ';
+$lang["collection_category_blocked"] = 'ไม่สามารถเพิ่มทรัพยากรในหมวดหมู่คอลเลกชันที่แนะนำได้ ถูกบล็อกโดยคอลเลกชันต่อไปนี้: ';

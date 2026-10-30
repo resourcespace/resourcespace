@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Рэдагаваць';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Атрымаць PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Захаваць альтэрнатыву';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Захаваць новае';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Няправільныя дадзеныя выявы';
+$lang["openai_image_edit_error_invalid_image"] = 'Няправільная выява';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Немагчыма запісаць часовы файл';

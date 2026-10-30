@@ -3321,3 +3321,8 @@ $lang['language-zh-TW'] = '繁体字中国語';
 $lang["home__welcometext"] = '主要なオープンソースのエンタープライズデジタルアセット管理システム。';
 $lang["language-ku"] = 'クルド語';
 $lang["filter_err_field_disabled"] = 'フィールド \'%NAME\' は無効です';
+
+$lang["systemconfig_customheadingfont_label"] = 'カスタム見出しフォントファイル';
+$lang["readmore"] = '続きを読む';
+$lang["showwelcometext"] = 'ウェルカム情報を表示';
+$lang["collection_category_blocked"] = '注目コレクションカテゴリにリソースを追加できません。以下のコレクションによってブロックされています: ';

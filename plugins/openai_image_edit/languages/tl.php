@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI I-edit';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Kumuha ng PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI I-save ang Alternatibo';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI I-save ang Bago';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Hindi wastong datos ng larawan';
+$lang["openai_image_edit_error_invalid_image"] = 'Hindi wastong larawan';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Hindi maisulat ang pansamantalang file';

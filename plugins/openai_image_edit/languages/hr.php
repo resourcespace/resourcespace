@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Uredi';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Dohvati PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Spremi alternativu';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Spremi novo';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Nevažeći podaci slike';
+$lang["openai_image_edit_error_invalid_image"] = 'Nevažeća slika';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nije moguće zapisati privremenu datoteku';

@@ -3341,3 +3341,8 @@ $lang['language-zh-TW'] = 'Traditionell Kinesiska';
 $lang["home__welcometext"] = 'Det ledande open source-entreprenadssystemet för digitala tillgångar.';
 $lang["language-ku"] = 'Kurdiska';
 $lang["filter_err_field_disabled"] = 'Fältet \'%NAME\' är inaktiverat';
+
+$lang["systemconfig_customheadingfont_label"] = 'Anpassad teckensnitt för rubrikfil';
+$lang["readmore"] = 'Läs mer';
+$lang["showwelcometext"] = 'Visa välkomstinformation';
+$lang["collection_category_blocked"] = 'Kan inte lägga till resurser i en utvald samlingskategori, blockerad av följande samlingar: ';

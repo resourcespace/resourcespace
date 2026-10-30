@@ -3256,3 +3256,8 @@ $lang['language-zh-TW'] = 'Geleneksel Çince';
 $lang["home__welcometext"] = 'Önde gelen açık kaynaklı kurumsal dijital varlık yönetim sistemi.';
 $lang["language-ku"] = 'Kürtçe';
 $lang["filter_err_field_disabled"] = '\'%NAME\' alanı devre dışı bırakıldı';
+
+$lang["systemconfig_customheadingfont_label"] = 'Özel başlık yazı tipi dosyası';
+$lang["readmore"] = 'Devamını oku';
+$lang["showwelcometext"] = 'Hoş geldiniz bilgisini göster';
+$lang["collection_category_blocked"] = 'Öne çıkan koleksiyon kategorisine kaynak eklenemiyor, aşağıdaki koleksiyonlar tarafından engellendi: ';

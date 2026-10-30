@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Düzenle';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI PNG Al';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Alternatif Kaydet';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Yeni Kaydet';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Geçersiz resim verisi';
+$lang["openai_image_edit_error_invalid_image"] = 'Geçersiz resim';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Geçici dosya yazılamadı';

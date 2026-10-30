@@ -3327,3 +3327,8 @@ $lang['language-zh-TW'] = 'Traditionelles Chinesisch';
 $lang["home__welcometext"] = 'Das führende Open-Source-Unternehmenssystem für digitales Asset-Management.';
 $lang["language-ku"] = 'Kurdisch';
 $lang["filter_err_field_disabled"] = 'Feld \'%NAME\' ist deaktiviert';
+
+$lang["systemconfig_customheadingfont_label"] = 'Benutzerdefinierte Überschrift-Schriftartdatei';
+$lang["readmore"] = 'Weiterlesen';
+$lang["showwelcometext"] = 'Willkommensinfo anzeigen';
+$lang["collection_category_blocked"] = 'Ressourcen können einer hervorgehobenen Sammlungskategorie nicht hinzugefügt werden, blockiert durch folgende Sammlungen: ';

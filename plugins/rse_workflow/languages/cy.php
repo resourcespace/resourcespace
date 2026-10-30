@@ -64,3 +64,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'Golygu Gweithredoedd L
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'Golygu Gwladau Gweithflow';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw Llif Gwaith';
 $lang["page-title_rse_workflow_setup"] = 'Sefydlu Plugin Gweithflow';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Methu newid cyflwr archif i %%ARCHIVE%%. Diffyg mynediad i wagio meysydd gofynnol.';

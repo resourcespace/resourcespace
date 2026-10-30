@@ -3282,3 +3282,8 @@ $lang['language-zh-TW'] = 'Cinese Tradizionale';
 $lang["home__welcometext"] = 'Il principale sistema di gestione digitale delle risorse open source per le imprese.';
 $lang["language-ku"] = 'Curdo';
 $lang["filter_err_field_disabled"] = 'Il campo \'%NAME\' è disabilitato';
+
+$lang["systemconfig_customheadingfont_label"] = 'File font personalizzato per intestazioni';
+$lang["readmore"] = 'Leggi di più';
+$lang["showwelcometext"] = 'Mostra informazioni di benvenuto';
+$lang["collection_category_blocked"] = 'Impossibile aggiungere risorse a una categoria di collezione in evidenza, bloccata dalle seguenti collezioni: ';

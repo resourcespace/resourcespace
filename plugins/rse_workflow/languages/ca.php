@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'Editar estats del flux 
 
 $lang["page-title_rse_workflow_setup"] = 'Configurar el complement de flux de treball';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Editar Flux de Treball';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'No s\'ha pogut canviar l\'estat d\'arxiu a %%ARCHIVE%%. Falta accés per buidar els camps obligatoris.';

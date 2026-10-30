@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'Edição OpenAI';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Obter PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'Salvar Alternativa OpenAI';
 $lang["page-title_openai_image_edit_save_new"] = 'Salvar Novo OpenAI';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Dados de imagem inválidos';
+$lang["openai_image_edit_error_invalid_image"] = 'Imagem inválida';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Não foi possível gravar o arquivo temporário';

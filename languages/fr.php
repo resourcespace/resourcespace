@@ -3311,3 +3311,8 @@ $lang['language-zh-TW'] = 'Chinois traditionnel';
 $lang["home__welcometext"] = 'Le principal système de gestion des actifs numériques d\'entreprise en open source.';
 $lang["language-ku"] = 'Kurmandji';
 $lang["filter_err_field_disabled"] = 'Le champ \'%NAME\' est désactivé';
+
+$lang["systemconfig_customheadingfont_label"] = 'Fichier de police personnalisé pour les titres';
+$lang["readmore"] = 'Lire la suite';
+$lang["showwelcometext"] = 'Afficher les informations de bienvenue';
+$lang["collection_category_blocked"] = 'Impossible d\'ajouter des ressources à une catégorie de collection en vedette, bloquée par les collections suivantes : ';

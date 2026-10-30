@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Úprava';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Získat PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Uložit alternativu';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Uložit nové';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Neplatná data obrázku';
+$lang["openai_image_edit_error_invalid_image"] = 'Neplatný obrázek';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nelze zapsat do dočasného souboru';

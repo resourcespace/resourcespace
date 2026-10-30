@@ -65,3 +65,5 @@ $lang["page-title_rse_workflow_edit_workflow_states"] = 'ਵਰਕਫਲੋ ਸ�
 
 $lang["page-title_rse_workflow_setup"] = 'ਵਰਕਫਲੋ ਪਲੱਗਇਨ ਸੈਟਅਪ';
 $lang["page-title_rse_workflow_edit_workflow"] = 'ਵਰਕਫਲੋ ਸੰਪਾਦਿਤ ਕਰੋ';
+
+$lang["rse_workflow_state_change_failed_permissions"] = '%%ARCHIVE%% ਵਿੱਚ ਆਰਕਾਈਵ ਸਥਿਤੀ ਬਦਲਣ ਵਿੱਚ ਅਸਮਰੱਥ। ਲੋੜੀਂਦੇ ਖਾਲੀ ਖੇਤਰਾਂ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਹੈ।';

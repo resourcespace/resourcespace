@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow_actions"] = 'Muokkaa työnkulku toi
 $lang["page-title_rse_workflow_edit_workflow_states"] = 'Muokkaa työnkulun tiloja';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw Työprosessi';
 $lang["page-title_rse_workflow_setup"] = 'Aseta työnkulku liitännäinen';
+
+$lang["rse_workflow_state_change_failed_permissions"] = 'Arkistotilan muuttaminen tilaan %%ARCHIVE%% epäonnistui. Puuttuu oikeudet tyhjentää vaaditut kentät.';

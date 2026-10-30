@@ -3248,3 +3248,8 @@ $lang['language-zh-TW'] = 'Cina Tradisional';
 $lang["home__welcometext"] = 'Sistem pengurusan aset digital perusahaan sumber terbuka terkemuka.';
 $lang["language-ku"] = 'Bahasa Melayu';
 $lang["filter_err_field_disabled"] = 'Medan \'%NAME\' telah dinyahdayakan';
+
+$lang["systemconfig_customheadingfont_label"] = 'Fail fon tajuk tersuai';
+$lang["readmore"] = 'Baca lebih lanjut';
+$lang["showwelcometext"] = 'Tunjukkan maklumat selamat datang';
+$lang["collection_category_blocked"] = 'Tidak boleh menambah sumber ke kategori koleksi pilihan, disekat oleh koleksi berikut: ';

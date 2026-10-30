@@ -25,3 +25,7 @@ $lang["page-title_openai_image_edit_edit"] = 'OpenAI Rediger';
 $lang["page-title_openai_image_edit_get_png"] = 'OpenAI Hent PNG';
 $lang["page-title_openai_image_edit_save_alternative"] = 'OpenAI Lagre Alternativ';
 $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Lagre Ny';
+
+$lang["openai_image_edit_error_invalid_image_data"] = 'Ugyldige bildedata';
+$lang["openai_image_edit_error_invalid_image"] = 'Ugyldig bilde';
+$lang["openai_image_edit_error_fail_write_tmp_file"] = 'Kan ikke skrive midlertidig fil';

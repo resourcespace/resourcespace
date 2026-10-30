@@ -3266,3 +3266,8 @@ $lang['language-zh-TW'] = 'परंपरागत चीनी';
 $lang["home__welcometext"] = 'प्रमुख ओपन सोर्स एंटरप्राइज़ डिजिटल एसेट प्रबंधन प्रणाली।';
 $lang["language-ku"] = 'कुर्दी';
 $lang["filter_err_field_disabled"] = 'क्षेत्र \'%NAME\' अक्षम है';
+
+$lang["systemconfig_customheadingfont_label"] = 'कस्टम शीर्षक फ़ॉन्ट फ़ाइल';
+$lang["readmore"] = 'और पढ़ें';
+$lang["showwelcometext"] = 'स्वागत जानकारी दिखाएं';
+$lang["collection_category_blocked"] = 'विशेष संग्रह श्रेणी में संसाधन नहीं जोड़े जा सकते, निम्नलिखित संग्रहों द्वारा अवरुद्ध: ';
