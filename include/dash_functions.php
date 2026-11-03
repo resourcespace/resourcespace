@@ -1970,7 +1970,7 @@ function tltype_srch_generate_js_for_background_and_count(array $tile, string $t
             const SHOW_RESOURCE_COUNT = <?php echo $tile['resource_count'] ? 'true' : 'false'; ?>;
 
             let data = {
-                'link': '<?php echo escape($tile["link"]); ?>',
+                'link': '<?php echo encode_js_value($tile["link"]); ?>',
                 'promimg': '<?php echo (int)$promoted_image; ?>',
             };
 

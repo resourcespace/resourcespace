@@ -525,9 +525,9 @@ if ($keysearch) {
                                 }
 
                                 $selectedrestypes = [];
-                                $restypes = trim((string)($restypes));
-                                if ($restypes != "") {
-                                    $selectedrestypes = explode(",", $restypes);
+                                $restypes = trim((string) $restypes);
+                                if ($restypes !== '' && substr($restypes, 0, 6) !== 'Global') {
+                                    $selectedrestypes = explode(',', $restypes);
                                 }
 
                                 $restypesql = new PreparedStatementQuery();
@@ -548,7 +548,7 @@ if ($keysearch) {
                                     $nodatarestypes = [];
                                 }
 
-                                if ($nodatafieldinfo["global"] === 1) {
+                                if ((int) $nodatafieldinfo['global'] === 1) {
                                     // Global field empty search
                                     // Candidate resources are those which exist in selected resource types
                                     if (count($selectedrestypes) > 0) {
@@ -563,8 +563,15 @@ if ($keysearch) {
                                     } else {
                                         $candidaterestypes = $nodatarestypes;
                                     }
-                                    $restypesql->sql = " AND r[union_index].resource_type IN (" . ps_param_insert(count($candidaterestypes)) . ") ";
-                                    $restypesql->parameters = ps_param_fill($candidaterestypes, "i");
+                                    if (count($candidaterestypes) === 0) {
+                                        $restypesql->sql = ' AND 1=0';
+                                    } else {
+                                        $restypesql->sql =
+                                            ' AND r[union_index].resource_type IN ('
+                                            . ps_param_insert(count($candidaterestypes))
+                                            . ')';
+                                        $restypesql->parameters = ps_param_fill($candidaterestypes, 'i');
+                                    }
                                 }
 
                                 // Check that nodes are empty
@@ -574,9 +581,10 @@ if ($keysearch) {
                                     SELECT rn.resource FROM
                                     node n
                                     RIGHT JOIN resource_node rn ON rn.node=n.ref
-                                    WHERE  n.resource_type_field = ? $restypesql->sql
+                                    WHERE  n.resource_type_field = ?
                                     GROUP BY rn.resource
-                                    )";
+                                    )
+                                    $restypesql->sql";
                                 $union->parameters = array_merge(["i",$nodatafield], $restypesql->parameters);
                                 $sql_keyword_union[] = $union;
                                 $sql_keyword_union_criteria[] = "`h`.`keyword_[union_index]_found`";
