@@ -1,0 +1,2 @@
+resource_scene,1,resource_start_frame,1,resource,A,0,,,YES,BTREE,,,YES,
+resource_scene,1,resource_start_frame,2,start_frame,A,0,,,YES,BTREE,,,YES,

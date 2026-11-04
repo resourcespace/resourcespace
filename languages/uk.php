@@ -3255,3 +3255,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Файл шрифту для з
 $lang["readmore"] = 'Читати далі';
 $lang["showwelcometext"] = 'Показати вітальну інформацію';
 $lang["collection_category_blocked"] = 'Не можна додати ресурси до категорії рекомендованої колекції, заблоковано наступними колекціями: ';
+$lang["user_api_session_invalid_request"] = 'Недійсний запит доступу або доступ до API недоступний. Будь ласка, повторно підключіться з віддаленої системи.';

@@ -1,0 +1,204 @@
+<h2>Video scenes</h2>
+<p>The Video scenes plugin adds a scene table to a video's resource view. Each row has a thumbnail,
+    timestamp and optional description. Click the timestamp button or thumbnail to play that part of the video.
+    The table scrolls after 600px, keeping its headings visible.</p>
+<p>Detection runs locally through the published
+    <a href="https://pypi.org/project/transnetv2-pytorch/">transnetv2-pytorch</a> Python package.
+    Its wheel includes the model weights. No Git checkout, Git LFS or separate model download is needed.
+    Start with local detection, then enable OpenAI descriptions if required.</p>
+
+<h2>System requirements</h2>
+<ul>
+    <li>Ubuntu with ResourceSpace and the <code>video_scenes</code> plugin.</li>
+    <li>Python 3.10 or later with a compatible prebuilt PyTorch package.</li>
+    <li>FFmpeg and FFprobe.</li>
+    <li>Memory and temporary disk space for video processing.</li>
+    <li>ResourceSpace's offline job queue and a scheduled offline worker.</li>
+</ul>
+<p>The following installation uses CPU packages. A GPU, CUDA and a compiler are not required.</p>
+
+<h2>Installation instructions (Ubuntu)</h2>
+<p>Run these commands on the server executing ResourceSpace jobs. Replace <code>/var/www/html/trunk</code>
+    if ResourceSpace is installed elsewhere. If you already have a suitable isolated Python environment,
+    reuse it and skip creating another one.</p>
+
+<h3>1. Install the Ubuntu dependencies and create one Python environment</h3>
+<pre><code>sudo apt update
+sudo apt install -y python3-venv ffmpeg
+sudo python3 -m venv /opt/resourcespace-video-scenes/venv
+sudo /opt/resourcespace-video-scenes/venv/bin/python -m pip install --upgrade pip</code></pre>
+<p>A single environment keeps these dependencies separate from Ubuntu's managed Python packages and other
+    plugins. It is used for both scene detection and optional descriptions.</p>
+
+<h3>2. Install the published packages</h3>
+<pre><code>sudo /opt/resourcespace-video-scenes/venv/bin/python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+sudo /opt/resourcespace-video-scenes/venv/bin/python -m pip install -r /var/www/html/trunk/plugins/video_scenes/scripts/requirements.txt</code></pre>
+<p>The first command selects a prebuilt CPU wheel. Skip it if the environment already contains a supported
+    PyTorch installation. The requirements file installs <code>transnetv2-pytorch==1.0.5</code> and
+    <code>websocket-client</code>. The detector package supplies its other Python dependencies and bundled weights.</p>
+<p>Use the <a href="https://pytorch.org/get-started/locally/">PyTorch installation selector</a> if your Python
+    version or hardware needs a different supported wheel.</p>
+
+<h3>3. Verify the package independently</h3>
+<pre><code>/opt/resourcespace-video-scenes/venv/bin/python -m transnetv2_pytorch --help
+/opt/resourcespace-video-scenes/venv/bin/python -m transnetv2_pytorch /path/to/video.mp4 --output /tmp/scenes.json --format json --threshold 0.5 --quiet</code></pre>
+<p>Replace the video path with a short test video and choose an unused output filename; the CLI can overwrite
+    its output. The second command should create a JSON list of detected shots. The direct executable
+    <code>transnetv2_pytorch</code> accepts the same options. The plugin invokes the module with its configured Python.</p>
+<p>The package uses its bundled weights automatically. Do not create a separate copy or configure a weights path.</p>
+
+<h3>4. Check access for the job account</h3>
+<p>If ResourceSpace jobs run as <code>www-data</code>, check that account can execute the package:</p>
+<pre><code>sudo -u www-data /opt/resourcespace-video-scenes/venv/bin/python -m transnetv2_pytorch --help</code></pre>
+<p>Run the video command under the same account as well, selecting a readable input and writable output path.
+    Use your actual service account if different. It needs read and execute access to Python, the package,
+    bundled weights, FFmpeg and FFprobe; read access to original videos; and write access to OS temporary
+    storage and ResourceSpace's job storage.</p>
+
+<h2>Plugin configuration</h2>
+<p>Enable <strong>Video scenes</strong> under <strong>Admin &gt; System &gt; Plugins</strong> and open its configuration.</p>
+<p>The Python executable is a backend-only setting and is not exposed in the plugin form. If Python is not available as <code>/usr/bin/python3</code>,
+    an administrator must set <code>$video_scene_python</code> in <code>plugins/video_scenes/config/config.php</code> to the absolute interpreter path.
+    After upgrading from a version that exposed this path, save the plugin setup once to remove its old saved value.</p>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Setting</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Scene transition threshold</td>
+            <td><code>0.5</code>; must be greater than 0 and less than 1.</td>
+        </tr>
+        <tr>
+            <td>OpenAI API key</td>
+            <td>Leave empty for local detection and thumbnails.</td>
+        </tr>
+        <tr>
+            <td>OpenAI Realtime model</td>
+            <td><code>gpt-realtime-2.1</code>, used only when a key is configured.</td>
+        </tr>
+        <tr>
+            <td>Include scene audio in descriptions</td>
+            <td>Yes, used only when a key is configured and audio is present.</td>
+        </tr>
+        <tr>
+            <td>Audio context before and after each scene</td>
+            <td>1 second by default; set from 0 to 30 seconds. Applies to both sides and is clipped at video boundaries.</td>
+        </tr>
+        <tr>
+            <td>Scene description prompt</td>
+            <td>A multiline editable prompt, up to 8,000 bytes. It guides the model to combine the frames with audio context.</td>
+        </tr>
+        <tr>
+            <td>Searchable scene descriptions field (optional)</td>
+            <td>Select a text field to store all scene descriptions, one per line, for normal ResourceSpace search and indexing. Leave blank to disable.</td>
+        </tr>
+        <tr>
+            <td>Maximum processing time per video (seconds)</td>
+            <td><code>7200</code> (two hours); allowed range 60 to 86400.</td>
+        </tr>
+    </tbody>
+</table>
+<p>Save the settings. Python must point to the environment where you installed the package.
+    The previous inference directory and weights directory settings have been removed.</p>
+<p>ResourceSpace creates or upgrades <code>resource_scene</code> through the plugin's database definitions.
+    Existing scene rows are preserved during schema upgrades. No manual SQL is needed.</p>
+
+<h2>Background processing</h2>
+<p>Scene analysis is always queued. In this revision the worker requires the installation configuration
+    setting <code>$offline_job_queue</code> to be enabled. Ask your administrator to check the following:</p>
+<pre><code>$ffmpeg_path = '/usr/bin';
+$offline_job_queue = true;</code></pre>
+<p>Enabling the queue also affects other ResourceSpace operations that support background processing.
+    The plugin adds the configured FFmpeg and FFprobe directories to the detector's PATH.</p>
+<p>Reuse the existing offline worker schedule. If none exists, this example in the service account's own
+    crontab runs it every minute with a maximum of one concurrent job:</p>
+<pre><code>* * * * * /usr/bin/php /var/www/html/trunk/pages/tools/offline_jobs.php --max-jobs=1</code></pre>
+<p>Use your installation's PHP CLI. Keep worker output in your normal scheduled-task logs. To inspect a manual run:</p>
+<pre><code>sudo -u www-data /usr/bin/php /var/www/html/trunk/pages/tools/offline_jobs.php --max-jobs=1</code></pre>
+<p>See <a href="https://www.resourcespace.com/knowledge-base/user/manage_jobs">Managing offline jobs</a>
+    for the job management interface.</p>
+
+<h2>Testing and everyday use</h2>
+<ol>
+    <li>Leave the OpenAI key empty and upload a short video containing several clear cuts.</li>
+    <li>Wait for the worker and check the job status under <strong>Admin &gt; System &gt; Manage jobs</strong>.</li>
+    <li>Reopen the resource view. You should see scene thumbnails and timestamps. Without an API key,
+        the description column displays <strong>No description available</strong>.</li>
+    <li>Click either a timestamp or thumbnail to play the scene.</li>
+</ol>
+<p>Recreating a video's previews queues fresh analysis. Existing resources are not scanned automatically.
+    Alternatives and audio-only formats are ignored. The scene table honours resource, video preview and
+    external-share permissions. Thumbnails are omitted for viewers requiring watermarks.</p>
+<p>Users with edit access to the resource can click <strong>Edit</strong> beside a scene description,
+    enter or correct the text, and click <strong>Save</strong>. <strong>Cancel</strong> discards unsaved changes.
+    Administrator permission is not required. Descriptions can be added without an OpenAI key or cleared
+    by saving an empty value. Changes are recorded in the resource log. External-share views are read-only.</p>
+<p>Recreating previews replaces the scene breakdown and descriptions, including manual edits.</p>
+<p>When a searchable descriptions field is selected in plugin setup, the worker writes the current scene
+    descriptions to that resource metadata field after scene processing. Each description is on its own line.
+    ResourceSpace's normal metadata update path indexes the text for search. Select a text field available
+    for the video resource type. Leave the setting blank if you do not want scene descriptions copied to metadata.
+    Each subsequent processing run replaces the field value with the latest descriptions.</p>
+<p>A shortened video preview cannot play its later scenes. Provide a full-length preview, or use the
+    installation's permitted original-video playback configuration, to reach every scene.</p>
+
+<h2>Expected detection output</h2>
+<p>The verified CLI supports <code>--output</code>, <code>--format json</code>, <code>--threshold</code>,
+    <code>--quiet</code> and <code>--device</code>. Its JSON records contain these six fields:</p>
+<pre><code>[
+    {
+        "shot_id": 1,
+        "start_frame": 0,
+        "end_frame": 24,
+        "probability": 0.87,
+        "start_time": "0.000",
+        "end_time": "0.960"
+    }
+]</code></pre>
+<p>Shot IDs start at 1. Frame numbers start at 0 and both frame endpoints are inclusive. Probability is the
+    maximum predicted transition probability within the scene. The CLI's times are rounded to milliseconds;
+    its end time is the start of the last included frame.</p>
+<p>ResourceSpace keeps numeric source timestamps and an exclusive end time, so the example above ends at
+    1.0 seconds for a 25fps source. Shot IDs and probabilities are retained. For variable frame rate videos,
+    a small temporary lossless proxy preserves one frame per original frame for CLI detection, and the plugin
+    maps the resulting indices back to original presentation times. Constant frame rate inputs go directly to the CLI.</p>
+
+<h2>Optional OpenAI descriptions</h2>
+<p>Once detection works, enter an OpenAI API key, save, and recreate the video's previews. The API project
+    needs billing and access to the configured model. Each scene's nine-frame collage and enabled audio are
+    sent in one description request; no separate Whisper installation is needed. Audio includes the configured
+    context interval before and after the scene, clipped at the start and end of the video. The default is one
+    second. This helps interpret words or sounds that
+    cross scene boundaries. Videos without audio use images alone.</p>
+<p>The scene description prompt is editable in plugin setup. By default, it asks the model for one concise account
+    of what is happening, guided by both the frames and audio. It asks the model to use speech and meaningful sounds
+    as context and not to comment on absent audio or recording quality. Adjust the prompt to suit your collection.</p>
+<p>The model must support image and audio input through the
+    <a href="https://developers.openai.com/api/docs/guides/realtime-conversations">OpenAI Realtime API</a>.
+    Allow outbound TLS WebSockets to <code>api.openai.com</code> on port 443. API usage is chargeable.
+    With no key, detection and thumbnails remain local.</p>
+<p>Descriptions are visible to users allowed to see the scene table, independently of metadata field permissions.</p>
+
+<h2>Troubleshooting</h2>
+<ul>
+    <li><strong>Module not found:</strong> use the configured Python to run <code>-m pip show transnetv2-pytorch</code>
+        and repeat installation in that environment. Installing into a different interpreter does not help the worker.</li>
+    <li><strong>No suitable PyTorch wheel:</strong> check the Python version and architecture against the PyTorch
+        installation selector. Use a supported prebuilt package instead of compiling a runtime.</li>
+    <li><strong>Bundled weights missing:</strong> reinstall the published package in the same environment with
+        <code>python -m pip install --force-reinstall --no-deps transnetv2-pytorch==1.0.5</code>.</li>
+    <li><strong>Jobs stay queued:</strong> check <code>$offline_job_queue</code>, plugin enablement and the scheduled
+        worker. The job's user must still exist and retain original-file access or edit permission.</li>
+    <li><strong>Detector failure:</strong> worker output includes the CLI exit status and a bounded diagnostic.
+        Run the independent CLI command under the job account to investigate. Check <code>ffmpeg -version</code>,
+        <code>ffprobe -version</code>, file permissions, temporary space, memory and the job timeout.</li>
+    <li><strong>Descriptions missing:</strong> check the key, model access, billing and WebSocket connectivity.
+        Audio is limited to ten minutes per scene; disable it to describe longer scenes using images.
+        Description failures keep scene boundaries and thumbnails but mark the job as failed. Recreate previews to retry.</li>
+</ul>
+<p>Processing uses a private temporary workspace for CLI output, any proxy, thumbnails and collages.
+    It is removed after processing. Local processing failures retain previously saved scene rows.</p>

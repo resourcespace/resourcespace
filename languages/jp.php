@@ -3326,3 +3326,4 @@ $lang["systemconfig_customheadingfont_label"] = 'カスタム見出しフォン�
 $lang["readmore"] = '続きを読む';
 $lang["showwelcometext"] = 'ウェルカム情報を表示';
 $lang["collection_category_blocked"] = '注目コレクションカテゴリにリソースを追加できません。以下のコレクションによってブロックされています: ';
+$lang["user_api_session_invalid_request"] = '無効なアクセス要求またはAPIアクセスが利用できません。リモートシステムから再接続してください。';

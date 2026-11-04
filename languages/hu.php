@@ -3257,3 +3257,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Egyedi címsor betűtípus fáj
 $lang["readmore"] = 'Olvass tovább';
 $lang["showwelcometext"] = 'Üdvözlő információ megjelenítése';
 $lang["collection_category_blocked"] = 'Nem lehet erőforrásokat hozzáadni egy kiemelt gyűjtemény kategóriához, a következő gyűjtemények blokkolják: ';
+$lang["user_api_session_invalid_request"] = 'Érvénytelen hozzáférési kérés vagy az API-hozzáférés nem elérhető. Kérjük, csatlakozzon újra a távoli rendszerről.';

@@ -38,6 +38,14 @@ ResourceSpace is a PHP and JavaScript digital asset management application backe
 | `vendor/`, `lib/`, `plugins/*/lib/` | Dependencies; avoid direct edits unless the task requires them |
 | `filestore/` | Runtime assets and temporary files, not source code |
 
+### Page responsibilities
+
+Files under `pages/` are limited to display logic and thin request dispatch. Do not put SQL,
+database access, or business logic in a page; implement reusable data access, validation, and
+state changes in the appropriate `include/` functions and have the page call those functions.
+Pages may include the required bootstrap/authentication files and render the returned output.
+Plugin setup pages may call the established setup/configuration helpers.
+
 Do not expose credentials, private assets, or local configuration in code, logs, tests, or responses.
 Do not modify installation-specific `include/config.php` or runtime data as a substitute for a code fix.
 

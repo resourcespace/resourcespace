@@ -1,0 +1,9 @@
+ref,int(11),NO,PRI,,auto_increment
+resource,int(11),NO,MUL,,
+shot_id,int(11),YES,,,
+probability,double,YES,,,
+start_frame,int(11),NO,,,
+end_frame,int(11),NO,,,
+start_time,double,NO,,,
+end_time,double,NO,,,
+description,text,YES,,,

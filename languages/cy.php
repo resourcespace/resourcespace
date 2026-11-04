@@ -3249,3 +3249,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Ffeil ffont pennawd arferol';
 $lang["readmore"] = 'Darllen mwy';
 $lang["showwelcometext"] = 'Dangos gwybodaeth groeso';
 $lang["collection_category_blocked"] = 'Methu ychwanegu adnoddau i gategori casgliad dan sylw, wedi\'i rwystro gan y casgliadau canlynol: ';
+$lang["user_api_session_invalid_request"] = 'Cais mynediad annilys neu fynediad API ddim ar gael. Cysylltwch eto o\'r system o bell.';

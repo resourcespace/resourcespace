@@ -1,0 +1,4 @@
+#video_scene_prompt {
+    min-height: 6em;
+    width: min(700px, 100%);
+}

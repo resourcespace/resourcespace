@@ -3329,3 +3329,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Prilagođena datoteka fonta nas
 $lang["readmore"] = 'Pročitaj više';
 $lang["showwelcometext"] = 'Prikaži uvodne informacije';
 $lang["collection_category_blocked"] = 'Nije moguće dodati resurse u kategoriju istaknute kolekcije, blokirano od sljedećih kolekcija: ';
+$lang["user_api_session_invalid_request"] = 'Nevažeći zahtjev za pristup ili API pristup nije dostupan. Molimo ponovno se povežite s udaljenog sustava.';

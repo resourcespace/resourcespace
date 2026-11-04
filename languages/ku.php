@@ -3250,3 +3250,4 @@ $lang["systemconfig_customheadingfont_label"] = 'فایلی فۆنتی سەرپ�
 $lang["readmore"] = 'زۆرتر بخوێنەوە';
 $lang["showwelcometext"] = 'پیشاندانی زانیاری بەخێربێن';
 $lang["collection_category_blocked"] = 'ناتوانرێت سەرچاوەکان بۆ پۆلی کۆکردنەوەی تایبەتی زیاد بکرێن، لەلایەن کۆکردنەوەکانی خوارەوە داخراوە: ';
+$lang["user_api_session_invalid_request"] = 'داواکاری دەستپێکردنی نەگونجاو یان دەستگەیشتن بە API بەردەست نیە. تکایە دووبارە لە سیستەمی دوورەوە پەیوەندیدا بکە.';

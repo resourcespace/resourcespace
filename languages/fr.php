@@ -3316,3 +3316,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Fichier de police personnalisé
 $lang["readmore"] = 'Lire la suite';
 $lang["showwelcometext"] = 'Afficher les informations de bienvenue';
 $lang["collection_category_blocked"] = 'Impossible d\'ajouter des ressources à une catégorie de collection en vedette, bloquée par les collections suivantes : ';
+$lang["user_api_session_invalid_request"] = 'Demande d\'accès invalide ou accès API indisponible. Veuillez vous reconnecter depuis le système distant.';

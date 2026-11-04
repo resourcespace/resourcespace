@@ -3347,3 +3347,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Súbor vlastného písma nadpis
 $lang["readmore"] = 'Čítať viac';
 $lang["showwelcometext"] = 'Zobraziť uvítacie informácie';
 $lang["collection_category_blocked"] = 'Nie je možné pridať zdroje do kategórie vybranej kolekcie, zablokované nasledujúcimi kolekciami: ';
+$lang["user_api_session_invalid_request"] = 'Neplatná požiadavka na prístup alebo prístup k API nie je k dispozícii. Prosím, znovu sa pripojte z diaľkového systému.';

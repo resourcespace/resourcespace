@@ -3249,3 +3249,4 @@ $lang["systemconfig_customheadingfont_label"] = 'ไฟล์ฟอนต์ห�
 $lang["readmore"] = 'อ่านเพิ่มเติม';
 $lang["showwelcometext"] = 'แสดงข้อมูลต้อนรับ';
 $lang["collection_category_blocked"] = 'ไม่สามารถเพิ่มทรัพยากรในหมวดหมู่คอลเลกชันที่แนะนำได้ ถูกบล็อกโดยคอลเลกชันต่อไปนี้: ';
+$lang["user_api_session_invalid_request"] = 'คำขอเข้าถึงไม่ถูกต้องหรือไม่สามารถเข้าถึง API ได้ กรุณาเชื่อมต่อใหม่จากระบบระยะไกล';

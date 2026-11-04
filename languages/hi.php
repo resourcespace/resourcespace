@@ -3271,3 +3271,4 @@ $lang["systemconfig_customheadingfont_label"] = 'कस्टम शीर्ष
 $lang["readmore"] = 'और पढ़ें';
 $lang["showwelcometext"] = 'स्वागत जानकारी दिखाएं';
 $lang["collection_category_blocked"] = 'विशेष संग्रह श्रेणी में संसाधन नहीं जोड़े जा सकते, निम्नलिखित संग्रहों द्वारा अवरुद्ध: ';
+$lang["user_api_session_invalid_request"] = 'अमान्य पहुँच अनुरोध या API पहुँच अनुपलब्ध। कृपया दूरस्थ प्रणाली से पुनः कनेक्ट करें।';

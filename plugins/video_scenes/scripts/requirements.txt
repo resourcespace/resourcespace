@@ -1,0 +1,2 @@
+transnetv2-pytorch==1.0.5
+websocket-client>=1.6,<2

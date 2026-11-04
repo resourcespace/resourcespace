@@ -1,0 +1,10 @@
+name: video_scenes
+title: Video scenes
+author: Montala Limited
+version: 1.0
+desc: Detect video scenes locally with transnetv2-pytorch, with optional OpenAI audiovisual descriptions.
+icon: film
+icon-colour: seagreen
+category: AI
+config_url: /plugins/video_scenes/pages/setup.php
+disable_group_select: 1

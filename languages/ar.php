@@ -3355,3 +3355,4 @@ $lang["systemconfig_customheadingfont_label"] = 'ملف خط العنوان ال
 $lang["readmore"] = 'اقرأ المزيد';
 $lang["showwelcometext"] = 'عرض معلومات الترحيب';
 $lang["collection_category_blocked"] = 'لا يمكن إضافة الموارد إلى فئة مجموعة مميزة، محظورة بواسطة المجموعات التالية: ';
+$lang["user_api_session_invalid_request"] = 'طلب وصول غير صالح أو وصول API غير متاح. يرجى إعادة الاتصال من النظام البعيد.';

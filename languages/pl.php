@@ -3322,3 +3322,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Niestandardowy plik czcionki na
 $lang["readmore"] = 'Czytaj więcej';
 $lang["showwelcometext"] = 'Pokaż informacje powitalne';
 $lang["collection_category_blocked"] = 'Nie można dodać zasobów do kategorii kolekcji wyróżnionej, zablokowane przez następujące kolekcje: ';
+$lang["user_api_session_invalid_request"] = 'Nieprawidłowe żądanie dostępu lub dostęp do API niedostępny. Proszę ponownie połączyć się z systemu zdalnego.';

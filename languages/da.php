@@ -3318,3 +3318,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Brugerdefineret skrifttype til 
 $lang["readmore"] = 'Læs mere';
 $lang["showwelcometext"] = 'Vis velkomstinformation';
 $lang["collection_category_blocked"] = 'Kan ikke tilføje ressourcer til en fremhævet samlingskategori, blokeret af følgende samlinger: ';
+$lang["user_api_session_invalid_request"] = 'Ugyldig adgangsanmodning eller API-adgang ikke tilgængelig. Venligst genopret forbindelse fra det eksterne system.';

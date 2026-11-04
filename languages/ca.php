@@ -3303,3 +3303,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Fitxer de font personalitzat pe
 $lang["readmore"] = 'Llegir més';
 $lang["showwelcometext"] = 'Mostra informació de benvinguda';
 $lang["collection_category_blocked"] = 'No es poden afegir recursos a una categoria de col·lecció destacada, bloquejada per les següents col·leccions: ';
+$lang["user_api_session_invalid_request"] = 'Sol·licitud d\'accés no vàlida o accés a l\'API no disponible. Torneu a connectar des del sistema remot.';

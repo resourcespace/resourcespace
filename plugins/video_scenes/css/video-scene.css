@@ -1,0 +1,73 @@
+.video-scene-scroll {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.video-scene-table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.video-scene-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--colour-surface-900);
+    color: var(--colour-typography-50);
+}
+
+.video-scene-table th,
+.video-scene-table td {
+    padding: var(--space-12);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.video-scene-table th:not(:last-child),
+.video-scene-table td:not(:last-child) {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.video-scene-play {
+    white-space: nowrap;
+}
+
+.video-scene-thumbnail {
+    display: block;
+    width: 96px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.video-scene-thumbnail-button,
+.video-scene-thumbnail-button:hover {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.video-scene-description-display:not([hidden]) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+}
+
+.video-scene-edit {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.video-scene-description-text {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.video-scene-description-form textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: var(--space-12);
+}

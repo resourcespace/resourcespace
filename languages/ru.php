@@ -3335,3 +3335,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Пользовательски�
 $lang["readmore"] = 'Читать далее';
 $lang["showwelcometext"] = 'Показать приветственную информацию';
 $lang["collection_category_blocked"] = 'Невозможно добавить ресурсы в категорию избранной коллекции, заблокированную следующими коллекциями: ';
+$lang["user_api_session_invalid_request"] = 'Недопустимый запрос доступа или API недоступен. Пожалуйста, переподключитесь с удалённой системы.';

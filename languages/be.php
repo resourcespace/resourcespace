@@ -3255,3 +3255,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Файл шрыфта для к
 $lang["readmore"] = 'Чытаць далей';
 $lang["showwelcometext"] = 'Паказаць прывітальны тэкст';
 $lang["collection_category_blocked"] = 'Немагчыма дадаць рэсурсы ў катэгорыю выбранай калекцыі, заблакавана наступнымі калекцыямі: ';
+$lang["user_api_session_invalid_request"] = 'Няправільны запыт доступу або доступ да API недаступны. Калі ласка, паўторна падключыцеся з аддаленай сістэмы.';

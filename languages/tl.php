@@ -3253,3 +3253,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Pasadyang font file ng pamagat'
 $lang["readmore"] = 'Basahin pa';
 $lang["showwelcometext"] = 'Ipakita ang impormasyon ng pagtanggap';
 $lang["collection_category_blocked"] = 'Hindi maaaring magdagdag ng mga mapagkukunan sa isang tampok na kategorya ng koleksyon, hinaharangan ng mga sumusunod na koleksyon: ';
+$lang["user_api_session_invalid_request"] = 'Hindi wastong kahilingan sa pag-access o hindi magagamit ang API access. Mangyaring kumonekta muli mula sa remote system.';

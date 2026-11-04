@@ -3313,3 +3313,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Archivo de fuente personalizada
 $lang["readmore"] = 'Leer más';
 $lang["showwelcometext"] = 'Mostrar información de bienvenida';
 $lang["collection_category_blocked"] = 'No se pueden agregar recursos a una categoría de colección destacada, bloqueada por las siguientes colecciones: ';
+$lang["user_api_session_invalid_request"] = 'Solicitud de acceso inválida o acceso a la API no disponible. Por favor, reconéctese desde el sistema remoto.';

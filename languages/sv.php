@@ -3346,3 +3346,4 @@ $lang["systemconfig_customheadingfont_label"] = 'Anpassad teckensnitt för rubri
 $lang["readmore"] = 'Läs mer';
 $lang["showwelcometext"] = 'Visa välkomstinformation';
 $lang["collection_category_blocked"] = 'Kan inte lägga till resurser i en utvald samlingskategori, blockerad av följande samlingar: ';
+$lang["user_api_session_invalid_request"] = 'Ogiltig åtkomstförfrågan eller API-åtkomst otillgänglig. Vänligen anslut igen från det fjärrstyrda systemet.';

@@ -3871,11 +3871,13 @@ function html_find_and_replace(string $findstring, string $replacestring, string
     $doc           = new DOMDocument();
     $doc->encoding = 'UTF-8';
 
-    $process_html = false;
+    $process_html = null;
 
     if($html != strip_tags($html)) {
         $process_html = $doc->loadHTML($html);
-    }    
+    } elseif ($html === strip_tags($html)) {
+        $process_html = false; 
+    }
 
     // If DOMDocumment can parse the fragment, attempt to search through and replace
     if ($process_html) {
@@ -3900,6 +3902,8 @@ function html_find_and_replace(string $findstring, string $replacestring, string
 
         return $output_html;
 
+    } elseif ($process_html === false) {
+        return str_replace($findstring, $replacestring, $html);
     } else {
         return $html;
     }
@@ -4992,8 +4996,8 @@ function get_system_status(bool $basic = false)
             $return['results']['files_integrity_fail'] = [
                 'status' => 'FAIL',
                 'info' => "Files have failed integrity checks",
-                'severity' => SEVERITY_WARNING,
-                'severity_text' => $GLOBALS["lang"]["severity-level_" . SEVERITY_WARNING],
+                'severity' => SEVERITY_CRITICAL,
+                'severity_text' => $GLOBALS["lang"]["severity-level_" . SEVERITY_CRITICAL],
             ];
         }
         // Also check for resources that have not been verified in the last two weeks
