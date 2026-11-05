@@ -334,7 +334,6 @@ option {font-size:1em;}
 
 p.tight {padding:0 0 0.75em;}
 input[readonly] {background: none;}
-input.defaultbutton {position: absolute; left: -100%; width: 0; height: 0;}
 
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
@@ -416,10 +415,6 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     width: 100%;
     height: 180px;
     object-fit: cover;  
-}
-.tile-content {
-    height: 50%;
-    overflow: hidden;
 }
 .tile-desc {
     display: flex;
@@ -767,10 +762,6 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     word-break: break-word; 
     }
 
-.RecordPanel:not(.RecordPanelLarge) .DownloadFileSizePicker > #size {
-    max-width: 230px;
-}
-
 /* Prevent iOS overriding button styling */
 input[type=submit], input[type=button] {
     -webkit-appearance: none;
@@ -811,46 +802,26 @@ select:before {
 .Hidden {visibility: hidden;height: 0;width: 0;overflow: hidden;}
 .nowrap {white-space:nowrap;}
 .textcenter {text-align:center;}
-.breakall {word-break:break-all;}
 .underline{text-decoration: underline;}
 .pageline{border-bottom: 1px solid #d7d7d7;  margin-right:10px;margin-left:5px;}
 .DisplayNone { display: none !important; }
-.AbsoluteTopLeft { position: absolute; top: 0; left: 0; }
 .MarginLeft1rem { margin-left: 1rem; }
 .BorderBottom { border-bottom: 2px solid; }
 
 /* General Form tags */
-.checkoption {vertical-align: top;display: inline-block;width: 195px;margin: 2px;}
 .checkbox {margin-right: 3px;vertical-align: top;display: inline-block;}
-.checkboxtext {margin-right: 2px;width: 160px;display: inline-block;}
 .checkboxes{margin-top: 5px;padding-left: 300px;}
-.verticalcheckboxes {padding-left: 300px;}
 
-.editcheckboxes {float:left;padding-left: 300px;}
-
-.radioblock { float: left;padding-left: 300px;clear: left;margin-top: -1em;}
-.radiotext label.customFieldLabel {float:none;}
-.radiotext {margin-right: 2px;width: 160px;display: inline-block;}
 .radio{margin-right: 3px;vertical-align: top;display: inline-block;}
-.radiooption {vertical-align: top;display: inline-block;width: 195px;margin: 2px;}
 #custom_access table {padding-left: 300px;}
-#custom_access .radiooptions{margin: 5px;}
 
 /* Hide arrow on selects in IE */
 select::-ms-expand
     {
     display: none;
     }
+
 /*General layout*/
-#TextHeader{font-size:25px;float:left;}
-#TextHeader a {text-decoration:none;}
-#TextDesc{font-size:1em;float:left;display:block;clear:left;}
-
-.headerlink {margin:20px 25px; position: absolute; display: block; width: 400px; height: 55px;  top: 0; left: 0;}
-.TeamCentreAlertIcon { position: relative; top: 3px;}
-
-.HorizontalNav li a {display: inline-block;zoom: 1;}
-
 .ProfileImage { vertical-align:top; width:36px; height:36px; border-radius:36px}
 
 /* Fix for .svg files */
@@ -860,10 +831,7 @@ img[src$=".svg"]
     }
 
 #Footer {clear: both;padding:0;text-align:left;}
-#FooterNavRight {float:right;text-align:right;margin-top: 10px;clear: right;}
 #login-footer {float:right;text-align:right;clear: right;font-size: 14px;}
-#FooterNavLeft {float:left;text-align:left;margin-top: 10px;}
-#FooterLanguages{margin-left:15px;}
 #login_box #Footer {margin: 0 0 10px 0;}
 
 #UICenter {
@@ -876,7 +844,6 @@ img[src$=".svg"]
     padding: 0 0 0 0;
     text-align:left;
 }
-#CentralSpaceContainerRestrict {margin:0 15px 20px 25px;padding:0;text-align:left;}
 #CentralSpaceLogin {
     margin: var(--space-48) auto;
     padding: 0 var(--space-16);
@@ -891,11 +858,9 @@ img[src$=".svg"]
 
 .TopInpageNav {clear: left;margin-bottom:10px;margin-right: 0;position:relative;min-height: 30px;}
 .BottomInpageNav {clear: left;padding-top: 5px;margin: 20px 15px 20px 0; position:relative;}
-.BottomInpageKey {margin-right: 15px; clear: left; text-align: left;}
 .TopInpageNavLeft{float:left; width: 85%;}
 .TopInpageNavRight{position:absolute;right:0;width:max-content;text-align:right;}
 .InpageNavLeftBlock {display:inline-block;text-align:left;margin: 0 20px 5px 0;}
-.InpageNavRightBlock {display:inline-block;text-align:left;margin: 0 15px 0 0;}
 .BottomInpageNavLeft {float:left;}
 .BottomInpageNavRight{float:right;margin-right:10px;text-align:right;}
 .BottomInpageNavRight .TopInpageNavRight {position:relative;}
@@ -904,13 +869,7 @@ img[src$=".svg"]
 .InpageNavLeftBlock span.Selected {font-weight: bold;}
 .InpageNavLeftBlock .ActionsContainer {height: 1.8rem;}
 
-
-.HorizontalNav ul {padding:0.2em 0;margin:0;list-style:none;white-space: nowrap; font-size: 0;}
-.HorizontalNav li {display:inline;padding:0 0.35em 0 0.5em;margin:0; font-size: 18px; line-height: 36px; zoom: 1;}
-.HorizontalNav a:link, .HorizontalNav a:visited {text-decoration:none;}
-.HorizontalNav a:hover, .HorizontalNav a:active {text-decoration:underline;}
 .HorizontalWhiteNav li:first-child {border-left:none;}
-.HorizontalNav li:first-child {border-left:none;}
 
 /*Collection layout*/
 #CollectionSpace{font-size: 0.95em;text-align:left; margin-top: 3px; margin-left: 250px; min-height:160px;}
@@ -922,73 +881,47 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 
 .CollectionPanelShell {padding:5px;float: left;margin: 10px 10px 10px 0;width: 110px;text-align: left;border-radius: 4px;}
 .CollectionPanelInfo{width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-.CollectionPanelThumb{max-height: 75px;}
 .CollectionResourceAlign {width:110px;height:90px;text-align: center;vertical-align: middle;}
 .CollectionPanelShell .nopreview {font-size:60px;}
 
 /* Chosen support - General */
 .chosen-container .chosen-results li {word-wrap: normal;}
 
-/* Chosen support - Collection bar */
-.chosen-container.chosen-drop-up.chosen-container-active.chosen-with-drop .chosen-drop {border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;}
-.chosen-container.chosen-drop-up.chosen-container-active.chosen-with-drop .chosen-single {border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;}
-.chosen-container.chosen-drop-up .chosen-drop {top: auto; bottom: 100%;}
-
-/* Chosen support */
-#CentralSpace .ChosenDateMonth {width:88px !important;}
-#CentralSpace .ChosenDateDay, #CentralSpace .ChosenDateHour, #CentralSpace .ChosenDateMinute {width:60px !important;}
-
-#CentralSpace .ChosenDateRangeMonth {width:115px !important;}
-#CentralSpace .ChosenDateRangeDay {width:95px !important;}
-#CentralSpace .ChosenDateRangeYear {width:100px !important;}
-
 /*Right Search Box layout*/
-#ResearchBoxPanel {width: 100%;}
 #SearchBox .PopupCategoryTree {display: none; text-align: left; z-index: 999; padding: 5px; background: none; overflow-x: scroll;}
 
 /*Resource Panel layout*/
-.ResourcePanel { padding:0; margin:0 14px 14px 0; width: 200px; float:left; position:relative; overflow: hidden; border:3px transarent; transition: all 0.1s ease-in-out; border-radius: var(--space-4); }
-.ResourcePanelPreview {height: 156px;width: 156px;margin: 3px;}
+.ResourcePanel { padding:0; margin:0 14px 14px 0; width: 200px; float:left; position:relative; overflow: hidden; transition: all 0.1s ease-in-out; border-radius: var(--space-4); }
 .ResourcePanelInfo {margin: 0;overflow:hidden;white-space:nowrap;padding:5px 8px 0 8px;text-align:justify;text-overflow: ellipsis; font-size: 13px; min-height: 19px;}
-.ResourcePanelInfo.ResourcePanelTitle {font-size: 15px; min-height: 21px;}
-.ResourcePanelCountry {margin-right: 5px;margin-left: 5px;margin-bottom: 0;float: left;clear: left;display:inline;}
 .ResourcePanelIcons {padding: 5px;text-align:right;bottom:0;right:0;font-size:0;} 
 .ResourcePanelSmallIcons {padding-left: 5px;}
-.ResourcePanelTop {position: absolute; width: 100%;} 
 .ImageWrapper {height:200px;display:block;padding:0;vertical-align: middle;text-align: center;clear: right;}
 .ImageWrapperSmall {height:75px;display:block;padding:0;vertical-align: middle;text-align: center;clear: right;}
-.ImageWrapperLarge {height:320px; display:block; padding:0; vertical-align: middle; text-align:center; clear:right;}
 .ImageColourWrapper {display: inline-block;}
 .ResourcePanel .nopreview {font-size: 94px; margin-top: 0.4em;}
 .ResourcePanelLarge .nopreview {font-size: 160px; margin-top: 0.35em;}
-.ImageStripLink .nopreview {font-size:150px;position: relative; left:-100px;left: -1em;top: -0.2em;}
+.ImageStripLink .nopreview {font-size:150px;position: relative; left: -1em;top: -0.2em;}
 
 .ResourceAlign {width:172px;height:177px;text-align: center;vertical-align: middle;}
-.ResourceTypeIcon.ThumbIcon {float:left;font-size: 14px;margin-left:3px;}
 .ResourcePanelShell a:link, .ResourcePanelShell a:visited {text-decoration:none;}
 .ResourcePanelShell a:hover, .ResourcePanelShell a:active {text-decoration:underline;}
 .ResourcePanelShell.ui-draggable {text-align: left;}
 
 .ResourcePanelShellSmall {padding:0;float: left;margin: 0 15px 10px 0;width: 105px;}
 .ResourcePanelSmall {padding:0;margin:0;width: 105px;padding-bottom:5px;}
-.ResourceAlignSmall {width:105px;height:90px;text-align: center;vertical-align: middle;}
 
 .ResourcePanelShellLarge {padding:0 0 10px; float: left;margin: 0 15px 0 0;width: 365px;}
 .ResourcePanelShellLarge.ui-draggable {text-align: left;}
 .ResourcePanelLarge {width: 320px;}
 .ResourcePanelSmall .ResourcePanelIcons {font-size:0.8em;}
-.ResourceAlignLarge {width:365px;height:365px;text-align: center;vertical-align: middle;}
 
-.ResourcePanelIcons a, .CollectionPanelTools a  {text-decoration:none; font-size: 16px;}
 .ResourcePanelIcons a {padding: 3px;}
-.ResourcePanelResourceID {font-size: 14px; float: left;padding:5px 8px 0 8px; height: 20px;}
 .ListTools a {margin-left: 10px;margin-right: 2px;text-decoration:none;}
 .ResourcePanelIcons a:hover {text-decoration:none;}
 .ListTools a:hover  {text-decoration:none;}
 
 .ResourceSelect {display:block;float:right;}
 .IconUserRatingStar {width:13px;height:15px;padding: 0;margin-bottom:6px;display: block;}
-.IconUserRatingSpace    {width:7px;height:10px;padding: 0;margin-bottom:6px;display: block;float: left;}
 .ASC {display: inline;padding-right: 10px;}
 .DESC {display: inline;padding-right: 10px;}
 
@@ -999,7 +932,6 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 .Listview td, .Listview th {padding:6px 8px 6px 8px;vertical-align: top;}
 .ListTools {text-align: right;}
 .ListTitle {font-weight: bold;}
-.Listview .IconStar {width:11px;height:12px;padding: 0;display: block;float:left;}
 .ListViewBulkActions {margin-bottom: 15px;}
 .ListViewBulkActions i {padding-right: 8px;}
 .ListViewBulkActions span {cursor: pointer; margin-right: 5px; margin-left: 5px;}
@@ -1040,7 +972,7 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 .Question .Inline {float: left;margin: 0 10px 0 0;vertical-align: middle;}
 .Question .Inline label { float: none; font-weight: normal; margin-top: 0; width: auto; }
 .Question .tickset {float: left;}
-.Question .OptionTable, .Question .OptionToggle {margin: 0 0 0 190px;padding:0;}
+.Question .OptionTable {margin: 0 0 0 190px;padding:0;}
 .Question .InnerLabel {width:90px; margin-top:  0;}
 .Question .ExifOptions {margin: 0 0 0 290px;padding:0;}
 .questionSpacer{
@@ -1124,8 +1056,6 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
     display: inline-grid;
 }
 
-.RecordPanel .PictureDoc {float: left;margin: 50px 130px;}
-
 .RecordPanel .Detail {float: left;}
 
 .RecordPanel form { margin:0; padding:0;}
@@ -1134,10 +1064,8 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 .NoFind {font-size: 1.1em;margin: 50px 0 25px;text-align: center;padding: 1rem;border-radius: 4px;}
 
 .RecordPanel .Col {float: left;width: 352px;margin-bottom: 10px;}
-.RecordPanel .ColNarrow {float: left;width: 171px;margin-bottom: 10px;}
 .RecordPanel .buffer {margin-right: 10px;}
 .RecordPanel .itemNarrow {word-wrap: break-word; float: left;width: 170px;margin-right: 5px;position:relative; margin-top: 10px;padding-left: 10px;} 
-.RecordPanel .SearchSimilar {float: left;width: auto; margin: 0 10px 2px 0;padding: 0;}
 .RecordPanel .item {word-wrap: break-word; overflow-wrap:anywhere; float: left;margin-left: 10px;margin-top: 10px;margin-right: 10px;position:relative;}
 .RecordPanel .item h3, .RecordPanel .itemNarrow h3, th {margin: 0;padding: 0;text-transform: uppercase; font-size: 0.875rem;}
 .RecordPanel .item p, .RecordPanel .itemNarrow p {margin: 0;padding: 0;}
@@ -1178,25 +1106,16 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 .BasicsBox {margin: 15px 15px 10px 20px;}
 .BasicsBox h1 {padding: 0 0 0.5em;}
 .BasicsBox h2 {font-size: 1.2em;margin-bottom: 4px;}
-.BasicsBox .HorizontalNav ul {padding:0.2em 0;margin:0 0 1.5em;list-style:none;}
-.BasicsBox .HorizontalNav li {display:inline;padding:0 0.9em 0 0;margin:0 0.5em 0 0;}
 .BasicsBox .VerticalNav ul {padding:0.2em 0;margin:0 0 1em;list-style:none;}
 .BasicsBox .VerticalNav li {padding:0 0.35em 0 0;margin:0 0.5em 0.5em 0;}
 .nopadding,.nopadding .VerticalNav ul {padding:0;margin:0;}
-.nopad, .BasicsBox .nopad {padding:0;}
 .BasicsBoxPadded {padding: 10px 15px 0 15px;}
 .BasicsBoxPadded h1 {margin-bottom: 5px;font-size: 2em;}
-
-/* Themes */
-.ThemeBox {float: left;width: 250px;margin: 0 15px 15px 0;padding: 0;}
-.ThemeBox ul {padding:0.2em 0;margin:0 0 0.5em;list-style:none;}
-.ThemeBox li {padding:0 0.35em 0 0;margin:0 0.5em 0.25em 0.25em;}
 
 /*Home styling */
 .HomePanelIN {padding: 15px;min-height: 150px; display:flex;}
 .HomePanel p {margin: 0; padding: 5px 0 4px 0;}
 
-.HomePanelPromotedImageWrap {text-align:center;min-height:155px;vertical-align:middle;}
 a.HomePanel {text-decoration:none; cursor:pointer;}
 
 .TabBar {padding:8px 0 0 0;margin-bottom: -1px;}
@@ -1217,9 +1136,6 @@ a.HomePanel {text-decoration:none; cursor:pointer;}
 div#Metadata > div.Title { padding-top: 0.3em; }
 .RecordResource .RecordDownload .TabBar { padding: unset; }
 
-.infotable {border-top: 1px solid #999999;}
-.infotable td,.infotable th {border-bottom: 1px solid #999999;}
-
 .TableArray{border: 1px solid #d4d4d4; border-radius: 4px; border-spacing: 0;}
 .TableArray td:not(:last-child) {border-right: 1px solid #d4d4d4;}
 table.TableArray:not(:first-of-type) {margin-top: 5px;}
@@ -1227,20 +1143,13 @@ table.TableArray:not(:first-of-type) {margin-top: 5px;}
 .RecordStory .highlight {padding:2px;}
 
 #InfoBox {display:none;position:absolute;top:0;left:0;width:362px;height:303px;background-repeat:no-repeat;}
-#InfoBoxInner {margin:15px 32px 15px 18px;height:210px;overflow:hidden;}
-#InfoBoxInner h2 {font-size:1.2em;}
-#InfoBoxInner p {padding:0;margin:0 0 5px 0;}
 
 #InfoBoxCollection {display:none;position:absolute;top:0;left:0;width:376px;height:112px;background-repeat:no-repeat;}
-#InfoBoxCollectionInner {margin:6px 32px 10px 20px;height:90px;overflow:hidden;}
-#InfoBoxCollectionInner h2 {font-size:1.2em;font-weight:bold;text-align:left;}
-#InfoBoxCollectionInner p {padding:0;margin:0 0 5px 0;text-align:left;}
 .InfoTable td {padding:10px;}
 
 .PDFnav {font-size: 4em; padding:6px;font-weight:bold;}
 .PDFnav:hover {text-decoration: none;}
 
-.NewFlag { display: inline; font-size: 0.6em; margin-left: 5px; padding: 1px 3px; font-weight: bolder; }
 .Breadcrumbs {float:left;margin-top:4px;}
 .SearchBreadcrumbs {margin-top:15px;}
 .SearchTitle {padding: 0 ;margin: 20px 0 0 20px;}
@@ -1250,7 +1159,6 @@ table.TableArray:not(:first-of-type) {margin-top: 5px;}
 .CategoryBox {overflow:auto;width:414px;height:80px;padding:2px;font-size:1em;}
 .MiniCategoryBox {overflow:auto;width:240px;height:80px;padding:4px;font-size:1em;}
  
-.CategoryTree {overflow:auto;width:420px;height:400px;display:none;}
 .backline {
     background-image: url(../gfx/interface/line.gif);
     background-position: 14px 0;
@@ -1305,24 +1213,15 @@ div.autocomplete ul li {
 #lightbox a img{ border: none; }
 .lightboxOverlay {z-index: 110;}
 
-#outerImageContainer{ position: relative; width: 250px; height: 250px; margin: 0 auto; }
 #imageContainer{ padding: 10px; }
 
 #loading{ position: absolute; top: 40%; left: 0; height: 25%; width: 100%; text-align: center; line-height: 0; }
-#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
-#imageContainer>#hoverNav{ left: 0;}
-#hoverNav a{ outline: none;}
 
 #prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
 #prevLink { left: 0; float: left;}
-#nextLink, .sharelink { right: 0; float: right;}
+#nextLink { right: 0; float: right;}
 
-#imageDataContainer{font-size: 0.7em; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%   ; }
-
-#imageData{padding:0 10px;}
-#imageData #imageDetails{ width: 70%; float: left; text-align: left; }  
-#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;  }           
-#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em; outline: none;}      
+#imageData{padding:0 10px;}            
 
 #overlay{position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px;}
 
@@ -1331,16 +1230,9 @@ div.autocomplete ul li {
 .FormHelpInner a {font-weight: bold;}
 .FormHelpInner p {padding: 0;}
 
-#ThemeBox {padding:0;margin:0;text-align:left;width: 170px;}
-#ThemeBoxPanel {width: 170px;padding:0;margin:0;}
-
 .DownloadDisabled {font-weight: normal;}
 
 .AltThumb { padding-right:5px; }
-
-/* single file upload progress bar */
-.meter-wrap{position: relative;width:290px;}
-.meter-value {height: 10px;}
 
 .SearchOptionNav {padding:0 20px 5px 0;float:left;}
 .dynamickeywords {float:left;}
@@ -1424,15 +1316,6 @@ div.autocomplete ul li {
     z-index: 100;
 }
 
-#showlog,#hidelog
-    {
-    margin-top:10px;
-    }
-
-.InfoBoxResourceTypeIcon
-    {
-    float:right;clear:right;padding:10px 0 10px 10px;
-    }
 .spacer 
     {
     height: 8px;
@@ -1480,11 +1363,9 @@ h2.CollapsibleSectionHead, h1.CollapsibleSectionHead
 .comment_form .CommentFormSubmit{margin: 8px 0 0 0;}
 .CommentFormBody {width: 600px; height: 60px; font-size: 1em; margin: 3px 0 0 0;}
 .CommentRespond {display: inline-block; width: auto; margin-right: 12px;}
-.TaggingHint {cursor: hand;display:block;width:588px;padding:5px;}
+.TaggingHint {display:block;width:588px;padding:5px;}
 .TaggingHint::before {content: "\e17f"; font-family: "Lucide"; font-weight: 600;}
 .comment_form_container{padding: 8px; border-radius: 4px; width: 600px; margin-top: 5px;}
-
-.collectionscompactstylespacer {height:25px;}
 
 .Terms
     {
@@ -1584,22 +1465,7 @@ input.contactadminbutton  {
     width: 30px !important;
 }
 
-.CollectionsCompactToolsContainerDummy, .CollectionsCompactToolsContainer {display:inline-block;}
-#GeoDragMode{margin-bottom: 10px;}
-
-.sharerelatedresources {
-    float: left;
-    width: 65%;
-    }   
-    
-.sharerelatedtype .CollectionPanelShell{
-    height: 150px;
-    }
-
-.sharerelatedresources .Title {
-    margin-bottom: 10px;
-    font-weight: bold;
-    }
+#GeoDragMode{margin-bottom: 10px;}  
 
 /*Accessibility (screen readers)*/
 .accessibility-hidden {
@@ -1630,11 +1496,6 @@ input.contactadminbutton  {
     opacity: 1;
 }
 #submissionResponse {padding-left: 300px;}
-
-.upload_results {
-    margin-top: 10px;
-}
-.SearchResultsCollectionCompactTools {display:inline-block;}
 
 .SearchResultsDivider {
     width: 100%;
@@ -1690,9 +1551,6 @@ p.tile_corner_box {
     border-radius: var(--space-4);
     background: var(--colour-transparency-black-60);
 }
-.DraggableItem, .SortableItem {
-    cursor:pointer;
-}
 .HomePanelDynamicDash, .HomePanelThemes {
     padding: 0;
     overflow: hidden;
@@ -1701,14 +1559,14 @@ p.tile_corner_box {
     flex-direction: column;
     width: 100%;
 }
-.HomePanelThemes h2, .FeaturedSimpleTileContents h2 {
+.HomePanelThemes h2 {
     float: none;
     position: relative;
     padding: 5px 15px 5px 15px;
     margin-bottom: 0;
     font-size: 1.2em;
 }
-.HomePanelDynamicDash h2 span, .HomePanelThemes h2 span, .FeaturedSimpleTileContents h2 span {
+.HomePanelDynamicDash h2 span, .HomePanelThemes h2 span {
     padding-right: 5px;
 }
 .HomePanelThemes p {
@@ -1752,6 +1610,10 @@ p.tile_corner_box {
     font-size: 18px;
 }
 .DoubleWidthDashTile .tile-graph {
+    flex: 1 1 0;
+    padding: var(--space-16);
+    align-items: center;
+    gap: var(--space-12);
     flex-direction: row;
 }
 .DoubleWidthDashTile .tile-graph > h2 {
@@ -1778,12 +1640,6 @@ p.tile_corner_box {
     font-size: 18px;
     font-weight: 400;
     line-height: 140%;
-}
-.DoubleWidthDashTile .tile-graph {
-    flex: 1 1 0;
-    padding: var(--space-16);
-    align-items: center;
-    gap: var(--space-12);
 }
 .DoubleWidthDashTile .tile-graph-legend{
     flex: 1 1 0;
@@ -1951,9 +1807,6 @@ p.tile_corner_box {
     .DoubleWidthDashTile .tile-special-content {
         height: 202px;
     }
-    .DoubleWidthDashTile .HomePanelDynamicDash > p.tile_corner_box {
-        top: 162px;
-    }
     .DoubleWidthDashTile .tile-graph-container.tile-pie-graph {
         width: 100%;
         height: auto;
@@ -1976,12 +1829,6 @@ p.tile_corner_box {
     .HomePanelDynamicDash > p.tile_corner_box {
         top: 144px;
     }
-    .DoubleWidthDashTile .thmbs-tile-img,
-    .DoubleWidthDashTile .tile-multi,
-    .DoubleWidthDashTile .tile-placeholder,
-    .DoubleWidthDashTile .tile-special-content {
-        height: 202px;
-    }
     .DoubleWidthDashTile .HomePanelDynamicDash > p.tile_corner_box {
         top: 165px;
     }
@@ -2001,7 +1848,7 @@ p.tile_corner_box {
     text-transform: capitalize;
 }
 .plugin-category-container{margin-bottom:10px;}
-.plugin-upload{margin-top:20px;}
+
 #SearchSystemPages, .ResultsFilterTopRight {
     float: right;
     font-size: 0.7em;
@@ -2112,23 +1959,6 @@ div.video-js {margin:auto;}
     {
     padding:0;
     }
-/* custom styling for image preview in edit modal */
-#modal .PreviewImageBlock
-    {
-    float:right;
-    width:35%;
-    padding:20px;
-    margin-top:-30px;
-    }
-#modal .PreviewImageBlock label
-    {
-    display:none;
-    }
-#modal .PreviewImageBlock .Question
-    {   
-    border:none;
-    }
-
 #modal_dialog, .ui-dialog
     {
     z-index: 103;
@@ -2202,21 +2032,6 @@ span.Pill {
     padding: 2px 5px 2px 5px;
     cursor: pointer;
 }
-
-.HorizontalNav .Pill {
-    position: absolute;
-    top: -2px;
-    right: -15px;
-    border-radius: 20px;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 500;
-}
-
-.HorizontalNav a {
-    position: relative;
-}
-
 
 div#MessageContainer {
     width: 200px;
@@ -2416,94 +2231,18 @@ div.MessageBox a {
 .FeaturedSimpleTile.DashTile {
     display: block;
 }
-
-.FeaturedSimpleTileImage .HomePanelIN {
-    background: none;  
-}
-
-.FeaturedImageTile
-{
-    width:77px;
-    height:56px;
-    background-size: cover;
-    float: left;
-    margin: 3px;
-    border-radius: 8px;
-
-}
-
-.FeaturedSimpleLinks .FeaturedSimpleTileContents {
-    width:100%;
-    height:100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-}
-
-.FeaturedSimpleTileText {
-    vertical-align: middle;
-    display: table-cell;
-}
-
-.FeaturedSimpleTileText h2 span{
-    text-shadow: none;
-}
-   
-.FeaturedSimpleLink{
-    padding: 0;
-    width: 95%;
-    height: var(--space-48);
-    z-index: 1;
-    background-color: var(--colour-surface-card-content-background);
-    align-items: center;
-}
  
 a.FeaturedSimpleLink:hover, a.FeaturedSimpleLink:active  { 
     text-decoration:none;
 }
 
-.FeaturedCallToActionTile .FeaturedSimpleTileContents h2 {
-    text-align: center;
-}
-.FeaturedCallToActionTile .FeaturedSimpleTileContents h2 span{
-    font-size: 2em;
-}
-
-.FeaturedSimpleTile .FeaturedSimpleTileContents h2{
-    background: transparent;
-    max-width: 220px;    
-    white-space: normal;
-}
-
-.FeaturedSimpleTileActions {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: right;
-    z-index:2;
-}
-
-.FeaturedSimpleTileActions .tool {
-    margin-left: 8px;
-    vertical-align: middle;
-    display: inline-block;
-    padding-right: 5px;    
-}
-
-.FeaturedSimpleTileImage img.TileGroupImageBase { position: absolute; top: 10px; height: 100%; }
-
 .FeaturedSimpleTile.FullWidth { height: 40px; }
 .FeaturedSimpleTile.FullWidth .FeaturedSimpleLink { width: 85%; }
-.FeaturedSimpleTile.FullWidth .FeaturedSimpleTileContents h2 { background-color: unset; }
-.FeaturedSimpleTile.FullWidth .FeaturedSimpleTileContents h2 span[data-tag="resources_count"] { padding: 3px 5px; border-radius: 4px; font-size: 0.85em;}
 .FeaturedSimpleTile.FullWidth .ListTools .ActionsContainer select { margin: 5px 5px; }
-.FeaturedCallToActionTile.FullWidth .FeaturedSimpleTileContents h2 span { font-size: larger; }
 .FeaturedSimpleTile > div:has(> .top-right-menu) {
     display: grid;
     grid-template-areas: "box";
 }
-.FeaturedSimpleTile .FeaturedSimpleLink:has(+ .top-right-menu) { grid-area: box; }
 .FeaturedSimpleTile .tile-desc {
     display: flex;
     flex-direction: row;
@@ -2575,9 +2314,6 @@ a.FeaturedSimpleLink:hover, a.FeaturedSimpleLink:active  {
 
 .MessageUnread {
     font-weight: bold;
-}
-#toggleHiddenCollectionsLink{
-    margin-left:10px;
 }
 
 #user_messages table tr {
@@ -2674,10 +2410,6 @@ p.LoginLinks {
     margin-top: 0.4em;
 }
 
-#filter_date_from, #filter_date_to {
-    width: 100px;
-}
-
 form.FormFilter button {
     display: block;
     margin-top: 20px;
@@ -2720,13 +2452,6 @@ form.FormFilter button.ClearButton {
 .sub {font-size:0.8em;}
 
 /* Pagers (Search, Collections, Shares etc.) */
-.TeamExternalSharesPager {
-    width: 240px;
-    float: right;
-    margin-top: -50px;
-    margin-right: 10px;
-}
-
 #AdminManageMetadataFieldOptions > .TopInpageNavRight,
 #AdminManageMetadataFieldOptions > .TopInpageNavRight > .TopInpageNavRight {
     position: inherit;
@@ -2787,18 +2512,7 @@ form.FormFilter button.ClearButton {
 #CentralSpaceResources > .BasicsBox {
     flex: 1;
 }
-
-.ImageTools
-    {
-    position:absolute;display:inline;visibility:hidden;
-    }
-.ImageStripLink:hover .ImageTools
-    {
-    visibility:visible;
-    }
     
-.CollectionPanelTools {visibility:hidden;text-align:right;}
-.CollectionPanelShell:hover .CollectionPanelTools {visibility:visible;}
 .tag-editor li { padding: initial; }
 
 /* Pill-like display for keywords */
@@ -2819,12 +2533,6 @@ form.FormFilter button.ClearButton {
     margin-left:3px;
     vertical-align: text-bottom;
     max-width: 80%;
-}
-.SearchSimilar .customFieldLabel {
-    border-radius: 4px;
-    padding: 2px 6px;
-    margin-left: 3px;
-    vertical-align: text-bottom;
 }
 
 .keywordselected {
@@ -2944,9 +2652,6 @@ a.Enabled, a:visited.Enabled {
     text-align: left;
 }
 
-.HeaderSearchForm {padding:0;margin:0;display:inline;}
-.NoSearchBar {padding-right:0 !important;}
-
 #OverFlowLinks {
     margin: 5px;
     padding: 15px 18px 5px 15px;
@@ -2961,16 +2666,6 @@ a.Enabled, a:visited.Enabled {
 #OverFlowLinks a:hover {
     opacity: 1;
     text-decoration: none;
-}
-
-#OverFlowLinks #HiddenLinks {
-    margin: 0;
-    padding: 0;
-}
-
-#HiddenLinks li {
-    display: block;
-    padding: 0 0 10px 0;
 }
 
 .HelpHeader {
@@ -3011,10 +2706,6 @@ select.MultiSelect:before {
     float: unset;
     padding-left: 3px;
 }
-.MultiRTypeSelectContainer {
-    max-height:147px;
-    overflow:auto;
-}
 
 .RecordPanel .RecordDownloadSpace .DownloadDBlend .AltThumbLink {
     min-height: unset;
@@ -3033,10 +2724,6 @@ select.MultiSelect:before {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-#previewimage.NoPreview {
-    box-shadow: none;
 }
 
 .RecordPanelLarge #ResourceWorkflowActions, .RecordPanelLarge #RecordDownloadSummary {
@@ -3092,7 +2779,6 @@ select.MultiSelect:before {
 }
 
 .FullWidth { width: 100%; }
-.MarginZeroAuto { margin: 0 auto; }
 
 .JobTable {
     clear: both;
@@ -3173,16 +2859,6 @@ select.MultiSelect:before {
 .TileReflow i {display:inline-block; min-width:26px;}
 .TileReflow a:hover {text-decoration:none;}
 .TileReflow .overquota {width: auto !important; height: auto !important;}
-
-.titlediv h1 {float :left;}
-.sharelink:before {
-    content: "\e102";
-    font-family: "Lucide";
-    font-weight: 600;
-    padding-right: 12px;
-    display: inline-block;
-    width:0.6em;
-}
 
 .infield-icon {
     margin-left: -26px;
@@ -3376,11 +3052,7 @@ input[type="text"]#iconpicker-input {
     border-radius: 5px;
 }
 
-
 /* Search Bar Tab styling */
-#SearchBarTabsContainer a {
-    display: inline-block;
-}
 .SearchBarTab {
     padding: 10px 5px;
     min-width: 116px;
@@ -3390,13 +3062,6 @@ input[type="text"]#iconpicker-input {
     font-weight: 500;
     text-align: center;
 }
-.SearchBarTab.SearchTab {
-    margin: 10px 2px 0 10px;
-}
-.SearchBarTab.BrowseTab {
-    margin: 10px 10px 0 2px;
-}
-
 
 #LoginError {
     outline: none;
@@ -3671,14 +3336,6 @@ input[type="text"]#iconpicker-input {
     max-height: 150px;
 }
 
-.cke_notification_warning {
-    display: none;
-}
-
-#cke_text {
-    display: inline-block;
-}
-
 /* Custom styling for jQuery UI dialogs */
 
 .ui-dialog {
@@ -3830,10 +3487,6 @@ label {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
-}
-
-.slide-active {
-    opacity: 1;
 }
 
 .HomePanelDynamicDash.is-loading {
@@ -4211,7 +3864,6 @@ button[data-menu-trigger-close] {
     /* The padding is accounting for the margin of .select2-container--default .select2-selection--multiple .select2-selection__choice */
     padding: 0 var(--space-32) var(--space-6) 0;
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24taWNvbiBsdWNpZGUtY2hldnJvbi1kb3duIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTYgOSA2IDYgNi02IiBzdHJva2U9IiM0YTRjNDgiLz48L3N2Zz4K);
-    background-position: right var(--space-12) bottom var(--space-8);
     background-position: top var(--space-12) right var(--space-12);
     background-repeat: no-repeat;
     text-align: initial;
@@ -5051,8 +4703,10 @@ options in the body so to target the one specifically for the header we had to u
 }
 
 #header-container a.UploadButton i {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #header-container a.UploadButton span {
@@ -5070,12 +4724,6 @@ options in the body so to target the one specifically for the header we had to u
 #header-container #searchbutton:active {
     background: var(--colour-brand-primary-dark);
     opacity: unset;
-}
-
-#header-container a.UploadButton i {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
 }
 
 #header-container a.UploadButton span,
@@ -5819,7 +5467,6 @@ options in the body so to target the one specifically for the header we had to u
     display: grid;
     width: 220px;
     padding: 0;
-    flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
     grid-template-rows: 0fr;
@@ -5890,12 +5537,6 @@ options in the body so to target the one specifically for the header we had to u
 }
 
 /* ===== Responsive layouts ===== */
-/* TODO */
-@media(max-width: 768px) {
-    /*.resource-card.normal, .resource-card.xl {
-        width: 360px;
-    } */
-}
 
 .collection-bar-holder {
     width: 100vw;
@@ -6306,6 +5947,8 @@ options in the body so to target the one specifically for the header we had to u
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
+    border-radius: 2px 2px 0 0;
 }
 
 .collection-bar-resource-card-image i {
@@ -6335,12 +5978,6 @@ options in the body so to target the one specifically for the header we had to u
 
 .collection-bar-resource-card:hover .collection-bar-resource-card-image-overlay {
     opacity: 0;
-}
-
-.collection-bar-resource-card-image img {
-    display: block;
-    border-radius: 2px 2px 0 0;
-    width: 100%;
 }
 
 .collection-bar-resource-card-remove {

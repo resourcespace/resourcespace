@@ -5355,6 +5355,7 @@ function check_filestore_browseability()
         unset($ch);
     } catch (Throwable $t) {
         $return['status'] = $GLOBALS['lang']['unknown'];
+        $return['index_disabled'] = true;
         $return['info'] = $GLOBALS['show_error_messages'] && $GLOBALS['show_detailed_errors'] ? $t->getMessage() : '';
         return $return;
     }

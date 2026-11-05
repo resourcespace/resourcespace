@@ -238,6 +238,7 @@ try {
     $html2pdf->pdf->SetAuthor($pdf_properties['author']);
     $html2pdf->pdf->SetSubject($pdf_properties['subject']);
     $html2pdf->setDefaultFont($pdf_properties['font']);
+    $html2pdf->getSecurityService()->addAllowedHost(parse_url($baseurl, PHP_URL_HOST));
 
     $available_width  = $html2pdf->pdf->getW() - ($html2pdf->pdf->getlMargin() + $html2pdf->pdf->getrMargin());
     $available_height = $html2pdf->pdf->getH() - ($html2pdf->pdf->gettMargin() + $html2pdf->pdf->getbMargin());

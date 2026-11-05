@@ -12,14 +12,14 @@ include dirname(__DIR__, 2) . '/include/video_scene_functions.php';
 include dirname(__DIR__, 2) . '/hooks/all.php';
 include dirname(__DIR__, 2) . '/config/config.php';
 
-$settings = compact(
-    'video_scene_python',
-    'video_scene_threshold',
-    'video_scene_api_key',
-    'video_scene_model',
-    'video_scene_audio',
-    'video_scene_timeout'
-);
+$settings = [
+    'video_scene_python' => $GLOBALS['video_scene_python'] ?? null,
+    'video_scene_threshold' => $GLOBALS['video_scene_threshold'] ?? null,
+    'video_scene_api_key' => $GLOBALS['video_scene_api_key'] ?? null,
+    'video_scene_model' => $GLOBALS['video_scene_model'] ?? null,
+    'video_scene_audio' => $GLOBALS['video_scene_audio'] ?? null,
+    'video_scene_timeout' => $GLOBALS['video_scene_timeout'] ?? null,
+];
 scene_assert(video_scene_valid_config($settings), 'Default configuration should validate');
 foreach (
     [['video_scene_threshold', '0'], ['video_scene_threshold', '1'], ['video_scene_timeout', '-1'],
