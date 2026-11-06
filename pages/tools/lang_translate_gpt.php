@@ -45,8 +45,8 @@ function buildChatCompletionHandle($apiKey, $model, $messages = array(), $uid = 
         CURLOPT_TIMEOUT => 120,
         CURLOPT_HTTPHEADER => $headers,
         CURLOPT_POSTFIELDS => json_encode($data),
-        CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_SSL_VERIFYHOST => false,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
     ]);
 
     return $ch;
@@ -84,8 +84,14 @@ echo "\n";
     foreach ($requests as $id => $request) {
 
         $response = curl_multi_getcontent($request["handle"]);
+        $error = curl_errno($request['handle']);
+        $http_status = (int) curl_getinfo($request['handle'], CURLINFO_RESPONSE_CODE);
 
-        if ($response === false) {
+        if ($response === false || $error !== CURLE_OK) {
+            echo "Translation request {$id} failed: " . curl_error($request['handle']) . "\n";
+            $results[$id] = null;
+        } elseif ($http_status < 200 || $http_status >= 300) {
+            echo "Translation request {$id} failed: HTTP {$http_status}\n";
             $results[$id] = null;
         } else {
             $response_data = json_decode($response, true);

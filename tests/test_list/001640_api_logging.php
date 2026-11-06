@@ -17,32 +17,51 @@ include_once dirname(__DIR__, 2) . '/include/api_functions.php';
 // Tests will not only test the api logging functionality, but the API flow / Authentication itself in general.
 // ---------------------------------------------------------------------------------------------------------------------
 
-$test_endpoint_filename = 'test_api_endpoint.php';
-$test_endpoint_path = get_temp_dir(false) . "/{$test_endpoint_filename}";
-$test_endpoint_url = get_temp_dir(true) . "/{$test_endpoint_filename}";
+$test_directory = sys_get_temp_dir() . '/rs_api_logging_' . test_generate_random_ID(8);
+mkdir($test_directory, 0700);
+$test_endpoint_path = $test_directory . '/router.php';
+$api_directory = var_export(dirname(__DIR__, 2) . '/api', true);
+$fixture_key = var_export($api_scramble_key, true);
 
 $test_endpoint_content = <<<EOT
 <?php
 
 define("RS_TEST_MODE", 1);
 \$rs_test_mysql_db = "rs_test_db";
-\$rs_test_api_scramble_key = "{$api_scramble_key}";
+\$rs_test_api_scramble_key = {$fixture_key};
 
-\$api_dir = dirname(__DIR__, 3) . '/api';
+\$api_dir = {$api_directory};
 chdir(\$api_dir);
 include \$api_dir . '/index.php';
 EOT;
 
 if (!file_put_contents($test_endpoint_path, $test_endpoint_content)) {
+    rcRmdir($test_directory);
     echo "[ENV] Unable to create API test endpoint - ";
     return false;
 }
+
+$socket = stream_socket_server('tcp://127.0.0.1:0', $errno, $error);
+if ($socket === false) {
+    rcRmdir($test_directory);
+    echo '[ENV] Unable to reserve API HTTP port - ';
+    return false;
+}
+$address = stream_socket_get_name($socket, false);
+fclose($socket);
+$test_endpoint_url = 'http://' . $address;
+$server_pipes = [];
+$server = proc_open(
+    [PHP_BINARY, '-S', $address, $test_endpoint_path],
+    [['pipe', 'r'], ['file', $test_directory . '/server.log', 'a'], ['file', $test_directory . '/server.log', 'a']],
+    $server_pipes
+);
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Helper: make a real HTTP API request.
 //
 // Builds the exact query string to be sent, signs it using the supplied API key, then calls the temporary endpoint.
-// A signature override can be supplied to deliberately test invalid authentication.
+// Overrides allow tampered raw queries to be tested through GET and the documented POST envelope.
 // ---------------------------------------------------------------------------------------------------------------------
 
 $api_request = function (
@@ -50,9 +69,11 @@ $api_request = function (
     string $api_key,
     string $function,
     array $params = [],
-    ?string $sign_override = null
+    ?string $sign_override = null,
+    ?string $query_override = null,
+    bool $post = false
 ) use ($test_endpoint_url): array {
-    $query = http_build_query(
+    $query = $query_override ?? http_build_query(
         array_merge(
             [
                 "user" => $username,
@@ -64,8 +85,16 @@ $api_request = function (
 
     $sign = $sign_override ?? hash("sha256", $api_key . $query);
 
-    $ch = curl_init("{$test_endpoint_url}?{$query}&sign={$sign}");
+    $ch = curl_init($post ? $test_endpoint_url : "{$test_endpoint_url}?{$query}&sign={$sign}");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    if ($post) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+            'user' => $username,
+            'sign' => $sign,
+            'query' => $query . '&sign=' . $sign,
+        ]));
+    }
 
     $response = curl_exec($ch);
     $status = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
@@ -106,6 +135,24 @@ $api_log_matches = function (string $username, string $function): bool {
 $resource_ref = null;
 
 try {
+    if (!is_resource($server)) {
+        echo '[ENV] Unable to start API HTTP server - ';
+        return false;
+    }
+    $ready = false;
+    for ($attempt = 0; $attempt < 50; $attempt++) {
+        $probe = $api_request('api_server_probe', '', 'get_resource_types');
+        if ($probe['status'] !== 0) {
+            $ready = true;
+            break;
+        }
+        usleep(20000);
+    }
+    if (!$ready) {
+        echo '[ENV] API HTTP server did not become ready - ';
+        return false;
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
     // Set up API user in the test database - user group 3 (Super admin) to ensure no permission errors in the tests.
     // -----------------------------------------------------------------------------------------------------------------
@@ -130,7 +177,7 @@ try {
     );
 
     if ($request["response"] === false || $request["status"] !== 401) {
-        echo "Invalid API signature did not return HTTP 401 - ";
+        echo "Invalid API signature did not return HTTP 401 ({$request['status']}: {$request['error']}) - ";
         return false;
     }
 
@@ -232,8 +279,129 @@ try {
         return false;
     }
 
-    return true;
+    // Sign and execute the same arguments, including those following unsigned transport fields.
+    $prefix = http_build_query(['user' => $api_username, 'function' => 'get_resource_data']);
+    foreach ([false, true] as $post) {
+        foreach (['param1', 'resource'] as $argument) {
+            $query = $prefix . '&' . $argument . '=' . $resource_ref;
+            $signature = hash('sha256', $api_key . $query);
+            foreach (
+                [$query, $query . '&ajax=true&pretty=true&authmode=userkey',
+                'ajax=true&' . $query, $prefix . '&ajax=true&' . $argument . '=' . $resource_ref] as $valid_query
+            ) {
+                $request = $api_request($api_username, $api_key, '', [], $signature, $valid_query, $post);
+                $result = json_decode($request['response'], true);
+                if ($request['status'] !== 200 || (int) ($result['ref'] ?? 0) !== $resource_ref) {
+                    echo 'Valid signed API arguments or transport fields were changed - ';
+                    return false;
+                }
+            }
 
+            // An unsigned new argument must not acquire the signature of the prefix before ajax.
+            $request = $api_request(
+                $api_username,
+                $api_key,
+                '',
+                [],
+                hash('sha256', $api_key . $prefix),
+                $prefix . '&ajax=true&' . $argument . '=' . $resource_ref,
+                $post
+            );
+            if ($request['status'] !== 401) {
+                echo 'API accepted an unsigned argument after ajax - ';
+                return false;
+            }
+
+            foreach (
+                [$query . '&ajax=true&' . $argument . '=0',
+                $query . '&ajax=true&' . rawurlencode($argument . '[]') . '=0',
+                $query . '&ajax=true&function=login',
+                $query . '&funct%69on=get_resource_data',
+                $query . '&function%5B%5D=login',
+                $query . '&pretty=true&pretty=false'] as $invalid_query
+            ) {
+                // Even a correctly signed ambiguous query must be rejected before dispatch.
+                $request = $api_request(
+                    $api_username,
+                    $api_key,
+                    '',
+                    [],
+                    hash('sha256', $api_key . $invalid_query),
+                    $invalid_query,
+                    $post
+                );
+                if ($request['status'] !== 400) {
+                    echo 'API did not reject ambiguous query parameters - ';
+                    return false;
+                }
+            }
+        }
+
+        // Exercise an array argument through the real binding and verify its stored result.
+        $access = $post ? 0 : 1;
+        $query = http_build_query([
+            'user' => $api_username,
+            'function' => 'put_resource_data',
+            'resource' => $resource_ref,
+            'data' => ['access' => $access, 'archive' => 0],
+        ]);
+        $request = $api_request($api_username, $api_key, '', [], null, $query, $post);
+        if (
+            $request['status'] !== 200
+            || json_decode($request['response'], true) !== true
+            || (int) get_resource_data($resource_ref, false)['access'] !== $access
+        ) {
+            echo 'API array argument was not applied correctly - ';
+            return false;
+        }
+    }
+
+    // Keep exact encodings and transport-like text within values; retain normal PHP array forms.
+    foreach (
+        ['function=get_resource_data&param1=sign=value%26pretty%3Dtrue%2Bajax%3D1',
+        'function=put_resource_data&data[access]=1&data[archive]=0',
+        'function=toggle_active_state_for_nodes&refs[]=1&refs[]=2',
+        'function=put_resource_data&data[a][]=1&data[b]=2&data[a][]=3'] as $query
+    ) {
+        if (prepare_api_query($query) !== $query) {
+            echo 'API query preparation changed argument bytes or valid arrays - ';
+            return false;
+        }
+    }
+    foreach (
+        ['function=get_resource_data&param1=1&ajax=true&param1=2',
+        'function=put_resource_data&data[access]=0&data[access]=1',
+        'function=put_resource_data&data[a]=1&data[a][b]=2',
+        'function=put_resource_data&data[a][b]=1&data[a]=2',
+        'function=toggle_active_state_for_nodes&refs[]=1&refs[0]=2',
+        'function=get_resource_data&param.1=1&param_1=2'] as $query
+    ) {
+        if (
+            check_api_key($api_username, $query, hash('sha256', $api_key . $query))
+            || execute_api_call($query) !== false
+        ) {
+            echo 'Direct API authentication or dispatch accepted ambiguous arguments - ';
+            return false;
+        }
+    }
+    foreach (['userkey' => $api_key, 'sessionkey' => get_session_api_key($api_user_ref)] as $mode => $signing_key) {
+        $query = $prefix . '&resource=' . $resource_ref;
+        $signature = hash('sha256', $signing_key . $query);
+        if (
+            !check_api_key($api_username, $query . '&ajax=true', $signature, $mode)
+            || check_api_key(
+                $api_username,
+                $prefix . '&ajax=true&resource=' . $resource_ref,
+                hash('sha256', $signing_key . $prefix),
+                $mode
+            )
+        ) {
+            echo 'API signature coverage changed between authentication modes - ';
+            return false;
+        }
+    }
+
+    return true;
 } finally {
     // -----------------------------------------------------------------------------------------------------------------
     // Tear down.
@@ -245,5 +413,12 @@ try {
         delete_resource($resource_ref);
     }
 
-    try_unlink($test_endpoint_path);
+    if (is_resource($server)) {
+        proc_terminate($server);
+        foreach ($server_pipes as $pipe) {
+            fclose($pipe);
+        }
+        proc_close($server);
+    }
+    rcRmdir($test_directory);
 }

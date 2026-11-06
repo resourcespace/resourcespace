@@ -76,7 +76,7 @@ function HookRse_versionLog_entryLog_entry_processing($column, $value, $logentry
             {
             $show_revert_link = true;
             }
-        else
+        elseif(isset($logentry["field"]))
             {
             $field_info = get_resource_type_field($logentry["field"]);
             if((bool)$field_info["required"] === false || trim($logentry["previous_value"]) != "")

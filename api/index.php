@@ -33,19 +33,13 @@ if (getval("query", "") != "") {
     $query = getval("query", "");
 }
 
-# Remove the pretty, sign and authmode parameters if passed as these would not have been present when signed on the client.
-# For example, pretty JSON is just how the client wants the response back, doesn't need to to be part of the signing key process.
+// Authentication and dispatch must use exactly the same arguments.
+$query = prepare_api_query($query);
+if ($query === false) {
+    http_response_code(400);
+    exit('Ambiguous or malformed query parameters');
+}
 parse_str($query, $query_params);
-if (isset($query_params['sign'])) {
-    $query = str_ireplace("sign=" . $query_params['sign'], "!|!|", $query);
-}
-if (isset($query_params['authmode'])) {
-    $query = str_ireplace("authmode=" . $query_params['authmode'], "!|!|", $query);
-}
-if (isset($query_params['pretty'])) {
-    $query = str_ireplace("pretty=" . $query_params['pretty'], "!|!|", $query);
-}
-$query = str_replace("&!|!|", "", ltrim($query, "!|!|&")); # remove joining &
 
 $validauthmodes = array("userkey", "native", "sessionkey");
 if (!in_array($authmode, $validauthmodes)) {

@@ -37,6 +37,20 @@ $use_cases = [
         'expected' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' . PHP_EOL,
     ],
     [
+        'name' => 'Plain text with multiple trailing newlines',
+        'input' => [
+            'html' => "Text\n\n",
+        ],
+        'expected' => "Text\n\n",
+    ],
+    [
+        'name' => 'Plain text with an entity and a trailing newline',
+        'input' => [
+            'html' => "Fish &amp; chips\n",
+        ],
+        'expected' => "Fish & chips\n",
+    ],
+    [
         'name' => 'Text with a tag allowed by default requires post processing',
         'input' => [
             'html' => 'Lorem ipsum <strong>dolor</strong> sit amet, consectetur adipiscing elit.',
@@ -49,7 +63,9 @@ $use_cases = [
         'input' => [
             'html' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. <script>alert("XSS test")</script>',
         ],
-        'expected' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>',
+        // libxml < 2.14 adds a paragraph around this fragment; newer versions do not.
+        'post-process' => 'strip_paragraph_tags',
+        'expected' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
     ],
     [
         'name' => 'Tag (header) not allowed by default',
@@ -186,7 +202,14 @@ $use_cases = [
         'input' => [
             'html' => '<div style=\'color: red;background-image: url("http://test.localhost/pages");\'>Test</div>',
         ],
-        'expected' => '<div style=\'color: red;background-image: url("http://test.localhost/pages");\'>Test</div>',
+        // Compare the complete DOM independently of libxml's HTML attribute quoting.
+        'post-process' => static function (string $html): string {
+            $document = new DOMDocument();
+            $document->loadHTML($html);
+            return $document->C14N();
+        },
+        'expected' => '<html><body><div style="color: red;background-image: '
+            . 'url(&quot;http://test.localhost/pages&quot;);">Test</div></body></html>',
     ],
     [
         'name' => 'Allowed URI scheme, i.e http(s), should be left alone',

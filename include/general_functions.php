@@ -3913,6 +3913,7 @@ function html_find_and_replace(string $findstring, string $replacestring, string
 /**
 * Utility function to remove unwanted HTML tags and attributes.
 * Note: if $html is a full page, developers should allow html and body tags.
+* Plain-text trailing line breaks are preserved independently of libxml's implied tags.
 *
 * @param   string  $html         HTML string
 * @param   array   $tags         Extra tags to be allowed
@@ -3936,7 +3937,7 @@ function strip_tags_and_attributes($html, array $tags = array(), array $attribut
 
     // Basic way of telling whether we had any tags previously
     // This allows us to know that the returned value should actually be just text rather than HTML
-    // (DOMDocument::saveHTML() returns a text string as a string wrapped in a <p> tag)
+    // Older libxml versions also wrap plain text in an implied <p> tag.
     $is_html = ($html != strip_tags($html));
 
     $allowed_tags = array_merge($permitted_html_tags, $tags);
@@ -3948,7 +3949,9 @@ function strip_tags_and_attributes($html, array $tags = array(), array $attribut
     $doc           = new DOMDocument();
     $doc->encoding = 'UTF-8';
 
-    $process_html = $doc->loadHTML($html);
+    // Explicitly preserve the old plain-text wrapper: libxml 2.14+ no longer adds it.
+    // This keeps the text's trailing line breaks inside the tag when output is trimmed.
+    $process_html = $doc->loadHTML($is_html ? $html : '<p>' . $html . '</p>');
 
     if ($process_html) {
         foreach ($doc->getElementsByTagName('*') as $tag) {

@@ -6,6 +6,7 @@
 include '../../../include/boot.php';
 include '../../../include/authenticate.php'; if (!checkperm('a')) {exit ($lang['error-permissiondenied']);} 
 include_once '../include/rse_workflow_functions.php';
+$delete_action_url = generateURL($baseurl_short . 'plugins/rse_workflow/pages/edit_workflow_actions.php');
 
 # Retrieve list of existing defined actions 
 $workflowactions = rse_workflow_get_actions();
@@ -26,6 +27,9 @@ if ($filterstate!="all")
 $delete=getval("delete","");
 if ($delete!="")
     {
+    if (!enforcePostRequest(getval('ajax', false))) {
+        exit(escape($lang['error-405-method-not_allowed']));
+    }
     # Delete action
     $deleted=rse_workflow_delete_action($delete);
     if($deleted){$noticetext=$lang['rse_workflow_action_deleted'];}
@@ -44,17 +48,18 @@ if (isset($noticetext))
 ?>
 <script>
         
-function deleteaction(ref)
+function deleteaction(ref, event)
+    {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (confirm(<?php echo encode_js_value($lang['rse_workflow_confirm_action_delete']); ?>))
         {
-        event.preventDefault();
-        event.stopPropagation();        
-        
-        if(confirm('<?php echo escape($lang["rse_workflow_confirm_action_delete"]); ?>'))
-                {
-                CentralSpaceLoad("<?php echo $baseurl?>/plugins/rse_workflow/pages/edit_workflow_actions.php?delete=" + ref, true);         
-                }
-        return true;
+        document.getElementById('delete-workflow-action-ref').value = ref;
+        CentralSpacePost(document.getElementById('delete-workflow-action'), true);
         }
+    return false;
+    }
                 
         
 </script>
@@ -81,6 +86,15 @@ $links_trail = array(
 renderBreadcrumbs($links_trail);
 ?>
 <div class="clearerleft" ></div>
+
+<form
+    id="delete-workflow-action"
+    method="post"
+    action="<?php echo escape($delete_action_url); ?>">
+    <?php generateFormToken('delete-workflow-action'); ?>
+    <input type="hidden" id="delete-workflow-action-ref" name="delete" value="">
+    <input type="hidden" name="filterstate" value="<?php echo escape($filterstate); ?>">
+</form>
 
 <div>
     <form method="post" name="form_filter_action" id="form_filter_action" action="<?php echo $baseurl_short?>plugins/rse_workflow/pages/edit_workflow_actions.php">
@@ -169,7 +183,12 @@ else
             </td>
             <td class="ListTools">
             <a href="<?php echo $baseurl?>/plugins/rse_workflow/pages/edit_action.php?ref=<?php echo $workflowaction["ref"]; ?>" onclick="return CentralSpaceLoad(this,true);"><i class="icon-square-pen"></i>&nbsp;<?php echo escape($lang["action-edit"]); ?> </a>
-            <a href="<?php echo $baseurl?>/plugins/rse_workflow/pages/edit_workflow_actions.php?delete=<?php echo $workflowaction["ref"]; ?>" class="deleteaction" onClick="deleteaction(<?php echo $workflowaction["ref"]; ?>,true);"><i class="icon-trash-2"></i>&nbsp;<?php echo escape($lang["action-delete"]); ?> </a>
+            <a
+                href="#"
+                class="deleteaction"
+                onclick="return deleteaction(<?php echo (int) $workflowaction['ref']; ?>, event);">
+                <i class="icon-trash-2"></i>&nbsp;<?php echo escape($lang['action-delete']); ?>
+            </a>
             </td>
         </tr>
         <?php	

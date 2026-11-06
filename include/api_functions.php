@@ -26,25 +26,95 @@ function get_api_key($user)
 }
 
 /**
+ * Prepare the same query for API signature validation and execution.
+ *
+ * Preserve argument order and encoding for existing signatures, removing only the
+ * unsigned transport fields sign, authmode, pretty and ajax. Reject duplicate
+ * values and scalar/array collisions, while allowing distinct array entries.
+ *
+ * @param string $query URL-encoded API query, including any transport fields.
+ * @return string|false Query to sign and execute, or false for ambiguous or malformed parameters.
+ */
+function prepare_api_query(string $query): string|false
+{
+    $parts = [];
+    $seen = [];
+    foreach (explode('&', $query) as $part) {
+        if ($part === '') {
+            $parts[] = $part;
+            continue;
+        }
+
+        parse_str($part, $parameter);
+        $encoded_name = explode('=', $part, 2)[0];
+        $name = urldecode($encoded_name);
+        if (
+            count($parameter) !== 1
+            || preg_match('/^[^\[\]\x00]+((?:\[[^\[\]\x00]*\])*)$/D', $name, $matches) !== 1
+        ) {
+            return false;
+        }
+
+        // Use PHP's normalised root name (e.g. dots and spaces become underscores).
+        $root = array_key_first($parameter);
+        preg_match_all('/\[([^\[\]]*)\]/', $matches[1], $keys);
+        $path = array_merge([$root], $keys[1]);
+        $node = &$seen;
+        foreach ($path as $key) {
+            if (isset($node['value'])) {
+                return false;
+            }
+            if ($key === '') {
+                // Match PHP's next numeric index for an appended array entry.
+                $node['children'][] = [];
+                $key = array_key_last($node['children']);
+            }
+            if (!isset($node['children'][$key])) {
+                $node['children'][$key] = [];
+            }
+            $node = &$node['children'][$key];
+        }
+        if (isset($node['value']) || !empty($node['children'])) {
+            return false;
+        }
+        $node['value'] = true;
+        unset($node);
+
+        if (in_array($root, ['sign', 'authmode', 'pretty', 'ajax', 'function', 'user'], true)) {
+            if (!is_string($parameter[$root])) {
+                return false;
+            }
+            if (in_array($root, ['sign', 'authmode', 'pretty', 'ajax'], true)) {
+                continue;
+            }
+        }
+        $parts[] = $part;
+    }
+
+    return implode('&', $parts);
+}
+
+/**
  * Check a query is signed correctly.
  *
  * @param  string $username The username of the calling user
  * @param  string $querystring The query being passed to the API
  * @param  string $sign The signature to check
  * @param  string $authmode The type of key being provided (user key or session key)
+ * @return bool Whether the unambiguous query, excluding transport fields, has a valid signature.
  */
 function check_api_key($username, $querystring, $sign, $authmode = "userkey"): bool
 {
+    $querystring = prepare_api_query($querystring);
+    if ($querystring === false) {
+        return false;
+    }
+
     // Fetch user ID and API key
     $user = get_user_by_username($username);
     if ($user === false) {
         return false;
     }
-    $aj = strpos($querystring, "&ajax=");
-    if ($aj !== false) {
-        $querystring = substr($querystring, 0, $aj);
-    }
-
     if ($authmode == "sessionkey") {
         $userkey = get_session_api_key($user);
     } else {
@@ -53,11 +123,11 @@ function check_api_key($username, $querystring, $sign, $authmode = "userkey"): b
 
     # Calculate the expected signature and check it matches
     $expected = hash("sha256", $userkey . $querystring);
-    if ($expected === $sign) {
+    if (hash_equals($expected, $sign)) {
         return true;
     }
     # Also try matching against the username - allows remote API use without knowing the user ID, e.g. in the event of managing multiple systems each with a common username but different ID.
-    if (hash("sha256", get_api_key($username) . $querystring) === $sign) {
+    if (hash_equals(hash("sha256", get_api_key($username) . $querystring), $sign)) {
         return true;
     }
     return false;
@@ -72,6 +142,12 @@ function check_api_key($username, $querystring, $sign, $authmode = "userkey"): b
  */
 function execute_api_call($query, $pretty = false)
 {
+    $query = prepare_api_query($query);
+    if ($query === false) {
+        debug('API: Ambiguous or malformed query parameters');
+        return false;
+    }
+
     $params = [];
     parse_str($query, $params);
     if (!array_key_exists("function", $params)) {

@@ -109,8 +109,10 @@ $rows = ps_query("SELECT id, user_id, user_group_id, field_id, field_value
                                             $selected = true;
                                         }
                                         ?>
-                                        <option value="<?php echo $user_group['ref']; ?>"<?php if ($selected) { ?> selected=""<?php } ?>>
-                                            <?php echo $user_group['name']; ?>
+                                        <option
+                                            value="<?php echo (int) $user_group['ref']; ?>"
+                                            <?php echo $selected ? 'selected' : ''; ?>>
+                                            <?php echo escape($user_group['name']); ?>
                                         </option>
                                         <?php
                                     }
@@ -127,8 +129,10 @@ $rows = ps_query("SELECT id, user_id, user_group_id, field_id, field_value
                                             $selected = true;
                                         }
                                         ?>
-                                        <option value="<?php echo $user['ref']; ?>"<?php if ($selected) { ?> selected=""<?php } ?>>
-                                            <?php echo $user['fullname'] . ' (' . $user['email'] . ')'; ?>
+                                        <option
+                                            value="<?php echo (int) $user['ref']; ?>"
+                                            <?php echo $selected ? 'selected' : ''; ?>>
+                                            <?php echo escape($user['fullname'] . ' (' . $user['email'] . ')'); ?>
                                         </option>
                                         <?php
                                     }
@@ -157,7 +161,13 @@ $rows = ps_query("SELECT id, user_id, user_group_id, field_id, field_value
                                     ?>
                                 </select>
                             </td>
-                            <td><input type="text" for="form<?php echo $row['id']; ?>" name="field_value_row" value="<?php echo $row['field_value']; ?>"></td>
+                            <td>
+                                <input
+                                    type="text"
+                                    for="form<?php echo (int) $row['id']; ?>"
+                                    name="field_value_row"
+                                    value="<?php echo escape($row['field_value']); ?>">
+                            </td>
                             <td>
                                 <input type="submit" name="save" id="save" value="Save" />
                                 <input type="submit" name="delete" id="delete" value="Delete map" />
@@ -177,7 +187,9 @@ $rows = ps_query("SELECT id, user_id, user_group_id, field_id, field_value
                             <select name="user_group_new" id="resource_type_new" style="width:300px" onChange="filterUsers(this);">
                                 <option value="" selected=""></option>
                                 <?php foreach ($user_groups as $user) { ?>
-                                    <option value="<?php echo $user['ref']; ?>"><?php echo $user['name']; ?></option>
+                                    <option value="<?php echo (int) $user['ref']; ?>">
+                                        <?php echo escape($user['name']); ?>
+                                    </option>
                                     <?php
                                 }
                                 ?>
@@ -187,7 +199,9 @@ $rows = ps_query("SELECT id, user_id, user_group_id, field_id, field_value
                             <select name="user_new" id="user_new" style="width:300px">
                                 <option value="" selected=""></option>
                                 <?php foreach ($users as $user) { ?>
-                                    <option value="<?php echo $user['ref']; ?>"><?php echo $user['fullname'] . ' (' . $user['email'] . ')'; ?></option>
+                                    <option value="<?php echo (int) $user['ref']; ?>">
+                                        <?php echo escape($user['fullname'] . ' (' . $user['email'] . ')'); ?>
+                                    </option>
                                     <?php
                                 }
                                 ?>
@@ -203,7 +217,9 @@ $rows = ps_query("SELECT id, user_id, user_group_id, field_id, field_value
                                         continue;
                                     }
                                     ?>
-                                    <option value="<?php echo $field['ref']; ?>"><?php echo $field['title']; ?></option>
+                                    <option value="<?php echo (int) $field['ref']; ?>">
+                                        <?php echo escape(i18n_get_translated($field['title'])); ?>
+                                    </option>
                                     <?php
                                 }
                                 ?>
@@ -243,31 +259,14 @@ function filterUsers(select_element)
             }
 
             // Remove all options for the users column and add only those that passed the filter
-            jQuery('#user_new').empty();
+            var select = document.getElementById('user_new');
+            jQuery(select).empty();
             for(var key in data) {
-                var option = '';
-                
                 if(data.hasOwnProperty(key)) {
-                    var obj = data[key];
-
-                    for(var prop in obj) {
-                        if(obj.hasOwnProperty(prop)) {
-                            switch(prop) {
-                                case 'ref':
-                                    option += '<option value="' + obj[prop] + '">';
-                                    break;
-                                case 'fullname':
-                                    option += obj[prop];
-                                    break;
-                                case 'email':
-                                    option += ' (' + obj[prop] + ')</option>';
-                                    break;
-                            }
-                        }
-                    }
+                    var user = data[key];
+                    var label = (user.fullname || '') + ' (' + (user.email || '') + ')';
+                    select.add(new Option(label, user.ref));
                 }
-
-                jQuery('#user_new').append(option);
             }
         }
     });
