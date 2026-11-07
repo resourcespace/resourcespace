@@ -416,6 +416,7 @@ $lang["cantmodifycollection"] = "You can't modify this collection.";
 $lang["cantaddresourcestocollection"] = "One or more resources couldn't be added to the collection.";
 $lang["cantremoveresourcesfromcollection"] = "One or more resources couldn't be removed from the collection.";
 $lang["currentcollection"] = "Current collection";
+$lang['create_new_collection'] = 'Create new';
 $lang["viewcollection"] = "View collection";
 $lang['hide_collection'] = "Hide from collection bar";
 $lang["viewall"] = "View all";

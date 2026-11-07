@@ -666,6 +666,7 @@ jQuery(function () {
         document.getElementById("collection").value = jQuery("#currentusercollection").text().trim();
         document.getElementById('collection').style.display = 'block';
         document.getElementById('entername').style.display = 'none';
+        document.getElementById('col-item-count').style.display = 'block';
         document.getElementById('collection').focus();
     });
 
@@ -745,7 +746,21 @@ jQuery(function () {
                     <label for="collection">
                         <?php echo escape($lang["currentcollection"]); ?>
                     </label>
-                    <div class="meta">
+                    <?php if (can_create_collections()) { ?>
+                    <script>
+                        function create_new_collection() {
+                            document.getElementById('collection').style.display = 'none';
+                            document.getElementById('entername').style.display = 'flex';
+                            document.getElementById('col-item-count').style.display = 'none';
+                            document.getElementById('collection_name_input').focus();
+                            return false;
+                        }
+                    </script>
+                    <button class="collection-bar-create-new" onclick=create_new_collection()>
+                        <i class="icon-plus"></i><?php echo escape($lang["create_new_collection"]); ?>
+                    </button>
+                    <?php } ?>
+                    <div class="meta" id="col-item-count">
                         <?php echo $count_result . " " . ($count_result == 1 ? escape($lang["item"]) : escape($lang["items"])); ?>
                     </div>
                 </div>
@@ -765,12 +780,7 @@ jQuery(function () {
                         name="collection"
                         id="collection"
                         aria-label="<?php echo escape($lang["collections"]); ?>"
-                        onchange="if (document.getElementById('collection').value == 'new') {
-                            document.getElementById('collection').style.display = 'none';
-                            document.getElementById('entername').style.display = 'flex';
-                            document.getElementById('collection_name_input').focus();
-                            return false;
-                            } 
+                        onchange="
                             <?php if (!checkperm('b')) { ?>
                                 ChangeCollection( jQuery(this).val(), 
                                     '<?php echo urlencode($k); ?>', 
@@ -821,12 +831,6 @@ jQuery(function () {
                                 <option selected><?php echo escape($lang["error-collectionnotfound"]); ?></option>
                                 <?php
                             }
-                        }
-
-                        if (can_create_collections()) {
-                            ?>
-                            <option value="new">(<?php echo escape($lang["createnewcollection"]); ?>)</option>
-                            <?php
                         }
                         ?>
                     </select>

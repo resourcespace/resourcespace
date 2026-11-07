@@ -5842,6 +5842,15 @@ options in the body so to target the one specifically for the header we had to u
     display: none;
 }
 
+.collection-bar-create-new {
+    height: 22px;
+    padding: var(----space-4, 4px) var(----space-6, 6px) var(----space-4, 4px) var(----space-4, 4px);
+    margin-left: var(----space-12, 12px);
+    align-items: center;
+    border-radius: 2px;
+    background: var(--Colour-Neutral-700, #4A4C48);
+}
+
 .thumbnail-row-arrow {
     position: absolute;
     top: calc(var(--space-48) + var(--space-16));
