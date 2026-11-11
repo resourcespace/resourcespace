@@ -2,6 +2,7 @@
 
 /**
  * Resolve an allowlisted API credential destination and its delivery mode.
+ * Rejection reasons are written to the debug log when debugging is enabled.
  *
  * @param string      $system Destination configuration key.
  * @param string|null $url    Selected callback; required for destinations with multiple URLs.
@@ -13,6 +14,7 @@ function get_api_session_destination(string $system, ?string $url = null): array
 
     $destination = $api_issue_valid_destinations[$system] ?? false;
     if (!is_array($destination)) {
+        debug('get_api_session_destination: Destination is missing or is not a configuration array.');
         return false;
     }
 
@@ -25,6 +27,7 @@ function get_api_session_destination(string $system, ?string $url = null): array
         || $callback === ''
         || (is_array($urls) && !in_array($callback, $urls, true))
     ) {
+        debug('get_api_session_destination: Invalid delivery mode or missing, invalid or unlisted callback URL.');
         return false;
     }
 
@@ -46,6 +49,7 @@ function get_api_session_destination(string $system, ?string $url = null): array
             || !preg_match('/\A[A-Za-z_][A-Za-z0-9_]*\z/', $stateparam)
             || in_array($stateparam, ['code', 'error', 'system', 'url', 'submit', 'cancel'], true)
         ) {
+            debug('get_api_session_destination: Invalid redirect-code system key, callback URL or state parameter.');
             return false;
         }
     }

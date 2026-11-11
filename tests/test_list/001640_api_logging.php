@@ -4,6 +4,245 @@ command_line_only();
 
 include_once dirname(__DIR__, 2) . '/include/api_functions.php';
 
+// Test query preparation independently of API authentication, dispatch and HTTP setup.
+$prepare_query_use_cases = [
+    [
+        'name' => 'Empty query',
+        'input' => '',
+        'expected' => '',
+    ],
+    [
+        'name' => 'Empty query components retain their separators',
+        'input' => '&function=get_resource_data&&param1=1&',
+        'expected' => '&function=get_resource_data&&param1=1&',
+    ],
+    [
+        'name' => 'Argument order and original encoding are preserved',
+        'input' => 'param2=a+b%20c%2bd%2F&funct%69on=get_resource_data&param1=%26%3D',
+        'expected' => 'param2=a+b%20c%2bd%2F&funct%69on=get_resource_data&param1=%26%3D',
+    ],
+    [
+        'name' => 'Empty and valueless arguments are preserved',
+        'input' => 'param1=&param2&param3=0',
+        'expected' => 'param1=&param2&param3=0',
+    ],
+    [
+        'name' => 'Transport fields are removed at the start, middle and end',
+        'input' => 'sign=hash&user=test&authmode=userkey&function=get_resource_data&pretty=true&param1=1&ajax=true',
+        'expected' => 'user=test&function=get_resource_data&param1=1',
+    ],
+    [
+        'name' => 'Query containing only transport fields becomes empty',
+        'input' => 'ajax=true&sign=hash&pretty=true&authmode=sessionkey',
+        'expected' => '',
+    ],
+    [
+        'name' => 'Empty and valueless transport fields are removed',
+        'input' => 'sign=&authmode&pretty=&ajax&param1=1',
+        'expected' => 'param1=1',
+    ],
+    [
+        'name' => 'Encoded transport names are recognised',
+        'input' => 's%69gn=hash&auth%6Dode=userkey&pr%65tty=true&a%6Aax=true&param1=1',
+        'expected' => 'param1=1',
+    ],
+    [
+        'name' => 'Removing transport fields preserves empty query components',
+        'input' => '&sign=hash&&param1=1&ajax=true&',
+        'expected' => '&&param1=1&',
+    ],
+    [
+        'name' => 'Transport-like text and equals signs in values are preserved',
+        'input' => 'param1=sign=value%26pretty%3Dtrue%2Bajax%3D1&param2=authmode=userkey',
+        'expected' => 'param1=sign=value%26pretty%3Dtrue%2Bajax%3D1&param2=authmode=userkey',
+    ],
+    [
+        'name' => 'Transport names are case sensitive and require an exact match',
+        'input' => 'Sign=hash&AJAX=true&signature=hash&pretty_print=true',
+        'expected' => 'Sign=hash&AJAX=true&signature=hash&pretty_print=true',
+    ],
+    [
+        'name' => 'Transport names within ordinary array arguments are preserved',
+        'input' => 'data[sign]=hash&data[authmode]=userkey&data[pretty]=true&data[ajax]=true',
+        'expected' => 'data[sign]=hash&data[authmode]=userkey&data[pretty]=true&data[ajax]=true',
+    ],
+    [
+        'name' => 'Distinct associative array entries',
+        'input' => 'function=put_resource_data&data[access]=1&data[archive]=0',
+        'expected' => 'function=put_resource_data&data[access]=1&data[archive]=0',
+    ],
+    [
+        'name' => 'Appended array entries',
+        'input' => 'function=toggle_active_state_for_nodes&refs[]=1&refs[]=2',
+        'expected' => 'function=toggle_active_state_for_nodes&refs[]=1&refs[]=2',
+    ],
+    [
+        'name' => 'Interleaved nested array entries',
+        'input' => 'data[a][]=1&data[b]=2&data[a][]=3',
+        'expected' => 'data[a][]=1&data[b]=2&data[a][]=3',
+    ],
+    [
+        'name' => 'Encoded array brackets and distinct nested keys',
+        'input' => 'data%5Ba%5D%5Bb%5D=1&data%5Ba%5D%5Bc%5D=2',
+        'expected' => 'data%5Ba%5D%5Bb%5D=1&data%5Ba%5D%5Bc%5D=2',
+    ],
+    [
+        'name' => 'Appended entry follows the highest explicit numeric index',
+        'input' => 'refs[2]=1&refs[]=2&refs[0]=3',
+        'expected' => 'refs[2]=1&refs[]=2&refs[0]=3',
+    ],
+    [
+        'name' => 'Each appended nested array is a distinct entry',
+        'input' => 'data[][name]=first&data[][name]=second',
+        'expected' => 'data[][name]=first&data[][name]=second',
+    ],
+    [
+        'name' => 'Dots and spaces within array keys remain distinct',
+        'input' => 'data[a.b]=1&data[a+b]=2&data[a_b]=3',
+        'expected' => 'data[a.b]=1&data[a+b]=2&data[a_b]=3',
+    ],
+    [
+        'name' => 'Duplicate scalar values are rejected even when identical',
+        'input' => 'param1=1&param1=1',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Duplicate scalar names separated by a transport field',
+        'input' => 'param1=1&ajax=true&param1=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Encoded and literal parameter names collide',
+        'input' => 'param1=1&param%31=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Dots in root names normalise to underscores',
+        'input' => 'param.1=1&param_1=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Plus signs in root names normalise to underscores',
+        'input' => 'param+1=1&param_1=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Encoded spaces in root names normalise to underscores',
+        'input' => 'param%201=1&param_1=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Scalar followed by array',
+        'input' => 'data=1&data[a]=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Array followed by scalar',
+        'input' => 'data[a]=1&data=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Duplicate associative array key',
+        'input' => 'data[access]=0&data[access]=1',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Nested scalar followed by array',
+        'input' => 'data[a]=1&data[a][b]=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Nested array followed by scalar',
+        'input' => 'data[a][b]=1&data[a]=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Explicit index collides with appended entry',
+        'input' => 'refs[]=1&refs[0]=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Appended entry uses the next index after an explicit index',
+        'input' => 'refs[2]=1&refs[]=2&refs[3]=3',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Encoded and literal array keys collide',
+        'input' => 'data[a]=1&data%5B%61%5D=2',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Missing parameter name',
+        'input' => '=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Missing array root',
+        'input' => '[key]=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Unclosed array bracket',
+        'input' => 'data[key=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Unmatched closing bracket',
+        'input' => 'data]=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Trailing text after array key',
+        'input' => 'data[key]suffix=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Nested opening bracket without closing the parent',
+        'input' => 'data[[key]]=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Null byte in parameter root',
+        'input' => 'param%00suffix=value',
+        'expected' => false,
+    ],
+    [
+        'name' => 'Null byte in array key',
+        'input' => 'data[key%00suffix]=value',
+        'expected' => false,
+    ],
+];
+
+// Reserved fields must be unique scalars, including fields removed from the query.
+foreach (['sign', 'authmode', 'pretty', 'ajax', 'function', 'user'] as $reserved_field) {
+    $prepare_query_use_cases[] = [
+        'name' => "Duplicate reserved field: {$reserved_field}",
+        'input' => "{$reserved_field}=first&{$reserved_field}=second",
+        'expected' => false,
+    ];
+    $prepare_query_use_cases[] = [
+        'name' => "Appended array in reserved field: {$reserved_field}",
+        'input' => "{$reserved_field}[]=value",
+        'expected' => false,
+    ];
+    $prepare_query_use_cases[] = [
+        'name' => "Associative array in reserved field: {$reserved_field}",
+        'input' => "{$reserved_field}[key]=value",
+        'expected' => false,
+    ];
+}
+
+foreach ($prepare_query_use_cases as $use_case) {
+    $prepared_query = prepare_api_query($use_case['input']);
+    if ($prepared_query !== $use_case['expected']) {
+        echo "API query preparation use case: {$use_case['name']} - ";
+        test_log('- expected: ' . var_export($use_case['expected'], true));
+        test_log('- result: ' . var_export($prepared_query, true));
+        return false;
+    }
+}
+unset($prepare_query_use_cases, $reserved_field, $use_case, $prepared_query);
+
 // ---------------------------------------------------------------------------------------------------------------------
 // Set up a temporary HTTP endpoint.
 //
@@ -356,18 +595,6 @@ try {
         }
     }
 
-    // Keep exact encodings and transport-like text within values; retain normal PHP array forms.
-    foreach (
-        ['function=get_resource_data&param1=sign=value%26pretty%3Dtrue%2Bajax%3D1',
-        'function=put_resource_data&data[access]=1&data[archive]=0',
-        'function=toggle_active_state_for_nodes&refs[]=1&refs[]=2',
-        'function=put_resource_data&data[a][]=1&data[b]=2&data[a][]=3'] as $query
-    ) {
-        if (prepare_api_query($query) !== $query) {
-            echo 'API query preparation changed argument bytes or valid arrays - ';
-            return false;
-        }
-    }
     foreach (
         ['function=get_resource_data&param1=1&ajax=true&param1=2',
         'function=put_resource_data&data[access]=0&data[access]=1',

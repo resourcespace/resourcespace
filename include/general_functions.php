@@ -5739,6 +5739,45 @@ function url_starts_with(string $base, $val): bool
 }
 
 /**
+ * Convert an application-root URL to an absolute URL using the configured base URLs.
+ * This performs no safety validation or output encoding.
+ *
+ * @param string $url URL to convert.
+ * @return string Absolute URL for an application-root path; other inputs are returned unchanged,
+ *                including absolute, document-relative and protocol-relative URLs.
+ */
+function convert_to_absolute_url(string $url): string
+{
+    global $baseurl, $baseurl_short;
+
+    if (str_starts_with($url, $baseurl_short) && !str_starts_with($url, '//')) {
+        return $baseurl . '/' . substr($url, strlen($baseurl_short));
+    }
+
+    return $url;
+}
+
+/**
+ * Validate an absolute or application-root URL belonging to this ResourceSpace installation.
+ * Uses the configured base URLs. This does not check HTML safety; callers must apply
+ * validation and output encoding appropriate to their context.
+ *
+ * @param string $url URL to validate. Document-relative and protocol-relative URLs are not accepted.
+ * @return bool True if the URL is valid and starts with the application base URL.
+ */
+function is_internal_url(string $url): bool
+{
+    global $baseurl;
+
+    // Browsers interpret backslashes as slashes in HTTP URLs, including in the hostname boundary.
+    if (str_starts_with($url, '//') || str_contains($url, '\\')) {
+        return false;
+    }
+
+    return url_starts_with($baseurl . '/', convert_to_absolute_url($url));
+}
+
+/**
  * Input validation helper function to check if a URL is safe (from XSS) in an HTML context.
  *
  * @param mixed $val URL to check

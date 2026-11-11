@@ -3243,7 +3243,7 @@ $metadata_admin_show_shorthand = false;
 // Set "delivery" => "redirect_code" to return a single-use, 120-second code through the browser instead.
 // In this mode "url" must contain the integration's browser return URL(s), not its POST callback URL(s).
 // Requests must include a non-empty state and S256 PKCE challenge; redeem via user_api_session_exchange.php.
-// See documentation/user_api_session_code.md and codex_cihub.txt for the protocol and CI-HUB setup.
+// See documentation/user_api_session_code.md for the protocol and CI-HUB setup.
 $api_issue_valid_destinations = [
     "linkrui" => [
         "name" => "LinkrUI",

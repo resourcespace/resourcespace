@@ -121,6 +121,6 @@ table through the normal schema mechanisms for new and existing installations.
 No manual SQL is needed. Only code/key hashes, PKCE challenge, approved identity
 field names and bindings are stored; no plaintext signing key or verifier is
 persisted. Expired records are removed when issuing another code. Successful
-redemption removes its record. Credential reads bypass query caches and replicas.
-
-See `codex_cihub.txt` in the repository root for the corresponding CI-HUB work.
+redemption removes its record. Code and user eligibility reads bypass query caches
+and use the read/write database connection. Session signing keys use the existing
+API credential lookup.

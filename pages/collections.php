@@ -757,7 +757,7 @@ jQuery(function () {
                         }
                     </script>
                     <button class="collection-bar-create-new" onclick=create_new_collection()>
-                        <i class="icon-plus"></i><?php echo escape($lang["create_new_collection"]); ?>
+                        <span><i class="icon-plus"></i><?php echo escape($lang["create_new_collection"]); ?></span>
                     </button>
                     <?php } ?>
                     <div class="meta" id="col-item-count">

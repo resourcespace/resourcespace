@@ -267,9 +267,7 @@ function get_session_api_key($user)
 {
     global $scramble_key;
     $private_key = get_api_key($user);
-    // Session credentials must reflect the primary database immediately after login/logout.
-    $rows = ps_query('SELECT session FROM user WHERE ref = ?', ['i', $user], '', -1, true, 0);
-    $usersession = $rows[0]['session'] ?? '';
+    $usersession = ps_value('SELECT session AS value FROM user WHERE ref = ?', ['i', $user], '');
     return hash_hmac("sha256", "{$usersession}{$private_key}", $scramble_key);
 }
 

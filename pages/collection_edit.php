@@ -14,6 +14,9 @@ $col_order_by = getval("col_order_by", "name");
 $sort = getval("sort", "ASC");
 $modal = getval("modal", "") == "true";
 $redirection_endpoint = trim(urldecode(getval("redirection_endpoint", "")));
+if (!is_internal_url($redirection_endpoint) || !is_safe_url(convert_to_absolute_url($redirection_endpoint))) {
+    $redirection_endpoint = '';
+}
 $redirect = getval("redirect", "") != "";
 $name = getval("name", "");
 $public = getval("public", "");
@@ -155,7 +158,7 @@ if (getval("submitted", "") != "" && enforcePostRequest(false)) {
                 ?>
                 <script>
                     ModalClose();
-                    CentralSpaceLoad('<?php echo escape($redirection_endpoint); ?>');
+                    CentralSpaceLoad(<?php echo encode_js_value($redirection_endpoint); ?>);
                 </script>
                 <?php
             } else {

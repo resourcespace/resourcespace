@@ -5844,11 +5844,21 @@ options in the body so to target the one specifically for the header we had to u
 
 .collection-bar-create-new {
     height: 22px;
-    padding: var(----space-4, 4px) var(----space-6, 6px) var(----space-4, 4px) var(----space-4, 4px);
-    margin-left: var(----space-12, 12px);
-    align-items: center;
+    padding: var(--space-4, 4px) var(--space-6, 6px) var(--space-4, 4px) var(--space-4, 4px);
+    margin-left: var(--space-12, 12px);
     border-radius: 2px;
-    background: var(--Colour-Neutral-700, #4A4C48);
+    background: var(--colour-neutral-700, #4A4C48);
+    font-weight: 400;
+
+}
+
+.collection-bar-create-new span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.collection-bar-create-new:hover {
+    background: var(--colour-neutral-600, #73766F);
 }
 
 .thumbnail-row-arrow {
