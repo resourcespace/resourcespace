@@ -128,7 +128,7 @@ if (
         }
 
             # Set (new resource) / update (recreate previews) page count for multi page preview if more than one preview present.
-            $sql = "SELECT count(*) AS value FROM `resource_dimensions` WHERE resource = ?";
+            $sql = "SELECT count(*) AS value FROM `resource_dimensions` WHERE resource = ? AND preview_size IS NULL";
             $query = ps_value($sql, array("i",$ref), 0);
 
         if ($query == 0) {
@@ -136,7 +136,7 @@ if (
             ps_query("INSERT INTO resource_dimensions (resource, page_count, file_size) VALUES (?, ?, ?)", $parameters);
         } else {
             $parameters = array("i",$n, "i",$ref);
-            ps_query("UPDATE resource_dimensions SET page_count = ? WHERE resource = ?", $parameters);
+            ps_query("UPDATE resource_dimensions SET page_count = ? WHERE resource = ? AND preview_size IS NULL", $parameters);
         }
 
             $n = 0;
@@ -1060,13 +1060,13 @@ if ((!isset($newfile)) && (!in_array($extension, array_merge($ffmpeg_audio_exten
         if (isset($pagecount) && $alternative != -1) {
             ps_query("UPDATE resource_alt_files SET page_count = ?, file_size = ? where ref = ?", array("i", $pagecount, "i", $filesize, "i", $alternative));
         } elseif (isset($pagecount)) {
-            $sql = "SELECT count(*) AS value FROM `resource_dimensions` WHERE resource = ?";
+            $sql = "SELECT count(*) AS value FROM `resource_dimensions` WHERE resource = ? AND preview_size IS NULL";
             $query = ps_value($sql, array("i", $ref), 0);
 
             if ($query == 0) {
                 ps_query("INSERT INTO resource_dimensions (resource, page_count, file_size) VALUES (?, ?, ?)", array("i", $ref, "i", $pagecount, "i", $filesize));
             } else {
-                ps_query("UPDATE resource_dimensions SET page_count = ?, file_size = ? WHERE resource = ?", array("i", $pagecount, "i", $filesize, "i", $ref));
+                ps_query("UPDATE resource_dimensions SET page_count = ?, file_size = ? WHERE resource = ? AND preview_size IS NULL", array("i", $pagecount, "i", $filesize, "i", $ref));
             }
         } elseif (!isset($pagecount) && $pdf_pages === 0) {
             // ResourceSpace may be configured to not preview PDF pages but during minimal preview creation it will

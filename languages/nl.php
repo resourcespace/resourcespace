@@ -3311,3 +3311,4 @@ $lang["readmore"] = 'Lees meer';
 $lang["showwelcometext"] = 'Welkomtekst tonen';
 $lang["collection_category_blocked"] = 'Kan geen bronnen toevoegen aan een uitgelichte collectiecategorie, geblokkeerd door de volgende collecties: ';
 $lang["user_api_session_invalid_request"] = 'Ongeldig toegangsverzoek of API-toegang niet beschikbaar. Maak opnieuw verbinding vanaf het externe systeem.';
+$lang["create_new_collection"] = 'Nieuw aanmaken';

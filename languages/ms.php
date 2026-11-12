@@ -3254,3 +3254,4 @@ $lang["readmore"] = 'Baca lebih lanjut';
 $lang["showwelcometext"] = 'Tunjukkan maklumat selamat datang';
 $lang["collection_category_blocked"] = 'Tidak boleh menambah sumber ke kategori koleksi pilihan, disekat oleh koleksi berikut: ';
 $lang["user_api_session_invalid_request"] = 'Permintaan akses tidak sah atau akses API tidak tersedia. Sila sambung semula dari sistem jauh.';
+$lang["create_new_collection"] = 'Cipta baru';

@@ -3340,3 +3340,4 @@ $lang["readmore"] = '阅读更多';
 $lang["showwelcometext"] = '显示欢迎信息';
 $lang["collection_category_blocked"] = '无法将资源添加到精选集合类别，被以下集合阻止：';
 $lang["user_api_session_invalid_request"] = '无效的访问请求或API访问不可用。请从远程系统重新连接。';
+$lang["create_new_collection"] = '创建新集合';

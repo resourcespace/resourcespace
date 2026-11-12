@@ -4,7 +4,7 @@ $resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_fie
 
 $class = array();
 
-if ($use_selection_collection && in_array($ref, $selection_collection_resources)) {
+if ($use_selection_collection && isset($selection_collection_resource_set[$ref])) {
     $class[] = "Selected";
 }
 
@@ -26,7 +26,7 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
                     <?php
                     echo render_csrf_data_attributes("ToggleCollectionResourceSelection_{$result[$n]["ref"]}");
 
-                    if (in_array($ref, $selection_collection_resources)) { ?>
+                    if (isset($selection_collection_resource_set[$ref])) { ?>
                         checked
                         <?php
                     }
@@ -246,7 +246,7 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
                         if (
                             isset($usercollection_resources)
                             && is_array($usercollection_resources)
-                            && !in_array($ref, $usercollection_resources)
+                            && !isset($usercollection_resource_set[$ref])
                         ) {
                             $col_link_class[] = 'DisplayNone';
                         }
@@ -267,7 +267,7 @@ if ($use_selection_collection && in_array($ref, $selection_collection_resources)
                         if (
                             isset($usercollection_resources)
                             && is_array($usercollection_resources)
-                            && in_array($ref, $usercollection_resources)
+                            && isset($usercollection_resource_set[$ref])
                         ) {
                             $col_link_class[] = 'DisplayNone';
                         }

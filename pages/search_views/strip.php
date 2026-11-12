@@ -12,17 +12,13 @@ $strip_height = $thumbnail !== false ? (int) $thumbnail["height"] : 150;
     style="--width: <?php echo escape($strip_width); ?>; --height: <?php echo escape($strip_height); ?>;"
     >
     <?php if ($thumbnail !== false) { ?>
-        <img 
-            src="<?php echo $thumbnail["url"]; ?>" 
-            class="ImageBorder ImageStrip" 
-            alt=""
-        />
+        <?php echo render_preview_image($thumbnail['url'], [
+            'class' => 'ImageBorder ImageStrip', 'width' => $strip_width, 'height' => $strip_height,
+        ]); ?>
     <?php } else { ?>
-        <img
-            class="ImageStrip" 
-            border=0
-            alt="<?php echo escape(i18n_get_translated($result[$n]['field' . $view_title_field] ?? "")); ?>"
-            src="<?php echo $baseurl_short; ?>gfx/no_preview/default.png"
-        />
+        <?php echo render_preview_image($baseurl_short . 'gfx/no_preview/default.png', [
+            'class' => 'ImageStrip', 'border' => 0, 'width' => $strip_width, 'height' => $strip_height,
+            'alt' => i18n_get_translated($result[$n]['field' . $view_title_field] ?? ''),
+        ]); ?>
     <?php } ?>
 </a> 

@@ -41,3 +41,4 @@ last_verified,datetime,Date of the last time the primary resource file had it's 
 integrity_fail,tinyint(1),Set to 1 if integrity check failed, 0 otherwise.
 lock_user,int(11),The ID of the user that has checked out (locked) this resource record
 no_file,tinyint(1),Set to 1 if resource is intended to have no accompanying file e.g. the resource type is in the $data_only_resource_types array. Avoids alerts being raised when no file is found., 0 otherwise.
+blurhash,varchar(166),BlurHash placeholder generated from the primary thumbnail. NULL until generated.

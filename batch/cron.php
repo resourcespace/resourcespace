@@ -29,7 +29,7 @@ $lastcron       = get_sysvar('last_cron', '1970-01-01');
 $lastcrontime   = strtotime($lastcron);
 $sincelast      = time() - $lastcrontime;
 
-// grab a list of files to run as part of the upgrade process
+// grab a list of files to run as part of the scheduled task
 $new_system_version_files = array();
 $files = scandir(__DIR__ .  '/cron_jobs');
 $total_upgrade_files = 0;

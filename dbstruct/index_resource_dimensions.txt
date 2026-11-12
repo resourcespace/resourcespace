@@ -1,1 +1,3 @@
 resource_dimensions,1,resource,1,resource,A,,,,YES,BTREE,
+resource_dimensions,0,resource_preview,1,resource,A,,,,YES,BTREE,
+resource_dimensions,0,resource_preview,2,preview_size,A,,,,YES,BTREE,

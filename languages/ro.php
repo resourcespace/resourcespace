@@ -3315,3 +3315,4 @@ $lang["readmore"] = 'Citește mai mult';
 $lang["showwelcometext"] = 'Afișează informații de bun venit';
 $lang["collection_category_blocked"] = 'Nu se pot adăuga resurse într-o categorie de colecție evidențiată, blocată de următoarele colecții: ';
 $lang["user_api_session_invalid_request"] = 'Cerere de acces nevalidă sau acces API indisponibil. Vă rugăm să vă reconectați din sistemul la distanță.';
+$lang["create_new_collection"] = 'Creează nou';

@@ -317,8 +317,10 @@ function upload_file($ref, $no_exif = false, $revert = false, $autorotate = fals
     $file_size = @filesize_unlimited($filepath);
 
     $set = array_merge($set, ["file_size=?","file_extension=?","preview_extension='jpg'","file_modified=NOW()","no_file=0","file_checksum=NULL","integrity_fail=0"]);
+    $set[] = 'blurhash=NULL';
     $setparams = array_merge($setparams, ['i',$file_size,'s', $extension, 'i', $ref]);
     ps_query("UPDATE resource SET " . join(",", $set) . " WHERE ref= ?", $setparams);
+    unset($GLOBALS['get_resource_data_cache'][$ref]);
 
     if (!$upload_then_process || $after_upload_processing) {
         # delete existing resource_dimensions
@@ -1195,6 +1197,7 @@ function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewo
     }
 
     hook('create_previews_extra', '', array($ref));
+    clear_preview_size_cache((int) $ref);
 
     // keep_for_hpr will be set to true if necessary in preview_preprocessing.php to indicate that an intermediate jpg can serve as the hpr.
     // otherwise when the file extension is a jpg it's assumed no hpr is needed.
@@ -1349,7 +1352,7 @@ function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewo
                     imagecopyresampled($target, $source, 0, 0, 0, 0, $tw, $th, $sw, $sh);
                     imagejpeg($target, $path, 90);
 
-                    if ($ps[$n]["id"] == "thm") {
+                    if ($ps[$n]["id"] == "thm" && $alternative == -1) {
                         extract_mean_colour($target, $ref);
                     }
                     imagedestroy($target);
@@ -1358,6 +1361,21 @@ function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewo
                     copy($file, get_resource_path($ref, true, $id, false, $extension, -1, 1, false, "", $alternative));
                     if ($id == "thm") {
                         ps_query("UPDATE resource SET thumb_width= ?,thumb_height= ? WHERE ref= ?", ['i', $sw, 'i', $sh, 'i', $ref]);
+                        if ($alternative == -1) {
+                            $previous_error_exception = $GLOBALS['use_error_exception'] ?? false;
+                            $GLOBALS['use_error_exception'] = true;
+                            try {
+                                $thumbnail = imagecreatefromstring(file_get_contents($file));
+                            } catch (Throwable $e) {
+                                $thumbnail = false;
+                                debug('Unable to read thumbnail for BlurHash: ' . $e->getMessage());
+                            } finally {
+                                $GLOBALS['use_error_exception'] = $previous_error_exception;
+                            }
+                            if ($thumbnail !== false) {
+                                extract_mean_colour($thumbnail, $ref);
+                            }
+                        }
                     }
                 }
             }
@@ -1407,6 +1425,7 @@ function create_previews($ref, $thumbonly = false, $extension = "jpg", $previewo
         ps_query("UPDATE resource SET has_image=?,preview_extension='jpg',preview_attempts=0,file_modified=now() WHERE ref= ?", ['i',$has_image,'i', $ref]);
     }
 
+    clear_preview_size_cache((int) $ref);
     hook('afterpreviewcreation', '', array($ref, $alternative, $generateall));
     return true;
 }
@@ -1475,7 +1494,8 @@ function extract_mean_colour($image, $ref)
     update_portrait_landscape_field($ref, $image);
 
     ps_query(
-        "update resource set image_red= ?, image_green= ?, image_blue= ?,colour_key= ?,thumb_width= ?, thumb_height= ? where ref= ?",
+        "UPDATE resource SET image_red=?, image_green=?, image_blue=?, colour_key=?,
+         thumb_width=?, thumb_height=?, blurhash=? WHERE ref=?",
         [
         'i', $totalred,
         'i', $totalgreen,
@@ -1483,9 +1503,98 @@ function extract_mean_colour($image, $ref)
         's', $colkey,
         'i', $width,
         'i', $height,
+        's', get_image_blurhash($image),
         'i', $ref
         ]
     );
+    unset($GLOBALS['get_resource_data_cache'][$ref]);
+}
+
+/**
+ * Encode a small, resampled image as a 4 by 3 component BlurHash.
+ *
+ * @param GdImage $image Source image (left unchanged).
+ * @return string The 28 character hash.
+ */
+function get_image_blurhash(GdImage $image): string
+{
+    $scale = 32 / max(imagesx($image), imagesy($image));
+    $width = max(1, (int) round(imagesx($image) * $scale));
+    $height = max(1, (int) round(imagesy($image) * $scale));
+    $sample = imagecreatetruecolor($width, $height);
+    imagefill($sample, 0, 0, imagecolorallocate($sample, 255, 255, 255));
+    imagecopyresampled($sample, $image, 0, 0, 0, 0, $width, $height, imagesx($image), imagesy($image));
+    $pixels = [];
+    for ($y = 0; $y < $height; $y++) {
+        $pixels[$y] = [];
+        for ($x = 0; $x < $width; $x++) {
+            $rgb = imagecolorat($sample, $x, $y);
+            $pixels[$y][] = [($rgb >> 16) & 255, ($rgb >> 8) & 255, $rgb & 255];
+        }
+    }
+    $hash = \kornrunner\Blurhash\Blurhash::encode($pixels, 4, 3);
+    get_blurhash_placeholder($hash);
+    return $hash;
+}
+
+/**
+ * Backfill a bounded batch of missing hashes from existing thumbnails.
+ * Works newest first, advancing past unreadable thumbnails; these are retried on the next pass.
+ * Does not generate previews or change resource modification dates.
+ *
+ * @param int $limit Maximum resources to attempt (positive).
+ * @return int Number of hashes generated.
+ */
+function backfill_resource_blurhashes(int $limit = 500): int
+{
+    if ($limit < 1) {
+        return 0;
+    }
+    $cursor = (int) get_sysvar('blurhash_backfill_cursor', PHP_INT_MAX);
+    $resources = ps_query(
+        'SELECT ref, preview_extension, file_modified FROM resource
+         WHERE blurhash IS NULL AND has_image > 0 AND ref > 0 AND ref < ? ORDER BY ref DESC LIMIT ' . $limit,
+        ['i', $cursor]
+    );
+    $generated = 0;
+    $remaining = count($resources);
+    $processed = 0;
+    foreach ($resources as $resource) {
+        $cursor = (int) $resource['ref'];
+        $path = get_resource_path($cursor, true, 'thm', false, $resource['preview_extension']);
+        $image = false;
+        if (is_readable($path)) {
+            $previous_error_exception = $GLOBALS['use_error_exception'] ?? false;
+            $GLOBALS['use_error_exception'] = true;
+            try {
+                $image = imagecreatefromstring(file_get_contents($path));
+            } catch (Throwable $e) {
+                $image = false;
+                debug('Unable to read thumbnail for BlurHash: ' . $e->getMessage());
+            } finally {
+                $GLOBALS['use_error_exception'] = $previous_error_exception;
+            }
+        }
+        if ($image !== false) {
+            ps_query(
+                'UPDATE resource SET blurhash=? WHERE ref=? AND blurhash IS NULL AND file_modified <=> ?',
+                ['s', get_image_blurhash($image), 'i', $cursor, 's', $resource['file_modified']]
+            );
+            unset($GLOBALS['get_resource_data_cache'][$cursor]);
+            $generated++;
+        }
+        $remaining--;
+        $processed++;
+        if (PHP_SAPI === 'cli' && $processed % 100 === 0) {
+            echo " - BlurHash: {$processed} resources processed, {$remaining} remaining in this batch." . PHP_EOL;
+            if (ob_get_level() > 0) {
+                ob_flush();
+            }
+            flush();
+        }
+    }
+    set_sysvar('blurhash_backfill_cursor', count($resources) < $limit ? PHP_INT_MAX : $cursor);
+    return $generated;
 }
 
 /**
@@ -1652,6 +1761,7 @@ function tweak_preview_images($ref, $rotateangle, $gamma, $extension = "jpg", $a
     }
 
     set_processing_message(str_replace("[resource]", $ref, $lang["processing_updating_previews"]));
+    clear_preview_size_cache((int) $ref);
 
     $source = imagecreatefromjpeg($file);
     # Apply tweaks
@@ -1727,7 +1837,11 @@ function tweak_preview_images($ref, $rotateangle, $gamma, $extension = "jpg", $a
     # Update the modified date to force the browser to reload the new thumbs.
     $current_preview_tweak = '';
     if ($alternative == -1) {
-        ps_query("UPDATE resource SET file_modified=NOW() WHERE ref= ?", ['i', $ref]);
+        ps_query(
+            "UPDATE resource SET file_modified=NOW(), blurhash=? WHERE ref=?",
+            ['s', get_image_blurhash($source), 'i', $ref]
+        );
+        unset($GLOBALS['get_resource_data_cache'][$ref]);
 
     # record what was done so that we can reconstruct later if needed
     # current format is rotation|gamma. Additional could be tacked on if more manipulation options are added
@@ -1779,6 +1893,7 @@ function tweak_preview_images($ref, $rotateangle, $gamma, $extension = "jpg", $a
             imagejpeg($snapshot_source, $snapshot, 95);
         }
     }
+    clear_preview_size_cache((int) $ref);
     return true;
 }
 
@@ -2655,6 +2770,11 @@ function delete_previews($resource, $alternative = -1)
         return;
     }
 
+    clear_preview_size_cache((int) $resource);
+    if ($alternative == -1) {
+        ps_query('UPDATE resource SET blurhash=NULL WHERE ref=?', ['i', $resource]);
+        unset($GLOBALS['get_resource_data_cache'][$resource]);
+    }
     $fullsizejpgpath = get_resource_path($resource, true, "", false, "jpg", -1, 1, false, "", $alternative);
     // Delete the full size original if not a JPG resource
     if ($extension !== "" && strtolower((string) $extension) != "jpg" && file_exists($fullsizejpgpath) && $alternative == -1) {
@@ -3788,6 +3908,7 @@ function create_previews_using_im(
     }
 
     if (isset($imagemagick_path)) {
+        clear_preview_size_cache($ref);
         $file = get_preview_source_file($ref, $extension, $previewonly, $previewbased, $alternative, $ingested);
         if ($previewonly) {
             // Original file is the new file if generating previews from a new preview source file.
@@ -4386,8 +4507,10 @@ function create_previews_using_im(
             run_command($mpr_command);
         }
 
-        if (count($onlysizes) === 0 || count(array_diff($GLOBALS['minimal_previews_sizes'], $onlysizes)) === 0) {
-            # Only when creating all previews or minimal previews - not for individual previews.
+        $update_preview_status = count($onlysizes) === 0
+            || count(array_diff($GLOBALS['minimal_previews_sizes'], $onlysizes)) === 0;
+        if ($update_preview_status || in_array('thm', $onlysizes)) {
+            // Refresh the placeholder whenever the primary thumbnail is generated.
             # For the thumbnail image, call extract_mean_colour() to save the colour/size information
             $thumbpath = get_resource_path($ref, true, "thm", false, "jpg", -1, 1, false, "", $alternative);
             if (file_exists($thumbpath)) {
@@ -4410,9 +4533,15 @@ function create_previews_using_im(
                 // Flag database. If this was run for e.g. a video or PDF it is not the full set of previews
                 $has_image = (($resource_data["file_extension"] ?? "") === $extension && $generateall) || $previewonly ? RESOURCE_PREVIEWS_ALL : RESOURCE_PREVIEWS_MINIMAL;
 
-                ps_query("UPDATE resource SET has_image=?, preview_extension='jpg', preview_attempts=0, file_modified=NOW() WHERE ref = ?", ["i",$has_image, "i", $ref]);
+                if ($update_preview_status) {
+                    ps_query(
+                        "UPDATE resource SET has_image=?, preview_extension='jpg',
+                         preview_attempts=0, file_modified=NOW() WHERE ref=?",
+                        ['i', $has_image, 'i', $ref]
+                    );
+                }
             } else {
-                if (!$target) {
+                if (!$target && $update_preview_status) {
                     ps_query("UPDATE resource SET preview_attempts=IFNULL(preview_attempts,0) + 1 WHERE ref = ?", ["i",$ref]);
                 }
             }
@@ -4435,6 +4564,7 @@ function create_previews_using_im(
                 true
             );
         }
+        clear_preview_size_cache($ref);
         hook('afterpreviewcreation', '', array($ref, $alternative, $generateall));
         return true;
     } else {

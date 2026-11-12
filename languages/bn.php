@@ -3257,3 +3257,4 @@ $lang["readmore"] = 'আরও পড়ুন';
 $lang["showwelcometext"] = 'স্বাগতম তথ্য দেখান';
 $lang["collection_category_blocked"] = 'একটি নির্বাচিত সংগ্রহ বিভাগে সম্পদ যোগ করা যাবে না, নিম্নলিখিত সংগ্রহ দ্বারা অবরুদ্ধ: ';
 $lang["user_api_session_invalid_request"] = 'অবৈধ অ্যাক্সেস অনুরোধ বা API অ্যাক্সেস উপলব্ধ নয়। অনুগ্রহ করে রিমোট সিস্টেম থেকে পুনরায় সংযোগ করুন।';
+$lang["create_new_collection"] = 'নতুন তৈরি করুন';

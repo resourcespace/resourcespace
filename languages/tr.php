@@ -3262,3 +3262,4 @@ $lang["readmore"] = 'Devamını oku';
 $lang["showwelcometext"] = 'Hoş geldiniz bilgisini göster';
 $lang["collection_category_blocked"] = 'Öne çıkan koleksiyon kategorisine kaynak eklenemiyor, aşağıdaki koleksiyonlar tarafından engellendi: ';
 $lang["user_api_session_invalid_request"] = 'Geçersiz erişim isteği veya API erişimi kullanılamıyor. Lütfen uzak sistemden yeniden bağlanın.';
+$lang["create_new_collection"] = 'Yeni oluştur';

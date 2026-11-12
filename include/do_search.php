@@ -38,6 +38,7 @@
 * @param boolean     $returnsql               Returns the query as a PreparedStatementQuery instance
 * @param integer     $access                  Search for resources with this access
 * @param boolean     $smartsearch
+* @param int|null    $resource_collection Restrict results to members of this collection, when an integer is supplied.
 *
 * @return null|string|array|PreparedStatementQuery
 */
@@ -59,7 +60,8 @@ function do_search(
     $editable_only = false,
     $returnsql = false,
     $access = null,
-    $smartsearch = false
+    $smartsearch = false,
+    $resource_collection = null
 ) {
     debug_function_call("do_search", func_get_args());
 
@@ -153,6 +155,12 @@ function do_search(
     # -- Build up filter SQL that will be used for all queries
     $sql_filter = new PreparedStatementQuery();
     $sql_filter = search_filter($search, $archive, $restypes, $recent_search_daylimit, $access_override, $return_disk_usage, $editable_only, $access, $smartsearch);
+    // Ignore legacy extra boolean arguments; only an explicit collection ID restricts the search.
+    if (is_int($resource_collection)) {
+        $sql_filter->sql = '(' . $sql_filter->sql . ') AND r.ref IN
+            (SELECT resource FROM collection_resource WHERE collection = ?)';
+        $sql_filter->parameters = array_merge($sql_filter->parameters, ['i', $resource_collection]);
+    }
     debug("do_search(): \$sql_filter = '" . $sql_filter->sql . "', parameters = ['" . implode("','", $sql_filter->parameters) . "']");
 
     # Initialise variables.
@@ -198,7 +206,7 @@ function do_search(
     }
 
     # Join thumbs_display_fields to resource table
-    $select->sql = "r.ref, r.resource_type, r.has_image, r.is_transcoding, r.creation_date, r.rating, r.user_rating, r.user_rating_count, r.user_rating_total, r.file_extension, r.preview_extension, r.image_red, r.image_green, r.image_blue, r.thumb_width, r.thumb_height, r.archive, r.access, r.colour_key, r.created_by, r.file_modified, r.file_checksum, r.request_count, r.new_hit_count, r.expiry_notification_sent, r.preview_tweaks, r.file_path, r.modified, r.file_size ";
+    $select->sql = "r.ref, r.resource_type, r.has_image, r.is_transcoding, r.creation_date, r.rating, r.user_rating, r.user_rating_count, r.user_rating_total, r.file_extension, r.preview_extension, r.image_red, r.image_green, r.image_blue, r.blurhash, r.thumb_width, r.thumb_height, r.archive, r.access, r.colour_key, r.created_by, r.file_modified, r.file_checksum, r.request_count, r.new_hit_count, r.expiry_notification_sent, r.preview_tweaks, r.file_path, r.modified, r.file_size ";
     $select->parameters = array();
     $sql_hitcount_select = "r.hit_count";
 
@@ -213,9 +221,12 @@ function do_search(
     // Get custom group and user access rights if available to generate resultant_access,
     // otherwise select null values so columns can still be used regardless
     // This can then be passed through  to access checking functions in order to eliminate many single queries.
+    $count_select = 'r.ref';
     if (!checkperm("v") && !$access_override) {
         // Get custom access
-        $select->sql .= ",rca.access group_access,rca2.access user_access ";
+        $access_columns = ",rca.access group_access,rca2.access user_access ";
+        $select->sql .= $access_columns;
+        $count_select .= $access_columns;
         if (!checkperm("g") && !$internal_share_access) {
             // Restrict all resources by default
             if (is_int_loose($userderestrictfilter) && $userderestrictfilter > 0) {
@@ -291,6 +302,7 @@ function do_search(
     $sql_join->sql .= " JOIN resource_type AS rty ON r.resource_type = rty.ref ";
     $select->sql .= ", rty.order_by ";
 
+    $count_source_select = $select->sql;
     hook("search_pipeline_setup", "", array($search, $select, $sql_join , $sql_filter, $sql));
 
     // Search pipeline - each step handles an aspect of search and adds to the assembled SQL.
@@ -414,16 +426,28 @@ function do_search(
 
     setup_search_chunks($fetchrows, $chunk_offset, $search_chunk_size);
 
-    if ($return_refs_only) {
-        # Execute query but only ask for ref columns back from ps_query();
-        # We force verbatim query mode on (and restore it afterwards) as there is no point trying to strip slashes etc. just for a ref column
-        if ($returnsql) {
-            return $results_sql;
-        }
-        $count_sql = clone $results_sql;
-        $count_sql->sql = str_replace("ORDER BY " . $order_by, "", $count_sql->sql);
-        $result = sql_limit_with_total_count($results_sql, $search_chunk_size, $chunk_offset, true, $count_sql);
+    if ($returnsql) {
+        return $results_sql;
+    }
 
+    $count_sql = clone $results_sql;
+    $count_sql->sql = str_replace("ORDER BY " . $order_by, "", $count_sql->sql);
+    if (
+        !$return_disk_usage
+        && str_starts_with($count_source_select, 'r.ref, ')
+        && $select->sql === $count_source_select . ", " . $sql_hitcount_select . " total_hit_count"
+    ) {
+        // These are the GROUP BY identity columns. Retain access variants and duplicate-join
+        // elimination without fetching display columns or evaluating relevance aggregates.
+        $count_sql = new PreparedStatementQuery(
+            "SELECT DISTINCT {$count_select} FROM resource r" . $t->sql . " WHERE " . $t2->sql . $sql->sql,
+            array_merge($t->parameters, $t2->parameters, $sql->parameters)
+        );
+    }
+    $result = sql_limit_with_total_count($results_sql, $search_chunk_size, $chunk_offset, true, $count_sql);
+
+    if ($return_refs_only) {
+        // Preserve the structured page response or return ref-only rows for legacy callers.
         if (is_array($fetchrows)) {
             // Return without converting into the legacy padded array
             log_keyword_usage($keywords_used, $result);
@@ -440,14 +464,6 @@ function do_search(
         }
         log_keyword_usage($keywords_used, $result);
         return $result;
-    } else {
-        # Execute query as normal
-        if ($returnsql) {
-            return $results_sql;
-        }
-        $count_sql = clone $results_sql;
-        $count_sql->sql = str_replace("ORDER BY " . $order_by, "", $count_sql->sql);
-        $result = sql_limit_with_total_count($results_sql, $search_chunk_size, $chunk_offset, true, $count_sql);
     }
 
     if (is_array($fetchrows)) {

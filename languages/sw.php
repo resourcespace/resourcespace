@@ -3265,3 +3265,4 @@ $lang["readmore"] = 'Soma zaidi';
 $lang["showwelcometext"] = 'Onyesha taarifa ya kukaribisha';
 $lang["collection_category_blocked"] = 'Haiwezi kuongeza rasilimali kwenye aina ya mkusanyiko uliotajwa, imezuiwa na mikusanyiko ifuatayo: ';
 $lang["user_api_session_invalid_request"] = 'Ombi la upatikanaji halilo sahihi au upatikanaji wa API haupatikani. Tafadhali ungana tena kutoka kwa mfumo wa mbali.';
+$lang["create_new_collection"] = 'Unda mpya';

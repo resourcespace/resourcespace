@@ -41,9 +41,9 @@ if (count($resourceinfo) > 0) {
         preg_match('/^([0-9]+)x([0-9]+)$/ims', $identoutput, $smatches);
         @list(,$sw,$sh) = $smatches;
         if (($sw != '') && ($sh != '')) {
-            $size_db = ps_query("select 'true' from resource_dimensions where resource = ?", ['i', $ref]);
+            $size_db = ps_query("select 'true' from resource_dimensions where resource = ? AND preview_size IS NULL", ['i', $ref]);
             if (count($size_db)) {
-                ps_query("update resource_dimensions set width= ?, height= ?, file_size= ? where resource= ?", ['i', $sw, 'i', $sh, 'i', $filesize, 'i', $ref]);
+                ps_query("update resource_dimensions set width= ?, height= ?, file_size= ? where resource= ? AND preview_size IS NULL", ['i', $sw, 'i', $sh, 'i', $filesize, 'i', $ref]);
             } else {
                 ps_query("insert into resource_dimensions (resource, width, height, file_size) values(?, ?, ?, ?)", ['i', $ref, 'i', $sw, 'i', $sh, 'i', $filesize]);
             }
@@ -51,9 +51,9 @@ if (count($resourceinfo) > 0) {
     } else {
         # fetch source image size, if we fail, exit this function (file not an image, or file not a valid jpg/png/gif).
         if ((@list($sw, $sh) = @getimagesize($file)) !== false) {
-            $size_db = ps_query("select 'true' from resource_dimensions where resource = ?", ['i', $ref]);
+            $size_db = ps_query("select 'true' from resource_dimensions where resource = ? AND preview_size IS NULL", ['i', $ref]);
             if (count($size_db)) {
-                ps_query("update resource_dimensions set width= ?, height= ?, file_size= ? where resource= ?", ['i', $sw, 'i', $sh, 'i', $filesize, 'i', $ref]);
+                ps_query("update resource_dimensions set width= ?, height= ?, file_size= ? where resource= ? AND preview_size IS NULL", ['i', $sw, 'i', $sh, 'i', $filesize, 'i', $ref]);
             } else {
                 ps_query("insert into resource_dimensions (resource, width, height, file_size) values(?, ?, ?, ?)", ['i', $ref, 'i', $sw, 'i', $sh, 'i', $file_size]);
             }

@@ -1,0 +1,16 @@
+.panoramic-viewer-wrapper {
+    width: min(852px, calc(100vw - 48px));
+    max-width: 100%;
+}
+
+.panoramic-viewer {
+    width: 100%;
+    height: min(600px, 70vh);
+    min-height: 240px;
+    position: relative;
+    text-align: left;
+}
+
+.panoramic-viewer .psv-button {
+    box-sizing: content-box;
+}

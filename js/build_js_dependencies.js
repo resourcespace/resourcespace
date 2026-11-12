@@ -285,3 +285,6 @@ console.log('Copying distribution files to ResourceSpace');
 for (const file of files) {
     copy(file.src, file.dest, file.filter);
 }
+
+// Photo Sphere Viewer is distributed as modules and needs a local browser bundle.
+require('./build_panoramic_viewer.js');

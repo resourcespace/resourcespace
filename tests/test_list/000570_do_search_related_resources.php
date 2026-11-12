@@ -45,6 +45,11 @@ foreach ($resource_setvals as $resource => $value) {
     update_resource_field_column($test943_resources[$resource], $relatedorderfield, (string)$value);
 }
 
+if (get_pushed_metadata_resources($test943_resources[0]) !== []) {
+    echo 'ERROR - Pushed metadata returned when no resource types enable it';
+    return false;
+}
+
 save_resource_type($col_data_type, ["push_metadata" => true]);
 $results = do_search('!relatedpushed' . $test943_resources[0]);
 $arr_expected = [$test943_resources[2], $test943_resources[3],$test943_resources[1]];
@@ -52,6 +57,29 @@ $arr_result = array_column($results, 'ref');
 
 if (count($results) !== 3 || $arr_result !== $arr_expected) {
     echo "ERROR - SUBTEST B (\$related_pushed_order_by), expected [" . implode(",", $arr_expected) . "], got [" . implode(",", $arr_result) . "]\n";
+    return false;
+}
+
+if (get_pushed_metadata_resources($test943_resources[0]) !== $results) {
+    echo 'ERROR - Pushed metadata wrapper changed search results or ordering';
+    return false;
+}
+
+$saved_permissions = $userpermissions;
+try {
+    $userpermissions[] = 'T' . $col_data_type;
+    if (get_pushed_metadata_resources($test943_resources[0]) !== []) {
+        echo 'ERROR - Pushed metadata exposed a denied resource type';
+        return false;
+    }
+} finally {
+    $userpermissions = $saved_permissions;
+    clear_restype_cache();
+}
+
+save_resource_type($col_data_type, ['push_metadata' => false]);
+if (get_pushed_metadata_resources($test943_resources[0]) !== []) {
+    echo 'ERROR - Disabling pushed metadata did not invalidate the cached setting';
     return false;
 }
 

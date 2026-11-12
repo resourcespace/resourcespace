@@ -236,9 +236,9 @@ function CentralSpaceLoad (anchor,scrolltop,modal,keep_fragment = true)
         }
 
     var url = anchor.href;
-    pagename=basename(url);
+    var pagename=basename(url);
     pagename=pagename.substr(0, pagename.lastIndexOf('.'));
-    pluginname=getPluginName(url);
+    var pluginname=getPluginName(url);
 
     var end_url = url.substr(url.indexOf('#'));
     // Drop # at end of url if present
@@ -269,43 +269,62 @@ function CentralSpaceLoad (anchor,scrolltop,modal,keep_fragment = true)
     // Start the timer for the loading box.
     CentralSpaceShowProcessing();
 
-    CentralSpace.load(url, function (response, status, xhr)
+    // Only the latest request for this container may replace its content.
+    var load_request = {};
+    CentralSpace.data('load-request', load_request);
+    if (modal) {
+        // Open before requesting the content, after ModalLoad has established the calling context.
+        CentralSpace.toggleClass('modal-loading-full', !modalfit && !modalalign)
+            .attr('aria-busy', 'true').html(jQuery('#modal-loading-template').html());
+        if (basename(anchor.pathname) === 'view.php') {
+            CentralSpace.find('.modal-loading-maximise').attr('href', anchor.href);
+        } else {
+            CentralSpace.find('.modal-loading-maximise').remove();
+        }
+        jQuery('#modal_overlay').stop(true, true).show();
+        CentralSpace.stop(true, true).show();
+        ModalCentre();
+        CentralSpace.focus();
+    }
+
+    jQuery.ajax({
+        url: url,
+        dataType: 'html',
+        complete: function (xhr, status)
         {
+        if (CentralSpace.data('load-request') !== load_request) { return; }
+        CentralSpace.removeData('load-request');
+        if (modal) { CentralSpace.removeClass('modal-loading-full').removeAttr('aria-busy'); }
+        var response = xhr.responseText;
         if(xhr.status == 403)
             {
             CentralSpaceHideProcessing();
+            if (modal) { ModalClose(); }
             styledalert(errortext,xhr.responseText);
             }
         else if (xhr.status == 205)
             {
             console.debug("Full page reload required " + response);
             CentralSpaceHideProcessing();
+            if (modal) { ModalClose(); }
             window.location.href = anchor.href;
             }
         else if (status=="error")
             {
             CentralSpaceHideProcessing();
             CentralSpace.html(errorpageload  + xhr.status + " " + xhr.statusText + "<br/>" + response);
+            if (modal) { ModalCentre(); }
             jQuery(anchor).fadeTo(0,1);
             }
         else
             {
             // Load completed
+            CentralSpace.html(response);
             CentralSpaceHideProcessing();
             if (modal)
                 {
-                // Show the modal
+                // Recalculate dimensions now that the modal has its content.
                 ModalCentre();
-                jQuery('#modal_overlay').fadeIn('fast');
-                if (modalalign=='right')
-                    {
-                    // Right aligned "drop down" style modal used for My Account.
-                    jQuery('#modal').slideDown('fast');
-                    }
-                else
-                    {
-                    jQuery('#modal').show();
-                    }
                 jQuery('#modal').focus();
                 }
 
@@ -368,7 +387,8 @@ function CentralSpaceLoad (anchor,scrolltop,modal,keep_fragment = true)
                     ChosenDropdownInit(this, '#CentralSpace select');
                     });
                 }
-        });
+        }
+    });
 
     jQuery('#UICenter').show(0);
 
@@ -841,7 +861,7 @@ function ModalLoad(url,jump,fittosize,align)
     // Load to a modal rather than CentralSpace. "url" can be an anchor object.
 
     // No modal? Don't launch a modal. Go to CentralSpaceLoad
-    if (!jQuery('#modal')) {return CentralSpaceLoad(url,jump);}
+    if (!jQuery('#modal').length) {return CentralSpaceLoad(url,jump);}
 
     // Prohibit edit page in modal when already in centralspace because this combination does not work
     if (basename(window.location.href).substr(0,8)=="edit.php" && typeof url.href!='undefined' && basename(url.href).substr(0,8)=="edit.php")
@@ -951,15 +971,21 @@ function ModalCentre()
         jQuery('#knowledge_base').css('height', modalmaxheight);
         jQuery('#modal').css('overflow', 'hidden');
     } else {
-        jQuery('#modal').css('overflow', 'auto');
+        // Keep the large modal's content width stable before and after content loads.
+        jQuery('#modal').css({
+            overflow: 'auto',
+            overflowY: !modalfit && !modalalign ? 'scroll' : 'auto'
+        });
     }
 
 }
 
 function ModalClose()
 {
-    jQuery('#modal_overlay').fadeOut('fast');
-    jQuery('#modal').hide();
+    if (jQuery('#modal').data('load-request')) { CentralSpaceHideProcessing(); }
+    jQuery('#modal').removeData('load-request').removeClass('modal-loading-full').removeAttr('aria-busy');
+    jQuery('#modal_overlay').stop(true, true).fadeOut('fast');
+    jQuery('#modal').stop(true, true).hide();
     jQuery('#modal').html('');
     jQuery('.toastify').hide();
 

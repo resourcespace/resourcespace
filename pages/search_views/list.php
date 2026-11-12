@@ -1,7 +1,7 @@
 <?php
 $class = array();
 
-if ($use_selection_collection && in_array($ref, $selection_collection_resources)) {
+if ($use_selection_collection && isset($selection_collection_resource_set[$ref])) {
     $class[] = "Selected";
 }
 
@@ -24,7 +24,7 @@ $resource_view_title = i18n_get_translated($result[$n]["field" . $view_title_fie
                     data-resource="<?php echo escape($result[$n]["ref"]); ?>"
                     aria-label="<?php echo escape($lang["action-selectresource"]); ?>"
                     <?php echo render_csrf_data_attributes("ToggleCollectionResourceSelection_{$result[$n]["ref"]}"); ?>
-                    <?php echo (in_array($ref, $selection_collection_resources)) ? "checked" : ''; ?>
+                    <?php echo (isset($selection_collection_resource_set[$ref])) ? "checked" : ''; ?>
                 >
             </td>
             <?php

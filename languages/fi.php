@@ -3314,3 +3314,4 @@ $lang["readmore"] = 'Lue lisää';
 $lang["showwelcometext"] = 'Näytä tervetuloviesti';
 $lang["collection_category_blocked"] = 'Resursseja ei voi lisätä esitellyn kokoelman kategoriaan, seuraavat kokoelmat estävät: ';
 $lang["user_api_session_invalid_request"] = 'Virheellinen pääsypyyntö tai API-yhteys ei ole käytettävissä. Yhdistä uudelleen etäjärjestelmästä.';
+$lang["create_new_collection"] = 'Luo uusi';

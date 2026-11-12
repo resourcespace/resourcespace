@@ -1149,7 +1149,8 @@ function CheckDBStruct($path, $verbose = false)
                             }
                         }
 
-                        $sql = "CREATE " . ($col[10] == "FULLTEXT" ? "FULLTEXT" : "") . " INDEX " . $col[2] . " ON $table (" . join(",", $cols) . ")";
+                        $index_type = $col[10] == 'FULLTEXT' ? 'FULLTEXT' : ($col[1] == 0 ? 'UNIQUE' : '');
+                        $sql = "CREATE {$index_type} INDEX " . $col[2] . " ON $table (" . join(",", $cols) . ")";
                         ps_query($sql, [], '', -1, false);
                         $done[] = $col[2];
                     }
@@ -1195,6 +1196,7 @@ function sql_limit($offset, $rows)
  * Utility function to obtain the total found rows while paginating the results.
  *
  * IMPORTANT: the input query MUST have a deterministic order so it can help with performance and not have an undefined behaviour
+ * The count query/cache is skipped when the fetched rows already establish the total.
  *
  * @param PreparedStatementQuery        $query          SQL query
  * @param null|int                      $rows           Specifies the maximum number of rows to return. Usually set by a global
@@ -1212,9 +1214,18 @@ function sql_limit_with_total_count(PreparedStatementQuery $query, int $rows, in
     global $cache_search_count;
     $limit = sql_limit($offset, $rows);
     $data = ps_query("{$query->sql} {$limit}", $query->parameters);
+    $datacount = count($data);
+    // An unbounded result or a nonempty final page already establishes the exact total.
+    // An empty page beyond offset zero does not establish where the result set ended.
+    if (
+        ($offset === 0 && ($rows < 0 || ($rows > 0 && $datacount < $rows)))
+        || ($rows > 0 && $datacount > 0 && $datacount < $rows)
+    ) {
+        return ['total' => $offset + $datacount, 'data' => $data];
+    }
+
     $total_query = is_a($countquery, "PreparedStatementQuery") ? $countquery : $query;
     $total = (int) ps_value("SELECT COUNT(*) AS `value` FROM ({$total_query->sql}) AS count_select", $total_query->parameters, 0, ($cachecount && $cache_search_count) ? "schema" : "");
-    $datacount = count($data);
 
     // Check if cached total will cause errors
     if ($datacount ==  0 && $rows > 0) {

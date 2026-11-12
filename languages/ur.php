@@ -3265,3 +3265,4 @@ $lang["readmore"] = 'مزید پڑھیں';
 $lang["showwelcometext"] = 'خوش آمدید معلومات دکھائیں';
 $lang["collection_category_blocked"] = 'نمایاں مجموعہ زمرہ میں وسائل شامل نہیں کیے جا سکتے، درج ذیل مجموعوں کی طرف سے روکا گیا: ';
 $lang["user_api_session_invalid_request"] = 'غلط رسائی کی درخواست یا API رسائی دستیاب نہیں ہے۔ براہ کرم دور دراز کے نظام سے دوبارہ رابطہ قائم کریں۔';
+$lang["create_new_collection"] = 'نیا بنائیں';

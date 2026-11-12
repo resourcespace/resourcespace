@@ -20,7 +20,7 @@ if (!checkperm('b') && ($k == '' || $internal_share_access)) {
     if (
         isset($usercollection_resources)
         && is_array($usercollection_resources)
-        && !in_array($ref, $usercollection_resources)
+        && !isset($usercollection_resource_set[$ref])
     ) {
         $remove_collection_item_hidden = true;
     }
@@ -38,7 +38,7 @@ if (
     if (
         isset($usercollection_resources)
         && is_array($usercollection_resources)
-        && in_array($ref, $usercollection_resources)
+        && isset($usercollection_resource_set[$ref])
     ) {
         $add_collection_item_hidden = true;
     }

@@ -251,6 +251,7 @@ $page_title = get_page_title($pagename, pluginname());
         
         <!-- ResourceSpace front-end bootstrap -->
         <script src="<?php echo $baseurl_short; ?>js/app.js?css_reload_key=<?php echo (int) $css_reload_key; ?>"></script>
+        <script src="<?php echo $baseurl_short; ?>js/preview_images.js?css_reload_key=<?php echo (int) $css_reload_key; ?>"></script>
         <script src="<?php echo $baseurl_short; ?>js/header.js?css_reload_key=<?php echo (int) $css_reload_key; ?>" defer></script>
         <script src="<?php echo $baseurl_short; ?>js/menu_overlay.js?css_reload_key=<?php echo (int) $css_reload_key; ?>" defer></script>
     </head>

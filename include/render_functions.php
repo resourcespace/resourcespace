@@ -2977,20 +2977,122 @@ function render_resource_image($resource, $img_url, $display="thumbs")
         {
         $preview_red=$preview_green=$preview_blue=255;
         }
+    $placeholder = !isset($resource['thm_url'])
+        ? get_blurhash_placeholder($resource['blurhash'] ?? '')
+        : '';
     ?>
-    <div class="ImageColourWrapper" 
+    <div class="ImageColourWrapper"
     style="background-color: rgb(<?php echo $preview_red ?>,<?php echo $preview_green ?>,<?php echo $preview_blue ?>);
+    <?php if ($placeholder !== '') { ?>
+    background-image:url('<?php echo escape($placeholder); ?>');background-size:100% 100%;
+    <?php } ?>
     width:<?php echo $width; ?>px;height:<?php echo $height; ?>px;
     <?php 
     $blurbleedstopper = hook("stopblurbleed"); 
     if ($blurbleedstopper) { echo $blurbleedstopper; }
     ?>">
-    <img border="0" width="<?php echo $width ?>" height="<?php echo $height ?>"
-    src="<?php echo $img_url ?>" 
-    alt="<?php echo str_replace(array("\"","'"),"",escape(i18n_get_translated(strip_tags(strip_tags_and_attributes($resource["field".$view_title_field] ?? ""))))); ?>"
-    /></div>
+    <?php echo render_preview_image($img_url, [
+        'border' => 0, 'width' => $width, 'height' => $height,
+        'alt' => i18n_get_translated(strip_tags(strip_tags_and_attributes($resource['field' . $view_title_field] ?? ''))),
+    ]); ?></div>
     <?php
     }
+
+/**
+ * Render a preview whose request starts when it becomes visible, with a no-JavaScript fallback.
+ * The preview loader assigns its source on intersection and reveals it after a successful load.
+ *
+ * @param string $url Preview URL, after the caller's existing resource access checks.
+ * @param array $attributes Presentation attributes (alt, title, class, width, height, border).
+ * @return string Image HTML, including a noscript fallback. Attribute values are escaped.
+ */
+function render_preview_image(string $url, array $attributes): string
+{
+    $html_attributes = '';
+    $attributes += ['alt' => ''];
+    foreach (['alt', 'title', 'class', 'width', 'height', 'border'] as $name) {
+        if (isset($attributes[$name])) {
+            $html_attributes .= ' ' . $name . '="' . escape((string) $attributes[$name]) . '"';
+        }
+    }
+    $url = escape($url);
+    return '<img' . $html_attributes . ' decoding="async" style="display:none;opacity:0" data-preview-src="' . $url . '">'
+        . '<noscript><img' . $html_attributes . ' decoding="async" src="' . $url . '"></noscript>';
+}
+
+/**
+ * Render a BlurHash as an inline PNG, cached by hash in temporary storage.
+ * The cached image is independent of resource paths and requires no browser request.
+ *
+ * @param string $hash BlurHash to decode (any supported component count).
+ * @return string PNG data URI, or an empty string for a missing or invalid hash.
+ */
+function get_blurhash_placeholder(string $hash): string
+{
+    static $cache = [];
+    if ($hash === '' || strlen($hash) > 166) {
+        return '';
+    }
+    if (isset($cache[$hash])) {
+        return $cache[$hash];
+    }
+    $cache_file = null;
+    $png = false;
+    $previous_error_exception = $GLOBALS['use_error_exception'] ?? false;
+    $GLOBALS['use_error_exception'] = true;
+    try {
+        $cache_dir = get_temp_dir(false, 'blurhash-placeholders');
+        $cache_file = $cache_dir . '/' . hash('sha256', '20x20-v1:' . $hash) . '.png';
+        if (is_readable($cache_file)) {
+            $png = file_get_contents($cache_file);
+        }
+    } catch (Throwable $e) {
+        debug('Unable to read BlurHash placeholder cache: ' . $e->getMessage());
+    } finally {
+        $GLOBALS['use_error_exception'] = $previous_error_exception;
+    }
+    if ($png === false || !str_starts_with($png, "\x89PNG\r\n\x1a\n")) {
+        try {
+            $pixels = \kornrunner\Blurhash\Blurhash::decode($hash, 20, 20);
+        } catch (InvalidArgumentException $e) {
+            return $cache[$hash] = '';
+        }
+        $image = imagecreatetruecolor(20, 20);
+        foreach ($pixels as $y => $row) {
+            foreach ($row as $x => $rgb) {
+                imagesetpixel($image, $x, $y, ($rgb[0] << 16) | ($rgb[1] << 8) | $rgb[2]);
+            }
+        }
+        ob_start();
+        imagepng($image);
+        $png = ob_get_clean();
+        if (!is_string($png) || $png === '') {
+            return $cache[$hash] = '';
+        }
+        // Atomic replacement prevents another request reading a partly written PNG.
+        $temporary = false;
+        $GLOBALS['use_error_exception'] = true;
+        try {
+            if ($cache_file !== null) {
+                $temporary = tempnam(dirname($cache_file), 'blurhash-');
+                if ($temporary === false || file_put_contents($temporary, $png) !== strlen($png)) {
+                    throw new RuntimeException('Unable to write the complete placeholder PNG.');
+                }
+                if (!rename($temporary, $cache_file)) {
+                    throw new RuntimeException('Unable to publish the placeholder cache file.');
+                }
+            }
+        } catch (Throwable $e) {
+            debug('Unable to write BlurHash placeholder cache: ' . $e->getMessage());
+        } finally {
+            if ($temporary !== false && file_exists($temporary)) {
+                try_unlink($temporary);
+            }
+            $GLOBALS['use_error_exception'] = $previous_error_exception;
+        }
+    }
+    return $cache[$hash] = 'data:image/png;base64,' . base64_encode($png);
+}
 
 
 /**
@@ -4815,8 +4917,9 @@ function generate_featured_collection_image_html(array $theme_images, array $fc)
                                 <div class=\"thumbs-tile-image\"></div>
                            </div>";
     } elseif (count($theme_images) === 1) {
-            $image_html = sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", 
-                        $theme_images[0]['path'], escape($theme_images[0]['alt_text'] ?? ""));
+            $image_html = render_preview_image($theme_images[0]['path'], [
+                'class' => 'thmbs-tile-img', 'alt' => $theme_images[0]['alt_text'] ?? '',
+            ]);
     } elseif (count($theme_images) >= 3) {
         if ($theme_images[0] === null) {
             $image_html = "<div class=\"tile-placeholder\">
@@ -4828,15 +4931,20 @@ function generate_featured_collection_image_html(array $theme_images, array $fc)
                            </div> 
                            ";
         } else {
-            $image_html = sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", 
-            $theme_images[0]['path'], escape($theme_images[0]['alt_text'] ?? ""));
+            $image_html = render_preview_image($theme_images[0]['path'], [
+                'class' => 'thmbs-tile-img', 'alt' => $theme_images[0]['alt_text'] ?? '',
+            ]);
             $image_html .= "<div class=\"tile-sub-multi\">";
             $image_html .= $theme_images[1] === null ? 
                 "<div></div>" : 
-                sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", $theme_images[1]['path'], escape($theme_images[1]['alt_text'] ?? ""));
+                render_preview_image($theme_images[1]['path'], [
+                'class' => 'thmbs-tile-img', 'alt' => $theme_images[1]['alt_text'] ?? '',
+            ]);
             $image_html .= $theme_images[2] === null ? 
                 "<div></div>" : 
-                sprintf("<img class=\"thmbs-tile-img\" src=\"%s\" alt=\"%s\" loading=\"lazy\">", $theme_images[2]['path'], escape($theme_images[2]['alt_text'] ?? ""));
+                render_preview_image($theme_images[2]['path'], [
+                'class' => 'thmbs-tile-img', 'alt' => $theme_images[2]['alt_text'] ?? '',
+            ]);
             $image_html .= "</div>";
         }
         

@@ -308,8 +308,14 @@ if(isset($related_type_show_with_data)) {
 $fields_all=get_resource_field_data($ref,$multi_fields,false,null,($k!="" && !$internal_share_access),$use_order_by_tab_view);
 debug(sprintf('$fields_all = %s', json_encode(array_column(is_array($fields_all) ? $fields_all : [], 'ref'))));
 
-# Load field data
-$fields=get_resource_field_data($ref,$multi_fields,!hook("customgetresourceperms"),null,($k!="" && !$internal_share_access),$use_order_by_tab_view);
+// Select displayable fields, retaining all loaded metadata for dependency checks.
+$fields = $fields_all;
+if (!hook("customgetresourceperms") && is_array($fields)) {
+    $fields = array_values(array_filter(
+        $fields,
+        static fn(array $field): bool => $field['can_view']
+    ));
+}
 $modified_view_fields=hook("modified_view_fields","",array($ref,$fields));if($modified_view_fields){$fields=$modified_view_fields;}
 debug(sprintf('$fields = %s', json_encode(array_column(is_array($fields) ? $fields : [], 'ref'))));
 
@@ -1426,7 +1432,7 @@ if ($k!="" && !$internal_share_access) {$edit_access=0;}
  appears here in the same style.
 
  */
-$pushed=do_search("!relatedpushed" . $ref);
+$pushed = get_pushed_metadata_resources($ref);
 debug(sprintf('$pushed = %s', json_encode(array_column($pushed, 'ref'))));
 
 // Get metadata for all related resources to save multiple db queries

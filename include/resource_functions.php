@@ -3108,7 +3108,9 @@ function get_resource_type_field($field)
  * @param  bool $forcsv             Get data for CSV export (uses \ separator for category tree nodes). FALSE by default
  * @param  bool $translate_value    Field value will be translated with i18n_get_translated() unless FALSE supplied.
  *
- * @return array|boolean
+ * @return array|boolean Each field includes a boolean can_view flag for resource-type and field permissions,
+ *                       including when $use_permissions is false. Externally hidden fields remain excluded
+ *                       when $external_access is true.
  */
 function get_resource_field_data($ref, $multi = false, $use_permissions = true, $originalref = null, $external_access = false, $ord_by = false, $forcsv = false, $translate_value = true)
 {
@@ -3125,7 +3127,8 @@ function get_resource_field_data($ref, $multi = false, $use_permissions = true, 
     $rtype = ps_value("SELECT resource_type value FROM resource WHERE ref=?", array("i",$originalref), 0);
     $rtype = ($rtype == "") ? 0 : $rtype;
 
-    if ($use_permissions && checkperm("T" . $rtype)) {
+    $can_view_resource_type = !checkperm("T" . $rtype);
+    if ($use_permissions && !$can_view_resource_type) {
         return false;
     }
 
@@ -3251,13 +3254,11 @@ function get_resource_field_data($ref, $multi = false, $use_permissions = true, 
     }
 
     for ($n = 0; $n < count($fields); $n++) {
+        $fields[$n]['can_view'] = $can_view_resource_type
+            && (($ref < 0 && checkperm("P" . $fields[$n]["fref"])) // Upload only edit access to this field
+                || metadata_field_view_access($fields[$n]["fref"]));
         if (
-                (!$use_permissions
-                ||
-                ($ref < 0 && checkperm("P" . $fields[$n]["fref"])) // Upload only edit access to this field
-                ||
-                (metadata_field_view_access($fields[$n]["fref"]))
-                )
+                (!$use_permissions || $fields[$n]['can_view'])
             &&
                 (!($external_access && !$fields[$n]["external_user_access"]))
         ) {
@@ -5964,7 +5965,7 @@ function get_page_count($resource, $alternative = -1)
         $pagecount = ps_value("select page_count value from resource_alt_files where ref=?", array("i",$alternative), "");
         $resource = get_alternative_file($ref, $alternative);
     } else {
-        $pagecount = ps_value("select page_count value from resource_dimensions where resource=?", array("i",$ref), "");
+        $pagecount = ps_value("select page_count value from resource_dimensions where resource=? AND preview_size IS NULL", array("i",$ref), "");
     }
     if (!empty($pagecount)) {
         return $pagecount;
@@ -6010,7 +6011,7 @@ function get_page_count($resource, $alternative = -1)
     if ($alternative != -1) {
         ps_query("update resource_alt_files set page_count=? where ref=?", array("i",$pages,"i",$alternative));
     } else {
-        ps_query("update resource_dimensions set page_count=? where resource=?", array("i",$pages,"i",$ref));
+        ps_query("update resource_dimensions set page_count=? where resource=? AND preview_size IS NULL", array("i",$pages,"i",$ref));
     }
     return $pages;
 }
@@ -6031,7 +6032,8 @@ function update_disk_usage($resource)
     $ext = ps_value("SELECT file_extension `value` FROM `resource` WHERE ref = ?", array("i", $resource), 'jpg');
     $path = get_resource_path($resource, true, '', false, $ext);
     if (file_exists($path)) {
-        $rsize = filesize_unlimited($path);
+        clearstatcache(true, $path);
+        $rsize = PHP_INT_SIZE >= 8 ? filesize($path) : filesize_unlimited($path);
     } else {
         $rsize = 0;
     }
@@ -6045,10 +6047,13 @@ function update_disk_usage($resource)
     $total = 0;
     while ($f = $d->read()) {
         if ($f != ".." && $f != ".") {
-            $s = (int) filesize_unlimited($dir . "/" . $f);
+            $file = $dir . '/' . $f;
+            clearstatcache(true, $file);
+            $s = (int) (PHP_INT_SIZE >= 8 ? filesize($file) : filesize_unlimited($file));
             $total += $s;
         }
     }
+    $d->close();
     ps_query("update resource set disk_usage=?,disk_usage_last_updated=now(),file_size=? where ref=?", array("i",$total,"i",$rsize,"i",$resource));
 
     return true;
@@ -6083,14 +6088,25 @@ function update_disk_usage_cron()
         "SELECT ref value
             FROM resource
         WHERE ref>0
-            AND disk_usage_last_updated IS null
-                OR datediff(now(),disk_usage_last_updated)>30
+            AND (disk_usage_last_updated IS NULL
+                OR disk_usage_last_updated < CURRENT_DATE - INTERVAL 30 DAY)
         ORDER BY disk_usage_last_updated ASC
         LIMIT " . (int) $update_disk_usage_batch_size,
         []
     );
+    $remaining = count($resources);
+    $processed = 0;
     foreach ($resources as $resource) {
         update_disk_usage($resource);
+        $remaining--;
+        $processed++;
+        if (PHP_SAPI === 'cli' && $processed % 100 === 0) {
+            echo " - Disk usage: {$processed} resources processed, {$remaining} remaining in this batch." . PHP_EOL;
+            if (ob_get_level() > 0) {
+                ob_flush();
+            }
+            flush();
+        }
     }
 
     clear_query_cache("stats");
@@ -6160,11 +6176,11 @@ function get_original_imagesize($ref = "", $path = "", $extension = "jpg", $forc
         $mime_content_type = get_mime_type($file)[0];
     }
 
-    $o_size = ps_query("SELECT " . columns_in("resource_dimensions") . " FROM resource_dimensions WHERE resource=?", array("i",$ref));
+    $o_size = ps_query("SELECT " . columns_in("resource_dimensions") . " FROM resource_dimensions WHERE resource=? AND preview_size IS NULL", array("i",$ref));
     if (!empty($o_size)) {
         if (count($o_size) > 1) {
             # delete all the records and start fresh. This is a band-aid should there be multiple records as a result of using api_search
-            ps_query("DELETE FROM resource_dimensions WHERE resource=?", array("i",$ref));
+            ps_query("DELETE FROM resource_dimensions WHERE resource=? AND preview_size IS NULL", array("i",$ref));
             $o_size = false;
             $forcefromfile = true;
         } else {
@@ -6210,7 +6226,7 @@ function get_original_imagesize($ref = "", $path = "", $extension = "jpg", $forc
             if (!$o_size) {
                 ps_query("insert into resource_dimensions (resource, width, height, file_size) values(?, ?, ?, ?)", array("i",$ref,"i",$sw,"i",$sh,"i",(int)$filesize));
             } else {
-                ps_query("update resource_dimensions set width=?, height=?, file_size=? where resource=?'", array("i",$sw,"i",$sh,"i",(int)$filesize,"i",$ref));
+                ps_query("update resource_dimensions set width=?, height=?, file_size=? where resource=? AND preview_size IS NULL", array("i",$sw,"i",$sh,"i",(int)$filesize,"i",$ref));
             }
         }
     } else {
@@ -6233,7 +6249,7 @@ function get_original_imagesize($ref = "", $path = "", $extension = "jpg", $forc
             if (!$o_size) {
                 ps_query("insert into resource_dimensions (resource, width, height, file_size) values(?, ?, ?, ?)", array("i",$ref,"i",$sw,"i",$sh,"i",(int)$filesize));
             } else {
-                ps_query("update resource_dimensions set width=?, height=?, file_size=? where resource=?", array("i",$sw,"i",$sh,"i",(int)$filesize,"i",$ref));
+                ps_query("update resource_dimensions set width=?, height=?, file_size=? where resource=? AND preview_size IS NULL", array("i",$sw,"i",$sh,"i",(int)$filesize,"i",$ref));
             }
         } else {
             # Assume size cannot be calculated.
@@ -6267,7 +6283,7 @@ function get_original_imagesize($ref = "", $path = "", $extension = "jpg", $forc
                 if (!$o_size) {
                     ps_query("INSERT INTO resource_dimensions (resource, width, height, file_size) VALUES (?, ?, ?, ?)", array("i",$ref,"i",$sw,"i",$sh,"i",(int)$filesize));
                 } else {
-                    ps_query("UPDATE resource_dimensions SET width=?, height=?, file_size=? WHERE resource=?", array("i",$sw,"i",$sh,"i",$filesize,"i",$ref));
+                    ps_query("UPDATE resource_dimensions SET width=?, height=?, file_size=? WHERE resource=? AND preview_size IS NULL", array("i",$sw,"i",$sh,"i",$filesize,"i",$ref));
                 }
             } else {
                 # Size cannot be calculated.
@@ -6277,7 +6293,7 @@ function get_original_imagesize($ref = "", $path = "", $extension = "jpg", $forc
                     # Insert a dummy row to prevent recalculation on every view.
                     ps_query("INSERT INTO resource_dimensions (resource, width, height, file_size) VALUES (?,'0', '0', ?)", array("i",$ref,"i",$filesize));
                 } else {
-                    ps_query("UPDATE resource_dimensions SET width='0', height='0', file_size=? WHERE resource=?", array("i",$filesize,"i",$ref));
+                    ps_query("UPDATE resource_dimensions SET width='0', height='0', file_size=? WHERE resource=? AND preview_size IS NULL", array("i",$filesize,"i",$ref));
                 }
             }
         }
@@ -7529,6 +7545,12 @@ function get_image_sizes(int $ref, $internal = false, $extension = "jpg", $onlyi
     # Work out resource type
     $resource_data = get_resource_data($ref);
     $resource_type = $resource_data["resource_type"];
+    $dimension_rows = ps_query(
+        'SELECT width, height, file_size, resolution, unit, preview_size, file_modified, path_hash
+         FROM resource_dimensions WHERE resource = ?',
+        ['i', $ref]
+    );
+    $cached_dimensions = array_column($dimension_rows, null, 'preview_size');
 
     # add the original image
     $return = array();
@@ -7546,7 +7568,7 @@ function get_image_sizes(int $ref, $internal = false, $extension = "jpg", $onlyi
         $returnline["url"] = get_resource_path($ref, false, "", false, $extension);
         $returnline["id"] = "";
         $returnline["original"] = 1;
-        $dimensions = ps_query("select width,height,file_size,resolution,unit from resource_dimensions where resource=?", array("i",$ref));
+        $dimensions = array_values(array_filter($dimension_rows, static fn($row) => $row['preview_size'] === null));
 
         if (count($dimensions)) {
             $sw = $dimensions[0]['width'];
@@ -7619,22 +7641,10 @@ function get_image_sizes(int $ref, $internal = false, $extension = "jpg", $onlyi
                 $returnline["path"] = $path;
                 $returnline["url"] = get_resource_path($ref, false, $sizes[$n]["id"], false, "jpg");
                 $returnline["id"] = $sizes[$n]["id"];
-            if ($file_exists && filesize_unlimited($path) > 0) {
-                $filesize = filesize_unlimited($path);
-                $use_error_exception_cache = $GLOBALS["use_error_exception"] ?? false;
-                $GLOBALS["use_error_exception"] = true;
-                try {
-                    list($sw,$sh) = getimagesize($path);
-                } catch (Exception $e) {
-                    $sw = 0;
-                    $sh = 0;
-                }
-                $GLOBALS["use_error_exception"] = $use_error_exception_cache;
-            } else {
-                $filesize = 0;
-                $sw = 0;
-                $sh = 0;
-            }
+            $size_info = get_preview_size_info($ref, $sizes[$n]['id'], $path, $cached_dimensions);
+            $filesize = $size_info['file_size'];
+            $sw = $size_info['width'];
+            $sh = $size_info['height'];
 
             if ($filesize === false) {
                 $returnline["filesize"] = "?";
@@ -7654,6 +7664,97 @@ function get_image_sizes(int $ref, $internal = false, $extension = "jpg", $onlyi
         $lastrestricted = $sizes[$n]["allow_restricted"];
     }
     return $return;
+}
+
+/**
+ * Read actual preview dimensions, lazily caching successfully inspected files in the database.
+ * Callers must check resource/size permissions and supply a path from get_resource_path().
+ * File stats detect replacements outside the preview generation helpers. Missing, empty and
+ * unreadable images are not cached, so a later request can retry them.
+ *
+ * @param int    $resource Resource ID
+ * @param string $size Preview size ID
+ * @param string $path Internal preview path
+ * @param array  $cached_dimensions Cached rows for this resource, indexed by size ID
+ * @return array{width: int, height: int, file_size: int} Actual dimensions and file size
+ */
+function get_preview_size_info(int $resource, string $size, string $path, array $cached_dimensions): array
+{
+    $result = ['width' => 0, 'height' => 0, 'file_size' => 0];
+    $use_error_exception = $GLOBALS['use_error_exception'] ?? false;
+    $GLOBALS['use_error_exception'] = true;
+    try {
+        clearstatcache(true, $path);
+        $stat = stat($path);
+        if ($stat === false || $stat['size'] <= 0) {
+            return $result;
+        }
+
+        $result['file_size'] = $stat['size'];
+        $path_hash = hash('sha256', $path);
+        $cached = $cached_dimensions[$size] ?? [];
+        if (
+            ($cached['path_hash'] ?? '') === $path_hash
+            && (int) ($cached['file_modified'] ?? -1) === $stat['mtime']
+            && (int) ($cached['file_size'] ?? -1) === $stat['size']
+            && ($cached['width'] ?? 0) > 0
+            && ($cached['height'] ?? 0) > 0
+        ) {
+            $result['width'] = (int) $cached['width'];
+            $result['height'] = (int) $cached['height'];
+            return $result;
+        }
+
+        $dimensions = getimagesize($path);
+        if ($dimensions === false) {
+            return $result;
+        }
+        $result['width'] = $dimensions[0];
+        $result['height'] = $dimensions[1];
+        clearstatcache(true, $path);
+        $after = stat($path);
+        $unchanged = $after !== false && $after['mtime'] === $stat['mtime'] && $after['size'] === $stat['size'];
+    } catch (Throwable $e) {
+        return $result;
+    } finally {
+        $GLOBALS['use_error_exception'] = $use_error_exception;
+    }
+
+    // Do not cache a file changed during inspection, or write in system read-only mode.
+    if (!($GLOBALS['system_read_only'] ?? false) && $unchanged) {
+        ps_query(
+            'REPLACE INTO resource_dimensions
+                (resource, preview_size, width, height, file_size, file_modified, path_hash)
+             VALUES (?, ?, ?, ?, ?, ?, ?)',
+            [
+                'i', $resource, 's', $size, 'i', $result['width'], 'i', $result['height'],
+                'i', $result['file_size'], 'i', $stat['mtime'], 's', $path_hash,
+            ],
+            '',
+            -1,
+            true,
+            0
+        );
+    }
+    return $result;
+}
+
+/**
+ * Invalidate cached preview dimensions when files are changed or a resource is deleted.
+ *
+ * @param int $resource Resource ID
+ * @return void
+ */
+function clear_preview_size_cache(int $resource): void
+{
+    ps_query(
+        'DELETE FROM resource_dimensions WHERE resource = ? AND preview_size IS NOT NULL',
+        ['i', $resource],
+        '',
+        -1,
+        true,
+        0
+    );
 }
 
 /**
@@ -8556,13 +8657,15 @@ function update_resource_lock($ref, $lockaction, $newlockuser = null, $accessche
 function get_resource_lock_message($lockuser)
 {
     global $lang, $userref;
-    // Check if user can see details of locking user
-    $visible_users = get_users(0, "", "u.username", true);
     if ($lockuser == 0) {
         return "";
     } elseif ($lockuser == $userref) {
         return $lang["status_locked_self"];
-    } elseif (in_array($lockuser, array_column($visible_users, "ref"))) {
+    }
+
+    // Check if user can see details of locking user
+    $visible_users = get_users(0, "", "u.username", true);
+    if (in_array($lockuser, array_column($visible_users, "ref"))) {
         $lock_user_data = get_user($lockuser);
         $lock_username = $lock_user_data["fullname"] != "" ? $lock_user_data["fullname"] : $lock_user_data["username"];
         return str_replace("[user]", $lock_username, $lang["status_locked_by"]);
@@ -8988,6 +9091,22 @@ function apply_resource_default(int $old_resource_type, int $new_resource_type, 
         }
         set_resource_defaults($resource, $check_resource_default_fields);
     }
+}
+
+/**
+ * Get visible related resources that push metadata, skipping the search when none are configured.
+ * Uses the existing resource-type cache; enabled searches retain do_search() access checks and ordering.
+ *
+ * @param int $ref Resource ID whose related metadata is requested
+ * @return array Related resources with pushed metadata, or an empty array when disabled or unavailable
+ */
+function get_pushed_metadata_resources(int $ref): array
+{
+    if (!in_array(1, array_column(get_resource_types('', false, true, true), 'push_metadata'))) {
+        return [];
+    }
+
+    return do_search('!relatedpushed' . $ref);
 }
 
 /**

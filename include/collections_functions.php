@@ -252,13 +252,17 @@ function get_collection($ref, $usecache = false)
 }
 
 /**
- * Returns all resources in collection
+ * Return collection resources, optionally restricted to specified IDs, or their total count.
+ * The default call still returns the complete ordered list. Replacement hooks receive
+ * the original collection argument; filtering/counting is applied to their returned list.
  *
  * @param  int  $collection   ID of collection being requested
+ * @param array|null $resources Resource IDs to check, or null for all members
+ * @param bool $count_only Return the number of matching members instead of their IDs
  *
- * @return array|boolean
+ * @return array|int|false Resource IDs, count, or false for an invalid collection ID
  */
-function get_collection_resources($collection)
+function get_collection_resources($collection, ?array $resources = null, bool $count_only = false)
 {
     global $userref;
 
@@ -274,16 +278,34 @@ function get_collection_resources($collection)
 
     $plugin_collection_resources = hook('replace_get_collection_resources', "", array($collection));
     if (is_array($plugin_collection_resources)) {
-        return $plugin_collection_resources;
+        if ($resources !== null) {
+            $requested = array_fill_keys(array_map('intval', $resources), true);
+            $plugin_collection_resources = array_values(array_filter(
+                $plugin_collection_resources,
+                static fn($ref): bool => isset($requested[(int) $ref])
+            ));
+        }
+        return $count_only ? count($plugin_collection_resources) : $plugin_collection_resources;
     }
 
-    return ps_array("
-        SELECT resource value 
-            FROM collection_resource cr
-        JOIN resource r ON r.ref = cr.resource
-            WHERE collection = ? 
-        ORDER BY sortorder ASC, date_added DESC, resource ASC"
-        , array("i",$collection)
+    $where = ' WHERE collection=?';
+    $parameters = ['i', $collection];
+    if ($resources !== null) {
+        $resources = array_values(array_unique(array_filter($resources, 'is_int_loose')));
+        if ($resources === []) {
+            return $count_only ? 0 : [];
+        }
+        $where .= ' AND cr.resource IN (' . ps_param_insert(count($resources)) . ')';
+        $parameters = array_merge($parameters, ps_param_fill($resources, 'i'));
+    }
+    $from = ' FROM collection_resource cr JOIN resource r ON r.ref=cr.resource';
+    if ($count_only) {
+        return (int) ps_value('SELECT COUNT(*) AS value' . $from . $where, $parameters, 0);
+    }
+    return ps_array(
+        'SELECT cr.resource AS value' . $from . $where
+        . ' ORDER BY sortorder ASC, date_added DESC, cr.resource ASC',
+        $parameters
     );
 }
 
@@ -629,6 +651,37 @@ function collection_remove_resources($collection, $resources = '', $removeall = 
     } else {
         return $lang["cantremoveresourcesfromcollection"];
     }
+}
+
+/**
+ * Reconcile visible selection members with search matches and reuse them to determine emptiness.
+ * Hidden members are retained, as with the collection search previously used by the search page.
+ * Removal goes through the collection helpers to preserve authorisation, logging and hooks.
+ *
+ * @param int|null $collection Selection collection ID, or null if none exists
+ * @param array|null $matches Matching search rows; null skips cleanup
+ * @return array{removed: array, empty: bool} Requested removals and whether the visible selection is empty
+ */
+function reconcile_selection_collection(?int $collection, ?array $matches): array
+{
+    if ($collection === null) {
+        return ['removed' => [], 'empty' => true];
+    }
+
+    $visible = do_search('!collection' . $collection);
+    $refs = is_array($visible) ? array_column($visible, 'ref') : [];
+    $removed = $matches === null ? [] : array_diff($refs, array_column($matches, 'ref'));
+    if ($removed !== []) {
+        if (collection_remove_resources($collection, $removed) === true) {
+            $refs = array_diff($refs, $removed);
+        } else {
+            // Failed/partial removals must not incorrectly clear the selection controls.
+            $remaining = do_search('!collection' . $collection);
+            $refs = is_array($remaining) ? array_column($remaining, 'ref') : [];
+        }
+    }
+
+    return ['removed' => $removed, 'empty' => $refs === []];
 }
 
 /**

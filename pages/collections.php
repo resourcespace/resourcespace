@@ -947,11 +947,12 @@ jQuery(function () {
                                 $colimgpath = get_resource_preview($result[$n], ['thm'], $access, $use_watermark);
                                 if ($colimgpath !== false && is_safe_url($colimgpath['url'])) {
                                     ?>
-                                    <img border="0"
-                                        src="<?php echo $colimgpath['url']; ?>"
-                                        title="<?php echo escape(i18n_get_translated($result[$n]["field" . $view_title_field])); ?>"
-                                        alt="<?php echo escape(i18n_get_translated($result[$n]["field" . $view_title_field])); ?>"                                   
-                                    />
+                                    <?php echo render_preview_image($colimgpath['url'], [
+                                        'border' => 0, 'width' => (int) $colimgpath['width'],
+                                        'height' => (int) $colimgpath['height'],
+                                        'title' => i18n_get_translated($result[$n]['field' . $view_title_field]),
+                                        'alt' => i18n_get_translated($result[$n]['field' . $view_title_field]),
+                                    ]); ?>
                                 <?php
                                 } else {
                                     echo get_nopreview_html((string) $result[$n]["file_extension"], $result[$n]["resource_type"]);

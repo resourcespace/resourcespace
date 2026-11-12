@@ -1,0 +1,9 @@
+name: panoramic_viewer
+title: Panoramic Viewer
+author: Montala Ltd
+version: 1.0
+desc: 360 degree image and video previews using Photo Sphere Viewer.
+icon: rectangle-goggles
+icon-colour: peru
+config_url: /plugins/panoramic_viewer/pages/setup.php
+category: User Interface

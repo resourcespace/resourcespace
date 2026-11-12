@@ -3266,3 +3266,4 @@ $lang["readmore"] = 'ਹੋਰ ਪੜ੍ਹੋ';
 $lang["showwelcometext"] = 'ਸਵਾਗਤ ਜਾਣਕਾਰੀ ਦਿਖਾਓ';
 $lang["collection_category_blocked"] = 'ਫੀਚਰ ਕੀਤੀ ਕਲੈਕਸ਼ਨ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਸਰੋਤ ਨਹੀਂ ਜੋੜੇ ਜਾ ਸਕਦੇ, ਹੇਠ ਲਿਖੀਆਂ ਕਲੈਕਸ਼ਨਾਂ ਵੱਲੋਂ ਰੋਕਿਆ ਗਿਆ: ';
 $lang["user_api_session_invalid_request"] = 'ਅਣਧਿਕਾਰਤ ਪਹੁੰਚ ਦੀ ਬੇਨਤੀ ਜਾਂ API ਪਹੁੰਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਦੂਰੇ ਸਿਸਟਮ ਤੋਂ ਮੁੜ ਜੁੜੋ।';
+$lang["create_new_collection"] = 'ਨਵਾਂ ਬਣਾਓ';

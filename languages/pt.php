@@ -3323,3 +3323,4 @@ $lang["readmore"] = 'Leia mais';
 $lang["showwelcometext"] = 'Mostrar informações de boas-vindas';
 $lang["collection_category_blocked"] = 'Não é possível adicionar recursos a uma categoria de coleção em destaque, bloqueada pelas seguintes coleções: ';
 $lang["user_api_session_invalid_request"] = 'Pedido de acesso inválido ou acesso à API indisponível. Por favor, reconecte-se a partir do sistema remoto.';
+$lang["create_new_collection"] = 'Criar novo';

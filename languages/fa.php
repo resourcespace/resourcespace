@@ -3269,3 +3269,4 @@ $lang["readmore"] = 'ادامه مطلب';
 $lang["showwelcometext"] = 'نمایش اطلاعات خوش‌آمدگویی';
 $lang["collection_category_blocked"] = 'امکان افزودن منابع به دسته مجموعه ویژه وجود ندارد، توسط مجموعه‌های زیر مسدود شده است: ';
 $lang["user_api_session_invalid_request"] = 'درخواست دسترسی نامعتبر یا دسترسی API در دسترس نیست. لطفاً از سیستم راه دور دوباره متصل شوید.';
+$lang["create_new_collection"] = 'ایجاد جدید';

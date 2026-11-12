@@ -3334,3 +3334,4 @@ $lang["readmore"] = 'Les mer';
 $lang["showwelcometext"] = 'Vis velkomstinformasjon';
 $lang["collection_category_blocked"] = 'Kan ikke legge til ressurser i en utvalgt samlingskategori, blokkert av følgende samlinger: ';
 $lang["user_api_session_invalid_request"] = 'Ugyldig tilgangsforespørsel eller API-tilgang utilgjengelig. Vennligst koble til igjen fra det eksterne systemet.';
+$lang["create_new_collection"] = 'Opprett ny';

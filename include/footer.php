@@ -274,6 +274,23 @@ if (getval("ajax", "") == "") {
     <div id="modal" tabindex="0">
     </div>
     </div>
+    <template id="modal-loading-template">
+        <div class="RecordBox modal-loading-content">
+            <div class="RecordPanel">
+                <div class="RecordHeader">
+                    <div class="backtoresults">
+                        <a href="#" class="maxLink icon-maximize-2 modal-loading-maximise"
+                            onclick="return CentralSpaceLoad(this, true);"
+                            title="<?php echo escape($lang['maximise']); ?>"
+                            aria-label="<?php echo escape($lang['maximise']); ?>"></a>
+                        <a href="#" class="closeLink icon-x" onclick="ModalClose(); return false;"
+                            title="<?php echo escape($lang['close']); ?>"
+                            aria-label="<?php echo escape($lang['close']); ?>"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
     <div id="modal_dialog" style="display:none;"></div>
     <script type="text/javascript">
     jQuery(window).bind('resize.modal', ModalCentre);

@@ -41,8 +41,8 @@ if ($k=="" || $internal_share_access)
             $usercollection=$user['current_collection'];
             }
         }
-    // Get usercollection resources - used for checks against the list (e.g is one of the resources found by search in the collection?)
-    $usercollection_resources = get_collection_resources($usercollection);
+    // Membership is loaded after the displayed resource IDs are known.
+    $usercollection_resources = [];
     }
 
 // Disable checkboxes for external users.
@@ -78,80 +78,8 @@ if (
     // convert to @@74 in order for the field to have this option selected
     $keywords = split_keywords($search, false, false, false, false, true);
 }
-foreach($keywords as $keyword)
-    {
-    if('' == trim($keyword))
-        {
-        continue;
-        }
+$search = resolve_field_search_node_names($search, $keywords);
 
-    if(false === strpos($search, ':'))
-        {
-        continue;
-        }
-    if(substr($keyword,0,1) =="\"" && substr($keyword,-1,1) == "\"")
-        {
-        $specific_field_search=explode(":",substr($keyword,1,-1));
-        }
-    else
-        {
-        $specific_field_search = explode(':', $keyword);
-        }
-
-    if(2 !== count($specific_field_search))
-        {
-        continue;
-        }
-
-    $field_shortname = trim($specific_field_search[0]);
-
-    if('' == $field_shortname)
-        {
-        continue;
-        }
-
-    $resource_type_field = ps_value("SELECT ref AS `value` FROM resource_type_field WHERE `name` = ?", array("s",$field_shortname), 0, "schema");
-    if(0 == $resource_type_field || !metadata_field_view_access($resource_type_field))
-        {
-        // User can't search against a metadata field they don't have access to
-        continue;
-        }
-
-    $resource_type_field = get_resource_type_field($resource_type_field);
-    $nodes = get_nodes($resource_type_field["ref"], null, $resource_type_field["type"]==FIELD_TYPE_CATEGORY_TREE);
-    
-    // Check if multiple nodes have been specified for an OR search
-    $keywords_expanded=explode(';',$specific_field_search[1]);
-    $subnodestring = "";
-    if(count($keywords_expanded) > 1) 
-        {
-        foreach($keywords_expanded as $keyword_expanded)
-            {
-            $node_found = get_node_by_name($nodes, $keyword_expanded);
-
-            if (0 == count($node_found) && count($nodes) == 10000) {
-                // get_nodes only returns 10k nodes at most check if this node is outside of these
-                $node_found = get_nodes(
-                    $resource_type_field["ref"],
-                    null,
-                    $resource_type_field["type"]==FIELD_TYPE_CATEGORY_TREE,
-                    null,
-                    null,
-                    $keyword_expanded
-                )[0] ?? [];
-            }
-            if(0 < count($node_found))
-                {
-                $subnodestring .= NODE_TOKEN_PREFIX . $node_found['ref'];
-                }
-            }
-        if($subnodestring != "")
-            {
-            $search = str_ireplace($keyword, $subnodestring, $search);
-            }
-        }
-    }
-    
 # create a display_fields array with information needed for detailed field highlighting
 $df=array();
 
@@ -389,8 +317,8 @@ if($use_selection_collection)
         }
     else
         {
-        $selection_collection_resources = get_collection_resources($USER_SELECTION_COLLECTION);
-        $selection_collection_resources_count = count($selection_collection_resources);
+        $selection_collection_resources = [];
+        $selection_collection_resources_count = (int) get_collection_resources($USER_SELECTION_COLLECTION, null, true);
         }
     }
 
@@ -607,7 +535,7 @@ if ($search_includes_resources || substr($search,0,1)==="!")
     if (!hook("replacesearch"))
         {
         if ($use_selection_collection && $check_selection_collection) {
-            $full_search_results = do_search($search,$restypes,$order_by,$archive,-1,$sort,false,DEPRECATED_STARSEARCH,false,false,$daylimit, getval("go",""), true, true, $editable_only, false, $search_access,false,true);
+            $full_search_results = $selection_collection_resources_count === 0 ? [] : do_search($search,$restypes,$order_by,$archive,-1,$sort,false,DEPRECATED_STARSEARCH,false,false,$daylimit, getval("go",""), true, true, $editable_only, false, $search_access,false,(int) $USER_SELECTION_COLLECTION);
         }
         $result=do_search($search,$restypes,$order_by,$archive,[max($offset-$colcount,0),$resourcestoretrieve],$sort,false,DEPRECATED_STARSEARCH,false,false,$daylimit, getval("go",""), true, false, $editable_only, false, $search_access,false,true);
         }
@@ -699,26 +627,19 @@ if($k=="" || $internal_share_access)
     }
 if($use_selection_collection) {
 
-    $resource_not_in_search = array();
-    
-    if($check_selection_collection) {
-        
-        // Clean up the user selection collection so that only resources in the current search can exist in the colleciton. 
-        $selection_collection = do_search('!collection'. $USER_SELECTION_COLLECTION);
-        $resource_not_in_search = array_diff(
-            array_column($selection_collection, 'ref'),
-            is_array($full_search_results)?array_column($full_search_results, 'ref'):[]
-        );
-
-        if (count($resource_not_in_search) > 0) {
-            collection_remove_resources($USER_SELECTION_COLLECTION, $resource_not_in_search);
-        }
+    $selection_state = reconcile_selection_collection(
+        isset($USER_SELECTION_COLLECTION) ? (int) $USER_SELECTION_COLLECTION : null,
+        $check_selection_collection ? (is_array($full_search_results ?? null) ? $full_search_results : []) : null
+    );
+    $resource_not_in_search = $selection_state['removed'];
+    if ($resource_not_in_search !== []) {
+        $selection_collection_resources_count = (int) get_collection_resources($USER_SELECTION_COLLECTION, null, true);
     }
 
     ?>
     <script>
     <?php 
-    $clear = count(do_search('!collection'. $USER_SELECTION_COLLECTION)) == 0 ? 'true' : 'false';
+    $clear = $selection_state['empty'] ? 'true' : 'false';
     if (count($resource_not_in_search) > 0) {
         ?>
         UpdateSelectedResourcesCounter(<?php echo $clear; ?>);
@@ -730,6 +651,21 @@ if($use_selection_collection) {
     </script>
     <?php
 }
+
+$displayed_resource_refs = is_array($result) ? array_column($result, 'ref') : [];
+if (isset($usercollection_resources)) {
+    $usercollection_resources = get_collection_resources($usercollection, $displayed_resource_refs);
+    $usercollection_resource_set = is_array($usercollection_resources)
+        ? array_fill_keys(array_map('intval', $usercollection_resources), true)
+        : [];
+}
+if ($use_selection_collection && $USER_SELECTION_COLLECTION !== null) {
+    $selection_collection_resources = get_collection_resources($USER_SELECTION_COLLECTION, $displayed_resource_refs);
+}
+$selection_collection_resource_set = array_fill_keys(
+    array_map('intval', $selection_collection_resources ?? []),
+    true
+);
 
 // Allow Drag & Drop from collection bar to CentralSpace only when special search is "!collection"
 if($collectionsearch && collection_writeable(substr($search, 11)))
@@ -1069,7 +1005,7 @@ if (!hook("replacesearchheader")) # Always show search header now.
     <?php
     if($use_selection_collection && $selection_collection_resources_count > 0)
         {
-        echo render_selected_resources_counter(count($selection_collection_resources));
+        echo render_selected_resources_counter($selection_collection_resources_count);
         }
     elseif (isset($collections)) 
         {

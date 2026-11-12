@@ -3257,3 +3257,4 @@ $lang["readmore"] = 'Đọc thêm';
 $lang["showwelcometext"] = 'Hiển thị thông tin chào mừng';
 $lang["collection_category_blocked"] = 'Không thể thêm tài nguyên vào danh mục bộ sưu tập nổi bật, bị chặn bởi các bộ sưu tập sau: ';
 $lang["user_api_session_invalid_request"] = 'Yêu cầu truy cập không hợp lệ hoặc không thể truy cập API. Vui lòng kết nối lại từ hệ thống từ xa.';
+$lang["create_new_collection"] = 'Tạo mới';

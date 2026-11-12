@@ -40,12 +40,23 @@
         "toastify-js": "^1.12.0",
         "uppy": "4.12.2",
         "video.js": "7.21.7",
-        "videojs-resolution-switcher-for-videojs-version-7": "github:mzulkiakbari/videojs-resolution-switcher-for-videojs-version-7"
+        "videojs-resolution-switcher-for-videojs-version-7": "github:mzulkiakbari/videojs-resolution-switcher-for-videojs-version-7",
+        "@photo-sphere-viewer/core": "5.15.1",
+        "@photo-sphere-viewer/autorotate-plugin": "5.15.1",
+        "@photo-sphere-viewer/gyroscope-plugin": "5.15.1",
+        "@photo-sphere-viewer/stereo-plugin": "5.15.1",
+        "@photo-sphere-viewer/video-plugin": "5.15.1",
+        "@photo-sphere-viewer/equirectangular-video-adapter": "5.15.1",
+        "@photo-sphere-viewer/visible-range-plugin": "5.15.1",
+        "three": "0.185.1"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev:bump_cache_busting_version": "node js/build_bump_cache_busting_version.js",
         "build:dependencies": "node js/build_js_dependencies.js && node js/build_bump_cache_busting_version.js",
         "postinstall": "pnpm run build:dependencies"
+    },
+    "devDependencies": {
+        "esbuild": "0.28.2"
     }
 }

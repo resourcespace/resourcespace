@@ -26,7 +26,7 @@ foreach ($resources as $resource) {
     if (file_exists($resource_path)) {
         $filesize = filesize_unlimited($resource_path);
 
-        ps_query("update resource_dimensions set file_size= ? where resource= ?", ['i', $filesize, 'i', $resource['ref']]);
+        ps_query("update resource_dimensions set file_size= ? where resource= ? AND preview_size IS NULL", ['i', $filesize, 'i', $resource['ref']]);
 
         echo "Ref: " . $resource['ref'] . " - " . $resource['field' . $view_title_field] . " - updating resource_dimensions file_size column - ";
         if (PHP_SAPI == 'cli') {

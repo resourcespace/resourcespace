@@ -1806,6 +1806,85 @@ function get_node_by_name(array $nodes, $name, $i18n = true)
 }
 
 /**
+ * Resolve names using the search page's translated, case-insensitive matching.
+ * Flat fields fetch only candidates, in the same order and vocabulary window as
+ * get_nodes(). Trees retain get_nodes() traversal order (including ancestors),
+ * which determines the first match when names occur on several branches.
+ *
+ * @param array $field Field definition returned by get_resource_type_field().
+ * @param array $names Option names, without trimming or wildcard expansion.
+ * @return array Map of supplied names to node IDs, or zero for unresolved names.
+ *               Preserves the legacy LIKE fallback when the initial vocabulary
+ *               contains exactly 10,000 nodes (the cap for non-fixed fields).
+ */
+function resolve_search_node_names(array $field, array $names): array
+{
+    global $FIXED_LIST_FIELD_TYPES;
+
+    $names = array_values(array_unique($names));
+    if ($names === []) {
+        return [];
+    }
+    $tree = $field['type'] == FIELD_TYPE_CATEGORY_TREE;
+    $fixed = in_array($field['type'], $FIXED_LIST_FIELD_TYPES);
+    $fallback = null;
+    if ($tree) {
+        $nodes = get_nodes($field['ref'], null, true);
+        $fallback = count($nodes) === 10000;
+    } else {
+        // Filter AFTER the non-fixed vocabulary cap. Moving the filter inside
+        // the limit would change exact-match precedence over the LIKE fallback.
+        $source = 'SELECT ref, name, order_by FROM node
+                   WHERE resource_type_field = ? AND parent IS NULL';
+        if (!$fixed) {
+            $source .= ' ORDER BY order_by, ref ASC LIMIT 10000';
+        }
+        $filters = [];
+        $parameters = ['i', $field['ref']];
+        foreach ($names as $name) {
+            // Candidate filtering only: get_node_by_name() remains authoritative
+            // for casing, diacritics, whitespace and language fallback. Match
+            // raw names and complete i18n values in any stored language.
+            $literal = str_replace(['!', '%', '_'], ['!!', '!%', '!_'], $name);
+            $filters[] = "(name = ? OR name LIKE ? ESCAPE '!' OR name LIKE ? ESCAPE '!')";
+            array_push($parameters, 's', $name, 's', '%:' . $literal . '~%', 's', '%:' . $literal);
+        }
+        $nodes = ps_query(
+            'SELECT ref, name FROM (' . $source . ') AS search_nodes WHERE '
+                . implode(' OR ', $filters) . ' ORDER BY order_by, ref ASC',
+            $parameters,
+            $fixed ? 'schema' : ''
+        );
+    }
+
+    $resolved = [];
+    foreach ($names as $name) {
+        $node = get_node_by_name($nodes, $name);
+        if ($node === []) {
+            if ($fallback === null) {
+                // Only count when exact resolution failed. Bound this read as
+                // well, distinguishing exactly 10k fixed options from >10k.
+                $limit = $fixed ? 10001 : 10000;
+                $fallback = ps_value(
+                    'SELECT COUNT(*) AS value FROM (SELECT ref FROM node
+                     WHERE resource_type_field = ? AND parent IS NULL LIMIT ' . $limit . ') AS search_nodes',
+                    ['i', $field['ref']],
+                    0
+                ) == 10000;
+            }
+            if ($fallback) {
+                // Keep existing partial/wildcard/raw multilingual matching.
+                // Flat fields need only the first result. Trees need ancestors
+                // and their existing ordering, even in the fallback query.
+                $node = get_nodes($field['ref'], null, $tree, null, $tree ? null : 1, $name)[0] ?? [];
+            }
+        }
+        $resolved[$name] = $node['ref'] ?? 0;
+    }
+    return $resolved;
+}
+
+/**
 * Return a node ID for a given string
 *
 * @param  string    $value                  The node name to return

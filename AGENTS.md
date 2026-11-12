@@ -15,6 +15,9 @@ Before editing:
 1. Inspect the relevant implementation, callers, configuration, hooks, and tests.
 2. Check working-copy status. This project uses Subversion: use `svn status` and `svn diff` in an SVN
    checkout. Do not assume a `.git` directory means Git commands will work.
+   Use the appropriate native repository commands whenever adding, removing, or renaming files
+   and folders. In this checkout, use `svn add`, `svn delete`, and `svn move` so all changes
+   are recorded in Subversion; do not leave new files unversioned.
 3. Find an existing helper or established implementation before adding one.
 4. For behaviour changes, consult the relevant developer and user documentation linked below.
    Check that online instructions actually apply to this revision.
@@ -46,6 +49,10 @@ state changes in the appropriate `include/` functions and have the page call tho
 Pages may include the required bootstrap/authentication files and render the returned output.
 Plugin setup pages may call the established setup/configuration helpers.
 
+Permission decisions belong in core or plugin `include/` functions. Pages may select display
+data using permission flags returned by those functions, but must not implement the underlying
+permission rules themselves.
+
 Do not expose credentials, private assets, or local configuration in code, logs, tests, or responses.
 Do not modify installation-specific `include/config.php` or runtime data as a substitute for a code fix.
 
@@ -53,12 +60,17 @@ Do not modify installation-specific `include/config.php` or runtime data as a su
 
 - Keep solutions simple. Reuse existing technology; avoid new libraries, frameworks, speculative
   abstractions, and unused extension points. Keep functions, pages, and scripts focused.
+- Do not duplicate business logic. Keep permission, validation, and other business rules in one
+  authoritative implementation and reuse its helpers or returned results across callers.
 - Preserve public function signatures, API behaviour, hook names/arguments/return semantics, existing
   configuration, and permission behaviour unless changing them is part of the task.
 - Prefer plugin hooks for site-specific customisation. Implement general core fixes in the appropriate
   core code; do not move a requested core fix into a new plugin merely to avoid changing core.
+- Start new plugins at version **1.0** in their plugin YAML registration.
 - When changing a plugin, follow its existing structure and hook conventions. Check behaviour both
   with the plugin enabled and disabled where relevant.
+- Keep plugin-specific licence files in the plugin's `licenses/` directory, rather than core
+  `documentation/licenses/`. Ensure build scripts and documentation use that location.
 - Keep new PHP code compatible with PHP **8.1**, as required by this repository's supplied coding
   policy, and preserve operation on 8.2, 8.3, and 8.4. Note that this checkout's `composer.json` requires
   PHP `^8.2` for dependency installation. Do not silently raise the coding-policy minimum or lower
@@ -89,6 +101,10 @@ Do not modify installation-specific `include/config.php` or runtime data as a su
   variables. Do not rename existing symbols solely for style.
 - Return early for invalid input and simple exceptional cases. Return a meaningful result when
   appropriate and handle failure values explicitly.
+- Never use PHP's `@` error-suppression operator. Check expected failure conditions and return
+  values, and handle errors explicitly. Where warnings must be caught, use ResourceSpace's
+  `use_error_exception` mechanism with `try`/`catch` and restore its previous value in `finally`.
+  Log unexpected failures; do not silently discard them or copy legacy suppression patterns.
 - Prefer `count`, `unset`, and `echo`; do not introduce `sizeof`, `delete`, `print`, `create_function`,
   or `eval`. See `phpcs.xml.dist` for the repository's prohibited/deprecated function checks.
 

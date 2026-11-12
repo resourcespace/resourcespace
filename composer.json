@@ -20,7 +20,8 @@
         "axiell/imu-api-php": "^2.0.0",
         "captioning/captioning": "^3.0",
         "google/apiclient": "^2.18.3",
-        "vimeo/vimeo-api": "^3.0"
+        "vimeo/vimeo-api": "^3.0",
+        "kornrunner/blurhash": "^1.2"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.8",

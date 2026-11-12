@@ -3257,3 +3257,4 @@ $lang["readmore"] = 'Číst více';
 $lang["showwelcometext"] = 'Zobrazit uvítací informace';
 $lang["collection_category_blocked"] = 'Nelze přidat zdroje do kategorie vybrané kolekce, blokováno následujícími kolekcemi: ';
 $lang["user_api_session_invalid_request"] = 'Neplatný požadavek na přístup nebo API přístup není k dispozici. Prosím, znovu se připojte ze vzdáleného systému.';
+$lang["create_new_collection"] = 'Vytvořit nový';

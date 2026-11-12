@@ -3333,3 +3333,4 @@ $lang["readmore"] = 'Weiterlesen';
 $lang["showwelcometext"] = 'Willkommensinfo anzeigen';
 $lang["collection_category_blocked"] = 'Ressourcen können einer hervorgehobenen Sammlungskategorie nicht hinzugefügt werden, blockiert durch folgende Sammlungen: ';
 $lang["user_api_session_invalid_request"] = 'Ungültige Zugriffsanforderung oder API-Zugriff nicht verfügbar. Bitte verbinden Sie sich erneut vom entfernten System.';
+$lang["create_new_collection"] = 'Neu erstellen';

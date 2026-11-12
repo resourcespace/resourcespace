@@ -44,6 +44,61 @@ if (!$test_case(1, 2)) {
 }
 
 
+// Selection reconciliation must retain search permissions and leave inaccessible members alone.
+$selection = create_collection($userref, 'Search selection reconciliation');
+foreach ([$resource_a, $resource_b, $resource_c] as $selected_resource) {
+    add_resource_to_collection($selected_resource, $selection);
+}
+$matches = do_search('integrationTest_926', access: 1, return_refs_only: true, resource_collection: $selection);
+if (array_diff(array_column($matches, 'ref'), [$resource_b, $resource_c]) !== [] || count($matches) !== 2) {
+    echo 'Selection-constrained search changed access filtering - ';
+    return false;
+}
+$state = reconcile_selection_collection($selection, $matches);
+if ($state['empty'] || array_values($state['removed']) !== [$resource_a]
+    || !match_values(get_collection_resources($selection), [$resource_b, $resource_c])) {
+    echo 'Selection cleanup or remaining state incorrect - ';
+    return false;
+}
+
+$saved_permissions = $userpermissions;
+$saved_search_states = $search_all_workflow_states;
+try {
+    $userpermissions = ['s', 'g'];
+    $search_all_workflow_states = false;
+    ps_query('UPDATE resource SET access = 2 WHERE ref = ?', ['i', $resource_c]);
+    $state = reconcile_selection_collection($selection, []);
+    if (!$state['empty'] || !match_values(get_collection_resources($selection), [$resource_c])) {
+        echo 'Hidden selection member was removed or counted as visible - ';
+        return false;
+    }
+} finally {
+    $userpermissions = $saved_permissions;
+    $search_all_workflow_states = $saved_search_states;
+    ps_query('UPDATE resource SET access = 1 WHERE ref = ?', ['i', $resource_c]);
+    delete_collection($selection);
+}
+
+// Count distinct access combinations, not joined rows or only distinct resource refs.
+$saved_permissions = $userpermissions;
+try {
+    foreach ([0, 0, 1] as $custom_access_level) {
+        ps_query('INSERT INTO resource_custom_access (resource, usergroup, access) VALUES (?, ?, ?)',
+            ['i', $resource_a, 'i', $usergroup, 'i', $custom_access_level]);
+        ps_query('INSERT INTO resource_custom_access (resource, user, access) VALUES (?, ?, ?)',
+            ['i', $resource_a, 'i', $userref, 'i', $custom_access_level]);
+    }
+    $userpermissions = ['s', 'g', 'f*'];
+    $page = do_search('integrationTest_926', fetchrows: [0, 1]);
+    if ($page['total'] !== 6) {
+        echo 'Search total lost access variants or counted duplicate joins - ';
+        return false;
+    }
+} finally {
+    $userpermissions = $saved_permissions;
+    ps_query('DELETE FROM resource_custom_access WHERE resource = ?', ['i', $resource_a]);
+}
+
 // Tear down
 unset($test_case);
 

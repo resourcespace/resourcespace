@@ -3322,3 +3322,4 @@ $lang["readmore"] = 'Baca selengkapnya';
 $lang["showwelcometext"] = 'Tampilkan info sambutan';
 $lang["collection_category_blocked"] = 'Tidak dapat menambahkan sumber daya ke kategori koleksi unggulan, diblokir oleh koleksi berikut: ';
 $lang["user_api_session_invalid_request"] = 'Permintaan akses tidak valid atau akses API tidak tersedia. Silakan sambungkan kembali dari sistem jarak jauh.';
+$lang["create_new_collection"] = 'Buat baru';

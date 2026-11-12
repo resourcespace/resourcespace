@@ -200,4 +200,44 @@ $ref = $ref_place_holder;
 $use = $use_place_holder;
 $display_check_data = $display_check_place_holder;
 
+// Unrestricted dependency data must carry display permissions without exposing denied fields.
+$saved_permissions = $userpermissions;
+try {
+    $userpermissions = ['f' . $governed_field];
+    $all_fields = get_resource_field_data($resource, false, false);
+    $visible_fields = array_values(array_filter($all_fields, static fn($field) => $field['can_view']));
+    if (array_column($visible_fields, 'ref') !== [$governed_field]
+        || $visible_fields !== get_resource_field_data($resource)) {
+        echo 'ERROR - Explicit field visibility flag';
+        return false;
+    }
+
+    $userpermissions = ['f*', 'f-' . $governed_field];
+    $all_fields = array_column(get_resource_field_data($resource, false, false), null, 'ref');
+    if (!isset($all_fields[$governed_field]) || $all_fields[$governed_field]['can_view']
+        || in_array($governed_field, array_column(get_resource_field_data($resource), 'ref'))) {
+        echo 'ERROR - Explicit field denial or dependency data lost';
+        return false;
+    }
+
+    $userpermissions = ['f*', 'T1'];
+    $all_fields = get_resource_field_data($resource, false, false);
+    if (in_array(true, array_column($all_fields, 'can_view'), true)
+        || get_resource_field_data($resource) !== false) {
+        echo 'ERROR - Resource type denial ignored';
+        return false;
+    }
+
+    $userpermissions = ['P' . $governed_field];
+    $template_fields = get_resource_field_data(-1, false, false, $resource);
+    $visible_fields = array_values(array_filter($template_fields, static fn($field) => $field['can_view']));
+    if (array_column($visible_fields, 'ref') !== [$governed_field]
+        || $visible_fields !== get_resource_field_data(-1, false, true, $resource)) {
+        echo 'ERROR - Upload-only field permission flag';
+        return false;
+    }
+} finally {
+    $userpermissions = $saved_permissions;
+}
+
 return true;

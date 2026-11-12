@@ -8,5 +8,6 @@ if (time() - strtotime($last_geo_setcoords_from_country) < 24 * 60 * 60) {
     return false;
 }
 
-include __DIR__ . "/../../pages/tools/geo_setcoords_from_country.php";
+include_once __DIR__ . '/../../include/geolocation_functions.php';
+geo_setcoords_from_country();
 set_sysvar("last_geo_setcoords_from_country", date("Y-m-d H:i:s"));

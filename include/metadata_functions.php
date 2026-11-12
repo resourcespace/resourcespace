@@ -334,7 +334,7 @@ function exiftool_resolution_calc($file_path, $ref, $remove_original = false)
 
     if ($exif_output != '') {
         if ($remove_original) {
-            ps_query("DELETE FROM resource_dimensions WHERE resource= ?", ['i', $ref]);
+            ps_query("DELETE FROM resource_dimensions WHERE resource= ? AND preview_size IS NULL", ['i', $ref]);
         }
         $wh = explode("x", $exif_output);
         if (count($wh) > 1) {

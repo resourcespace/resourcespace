@@ -4,6 +4,75 @@
 # - For resource indexing / keyword creation, see resource_functions.php
 
 /**
+ * Convert field-specific OR options to node tokens for search display/selection.
+ * Only visible fields are resolved. Single options and wholly unresolved terms
+ * are left unchanged. Resolution is batched per field for this call only.
+ *
+ * @param string $search   Search string to preprocess.
+ * @param array  $keywords Terms from split_keywords(), retaining field syntax.
+ * @return string Search with recognised OR options replaced by node tokens.
+ */
+function resolve_field_search_node_names(string $search, array $keywords): string
+{
+    $fields = [];
+    $terms = [];
+    $names = [];
+    foreach ($keywords as $keyword) {
+        $term = $keyword;
+        if (substr($term, 0, 1) === '"' && substr($term, -1) === '"') {
+            $term = substr($term, 1, -1);
+        }
+        $specific = explode(':', $term);
+        if (count($specific) !== 2 || trim($specific[0]) === '') {
+            continue;
+        }
+        $options = explode(';', $specific[1]);
+        if (count($options) < 2) {
+            continue;
+        }
+
+        $shortname = trim($specific[0]);
+        if (!array_key_exists($shortname, $fields)) {
+            $ref = ps_value(
+                'SELECT ref AS value FROM resource_type_field WHERE name = ?',
+                ['s', $shortname],
+                0,
+                'schema'
+            );
+            $fields[$shortname] = $ref && metadata_field_view_access($ref)
+                ? get_resource_type_field($ref)
+                : false;
+        }
+        $field = $fields[$shortname];
+        if ($field === false) {
+            continue;
+        }
+        $terms[] = ['keyword' => $keyword, 'field' => $field['ref'], 'options' => $options];
+        $names[$field['ref']] = array_merge($names[$field['ref']] ?? [], $options);
+    }
+
+    $resolved = [];
+    foreach ($fields as $field) {
+        if ($field !== false && !isset($resolved[$field['ref']])) {
+            $resolved[$field['ref']] = resolve_search_node_names($field, $names[$field['ref']]);
+        }
+    }
+    foreach ($terms as $term) {
+        $tokens = '';
+        foreach ($term['options'] as $option) {
+            $ref = $resolved[$term['field']][$option];
+            if ($ref !== 0) {
+                $tokens .= NODE_TOKEN_PREFIX . $ref;
+            }
+        }
+        if ($tokens !== '') {
+            $search = str_ireplace($term['keyword'], $tokens, $search);
+        }
+    }
+    return $search;
+}
+
+/**
  * Resolves the most commonly used keyword that sounds like the given keyword.
  *
  * This function attempts to find a keyword that phonetically matches the provided keyword
@@ -1609,7 +1678,7 @@ function search_special($search, $sql_join, $fetchrows, $sql_prefix, $sql_suffix
         }
         if ($propertiessql->sql != "") {
             if (strpos($sql_join->sql, "LEFT JOIN resource_dimensions rdim on r.ref=rdim.resource") === false) {
-                $sql_join->sql .= " LEFT JOIN resource_dimensions rdim on r.ref=rdim.resource";
+                $sql_join->sql .= " LEFT JOIN resource_dimensions rdim on r.ref=rdim.resource AND rdim.preview_size IS NULL";
             }
             if ($sql_filter->sql == "") {
                 $sql_filter->sql .= " WHERE " . $propertiessql->sql;
@@ -1745,6 +1814,7 @@ function search_special($search, $sql_join, $fetchrows, $sql_prefix, $sql_suffix
             "r.image_red",
             "r.image_green",
             "r.image_blue",
+            "r.blurhash",
             "r.thumb_width",
             "r.thumb_height",
             "r.colour_key",
@@ -2122,7 +2192,8 @@ function split_keywords($search, $index = false, $partial_index = false, $is_dat
         return $return;
     } else {
         # split using spaces and similar chars (according to configured whitespace characters)
-        if (!$index && $keepquotes && strpos($ns, "\"") !== false) {
+        // Preserve OR expressions for search processing instead of splitting their punctuation.
+        if (!$index && $keepquotes && (strpos($ns, "\"") !== false || strpos($ns, ';') !== false)) {
             preg_match_all('/("|-")(?:\\\\.|[^\\\\"])*"|\S+/', $ns, $matches);
 
             $splits = $matches[0];

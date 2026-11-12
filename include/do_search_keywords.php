@@ -291,6 +291,10 @@ if ($keysearch) {
             if ($field_short_name_specified) { // Need this also for string matching in a named text field
                 $keyword = $keystring;
                 $search_field_restrict = $fieldinfo['ref'];
+                if (!$keywordprocessed && strpos($keystring, ';') !== false) {
+                    // Semicolons separate alternatives, including in quoted field searches.
+                    $quoted_string = false;
+                }
             }
 
             if (!$quoted_string && !$keywordprocessed && !($field_short_name_specified && hook('customsearchkeywordfilter', null, array($kw)))) { // Need this also for string matching in a named text field
@@ -328,7 +332,10 @@ if ($keysearch) {
                     // ********************************************************************************
                     //                                                                 Handle wildcards
                     // ********************************************************************************
-                    $wildcards = false;
+                    // Punctuated alternatives may not exist as intact indexed keywords.
+                    // Use the existing RLIKE path to match each value in the field text.
+                    $wildcards = $keywords_expanded_or
+                        && preg_match('/[^\p{L}\p{N};]/u', $keyword) === 1;
                     if (strpos($keyword, "*") !== false || $wildcard_always_applied) {
                         if ($wildcard_always_applied && strpos($keyword, "*") === false) {
                             # Suffix asterisk if none supplied and using $wildcard_always_applied mode.
@@ -384,7 +391,10 @@ if ($keysearch) {
                         }
                     }
 
-                    if ($keyref === false && !$omit && !$empty && !$wildcards && !$field_short_name_specified && !$canskip) {
+                    if (
+                        $keyref === false && !$omit && !$empty && !$wildcards
+                        && !$field_short_name_specified && !$canskip && !$keywords_expanded_or
+                    ) {
                         // ********************************************************************************
                         //                                                                     No wildcards
                         // ********************************************************************************
@@ -677,6 +687,7 @@ if ($keysearch) {
                                         $or_part = trim($or_part);
                                         if (empty($or_part)) {
                                             // At least one part of the OR terms lacks enough words to prefilter
+                                            $boolean_terms = [];
                                             break;
                                         }
 
@@ -692,6 +703,10 @@ if ($keysearch) {
 
                                         if (!empty($and_matches)) {
                                             $boolean_terms[] = '(' . implode(" ", $and_matches) . ')';
+                                        } else {
+                                            // Every alternative must be represented in the prefilter.
+                                            $boolean_terms = [];
+                                            break;
                                         }
                                     }
 

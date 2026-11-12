@@ -3252,3 +3252,4 @@ $lang["readmore"] = '閱讀更多';
 $lang["showwelcometext"] = '顯示歡迎資訊';
 $lang["collection_category_blocked"] = '無法將資源新增至精選集合類別，因以下集合阻擋：';
 $lang["user_api_session_invalid_request"] = '無效的存取請求或 API 存取不可用。請從遠端系統重新連線。';
+$lang["create_new_collection"] = '建立新集合';

@@ -3266,3 +3266,4 @@ $lang["readmore"] = '더 읽기';
 $lang["showwelcometext"] = '환영 정보 표시';
 $lang["collection_category_blocked"] = '추천 컬렉션 카테고리에 리소스를 추가할 수 없습니다. 다음 컬렉션에 의해 차단됨: ';
 $lang["user_api_session_invalid_request"] = '잘못된 접근 요청이거나 API 접근이 불가능합니다. 원격 시스템에서 다시 연결해 주세요.';
+$lang["create_new_collection"] = '새로 만들기';

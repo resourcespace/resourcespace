@@ -312,7 +312,7 @@ config_text_field("notification_email",$lang['simpleldap_notification_email'],$s
 </tr>
 
 <?php
-    $grouplist = ps_query('select ldapgroup, rsgroup, priority from simpleldap_groupmap where rsgroup is not null or priority is not null order by priority desc');
+    $grouplist = ps_query('SELECT ldapgroup, rsgroup, `priority` FROM simpleldap_groupmap WHERE rsgroup IS NOT NULL OR `priority` IS NOT NULL ORDER BY `priority` DESC;');
     for($i = 0; $i < count($grouplist)+1; $i++){
         if ($i >= count($grouplist)){
             $thegroup = array();

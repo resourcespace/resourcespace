@@ -584,7 +584,7 @@ if ($export && isset($folder_path)) {
             "filename" => "resource_dimensions",
             "record_feedback" => array(),
             "sql" => array(
-                "where" => "resource > 0 AND EXISTS(SELECT ref FROM resource WHERE ref = resource_dimensions.resource)",
+                "where" => "resource > 0 AND preview_size IS NULL AND EXISTS(SELECT ref FROM resource WHERE ref = resource_dimensions.resource)",
                 "order_by" => 'resource ASC',
             ),
             "pagination" => [

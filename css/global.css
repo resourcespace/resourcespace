@@ -1959,6 +1959,25 @@ div.video-js {margin:auto;}
     {
     padding:0;
     }
+
+#modal.modal-loading-full {
+    height: calc(100vh - 100px);
+}
+
+.modal-loading-content {
+    position: relative;
+    min-width: var(--space-96);
+    min-height: var(--space-96);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.modal-loading-content > .RecordPanel {
+    height: 100%;
+    min-height: var(--space-96);
+    box-sizing: border-box;
+}
+
 #modal_dialog, .ui-dialog
     {
     z-index: 103;
