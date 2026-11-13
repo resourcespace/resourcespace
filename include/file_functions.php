@@ -28,6 +28,75 @@ function safe_file_name(string $name, bool $extended = false) : string
 }
 
 /**
+ * Check that a completed upload has the expected size.
+ *
+ * @param string $path               Path to the completed upload.
+ * @param string $expected_file_size Expected size in bytes from the upload client.
+ * @param int|false|null $actual_file_size Receives the actual size, or false on failure.
+ *
+ * @return bool True when the expected size is valid and matches the uploaded file.
+ */
+function completed_upload_size_matches(
+    string $path,
+    string $expected_file_size,
+    &$actual_file_size = null
+): bool
+{
+    // Return the measured value to the caller so validation and diagnostic logging
+    // do not require separate filesystem size lookups.
+    $actual_file_size = filesize_unlimited($path);
+
+    // The browser supplies the original File.size as an unsigned decimal value.
+    if (preg_match('/^[0-9]+$/', $expected_file_size) !== 1) {
+        return false;
+    }
+
+    // Normalise harmless leading zeroes before performing an exact byte comparison.
+    $expected_file_size = ltrim($expected_file_size, '0');
+    $expected_file_size = $expected_file_size === '' ? '0' : $expected_file_size;
+
+    return $actual_file_size !== false && (string) $actual_file_size === $expected_file_size;
+}
+
+/**
+ * Build the temporary filename used for a TUS upload.
+ *
+ * @param string $filename       Original filename supplied by the browser.
+ * @param string $upload_temp_id Optional unique upload identifier.
+ * @param int    $legacy_key     Legacy duplicate-filename prefix.
+ *
+ * @return string|false Temporary filename, or false for an invalid upload identifier.
+ */
+function get_tus_upload_filename(
+    string $filename,
+    string $upload_temp_id = '',
+    int $legacy_key = 0
+): string|false
+{
+    // Restrict the client-generated identifier to a fixed, path-safe format.
+    if ($upload_temp_id !== '' && preg_match('/^[a-f0-9]{32}\z/', $upload_temp_id) !== 1) {
+        return false;
+    }
+
+    // Preserve the existing encoded and truncated filename format so the browser
+    // and PHP continue to resolve the same physical temporary file.
+    $extension = parse_filename_extension($filename);
+    $filename_only = basename($filename, ".{$extension}");
+    $encoded_name = str_replace('/', 'RS_FORWARD_SLASH', base64_encode($filename_only));
+    $encoded_name .= $extension !== '' ? ".{$extension}" : '';
+    $encoded_name = substr($encoded_name, -30);
+
+    if ($upload_temp_id !== '') {
+        // The random prefix prevents two uploads with the same logical filename
+        // from sharing a physical temporary file.
+        return "{$upload_temp_id}-{$encoded_name}";
+    }
+
+    // Support uploads that were created before unique identifiers were introduced.
+    return ($legacy_key > 0 ? "{$legacy_key}-" : '') . $encoded_name;
+}
+
+/**
 * Generate a UID for filnames that can be different from user to user (e.g. contact sheets)
 *
 * @param integer $user_id

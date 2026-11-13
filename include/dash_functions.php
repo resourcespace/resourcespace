@@ -2101,7 +2101,7 @@ function get_dash_search_data($link = '', $promimg = 0)
     $searchdata["count"] = 0;
     $searchdata["images"] = [];
 
-    $search_string = explode('?', $link);
+    $search_string = explode('?', trim($link, "\""));
     parse_str(str_replace("&amp;", "&", $search_string[1]), $search_string);
     $search = isset($search_string["search"]) ? $search_string["search"] : "";
     $restypes = isset($search_string["restypes"]) ? $search_string["restypes"] : "";

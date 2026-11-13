@@ -532,6 +532,8 @@ function refine_searchstring($search)
     $orfields = get_OR_fields(); // leave checkbox type fields alone
     $dynamic_keyword_fields = ps_array("SELECT name value FROM resource_type_field where type=9", array(), "schema");
 
+    // Preserve OR groups, including all-ignored groups. Matching filters their individual
+    // alternatives; removing the group here could broaden the search to every resource.
     $fixedkeywords = array();
     foreach ($keywords as $keyword) {
         if (strpos($keyword, "startdate") !== false || strpos($keyword, "enddate") !== false) {
@@ -3217,27 +3219,27 @@ function set_search_order_by(string $search, string $order_by, string $sort): st
  * Escape and process a string from ResourceSpace search syntax to regex syntax
  * Wildcards are replaced with '.*?' - any character 0 or more times
  * Multiple keyword matches are split into an OR group
- * Word boundaries are added to avoid unintended wildcards.
+ * Each alternative receives boundaries suited to its first and last characters
+ * to avoid unintended substring matches, including for values with punctuation at their edges.
+ * Empty alternatives are ignored.
  *
  * @param  string $keyword      Keyword string without any field names or special search strings
  * @return string               Processed string ready for RLIKE searches
  */
 function prepare_regex_search_string(string $keyword): string
 {
-    $keyword = preg_quote($keyword);
-    $keyword = str_replace('\*', '.*?', $keyword);
-    $keywords = explode(";", $keyword);
-    if (count($keywords) > 1) {
-        $keyword = '(' . implode("|", $keywords) . ')';
+    $keywords = [];
+    foreach (explode(';', $keyword) as $alternative) {
+        $alternative = trim($alternative);
+        if ($alternative === '') {
+            continue;
+        }
+        // A word boundary cannot sit outside a leading or trailing punctuation character.
+        $start = preg_match('/^\w/u', $alternative) === 1 ? '\\b' : '(?<!\w)';
+        $end = preg_match('/\w$/u', $alternative) === 1 ? '\\b' : '(?!\w)';
+        $keywords[] = $start . str_replace('\\*', '.*?', preg_quote($alternative)) . $end;
     }
-    if (preg_match('/^\W|\W$/', $keyword) === 0) {
-        // Use lookaheads/lookbehinds for boundary-like behavior when the keyword starts or ends with non-word characters (e.g. ,, &, -)
-        // because \b only works for transitions between word characters (letters, digits, _) and non-word characters.
-        $keyword = "(?<!\w)" . $keyword . "(?!\w)";
-    } else {
-        $keyword = "\\b" . $keyword . "\\b";
-    }
-    return $keyword;
+    return $keywords === [] ? '(?!)' : '(?:' . implode('|', $keywords) . ')';
 }
 
 /**

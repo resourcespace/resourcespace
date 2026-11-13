@@ -1,6 +1,24 @@
 <?php
 
 /**
+ * Map a directory login name to the ResourceSpace username, including the configured suffix.
+ *
+ * @param string $username Username supplied to LDAP authentication.
+ * @return string ResourceSpace username used for account lookup and creation.
+ */
+function simpleldap_get_username(string $username): string
+{
+    global $simpleldap;
+
+    $suffix = $simpleldap['usersuffix'];
+    if ($suffix === '') {
+        return $username;
+    }
+
+    return $username . (str_starts_with($suffix, '.') ? '' : '.') . $suffix;
+}
+
+/**
  * Authenticate to directory by binding and performing LDAP search
  *
  * @param string $username   Username

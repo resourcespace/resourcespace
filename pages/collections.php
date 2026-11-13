@@ -82,13 +82,9 @@ if ($collection != "" && $collection != "undefined") {
     hook("prechangecollection");
     
     # Change current collection
-    if (($k == "" || $internal_share_access) && $collection == "new") {
+    if (($k == "" || $internal_share_access) && $collection == "new" && $entername != "") {
         # Create new collection
-        if ($entername != "") {
-            $name = $entername;
-        } else {
-            $name = "Default Collection";
-        }
+        $name = collection_name_valid($entername);
 
         $new = create_collection($userref, $name);
         set_user_collection($userref, $new);
@@ -653,8 +649,10 @@ jQuery(function () {
     function updateButtons() {
         if ($input.val().trim().length > 0) {
             $accept_button.removeClass("inactive");
+            $accept_button.prop("disabled", false);
         } else {
             $accept_button.addClass("inactive");
+            $accept_button.prop("disabled", true);
         }
     }
 
@@ -771,7 +769,7 @@ jQuery(function () {
                             <div class="collection-bar-name-button-group">
                                 <button id="cancel_creating_collection_button" class="cancel-button" type="button" aria-label="Cancel creating collection">
                                 </button>
-                                <button id="accept_creating_collection_button" class="accept-button inactive" type="button" aria-label="Create new collection">
+                                <button id="accept_creating_collection_button" class="accept-button inactive" type="button" disabled aria-label="Create new collection">
                                 </button>
                             </div>
                         </div>

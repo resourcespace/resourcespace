@@ -886,6 +886,8 @@ function create_collection($userid, $name, $allowchanges = 0, $cant_delete = 0, 
         }
     }
 
+    $name = collection_name_valid($name, $cant_delete);
+
     $setcolumns["name"]             = mb_strcut($name, 0, 100);
     $setcolumns["user"]             = is_numeric($userid) ? $userid : 0;
     $setcolumns["allow_changes"]    = $allowchanges;
@@ -1375,6 +1377,10 @@ function save_collection($ref, $coldata = array())
     }
 
     $oldcoldata = get_collection($ref);
+    if (isset($coldata['name'])) {
+        $coldata["name"] = collection_name_valid($coldata["name"], $oldcoldata['cant_delete']);
+    }
+
     $sqlset = array();
     foreach ($coldata as $colopt => $colset) {
         // skip data that is not a collection property (e.g result_limit) otherwise the $sqlset will have an
@@ -7189,4 +7195,20 @@ function process_collection_download(array $dl_data): array
         "path"      => $zipfile,
         "completed" => $completed,
     ];
+}
+
+/**
+ * Check the collection name attempting to be saved is valid:
+ * Blocks "Default Collection" being set for any collection besides the users actual default
+ *
+ * @param  string   $name Name of collection being saved
+ * @param  int      $cant_delete value retrieved from existing collection data if available, defines if this is the real "Default Collection"
+ * @return string   returned name, will use $lang["collection"] if the user attempts to create a duplicate Default Collection
+ * 
+ */
+function collection_name_valid(string $name, int $cant_delete = 0): string 
+{
+    global $lang;
+
+    return (($name == "Default Collection" || $name == $lang["mycollection"]) && $cant_delete != 1) ? $lang["collection"] : $name;
 }

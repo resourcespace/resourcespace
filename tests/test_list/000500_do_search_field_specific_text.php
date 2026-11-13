@@ -187,4 +187,138 @@ try {
     $hidden_fields_cache = $saved_alternatives_hidden_fields_cache;
 }
 
-return true;
+// Mixed OR searches must retain indexed matches as well as literal punctuated values.
+$saved_or_stemming = $stemming;
+$saved_or_verbatim_regex = $resource_field_verbatim_keyword_regex ?? [];
+$saved_or_hidden_fields_cache = $hidden_fields_cache;
+$saved_or_permissions = $userpermissions;
+$saved_or_noadd = $noadd;
+$saved_or_refine = $use_refine_searchstring;
+$or_test_resources = [];
+$or_test_fields = [];
+$or_regressions_passed = true;
+try {
+    $noadd[] = 'reviewignored';
+    foreach ([false, true] as $stemming) {
+        foreach ([false, true] as $or_verbatim) {
+            $or_field = create_resource_type_field(
+                'OR regression test',
+                0,
+                FIELD_TYPE_TEXT_BOX_MULTI_LINE,
+                'review_or_' . (int) $stemming . '_' . (int) $or_verbatim,
+                1
+            );
+            $or_test_fields[] = $or_field;
+            $or_field_name = get_resource_type_field($or_field)['name'];
+            if ($or_verbatim) {
+                $resource_field_verbatim_keyword_regex[$or_field] = '/\\S+/u';
+            }
+            $or_values = ['foxes', '12.34', 'C++', '.alpha', 'alpha.', "ABC\u{00E9}DEF.123",
+                'ABC.DEF.123', '.alphax', 'xalpha.', '123x456', '123.4567',
+                'the', 'the.123', 'the 123', 'reviewignored', 'reviewignored.123', 'www'];
+            $or_resources = [];
+            foreach ($or_values as $or_value) {
+                $or_resource = create_resource(1, 0);
+                $or_test_resources[] = $or_resource;
+                update_field($or_resource, $or_field, $or_value);
+                $or_resources[] = $or_resource;
+            }
+            update_field($or_resources[0], 8, 'revieworrequired');
+            $hidden_fields_cache = null;
+            $or_cases = [
+                ['fox;missing', $stemming ? [0] : []],
+                ['fox;12.34', $stemming ? [0, 1] : [1]],
+                ['12.34;fox', $stemming ? [0, 1] : [1]],
+                ['C++;missing', [2]],
+                ['.alpha;missing', [3]],
+                ['alpha.;missing', [4]],
+                ["ABC\u{00E9}DEF.123;missing", [5]],
+                ["ABC\u{00E9}DEF.123;xy", [5]],
+                ['C++;.alpha;alpha.', [2, 3, 4]],
+                ['C++;.alpha;', [2, 3]],
+                ['fox;12.34 title:revieworrequired', $stemming ? [0] : []],
+                ['the;12.34', [1]],
+                ['the;missing', []],
+                ['the;and', []],
+                ['the;and title:revieworrequired', []],
+                ['THE;12.34', [1]],
+                ['the.123;missing', [12]],
+                ['reviewignored;12.34', [1]],
+                ['reviewignored.123;missing', [15]],
+                ['www;12.34', [1, 16]],
+            ];
+            foreach ($or_cases as [$or_query, $or_expected_indexes]) {
+                $or_expected = array_map(static fn($index) => $or_resources[$index], $or_expected_indexes);
+                foreach (['', $or_field_name . ':'] as $or_prefix) {
+                    // Query refinement must preserve the same matching semantics.
+                    $use_refine_searchstring = true;
+                    $or_results = do_search(refine_searchstring($or_prefix . $or_query));
+                    $or_actual = is_array($or_results)
+                        ? ($or_prefix === ''
+                            ? array_intersect(array_column($or_results, 'ref'), $or_resources)
+                            : array_column($or_results, 'ref'))
+                        : [];
+                    if (!match_values($or_actual, $or_expected)) {
+                        echo 'OR regression: ' . $or_prefix . $or_query
+                            . ' stemming=' . (int) $stemming . ' verbatim=' . (int) $or_verbatim . "\n";
+                        $or_regressions_passed = false;
+                    }
+                }
+            }
+            $userpermissions[] = 'f-' . $or_field;
+            $hidden_fields_cache = null;
+            $or_results = do_search('fox;12.34');
+            if (is_array($or_results) && array_intersect(array_column($or_results, 'ref'), $or_resources) !== []) {
+                echo "OR regression: Hidden indexed or literal match\n";
+                $or_regressions_passed = false;
+            }
+            if (do_search($or_field_name . ':fox;12.34') !== false) {
+                echo "OR regression: Hidden field-specific match\n";
+                $or_regressions_passed = false;
+            }
+            $userpermissions = $saved_or_permissions;
+            $hidden_fields_cache = null;
+        }
+    }
+    // Exercise literal boundaries directly so verbatim index matches cannot mask a regex failure.
+    $or_boundary_cases = [
+        ['C++;missing', 'C++', 1],
+        ['.alpha;missing', '.alpha', 1],
+        ['alpha.;missing', 'alpha.', 1],
+        ['.alpha;missing', '.alphax', 0],
+        ['alpha.;missing', 'xalpha.', 0],
+        ['123.456;234.567', '123x456', 0],
+        ['C++;missing;', 'unrelated', 0],
+        [';;', 'unrelated', 0],
+        ["ABC\u{00E9}DEF.123;missing", "ABC\u{00E9}DEF.123", 1],
+    ];
+    foreach ($or_boundary_cases as [$or_query, $or_value, $or_expected_match]) {
+        $or_match = ps_value(
+            'SELECT ? RLIKE ? AS value',
+            ['s', $or_value, 's', prepare_regex_search_string($or_query)],
+            0
+        );
+        if ((int) $or_match !== $or_expected_match) {
+            echo 'OR regex boundary: ' . $or_query . ' against ' . $or_value . "\n";
+            $or_regressions_passed = false;
+        }
+    }
+} finally {
+    $noadd = $saved_or_noadd;
+    $use_refine_searchstring = $saved_or_refine;
+    $stemming = $saved_or_stemming;
+    $resource_field_verbatim_keyword_regex = $saved_or_verbatim_regex;
+    $userpermissions = $saved_or_permissions;
+    foreach ($or_test_resources as $or_resource) {
+        if (!delete_resource($or_resource)) {
+            echo "OR regression: Resource cleanup failed\n";
+            $or_regressions_passed = false;
+        }
+    }
+    foreach ($or_test_fields as $or_field) {
+        delete_resource_type_field($or_field);
+    }
+    $hidden_fields_cache = $saved_or_hidden_fields_cache;
+}
+
+return $or_regressions_passed;

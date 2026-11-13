@@ -548,7 +548,8 @@ $password_expiry = 0;
 // dictionary attacks.
 $max_login_attempts_per_ip = 20;
 
-// How many failed login attempts per username until a temporary ban is placed on this IP
+// How many failed login attempts per username until a temporary ban is placed on this account.
+// These limits apply to both UI and API logins.
 $max_login_attempts_per_username = 5;
 
 // How long the user must wait after failing the login $max_login_attempts_per_ip or $max_login_attempts_per_username

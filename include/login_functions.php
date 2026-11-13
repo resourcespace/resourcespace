@@ -1,6 +1,95 @@
 <?php
 
 /**
+ * Resolve a login return URL within this ResourceSpace installation.
+ *
+ * @param string $url Absolute, application-root or document-relative return URL.
+ * @return string Absolute internal URL, or the application index for an invalid destination.
+ */
+function get_login_redirect_url(string $url): string
+{
+    global $baseurl;
+
+    $default_url = "{$baseurl}/index.php";
+    if ($url === '') {
+        return $default_url;
+    }
+
+    if ($url === $baseurl) {
+        $url .= '/';
+    } elseif (!str_starts_with($url, '/') && parse_url($url, PHP_URL_SCHEME) === null) {
+        $url = "{$baseurl}/{$url}";
+    }
+
+    return is_internal_url($url) ? convert_to_absolute_url($url) : $default_url;
+}
+
+/**
+ * Resolve existing accounts whose failure counters apply to a login attempt.
+ *
+ * The loginlockoutusers hook may append account references for external username mappings.
+ * This does not change the credentials supplied to authentication hooks.
+ *
+ * @param string $username Username or email address supplied for login.
+ * @return array Account references, including any supplied by authentication plugins.
+ */
+function get_login_lockout_users(string $username): array
+{
+    $user_ref = get_user_by_username($username);
+    $user_refs = $user_ref !== false ? [$user_ref] : [];
+    hook('loginlockoutusers', '', [$username, &$user_refs]);
+
+    return array_values(array_unique($user_refs));
+}
+
+/**
+ * Check the account and IP login lockout policy and log rejected attempts.
+ *
+ * @param string $username Username or email address supplied for login.
+ * @return string Localised error for an active lockout, or an empty string if login may proceed.
+ */
+function get_login_lockout_error(string $username): string
+{
+    global $lang, $max_login_attempts_per_ip, $max_login_attempts_per_username, $max_login_attempts_wait_minutes;
+
+    $ip = get_ip();
+    $user_refs = get_login_lockout_users($username);
+    $ip_locked = ps_value(
+        'SELECT COUNT(*) `value` FROM ip_lockout WHERE ip = ? AND tries >= ? AND DATE_ADD(last_try, INTERVAL ? MINUTE) > NOW()',
+        ['s', $ip, 'i', $max_login_attempts_per_ip, 'i', $max_login_attempts_wait_minutes],
+        0,
+    );
+    $locked_user_ref = $user_refs === [] ? false : ps_value(
+        'SELECT ref `value` FROM user WHERE ref IN (' . ps_param_insert(count($user_refs)) . ') AND login_tries >= ? AND DATE_ADD(login_last_try, INTERVAL ? MINUTE) > NOW()',
+        array_merge(
+            ps_param_fill($user_refs, 'i'),
+            ['i', $max_login_attempts_per_username, 'i', $max_login_attempts_wait_minutes]
+        ),
+        false,
+    );
+    $user_locked = $locked_user_ref !== false;
+    $user_ref = $user_locked ? $locked_user_ref : ($user_refs[0] ?? false);
+
+    if (!$ip_locked && !$user_locked) {
+        return '';
+    }
+
+    log_activity(
+        $user_locked ? 'Account locked' : 'IP address locked',
+        LOG_CODE_FAILED_LOGIN_ATTEMPT,
+        $ip,
+        $user_ref !== false ? 'user' : null,
+        $user_ref !== false ? 'last_ip' : null,
+        $user_ref ?: null,
+        null,
+        null,
+        $user_ref ?: null,
+    );
+
+    return str_replace('?', $max_login_attempts_wait_minutes, $lang['max_login_attempts_exceeded']);
+}
+
+/**
  * Performs the login using the global $username, and $password. Since the "externalauth" hook
  * is allowed to change the credentials later on, the $password_hash needs to be global as well.
  *
@@ -22,6 +111,12 @@ function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
     }
 
     $username_as_entered = $username; # The username supplied at login before update below via get_user_by_username();
+
+    $lockout_error = get_login_lockout_error($username);
+    if ($lockout_error !== '') {
+        $result['error'] = $lockout_error;
+        return $result;
+    }
 
     // If a special key is sent, which is a hash based on the username and scramble key, then allow a login
     // using this hash as the password. This is for the 'log in as this user' feature.
@@ -169,10 +264,14 @@ function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
         ps_query("insert into ip_lockout (ip,tries,last_try) values (?,1,now())", array("s",$ip));
     }
 
-    # Increment a lockout value for any matching username.
-    $ulocks = ps_query("select ref,login_tries,login_last_try from user where username=?", array("s",$username));
-    if (count($ulocks) > 0) {
-        $tries = $ulocks[0]["login_tries"];
+    // Increment the same account counters checked before authentication, including plugin mappings.
+    $user_refs = get_login_lockout_users($username_as_entered);
+    $ulocks = $user_refs === [] ? [] : ps_query(
+        'SELECT ref, login_tries FROM user WHERE ref IN (' . ps_param_insert(count($user_refs)) . ')',
+        ps_param_fill($user_refs, 'i')
+    );
+    foreach ($ulocks as $ulock) {
+        $tries = $ulock['login_tries'];
         if ($tries == "") {
             $tries = 1;
         } else {
@@ -185,9 +284,12 @@ function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
             # Show locked out message.
             $result['error'] = str_replace("?", $max_login_attempts_wait_minutes, $lang["max_login_attempts_exceeded"]);
             $log_message = 'Max login attempts exceeded';
-            log_activity($log_message, LOG_CODE_FAILED_LOGIN_ATTEMPT, $ip, 'user', 'ref', ($user_ref != false ? $user_ref : null), null, null, ($user_ref != false ? $user_ref : null));
+            log_activity($log_message, LOG_CODE_FAILED_LOGIN_ATTEMPT, $ip, 'user', 'ref', $ulock['ref'], null, null, $ulock['ref']);
         }
-        ps_query("update user set login_tries=?,login_last_try=now() where username=?", array("i",$tries,"s",$username));
+        ps_query(
+            'UPDATE user SET login_tries = ?, login_last_try = NOW() WHERE ref = ?',
+            ['i', $tries, 'i', $ulock['ref']]
+        );
     }
 
     if ($valid !== true && !isset($log_message)) {

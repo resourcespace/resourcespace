@@ -503,12 +503,23 @@ if ($processupload)
     # Work out the extension
     $origextension = parse_filename_extension($upfilename);
     $extension = mb_strtolower($origextension);
-    $filenameonly = basename($upfilename, ".{$origextension}");
 
-     // Clean the filename
+    // Clean the filename
     $origuploadedfilename= $upfilename;
-    $encodedname = str_replace("/","RS_FORWARD_SLASH", base64_encode($filenameonly)) . ((!empty($origextension)) ? ".{$origextension}" : '');
-    $encodedname = ($key > 0 ? "{$key}-" : "") . substr($encodedname, -30); // Keep temp filename short to avoid full path exceeding path length limits.
+    // New uploads use a unique physical filename. The legacy key remains available
+    // for uploads that were already underway when this behaviour was introduced.
+    $upload_temp_id = getval('upload_temp_id', '');
+    $encodedname = get_tus_upload_filename($upfilename, $upload_temp_id, (int) $key);
+    if ($encodedname === false) {
+        debug(
+            "upload_batch - invalid temporary upload identifier received: "
+            . json_encode(substr($upload_temp_id, 0, 64), JSON_INVALID_UTF8_SUBSTITUTE)
+        );
+        $result["status"] = false;
+        $result["message"] = $lang["error_upload_invalid_temporary_identifier"];
+        $result["error"] = 127;
+        die(json_encode($result));
+    }
     $upfilepath = $targetDir . DIRECTORY_SEPARATOR . $encodedname;
 
     debug("upload_batch - processing. Looking for file at " . $upfilepath);
@@ -521,6 +532,27 @@ if ($processupload)
         $result["error"] = 110;
         die(json_encode($result));
         }
+
+    // Validate the raw completed upload before hooks, autorotation or other
+    // processing can legitimately change its size.
+    $expected_file_size = getval("file_size", "");
+    $actual_file_size = null;
+    if (!completed_upload_size_matches($upfilepath, $expected_file_size, $actual_file_size)) {
+        debug(
+            "upload_batch - completed upload size mismatch, filename "
+            . json_encode(substr($upfilename, 0, 255), JSON_INVALID_UTF8_SUBSTITUTE)
+            . ", expected size "
+            . json_encode(substr($expected_file_size, 0, 64), JSON_INVALID_UTF8_SUBSTITUTE)
+            . ", actual size "
+            . ($actual_file_size === false ? "'unknown'" : "'{$actual_file_size}'")
+        );
+        $result["status"] = false;
+        $result["message"] = str_replace("[filename]", escape($upfilename), $lang["error_upload_size_mismatch"]);
+        $result["error"] = 126;
+        unlink($upfilepath);
+        die(json_encode($result));
+    }
+
     hook('modify_upload_file','',[$upfilename,$upfilepath]);
 
     # Banned extension?
@@ -1149,6 +1181,35 @@ jQuery(document).ready(function () {
     var Dashboard = Uppy.Dashboard;
     var Tus = Uppy.Tus;
 
+    // Generate a path-safe 128-bit identifier independently for every upload.
+    function generateUploadTempId()
+        {
+        const bytes = new Uint8Array(16);
+        window.crypto.getRandomValues(bytes);
+        return Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+        }
+
+    // Local resumed uploads use the identifier stored in their TUS upload URL.
+    // An empty result selects the legacy filename path for pre-existing uploads.
+    function getUploadTempIdFromUrl(uploadUrl)
+        {
+        if(typeof uploadUrl !== 'string' || uploadUrl === '')
+            {
+            return null;
+            }
+
+        try
+            {
+            const pathParts = new URL(uploadUrl, window.location.href).pathname.split('/').filter(Boolean);
+            const uploadTempId = pathParts.pop() ?? '';
+            return /^[a-f0-9]{32}$/.test(uploadTempId) ? uploadTempId : '';
+            }
+        catch(error)
+            {
+            return null;
+            }
+        }
+
     <?php
     $supported_plugins = array(
         'Webcam' => false,
@@ -1263,28 +1324,23 @@ jQuery(document).ready(function () {
                     }
                 }
 
-             // Encode the file names
+            // Encode the file names and make their temporary paths unique.
             const updatedFiles = {}
-            let key = 1;
-            let filenames = [];
             Object.keys(files).forEach(fileid => {
             console.log(files[fileid]);
                 updatedFiles[fileid] = {
                     ...files[fileid],
                   }
+                // Reuse an existing identifier on retries; otherwise allocate a new
+                // physical path even when another tab uploads the same filename.
+                const uploadTempId = files[fileid].meta.uploadTempId ?? generateUploadTempId();
                 //Extract and re add the file extension to allow for detection of file types
                 parts = files[fileid].name.split('.');
                 extension = parts.pop();
                 safefilename = base64encode(`${parts.join('.')}`) + `.${extension}`;
                 upload_name = safefilename.replace(/\//g,'RS_FORWARD_SLASH');  // To fix issue with forward slashes in base64 string
-                updatedFiles[fileid].meta.name = upload_name.substring(upload_name.length - 30);
-                if(filenames.includes(updatedFiles[fileid].meta.name)) {
-                    updatedFiles[fileid].meta.name = key + '-' + updatedFiles[fileid].meta.name;
-                    updatedFiles[fileid].meta.key = key;
-                    key++;
-                } else {
-                    filenames.push(updatedFiles[fileid].meta.name);
-                }
+                updatedFiles[fileid].meta.name = uploadTempId + '-' + upload_name.substring(upload_name.length - 30);
+                updatedFiles[fileid].meta.uploadTempId = uploadTempId;
                 console.debug('file obj')
                 console.debug(files[fileid].id)
                 });
@@ -1295,6 +1351,9 @@ jQuery(document).ready(function () {
             count = Object.keys(files).length;
             jQuery('.uploadform input').prop('disabled','true');
             jQuery('.uploadform select').prop('disabled','true');
+            // Return the modified file map so Uppy explicitly applies the updated
+            // metadata instead of relying on mutation of the original file objects.
+            return updatedFiles;
             }
         });
 
@@ -1374,6 +1433,15 @@ jQuery(document).ready(function () {
         withCredentials: true,
         overridePatchMethod: true,
         removeFingerprintOnSuccess: true,
+        // Use the same identifier for the TUS resource and physical filename. This
+        // allows it to be recovered from the upload URL after a page-level resume.
+        onBeforeRequest(request, file) {
+            const uploadTempId = file?.meta?.uploadTempId;
+            if(uploadTempId)
+                {
+                request.setHeader('Upload-Key', uploadTempId);
+                }
+            },
         <?php
         // Add custom header for companion authentication as won't have access to the user's session cookie
         $companion_new_token = generateCSRFToken($upload_session,"companion_upload");
@@ -1416,7 +1484,17 @@ jQuery(document).ready(function () {
     uppy.on('upload-success', (file, response) => {
         uploadProgress++;
         console.debug('Completed uploading file ' + uploadProgress + ' out of ' + count + ' files');
-        processFile(file);
+        // Local uploads can resume an older TUS resource, so its URL is authoritative.
+        // Companion uploads retain the identifier already stored in their metadata.
+        if(!file.isRemote)
+            {
+            const resumedUploadTempId = getUploadTempIdFromUrl(response?.uploadURL);
+            if(resumedUploadTempId !== null)
+                {
+                uppy.setFileMeta(file.id, {uploadTempId: resumedUploadTempId});
+                }
+            }
+        processFile(uppy.getFile(file.id) ?? file);
         // End of file uploaded code
         });
 
@@ -1510,11 +1588,16 @@ function processFile(file, forcepost)
     {
     // Send request to process the uploaded file after Uppy has completed
     console.debug("Processing file: " + file.name);
+    const completedFile = uppy.getFile(file.id) ?? file;
     postdata = {
         ajax: 'true',
         processupload: "true",
         file_name: file.name,
-        key: file.meta.key ?? "",
+        // Send the browser's original byte count and unique temporary-file identifier
+        // separately from the logical filename used by replacement workflows.
+        file_size: completedFile.size ?? completedFile.progress.bytesTotal ?? "",
+        upload_temp_id: completedFile.meta.uploadTempId ?? "",
+        key: completedFile.meta.key ?? "",
         <?php if($CSRF_enabled)
             {
             echo generateAjaxToken("upload_batch") . ",\n";
@@ -1650,6 +1733,20 @@ function processFile(file, forcepost)
                     {
                     message = '<?php echo escape($lang['error-duplicatesfound'])?>';
                     jQuery("#upload_log").append("\r\nLocal time: " + rsGetLocalDatetime() + ". " + file.name + "&nbsp;" + uploadresponse.message);
+                    if(!logopened)
+                        {
+                        jQuery("#UploadLogSectionHead").click();
+                        logopened = true;
+                        }
+                    }
+                else if(uploadresponse.error==126)
+                    {
+                    // Log each failed filename but leave the final summary dialog to
+                    // present a single Continue/View log choice for the whole batch.
+                    let logmessage = "\r\nLocal time: " + rsGetLocalDatetime()
+                        + ". " + uploadresponse.message
+                        + " [" + uploadresponse.error + "]";
+                    jQuery("#upload_log").append(logmessage);
                     if(!logopened)
                         {
                         jQuery("#UploadLogSectionHead").click();

@@ -311,6 +311,25 @@ if ($keysearch) {
                     $keyword = substr($keyword, 1);
                 }
 
+                if ($keywords_expanded_or) {
+                    // Filter complete alternatives once, for both indexed and literal matching.
+                    // Keep identifiers containing ignored words (e.g. the.123) intact.
+                    $keywords_expanded = array_values(array_filter(
+                        array_map('trim', explode(';', $keyword)),
+                        static fn($alternative) => $alternative !== ''
+                            && !in_array(mb_strtolower($alternative), $noadd, true)
+                    ));
+                    if ($keywords_expanded === []) {
+                        if (!$omit) {
+                            // An empty positive OR group must not become an unrestricted search.
+                            $sql_filter->sql = ($sql_filter->sql === '' ? '' : '(' . $sql_filter->sql . ') AND ')
+                                . '1 = 0';
+                        }
+                        continue;
+                    }
+                    $keyword = implode(';', $keywords_expanded);
+                }
+
                 # Search for resources with an empty field, ex: !empty18  or  !emptycaption
                 $empty = false;
                 if (substr($keyword, 0, 6) == "!empty") {
@@ -334,9 +353,11 @@ if ($keysearch) {
                     // ********************************************************************************
                     // Punctuated alternatives may not exist as intact indexed keywords.
                     // Use the existing RLIKE path to match each value in the field text.
-                    $wildcards = $keywords_expanded_or
+                    $literal_alternatives = $keywords_expanded_or
                         && preg_match('/[^\p{L}\p{N};]/u', $keyword) === 1;
+                    $wildcards = $literal_alternatives;
                     if (strpos($keyword, "*") !== false || $wildcard_always_applied) {
+                        $literal_alternatives = false;
                         if ($wildcard_always_applied && strpos($keyword, "*") === false) {
                             # Suffix asterisk if none supplied and using $wildcard_always_applied mode.
                             $keyword = $keyword . "*";
@@ -602,6 +623,7 @@ if ($keysearch) {
                                 $sql_keyword_union_or[] = false;
                             } elseif ($wildcards) {
                                 $union = new PreparedStatementQuery();
+                                $literal_alternative_parameters = [];
                                 preg_match_all('/
                                 (?=             # Positive lookahead
                                     [a-zA-Z0-9] # Match a single character that is a letter or digit
@@ -710,13 +732,26 @@ if ($keysearch) {
                                         }
                                     }
 
-                                    if (!empty($boolean_terms)) {
+                                    // Literal OR matches must not depend on database full-text tokenisation.
+                                    // ASCII fragments of Unicode words are also unsafe prefilter terms.
+                                    if (
+                                        !$literal_alternatives
+                                        && preg_match('/[^\x00-\x7F]/', $keyword) === 0
+                                        && !empty($boolean_terms)
+                                    ) {
                                         $boolean_query = implode(' ', $boolean_terms);
                                         $union->sql .= "MATCH(name) AGAINST (? IN BOOLEAN MODE) AND ";
                                         $union->parameters = array_merge(['s', $boolean_query], $union->parameters);
                                     }
 
-                                    $union->sql .= "name RLIKE ? "
+                                    $union->sql .= "(name RLIKE ?";
+                                    if ($literal_alternatives && count($alternative_keywords) > 0) {
+                                        // Keep stemmed, normalised and verbatim index matches alongside literals.
+                                        $union->sql .= ' OR ref IN (SELECT node FROM node_keyword WHERE keyword IN ('
+                                            . ps_param_insert(count($alternative_keywords)) . '))';
+                                        $literal_alternative_parameters = ps_param_fill($alternative_keywords, 'i');
+                                    }
+                                    $union->sql .= ') '
                                                 . $union_restriction_clause->sql . ")
                                                 GROUP BY resource " .
                                                 ($non_field_keyword_sql->sql != "" ? $non_field_keyword_sql->sql : "");
@@ -727,6 +762,7 @@ if ($keysearch) {
                                 $union->parameters = array_merge(
                                     $union->parameters,
                                     ["s",$keyword],
+                                    $literal_alternative_parameters,
                                     $union_restriction_clause->parameters
                                 );
 

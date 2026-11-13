@@ -2,6 +2,20 @@
 
 include_once __DIR__ . "/../include/simpleldap_functions.php";
 
+/**
+ * Include the mapped LDAP account in login lockout checks and failure counters.
+ *
+ * @param string $username Username supplied for authentication, before adding the LDAP suffix.
+ * @param array $user_refs Existing account references; the mapped account is appended when found.
+ */
+function HookSimpleldapAllLoginlockoutusers(string $username, array &$user_refs): void
+{
+    $user_ref = ps_value('SELECT ref value FROM user WHERE username = ?', ['s', simpleldap_get_username($username)], false);
+    if ($user_ref !== false) {
+        $user_refs[] = $user_ref;
+    }
+}
+
 function HookSimpleldapAllExternalauth($uname, $pword){
     if (!function_exists('ldap_connect'))
         {
@@ -28,10 +42,8 @@ function HookSimpleldapAllExternalauth($uname, $pword){
         
     if ($auth)
         {
-        $usersuffix    = $simpleldap['usersuffix'];
-        $addsuffix     = ($usersuffix=="") ? "" : (substr($usersuffix,0,1)=="." ? "" : ".") . $usersuffix;
-        $username      = $uname . $addsuffix;
-        $password_hash = rs_password_hash("RSLDAP" . $uname . $addsuffix . $pword);
+        $username      = simpleldap_get_username($uname);
+        $password_hash = rs_password_hash('RSLDAP' . $username . $pword);
         $user          = ps_query("SELECT ref, approved, account_expires FROM user WHERE username = ?", ['s', $username]);
         
         $email         = $userinfo["email"];

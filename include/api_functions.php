@@ -279,16 +279,21 @@ function get_session_api_key($user)
  * @param  string $password         Password to validate
  * @return string|false             FALSE if invalid, session API key if valid
 */
-function api_login($username, #[\SensitiveParameter] $password)
+function api_login($username, #[\SensitiveParameter] $password): string|false
 {
     global $session_hash, $scramble_key;
-    $user = get_user_by_username($username);
-    if ($user === false) {
+    if (
+        !is_string($username)
+        || !is_string($password)
+        || trim($username) === ''
+        || trim($password) === ''
+    ) {
         return false;
     }
+
     $result = perform_login($username, $password);
-    $private_key = get_api_key($user);
     if ((bool)$result['valid']) {
+        $private_key = get_api_key($result['ref']);
         return hash_hmac("sha256", "{$session_hash}{$private_key}", $scramble_key);
     }
 

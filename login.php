@@ -3,11 +3,7 @@ include_once "include/boot.php";
 include_once "include/login_functions.php";
 
 debug("[login.php] Reached login page...");
-$url = getval("url", $baseurl . "/index.php");
-
-if (is_array($url) || $url == "") {
-    $url = $baseurl . "/index.php";
-}
+$url = get_login_redirect_url(getval('url', ''));
 
 $modal = getval("modal", "");
 
@@ -34,10 +30,6 @@ if (getval("nocookies", "") != "" && getval("cookiecheck", "") == "") {
     $error = $lang["nocookies"];
 }
 
-# First check that this IP address has not been locked out due to excessive attempts.
-$ip = get_ip();
-$lockouts = ps_value("select count(*) value from ip_lockout where ip = ? and tries >= ? and date_add(last_try, interval ? minute) > now()", array("s", $ip, "i", $max_login_attempts_per_ip, "i", $max_login_attempts_wait_minutes), 0);
-
 $username = getval("username", "");
 if (is_array($username)) {
     debug("[login.php] redirect to login because username is array");
@@ -49,28 +41,9 @@ if ($case_insensitive_username) {
     $username = ps_value("SELECT username value FROM user WHERE LOWER(username) = LOWER(?)", ["s", $username], $username);
 }
 
-# Also check that the username provided has not been locked out due to excessive login attempts.
-$ulockouts = ps_value("select count(*) value from user where username = ? and login_tries >= ? and date_add(login_last_try, interval ? minute) > now()", array("s", $username, "i", $max_login_attempts_per_username, "i", $max_login_attempts_wait_minutes), 0);
-
-if ($lockouts > 0 || $ulockouts > 0) {
-    $error = str_replace("?", $max_login_attempts_wait_minutes, $lang["max_login_attempts_exceeded"]);
-    if ($ulockouts > 0) {
-        $log_message = 'Account locked';
-    } else {
-        $log_message = 'IP address locked';
-    }
-    $userref = get_user_by_username($username);
-    log_activity(
-        $log_message,                       # Note
-        LOG_CODE_FAILED_LOGIN_ATTEMPT,      # Log Code
-        $ip,                                # Value New
-        ($userref != "" ? "user"    : null),  # Remote Table
-        ($userref != "" ? "last_ip" : null),  # Remote Column
-        ($userref != "" ? $userref  : null),  # Remote Ref
-        null,                               # Ref Column Override
-        null,                               # Value Old
-        ($userref != "" ? $userref : null)  # User
-    );
+$lockout_error = get_login_lockout_error($username);
+if ($lockout_error !== '') {
+    $error = $lockout_error;
 } elseif (array_key_exists("username", $_POST) && getval("langupdate", "") == "") {
     debug("[login.php] Process the submitted login details...");
 
@@ -99,7 +72,7 @@ if ($lockouts > 0 || $ulockouts > 0) {
             # If the redirect URL is the collection frame, do not redirect to this as this will cause
             # the collection frame to appear full screen.
             if (strpos($url, "pages/collections.php") !== false) {
-                $url = "index.php";
+                $url = "{$baseurl}/index.php";
             }
 
             $accepted = ps_value("SELECT accepted_terms value FROM user WHERE ref = ?", array("i", (int)$result['ref']), 0);
@@ -121,7 +94,7 @@ if ($lockouts > 0 || $ulockouts > 0) {
             } else {
                 ?>
                 <script type="text/javascript">
-                    CentralSpaceLoad(<?php echo encode_js_value($baseurl . "/" . $redirect_url); ?>, true);
+                    CentralSpaceLoad(<?php echo encode_js_value($redirect_url); ?>, true);
                 </script>
                 <?php
             }
