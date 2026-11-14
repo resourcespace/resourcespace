@@ -65,3 +65,5 @@ $lang["page-title_licensemanager_edit"]     = "Edit License";
 $lang["page-title_licensemanager_list"]     = "List Licenses";
 $lang["page-title_licensemanager_setup"]    = "Setup License Manager Plugin";
 $lang["page-title_licensemanager_unlink"]   = "Unlink License";
+
+$lang['collection_actiontype_80'] = 'Licensing';

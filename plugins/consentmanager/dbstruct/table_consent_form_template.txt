@@ -1,0 +1,6 @@
+ref,int(11),NO,PRI,,auto_increment
+title,varchar(200),NO,,,
+version,int(11),NO,,1,
+enabled,tinyint(1),NO,,1,
+configuration,mediumtext,NO,,,
+updated,datetime,NO,,,

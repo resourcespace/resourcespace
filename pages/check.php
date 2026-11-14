@@ -1,6 +1,7 @@
 <?php
 include "../include/boot.php";
 include "../include/authenticate.php";
+include_once "../include/storage_test_functions.php";
 
 if (!checkperm("a")) {
     exit("Access denied.");
@@ -18,10 +19,20 @@ include "../include/header.php";
         ['title' => $lang["installationcheck"]]
     ]);
     ?>
-    <a onClick="jQuery('#repeat-spinner').addClass('lucide--spin');return CentralSpaceLoad(this,true);" href="<?php echo $baseurl_short?>pages/check.php">
-        <?php echo '<i aria-hidden="true" id="repeat-spinner" class="icon-refresh-ccw"></i>&nbsp;' . escape($lang["repeatinstallationcheck"]); ?>
-    </a>
-    <br/><br/>
+    <div class="installation-check-actions" role="group" aria-label="<?php echo escape($lang['installationcheck']); ?>">
+        <a onclick="jQuery('#repeat-spinner').addClass('lucide--spin');return CentralSpaceLoad(this,true);"
+           href="<?php echo escape(generateURL($baseurl_short . 'pages/check.php')); ?>">
+            <i aria-hidden="true" id="repeat-spinner" class="icon-refresh-ccw"></i>
+            <span><?php echo escape($lang['repeatinstallationcheck']); ?></span>
+        </a>
+        <?php if (storage_test_allowed()) { ?>
+            <a href="#storage-test" id="storage-test-start" aria-controls="storage-test">
+                <i aria-hidden="true" class="icon-hard-drive"></i>
+                <span><?php echo escape($lang['storage_test_start']); ?></span>
+            </a>
+        <?php } ?>
+    </div>
+    <?php include "../include/storage_test_panel.php"; ?>
     <table class="InfoTable">
         <tr>
             <td class="BorderBottom" colspan='3'>

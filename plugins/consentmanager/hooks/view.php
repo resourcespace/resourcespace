@@ -14,6 +14,7 @@ function HookConsentmanagerViewCustompanels()
     }
 
     $consents = consentmanager_get_consents($ref);
+    $consent_states = consentmanager_consent_display_statuses(array_column($consents, 'ref'), (int) $ref);
     ?>
     <div class="RecordBox">
         <div class="RecordPanel">
@@ -44,6 +45,7 @@ function HookConsentmanagerViewCustompanels()
                         <tr class="ListviewTitleStyle">
                             <th><?php echo escape($lang["consent_id"]); ?></th>
                             <th><?php echo escape($lang["name"]); ?></th>
+                            <th><?php echo escape($lang['cm_external_status']); ?></th>
                             <th><?php echo escape($lang["usage"]); ?></th>
                             <th><?php echo escape($lang["fieldtitle-expiry_date"]); ?></th>
                             <th><?php echo escape($lang["date_of_consent"]); ?></th>
@@ -59,7 +61,13 @@ function HookConsentmanagerViewCustompanels()
                         <?php foreach ($consents as $consent) { ?>
                             <tr>
                                 <td><?php echo escape($consent["ref"]); ?></td>
-                                <td><?php echo escape($consent["name"]); ?></td>
+                                <?php $consent_state = $consent_states[$consent['ref']] ?? 'active'; ?>
+                                <td><?php consentmanager_render_status_name($consent['name'], $consent_state, false); ?></td>
+                                <td>
+                                    <span <?php echo $consent_state === 'withdrawn' ? 'class="consent-withdrawn-status"' : ''; ?>>
+                                        <?php echo escape($lang['cm_external_status_' . $consent_state]); ?>
+                                    </span>
+                                </td>
                                 <td>
                                     <?php
                                     $consent_usage_mediums = trim_array(explode(", ", $consent["consent_usage"]));

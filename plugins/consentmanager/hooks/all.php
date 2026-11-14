@@ -1,6 +1,7 @@
 <?php
 include_once __DIR__ . "/../include/consent_functions.php";
 include_once __DIR__ . "/../include/file_functions.php";
+include_once __DIR__ . "/../include/external_functions.php";
 
 function HookConsentmanagerAllExport_add_tables()
 {
@@ -16,6 +17,20 @@ function HookConsentmanagerAllRender_actions_add_collection_option($top_actions,
     if (isset($GLOBALS["hook_return_value"]) && is_array($GLOBALS["hook_return_value"])) {
     // @see hook() for an explanation about the hook_return_value global
         $options = $GLOBALS["hook_return_value"];
+    }
+
+    $collection = (int) ($collection_data['ref'] ?? 0);
+    if (empty($k) && consentmanager_external_enabled() && consentmanager_check_write()
+        && $collection > 0 && collection_writeable($collection)) {
+        $options[] = [
+            'value' => 'request_consent',
+            'label' => $lang['cm_external_request'],
+            'data_attr' => ['url' => generateURL(
+                $baseurl_short . 'plugins/consentmanager/pages/requests.php',
+                ['collection' => $collection]
+            )],
+            'category' => 70,
+        ];
     }
 
     if ($k != '' || !(checkperm("a") || checkperm("cm"))) {
@@ -43,7 +58,7 @@ function HookConsentmanagerAllRender_actions_add_collection_option($top_actions,
         'data_attr' => array(
             'url' => $data_attr_url,
         ),
-        'category' => ACTIONGROUP_ADVANCED
+        'category' => 70
     );
 
     array_push($options, $option);
@@ -66,7 +81,7 @@ function HookConsentmanagerAllRender_actions_add_collection_option($top_actions,
         'data_attr' => array(
             'url' => $data_attr_url,
         ),
-        'category' => ACTIONGROUP_ADVANCED
+        'category' => 70
     );
 
     array_push($options, $option);
@@ -87,6 +102,12 @@ function HookConsentmanagerAllHandleuserref()
 function HookConsentmanagerAllCron()
 {
     global $consent_expiry_notification, $consent_expired_workflow_state;
+
+    try {
+        consentmanager_external_cron();
+    } catch (Throwable $e) {
+        logScript('Consent Manager: external request maintenance failed; continuing consent expiry processing');
+    }
 
     // Check if expiry notifications are enabled globally
     if ($consent_expiry_notification) {

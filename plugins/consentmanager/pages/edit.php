@@ -9,6 +9,16 @@ if (!is_numeric($ref)) {
 } // force to either a number or "new"
 
 $resource = getval("resource", "", true);
+if ($ref !== 'new' && consentmanager_external_immutable((int) $ref)) {
+    try {
+        $evidence = consentmanager_external_record((int) $ref);
+    } catch (Throwable $e) {
+        http_response_code(403);
+        exit(escape($lang['error-permissiondenied']));
+    }
+    include __DIR__ . '/../include/external_record.php';
+    exit;
+}
 $file_path = get_consent_file_path($ref);
 
 # Check access

@@ -42,7 +42,7 @@ function HookLicensemanagerAllRender_actions_add_collection_option($top_actions,
         'data_attr' => array(
             'url' => $data_attr_url,
         ),
-        'category' => ACTIONGROUP_ADVANCED
+        'category' => 80
     );
 
 
@@ -66,7 +66,7 @@ function HookLicensemanagerAllRender_actions_add_collection_option($top_actions,
         'data_attr' => array(
             'url' => $data_attr_url,
         ),
-        'category' => ACTIONGROUP_ADVANCED
+        'category' => 80
     );
 
     array_push($options, $option);

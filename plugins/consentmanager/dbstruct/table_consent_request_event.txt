@@ -1,0 +1,7 @@
+ref,int(11),NO,PRI,,auto_increment
+request,int(11),NO,MUL,,
+event,varchar(60),NO,,,
+revision,int(11),NO,,0,
+document_hash,varchar(64),NO,,,
+created,datetime,NO,,,
+actor,int(11),YES,,,

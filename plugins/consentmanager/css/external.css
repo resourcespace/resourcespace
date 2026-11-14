@@ -1,0 +1,29 @@
+:root { color-scheme: light; }
+html, body { height: auto; min-height: 100%; background: var(--colour-surface-view-background); }
+body { margin: 0; overflow: auto; text-align: left; }
+.cm-logo { display: block; max-width: 100%; max-height: 5rem; margin-bottom: 1.5rem; }
+main { max-width: 56rem; margin: 1.5rem auto; padding: 1.5rem; background: #fff; min-height: calc(100vh - 3rem); box-shadow: 0 1px 8px rgba(0, 0, 0, .12); }
+h1 { overflow-wrap: anywhere; }
+label { display: block; margin: 1rem 0 .35rem; font-weight: 600; }
+input:not([type=checkbox]), textarea, select { box-sizing: border-box; max-width: 100%; padding: .65rem; font: inherit; }
+select { height: auto; min-height: 2.75rem; line-height: 1.4; }
+textarea { width: 100%; min-height: 8rem; }
+button, .cm-link { display: inline-block; font: inherit; padding: .7rem 1rem; margin: .6rem .5rem .6rem 0; cursor: pointer; }
+button { border-radius: var(--space-4); }
+main h2 { margin: var(--space-24) 0 var(--space-12); }
+:focus-visible { outline: 3px solid #a34400; outline-offset: 3px; }
+fieldset { margin: 1rem 0; padding: 1rem; }
+.cm-terms { white-space: pre-wrap; overflow-wrap: anywhere; }
+.cm-assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+.cm-assets figure { margin: 0; border: 1px solid #ccd4dc; padding: .7rem; }
+.cm-assets img, video, audio { max-width: 100%; }
+.cm-document { width: 100%; height: 75vh; border: 1px solid #ccd4dc; }
+.cm-signature { width: 100%; height: 10rem; border: 2px solid #182638; touch-action: none; }
+.cm-error { border: 2px solid #a12323; padding: 1rem; }
+.cm-success { border: 2px solid #25653e; padding: 1rem; }
+.cm-inline { display: inline; }
+.cm-step-actions { display: flex; justify-content: flex-end; }
+.cm-decline { background-color: var(--colour-feedback-error-default); color: #fff; }
+.cm-decline:hover { background-color: var(--colour-feedback-error-dark); }
+.cm-decline:disabled { opacity: .5; cursor: not-allowed; }
+@media (max-width: 40rem) { main { padding: 1rem; margin: 0; box-shadow: none; } .cm-assets { grid-template-columns: 1fr; } }

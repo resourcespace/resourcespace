@@ -99,8 +99,6 @@ if ($lockout_error !== '') {
                 <?php
             }
         } else {
-            sleep($password_brute_force_delay);
-
             $error = $result['error'];
             $error_additional_text = $lang["request_new_password"];
         }

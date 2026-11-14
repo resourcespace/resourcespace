@@ -60,8 +60,18 @@ Do not modify installation-specific `include/config.php` or runtime data as a su
 
 - Keep solutions simple. Reuse existing technology; avoid new libraries, frameworks, speculative
   abstractions, and unused extension points. Keep functions, pages, and scripts focused.
+- Always use existing ResourceSpace functions where possible, including standard helpers for
+  database state, files, permissions, and requests. Inspect their contracts before implementing
+  lower-level replacements. Extend an existing function when necessary rather than introducing
+  a parallel implementation of the same responsibility.
+- Plugin development is the exception to extending core functions: keep plugin-specific behaviour
+  contained and modular within the plugin where possible. Reuse existing core interfaces and hooks,
+  and extend the plugin's own functions before changing core solely for that plugin.
 - Do not duplicate business logic. Keep permission, validation, and other business rules in one
   authoritative implementation and reuse its helpers or returned results across callers.
+- Avoid duplicating rendering and interaction code. Live forms and previews must use the same
+  implementation, with explicit mode options for any differences. Reuse or extend existing helpers
+  before adding parallel implementations; keep bug fixes and behaviour changes in one place.
 - Preserve public function signatures, API behaviour, hook names/arguments/return semantics, existing
   configuration, and permission behaviour unless changing them is part of the task.
 - Prefer plugin hooks for site-specific customisation. Implement general core fixes in the appropriate

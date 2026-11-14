@@ -558,7 +558,7 @@ $max_login_attempts_wait_minutes = 10;
 
 // How long to wait (in seconds) before returning a 'password incorrect' message (for logins) or 'e-mail not found'
 // message (for the request new password page) This can help to deter 'brute force' attacks, trying to find user's
-// passwords or e-mail addresses in use.
+// passwords or e-mail addresses in use. Applies to both UI and API password logins.
 $password_brute_force_delay = 4;
 
 // Password hash information - algorithm and options. @see https://www.php.net/manual/en/function.password-hash.php

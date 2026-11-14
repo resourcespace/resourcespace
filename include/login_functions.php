@@ -93,12 +93,15 @@ function get_login_lockout_error(string $username): string
  * Performs the login using the global $username, and $password. Since the "externalauth" hook
  * is allowed to change the credentials later on, the $password_hash needs to be global as well.
  *
+ * Rejected authentication is delayed by $password_brute_force_delay, except for active lockouts.
+ * External authentication runs before applying the delay.
+ *
  * @return array Containing the login details ('valid' determines whether or not the login succeeded).
  */
 function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
 {
     global $scramble_key, $lang, $max_login_attempts_wait_minutes, $max_login_attempts_per_ip, $max_login_attempts_per_username,
-    $username, $password, $password_hash, $session_hash, $usergroup;
+    $username, $password, $password_hash, $session_hash, $usergroup, $password_brute_force_delay;
 
     $result = [];
     $result['valid'] = $valid = false;
@@ -190,12 +193,16 @@ function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
         if ($approved == 2) {
             $result['error'] = $lang["accountdisabled"];
             log_activity('Account Disabled', LOG_CODE_FAILED_LOGIN_ATTEMPT, $ip, "user", "last_ip", $userref, null, null, $user_ref);
+            sleep($password_brute_force_delay);
+
             return $result;
         }
 
         if ($expires != "" && $expires != "0000-00-00 00:00:00" && strtotime($expires) <= time()) {
             $result['error'] = $lang["accountexpired"];
             log_activity('Account Expired', LOG_CODE_FAILED_LOGIN_ATTEMPT, $ip, "user", "last_ip", $userref, null, null, $user_ref);
+            sleep($password_brute_force_delay);
+
             return $result;
         }
 
@@ -310,6 +317,8 @@ function perform_login($loginuser = "", #[\SensitiveParameter] $loginpass = "")
             ($user_ref != false ? $user_ref : null)   # User Ref
         );
     }
+
+    sleep($password_brute_force_delay);
 
     return $result;
 }

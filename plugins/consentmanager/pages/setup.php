@@ -30,6 +30,26 @@ $page_def[] = config_add_text_input("consent_expiry_notification_days", $lang["c
 $page_def[] = config_add_boolean_select("consent_attach_upload", $lang["consent_attach_upload"], array($lang['userpreference_disable_option'], $lang['userpreference_enable_option']));
 $page_def[] = config_add_single_select("consent_expired_workflow_state", $lang["consent_expired_workflow_state"], $workflow_states);
 
+$page_def[] = config_add_html('<h2>' . escape($lang['cm_external_configure']) . '</h2>');
+$page_def[] = config_add_html('<p><a href="'
+    . escape($baseurl_short . 'plugins/consentmanager/pages/templates.php')
+    . '" onclick="return CentralSpaceLoad(this, true);"><i class="icon-file-text" aria-hidden="true"></i> '
+    . escape($lang['cm_external_templates']) . '</a></p>');
+foreach (['enabled', 'drawn', 'typed', 'originals', 'reminders', 'recipient_copy', 'include_requester'] as $external_option) {
+    $page_def[] = config_add_boolean_select(
+        'consentmanager_external_' . $external_option,
+        $lang['cm_external_' . $external_option]
+    );
+}
+foreach (['validity_days', 'default_template', 'reminder_days', 'reminder_limit',
+    'audit_days', 'temporary_days', 'max_resources'] as $external_option) {
+    $page_def[] = config_add_text_input(
+        'consentmanager_external_' . $external_option,
+        $lang['cm_external_' . $external_option],
+        false
+    );
+}
+
 // Do the page generation ritual -- don't change this section.
 config_gen_setup_post($page_def, $plugin_name);
 include '../../../include/header.php';

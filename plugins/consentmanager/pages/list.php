@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . "/../../../include/boot.php";
+include_once __DIR__ . "/../../../include/boot.php";
 include __DIR__ . "/../../../include/authenticate.php";
 
 $is_admin = checkperm("t");
@@ -10,13 +10,29 @@ if (!consentmanager_check_read()) {
 
 global $baseurl;
 
-$offset = getval("offset", 0, true);
-
-if (array_key_exists("findtext", $_POST)) {
-    $offset = 0;
-} # reset page counter when posting
-
-$findtext = getval("findtext", "");
+$request_find = getval('request_find', '');
+$request_status = getval('request_status', 'all');
+$consent_status = getval('consent_status', 'all');
+$findtext = getval('findtext', '');
+$requests_pager = getval('pager_table', '') === 'requests';
+$consent_offset = max(0, (int) getval($requests_pager ? 'consent_offset' : 'offset', 0));
+$request_offset = max(0, (int) getval($requests_pager ? 'offset' : 'request_offset', 0));
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($requests_pager) {
+        $request_offset = 0;
+    } else {
+        $consent_offset = 0;
+    }
+}
+$offset = $consent_offset;
+$consent_list_params = [
+    'findtext' => $findtext,
+    'consent_status' => $consent_status,
+    'consent_offset' => $consent_offset,
+    'request_find' => $request_find,
+    'request_status' => $request_status,
+    'request_offset' => $request_offset,
+];
 $delete = getval("delete", "");
 $consent_status = getval("consent_status", "all");
 
@@ -65,6 +81,7 @@ $url_params = array(
 
         # pager
         $per_page = $default_perpage_list;
+        $consent_states = consentmanager_consent_display_statuses(array_column(array_slice($consents, $offset, $per_page), 'ref'));
         $results = count($consents);
         $totalpages = ceil($results / $per_page);
         $curpage = floor($offset / $per_page) + 1;
@@ -77,7 +94,7 @@ $url_params = array(
             </a>
         </p>
 
-        <div class="Listview">
+        <div class="Listview consent-table">
             <table class="ListviewStyle">
                 <tr class="ListviewTitleStyle">
                     <th><?php echo escape($lang["consent_id"]); ?></th>
@@ -100,7 +117,9 @@ $url_params = array(
                     ?>
                     <tr>
                         <td><?php echo escape($consent["ref"]); ?></td>
-                        <td><?php echo escape($consent["name"]); ?></td>
+                        <td>
+                            <?php consentmanager_render_status_name($consent['name'], $consent_states[$consent['ref']] ?? 'active'); ?>
+                        </td>
                         <td>
                             <?php
                             foreach ($consent_usage_mediums as $medium) {
@@ -140,43 +159,44 @@ $url_params = array(
             </table>
         </div>
 
-        <div class="BottomInpageNav"><?php pager(true); ?></div>
-        
-        <div class="Question">  
-            <label for="consent_status"><?php echo escape($lang["consent_status"]); ?></label>
-            <div class="tickset">
-                <div class="Inline">
-                    <select name="consent_status" id="consent_status" onChange="this.form.submit();">
-                        <option value="all" <?php echo ($consent_status == 'all') ? " selected" : ''; ?>>
-                            <?php echo escape($lang["consent_status_all"]); ?>
-                        </option>
-                        <option value="active" <?php echo ($consent_status == 'active') ? " selected" : ''; ?>>
-                            <?php echo escape($lang["consent_status_active"]); ?>
-                        </option>
-                        <option value="expiring" <?php echo ($consent_status == 'expiring') ? " selected" : ''; ?>>
-                            <?php echo escape($lang["consent_status_expiring"]); ?>
-                        </option>
-                        <option value="expired" <?php echo ($consent_status == 'expired') ? " selected" : ''; ?>>
-                            <?php echo escape($lang["consent_status_expired"]); ?>
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="clearerleft"></div>
-        </div>
-
-        <div class="Question">
-            <label for="find"><?php echo escape($lang["consentsearch"]); ?><br/></label>
-            <div class="tickset">
-                <div class="Inline">
-                    <input type=text placeholder="<?php echo escape($lang['searchbytext']); ?>" name="findtext" id="findtext" value="<?php echo escape($findtext); ?>" maxlength="100" class="shrtwidth" />
-                    <input type="button" value="<?php echo escape($lang['clearbutton']); ?>" onClick="jQuery('#findtext').val('');CentralSpacePost(document.getElementById('consentlist'));return false;" />
-                    <input name="Submit" type="submit" value="<?php echo escape($lang["searchbutton"]); ?>" />
-                </div>
-            </div>
-            <div class="clearerleft"></div>
+        <div class="consent-list-controls">
+            <input type="hidden" name="request_find" value="<?php echo escape($request_find); ?>">
+            <input type="hidden" name="request_status" value="<?php echo escape($request_status); ?>">
+            <input type="hidden" name="request_offset" value="<?php echo (int) $request_offset; ?>">
+            <label for="consent_status"><?php echo escape($lang['consent_status']); ?></label>
+            <select name="consent_status" id="consent_status" onchange="CentralSpacePost(this.form);">
+                <?php foreach (['all', 'active', 'expiring', 'expired'] as $status) { ?>
+                    <option value="<?php echo escape($status); ?>" <?php echo $consent_status === $status ? 'selected' : ''; ?>>
+                        <?php echo escape($lang['consent_status_' . $status]); ?>
+                    </option>
+                <?php } ?>
+            </select>
+            <label for="findtext"><?php echo escape($lang['consentsearch']); ?></label>
+            <input type="search" placeholder="<?php echo escape($lang['searchbytext']); ?>" name="findtext"
+                id="findtext" value="<?php echo escape($findtext); ?>" maxlength="100" class="shrtwidth">
+            <input type="button" value="<?php echo escape($lang['clearbutton']); ?>"
+                onclick="this.form.elements.findtext.value=''; CentralSpacePost(this.form);">
+            <input type="submit" value="<?php echo escape($lang['searchbutton']); ?>">
+            <?php if ($totalpages > 1) {
+                consentmanager_render_pager([
+                    'curpage' => (int) $curpage,
+                    'totalpages' => (int) $totalpages,
+                    'offset' => (int) $consent_offset,
+                    'per_page' => (int) $per_page,
+                    'url' => $baseurl_short . 'plugins/consentmanager/pages/list.php',
+                    'url_params' => array_merge($consent_list_params, ['pager_table' => 'consents']),
+                ]);
+            } ?>
         </div>
     </form>
+    <?php if (consentmanager_external_enabled() && consentmanager_check_write()) {
+        $request_list = consentmanager_external_request_page(
+            $request_find, $request_status, $request_offset, (int) $default_perpage_list
+        ); ?>
+        <h2 class="consent-requests-heading"><?php echo escape($lang['cm_external_requests']); ?></h2>
+        <p><?php echo escape($lang['cm_external_create_help']); ?></p>
+        <?php include __DIR__ . '/../include/external_request_list.php';
+    } ?>
 </div>
 
 <?php

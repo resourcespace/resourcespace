@@ -79,6 +79,9 @@ function consentmanager_get_consents(int $resource): array|bool
  */
 function consentmanager_delete_consent(int $ref): bool
 {
+    if (consentmanager_external_immutable($ref)) {
+        return false;
+    }
     $consent = consentmanager_get_consent($ref);
     foreach ($consent['resources'] as $resource) {
         if (get_resource_data($resource) !== false) {
@@ -179,6 +182,10 @@ function consentmanager_link_consent(int $consent, int $resource): bool
 {
     global $lang;
 
+    if (consentmanager_external_immutable($consent)) {
+        return false;
+    }
+
     if (!consentmanager_check_write($resource)) {
         return false;
     }
@@ -211,6 +218,10 @@ function consentmanager_unlink_consent(int $consent, int $resource): bool
 {
     global $lang;
 
+    if (consentmanager_external_immutable($consent)) {
+        return false;
+    }
+
     if (!consentmanager_check_write($resource)) {
         return false;
     }
@@ -238,6 +249,9 @@ function consentmanager_unlink_consent(int $consent, int $resource): bool
  */
 function consentmanager_batch_link_unlink(int $consent, int $collection, bool $unlink): bool
 {
+    if (consentmanager_external_immutable($consent)) {
+        return false;
+    }
     $resources = get_collection_resources($collection);
 
     if ($consent <= 0) {
@@ -327,6 +341,9 @@ function consentmanager_update_consent(int $consent,
                                        ?string $date_of_consent, 
                                        ?string $expires): bool
 {
+    if (consentmanager_external_immutable($consent)) {
+        return false;
+    }
     if (!consentmanager_check_write()) {
         return false;
     }
@@ -413,55 +430,25 @@ function consentmanager_get_all_consents(string $findtext = "", string $consent_
         return false;
     }
 
-    $sql = "select " . columns_in('consent', null, 'consentmanager') . " from consent";
-    
-    $where_sql = "";
+    $where = [];
     $params = [];
-
-    $orderby_sql = "";
-
-    if ($findtext != "") {
-        $where_sql = " where name like ?";
-        $params = ['s', "%$findtext%"];
+    $order = 'ref';
+    if ($findtext !== '') {
+        $where[] = 'name LIKE ?';
+        $params = ['s', '%' . $findtext . '%'];
     }
-
-    // All - no filter on consents
-    // Active - any that haven't expired yet or have no date set
-    // Expiring - any that have an expiry date within $consent_expiry_notification_days days
-    // Expired - any that the expiry date has been passed
-    if ($consent_status == 'expired') {
-        
-        if ($where_sql == "") {
-            $where_sql = " where";
-        }
-        
-        $where_sql .= " expires < CURDATE()";
-        $orderby_sql = " order by expires desc, ref";        
-
-    } elseif ($consent_status == 'expiring') {
-
-        if ($where_sql == "") {
-            $where_sql = " where";
-        }
-        
-        $where_sql .= " expires >= CURDATE() AND expires <= CURDATE() + INTERVAL ? DAY";
+    if ($consent_status === 'expired') {
+        $where[] = 'expires < CURDATE()';
+        $order = 'expires DESC, ref';
+    } elseif ($consent_status === 'expiring') {
+        $where[] = 'expires >= CURDATE() AND expires <= CURDATE() + INTERVAL ? DAY';
         array_push($params, 'i', $consent_expiry_notification_days);
-        $orderby_sql = " order by expires asc, ref";
-
-    } elseif ($consent_status == 'active') {
-        
-        if ($where_sql == "") {
-            $where_sql = " where";
-        }
-
-        $where_sql .= " expires >= CURDATE() OR expires is NULL";
-        $orderby_sql = " order by ref";
-
-    } else {
-        $orderby_sql = " order by ref";
+        $order = 'expires ASC, ref';
+    } elseif ($consent_status === 'active') {
+        $where[] = '(expires >= CURDATE() OR expires IS NULL)';
     }
-
-    return ps_query($sql . $where_sql . $orderby_sql, $params);
+    return ps_query('SELECT ' . columns_in('consent', null, 'consentmanager') . ' FROM consent'
+        . ($where ? ' WHERE ' . implode(' AND ', $where) : '') . ' ORDER BY ' . $order, $params);
 }
 
 /**
@@ -508,10 +495,21 @@ function consentmanager_save_file(int $consent, string $filename, string $fileda
     if (!(checkperm("t") || checkperm("cm"))) {
         return false;
     }
-    $file_path = get_consent_file_path($consent);
-    file_put_contents($file_path, $filedata);
-    if (is_banned_extension(parse_filename_extension($filename))) {
+    if (is_banned_extension(parse_filename_extension($filename)) || consentmanager_external_immutable($consent)) {
         return false;
+    }
+    $previous = $GLOBALS['use_error_exception'] ?? false;
+    $GLOBALS['use_error_exception'] = true;
+    try {
+        $file_path = get_consent_file_path($consent);
+        if (file_put_contents($file_path, $filedata, LOCK_EX) !== strlen($filedata)) {
+            return false;
+        }
+    } catch (Throwable $e) {
+        debug('Consent Manager: attachment write failed for consent ' . $consent);
+        return false;
+    } finally {
+        $GLOBALS['use_error_exception'] = $previous;
     }
     ps_query("UPDATE consent set file= ? where ref= ?", ['s', $filename, 'i', $consent]);
     return true;

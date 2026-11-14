@@ -6268,3 +6268,47 @@ body:has(.collection-bar-holder.state-thumbs) #UICenter {
         padding-left: 0.5em;
     }
 }
+
+/* Installation Check actions use the same icon and text alignment. */
+.installation-check-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-16);
+    margin: var(--space-16) 0;
+}
+
+.installation-check-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+#storage-test progress {
+    vertical-align: middle;
+}
+
+#storage-test-summary {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: var(--space-8);
+}
+
+#storage-test {
+    margin-bottom: var(--space-16);
+    border-radius: var(--space-4);
+}
+
+#storage-test-cancel {
+    margin-bottom: var(--space-24);
+}
+
+#storage-test-results .Listview {
+    width: fit-content;
+    max-width: 100%;
+}
+
+#storage-test-results table {
+    width: auto;
+}

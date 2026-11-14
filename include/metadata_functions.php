@@ -421,6 +421,8 @@ function missing_fields_check(int|array $resource): array
 
     if (count($display_condition_required_fields) > 0) {
         $all_fields = get_resource_field_data($resource['ref'], false, false); 
+        global $display_check_data;
+        $display_check_data = $all_fields;
         # Evaluate display conditions
         foreach ($display_condition_required_fields as $display_condition_field) {
             if (check_display_condition(0, $display_condition_field, $all_fields, false, $resource['ref'])) {

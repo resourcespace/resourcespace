@@ -1,0 +1,3 @@
+request,int(11),NO,PRI,,
+resource,int(11),NO,PRI,,
+identification,varchar(250),NO,,,

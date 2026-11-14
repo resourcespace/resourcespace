@@ -16,6 +16,7 @@ foreach ([
     'max_login_attempts_per_username',
     'max_login_attempts_per_ip',
     'max_login_attempts_wait_minutes',
+    'password_brute_force_delay',
 ] as $login_global_name) {
     $saved_login_globals[$login_global_name] = $GLOBALS[$login_global_name] ?? null;
 }
@@ -180,13 +181,113 @@ $use_cases = [
         },
         'expected' => true,
     ],
+    [
+        'name' => 'An incorrect API password waits for the configured delay before returning false',
+        'test' => function () use ($test_username) {
+            $GLOBALS['password_brute_force_delay'] = 1;
+            $start = hrtime(true);
+            $result = api_login($test_username, 'WrongPassword');
+
+            return $result === false && (hrtime(true) - $start) >= 1000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'An unknown API username waits for the same delay before returning false',
+        'test' => function () use ($test_username) {
+            $GLOBALS['password_brute_force_delay'] = 1;
+            $start = hrtime(true);
+            $result = api_login($test_username . '_missing', 'WrongPassword');
+
+            return $result === false && (hrtime(true) - $start) >= 1000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'An incorrect password through the shared UI login function waits for the configured delay',
+        'test' => function () use ($test_username) {
+            $GLOBALS['password_brute_force_delay'] = 1;
+            $start = hrtime(true);
+            $result = perform_login($test_username, 'WrongPassword');
+
+            return $result['valid'] === false && (hrtime(true) - $start) >= 1000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'A disabled account with a correct password retains the failure delay',
+        'test' => function () use ($test_username, $test_password, $test_user) {
+            ps_query('UPDATE user SET approved = 2 WHERE ref = ?', ['i', $test_user]);
+            $GLOBALS['password_brute_force_delay'] = 1;
+            $start = hrtime(true);
+            $result = api_login($test_username, $test_password);
+
+            return $result === false && (hrtime(true) - $start) >= 1000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'An expired account with a correct password retains the failure delay',
+        'test' => function () use ($test_username, $test_password, $test_user) {
+            ps_query(
+                'UPDATE user SET account_expires = NOW() - INTERVAL 1 DAY WHERE ref = ?',
+                ['i', $test_user],
+            );
+            $GLOBALS['password_brute_force_delay'] = 1;
+            $start = hrtime(true);
+            $result = api_login($test_username, $test_password);
+
+            return $result === false && (hrtime(true) - $start) >= 1000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'A successful API login does not wait for the configured failure delay',
+        'test' => function () use ($test_username, $test_password) {
+            $GLOBALS['password_brute_force_delay'] = 3;
+            $start = hrtime(true);
+            $result = api_login($test_username, $test_password);
+
+            return is_string($result) && (hrtime(true) - $start) < 3000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'An already locked account returns without the password failure delay',
+        'test' => function () use ($test_username, $test_password, $test_user) {
+            ps_query(
+                'UPDATE user SET login_tries = 3, login_last_try = NOW() WHERE ref = ?',
+                ['i', $test_user],
+            );
+            $GLOBALS['password_brute_force_delay'] = 3;
+            $start = hrtime(true);
+            $result = api_login($test_username, $test_password);
+
+            return $result === false && (hrtime(true) - $start) < 3000000000;
+        },
+        'expected' => true,
+    ],
+    [
+        'name' => 'An already locked IP returns without the password failure delay',
+        'test' => function () use ($test_username, $test_password, $test_ip) {
+            ps_query('INSERT INTO ip_lockout (ip, tries, last_try) VALUES (?, 5, NOW())', ['s', $test_ip]);
+            $GLOBALS['password_brute_force_delay'] = 3;
+            $start = hrtime(true);
+            $result = api_login($test_username, $test_password);
+
+            return $result === false && (hrtime(true) - $start) < 3000000000;
+        },
+        'expected' => true,
+    ],
 ];
 
 foreach ($use_cases as $use_case) {
+    // Only the delay-specific use cases need to wait.
+    $GLOBALS['password_brute_force_delay'] = 0;
     // Start each use case with an unlocked account and no failures from this IP.
     ps_query('DELETE FROM ip_lockout WHERE ip = ?', ['s', $test_ip]);
     ps_query(
-        'UPDATE user SET `password` = ?, email = ?, approved = 1, login_tries = 0, login_last_try = NULL, `session` = ? WHERE ref = ?',
+        'UPDATE user SET `password` = ?, email = ?, approved = 1, account_expires = NULL, login_tries = 0, login_last_try = NULL, `session` = ? WHERE ref = ?',
         [
             's', rs_password_hash('RS' . $test_username . $test_password),
             's', $test_email,
