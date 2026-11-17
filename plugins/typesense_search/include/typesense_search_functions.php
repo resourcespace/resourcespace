@@ -68,6 +68,7 @@ function typesense_search_do_search(
     $fetchrows,
     bool $return_refs_only,
     PreparedStatementQuery $select,
+    PreparedStatementQuery $join,
     string $order_by,
     string $sort
 ) {
@@ -83,6 +84,7 @@ function typesense_search_do_search(
         $fetchrows,
         $return_refs_only,
         $select,
+        $join,
         $order_by
     );
 }
@@ -235,6 +237,7 @@ function typesense_search_hydrate_refs(
     $fetchrows,
     bool $return_refs_only,
     PreparedStatementQuery $select,
+    PreparedStatementQuery $join,
     string $order_by
 ): array {
     if (count($refs) === 0) {
@@ -273,12 +276,13 @@ function typesense_search_hydrate_refs(
         $query->sql =
             'SELECT r.hit_count score, ' . $select->sql
             . ' FROM resource r'
-            . ' JOIN resource_type AS rty ON r.resource_type = rty.ref'
+            . $join->sql
             . ' WHERE r.ref IN (' . $ref_placeholders . ')'
             . ' AND r.ref > 0';
 
         $query->parameters = array_merge(
             $select->parameters,
+            $join->parameters,
             $ref_params
         );
     }

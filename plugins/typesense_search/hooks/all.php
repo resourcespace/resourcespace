@@ -77,6 +77,7 @@ function HookTypesense_searchAllExternal_search(
         $fetchrows,
         $return_refs_only,
         $select,
+        $sql_join,
         $order_by,
         $sort
     );

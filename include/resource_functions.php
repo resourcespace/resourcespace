@@ -9317,7 +9317,7 @@ function check_resources(array $resources = [], bool $presenceonly = false): arr
 
                 if (count($had_uploads_no_file_found) > 0) {
                     // Checking for the file confirmed it wasn't there so mark as integrity failed.
-                    $failed_sql = "UPDATE resource SET integrity_fail = 1 WHERE ref IN (" . ps_param_insert(count($had_uploads_no_file_found)) . ")";
+                    $failed_sql = "UPDATE resource SET integrity_fail = 1, last_verified = NOW() WHERE ref IN (" . ps_param_insert(count($had_uploads_no_file_found)) . ")";
                     $failed_params = ps_param_fill($had_uploads_no_file_found, "i");
                     ps_query($failed_sql, $failed_params);
                 }
@@ -9359,12 +9359,11 @@ function check_resources(array $resources = [], bool $presenceonly = false): arr
         }
 
         if (count($failed) > 0) {
-            if (count($failed) > 0) {
-                $failed_sql = "UPDATE resource SET integrity_fail = 1 WHERE ref IN (" . ps_param_insert(count($failed)) . ")";
-                $failed_params = ps_param_fill($failed, "i");
-                ps_query($failed_sql, $failed_params);
-            }
+            $failed_sql = "UPDATE resource SET integrity_fail = 1, last_verified = NOW() WHERE ref IN (" . ps_param_insert(count($failed)) . ")";
+            $failed_params = ps_param_fill($failed, "i");
+            ps_query($failed_sql, $failed_params);
         }
+
         if (count($succeeded) > 0) {
             $success_sql = "UPDATE resource SET integrity_fail = 0,no_file=0, last_verified=NOW() WHERE ref IN (" . ps_param_insert(count($succeeded)) . ")";
             $success_params = ps_param_fill($succeeded, "i");
