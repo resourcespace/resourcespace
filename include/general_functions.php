@@ -3903,6 +3903,7 @@ function html_find_and_replace(string $findstring, string $replacestring, string
         return $output_html;
 
     } elseif ($process_html === false) {
+        $html = mb_decode_numericentity($html, array(0x80, 0x10FFFF, 0, 0xFFFFFF), 'UTF-8');
         return str_replace($findstring, $replacestring, $html);
     } else {
         return $html;
