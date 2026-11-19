@@ -71,12 +71,15 @@ ResourceSpace.Modules.Header = (() => {
     }
 
     function handleStickyHeaderScroll() {
-        const currentScroll = uiCenter.scrollTop;
+        const maxScroll = uiCenter.scrollHeight - uiCenter.clientHeight;
+        const currentScroll = Math.max(0, Math.min(uiCenter.scrollTop, maxScroll));
         const scrollThreshold = 10; // avoid jittering
         const logo = header.querySelector('.logo');
         const actions = header.querySelector('.actions');
 
         if (updateCssHeaderVarsInProgress) return;
+
+        if (currentScroll > 0 && Math.abs(currentScroll - stickyHeaderLastScrollTop) <= scrollThreshold) return;
 
         if (currentScroll > stickyHeaderLastScrollTop + scrollThreshold) {
             logo.classList.add('is-collapsed');
@@ -86,7 +89,7 @@ ResourceSpace.Modules.Header = (() => {
             resetStickyHeader();
         }
 
-        stickyHeaderLastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        stickyHeaderLastScrollTop = currentScroll;
     }
 
     function resetStickyHeader() {

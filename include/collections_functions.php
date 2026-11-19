@@ -6848,7 +6848,8 @@ function process_collection_download(array $dl_data): array
 
     for ($n = 0; $n < $rescount; $n++) {
         // Set a flag to indicate whether file should be included
-        $skipresource = false; 
+        $skipresource = false;
+        $resource_added = false;
         if (!isset($collection_resources[$n]['resource_type'])) {
             // Resource data is not present - e.g. an offline job
             $collection_resources[$n] = get_resource_data($collection_resources[$n]["ref"]);
@@ -7068,7 +7069,9 @@ function process_collection_download(array $dl_data): array
                 debug("collection_download adding symlink: " . $p . " - " . $usertempdir . DIRECTORY_SEPARATOR . $filename);
                 $GLOBALS["use_error_exception"] = true;
                 try {
-                    symlink($p, $usertempdir . DIRECTORY_SEPARATOR . $filename);
+                    $resource_added = is_file($p)
+                        && is_readable($p)
+                        && symlink($p, $usertempdir . DIRECTORY_SEPARATOR . $filename);
                 } catch (Throwable $e) {
                     debug("process_collection_download(): Unable to create symlink for resource $ref {$e->getMessage()}");
                     return [];
@@ -7078,9 +7081,11 @@ function process_collection_download(array $dl_data): array
                 debug("Adding $p - ($filename) for ref " . $ref . " to " . $zip->filename);
                 set_processing_message((string) ($n+1 . "/" . $rescount . " " . $GLOBALS["lang"]["filesaddedtozip"]));
                 $success = $zip->addFile($p, $filename);
+                $resource_added = $success;
                 debug('Collection download : Added resource ' . $ref . ' to zip archive = ' . ($success ? 'true' : 'false'));
-            } else {
+            } elseif (is_file($p) && is_readable($p)) {
                 $dl_data['includefiles'][] = $p;
+                $resource_added = true;
             }
         }
 
@@ -7137,7 +7142,10 @@ function process_collection_download(array $dl_data): array
                         debug("collection_download adding symlink: " . $p . " - " . $usertempdir . DIRECTORY_SEPARATOR . $filename);
                         $GLOBALS["use_error_exception"] = true;
                         try {
-                            symlink($p, $usertempdir . DIRECTORY_SEPARATOR . $filename);
+                            $success = is_file($p)
+                                && is_readable($p)
+                                && symlink($p, $usertempdir . DIRECTORY_SEPARATOR . $filename);
+                            $resource_added = $success || $resource_added;
                         } catch (Throwable $e) {
                             debug("process_collection_download(): Unable to create symlink for ref {$ref},
                                 alternative file {$alternative["ref"]}{$e->getMessage()}");
@@ -7145,9 +7153,13 @@ function process_collection_download(array $dl_data): array
                         }
                         unset($GLOBALS["use_error_exception"]);
                     } elseif($archiver) {
-                        $dl_data["includefiles"][] = $p;
+                        if (is_file($p) && is_readable($p)) {
+                            $dl_data["includefiles"][] = $p;
+                            $resource_added = true;
+                        }
                     } else {
                         $success = $zip->addFile($p, $filename);
+                        $resource_added = $success || $resource_added;
                         debug('Collection download : Added resource ' . $ref . ' to zip archive = ' . ($success ? 'true' : 'false'));
                     }
                 } else {
@@ -7156,7 +7168,11 @@ function process_collection_download(array $dl_data): array
                 }
             }
         }
-        $resources_for_log_update[$ref] = $tmpfile;
+        if ($resource_added) {
+            $resources_for_log_update[$ref] = $tmpfile;
+        } elseif ($tmpfile !== false && file_exists($tmpfile)) {
+            $dl_data['deletion_array'][] = $tmpfile;
+        }
     }
 
     db_begin_transaction("collection_download"); // Ensure all log updates are committed at once

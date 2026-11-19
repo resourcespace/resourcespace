@@ -19,7 +19,7 @@
         "ankitpokhrel/tus-php": "^2.4",
         "axiell/imu-api-php": "^2.0.0",
         "captioning/captioning": "^3.0",
-        "google/apiclient": "^2.18.3",
+        "google/apiclient": "^2.20.1",
         "vimeo/vimeo-api": "^3.0",
         "kornrunner/blurhash": "^1.2"
     },

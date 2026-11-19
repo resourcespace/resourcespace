@@ -34,12 +34,24 @@ return (static function () {
         $GLOBALS['userpermissions'] = ['s', 'g'];
         $resources = [];
         $contents = [];
-        foreach ([0, 0, 2] as $index => $access) {
+        $expected_downloads = [];
+        $cases = [
+            ['access' => 0, 'create_file' => true, 'downloads' => 1],
+            ['access' => 0, 'create_file' => true, 'downloads' => 1],
+            ['access' => 2, 'create_file' => true, 'downloads' => 0],
+            ['access' => 0, 'create_file' => false, 'downloads' => 0],
+            ['access' => 1, 'create_file' => true, 'downloads' => 0],
+        ];
+        foreach ($cases as $index => $case) {
+            $access = $case['access'];
             $resource = create_resource($resource_type, 0);
             ps_query('UPDATE resource SET file_extension = ?, access = ? WHERE ref = ?', ['s', 'txt', 'i', $access, 'i', $resource]);
             $path = get_resource_path($resource, true, '', true, 'txt');
             $contents[$resource] = 'Archive member ' . $index;
-            file_put_contents($path, $contents[$resource]);
+            if ($case['create_file']) {
+                file_put_contents($path, $contents[$resource]);
+            }
+            $expected_downloads[$resource] = $case['downloads'];
             $resources[] = get_resource_data($resource, false);
         }
         $GLOBALS['get_resource_data_cache'] = [];
@@ -59,6 +71,17 @@ return (static function () {
             $check($zip->getFromName($filename) === $contents[$row['ref']], 'Archive member bytes incorrect');
         }
         $check($zip->locateName($resources[2]['ref'] . '.txt') === false, 'Confidential resource disclosed in archive');
+        foreach ($resources as $row) {
+            $downloads = ps_value(
+                'SELECT COUNT(*) AS value FROM resource_log WHERE resource = ? AND type = ?',
+                ['i', $row['ref'], 's', LOG_CODE_DOWNLOADED],
+                0
+            );
+            $check(
+                (int) $downloads === $expected_downloads[$row['ref']],
+                'Incorrect download log for resource ' . $row['ref']
+            );
+        }
         $check($zip->numFiles === 3, 'Archive missing summary or contains unexpected members');
         return true;
     } catch (Throwable $e) {
