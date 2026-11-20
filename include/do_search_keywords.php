@@ -365,49 +365,27 @@ if ($keysearch) {
                         $wildcards = true;
                     }
 
-                    $keyref = resolve_keyword(str_replace('*', '', $keyword), false, true, !$quoted_string); # Resolve keyword. Ignore any wildcards when resolving. We need wildcards to be present later but not here.
+                    // Match the original keyword alongside its stem when both are indexed.
+                    $lookup = str_replace('*', '', $keyword);
+                    $keyref = resolve_keyword($lookup, false, true, true);
+                    $original_keyref = $stemming ? resolve_keyword($lookup, false, true, false) : false;
                     if ($keyref === false) {
-                        if ($stemming) {
-                            // Attempt to find match for original keyword
-                            $keyref = resolve_keyword(str_replace('*', '', $keyword), false, true, false);
-                        }
+                        $keyref = $original_keyref;
+                    }
 
-                        if ($keyref === false) {
-                            if ($keywords_expanded_or) {
-                                $alternative_keywords = array();
-                                foreach ($keywords_expanded as $keyword_expanded) {
-                                    $alternative_keyword_keyref = resolve_keyword($keyword_expanded, false, true, true);
-                                    if ($alternative_keyword_keyref === false) {
-                                        continue;
-                                    }
-
-                                    $alternative_keywords[] = $alternative_keyword_keyref;
+                    if (
+                        $keyref === false && !$keywords_expanded_or
+                        && strpos($keyword, '*') === false && preg_match('/\s/', $search) !== 1
+                    ) {
+                        // Try the parts of a keyword that contains a configured separator.
+                        foreach ($config_separators as $separator) {
+                            if (strpos($keyword, $separator) !== false) {
+                                $keyword_split = split_keywords($keyword);
+                                if ($field_short_name_specified) {
+                                    $keyword_split = array_map(prefix_value($fieldname . ':'), $keyword_split);
                                 }
-
-                                if (count($alternative_keywords) > 0) {
-                                    // Multiple alternative keywords
-                                    $alternative_keywords_sql = new PreparedStatementQuery();
-                                    $alternative_keywords_sql->sql = " OR nk[union_index].keyword IN (" . ps_param_insert(count($alternative_keywords)) . ")";
-                                    $alternative_keywords_sql->parameters = ps_param_fill($alternative_keywords, "i");
-                                    debug("do_search(): \$alternative_keywords_sql = {$alternative_keywords_sql->sql}, parameters = " . implode(",", $alternative_keywords_sql->parameters));
-                                }
-                            } elseif (strpos($keyword, "*") === false && preg_match('/\\s/', $search) !== 1) {
-                                // Check keyword for defined separators and if found each part of the value is added as a keyword for checking. Not for wildcards with no spaces
-                                $contains_separators = false;
-                                foreach ($config_separators as $separator) {
-                                    if (strpos($keyword, $separator) !== false) {
-                                        $contains_separators = true;
-                                    }
-                                }
-                                if ($contains_separators === true) {
-                                    $keyword_split = split_keywords($keyword);
-
-                                    if ($field_short_name_specified) {
-                                        $keyword_split = array_map(prefix_value($fieldname . ":"), $keyword_split);
-                                    }
-                                    $keywords = array_merge($keywords, $keyword_split);
-                                    continue;
-                                }
+                                $keywords = array_merge($keywords, $keyword_split);
+                                continue 2;
                             }
                         }
                     }
@@ -434,31 +412,33 @@ if ($keysearch) {
                         //                                                                  Found wildcards
                         // ********************************************************************************
 
-                        // Multiple alternative keywords
-                        $alternative_keywords_sql = new PreparedStatementQuery();
-                        $alternative_keywords = array();
+                        $alternative_keywords = [];
                         if ($keywords_expanded_or) {
                             foreach ($keywords_expanded as $keyword_expanded) {
-                                $alternative_keyword_keyref = resolve_keyword($keyword_expanded, false, true, true);
-
-                                if ($alternative_keyword_keyref === false) {
-                                    continue;
+                                $stem_ref = resolve_keyword($keyword_expanded, false, true, true);
+                                if ($stem_ref !== false) {
+                                    $alternative_keywords[] = $stem_ref;
                                 }
-
-                                $alternative_keywords[] = $alternative_keyword_keyref;
-                            }
-
-                            if (count($alternative_keywords) > 0) {
-                                $alternative_keywords_sql->sql = " OR nk[union_index].keyword IN (" . ps_param_insert(count($alternative_keywords)) . ")";
-                                $alternative_keywords_sql->parameters = ps_param_fill($alternative_keywords, "i");
-                                debug("do_search(): \$alternative_keywords_sql = {$alternative_keywords_sql->sql}, parameters = " . implode(",", $alternative_keywords_sql->parameters));
+                                if ($stemming) {
+                                    $word_ref = resolve_keyword($keyword_expanded, false, true, false);
+                                    if ($word_ref !== false && $word_ref !== $stem_ref) {
+                                        $alternative_keywords[] = $word_ref;
+                                    }
+                                }
                             }
                         }
 
                         if ($keyref === false) {
                             # make a new keyword
-                            $keyref = resolve_keyword(str_replace('*', '', $keyword), true, true, false);
+                            $keyref = resolve_keyword($lookup, true, true, false);
                         }
+                        $keyword_refs = array_merge([$keyref], $alternative_keywords);
+                        if ($original_keyref !== false) {
+                            $keyword_refs[] = $original_keyref;
+                        }
+                        $keyword_refs = array_unique($keyword_refs);
+                        $keyword_placeholders = ps_param_insert(count($keyword_refs));
+                        $keyword_params = ps_param_fill($keyword_refs, 'i');
                         # Key match, add to query.
                         $c++;
 
@@ -466,9 +446,8 @@ if ($keysearch) {
 
                         # Add related keywords
                         $related = get_related_keywords($keyref);
-                        if ($stemming) {
+                        if ($stemming && function_exists('GetStem')) {
                             # Need to ensure we include related keywords for original string
-                            $original_keyref = resolve_keyword(str_replace('*', '', $keyword), false, true, false);
                             if ($original_keyref && $original_keyref !== $keyref) {
                                 $original_related = get_related_keywords($original_keyref);
                                 if (count($original_related) > 0) {
@@ -476,7 +455,7 @@ if ($keysearch) {
 
                                     $extra_related = array();
                                     foreach ($original_related_kws as $orig_related_kw) {
-                                        $extrakeyword = GetStem(trim($orig_related_kw));
+                                        $extrakeyword = GetStem(mb_strtolower(trim($orig_related_kw), 'UTF-8'));
                                         $extra_related[] = resolve_keyword($extrakeyword, true, false, false);
                                     }
                                     $related = array_merge($related, $extra_related);
@@ -507,8 +486,8 @@ if ($keysearch) {
                             // ----- check that keyword does not exist via resource_node->node_keyword relationship -----
 
                             $sql_filter->sql .= "`r`.`ref` NOT IN (SELECT `resource` FROM `resource_node` JOIN `node_keyword` ON `resource_node`.`node`=`node_keyword`.`node`" .
-                                " WHERE `resource_node`.`resource`=`r`.`ref` AND `node_keyword`.`keyword` = ?)";
-                            array_push($sql_filter->parameters, "i", $keyref);
+                                " WHERE `resource_node`.`resource`=`r`.`ref` AND `node_keyword`.`keyword` IN ($keyword_placeholders))";
+                            $sql_filter->parameters = array_merge($sql_filter->parameters, $keyword_params);
                         } else # Include in query
                             {
                             // --------------------------------------------------------------------------------
@@ -649,7 +628,8 @@ if ($keysearch) {
                                     $stop_words = ps_array($stop_words_query->sql, $stop_words_query->parameters);
                                 }
                                 if (
-                                    substr($keyword, 0, 1) != "*"
+                                    !$literal_alternatives
+                                    && substr($keyword, 0, 1) != "*"
                                     && strlen(trim($keyword, '*')) >= 3
                                     && preg_match('/[-+@<>().;]/', $keyword) !== 1
                                     && empty($stop_words)
@@ -669,7 +649,8 @@ if ($keysearch) {
                                         ($non_field_keyword_sql->sql != "" ? $non_field_keyword_sql->sql : "");
                                     $keyword = "+" . $keyword;
                                 } elseif (
-                                    preg_match('/\W/', str_replace("*", "", $keyword)) !== 1
+                                    !$literal_alternatives
+                                    && preg_match('/\W/', str_replace("*", "", $keyword)) !== 1
                                 ) {
                                     // Use a LIKE search, unless there is any whitespace
                                     $keyword = str_replace("*", "%", $keyword);
@@ -783,15 +764,17 @@ if ($keysearch) {
                                                         WHERE rn[union_index].node IN
                                                             (SELECT node
                                                                 FROM `node_keyword` nk[union_index]
-                                                                WHERE ((nk[union_index].keyword = ? " . $relatedsql->sql . ") " .  $union_restriction_clause->sql . ")" .
-                                                            ($alternative_keywords_sql->sql != "" ? ($alternative_keywords_sql->sql . $union_restriction_clause->sql) : "" ) .
+                                                                WHERE ((nk[union_index].keyword IN ($keyword_placeholders) "
+                                                                    . $relatedsql->sql . ") "
+                                                                    . $union_restriction_clause->sql . ")" .
                                             ") GROUP BY resource " .
                                                 ($non_field_keyword_sql->sql != "" ? $non_field_keyword_sql->sql : "") ;
 
-                                $union->parameters = array_merge(["i",$keyref], $relatedsql->parameters, $union_restriction_clause->parameters);
-                                if ($alternative_keywords_sql->sql != "") {
-                                    $union->parameters = array_merge($union->parameters, $alternative_keywords_sql->parameters, $union_restriction_clause->parameters);
-                                }
+                                $union->parameters = array_merge(
+                                    $keyword_params,
+                                    $relatedsql->parameters,
+                                    $union_restriction_clause->parameters
+                                );
                                 if ($non_field_keyword_sql->sql != "") {
                                     $union->parameters = array_merge($union->parameters, $non_field_keyword_sql->parameters);
                                 }

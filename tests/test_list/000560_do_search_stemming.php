@@ -41,4 +41,43 @@ if (count($results) != $dancecount + 1 || !isset($results[0]['ref']) || $results
     return false;
 }
 
-$stemming = false;
+$subject_resource = create_resource(1, 0);
+$caption_resource = create_resource(1, 0);
+$uppercase_node = set_node(null, 73, 'Stemming test option', '', 1000);
+try {
+    // The shipped Animal option has only the original keyword in the index.
+    add_resource_nodes($subject_resource, [255]);
+    update_field($caption_resource, 18, 'Animal');
+
+    $fixtures = [$subject_resource, $caption_resource];
+    foreach ([
+        'animal' => $fixtures,
+        'Animal' => $fixtures,
+        'ANIMAL' => $fixtures,
+        'Animal;missingstemmingtestword' => $fixtures,
+        'caption:Animal' => [$caption_resource],
+        '-Animal' => [],
+    ] as $query => $expected) {
+        $results = do_search($query);
+        if (!is_array($results) || !match_values(array_intersect($fixtures, array_column($results, 'ref')), $expected)) {
+            echo "Unexpected stemming search results for {$query}\n";
+            return false;
+        }
+    }
+
+    // Whole-field and verbatim indexing can pass an uppercase keyword directly.
+    add_node_keyword($uppercase_node, 'DANCING', 0);
+    $indexed_keywords = ps_array(
+        'SELECT k.keyword AS value FROM node_keyword nk JOIN keyword k ON k.ref = nk.keyword WHERE nk.node = ?',
+        ['i', $uppercase_node]
+    );
+    if (array_diff(['danc', 'dancing'], $indexed_keywords) !== []) {
+        echo "Expected uppercase indexing to add both the stem and the original keyword\n";
+        return false;
+    }
+} finally {
+    delete_resource($subject_resource);
+    delete_resource($caption_resource);
+    delete_node($uppercase_node);
+    $stemming = false;
+}

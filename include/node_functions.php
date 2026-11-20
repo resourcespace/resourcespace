@@ -968,10 +968,11 @@ function add_node_keyword($node, $keyword, $position, $normalize = true, $stem =
 
     debug("add_node_keyword: node:" . $node . ", keyword: " . $keyword . ", position: " . $position . ", normalize:" . ($normalize ? "TRUE" : "FALSE") . ", stem:" . ($stem ? "TRUE" : "FALSE"));
 
-     $unstemmed = $keyword;
+    $unstemmed = $keyword;
     if ($stem && $stemming && function_exists("GetStem")) {
-        $keyword = GetStem($keyword);
-        if ($keyword != $unstemmed) {
+        $lowercase_keyword = mb_strtolower($keyword, 'UTF-8');
+        $keyword = GetStem($lowercase_keyword);
+        if ($keyword !== $lowercase_keyword) {
             // $keyword has been changed by stemming, also index the original value
             debug("add_node_keyword - adding unstemmed: " . $unstemmed);
             add_node_keyword($node, $unstemmed, $position, $normalize, false);

@@ -1,0 +1,9 @@
+Stores single-use codes that a destination can exchange for a user's API session signing key. Codes expire after 120 seconds. A successful exchange removes the record.
+code_hash,varchar(64),SHA-256 hash of the code sent to the destination.
+user,int(11),Reference to the user who approved the exchange.
+system,varchar(100),Configuration key identifying the destination that can redeem the code.
+redirect_uri,text,Exact callback URL the destination must supply when redeeming the code.
+code_challenge,varchar(43),Unpadded base64url encoding of the SHA-256 hash of the destination's PKCE verifier.
+key_hash,varchar(64),SHA-256 hash of the user's API session signing key at issuance. A change to the key prevents redemption.
+querydata,text,JSON array of user identity field names approved for release to the destination.
+expires,int(11),Unix timestamp in seconds at which the code expires.

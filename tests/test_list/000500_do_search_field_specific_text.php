@@ -215,7 +215,7 @@ try {
             }
             $or_values = ['foxes', '12.34', 'C++', '.alpha', 'alpha.', "ABC\u{00E9}DEF.123",
                 'ABC.DEF.123', '.alphax', 'xalpha.', '123x456', '123.4567',
-                'the', 'the.123', 'the 123', 'reviewignored', 'reviewignored.123', 'www'];
+                'the', 'the.123', 'the 123', 'reviewignored', 'reviewignored.123', 'www', 'ABC/DEF', 'ABC DEF'];
             $or_resources = [];
             foreach ($or_values as $or_value) {
                 $or_resource = create_resource(1, 0);
@@ -246,6 +246,8 @@ try {
                 ['reviewignored;12.34', [1]],
                 ['reviewignored.123;missing', [15]],
                 ['www;12.34', [1, 16]],
+                ['ABC/DEF;the', [17]],
+                ['ABC/DEF;', [17]],
             ];
             foreach ($or_cases as [$or_query, $or_expected_indexes]) {
                 $or_expected = array_map(static fn($index) => $or_resources[$index], $or_expected_indexes);

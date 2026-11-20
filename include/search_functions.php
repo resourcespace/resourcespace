@@ -2301,6 +2301,7 @@ function resolve_keyword($keyword, $create = false, $normalize = true, $stem = t
     // Create a cache to ensure we find new nodes subsequently if in a transaction
     global $resolve_keyword_cache;
     global $quoted_string, $stemming;
+    $stem = $stem && $stemming && function_exists('GetStem');
     $kwhash = md5($keyword) . md5("!" . $keyword . ($normalize ? "NORM" : "") . ($stem ? "STEM" : ""));
     if (isset($resolve_keyword_cache[$kwhash])) {
         return $resolve_keyword_cache[$kwhash];
@@ -2315,8 +2316,8 @@ function resolve_keyword($keyword, $create = false, $normalize = true, $stem = t
     # Stemming support. If enabled and a stemmer is available for the current language, index the stem of the keyword not the keyword itself.
     # This means plural/singular (and other) forms of a word are treated as equivalents.
 
-    if ($stem && $stemming && function_exists("GetStem")) {
-        $keyword = GetStem($keyword);
+    if ($stem) {
+        $keyword = GetStem(mb_strtolower($keyword, 'UTF-8'));
     }
 
     $return = ps_value("SELECT ref value FROM keyword WHERE keyword = ?", array("s",trim($keyword)), 0, "keyword");
