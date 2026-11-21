@@ -1,6 +1,7 @@
 <?php
 
 
-$lang["custom_filename_configuration"] = 'Cấu hình plugin Tên tệp tùy chỉnh';
-$lang["custom_filename_field_label"] = 'Giá trị mới sẽ được lưu ở đâu?';
-$lang["page-title_custom_filename_setup"] = 'Cài đặt Plugin Tên Tập Tin Tùy Chỉnh';
+$lang["custom_filename_configuration"] = 'Cß║Ñu h├¼nh plugin T├¬n tß╗çp t├╣y chß╗ënh';
+$lang["custom_filename_field_label"] = 'Gi├í trß╗ï mß╗øi sß║¢ ─æã░ß╗úc lã░u ß╗ƒ ─æ├óu?';
+$lang["custom_filename_keep_extension"] = 'Giß╗» phß║ºn mß╗ƒ rß╗Öng tß╗çp';
+$lang["page-title_custom_filename_setup"] = 'C├ái ─æß║Àt Plugin T├¬n Tß║¡p Tin T├╣y Chß╗ënh';
