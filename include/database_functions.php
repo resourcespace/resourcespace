@@ -67,7 +67,9 @@ function errorhandler($errno, $errstr, $errfile, $errline)
 {
     global $baseurl, $pagename, $show_report_bug_link, $show_error_messages,$show_detailed_errors, $use_error_exception,$log_error_messages_url, $username, $plugins;
 
-    $suppress = !(error_reporting() && ($errno & $GLOBALS["config_error_reporting"]));
+    // Suppress this error if either reporting mask excludes its severity. From PHP 8, @ suppresses warnings without
+    // making error_reporting() zero.
+    $suppress = !(error_reporting() & $errno & $GLOBALS["config_error_reporting"]);
 
     if (strlen($errstr) > 1024) {
         // MySQL errors may be very long. Trim the middle

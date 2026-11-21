@@ -51,12 +51,15 @@
         "three": "0.185.1"
     },
     "scripts": {
+        "browser:install": "playwright install chromium",
+        "browser:install:ci": "playwright install --with-deps chromium",
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev:bump_cache_busting_version": "node js/build_bump_cache_busting_version.js",
         "build:dependencies": "node js/build_js_dependencies.js && node js/build_bump_cache_busting_version.js",
         "postinstall": "pnpm run build:dependencies"
     },
     "devDependencies": {
-        "esbuild": "0.28.2"
+        "esbuild": "0.28.2",
+        "playwright": "^1.59.1"
     }
 }

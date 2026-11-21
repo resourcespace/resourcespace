@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="tests/bootstrap.php"
+    colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./plugins/*/tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">./tests/Integration</directory>
+            <directory suffix="Test.php">./plugins/*/tests/Integration</directory>
+        </testsuite>
+        <testsuite name="Browser">
+            <directory suffix="Test.php">./tests/Browser</directory>
+            <directory suffix="Test.php">./plugins/*/tests/Browser</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>include</directory>
+            <directory>src</directory>
+        </include>
+    </source>
+    <php>
+        <env name="RS_TEST_MODE" value="1"/>
+    </php>
+</phpunit>

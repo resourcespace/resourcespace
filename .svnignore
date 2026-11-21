@@ -3,3 +3,5 @@ node_modules
 .pnpm-store
 .vscode
 *.code-workspace
+tests/Browser/Screenshots
+tests/.runtime

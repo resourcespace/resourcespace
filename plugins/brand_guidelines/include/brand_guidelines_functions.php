@@ -171,16 +171,44 @@ function save_page_content(int $ref, array $item)
  * - move up/down outside group boundaries to take an item out of a group;
  * @param string $reorder The move direction (up/down only). Note that moving left/right <=> up/down.
  * @param array $init_page_content The page content {@see get_page_contents()} with the keys being each items' ref.
- * @param array $refs List of IDs to move. Multiple IDs means we move an entire group.
+ * @param array $refs List of IDs to move. An entire group moves together when all its members are selected.
  */
 function reorder_page_content(string $reorder, array $init_page_content, array $refs): bool
 {
     $direction_int = cast_reorder_direction_to_int($reorder);
-    $act_on_group = count($refs) > 1;
-    if ($act_on_group && $direction_int === 1) {
-        $refs = array_reverse($refs);
+    $init_page_content = array_filter(array_map(__NAMESPACE__ . '\decode_page_content_item', $init_page_content));
+
+    if (count($refs) > 1) {
+        $blocks = group_content_items($init_page_content);
+        foreach ($blocks as $index => $block) {
+            $member_refs = array_column($block['members'] ?? [], 'ref');
+            if (count($member_refs) !== count($refs) || array_diff($member_refs, $refs) !== []) {
+                continue;
+            }
+
+            $sibling_index = $index + $direction_int;
+            if (!isset($blocks[$sibling_index])) {
+                return true;
+            }
+
+            // Swap the two blocks and keep the items in each block in display order.
+            [$blocks[$index], $blocks[$sibling_index]] = [$blocks[$sibling_index], $block];
+            $ordered_items = [];
+            foreach ($blocks as $block) {
+                foreach ($block['members'] ?? [$block] as $item) {
+                    $item['order_by'] = count($ordered_items);
+                    $ordered_items[] = $item;
+                }
+            }
+            reorder_items('brand_guidelines_content', $ordered_items, null);
+            return true;
+        }
+
+        if ($direction_int === 1) {
+            $refs = array_reverse($refs);
+        }
     }
-    $group_items_jump = 0;
+
     $get_sibling = static function (int $needle, array $items) use ($direction_int) {
         $keys = array_keys($items);
         return $items[$keys[array_search($needle, $keys) + $direction_int] ?? -1] ?? [];
@@ -206,7 +234,6 @@ function reorder_page_content(string $reorder, array $init_page_content, array $
         }
         return [];
     };
-    $init_page_content = array_filter(array_map(__NAMESPACE__ . '\decode_page_content_item', $init_page_content));
     $done = false;
 
     foreach ($refs as $ref) {
@@ -216,10 +243,6 @@ function reorder_page_content(string $reorder, array $init_page_content, array $
 
         $page_contents_db ??= $init_page_content;
         $page_contents_grouped = group_content_items($page_contents_db);
-        $applicable_group = array_filter($page_contents_grouped, is_group_member($ref, $page_contents_db));
-        $applicable_group_members = (reset($applicable_group) ?: [])['members'] ?? [];
-        $list_of_applicable_members = array_column($applicable_group_members, 'ref');
-        sort($list_of_applicable_members, SORT_NUMERIC);
         $closest_sibling = $closest_item($ref, $page_contents_grouped);
 
         if ($closest_sibling === []) {
@@ -230,20 +253,6 @@ function reorder_page_content(string $reorder, array $init_page_content, array $
             $items_to_sort = array_replace(
                 $page_contents_db,
                 [$ref => compute_item_order($page_contents_db[$ref], $reorder, count($closest_sibling['members']))]
-            );
-        } elseif (
-            $act_on_group
-            && $list_of_applicable_members !== []
-            && $refs === $list_of_applicable_members
-        ) {
-            // Move up/down an entire group (one group item at a time)
-            if ($group_items_jump <= 0) {
-                $group_items_jump = count($list_of_applicable_members);
-            }
-
-            $items_to_sort = array_replace(
-                $page_contents_db,
-                [$ref => compute_item_order($page_contents_db[$ref], $reorder, $group_items_jump--)]
             );
         } else {
             // Move up/down (or the equivalent left/right, when item is within a group)

@@ -3,6 +3,63 @@
 use Montala\ResourceSpace\CommandPlaceholderArg;
 
 /**
+ * Append or clear test configuration overrides.
+ *
+ * The configuration is appended to the test environment configuration file in between its special markers. This can be
+ * used from hooks such as beforeAll() and from within individual tests. Can be called before ResourceSpace boots.
+ *
+ * Example:
+ *
+ * ```php
+ * beforeAll(fn() => setTestConfiguration(<<<'PHP'
+ *     $upload_then_edit = false;
+ * PHP));
+ *
+ * afterAll(fn() => setTestConfiguration(''));
+ * ```
+ *
+ * @param string $config PHP configuration to append, or an empty string to reset the block.
+ *
+ * @throws RuntimeException If the file cannot be read/written or its markers are invalid.
+ */
+function setTestConfiguration(string $config): void
+{
+    $config_path = __DIR__ . '/config.test.php';
+    if (!is_writable($config_path)) {
+        throw new RuntimeException('Test configuration file is not writable.');
+    }
+
+    $contents = file_get_contents($config_path);
+    if ($contents === false) {
+        throw new RuntimeException('Unable to read test configuration file.');
+    }
+
+    $start_marker = '// BEGIN PEST TEST CONFIGURATION';
+    $end_marker = '// END PEST TEST CONFIGURATION';
+    if (substr_count($contents, $start_marker) !== 1 || substr_count($contents, $end_marker) !== 1) {
+        throw new RuntimeException('Expected one pair of test configuration markers.');
+    }
+
+    $pattern = sprintf('/%s(.*?)%s/s', preg_quote($start_marker, '/'), preg_quote($end_marker, '/'));
+    if (preg_match($pattern, $contents, $matches) !== 1) {
+        throw new RuntimeException('Unable to locate the test configuration section.');
+    }
+
+    $config = trim($config);
+    $existing_config = trim($matches[1]);
+    if ($config !== '' && $existing_config !== '') {
+        $config = "{$existing_config}\n{$config}";
+    }
+
+    $replacement = $start_marker . ($config === '' ? '' : "\n{$config}") . "\n" . $end_marker;
+    // A callback preserves literal dollar signs and backslashes in PHP configuration.
+    $updated = preg_replace_callback($pattern, static fn () => $replacement, $contents);
+    if ($updated === null || file_put_contents($config_path, $updated, LOCK_EX) !== strlen($updated)) {
+        throw new RuntimeException('Unable to update test configuration file.');
+    }
+}
+
+/**
  * Generates a random JPEG image for a given resource with random background color and text.
  *
  * This function creates an image of specified dimensions with a random background color
@@ -124,7 +181,7 @@ function create_random_video(array $info): array
         // Create video file
         $path = get_temp_dir() . DIRECTORY_SEPARATOR . safe_file_name($filename) . ".{$extension}";
         $cmd_output = run_command(
-            "$ffmpeg -i testsrc=duration=%duration:size=%wx%h:rate=30 $cmd_vf %outfile",
+            "$ffmpeg -f lavfi -i testsrc=duration=%duration:size=%wx%h:rate=30 $cmd_vf %outfile",
             true,
             array_merge(
                 [

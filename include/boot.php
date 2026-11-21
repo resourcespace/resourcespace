@@ -81,6 +81,8 @@ if (!(file_exists(__DIR__ . "/config.php") && filesize(__DIR__ . "/config.php") 
 }
 include __DIR__ . "/config.php";
 
+// todo: drop this logic as part of migrating /tests/test_list/001590_api_logging.php to the new test framework - Pestphp
+// because we now have config.test for this exact reason. It's loaded a little later in this file, see below.
 // Allow automated HTTP tests to use isolated test configuration.
 if (defined("RS_TEST_MODE")) {
     if (isset($rs_test_mysql_db)) {
@@ -249,6 +251,11 @@ $storageurl ??= "{$baseurl}/filestore";
 // Reset prepared statement cache before reconnecting
 unset($prepared_statement_cache);
 sql_connect();
+
+// Load the test environment configuration (must be after sql_connect or you'll get Unknown database 'rs_test_db')
+if (getenv('RS_TEST_MODE') === '1') {
+    include __DIR__ . '/config.test.php';
+}
 
 // Set system to read only mode
 if (isset($system_read_only) && $system_read_only) {
@@ -528,6 +535,10 @@ if (!empty($batch_replace_local_folder)) {
 }
 if (isset($tempdir)) {
     $valid_upload_paths[] = $tempdir;
+}
+
+if (getenv('RS_TEST_MODE') === '1' && $query_cache_enabled) {
+    error_log('[WARN] Configuration option "query_cache_enabled" is enabled! Please ensure it\'s disabled for test purposes');
 }
 
 // Set internal character encoding to UTF-8

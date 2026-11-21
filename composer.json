@@ -26,7 +26,9 @@
     "require-dev": {
         "phpstan/phpstan": "^1.8",
         "rector/rector": "^1.0",
-        "roave/security-advisories": "dev-latest"
+        "roave/security-advisories": "dev-latest",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-browser": "^4.3"
     },
     "autoload": {
         "psr-4": {
@@ -35,6 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Montala\\ResourceSpace\\Tests\\": "tests",
             "Montala\\ResourceSpace\\Utils\\Rector\\": "include"
         }
     },
@@ -80,16 +83,35 @@
             "echo Building ResourceSpace release",
             "sh -c '[ -z \"$(svn diff)\" ] || (echo \"[WARN] Working copy has changes! Please address those first!\" && exit 1)'",
             "svn update",
-            "@composer check-platform-reqs --no-interaction --no-cache --no-dev",
+            "@composer check-platform-reqs --no-interaction --no-cache --lock --no-dev",
             "@composer install --no-interaction --no-dev --optimize-autoloader --classmap-authoritative",
-            "@composer update --dry-run roave/security-advisories",
-            "@composer audit",
+            "@composer audit --no-dev",
             "@build:applyDownstreamChanges",
             "rm -rf vendor/axiell/imu-api-php/.git/",
             "svn add --no-ignore --force vendor/",
-            "svn rm .svnignore phpcs.xml.dist phpstan-baseline.neon phpstan.neon.dist rector.php tests/ js/build_js_dependencies.js js/build_bump_cache_busting_version.js",
+            "svn rm .svnignore phpcs.xml.dist phpstan-baseline.neon phpstan.neon.dist rector.php include/config.test.php tests/ js/build_js_dependencies.js js/build_bump_cache_busting_version.js",
+            "sh -c 'for plugin_tests in plugins/*/tests; do if [ -d \"$plugin_tests\" ]; then svn rm --force \"$plugin_tests\" || exit $?; fi; done'",
             "echo Release build completed!",
             "svn status --depth=immediates"
+        ],
+        "test:env:provision": "@php tests/Support/provision-resourcespace-test-env.php",
+        "test:env:cleanup": "@php tests/Support/cleanup-resourcespace-test-env.php",
+        "test:unit": "pest --testsuite=Unit",
+        "test:integration": [
+            "@test:env:provision",
+            "@putenv RS_TEST_MODE=1",
+            "@php -d auto_prepend_file=tests/Support/bootstrap-resourcespace-test-env.php vendor/bin/pest --testsuite=Integration",
+            "@test:env:cleanup",
+            "@putenv RS_TEST_MODE"
+        ],
+        "test:browser": [
+            "Composer\\Config::disableProcessTimeout",
+            "bash tests/Support/browser-test-runner.sh"
+        ],
+        "test:full": [
+            "@test:unit",
+            "@test:integration",
+            "@test:browser"
         ]
     },
     "scripts-descriptions": {
@@ -104,5 +126,10 @@
         "forum": "https://groups.google.com/g/resourcespace",
         "issues": "https://www.resourcespace.com/bug_report",
         "security": "https://www.resourcespace.com/bug_report"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }

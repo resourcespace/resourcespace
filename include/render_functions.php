@@ -6247,7 +6247,8 @@ function render_antispam_question()
     shuffle($rndword);
     $timestamp=time();
     $rndwordarray=  array_slice ($rndword , 0,6);
-    $rndcode= hash("SHA256",implode("",$rndwordarray) .  $scramble_key . $timestamp);
+    $code = implode('', $rndwordarray);
+    $rndcode= hash("SHA256", $code .  $scramble_key . $timestamp);
     $height = 50; //CAPTCHA image height
     $width = 160; //CAPTCHA image width
     $font_size = 25; //CAPTCHA Font size
@@ -6276,6 +6277,8 @@ function render_antispam_question()
     imagegif($capimage);
     $imagedata = ob_get_contents();
     ob_end_clean();
+
+    $test_env_data_code = defined('RS_TEST_MODE') ? sprintf('data-test-antispam-code="%s"', escape($code)) : '';
     ?>
     <div class="field-input">
         <input type="hidden" name="antispamcode" value="<?php echo $rndcode; ?>">
@@ -6293,7 +6296,7 @@ function render_antispam_question()
                 display: inline-block;
         ">
         </div>
-        <input type="text" name="antispam_user_code" value="">
+        <input type="text" name="antispam_user_code" value="" <?php echo $test_env_data_code; ?>>
         <input type=text name="antispam" id="antispam" value="" required>     
     </div>
     <?php

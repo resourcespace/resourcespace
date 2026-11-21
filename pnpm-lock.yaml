@@ -117,6 +117,9 @@ importers:
       esbuild:
         specifier: 0.28.2
         version: 0.28.2
+      playwright:
+        specifier: ^1.59.1
+        version: 1.62.1
 
 packages:
 
@@ -535,6 +538,7 @@ packages:
   '@xmldom/xmldom@0.8.13':
     resolution: {integrity: sha512-KRYzxepc14G/CEpEGc3Yn+JKaAeT63smlDr+vjB8jRfgTBBI9wRj/nkQEO+ucV8p8I9bfKLWp37uHgFrbntPvw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   Leaflet.StyledLayerControl@https://codeload.github.com/davicustodio/Leaflet.StyledLayerControl/tar.gz/4cf339decb09f8e5b8091cfa1e263caa76fc3045:
     resolution: {tarball: https://codeload.github.com/davicustodio/Leaflet.StyledLayerControl/tar.gz/4cf339decb09f8e5b8091cfa1e263caa76fc3045}
@@ -608,6 +612,11 @@ packages:
 
   exifr@7.1.3:
     resolution: {integrity: sha512-g/aje2noHivrRSLbAUtBPWFbxKdKhgj/xr1vATDdUXPOFYJlQ62Ft0oy+72V6XLIpDJfHs6gXLbBLAolqOXYRw==}
+
+  fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
 
   get-form-data@3.0.0:
     resolution: {integrity: sha512-1d53Kn08wlPuLu31/boF1tW2WRYKw3xAWae3mqcjqpDjoqVBtXolbQnudbbEFyFWL7+2SLGRAFdotxNY06V7MA==}
@@ -694,6 +703,7 @@ packages:
 
   lightbox2@2.11.5:
     resolution: {integrity: sha512-IsDqv/D9pjgh7GvwTNvmHF98+nrIcOD17fraXgtx8ivq469y95l5ycLi6SeZAZHdeyD3cGLjYwbDX8SRfWx5fA==}
+    deprecated: 'Lightbox2 is in maintenance mode. Lightbox3 is available: https://lokeshdhakar.com/projects/lightbox3/'
 
   lodash._baseiteratee@4.7.0:
     resolution: {integrity: sha512-nqB9M+wITz0BX/Q2xg6fQ8mLkyfF7MU7eE+MNBNjTHFKeKaZAPEzEg+E8LWxKWf1DQVflNEn9N49yAuqKh2mWQ==}
@@ -768,6 +778,16 @@ packages:
 
   pkcs7@1.0.4:
     resolution: {integrity: sha512-afRERtHn54AlwaF2/+LFszyAANTCggGilmcmILUzEjvs3XgFZT+xE6+QWQcAGmu4xajy+Xtj7acLOPdx5/eXWQ==}
+    hasBin: true
+
+  playwright-core@1.62.1:
+    resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
+    engines: {node: '>=20'}
+    hasBin: true
+
+  playwright@1.62.1:
+    resolution: {integrity: sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg==}
+    engines: {node: '>=20'}
     hasBin: true
 
   preact@10.29.8:
@@ -1458,6 +1478,9 @@ snapshots:
 
   exifr@7.1.3: {}
 
+  fsevents@2.3.2:
+    optional: true
+
   get-form-data@3.0.0: {}
 
   global@4.4.0:
@@ -1606,6 +1629,14 @@ snapshots:
   pkcs7@1.0.4:
     dependencies:
       '@babel/runtime': 7.28.6
+
+  playwright-core@1.62.1: {}
+
+  playwright@1.62.1:
+    dependencies:
+      playwright-core: 1.62.1
+    optionalDependencies:
+      fsevents: 2.3.2
 
   preact@10.29.8: {}
 

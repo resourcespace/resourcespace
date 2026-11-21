@@ -1,5 +1,6 @@
 <?php
 
+// todo: as part of migrating this to the new test framework - Pestphp - find the todo in boot.php and drop the associated logic
 command_line_only();
 
 include_once dirname(__DIR__, 2) . '/include/api_functions.php';
