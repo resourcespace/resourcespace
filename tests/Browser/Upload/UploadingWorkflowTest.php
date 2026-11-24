@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\EditPage;
 use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
 
@@ -18,6 +19,7 @@ afterAll(function () {
 });
 
 test('general users can upload resources via Contributions and submit them for review', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $test_id = $GLOBALS['shared_test_id'];
     $username = "test-{$test_id}";
     $gen_user = new_user($username, 2);
@@ -50,6 +52,7 @@ test('general users can upload resources via Contributions and submit them for r
 });
 
 test('admins can review pending resources and change their status using the Edit page and workflow actions', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $test_id = $GLOBALS['shared_test_id'];
     $resource_title = "UploadWorkflow - {$test_id}";
     $resource = $this->expectResourceIdByNodeName($resource_title);

@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+// PHPUnit loads this file from a method. Keep the definition tables available to the helpers under test.
+global $mime_types_by_extension, $permitted_html_tags, $permitted_html_attributes;
+
 include_once dirname(__DIR__) . '/include/definitions.php';
 
 // Load only files that define constants or functions.

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Montala\ResourceSpace\Tests\Support\Browser;
 
+use Pest\Browser\Playwright\Playwright;
+
 /**
  * Browser interactions for managing a resource's alternative files.
  */
@@ -17,10 +19,7 @@ final class AlternativeFilesPage extends BrowserPage
      */
     public function manage(int $resource): self
     {
-        $origin = $this->page->script('window.location.origin');
-        $this->page->navigate(generateURL("{$origin}/pages/alternative_files.php", ['ref' => $resource]));
-
-        return $this->waitForAjax()->assertPresent('#altlistitems');
+        return $this->openResourcePage('alternative_files.php', $resource, '#altlistitems');
     }
 
     /**
@@ -31,10 +30,36 @@ final class AlternativeFilesPage extends BrowserPage
      */
     public function view(int $resource): self
     {
-        $origin = $this->page->script('window.location.origin');
-        $this->page->navigate(generateURL("{$origin}/pages/view.php", ['ref' => $resource]));
+        return $this->openResourcePage('view.php', $resource, '#ResourceDownloadOptions');
+    }
 
-        return $this->waitForAjax()->assertPresent('#ResourceDownloadOptions');
+    /**
+     * Navigate once and wait for the page markup before checking the expected controls.
+     *
+     * @param string $filename ResourceSpace page filename.
+     * @param int $resource Resource reference.
+     * @param string $selector Expected element on the destination page.
+     * @return self The current browser wrapper.
+     */
+    private function openResourcePage(string $filename, int $resource, string $selector): self
+    {
+        $origin = $this->page->script('window.location.origin');
+        $url = generateURL("{$origin}/pages/{$filename}", ['ref' => $resource]);
+        $this->page->page()->goto($url, ['waitUntil' => 'domcontentloaded', 'timeout' => 15_000]);
+
+        return $this->waitForAjax()->assertPresent($selector);
+    }
+
+    /**
+     * Reload the current document once so persistence checks exercise a real refresh.
+     *
+     * @return self The current browser wrapper.
+     */
+    public function refresh(): self
+    {
+        Playwright::usingTimeout(15_000, fn () => $this->page->page()->reload());
+
+        return $this;
     }
 
     /**

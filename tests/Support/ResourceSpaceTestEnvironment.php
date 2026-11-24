@@ -6,7 +6,7 @@ use RuntimeException;
 
 final class ResourceSpaceTestEnvironment
 {
-    public const string DATABASE_NAME = 'rs_test_db';
+    public const DATABASE_NAME = 'rs_test_db';
 
     private static bool $started = false;
 

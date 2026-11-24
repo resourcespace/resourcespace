@@ -2,17 +2,15 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
+
 test('user can log in', function (): void {
-    visit($this->browserUrl('/login.php'))
-        ->fill('username', 'admin')
-        ->fill('password', 'admin123')
-        ->submit()
-        ->assertPathIs('/pages/home.php')
-        ->assertNotPresent('.error-panel-details')
-        ->assertSee('ResourceSpace');
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $this->loginAsAdmin();
 });
 
 test('ensure required fields and anti-spam input need to be filled on "Apply for an account"', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = visit($this->browserUrl('/login.php'))
         // Login has the "Apply for an account" shown
         ->assertVisible('#account_apply')

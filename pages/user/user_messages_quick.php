@@ -135,8 +135,7 @@ message_get($messages, $userref, true, true, "DESC", "created", 10);
                     $el = jQuery('<div/>')
                             .attr('id', domId)
                             .attr('onclick', 'show_quick_message(' + m.id + ',' + m.message_ref + ',' + m.reply + ')')
-                            .addClass('message')
-                            .hide();
+                            .addClass('message');
                     $el.append(jQuery('<div class="message-icon">'));
 
                     if (m.user) {
@@ -160,8 +159,6 @@ message_get($messages, $userref, true, true, "DESC", "created", 10);
                     $el.data('ckey', contentKeyOf(m));
 
                     list.prepend($el);
-
-                    $el.fadeIn(250);
 
                 } else {
                     // Existing message

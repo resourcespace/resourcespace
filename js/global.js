@@ -984,7 +984,7 @@ function ModalClose()
 {
     if (jQuery('#modal').data('load-request')) { CentralSpaceHideProcessing(); }
     jQuery('#modal').removeData('load-request').removeClass('modal-loading-full').removeAttr('aria-busy');
-    jQuery('#modal_overlay').stop(true, true).fadeOut('fast');
+    jQuery('#modal_overlay').stop(true, true).hide();
     jQuery('#modal').stop(true, true).hide();
     jQuery('#modal').html('');
     jQuery('.toastify').hide();

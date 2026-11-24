@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
+
 test('search filter panel can be opened and closed', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $this
         ->loginAsAdmin()
         ->click('.header-search-field .input-wrapper > button:last-of-type')

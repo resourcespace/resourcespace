@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
+
 test('installation Check page (system menu) reads all OK', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $this
         ->loginAsAdmin()
         ->click('#header-container .actions .get-menu-content:first-of-type')

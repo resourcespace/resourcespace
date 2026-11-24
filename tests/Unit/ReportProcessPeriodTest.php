@@ -1,20 +1,30 @@
 <?php
 
-command_line_only();
+declare(strict_types=1);
 
-// --- Set up
-include_once dirname(__DIR__, 2) . '/include/reporting_functions.php';
-$reporting_periods_default = [3, 5, 7];
+require_once dirname(__DIR__, 2) . '/include/reporting_functions.php';
 
+$saved_report_periods = [];
+beforeEach(function () use (&$saved_report_periods): void {
+    $saved_report_periods = array_intersect_key($GLOBALS, ['reporting_periods_default' => true]);
+    $GLOBALS['reporting_periods_default'] = [3, 5, 7];
+});
 
+afterEach(function () use (&$saved_report_periods): void {
+    unset($GLOBALS['reporting_periods_default']);
+    foreach ($saved_report_periods as $name => $value) {
+        $GLOBALS[$name] = $value;
+    }
+});
 
-$use_cases = [
-    [
-        'name' => 'Invalid period provided should fallback to the first default value',
-        'input' => [
+it('calculates the report date range', function (array $input, array $expected): void {
+    expect(report_process_period($input))->toBe($expected);
+})->with([
+    'Invalid period provided should fallback to the first default value' => [
+        [
             'period' => 9999,
         ],
-        'expected' => [
+        [
             'from_year' => date('Y', time() - (60 * 60 * 24 * 3)),
             'from_month' => date('m', time() - (60 * 60 * 24 * 3)),
             'from_day' => date('d', time() - (60 * 60 * 24 * 3)),
@@ -23,12 +33,11 @@ $use_cases = [
             'to_day' => date('d'),
         ],
     ],
-    [
-        'name' => 'Predefined period (5 days)',
-        'input' => [
+    'Predefined period (5 days)' => [
+        [
             'period' => 5,
         ],
-        'expected' => [
+        [
             'from_year' => date('Y', time() - (60 * 60 * 24 * 5)),
             'from_month' => date('m', time() - (60 * 60 * 24 * 5)),
             'from_day' => date('d', time() - (60 * 60 * 24 * 5)),
@@ -37,13 +46,12 @@ $use_cases = [
             'to_day' => date('d'),
         ],
     ],
-    [
-        'name' => 'Specific number of days (2 days)',
-        'input' => [
+    'Specific number of days (2 days)' => [
+        [
             'period' => 0,
             'period_days' => '2',
         ],
-        'expected' => [
+        [
             'from_year' => date('Y', time() - (60 * 60 * 24 * 2)),
             'from_month' => date('m', time() - (60 * 60 * 24 * 2)),
             'from_day' => date('d', time() - (60 * 60 * 24 * 2)),
@@ -52,13 +60,12 @@ $use_cases = [
             'to_day' => date('d'),
         ],
     ],
-    [
-        'name' => 'Invalid specific number of days should fallback to 1 day',
-        'input' => [
+    'Invalid specific number of days should fallback to 1 day' => [
+        [
             'period' => 0,
             'period_days' => '',
         ],
-        'expected' => [
+        [
             'from_year' => date('Y', time() - (60 * 60 * 24)),
             'from_month' => date('m', time() - (60 * 60 * 24)),
             'from_day' => date('d', time() - (60 * 60 * 24)),
@@ -67,9 +74,8 @@ $use_cases = [
             'to_day' => date('d'),
         ],
     ],
-    [
-        'name' => 'Specific date range',
-        'input' => [
+    'Specific date range' => [
+        [
             'period' => -1,
             'from-y' => 2000,
             'from-m' => 03,
@@ -78,7 +84,7 @@ $use_cases = [
             'to-m' => 03,
             'to-d' => 16,
         ],
-        'expected' => [
+        [
             'from_year' => 2000,
             'from_month' => 3,
             'from_day' => 6,
@@ -87,9 +93,8 @@ $use_cases = [
             'to_day' => 16,
         ],
     ],
-    [
-        'name' => 'Specific date range supports numeric looking values',
-        'input' => [
+    'Specific date range supports numeric looking values' => [
+        [
             'period' => -1,
             'from-y' => '2026',
             'from-m' => 03,
@@ -98,7 +103,7 @@ $use_cases = [
             'to-m' => 03,
             'to-d' => 16,
         ],
-        'expected' => [
+        [
             'from_year' => 2026,
             'from_month' => 3,
             'from_day' => 6,
@@ -107,17 +112,4 @@ $use_cases = [
             'to_day' => 16,
         ],
     ],
-];
-foreach ($use_cases as $use_case) {
-    if ($use_case['expected'] !== report_process_period($use_case['input'])) {
-        echo "Use case: {$use_case['name']} - ";
-        return false;
-    }
-}
-
-
-
-// Tear down
-unset($use_cases);
-
-return true;
+]);

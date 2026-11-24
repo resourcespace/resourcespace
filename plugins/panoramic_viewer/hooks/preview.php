@@ -1,17 +1,20 @@
 <?php
 
 /**
- * Retain still previews for restricted panoramic video resources.
+ * Disable planar annotations for panoramic resources.
+ * Retain still previews for restricted panoramic videos.
  *
  * @return bool Whether the hook replaces the normal rendering.
  */
 function HookPanoramic_viewerPreviewFullpreviewresultnav()
 {
-    global $resource, $access, $ffmpeg_supported_extensions;
+    global $resource, $access, $ffmpeg_supported_extensions, $annotate_enabled;
 
     if (!panoramic_viewer_enabled($resource)) {
         return false;
     }
+    $annotate_enabled = false;
+
     if ($access != 0 && in_array($resource['file_extension'], $ffmpeg_supported_extensions)) {
         // Retain the ordinary still preview for restricted video resources.
         $resource['is_transcoding'] = 1;

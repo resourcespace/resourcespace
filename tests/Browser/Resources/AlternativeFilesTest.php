@@ -2,16 +2,28 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\AlternativeFilesPage;
 use Montala\ResourceSpace\Tests\Support\ResourceSpaceTestEnvironment;
 
+$alternative_fixture = new class () {
+    public int|false|null $resource = null;
+    public bool $restoreLightbox = false;
+    public ?array $previousUser = null;
+    public array $runtimeSettings = [];
+    public string $originalPath;
+    public string|false $originalHash;
+    public string $originalPreviewPath;
+    public string|false $originalPreviewHash;
+};
+
 include_once RESOURCESPACE_BASE_PATH . '/include/image_processing.php';
 
-beforeEach(function (): void {
-    $this->resource = null;
-    $this->restoreLightbox = false;
-    $this->previousUser = $GLOBALS['userdata'] ?? null;
-    $this->runtimeSettings = [];
+beforeEach(function () use ($alternative_fixture): void {
+    $alternative_fixture->resource = null;
+    $alternative_fixture->restoreLightbox = false;
+    $alternative_fixture->previousUser = $GLOBALS['userdata'] ?? null;
+    $alternative_fixture->runtimeSettings = [];
 
     // These fixtures require completed previews, rather than an external job worker.
     $settings = [
@@ -30,7 +42,7 @@ beforeEach(function (): void {
         ),
     ];
     foreach ($settings as $name => $value) {
-        $this->runtimeSettings[$name] = [array_key_exists($name, $GLOBALS), $GLOBALS[$name] ?? null];
+        $alternative_fixture->runtimeSettings[$name] = [array_key_exists($name, $GLOBALS), $GLOBALS[$name] ?? null];
         $GLOBALS[$name] = $value;
     }
 
@@ -49,43 +61,43 @@ beforeEach(function (): void {
     PHP);
 
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
-    $this->resource = create_resource(1, 0);
-    expect($this->resource)->toBeInt()->toBeGreaterThan(0);
+    $alternative_fixture->resource = create_resource(1, 0);
+    expect($alternative_fixture->resource)->toBeInt()->toBeGreaterThan(0);
     expect(upload_file(
-        $this->resource,
+        $alternative_fixture->resource,
         no_exif: true,
         file_path: testFixture('Images/image_1.jpg'),
         deletesource: false,
     ))->toBeTrue();
 
-    $this->originalPath = get_resource_path($this->resource, true, '', false, 'jpg');
-    $this->originalHash = hash_file('sha256', $this->originalPath);
-    $this->originalPreviewPath = get_resource_path($this->resource, true, 'pre', false, 'jpg');
-    expect($this->originalPreviewPath)->toBeFile();
-    $this->originalPreviewHash = hash_file('sha256', $this->originalPreviewPath);
-    expect($this->originalHash)->toBe(hash_file('sha256', testFixture('Images/image_1.jpg')));
+    $alternative_fixture->originalPath = get_resource_path($alternative_fixture->resource, true, '', false, 'jpg');
+    $alternative_fixture->originalHash = hash_file('sha256', $alternative_fixture->originalPath);
+    $alternative_fixture->originalPreviewPath = get_resource_path($alternative_fixture->resource, true, 'pre', false, 'jpg');
+    expect($alternative_fixture->originalPreviewPath)->toBeFile();
+    $alternative_fixture->originalPreviewHash = hash_file('sha256', $alternative_fixture->originalPreviewPath);
+    expect($alternative_fixture->originalHash)->toBe(hash_file('sha256', testFixture('Images/image_1.jpg')));
 });
 
-afterEach(function (): void {
+afterEach(function () use ($alternative_fixture): void {
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
     $deleted = true;
-    if (is_int($this->resource ?? null)) {
-        $deleted = delete_resource($this->resource);
+    if (is_int($alternative_fixture->resource ?? null)) {
+        $deleted = delete_resource($alternative_fixture->resource);
     }
     $restored_lightbox = true;
-    if ($this->restoreLightbox ?? false) {
+    if ($alternative_fixture->restoreLightbox ?? false) {
         $restored_lightbox = activate_plugin('lightbox_preview');
     }
     setTestConfiguration('');
-    foreach ($this->runtimeSettings ?? [] as $name => [$existed, $value]) {
+    foreach ($alternative_fixture->runtimeSettings ?? [] as $name => [$existed, $value]) {
         if ($existed) {
             $GLOBALS[$name] = $value;
         } else {
             unset($GLOBALS[$name]);
         }
     }
-    if (isset($this->previousUser)) {
-        setup_user($this->previousUser);
+    if (isset($alternative_fixture->previousUser)) {
+        setup_user($alternative_fixture->previousUser);
     }
     expect($deleted)
         ->toBeTrue('Unable to remove the alternative-file test resource.')
@@ -93,32 +105,34 @@ afterEach(function (): void {
         ->toBeTrue('Unable to restore the lightbox plugin.');
 });
 
-test('uploading an alternative file creates its previews without changing the original', function (): void {
+test('uploading an alternative file creates its previews without changing the original', function () use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = new AlternativeFilesPage($this->loginAsAdmin());
     $fixture = 'Images/simple_with_embedded_metadata.jpg';
-    $page->uploadFiles($this->resource, testFixture($fixture));
-    $alternative = $page->expectUploadedFileId($this->resource, $fixture);
+    $page->uploadFiles($alternative_fixture->resource, testFixture($fixture));
+    $alternative = $page->expectUploadedFileId($alternative_fixture->resource, $fixture);
 
     foreach (['thm', 'col', 'pre'] as $size) {
-        $path = get_resource_path($this->resource, true, $size, false, 'jpg', alternative: $alternative);
+        $path = get_resource_path($alternative_fixture->resource, true, $size, false, 'jpg', alternative: $alternative);
         expect($path)->toBeFile();
         expect(getimagesize($path))->not->toBeFalse();
     }
-    $thumbnail = get_resource_path($this->resource, true, 'col', false, 'jpg', alternative: $alternative);
+    $thumbnail = get_resource_path($alternative_fixture->resource, true, 'col', false, 'jpg', alternative: $alternative);
     $page->assertImageMatchesFile("#alt_file_preview_{$alternative} img.AltThumb", $thumbnail);
-    expect(hash_file('sha256', $this->originalPath))
-        ->toBe($this->originalHash)
-        ->and(hash_file('sha256', $this->originalPreviewPath))
-        ->toBe($this->originalPreviewHash);
+    expect(hash_file('sha256', $alternative_fixture->originalPath))
+        ->toBe($alternative_fixture->originalHash)
+        ->and(hash_file('sha256', $alternative_fixture->originalPreviewPath))
+        ->toBe($alternative_fixture->originalPreviewHash);
 });
 
 test('PDF and MP3 alternative files have a View in browser option for the correct file', function (
     string $fixture,
     string $content_type,
-): void {
+) use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = new AlternativeFilesPage($this->loginAsAdmin());
-    $page->uploadFiles($this->resource, testFixture($fixture));
-    $alternative = $page->expectUploadedFileId($this->resource, $fixture);
+    $page->uploadFiles($alternative_fixture->resource, testFixture($fixture));
+    $alternative = $page->expectUploadedFileId($alternative_fixture->resource, $fixture);
     $selector = "#alt_file_preview_{$alternative} + tr .DownloadButton a";
     $page
         ->assertVisible($selector)
@@ -152,11 +166,12 @@ test('PDF and MP3 alternative files have a View in browser option for the correc
     'MP3' => ['Audio/simple_short.mp3', 'audio/mpeg'],
 ]);
 
-test('the alternative download button returns the alternative bytes rather than the original', function (): void {
+test('the alternative download button returns the alternative bytes rather than the original', function () use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = new AlternativeFilesPage($this->loginAsAdmin());
     $fixture = 'Images/simple_with_embedded_metadata.jpg';
-    $page->uploadFiles($this->resource, testFixture($fixture));
-    $alternative = $page->expectUploadedFileId($this->resource, $fixture);
+    $page->uploadFiles($alternative_fixture->resource, testFixture($fixture));
+    $alternative = $page->expectUploadedFileId($alternative_fixture->resource, $fixture);
     $page->click("#alt_file_preview_{$alternative} .DownloadButton a:text-is(\"Download\")")
         ->assertAttributeContains('#dlIFrm', 'src', '/pages/download_progress.php');
 
@@ -184,18 +199,19 @@ test('the alternative download button returns the alternative bytes rather than 
         ->toContain('attachment')
         ->and($response['hash'])
         ->toBe(hash_file('sha256', testFixture($fixture)))
-        ->not->toBe($this->originalHash);
+        ->not->toBe($alternative_fixture->originalHash);
 });
 
-test('Use as preview image replaces the resource preview with the selected alternative', function (): void {
+test('Use as preview image replaces the resource preview with the selected alternative', function () use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = new AlternativeFilesPage($this->loginAsAdmin());
     $fixture = 'Images/simple_with_embedded_metadata.jpg';
-    $page->uploadFiles($this->resource, testFixture($fixture));
-    $alternative = $page->expectUploadedFileId($this->resource, $fixture);
-    $preview = get_resource_path($this->resource, true, 'pre', false, 'jpg');
+    $page->uploadFiles($alternative_fixture->resource, testFixture($fixture));
+    $alternative = $page->expectUploadedFileId($alternative_fixture->resource, $fixture);
+    $preview = get_resource_path($alternative_fixture->resource, true, 'pre', false, 'jpg');
     $previous_hash = hash_file('sha256', $preview);
     $page
-        ->manage($this->resource)
+        ->manage($alternative_fixture->resource)
         ->click("#altlistrow{$alternative} a:text-is(\"Use as preview image\")")
         ->waitForAjax()
         // CentralSpacePost retains the form action in history after an HTTP redirect.
@@ -233,34 +249,44 @@ test('Use as preview image replaces the resource preview with the selected alter
     [$width, $height] = getimagesize($preview);
     expect(abs(($width / $height) - (4 / 3)))->toBeLessThan(0.02);
     $page->assertImageMatchesFile('#previewimage', $preview);
-    $page->view($this->resource);
+    $page->view($alternative_fixture->resource);
     $page->assertImageMatchesFile('#previewimage', $preview);
-    expect(hash_file('sha256', $this->originalPath))->toBe($this->originalHash);
+    expect(hash_file('sha256', $alternative_fixture->originalPath))->toBe($alternative_fixture->originalHash);
 });
 
-test('deleting alternative files removes only the selected files and their previews', function (bool $multiple): void {
+test('deleting alternative files removes only the selected files and their previews', function (bool $multiple) use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $resource = $alternative_fixture->resource;
+    $fixtures = [
+        'first.jpg' => 'Images/image_1.jpg',
+        'second.jpg' => 'Images/simple_with_embedded_metadata.jpg',
+        'third.jpg' => 'Images/image_1.jpg',
+    ];
+    foreach ($fixtures as $filename => $fixture) {
+        $source = testFixture($fixture);
+        $size = filesize($source);
+        expect($size)->toBeInt()->toBeGreaterThan(0);
+        $alternative = add_alternative_file($resource, $filename, '', $filename, 'jpg', $size);
+        expect($alternative)->toBeInt()->toBeGreaterThan(0);
+        $destination = get_resource_path($resource, true, '', true, 'jpg', alternative: $alternative);
+        expect(copy($source, $destination))->toBeTrue();
+        create_previews($resource, extension: 'jpg', alternative: $alternative);
+    }
     $page = new AlternativeFilesPage($this->loginAsAdmin());
-    $page->uploadFiles(
-        $this->resource,
-        testFixture('Images/image_1.jpg'),
-        testFixture('Images/simple_with_embedded_metadata.jpg'),
-    );
-    // A separate upload permits another copy of the same fixture in Uppy.
-    $page->uploadFiles($this->resource, testFixture('Images/image_1.jpg'));
-    $files = get_alternative_files($this->resource);
+    $files = get_alternative_files($resource);
     expect($files)->toHaveCount(3);
     $selected = array_slice($files, 0, $multiple ? 2 : 1);
     $survivors = array_slice($files, count($selected));
     $paths = [];
     foreach ($files as $file) {
         foreach (['', 'thm', 'col', 'pre'] as $size) {
-            $path = get_resource_path($this->resource, true, $size, false, 'jpg', alternative: (int) $file['ref']);
+            $path = get_resource_path($alternative_fixture->resource, true, $size, false, 'jpg', alternative: (int) $file['ref']);
             expect($path)->toBeFile();
             $paths[$file['ref']][] = $path;
         }
     }
 
-    $page->manage($this->resource);
+    $page->manage($alternative_fixture->resource);
     // Accept the native confirmation without bypassing either deletion handler.
     $page->script('window.confirm = () => true');
     if ($multiple) {
@@ -274,7 +300,7 @@ test('deleting alternative files removes only the selected files and their previ
     $page->waitForAjax();
     foreach ($selected as $file) {
         $page->assertNotPresent("#altlistrow{$file['ref']}");
-        expect(get_alternative_file($this->resource, $file['ref']))->toBeFalse();
+        expect(get_alternative_file($alternative_fixture->resource, $file['ref']))->toBeFalse();
         foreach ($paths[$file['ref']] as $path) {
             clearstatcache(true, $path);
             expect(file_exists($path))->toBeFalse();
@@ -286,25 +312,26 @@ test('deleting alternative files removes only the selected files and their previ
     }
     foreach ($survivors as $file) {
         $page->assertPresent("#altlistrow{$file['ref']}");
-        expect(get_alternative_file($this->resource, $file['ref']))->toBeArray();
+        expect(get_alternative_file($alternative_fixture->resource, $file['ref']))->toBeArray();
         foreach ($paths[$file['ref']] as $path) {
             expect($path)->toBeFile();
         }
     }
-    expect(hash_file('sha256', $this->originalPath))
-        ->toBe($this->originalHash)
-        ->and(hash_file('sha256', $this->originalPreviewPath))
-        ->toBe($this->originalPreviewHash);
+    expect(hash_file('sha256', $alternative_fixture->originalPath))
+        ->toBe($alternative_fixture->originalHash)
+        ->and(hash_file('sha256', $alternative_fixture->originalPreviewPath))
+        ->toBe($alternative_fixture->originalPreviewHash);
 })->with(['single deletion' => false, 'multiple deletion' => true]);
 
-test('the alternative thumbnail opens the selected alternative image on the preview page', function (): void {
+test('the alternative thumbnail opens the selected alternative image on the preview page', function () use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = new AlternativeFilesPage($this->loginAsAdmin());
-    $this->restoreLightbox = in_array('lightbox_preview', array_column(get_active_plugins(), 'name'), true);
+    $alternative_fixture->restoreLightbox = in_array('lightbox_preview', array_column(get_active_plugins(), 'name'), true);
     setTestConfiguration('$plugins = array_values(array_diff($plugins, ["lightbox_preview"]));');
     deactivate_plugin('lightbox_preview');
     $fixture = 'Images/simple_with_embedded_metadata.jpg';
-    $page->uploadFiles($this->resource, testFixture($fixture));
-    $alternative = $page->expectUploadedFileId($this->resource, $fixture);
+    $page->uploadFiles($alternative_fixture->resource, testFixture($fixture));
+    $alternative = $page->expectUploadedFileId($alternative_fixture->resource, $fixture);
     $page
         ->click("#alt_file_preview_{$alternative} .AlternativeFileImage a")
         ->waitForAjax()
@@ -313,26 +340,27 @@ test('the alternative thumbnail opens the selected alternative image on the prev
 
     // Preview.php prefers scr and falls back to pre. Resolve the expected alternative
     // independently, rather than using the preview-selection helper under test.
-    $expected = get_resource_path($this->resource, true, 'scr', false, 'jpg', alternative: $alternative);
+    $expected = get_resource_path($alternative_fixture->resource, true, 'scr', false, 'jpg', alternative: $alternative);
     if (!is_file($expected)) {
-        $expected = get_resource_path($this->resource, true, 'pre', false, 'jpg', alternative: $alternative);
+        $expected = get_resource_path($alternative_fixture->resource, true, 'pre', false, 'jpg', alternative: $alternative);
     }
     $page->assertImageMatchesFile('#PreviewImageLarge', $expected);
 });
 
-test('alternative preview mouseover preserves the initial image and restores it on mouse leave', function (): void {
+test('alternative preview mouseover preserves the initial image and restores it on mouse leave', function () use ($alternative_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $page = new AlternativeFilesPage($this->loginAsAdmin());
     setTestConfiguration('$alternative_file_previews_mouseover = true;');
     $page->uploadFiles(
-        $this->resource,
+        $alternative_fixture->resource,
         testFixture('Images/image_1.jpg'),
         testFixture('Images/simple_with_embedded_metadata.jpg'),
     );
-    $files = get_alternative_files($this->resource);
+    $files = get_alternative_files($alternative_fixture->resource);
     expect($files)->toHaveCount(2);
-    $original_preview = get_resource_path($this->resource, true, 'pre', false, 'jpg');
+    $original_preview = get_resource_path($alternative_fixture->resource, true, 'pre', false, 'jpg');
 
-    $page->view($this->resource);
+    $page->view($alternative_fixture->resource);
     // Both a fresh View load and a reload must begin with the resource's own preview.
     for ($load = 0; $load < 2; $load++) {
         if ($load > 0) {
@@ -342,7 +370,7 @@ test('alternative preview mouseover preserves the initial image and restores it 
         $page->assertImageMatchesFile('#previewimage', $original_preview);
         foreach ($files as $file) {
             $alternative = (int) $file['ref'];
-            $expected = get_resource_path($this->resource, true, 'pre', false, 'jpg', alternative: $alternative);
+            $expected = get_resource_path($alternative_fixture->resource, true, 'pre', false, 'jpg', alternative: $alternative);
             $page->hover("#alt_file_preview_{$alternative}");
             $js_original_src = encode_js_value($original_src);
             $page->assertScript(

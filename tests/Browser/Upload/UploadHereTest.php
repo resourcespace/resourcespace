@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\EditPage;
 use Montala\ResourceSpace\Tests\Support\Browser\SimpleSearchPage;
 use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
@@ -50,10 +51,12 @@ function searchForUploadHere(SimpleSearchPage $page): SimpleSearchPage
 }
 
 test('advanced search by workflow state, resource type and metadata displays Upload here', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     searchForUploadHere(new SimpleSearchPage($this->loginAsAdmin()));
 });
 
 test('Upload here preserves advanced search values through upload', function (bool $upload_then_edit): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
 
     $title = 'UploadHere - ' . generateRandomTestID(16);
@@ -144,6 +147,7 @@ test('Upload here preserves advanced search values through upload', function (bo
 ]);
 
 test('Upload here adds resources to the viewed collection', function (bool $upload_then_edit): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
 
     $test_id = generateRandomTestID(16);
@@ -281,6 +285,7 @@ test('Upload here adds resources to the viewed collection', function (bool $uplo
 ]);
 
 test('Upload here inherits metadata from a smart collection', function (bool $upload_then_edit): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
 
     $test_id = generateRandomTestID(16);
@@ -417,6 +422,7 @@ test('Upload here inherits metadata from a smart collection', function (bool $up
 ]);
 
 test('a search by two metadata fields can be saved and reopened as a smart collection', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
 
     $title = 'UploadHere saved search - ' . generateRandomTestID(16);

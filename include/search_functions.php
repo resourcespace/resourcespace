@@ -2176,6 +2176,16 @@ function split_keywords($search, $index = false, $partial_index = false, $is_dat
     }
 
     $ns = trim_spaces($search);
+    $special_search = [];
+    // Search forms can add a comma before the whitespace separating keywords.
+    if (!$index && $keepquotes && preg_match('/^(!\S+?)(?:,*\s+|\z)/', $ns, $matches)) {
+        $special_search[] = $matches[1];
+        $ns = substr($ns, strlen($matches[0]));
+        if ($ns === '') {
+            return $special_search;
+        }
+        $ns = trim_spaces($ns);
+    }
 
     if (!$index && strpos($ns, ":") !== false) { # special 'constructed' query type
         if ($keepquotes) {
@@ -2191,7 +2201,7 @@ function split_keywords($search, $index = false, $partial_index = false, $is_dat
         if ($keepquotes) {
             $return = trim_array($return, ",");
         }
-        return $return;
+        return array_merge($special_search, $return);
     } else {
         # split using spaces and similar chars (according to configured whitespace characters)
         // Preserve OR expressions for search processing instead of splitting their punctuation.
@@ -2220,7 +2230,7 @@ function split_keywords($search, $index = false, $partial_index = false, $is_dat
         if ($index && $partial_index) {
             return add_partial_index($ns);
         }
-        return $ns;
+        return array_merge($special_search, $ns);
     }
 }
 

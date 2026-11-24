@@ -6,11 +6,12 @@ namespace Montala\ResourceSpace\Tests;
 
 use Pest\Browser\Api\AwaitableWebpage;
 use Pest\Browser\Api\PendingAwaitablePage;
+use Pest\Browser\Playwright\Playwright;
 use PHPUnit\Framework\TestCase;
 
 abstract class ResourceSpaceBrowserTestCase extends TestCase
 {
-    protected function browserUrl(string $path): string
+    public function browserUrl(string $path): string
     {
         return 'http://127.0.0.1:8081/' . ltrim($path, '/');
     }
@@ -28,7 +29,7 @@ abstract class ResourceSpaceBrowserTestCase extends TestCase
      *
      * @return AwaitableWebpage Authenticated browser page for further interactions
      */
-    protected function loginAs(
+    public function loginAs(
         string $username,
         string $password,
         ?PendingAwaitablePage $login_page = null
@@ -36,13 +37,20 @@ abstract class ResourceSpaceBrowserTestCase extends TestCase
         expect($username)->not()->toBeEmpty();
         expect($password)->not()->toBeEmpty();
 
-        return ($login_page ?? visit($this->browserUrl('/login.php')))
+        $page = ($login_page ?? visit($this->browserUrl('/login.php')))
             ->withTimezone('Europe/London')
-            ->withLocale('en')
-            ->fill('username', $username)
-            ->fill('password', $password)
-            ->submit()
-            ->assertPathIs('/pages/home.php')
+            ->withLocale('en');
+
+        // Issue the click once and wait for the login outcome separately from page assets.
+        Playwright::usingTimeout(15_000, function () use ($page, $username, $password): void {
+            $browser = $page->page();
+            $browser->locator('#loginform input[name="username"]')->fill($username);
+            $browser->locator('#loginform input[name="password"]')->fill($password);
+            $browser->locator('#loginform input[type="submit"]')->click(['noWaitAfter' => true]);
+            $browser->locator('#HomePanelContainer, #login-errors')->waitFor(['state' => 'visible']);
+        });
+
+        return $page->assertPathIs('/pages/home.php')
             ->assertNotPresent('.error-panel-details')
             ->assertSee('ResourceSpace');
     }
@@ -53,12 +61,12 @@ abstract class ResourceSpaceBrowserTestCase extends TestCase
      * @param PendingAwaitablePage|null $login_page Login page returned by visit() in the test
      * @return AwaitableWebpage Authenticated browser page
      */
-    protected function loginAsAdmin(?PendingAwaitablePage $login_page = null): AwaitableWebpage
+    public function loginAsAdmin(?PendingAwaitablePage $login_page = null): AwaitableWebpage
     {
         return $this->loginAs('admin', 'admin123', $login_page);
     }
 
-    protected function expectResourceIdByNodeName(string $name): int
+    public function expectResourceIdByNodeName(string $name): int
     {
         $id = (int) ps_value(
             'SELECT r.ref AS `value`
@@ -76,7 +84,7 @@ abstract class ResourceSpaceBrowserTestCase extends TestCase
         return $id;
     }
 
-    protected function expectResourceIdsByNodeName(string $name): array
+    public function expectResourceIdsByNodeName(string $name): array
     {
         $ids = ps_array(
             'SELECT r.ref AS `value`

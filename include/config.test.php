@@ -85,6 +85,17 @@ $password_min_alpha = $password_min_numeric = 1;
 $password_min_uppercase = $password_min_special = 0;
 
 // BEGIN PEST TEST CONFIGURATION
+$alternative_file_previews = true;
+    $alternative_file_previews_mouseover = false;
+    $offline_job_queue = false;
+    $upload_then_process = false;
+    $enable_thumbnail_creation_on_upload = true;
+    $image_alternatives = [];
+    $resource_view_use_pre = true;
+    $retina_mode = false;
+    $terms_download = false;
+    $download_usage = false;
+    $save_as = false;
 // END PEST TEST CONFIGURATION
 
 // Reconnect using the test environment configuration (expects the database to already be provisioned at this stage!)

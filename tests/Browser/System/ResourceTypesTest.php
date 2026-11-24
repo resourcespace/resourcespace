@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\ResourceTypesPage;
 use Montala\ResourceSpace\Tests\Support\Browser\SimpleSearchPage;
 use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
@@ -9,6 +10,7 @@ use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
 afterAll(fn() => setTestConfiguration(''));
 
 test('create a new resource type, ensure it is shown in expected areas (Simple Search, Advanced search etc)', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $resource_type_name = 'RT 1';
 
     $this
@@ -33,6 +35,7 @@ test('create a new resource type, ensure it is shown in expected areas (Simple S
 });
 
 test('resource types are shown in configured display order in simple and advanced search', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $rt_a = 'Order Test - Alpha';
     $rt_b = 'Order Test - Beta';
     $rt_c = 'Order Test - Charlie';
@@ -107,6 +110,7 @@ test('resource types are shown in configured display order in simple and advance
 });
 
 it('displays resource type icon in search result thumbnails', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $rt_with_icon = bypass_permissions(['a'], create_resource_type(...), ['RT w/ icon']);
     $resource = create_resource($rt_with_icon, 0);
 
@@ -124,6 +128,7 @@ it('displays resource type icon in search result thumbnails', function (): void 
 });
 
 test('users can only upload the allowed file types for resource types', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     setTestConfiguration('$show_resource_type = true;');
 
     $rt = bypass_permissions(['a'], create_resource_type(...), ['RT with file types allow list']);

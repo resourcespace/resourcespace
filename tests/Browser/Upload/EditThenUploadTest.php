@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\EditPage;
 use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
 
@@ -14,6 +15,7 @@ afterAll(fn() => setTestConfiguration(''));
 beforeEach(fn() => clear_resource_data(-1));
 
 test('users can set metadata before uploading', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
         ->waitForAjax()
         ->assertPathIs('/pages/edit.php')
@@ -22,6 +24,7 @@ test('users can set metadata before uploading', function (): void {
 });
 
 test('changing the resource type displays the associated metadata fields', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
         ->waitForAjax()
         ->selectResourceType('Video')
@@ -30,6 +33,7 @@ test('changing the resource type displays the associated metadata fields', funct
 });
 
 test('users can copy metadata from an existing resource when uploading', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $resource = create_resource(1, 0, 1);
     expect($resource)->toBeInt();
 
@@ -53,6 +57,7 @@ test('users can copy metadata from an existing resource when uploading', functio
 });
 
 test('users cannot proceed when a required field is left blank', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
         ->waitForAjax()
         ->click('Next')
@@ -61,6 +66,7 @@ test('users cannot proceed when a required field is left blank', function (): vo
 });
 
 test('users cannot proceed when at least one required field is left blank', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $rtf = create_resource_type_field('Test required field');
     expect($rtf)->toBeInt();
 
@@ -84,6 +90,7 @@ test('users cannot proceed when at least one required field is left blank', func
 });
 
 test('uploaded resources can be added to an existing collection', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $resource_title = 'EditThenUpload - ' . generateRandomTestID(16);
 
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
@@ -101,6 +108,7 @@ test('uploaded resources can be added to an existing collection', function (): v
 });
 
 test('uploaded resources can be added to a new named collection', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $test_id = generateRandomTestID(16);
     $collection_name = "Collection - {$test_id}";
     $resource_title = "EditThenUpload - {$test_id}";
@@ -123,6 +131,7 @@ test('uploaded resources can be added to a new named collection', function (): v
 });
 
 test('uploaded resources are not added to a collection (when intended so)', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $resource_title = 'EditThenUpload - ' . generateRandomTestID(16);
 
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
@@ -151,6 +160,7 @@ test('uploaded resources are not added to a collection (when intended so)', func
 });
 
 test('embedded metadata is not imported when disabled for an upload', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $resource_title = 'EditThenUpload - ' . generateRandomTestID(16);
 
     // Upload a file
@@ -177,6 +187,7 @@ test('embedded metadata is not imported when disabled for an upload', function (
 });
 
 test('resource log records creation from the Web Uploader', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     $resource_title = 'EditThenUpload - ' . generateRandomTestID(16);
 
     // Upload a file

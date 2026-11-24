@@ -2,11 +2,18 @@
 
 declare(strict_types=1);
 
+use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\BrowserPage;
 
 use function Montala\ResourceSpace\Plugins\BrandGuidelines\create_content_item;
 use function Montala\ResourceSpace\Plugins\BrandGuidelines\create_page;
 use function Montala\ResourceSpace\Plugins\BrandGuidelines\delete_pages;
+
+$guidelines_fixture = new class () {
+    public string $prefix;
+    public string $guidelinesUrl;
+    public int|false|null $resource = null;
+};
 
 $previous_plugins = [];
 $enabled_plugin = false;
@@ -28,22 +35,23 @@ beforeAll(function () use (&$previous_plugins, &$enabled_plugin): void {
     }
 });
 
-beforeEach(function (): void {
-    $this->prefix = 'Guidelines ' . generateRandomTestID(16);
-    $this->guidelinesUrl = $this->browserUrl('/plugins/brand_guidelines/pages/guidelines.php');
-    $this->resource = null;
+beforeEach(function () use ($guidelines_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $guidelines_fixture->prefix = 'Guidelines ' . generateRandomTestID(16);
+    $guidelines_fixture->guidelinesUrl = $this->browserUrl('/plugins/brand_guidelines/pages/guidelines.php');
+    $guidelines_fixture->resource = null;
 });
 
-afterEach(function (): void {
-    $refs = ps_array('SELECT ref AS value FROM brand_guidelines_pages WHERE name LIKE ?', ['s', $this->prefix . ' %']);
+afterEach(function () use ($guidelines_fixture): void {
+    $refs = ps_array('SELECT ref AS value FROM brand_guidelines_pages WHERE name LIKE ?', ['s', $guidelines_fixture->prefix . ' %']);
     $pages_deleted = $refs === [] || delete_pages(array_map('intval', $refs));
 
     $resource_deleted = true;
-    if (is_int($this->resource)) {
+    if (is_int($guidelines_fixture->resource)) {
         $deletion_state = $GLOBALS['resource_deletion_state'];
         $GLOBALS['resource_deletion_state'] = null;
         try {
-            $resource_deleted = delete_resource($this->resource);
+            $resource_deleted = delete_resource($guidelines_fixture->resource);
         } finally {
             $GLOBALS['resource_deletion_state'] = $deletion_state;
         }
@@ -146,12 +154,13 @@ function assertBrandGuidelinesToc(BrowserPage $page, string $prefix, array $name
     JS, $names);
 }
 
-test('adds, renames, moves and deletes Brand Guidelines sections and pages', function (): void {
+test('adds, renames, moves and deletes Brand Guidelines sections and pages', function () use ($guidelines_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
     // Pest detects browser tests outside tests/Browser by the visit() call in the test body.
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
-    $page->navigate($this->guidelinesUrl)->click('#toggle-view-edit-mode');
-    $prefix = $this->prefix;
+    $page->navigate($guidelines_fixture->guidelinesUrl)->click('#toggle-view-edit-mode');
+    $prefix = $guidelines_fixture->prefix;
     $section_row = static fn (string $name): string => (
         '.guidelines-sidebar li:has(> h2:text-is(' . encode_js_value("{$prefix} {$name}") . '))'
     );
@@ -203,14 +212,15 @@ test('adds, renames, moves and deletes Brand Guidelines sections and pages', fun
     ))->toBe(["{$prefix} First"]);
 });
 
-test('adds, edits, renders and deletes rich text', function (): void {
-    $ref = createBrandGuidelinesTestPage($this->prefix);
+test('adds, edits, renders and deletes rich text', function () use ($guidelines_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $ref = createBrandGuidelinesTestPage($guidelines_fixture->prefix);
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
     $editor = '#manage_content iframe#richtext_ifr';
     $item = '.guidelines-content div[id^="page-content-item-"]';
     $page
-        ->navigate($this->guidelinesUrl . '?spage=' . $ref)
+        ->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)
         ->click('#toggle-view-edit-mode')
         ->click('#add-new-content-end')
         ->click('#menu-content button:has(> .icon-text-align-start)')
@@ -246,14 +256,15 @@ test('adds, edits, renders and deletes rich text', function (): void {
     $page->assertNotPresent($item)->assertVisible('#add-new-content-end');
 });
 
-test('adds, edits, renders and deletes a colour swatch', function (): void {
-    $ref = createBrandGuidelinesTestPage($this->prefix);
+test('adds, edits, renders and deletes a colour swatch', function () use ($guidelines_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $ref = createBrandGuidelinesTestPage($guidelines_fixture->prefix);
     $item = '.guidelines-content .group > .guidelines-colour-block[id]';
     $swatch = $item . ' .guidelines-colour-block--colour';
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
     $page
-        ->navigate($this->guidelinesUrl . '?spage=' . $ref)
+        ->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)
         ->click('#toggle-view-edit-mode')
         ->click('#add-new-content-end')
         ->click('#menu-content button:has(> .icon-palette)')
@@ -299,14 +310,15 @@ test('adds, moves, edits, renders and deletes a resource in the :dataset layout'
     string $edited_label,
     string $edited_class,
     string $edited_size,
-): void {
-    $ref = createBrandGuidelinesTestPage($this->prefix);
+) use ($guidelines_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $ref = createBrandGuidelinesTestPage($guidelines_fixture->prefix);
     $intro = createBrandGuidelinesContentFixture($ref, 'text', ['richtext' => '<p>Logo guidance</p>']);
     $resource_type = 1;
     $resource = create_resource($resource_type, 0, user: 1, file_extension: 'jpg');
     expect($resource)->toBeInt()->toBeGreaterThan(0);
-    $this->resource = $resource;
-    $title = $this->prefix . ' logo';
+    $guidelines_fixture->resource = $resource;
+    $title = $guidelines_fixture->prefix . ' logo';
     $title_field = $GLOBALS['view_title_field'];
     // Fixture setup runs in PHP, before the administrator logs in through Playwright.
     $previous_permissions = $GLOBALS['userpermissions'] ?? null;
@@ -349,7 +361,7 @@ test('adds, moves, edits, renders and deletes a resource in the :dataset layout'
     };
 
     $page
-        ->navigate($this->guidelinesUrl . '?spage=' . $ref)
+        ->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)
         ->click('#toggle-view-edit-mode')
         ->click("#add-new-content-after-{$intro}")
         ->click('#menu-content button:has(> .icon-image)')
@@ -415,8 +427,9 @@ function assertBrandGuidelinesContentOrder(BrowserPage $page, array $expected): 
     JS, $expected);
 }
 
-test('reorders standalone items, group members and whole groups', function (): void {
-    $ref = createBrandGuidelinesTestPage($this->prefix);
+test('reorders standalone items, group members and whole groups', function () use ($guidelines_fixture): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $ref = createBrandGuidelinesTestPage($guidelines_fixture->prefix);
     $create_item = static fn (string $type, array $values): int => createBrandGuidelinesContentFixture(
         $ref,
         $type,
@@ -439,7 +452,7 @@ test('reorders standalone items, group members and whole groups', function (): v
 
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
-    $page->navigate($this->guidelinesUrl . '?spage=' . $ref)->click('#toggle-view-edit-mode');
+    $page->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)->click('#toggle-view-edit-mode');
     assertBrandGuidelinesContentOrder($page, $original);
 
     $moves = [

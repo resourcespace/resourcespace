@@ -29,9 +29,14 @@ beforeAll(function () use (&$previous_plugins, &$enabled_plugin): void {
     }
 });
 
-afterEach(function (): void {
-    if (!empty($this->page_refs)) {
-        expect(delete_pages($this->page_refs))->toBeTrue();
+$reorder_fixture = new class () {
+    public array $page_refs = [];
+};
+afterEach(function () use ($reorder_fixture): void {
+    if ($reorder_fixture->page_refs !== []) {
+        $page_refs = $reorder_fixture->page_refs;
+        $reorder_fixture->page_refs = [];
+        expect(delete_pages($page_refs))->toBeTrue();
     }
 });
 
@@ -42,15 +47,16 @@ afterAll(function () use (&$previous_plugins, &$enabled_plugin): void {
     $GLOBALS['plugins'] = $previous_plugins;
 });
 
-test('moving a whole colour group up and down preserves its display order', function (bool $swap_members): void {
-    $this->page_refs = [];
+test('moving a whole colour group up and down preserves its display order', function (
+    bool $swap_members
+) use ($reorder_fixture): void {
     $prefix = 'Guidelines reorder ' . generateRandomTestID(16);
     $section = create_page($prefix . ' section', 0);
     expect($section)->toBeGreaterThan(0);
-    $this->page_refs[] = $section;
+    $reorder_fixture->page_refs[] = $section;
     $page = create_page($prefix . ' page', $section);
     expect($page)->toBeGreaterThan(0);
-    $this->page_refs[] = $page;
+    $reorder_fixture->page_refs[] = $page;
 
     $add_item = static function (string $type, array $values) use ($page): int {
         $fields = [];
