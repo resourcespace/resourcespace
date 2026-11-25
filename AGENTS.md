@@ -36,8 +36,8 @@ ResourceSpace is a PHP and JavaScript digital asset management application backe
 | `plugins/` | Plugins, their hooks, configuration, language files, and optional database definitions |
 | `languages/` | UI translations; `en.php` supplies fallback strings |
 | `css/`, `js/`, `gfx/` | Styles, scripts, and UI graphics |
-| `tests/test_list/`, `tests/performance_tests/` | Tests executed by `tests/test.php` |
-| `e2e/`, `playwright.config.ts` | Browser tests and runner configuration |
+| `tests/Unit/`, `tests/Integration/`, `tests/Browser/` | Pest suites, including Playwright browser tests |
+| `tests/Support/`, `tests/performance_tests/` | Test environment, browser helpers and standalone benchmarks |
 | `vendor/`, `lib/`, `plugins/*/lib/` | Dependencies; avoid direct edits unless the task requires them |
 | `filestore/` | Runtime assets and temporary files, not source code |
 
@@ -222,30 +222,28 @@ $resources = ps_query(
 
 ## Development and verification
 
-Use the tooling present in this revision. The local PHP tests use ResourceSpace's own runner,
-**not Pest**. The live Automated Testing article describes a newer v11.1 setup; do not assume its
-`composer test:full` or `composer test:browser` commands exist here.
+Run the Pest suites through Composer from the repository root. Browser tests use Pest's
+Playwright plugin. Follow [tests/AGENTS.md](tests/AGENTS.md) for suite layout, fixtures and runner flags.
 
-Run commands from the repository root. Inspect configuration and prerequisites first; never run
-integration/browser tests against production data. `tests/test.php` creates/drops `rs_test_db` and
-uses test storage. It needs a configured installation, database access, and relevant external tools.
-Do not run concurrent suites against the same test database or use `-nosetup` without checking state.
+Confirm the dedicated development/test configuration and prerequisites first. The integration and
+browser runners share `rs_test_db`, test storage and configuration. Run them sequentially and use
+`--nosetup` only with a confirmed, provisioned test environment.
 
 | Check | Command / guidance |
 | --- | --- |
 | PHP syntax | `php -l path/to/changed.php` for each changed PHP file |
-| Focused PHP tests | `php tests/test.php -time 1750` (example: test `001750_*`); pass multiple numeric IDs as needed |
-| Full PHP suite | `php tests/test.php -time` |
-| Composer test alias | `composer dev:tests` runs the runner with `-noteardown`, leaving its test database behind |
+| Focused unit tests | `composer test:unit -- --filter=GenerateURLTest` |
+| Integration suite | `composer test:integration` |
+| Browser suite | `composer test:browser`, or `composer test:browser -- --filter=LoginTest` |
+| All three suites | `composer test:full` |
+| Unit and integration | `composer dev:tests` |
+| Performance benchmarks | `composer test:performance` |
 | Static analysis | `composer dev:phpstan` or `vendor/bin/phpstan analyse -c phpstan.neon.dist` |
 | PHP style | If PHPCS is installed: `phpcs --standard=phpcs.xml.dist path/to/changed.php` |
-| Browser tests | Inspect `e2e/`, `playwright.config.ts`, and CI setup; run an applicable spec with `pnpm exec playwright test path/to/spec --project=chromium` when dependencies and a test instance are available |
 
-- The runner's flags are documented in `tests/test.php`. Some tests depend on shared setup or earlier
-  fixtures; inspect dependencies before interpreting a focused failure as a regression.
-- Add/update meaningful regression tests for bug fixes and behaviour changes where practical. Follow
-  existing `tests/test_list/` conventions and test failure/permission cases. Restore modified globals,
-  configuration, permissions, files, and database state so tests do not contaminate later tests.
+- Add meaningful Pest assertions for bug fixes and behaviour changes where practical. Choose the
+  smallest suite that exercises the behaviour. Verify relevant failure and permission cases and
+  restore modified fixtures, globals and configuration in teardown.
 - For UI changes, exercise the relevant browser flow; cover full-page/AJAX/modal and permission
   variants when affected. Do not claim browser verification when only syntax checks were run.
 - Use `phpstan.neon.dist` and `phpcs.xml.dist`; do not hide new problems by weakening checks, updating

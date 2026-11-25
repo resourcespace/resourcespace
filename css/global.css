@@ -703,6 +703,20 @@ div.tile-select {
     font-size: 12px;
     pointer-events: none;
 }
+.featured-collection-batch-loading {
+    align-items: center;
+    display: flex;
+    gap: var(--space-8);
+    grid-column: 1 / -1;
+    justify-content: center;
+    min-height: var(--space-48);
+}
+.featured-collection-row-placeholder {
+    background: var(--colour-surface-200);
+    border-radius: var(--space-4);
+    grid-column: span 1;
+    opacity: 0.65;
+}
 .HomePanel.DashTile {
     display: flex;
 }

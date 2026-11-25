@@ -50,11 +50,6 @@ function searchForUploadHere(SimpleSearchPage $page): SimpleSearchPage
     return $page;
 }
 
-test('advanced search by workflow state, resource type and metadata displays Upload here', function (): void {
-    /** @var ResourceSpaceBrowserTestCase $this */
-    searchForUploadHere(new SimpleSearchPage($this->loginAsAdmin()));
-});
-
 test('Upload here preserves advanced search values through upload', function (bool $upload_then_edit): void {
     /** @var ResourceSpaceBrowserTestCase $this */
     ResourceSpaceTestEnvironment::setUpDefaultTestUser();
@@ -105,8 +100,7 @@ test('Upload here preserves advanced search values through upload', function (bo
                 ->waitForAjax()
                 ->assertPathIs('/pages/upload_batch.php')
                 ->addFileToUppy(testFixture('Images/image_1.jpg'))
-                ->click(UiElementSelector::UppyActionUploadButton->value)
-                ->waitForAjax();
+                ->uploadSavedMetadata();
         }
 
         $resource = $this->expectResourceIdByNodeName($title);
@@ -224,8 +218,7 @@ test('Upload here adds resources to the viewed collection', function (bool $uplo
                 ->click('#UploadOptionsSectionHead')
                 ->assertSelected('#CentralSpace select[name="collection_add"]', (string) $collection)
                 ->addFileToUppy(testFixture('Images/image_1.jpg'))
-                ->click(UiElementSelector::UppyActionUploadButton->value)
-                ->waitForAjax()
+                ->uploadAndWaitFor('#CentralSpace input[name="field_' . $GLOBALS['view_title_field'] . '"]')
                 ->assertPathIs('/pages/edit.php')
                 ->fillTitle($title)
                 ->refineMetadataSaveAndNext()
@@ -239,8 +232,7 @@ test('Upload here adds resources to the viewed collection', function (bool $uplo
                 ->waitForAjax()
                 ->assertPathIs('/pages/upload_batch.php')
                 ->addFileToUppy(testFixture('Images/image_1.jpg'))
-                ->click(UiElementSelector::UppyActionUploadButton->value)
-                ->waitForAjax();
+                ->uploadSavedMetadata();
         }
 
         $resource = $this->expectResourceIdByNodeName($title);
@@ -378,8 +370,7 @@ test('Upload here inherits metadata from a smart collection', function (bool $up
                 ->waitForAjax()
                 ->assertPathIs('/pages/upload_batch.php')
                 ->addFileToUppy(testFixture('Images/image_1.jpg'))
-                ->click(UiElementSelector::UppyActionUploadButton->value)
-                ->waitForAjax();
+                ->uploadSavedMetadata();
         }
 
         $resource = $this->expectResourceIdByNodeName($title);

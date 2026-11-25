@@ -2246,7 +2246,7 @@ function split_keywords($search, $index = false, $partial_index = false, $is_dat
  */
 function cleanse_string($string, $preserve_separators, $for_search = false): string
 {
-    global $config_separators;
+    global $config_separators, $keyword_allowed_symbols;
 
     // Replace some HTML entities with empty space
     // Most of them should already be in $config_separators
@@ -2264,7 +2264,7 @@ function cleanse_string($string, $preserve_separators, $for_search = false): str
     // Revert the htmlentities as otherwise we lose ability to identify certain text e.g. diacritics
     $string = html_entity_decode($string, ENT_QUOTES, 'UTF-8');
 
-    $unicode_allowlist = [];
+    $unicode_allowlist = array_diff($keyword_allowed_symbols, $config_separators);
 
     if ($for_search) {
         $unicode_allowlist[] = '*'; # wildcard

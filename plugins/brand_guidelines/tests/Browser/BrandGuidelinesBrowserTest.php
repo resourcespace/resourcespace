@@ -159,7 +159,7 @@ test('adds, renames, moves and deletes Brand Guidelines sections and pages', fun
     // Pest detects browser tests outside tests/Browser by the visit() call in the test body.
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
-    $page->navigate($guidelines_fixture->guidelinesUrl)->click('#toggle-view-edit-mode');
+    $page->openAndWaitFor($guidelines_fixture->guidelinesUrl, '#toggle-view-edit-mode')->click('#toggle-view-edit-mode');
     $prefix = $guidelines_fixture->prefix;
     $section_row = static fn (string $name): string => (
         '.guidelines-sidebar li:has(> h2:text-is(' . encode_js_value("{$prefix} {$name}") . '))'
@@ -220,7 +220,7 @@ test('adds, edits, renders and deletes rich text', function () use ($guidelines_
     $editor = '#manage_content iframe#richtext_ifr';
     $item = '.guidelines-content div[id^="page-content-item-"]';
     $page
-        ->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)
+        ->openAndWaitFor($guidelines_fixture->guidelinesUrl . '?spage=' . $ref, '#toggle-view-edit-mode')
         ->click('#toggle-view-edit-mode')
         ->click('#add-new-content-end')
         ->click('#menu-content button:has(> .icon-text-align-start)')
@@ -249,7 +249,8 @@ test('adds, edits, renders and deletes rich text', function () use ($guidelines_
 
     $page
         ->click('#toggle-view-edit-mode')
-        ->refresh()
+        ->waitForAjax()
+        ->openAndWaitFor($guidelines_fixture->guidelinesUrl . '?spage=' . $ref, '#toggle-view-edit-mode')
         ->assertVisible($item . ' .rich-text-content strong')
         ->click('#toggle-view-edit-mode');
     brandGuidelinesItemAction($page, $item, 'icon-trash-2');
@@ -264,7 +265,7 @@ test('adds, edits, renders and deletes a colour swatch', function () use ($guide
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
     $page
-        ->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)
+        ->openAndWaitFor($guidelines_fixture->guidelinesUrl . '?spage=' . $ref, '#toggle-view-edit-mode')
         ->click('#toggle-view-edit-mode')
         ->click('#add-new-content-end')
         ->click('#menu-content button:has(> .icon-palette)')
@@ -352,16 +353,11 @@ test('adds, moves, edits, renders and deletes a resource in the :dataset layout'
             expect(parse_url($actual, $part))->toBe(parse_url($preview, $part));
         }
         $image = encode_js_value($layout . ' img');
-        $page
-            ->getPage()
-            ->page()
-            ->waitForFunction(<<<JS
-                () => document.querySelector({$image})?.naturalWidth > 0
-            JS);
+        $page->assertScript("document.querySelector({$image})?.naturalWidth > 0");
     };
 
     $page
-        ->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)
+        ->openAndWaitFor($guidelines_fixture->guidelinesUrl . '?spage=' . $ref, '#toggle-view-edit-mode')
         ->click('#toggle-view-edit-mode')
         ->click("#add-new-content-after-{$intro}")
         ->click('#menu-content button:has(> .icon-image)')
@@ -452,7 +448,7 @@ test('reorders standalone items, group members and whole groups', function () us
 
     $login_page = visit($this->browserUrl('/login.php'));
     $page = new BrowserPage($this->loginAsAdmin($login_page));
-    $page->navigate($guidelines_fixture->guidelinesUrl . '?spage=' . $ref)->click('#toggle-view-edit-mode');
+    $page->openAndWaitFor($guidelines_fixture->guidelinesUrl . '?spage=' . $ref, '#toggle-view-edit-mode')->click('#toggle-view-edit-mode');
     assertBrandGuidelinesContentOrder($page, $original);
 
     $moves = [
@@ -475,6 +471,6 @@ test('reorders standalone items, group members and whole groups', function () us
     $group = '.guidelines-content > .group[data-members="' . implode(',', $colours) . '"]';
     brandGuidelinesItemAction($page, $group, 'icon-chevron-down');
     assertBrandGuidelinesContentOrder($page, [$intro, $usage, $notes, $colours]);
-    $page->refresh();
+    $page->openAndWaitFor($guidelines_fixture->guidelinesUrl . '?spage=' . $ref, '.guidelines-content');
     assertBrandGuidelinesContentOrder($page, [$intro, $usage, $notes, $colours]);
 });

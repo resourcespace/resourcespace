@@ -23,6 +23,26 @@ final class EditPage extends BrowserPage
         return $this;
     }
 
+    /**
+     * Upload an original whose metadata was saved before upload.
+     * Some workflow states leave the uploader open after processing.
+     * @return self The current edit page wrapper.
+     */
+    public function uploadSavedMetadata(): self
+    {
+        $browser = $this->page->page();
+        $browser->locator(UiElementSelector::UppyActionUploadButton->value)->click(['noWaitAfter' => true]);
+        $this->page->assertScript(<<<'JS'
+            document.querySelector('#CentralSpace #SearchResultFound') !== null
+                || window.upRedirBlock === true
+                || window.resource_keys?.length === 1
+            JS);
+        $this->waitForAjax();
+        expect($this->page->script('window.upRedirBlock === true'))->toBeFalse('Resource processing failed.');
+
+        return $this;
+    }
+
     public function refineMetadataLockField(int $id): self
     {
         $this->page->click("#lock_icon_{$id}");

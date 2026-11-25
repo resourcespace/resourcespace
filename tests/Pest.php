@@ -36,13 +36,6 @@ pest()
 pest()
     ->extend(ResourceSpaceBrowserTestCase::class)
     ->group('browser')
-    ->beforeEach(function (): void {
-        /** @var ResourceSpaceBrowserTestCase $this */
-        $name = method_exists($this, 'getPrintableTestCaseMethodName')
-            ? $this->getPrintableTestCaseMethodName()
-            : $this->nameWithDataSet();
-        testLog('Running browser test: ' . $name);
-    })
     ->in('Browser', '../plugins/*/tests/Browser');
 
 /*

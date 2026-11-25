@@ -40,8 +40,7 @@ test('uploaded resources can be added to an existing collection', function (): v
         ->click('#UploadOptionsSectionHead')
         ->select('collection_add', 'Default Collection')
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillTitle($resource_title)
         ->refineMetadataSaveAndNext()
         ->waitForAjax()
@@ -62,8 +61,7 @@ test('uploaded resources can be added to a new named collection', function (): v
         ->select('collection_add', 'new')
         ->fill('entercolname', $collection_name)
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillTitle($resource_title)
         ->refineMetadataSaveAndNext()
         ->waitForAjax()
@@ -82,8 +80,7 @@ test('uploaded resources are not added to a collection (when intended so)', func
         ->click('#UploadOptionsSectionHead')
         ->select('collection_add', 'false')
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillTitle($resource_title)
         ->refineMetadataSaveAndNext()
         ->waitForAjax();
@@ -114,8 +111,7 @@ test('embedded metadata is not imported when disabled for an upload', function (
         ->check('no_exif')
         ->select('collection_add', 'false')
         ->addFileToUppy(testFixture('Images/simple_with_embedded_metadata.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillTitle($resource_title)
         ->refineMetadataSaveAndNext()
         ->waitForAjax();
@@ -147,16 +143,9 @@ test('locked metadata values can be applied to all uploaded resources (single fi
         ->refineMetadataLockField($GLOBALS['view_title_field'])
         ->refineMetadataSaveAllWithLockedValues()
         ->waitForAjax()
-        // Check the first 3 resources all have the same title
-        ->assertScript(
-            sprintf(
-                '[...document.querySelectorAll(\'.resource-card-title\')]
-                    .slice(0, 3)
-                    .every(el => el.textContent.trim() === %s);',
-                encode_js_value($resource_title),
-            ),
-            true,
-        );
+        ->assertPathIs('/pages/search.php');
+
+    expect($this->expectResourceIdsByNodeName($resource_title))->toHaveCount(3);
 });
 
 test('locked metadata values can be applied to all uploaded resources (multiple fields)', function () use ($upload_fixture): void {
@@ -183,24 +172,12 @@ test('locked metadata values can be applied to all uploaded resources (multiple 
         ->refineMetadataSaveAllWithLockedValues()
         ->waitForAjax();
 
-    $resources = $page->script(
-        sprintf(
-            "[...document.querySelectorAll('.resource-card-title')]
-                .slice(0, 3)
-                .filter(el => el.textContent.trim() === %s)
-                .map(el => el.querySelector('a').href);",
-            encode_js_value($resource_title),
-        ),
-    );
-
-    expect(count($resources))->toBe(3);
-
-    foreach ($resources as $resource_url) {
-        $page
-            ->navigate($resource_url)
-            ->waitForAjax()
-            ->assertSee('Product')
-            ->assertSee('Photo shoot');
+    $page->assertPathIs('/pages/search.php');
+    $resources = $this->expectResourceIdsByNodeName($resource_title);
+    expect($resources)->toHaveCount(3);
+    foreach ($resources as $ref) {
+        expect(get_resource_nodes($ref, 73))->toContain(274);
+        expect(get_resource_nodes($ref, 74))->toContain(266);
     }
 });
 
@@ -212,8 +189,7 @@ test('missing a single required field triggers a validation error and preserves 
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillDateParts($GLOBALS['date_field'], $date)
         ->refineMetadataSaveAndNext()
         ->waitForAjax()
@@ -245,8 +221,7 @@ test('missing multiple required fields trigger a validation error and preserve e
     (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillDateParts($GLOBALS['date_field'], $date)
         ->refineMetadataSaveAndNext()
         ->waitForAjax()
@@ -282,13 +257,16 @@ test('PDF and MP3 resources have a "View in browser" download option on their Vi
         ->waitForAjax();
 
     $resources = $this->expectResourceIdsByNodeName($resource_title);
+    expect($resources)->toHaveCount(2);
+    $extensions = [];
     foreach ($resources as $resource) {
-        $page
-            ->navigate($this->browserUrl("/pages/view.php?ref={$resource}"))
-            ->waitForAjax()
-            ->assertSee($resource_title)
-            ->assertVisible('.DownloadButton a:text-is("View in browser")');
+        $extensions[] = get_resource_data($resource, false)['file_extension'];
+        $page->openAndWaitFor(
+            $this->browserUrl("/pages/view.php?ref={$resource}"),
+            '.DownloadButton a:text-is("View in browser")'
+        )->assertSee($resource_title);
     }
+    expect($extensions)->toEqualCanonicalizing(['pdf', 'mp3']);
 });
 
 test('text from an uploaded PDF is stored in the configured extracted text field', function () use ($upload_fixture): void {
@@ -317,4 +295,33 @@ test('text from an uploaded PDF is stored in the configured extracted text field
     $extracted_text = get_data_by_field($resources[0], $text_field);
     expect(preg_replace('/\s+/u', ' ', trim($extracted_text)))
         ->toBe('ResourceSpace PDF text extraction regression fixture. The uploaded document contains searchable text.');
+});
+
+test('queues uploads from the file input and from a drop onto the dashboard', function (): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $page = $this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value);
+    $page->assertPathIs('/pages/upload_batch.php');
+    $dashboard = '.uppy-Dashboard-inner';
+    $page->assertVisible($dashboard . ' .uppy-Dashboard-browse');
+    $page->page()->locator($dashboard . ' input[type=file]')->first()->setInputFiles(
+        testFixture('Images/image_1.jpg')
+    );
+    $page->assertVisible($dashboard . ' .uppy-Dashboard-Item-name:has-text("image_1.jpg")');
+
+    $drop_url = encode_js_value($this->browserUrl('/tests/Fixtures/Files/Images/simple_with_embedded_metadata.jpg'));
+    $page->script(<<<JS
+        (async () => {
+            const response = await fetch({$drop_url});
+            const bytes = await response.blob();
+            const file = new File([bytes], 'dropped-metadata.jpg', {type: 'image/jpeg'});
+            const transfer = new DataTransfer();
+            transfer.items.add(file);
+            const target = document.querySelector('{$dashboard}');
+            target.dispatchEvent(new DragEvent('dragenter', {dataTransfer: transfer, bubbles: true, cancelable: true}));
+            target.dispatchEvent(new DragEvent('dragover', {dataTransfer: transfer, bubbles: true, cancelable: true}));
+            target.dispatchEvent(new DragEvent('drop', {dataTransfer: transfer, bubbles: true, cancelable: true}));
+        })()
+        JS);
+    $page->assertVisible($dashboard . ' .uppy-Dashboard-Item-name:has-text("dropped-metadata.jpg")');
+    expect($page->page()->locator($dashboard . ' .uppy-Dashboard-Item')->count())->toBe(2);
 });

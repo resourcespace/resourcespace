@@ -2884,10 +2884,20 @@ function render_new_featured_collection_cta(string $url, array $ctx)
 
     $centralspaceload = (isset($ctx["centralspaceload"]) && $ctx["centralspaceload"]);
     $tile_icon_class = (isset($ctx["html_h2_span_class"]) && trim($ctx["html_h2_span_class"]) != "" ? trim($ctx["html_h2_span_class"]) : "icon-plus");
+    $html_classes = ["FeaturedSimpleTile", "HomePanel"];
+    if (isset($ctx["html_container_class"]) && is_string($ctx["html_container_class"])) {
+        $html_classes[] = $ctx["html_container_class"];
+    }
+    $hidden = !empty($ctx["hidden"]);
 
     $onclick_fn = ($centralspaceload ? "CentralSpaceLoad(this, true);" : "ModalLoad(this, true, true);");
     ?>
-    <a class="FeaturedSimpleTile HomePanel" href="<?php echo $url; ?>" onclick="return <?php echo $onclick_fn; ?>">
+    <a
+        class="<?php echo escape(implode(" ", $html_classes)); ?>"
+        href="<?php echo escape($url); ?>"
+        onclick="return <?php echo $onclick_fn; ?>"
+        <?php echo $hidden ? "hidden" : ""; ?>
+    >
         <div id="FeaturedSimpleTile" class="HomePanel featured-tile">
             <div class="tile-special-content">
                 <div class="tile-special-icon">
@@ -5164,81 +5174,6 @@ function render_featured_collections(array $ctx, array $items)
 
         render_featured_collection($render_ctx, $fc);
         }
-
-        ?>
-
-<script>
-if (typeof window.initFeaturedCollectionAjaxLoading !== "function") {
-    window.initFeaturedCollectionAjaxLoading = function() {
-        const tiles = document.querySelectorAll(
-            ".featured-collection-ajax-load:not([data-fc-observed])"
-        );
-
-        if (tiles.length === 0) {
-            return;
-        }
-
-        if (typeof window.featuredCollectionObserver === "undefined") {
-            window.featuredCollectionObserver = new IntersectionObserver(
-                function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        const tile = entry.target;
-
-                        if (entry.isIntersecting) {
-                            if (tile.fcLoadTimeout !== null && typeof tile.fcLoadTimeout !== "undefined") {
-                                return;
-                            }
-
-                            tile.fcLoadTimeout = setTimeout(function() {
-                                const ref = parseInt(tile.dataset.fcRef, 10);
-                                const smart = parseInt(tile.dataset.fcSmart, 10);
-
-                                observer.unobserve(tile);
-
-                                jQuery.ajax({
-                                    url: "<?php echo $baseurl_short; ?>pages/ajax/featured_collection_image.php",
-                                    data: {
-                                        node: ref,
-                                        smart: smart
-                                    },
-                                    success: function(html) {
-                                        const imageContainer = jQuery(tile).find(".featured-tile-image-container");
-                                        imageContainer
-                                            .hide()
-                                            .html(html)
-                                            .fadeIn(300);
-                                    },
-                                    error: function() {
-                                        jQuery(tile)
-                                            .find(".featured-collection-image-loading")
-                                            .remove();
-                                    }
-                                });
-                            }, 200);
-                        } else if (tile.fcLoadTimeout !== null && typeof tile.fcLoadTimeout !== "undefined") {
-                            clearTimeout(tile.fcLoadTimeout);
-                            tile.fcLoadTimeout = null;
-                        }
-                    });
-                },
-                {
-                    rootMargin: "300px"
-                }
-            );
-        }
-
-        tiles.forEach(function(tile) {
-            tile.dataset.fcObserved = "1";
-            window.featuredCollectionObserver.observe(tile);
-        });
-    };
-}
-
-window.initFeaturedCollectionAjaxLoading();
-</script>
-
-        <?php
-
     }
 
 
@@ -5370,38 +5305,6 @@ function render_featured_collection(array $ctx, array $fc)
         render_featured_collection_context_menu($featured_tile_hash, $tools);
         ?>
     </a>
-    <script>
-        jQuery(document).ready(function() {
-            let fctilename = "#FeaturedSimpleTile_<?php echo $featured_tile_hash; ?>";
-            let tilehref; //Used to switch off and on tile link to stop issue clicking on tool bar but opening tile link
-            let tileonclick; //Used to switch off and on tile link to stop issue clicking on tool bar but opening tile link
-
-            let fcactionsid = ".top-right-menu > i";
-
-            jQuery(`${fctilename} ${fcactionsid}, #<?php echo $featured_tile_hash; ?>`).hover(
-                function(e) {
-                    tilehref = jQuery(fctilename).attr("href");
-                    tileonclick = jQuery(fctilename).attr("onclick");
-                    jQuery(fctilename).attr("href", "#");
-                    jQuery(fctilename).attr("onclick", "return false;");
-
-                    jQuery(`a.FeaturedSimpleTile:not(${fctilename})`).css('pointer-events', 'none')
-                },
-                function(e) {
-                    jQuery(fctilename).attr("href", tilehref);
-                    jQuery(fctilename).attr("onclick", tileonclick);
-                    tilehref = '';
-                    tileonclick = '';
-
-                    jQuery(`a.FeaturedSimpleTile:not(${fctilename})`).css('pointer-events', 'initial')
-                }
-            ).mousedown(
-                function(e) {
-                    e.stopPropagation();
-                }
-            );
-        })
-    </script>  
     <?php
 }
 

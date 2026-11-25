@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
 use Montala\ResourceSpace\Tests\Support\Browser\EditPage;
-use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
 
 beforeAll(function () {
     setTestConfiguration('$upload_then_edit = true;');
@@ -36,8 +35,7 @@ test('general users can upload resources via Contributions and submit them for r
         ->click('Upload resources')
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']")
         ->fillTitle($resource_title)
         ->refineMetadataSaveAndNext()
         ->waitForAjax()

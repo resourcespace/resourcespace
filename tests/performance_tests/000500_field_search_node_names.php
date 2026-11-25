@@ -2,7 +2,7 @@
 
 command_line_only();
 
-// Run independently: php tests/test.php -performance -time 500
+// Run independently: RS_BENCHMARK=500 composer test:performance
 return (static function (): bool {
     $saved = [];
     foreach (['query_cache_enabled', 'config_show_performance_footer', 'userpermissions'] as $key) {

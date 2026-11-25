@@ -11,6 +11,16 @@ use PHPUnit\Framework\TestCase;
 
 abstract class ResourceSpaceBrowserTestCase extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $name = method_exists($this, 'getPrintableTestCaseMethodName')
+            ? $this->getPrintableTestCaseMethodName()
+            : $this->nameWithDataSet();
+        testLog('Running browser test: ' . $name);
+    }
+
     public function browserUrl(string $path): string
     {
         return 'http://127.0.0.1:8081/' . ltrim($path, '/');

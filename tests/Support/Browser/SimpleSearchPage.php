@@ -23,7 +23,8 @@ final class SimpleSearchPage extends BrowserPage
     public function goToAdvancedSearch(): self
     {
         $this->toggleSearchFilterPanel();
-        $this->page->click('Advanced search');
+        $this->page->page()->getByRole('link', ['name' => 'Advanced search', 'exact' => true])
+            ->click(['noWaitAfter' => true]);
 
         return $this;
     }

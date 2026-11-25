@@ -5208,21 +5208,28 @@ function delete_old_collections($userref = 0, $days = 30)
 */
 function get_all_featured_collections()
 {
+    // Only boolean resource/child flags are required. Correlated existence checks avoid expanding and aggregating the
+    // complete Featured Collection hierarchy and its resource memberships.
     return ps_query(
-        "SELECT DISTINCT c.ref,
+        "SELECT c.ref,
                       c.`name`,
                       c.`type`,
                       c.parent,
                       c.thumbnail_selection_method,
                       c.bg_img_resource_ref,
                       c.created,
-                      count(DISTINCT cr.resource) > 0 AS has_resources,
-                      count(DISTINCT cc.ref) > 0 AS has_children
+                      EXISTS(
+                          SELECT 1
+                            FROM collection_resource AS cr
+                           WHERE cr.collection = c.ref
+                      ) AS has_resources,
+                      EXISTS(
+                          SELECT 1
+                            FROM collection AS cc
+                           WHERE cc.parent = c.ref
+                      ) AS has_children
                  FROM collection AS c
-            LEFT JOIN collection_resource AS cr ON c.ref = cr.collection
-            LEFT JOIN collection AS cc ON c.ref = cc.parent
-                WHERE c.`type` = ?
-             GROUP BY c.ref",
+                WHERE c.`type` = ?",
         array("i",COLLECTION_TYPE_FEATURED),
         "featured_collections"
     );
@@ -5256,7 +5263,8 @@ function get_featured_collections(int $parent, array $ctx)
         $params[] = $parent;
     }
 
-    $allfcs = ps_query("SELECT DISTINCT c.ref,
+    // Limit resource/child checks to the direct children being displayed and stop each check after the first match.
+    $allfcs = ps_query("SELECT c.ref,
                       c.`name`,
                       c.`type`,
                       c.parent,
@@ -5265,14 +5273,19 @@ function get_featured_collections(int $parent, array $ctx)
                       c.order_by,
                       c.created,
                       c.savedsearch,
-                      count(DISTINCT cr.resource) > 0 AS has_resources,
-                      count(DISTINCT cc.ref) > 0 AS has_children
+                      EXISTS(
+                          SELECT 1
+                            FROM collection_resource AS cr
+                           WHERE cr.collection = c.ref
+                      ) AS has_resources,
+                      EXISTS(
+                          SELECT 1
+                            FROM collection AS cc
+                           WHERE cc.parent = c.ref
+                      ) AS has_children
                  FROM collection AS c
-            LEFT JOIN collection_resource AS cr ON c.ref = cr.collection
-            LEFT JOIN collection AS cc ON c.ref = cc.parent
                 WHERE c.`type` = ?
                   AND c.parent $parentquery
-             GROUP BY c.ref
              ORDER BY c.order_by", $params);
 
     if (!$access_control) {
@@ -5286,6 +5299,176 @@ function get_featured_collections(int $parent, array $ctx)
         }
     }
     return $validcollections;
+}
+
+/**
+ * Get the normal and smart Featured Collection tile data for a page.
+ *
+ * @param int      $parent          Normal Featured Collection parent ref, or 0 for the root.
+ * @param int      $smart_rtf       Smart Featured Collection metadata field ref, or 0 for normal FCs.
+ * @param int|null $smart_fc_parent Smart Featured Collection parent node ref.
+ *
+ * @return array{featured: array, smart: array} Ordered tile data split by tile type.
+ */
+function get_featured_collection_tile_data(int $parent, int $smart_rtf, ?int $smart_fc_parent): array
+{
+    global $FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS, $FIXED_LIST_FIELD_TYPES;
+
+    // Normal Featured Collections are displayed only when browsing the normal hierarchy. Smart Featured Collection
+    // pages use metadata nodes instead and must not mix normal collections into their result.
+    $featured_collections = [];
+    if ($smart_rtf === 0) {
+        $featured_collections = get_featured_collections($parent, []);
+        usort($featured_collections, "order_featured_collections");
+    }
+
+    $smart_featured_collections = [];
+    if ($parent === 0 && $smart_rtf === 0) {
+        // On the main Featured Collections page, each accessible Smart Featured Collection field is represented by a
+        // header tile. Selecting one of these tiles opens its top-level metadata nodes.
+        $smart_theme_headers = array_filter(
+            get_smart_theme_headers(),
+            function (array $header): bool {
+                return metadata_field_view_access($header["ref"]);
+            }
+        );
+
+        $smart_featured_collections = array_map(
+            function (array $header) use ($FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS): array {
+                return [
+                    "ref" => $header["ref"],
+                    "name" => $header["smart_theme_name"],
+                    "type" => COLLECTION_TYPE_FEATURED,
+                    "parent" => null,
+                    "thumbnail_selection_method" =>
+                        $FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS["most_popular_image"],
+                    "has_resources" => 0,
+                    "resource_type_field" => $header["ref"],
+                ];
+            },
+            $smart_theme_headers
+        );
+    } elseif ($parent === 0 && $smart_rtf > 0 && metadata_field_view_access($smart_rtf)) {
+        // Inside a Smart Featured Collection, convert the current node level into the same tile-shaped data structure
+        // used by normal collections. Parent nodes link to another tile level; leaf nodes link to search results.
+        $resource_type_field = get_resource_type_field($smart_rtf);
+        if (
+            $resource_type_field !== false
+            && in_array($resource_type_field["type"], $FIXED_LIST_FIELD_TYPES)
+        ) {
+            $smart_fc_nodes = get_smart_themes_nodes(
+                $smart_rtf,
+                false,
+                $smart_fc_parent,
+                $resource_type_field
+            );
+            $smart_featured_collections = array_map(
+                function (array $node) use ($smart_rtf, $FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS): array {
+                    return [
+                        "ref" => $node["ref"],
+                        "name" => $node["name"],
+                        "type" => COLLECTION_TYPE_FEATURED,
+                        "parent" => $node["ref"],
+                        "thumbnail_selection_method" =>
+                            $FEATURED_COLLECTION_BG_IMG_SELECTION_OPTIONS["most_popular_image"],
+                        "has_resources" => 0,
+                        "resource_type_field" => $smart_rtf,
+                        "node_is_parent" => $node["is_parent"],
+                    ];
+                },
+                $smart_fc_nodes
+            );
+        }
+    }
+
+    // Keep the two lists separate so batches can preserve the existing normal-before-smart display order.
+    return [
+        "featured" => $featured_collections,
+        "smart" => $smart_featured_collections,
+    ];
+}
+
+/**
+ * Slice Featured Collection tile data while preserving normal-before-smart ordering.
+ *
+ * @param array{featured: array, smart: array} $tile_data Ordered tile data.
+ * @param int                                  $offset    Zero-based tile offset.
+ * @param int                                  $limit     Maximum tiles to return, or 0 for all remaining tiles.
+ *
+ * @return array{featured: array, smart: array, offset: int, has_more: bool, total: int}
+ */
+function get_featured_collection_tile_batch(array $tile_data, int $offset, int $limit): array
+{
+    $featured_count = count($tile_data["featured"]);
+    $total = $featured_count + count($tile_data["smart"]);
+
+    // Treat normal and smart tiles as one continuous ordered list without merging/copying both potentially large
+    // arrays. The offset may begin in normal tiles, smart tiles, or cross the boundary between them.
+    $offset = min(max(0, $offset), $total);
+    $batch_end = $limit > 0 ? min($total, $offset + $limit) : $total;
+
+    // Take the portion of the requested range that overlaps the normal Featured Collection list.
+    $featured_start = min($offset, $featured_count);
+    $featured_end = min($batch_end, $featured_count);
+    $featured_batch = array_slice(
+        $tile_data["featured"],
+        $featured_start,
+        $featured_end - $featured_start
+    );
+
+    // Translate the same range into smart-list offsets. Values below zero belong to the normal list and are clamped.
+    $smart_start = max(0, $offset - $featured_count);
+    $smart_end = max(0, $batch_end - $featured_count);
+    $smart_batch = array_slice($tile_data["smart"], $smart_start, $smart_end - $smart_start);
+
+    return [
+        "featured" => $featured_batch,
+        "smart" => $smart_batch,
+        "offset" => $batch_end,
+        "has_more" => $batch_end < $total,
+        "total" => $total,
+    ];
+}
+
+/**
+ * Calculate a server-controlled batch limit that completes the current responsive grid row.
+ *
+ * The configured target remains the main batch-size control. The returned limit can exceed it only by the number of
+ * tiles needed to reach the next row boundary. Row-fill requests, used after a resize, return only those missing tiles.
+ *
+ * @param int  $offset    Zero-based tile offset.
+ * @param int  $target    Configured target tiles per batch, or 0 when batching is disabled.
+ * @param int  $columns   Current browser grid column count.
+ * @param bool $fill_row  Return only enough tiles to complete an existing partial row.
+ *
+ * @return int Tile limit for the next request, or 0 when no row fill/batch is required.
+ */
+function get_featured_collection_row_aware_batch_limit(
+    int $offset,
+    int $target,
+    int $columns,
+    bool $fill_row = false
+): int {
+    if ($target <= 0) {
+        return 0;
+    }
+
+    $offset = max(0, $offset);
+    $columns = max(1, $columns);
+    $row_remainder = $offset % $columns;
+
+    if ($fill_row) {
+        // Resizing can turn a previously complete row into a partial one. Request only its missing cells rather than a
+        // complete target-sized batch. A zero remainder means the existing tiles already end at a row boundary.
+        return $row_remainder === 0 ? 0 : $columns - $row_remainder;
+    }
+
+    // Ordinary incremental loads aim for the configured target, then extend the batch to the next complete row. For
+    // example, offset 3, target 1 and 3 columns produces an end position of 6 and therefore a limit of 3.
+    $target_end = $offset + $target;
+    $row_aligned_end = (int) (ceil($target_end / $columns) * $columns);
+
+    return $row_aligned_end - $offset;
 }
 
 /**

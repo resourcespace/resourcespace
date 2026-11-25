@@ -30,6 +30,22 @@ class BrowserPage
     }
 
     /**
+     * Navigate once and wait for a destination control before interacting with the page.
+     *
+     * @param string $url Absolute URL.
+     * @param string $selector Element expected on the destination page.
+     * @return static The current browser wrapper.
+     */
+    public function openAndWaitFor(string $url, string $selector): static
+    {
+        $browser = $this->page->page();
+        $browser->goto($url, ['waitUntil' => 'domcontentloaded', 'timeout' => 15_000]);
+        $browser->locator($selector)->waitFor(['state' => 'visible', 'timeout' => 15_000]);
+
+        return $this;
+    }
+
+    /**
      * Install jQuery AJAX request tracking on the current page.
      *
      * Each active request is recorded when jQuery fires `ajaxSend` and removed when `ajaxComplete` is called. The
@@ -254,8 +270,9 @@ class BrowserPage
      */
     public function uploadAndWaitFor(string $selector, int $timeout = 60000): static
     {
-        $this->page->click(UiElementSelector::UppyActionUploadButton->value);
-        $this->page->page()->waitForSelector($selector, ['state' => 'visible', 'timeout' => $timeout]);
+        $browser = $this->page->page();
+        $browser->locator(UiElementSelector::UppyActionUploadButton->value)->click(['noWaitAfter' => true]);
+        $browser->locator($selector)->waitFor(['state' => 'visible', 'timeout' => $timeout]);
 
         return $this->waitForAjax();
     }

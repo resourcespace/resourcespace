@@ -70,7 +70,10 @@
             "@dev:tests",
             "@dev:phpstan"
         ],
-        "dev:tests": "@php tests/test.php -noteardown",
+        "dev:tests": [
+            "@test:unit",
+            "@test:integration"
+        ],
         "dev:phpstan": "phpstan analyse",
         "build:applyDownstreamChanges": [
             "echo Applying downstream changes to vendor/.",
@@ -98,6 +101,7 @@
         "test:env:cleanup": "@php tests/Support/cleanup-resourcespace-test-env.php",
         "test:unit": "pest --testsuite=Unit",
         "test:integration": [
+            "Composer\\Config::disableProcessTimeout",
             "@test:env:provision",
             "@putenv RS_TEST_MODE=1",
             "@php -d auto_prepend_file=tests/Support/bootstrap-resourcespace-test-env.php vendor/bin/pest --testsuite=Integration",
@@ -107,6 +111,14 @@
         "test:browser": [
             "Composer\\Config::disableProcessTimeout",
             "bash tests/Support/browser-test-runner.sh"
+        ],
+        "test:performance": [
+            "Composer\\Config::disableProcessTimeout",
+            "@test:env:provision",
+            "@putenv RS_TEST_MODE=1",
+            "@php tests/performance.php",
+            "@test:env:cleanup",
+            "@putenv RS_TEST_MODE"
         ],
         "test:full": [
             "@test:unit",

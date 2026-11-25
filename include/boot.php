@@ -81,19 +81,6 @@ if (!(file_exists(__DIR__ . "/config.php") && filesize(__DIR__ . "/config.php") 
 }
 include __DIR__ . "/config.php";
 
-// todo: drop this logic as part of migrating /tests/test_list/001590_api_logging.php to the new test framework - Pestphp
-// because we now have config.test for this exact reason. It's loaded a little later in this file, see below.
-// Allow automated HTTP tests to use isolated test configuration.
-if (defined("RS_TEST_MODE")) {
-    if (isset($rs_test_mysql_db)) {
-        $mysql_db = $rs_test_mysql_db;
-    }
-
-    if (isset($rs_test_api_scramble_key)) {
-        $api_scramble_key = $rs_test_api_scramble_key;
-    }
-}
-
 // Set exception_ignore_args so that if $log_error_messages_url is set it receives all the necessary
 // information to perform troubleshooting
 ini_set("zend.exception_ignore_args", "Off");

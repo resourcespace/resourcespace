@@ -62,31 +62,32 @@ test('users cannot proceed when a required field is left blank', function (): vo
         ->waitForAjax()
         ->click('Next')
         ->waitForAjax()
+        ->assertPathIs('/pages/edit.php')
         ->assertSee('This is a required field');
 });
 
-test('users cannot proceed when at least one required field is left blank', function (): void {
+test('users cannot proceed when multiple required fields are left blank', function (): void {
     /** @var ResourceSpaceBrowserTestCase $this */
-    $rtf = create_resource_type_field('Test required field');
-    expect($rtf)->toBeInt();
-
-    expect(
-        save_resource_type_field(
-            $rtf,
+    $field = create_resource_type_field('Test required field');
+    expect($field)->toBeInt();
+    try {
+        expect(save_resource_type_field(
+            $field,
             get_resource_type_field_columns(),
-            array_merge(get_resource_type_field($rtf), ['required' => 1, 'order_by' => 15]),
-        ),
-    )->toBeTrue();
+            array_merge(get_resource_type_field($field), ['required' => 1, 'order_by' => 15]),
+        ))->toBeTrue();
 
-    (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
-        ->waitForAjax()
-        ->fill("field_{$rtf}", 'Lorem ipsum')
-        ->click('Next')
-        ->waitForAjax()
-        ->assertSee('This is a required field');
-
-    // Quick cleanup or the extra required field will make the next tests break
-    delete_resource_type_field($rtf);
+        (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
+            ->waitForAjax()
+            ->click('Next')
+            ->waitForAjax()
+            ->assertPathIs('/pages/edit.php')
+            ->assertPresent(".Question.FieldSaveError:has(> label[for='field_{$field}'])")
+            ->assertPresent(".Question.FieldSaveError:has(> label[for='field_{$GLOBALS['view_title_field']}'])")
+            ->assertSee('This is a required field');
+    } finally {
+        delete_resource_type_field($field);
+    }
 });
 
 test('uploaded resources can be added to an existing collection', function (): void {
@@ -100,8 +101,7 @@ test('uploaded resources can be added to an existing collection', function (): v
         ->click('Next')
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadSavedMetadata()
         ->click(UiElementSelector::CollectionBarToggleButton->value)
         ->click(UiElementSelector::CollectionBarShowThumbsButton->value)
         ->assertSeeIn('.collection-bar-resource-card-title', $resource_title);
@@ -122,8 +122,7 @@ test('uploaded resources can be added to a new named collection', function (): v
         ->click('Next')
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
+        ->uploadSavedMetadata()
         ->click(UiElementSelector::CollectionBarToggleButton->value)
         ->click(UiElementSelector::CollectionBarShowThumbsButton->value)
         ->assertSelectedOptions('.collection-bar-actions-section #collection', [$collection_name])
@@ -141,8 +140,7 @@ test('uploaded resources are not added to a collection (when intended so)', func
         ->click('Next')
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax();
+        ->uploadSavedMetadata();
 
     $resource_not_in_collections = ps_value(
         'SELECT r.ref AS `value`
@@ -172,8 +170,7 @@ test('embedded metadata is not imported when disabled for an upload', function (
         ->click('Next')
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/simple_with_embedded_metadata.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax();
+        ->uploadSavedMetadata();
 
     $resource = $this->expectResourceIdByNodeName($resource_title);
 
@@ -198,8 +195,7 @@ test('resource log records creation from the Web Uploader', function (): void {
         ->click('Next')
         ->waitForAjax()
         ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax();
+        ->uploadSavedMetadata();
     
     $ref = $this->expectResourceIdByNodeName($resource_title);
 

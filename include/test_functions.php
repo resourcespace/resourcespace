@@ -209,25 +209,3 @@ function create_random_video(array $info): array
         'error' => 'FFMpeg missing',
     ];
 }
-
-/**
- * Debug logs for ResourceSpace automated tests
- * @uses RS_TEST_DEBUG constant {@see tests/test.php}
- */
-function test_log(string $msg): void
-{
-    if (!RS_TEST_DEBUG) {
-        return;
-    }
-
-    echo PHP_EOL . $msg;
-}
-
-/**
- * Get the test files' ID (from its file name)
- */
-function test_get_file_id(string $file): int
-{
-    $matches = [];
-    return preg_match('/[1-9][0-9]{2,}/', basename($file), $matches) === 1 ? (int) $matches[0] : 0;
-}

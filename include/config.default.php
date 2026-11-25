@@ -1119,6 +1119,10 @@ $index_collection_creator = true;
 // After changing these separators, reindex existing data using pages/tools/reindex.php.
 $config_separators = array("/", "_", ".", ";", "-", "(", ")", "'", "\"", "\\", "?", '’', '“', ' ');
 
+// Additional characters to preserve inside keywords during search and indexing.
+// Remove these characters from $config_separators and reindex existing data after changing this list.
+$keyword_allowed_symbols = [];
+
 // Resource field verbatim keyword regex Using the index value of [resource field], specifies regex criteria for adding
 // verbatim strings to keywords. It solves the problem, for example, indexing an entire "nnn.nnn.nnn" string value when
 // '.' are used in $config_separators.
@@ -1270,6 +1274,10 @@ $descthemesorder = false;
 
 // Allow Featured collections to be re-ordered
 $allow_fc_reorder = true;
+
+// Target number of Featured Collection tiles to render in each batch. The actual number may be increased slightly to
+// complete a responsive grid row. Set to 0 to render all tiles at once.
+$featured_collection_tiles_per_batch_target = 100;
 
 // Show related themes and public collections panel on Resource View page.
 $show_related_themes = true;
@@ -3422,10 +3430,6 @@ $debug_extended_info = false;
 // access to both the file and the containing folder by web service account.
 // $debug_log_location = "d:/logs/resourcespace.log";
 // $debug_log_location = "/var/log/resourcespace/resourcespace.log";
-
-// E-mail address to send a report to if any of the automated tests (tests/test.php) fail. This is used by Montala to
-// automatically test the RS trunk on a nightly basis.
-// $email_test_fails_to="example@example.com";
 
 // Maximum number of rows in an emailed report before it will be added as an attachment. Reports with fewer rows than
 // this will be displayed as a table in the message body

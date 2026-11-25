@@ -92,7 +92,7 @@ startup_failure() {
     exit 1
 }
 
-echo "Waiting for the PHP test server (run token: $SERVER_TOKEN; log: $SERVER_LOG)"
+echo "Waiting for the PHP test server on port 8081 (log file $SERVER_LOG)"
 startup_deadline=$((SECONDS + 10))
 while true; do
     if ! kill -0 "$SERVER_PID" 2>/dev/null; then

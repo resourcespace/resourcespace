@@ -3,173 +3,157 @@
 declare(strict_types=1);
 
 use Montala\ResourceSpace\Tests\ResourceSpaceBrowserTestCase;
+use Montala\ResourceSpace\Tests\Support\Browser\BrowserPage;
 use Montala\ResourceSpace\Tests\Support\Browser\ResourceTypesPage;
 use Montala\ResourceSpace\Tests\Support\Browser\SimpleSearchPage;
 use Montala\ResourceSpace\Tests\Support\Browser\UiElementSelector;
+use Montala\ResourceSpace\Tests\Support\IntegrationFixtures;
 
-afterAll(fn() => setTestConfiguration(''));
-
-test('create a new resource type, ensure it is shown in expected areas (Simple Search, Advanced search etc)', function (): void {
-    /** @var ResourceSpaceBrowserTestCase $this */
-    $resource_type_name = 'RT 1';
-
-    $this
-        ->loginAsAdmin()
-        ->click('#header-container .actions .get-menu-content:first-of-type')
-        ->assertSee('System')
-        ->click('li[title="System setup area"] a')
-        ->assertSee('Resource types')
-        ->click('li[title="Create and configure resource types"] a')
-        ->assertPathIs('/pages/admin/admin_resource_types.php')
-        ->fill('newtype', $resource_type_name)
-        ->click('.Inline > input[type="submit"]')
-        ->assertSee('Saved') // toast notification
-        ->refresh()
-        // Simple search
-        ->click('.header-search-field .input-wrapper > button:last-of-type')
-        ->click('.header-search-field .field-input .select2 .select2-selection--multiple')
-        ->assertSee($resource_type_name)
-        // Advanced search
-        ->click('Advanced search')
-        ->assertSee($resource_type_name);
+$fixtures = null;
+$fixture_type_names = [];
+$original_order = [];
+beforeEach(function () use (&$fixtures, &$fixture_type_names, &$original_order): void {
+    $fixtures = new IntegrationFixtures(['download_access_cache']);
+    $fixture_type_names = [];
+    $original_order = [];
+});
+afterEach(function () use (&$fixtures, &$fixture_type_names, &$original_order): void {
+    try {
+        $fixtures?->cleanUp();
+    } finally {
+        foreach ($fixture_type_names as $name) {
+            ps_query('DELETE FROM resource_type WHERE name = ?', ['s', $name]);
+        }
+        foreach ($original_order as $ref => $order) {
+            ps_query('UPDATE resource_type SET order_by = ? WHERE ref = ?', ['i', $order, 'i', $ref]);
+        }
+        clear_restype_cache();
+        clear_query_cache('schema');
+    }
 });
 
-test('resource types are shown in configured display order in simple and advanced search', function (): void {
+test('new resource types appear in simple and advanced search', function () use (&$fixture_type_names): void {
     /** @var ResourceSpaceBrowserTestCase $this */
-    $rt_a = 'Order Test - Alpha';
-    $rt_b = 'Order Test - Beta';
-    $rt_c = 'Order Test - Charlie';
-    $rts = [
-        'rt_a' => bypass_permissions(['a'], create_resource_type(...), [$rt_a]),
-        'rt_b' => bypass_permissions(['a'], create_resource_type(...), [$rt_b]),
-        'rt_c' => bypass_permissions(['a'], create_resource_type(...), [$rt_c]),
-    ];
+    $name = 'Search type ' . generateRandomTestID(12);
+    $fixture_type_names[] = $name;
+    $page = $this->loginAsAdmin();
+    (new ResourceTypesPage($page))->open();
+    $page->fill('newtype', $name);
+    $page->page()->locator('form:has(#newtype) input[name=Submit]')->click(['noWaitAfter' => true]);
+    $page->page()->locator('input[name=allowed_extensions]')->waitFor(['state' => 'visible']);
+    $page->assertValue('name', $name);
 
-    $assert_simple_search_sort_order = static function ($page, array $rts) {
-        $js_rts = encode_js_value($rts);
-
-        $ss = (new SimpleSearchPage($page))
-            ->toggleSearchFilterPanel()
-            ->openResourceTypeSelector()
-            ->assertScript(<<<JS
-                (() => {
-                    const rts = {$js_rts};
-
-                    return [...document.querySelectorAll('#select2-restypes-results > li')]
-                        .map(el => el.textContent.trim())
-                        .filter(label => rts.includes(label))
-                        .join('|');
-                })()
-            JS, implode('|', $rts));
-
-        $page = (new SimpleSearchPage($ss->getPage()))->toggleSearchFilterPanel();
-    };
-
-    $assert_advanced_search_sort_order = static function ($page, array $rts) {
-        $js_rts = encode_js_value($rts);
-
-        $page->assertScript(<<<JS
-            (() => {
-                const rt_ids = {$js_rts};
-
-                return [...document.querySelectorAll('.SearchTypeCheckbox.SearchTypeItemCheckbox')]
-                    .map(el => el.name)
-                    .map(value => value.match(/^resourcetype(\d+)$/))
-                    .filter(Boolean)
-                    .map(match => Number(match[1]))
-                    .filter(id => rt_ids.includes(id))
-                    .join('|');
-            })()
-        JS, implode('|', $rts));
-    };
-
-    $rt_page = (new ResourceTypesPage($this->loginAsAdmin()))
-        ->open()
-        ->getPage();
-
-    $assert_simple_search_sort_order($rt_page, [$rt_a, $rt_b, $rt_c]);
-    $assert_advanced_search_sort_order(
-        (new SimpleSearchPage($rt_page))->goToAdvancedSearch(),
-        [$rts['rt_a'], $rts['rt_b'], $rts['rt_c']],
+    $browser = new BrowserPage($page);
+    $browser->openAndWaitFor($this->browserUrl('/pages/search.php'), '.header-search-field');
+    (new SimpleSearchPage($page))
+        ->toggleSearchFilterPanel()
+        ->openResourceTypeSelector()
+        ->assertSeeIn('#select2-restypes-results', $name);
+    $browser->openAndWaitFor(
+        $this->browserUrl('/pages/search_advanced.php'),
+        '.SearchTypeItemCheckbox[name=resourcetype1]'
     );
-
-    // Re-order the resource types
-    $rt_page = (new ResourceTypesPage($rt_page))
-        ->open()
-        ->click('.BasicsBox > a[href*="restype_order_by=order_by"][href*="restype_sort=asc"]')
-        ->waitForAjax()
-        ->drag("#restype_sort_{$rts['rt_c']}", "#restype_sort_{$rts['rt_a']}")
-        ->refresh()
-        ->getPage();
-
-    $assert_simple_search_sort_order($rt_page, [$rt_c, $rt_a, $rt_b]);
-    $assert_advanced_search_sort_order(
-        (new SimpleSearchPage($rt_page))->goToAdvancedSearch(),
-        [$rts['rt_c'], $rts['rt_a'], $rts['rt_b']],
-    );
+    $page->assertSee($name);
 });
 
-it('displays resource type icon in search result thumbnails', function (): void {
+test('resource types are shown in configured display order in simple and advanced search', function () use (&$fixture_type_names, &$original_order): void {
     /** @var ResourceSpaceBrowserTestCase $this */
-    $rt_with_icon = bypass_permissions(['a'], create_resource_type(...), ['RT w/ icon']);
-    $resource = create_resource($rt_with_icon, 0);
+    $suffix = generateRandomTestID(12);
+    $names = ['Alpha ' . $suffix, 'Beta ' . $suffix, 'Charlie ' . $suffix];
+    $original_order = array_column(ps_query('SELECT ref, order_by FROM resource_type'), 'order_by', 'ref');
+    $fixture_type_names = $names;
+    $refs = array_map(static fn (string $name): int => bypass_permissions(['a'], create_resource_type(...), [$name]), $names);
+    expect($refs)->each->toBeInt();
+    $expected_names = [$names[2], $names[0], $names[1]];
+    $expected_refs = [$refs[2], $refs[0], $refs[1]];
+    $page = $this->loginAsAdmin();
+    $browser = new BrowserPage($page);
 
-    (new ResourceTypesPage($this->loginAsAdmin()))
-        ->open()
-        ->selectResourceType($rt_with_icon)
+    $browser->openAndWaitFor(
+        $this->browserUrl('/pages/admin/admin_resource_types.php?restype_order_by=order_by&restype_sort=asc'),
+        "#restype_sort_{$refs[2]} .moveuplink"
+    )->startAjaxTracking()
+        ->click("#restype_sort_{$refs[2]} .moveuplink")
         ->waitForAjax()
-        ->click('#iconpicker-input')
-        ->typeSlowly('#iconpicker-filter', 'alarm-clock-check')
-        ->click('.iconpicker-content-icon[data-icon="alarm-clock-check"]')
-        ->click('Save')
-        ->navigate($this->browserUrl("/pages/search.php?search=%21list{$resource}"))
-        ->waitForAjax()
-        ->assertPresent("#ResourceShell{$resource} .resource-card-type .icon-alarm-clock-check");
-});
-
-test('users can only upload the allowed file types for resource types', function (): void {
-    /** @var ResourceSpaceBrowserTestCase $this */
-    setTestConfiguration('$show_resource_type = true;');
-
-    $rt = bypass_permissions(['a'], create_resource_type(...), ['RT with file types allow list']);
-    expect($rt)->toBeInt();
-
-    // Edit a resource type, and specify the allowed file types for it
-    $page = (new ResourceTypesPage($this->loginAsAdmin()))
-        ->open()
-        ->selectResourceType($rt)
-        ->waitForAjax()
-        ->fill('allowed_extensions', 'image/jpeg, image/png')
-        ->click('Save');
-
-    // Ensure you can only upload the allowed file types
-    $resource_jpg = create_resource($rt, 0);
-    expect($resource_jpg)->toBeInt();
-
-    $page
-        ->navigate($this->browserUrl("/pages/view.php?ref={$resource_jpg}"))
-        ->waitForAjax()
-        ->click('#view_replace_link')
-        ->waitForAjax()
-        ->addFileToUppy(testFixture('Images/image_1.jpg'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
-        ->waitForAjax()
-        ->assertSeeIn('.DownloadFileName', '300 × 50 pixels');
-
-    // Assert that file types outside the allow list will fail
-    $resource_mp4 = create_resource($rt, 0);
-    expect($resource_mp4)->toBeInt();
-
-    $page
-        ->navigate($this->browserUrl("/pages/view.php?ref={$resource_mp4}"))
-        ->waitForAjax()
-        ->click('#view_replace_link')
-        ->waitForAjax()
-        ->addFileToUppy(testFixture('Videos/short_5seconds.mp4'))
-        ->click(UiElementSelector::UppyActionUploadButton->value)
+        ->click("#restype_sort_{$refs[2]} .moveuplink")
         ->waitForAjax();
+    $browser->openAndWaitFor($this->browserUrl('/pages/search.php'), '.header-search-field');
+    $labels = encode_js_value($names);
+    (new SimpleSearchPage($page))->toggleSearchFilterPanel()->openResourceTypeSelector()
+        ->assertScript(<<<JS
+            [...document.querySelectorAll('#select2-restypes-results > li')]
+                .map(option => option.textContent.trim())
+                .filter(label => {$labels}.includes(label))
+                .join('|')
+            JS, implode('|', $expected_names));
 
-    expect($page->value('#upload_log'))
-        ->toContain('Invalid file type')
-        ->toContain('mp4');
+    $browser->openAndWaitFor($this->browserUrl('/pages/search_advanced.php'), '.SearchTypeItemCheckbox[name=resourcetype1]');
+    $ids = encode_js_value($refs);
+    $page->assertScript(<<<JS
+        [...document.querySelectorAll('.SearchTypeItemCheckbox')]
+            .map(field => +field.name.replace('resourcetype', ''))
+            .filter(id => {$ids}.includes(id))
+            .join('|')
+        JS, implode('|', $expected_refs));
+});
+
+it('displays resource type icon in search result thumbnails', function () use (&$fixtures, &$fixture_type_names): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $name = 'Icon type ' . generateRandomTestID(12);
+    $fixture_type_names[] = $name;
+    $type = bypass_permissions(['a'], create_resource_type(...), [$name]);
+    expect($type)->toBeInt();
+    $resource = $fixtures->resource($type, 0);
+    $page = $this->loginAsAdmin();
+    $browser = new BrowserPage($page);
+    $browser->openAndWaitFor(
+        $this->browserUrl("/pages/admin/admin_resource_type_edit.php?ref={$type}"),
+        '#iconpicker-input'
+    );
+    $page->page()->locator('#iconpicker-button')->click(['noWaitAfter' => true]);
+    $page->page()->locator('.iconpicker-content-icon[data-icon="alarm-clock-check"]')->click(['noWaitAfter' => true]);
+    $page->assertValue('#iconpicker-input', 'alarm-clock-check');
+    $page->script('window.resourceTypeEditBeforeSave = true;');
+    $page->page()->locator('input[name=save]')->click(['noWaitAfter' => true]);
+    $page->assertScript(<<<'JS'
+        !window.resourceTypeEditBeforeSave && document.querySelector('#restype_save')?.value === ''
+            && document.querySelector('input[name=icon]')?.value === 'alarm-clock-check'
+        JS);
+    expect(ps_value('SELECT icon AS value FROM resource_type WHERE ref = ?', ['i', $type], null))
+        ->toBe('alarm-clock-check');
+    $browser->openAndWaitFor($this->browserUrl("/pages/search.php?search=%21list{$resource}"), "#ResourceShell{$resource}");
+    $page->assertPresent("#ResourceShell{$resource} .resource-card-type .icon-alarm-clock-check");
+});
+
+test('the uploader accepts allowed resource type files and rejects other formats', function () use (&$fixtures, &$fixture_type_names): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $name = 'File type allow list ' . generateRandomTestID(12);
+    $fixture_type_names[] = $name;
+    $type = bypass_permissions(['a'], create_resource_type(...), [$name]);
+    expect($type)->toBeInt();
+    expect(bypass_permissions(['a'], save_resource_type(...), [$type, ['allowed_extensions' => 'image/jpeg, image/png']]))
+        ->toBeTrue();
+    $accepted = $fixtures->resource($type, 0);
+    $rejected = $fixtures->resource($type, 0);
+    $page = $this->loginAsAdmin();
+    $browser = new BrowserPage($page);
+
+    $replacement_url = fn (int $ref): string => generateURL($this->browserUrl('/pages/upload_batch.php'), [
+        'replace_resource' => $ref, 'ref' => $ref, 'resource_type' => $type,
+        'redirecturl' => generateURL($this->browserUrl('/pages/view.php'), ['ref' => $ref]),
+    ]);
+    $jpg = testFixture('Images/image_1.jpg');
+    $browser->openAndWaitFor($replacement_url($accepted), '.uppy-Dashboard');
+    $file_input = '.uppy-Dashboard input[type=file]';
+    $page->page()->locator($file_input)->first()->setInputFiles($jpg);
+    $page->assertScript('uppy.getFiles().length', 1);
+    $browser->uploadAndWaitFor('#ResourceDownloadOptions');
+    $original = get_resource_path($accepted, true, '', false, 'jpg');
+    expect(hash_file('sha256', $original))->toBe(hash_file('sha256', $jpg));
+
+    $browser->openAndWaitFor($replacement_url($rejected), '.uppy-Dashboard');
+    $page->page()->locator($file_input)->first()->setInputFiles(testFixture('Videos/short_5seconds.mp4'));
+    $page->click(UiElementSelector::UppyActionUploadButton->value);
+    $page->assertScript('document.querySelector("#upload_log").value.includes("Invalid file type")');
+    expect(get_resource_data($rejected, false)['file_extension'])->toBeEmpty();
 });

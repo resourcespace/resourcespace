@@ -3,13 +3,10 @@
 ## Scope and sources
 
 These instructions apply to `tests/` and its support code. Write new tests with
-Pest. Maintain existing `test_list/` tests when needed; do not add new legacy tests
-or migrate unrelated tests as part of a focused change.
+Pest. Keep dedicated performance measurements in `performance_tests/`.
 
-For this directory, this guide supersedes the root `AGENTS.md` statements that
-Pest and the `test:*` Composer scripts are unavailable. Keep the root's applicable
-coding, security and working-copy rules. Ask the user about unresolved policy or
-workflow choices rather than treating either document as infallible.
+Follow the applicable coding, security and working-copy rules in the
+[root AGENTS.md](../AGENTS.md).
 
 Read the [automated testing guide](https://www.resourcespace.com/knowledge-base/developers/automated_testing).
 Verify commands and helper contracts against this checkout before using them.
@@ -34,7 +31,7 @@ and apply the same base classes and groups as core tests. Keep plugin test files
 named `*Test.php`; no per-plugin registration is needed. Discovery depends on the
 directory existing, not on plugin activation. Tests that need an active plugin
 must arrange activation in the test environment and restore its previous state.
-Keep Pest tests in these subdirectories so the legacy runner does not execute them.
+Keep Pest tests in these subdirectories for suite discovery.
 
 Use the smallest suite that exercises the actual behaviour. Add browser coverage
 when the regression depends on the UI or request path; calling a core helper
@@ -67,6 +64,7 @@ Browser tests need Playwright/Chromium and the feature's external utilities.
 | Integration suite | `composer test:integration` |
 | Browser suite | `composer test:browser` |
 | All three suites | `composer test:full` |
+| Standalone performance benchmarks | `composer test:performance` |
 
 Prefer Composer scripts so the project controls test execution and environment
 setup. For example, run a focused unit test with
@@ -84,9 +82,10 @@ success and preserves the environment on failure. Server diagnostics are in
 `tests/.runtime/php-server.log`; check for sensitive data before sharing logs.
 
 Use `--nosetup` only after confirming that a suitable test environment exists.
-Do not run integration, browser or legacy suites concurrently against the shared
+Do not run integration, browser or performance suites concurrently against the shared
 database/configuration/storage. The browser runner rejects parallel execution.
-`composer dev:tests` still invokes the legacy runner; `pnpm test` is a placeholder.
+`composer dev:tests` runs the Pest unit and integration suites. Use
+`RS_BENCHMARK=500 composer test:performance` to select one standalone benchmark.
 
 ## Isolation, configuration and fixtures
 
