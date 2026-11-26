@@ -33,6 +33,14 @@ it('retains the allowed Unicode characters', function (array $input, string $exp
         ['test* -ignoreKeyword', ['-', '*']],
         'test* -ignoreKeyword',
     ],
+    'Treat the regex delimiter and character class syntax as literals' => [
+        ['a/b[c-d]^\e?f', ['/', '[', '-', ']', '^', '\\']],
+        'a/b[c-d]^\ef',
+    ],
+    'Strip the regex delimiter and character class syntax by default' => [
+        ['a/b[c-d]^\e?f'],
+        'abcdef',
+    ],
     'Allow @ (used by search with the NODE_TOKEN_PREFIX format)' => [
         ['@@1234', []],
         '@@1234',

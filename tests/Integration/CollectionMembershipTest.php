@@ -11,6 +11,7 @@ beforeEach(function () use (&$fixtures): void {
         'collection_block_restypes', 'anonymous_login', 'collection_share_warning', 'CACHE_FC_ACCESS_CONTROL',
         'userpermissions', 'use_error_exception', 'CACHE_FC_RESOURCES', 'collection_allow_not_approved_share',
         'userderestrictfilter', 'resource_access_cache', 'get_resource_data_cache', 'resource_deletion_state',
+        'query_cache_enabled', 'query_cache_already_completed_this_time', 'tempdir',
     ]);
     $GLOBALS['collection_block_restypes'] = [];
     $GLOBALS['anonymous_login'] = '';
@@ -171,6 +172,42 @@ it('merges and replaces collection members and removes only collection data at d
         ->and(get_collection_resources($source))->toBe([$first, $second])
         ->and(get_resource_data($extra, false))->not->toBeFalse()
         ->and(get_resource_data($first, false))->not->toBeFalse();
+});
+
+it('invalidates cached collection lists for the owner and share recipients on deletion', function () use (
+    &$fixtures,
+): void {
+    $id = generateRandomTestID(12);
+    $admin = (int) $GLOBALS['userref'];
+    $admin_username = get_user($admin)['username'];
+    $owner = $fixtures->user('collectionowner' . $id);
+    $group_name = 'Collection recipients ' . $id;
+    $group = $fixtures->group($group_name, '');
+    $group_member = $fixtures->user('collectionrecipient' . $id, $group);
+    $collection = $fixtures->collection($owner, 'Shared collection ' . $id);
+    save_collection($collection, ['users' => $admin_username . ',' . $GLOBALS['lang']['groupsmart'] . ': ' . $group_name]);
+
+    $cache_dir = get_temp_dir(false, 'collection-cache-' . $id);
+    $fixtures->onCleanup(static fn () => rcRmdir($cache_dir));
+    $GLOBALS['tempdir'] = $cache_dir;
+    $GLOBALS['query_cache_enabled'] = true;
+
+    $list_refs = static function (int $user): array {
+        setup_user(get_user($user));
+        // User setup can create a selection collection and suppress cache writes for the rest of the request.
+        $GLOBALS['query_cache_already_completed_this_time'] = [];
+        return array_column(get_user_collections($user, auto_create: false), 'ref');
+    };
+    foreach ([$owner, $admin, $group_member] as $user) {
+        expect($list_refs($user))->toContain($collection)
+            ->and(glob($cache_dir . '/querycache/collection_access' . $user . '_*.json'))->not->toBeEmpty();
+    }
+
+    setup_user(get_user($admin));
+    delete_collection($collection);
+    foreach ([$owner, $admin, $group_member] as $user) {
+        expect($list_refs($user))->not->toContain($collection);
+    }
 });
 
 it('returns the same collection member records to the admin and collection owner', function () use (&$fixtures): void {

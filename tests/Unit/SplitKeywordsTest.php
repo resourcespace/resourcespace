@@ -32,6 +32,7 @@ it('applies the keyword allowlist in searches and indexing', function (
     'empty allowlist' => [['_'], [], '2020.3a-l', ['2020.3al'], ['2020.3al']],
     'allowlisted hyphen' => [['_'], ['-'], '2020.3a-l', ['2020.3a-l'], ['2020.3a-l']],
     'allowlisted ampersand' => [['_'], ['&'], 'a&b', ['a&b'], ['a&b']],
+    'allowlisted forward slash' => [['_'], ['/'], 'album/disc', ['album/disc'], ['album/disc']],
     'separator takes precedence' => [['_', '-'], ['-'], '2020.3a-l', ['2020.3a', 'l'], ['2020.3a', 'l']],
     'keyword exclusion' => [['_', '-'], ['&'], 'photo -draft', ['photo', '-draft'], ['photo', 'draft']],
 ]);

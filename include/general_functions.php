@@ -6162,7 +6162,7 @@ function strip_unicode_points(string $value, array $blocklist = []): string
  * about the words themselves and less about linking or any other type of characters.
  *
  * @param string $text Initial text value
- * @param list<string> $allowlist List of allowed characters. IMPORTANT: it's used to create a regex pattern.
+ * @param list<string> $allowlist Additional characters to retain, treated as literals.
  */
 function allow_unicode_characters(string $text, array $allowlist = []): string
 {
@@ -6173,7 +6173,7 @@ function allow_unicode_characters(string $text, array $allowlist = []): string
     // . - Always allow period as often significant e.g. in identifiers
     // @ - Always allow @ symbol for indexing email address and NODE_TOKEN_PREFIX search
     return trim_spaces(
-        preg_replace('/[^\p{L}\p{N}\s.@' . implode('', array_map(preg_quote(...), $allowlist)) . ']+/u', '', $text)
+        preg_replace('/[^\p{L}\p{N}\s.@' . preg_quote(implode('', $allowlist), '/') . ']+/u', '', $text)
     );
 }
 

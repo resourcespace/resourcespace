@@ -943,6 +943,17 @@ function delete_collection($collection)
         return false;
     }
 
+    // Match the owner, direct shares and group shares used by get_user_collections().
+    $affected_users = ps_array(
+        'SELECT ? AS value
+         UNION
+         SELECT user FROM user_collection WHERE collection = ?
+         UNION
+         SELECT u.ref FROM usergroup_collection AS gc JOIN user AS u ON u.usergroup = gc.usergroup
+         WHERE gc.collection = ?',
+        ['i', $collection['user'], 'i', $ref, 'i', $ref]
+    );
+
     ps_query("DELETE FROM collection WHERE ref=?", array("i",$ref));
     ps_query("DELETE FROM collection_resource WHERE collection=?", array("i",$ref));
     ps_query("DELETE FROM collection_keyword WHERE collection=?", array("i",$ref));
@@ -961,9 +972,9 @@ function delete_collection($collection)
 
     if ($type === COLLECTION_TYPE_FEATURED) {
         clear_query_cache("featured_collections");
-    } else {
-        /** {@see create_collection()} */
-        clear_query_cache("collection_access{$collection['user']}");
+    }
+    foreach ($affected_users as $user) {
+        clear_query_cache('collection_access' . $user);
     }
 }
 
