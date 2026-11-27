@@ -262,6 +262,9 @@ $ghostscript_executable = 'gs';
 // files
 // $pdftotext_path='/usr/bin';
 
+// Path to pdfunite - Enables batch PDF creation
+// $pdfunite_path='/usr/bin';
+
 // Path to blender
 // $blender_path='/usr/bin/';
 

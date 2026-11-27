@@ -27,13 +27,14 @@
         try {
             const response = await fetch(form.action, {method: 'POST', body: data, credentials: 'same-origin'});
             const result = await response.json();
-            if (!response.ok || typeof result.description !== 'string') {
-                throw new Error(typeof result.error === 'string' ? result.error : panel.dataset.saveFailed);
+            const description = result.data?.description;
+            if (!response.ok || result.status !== 'success' || typeof description !== 'string') {
+                throw new Error(result.data?.message || panel.dataset.saveFailed);
             }
-            cell.querySelector('.video-scene-description-text').textContent = result.description
+            cell.querySelector('.video-scene-description-text').textContent = description
                 || panel.dataset.emptyDescription;
-            textarea.value = result.description;
-            textarea.defaultValue = result.description;
+            textarea.value = description;
+            textarea.defaultValue = description;
             form.hidden = true;
             cell.querySelector('.video-scene-description-display').hidden = false;
             const message = panel.querySelector('.video-scene-message');

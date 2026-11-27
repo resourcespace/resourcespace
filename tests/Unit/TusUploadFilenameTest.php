@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 it('uses the temporary identifier to distinguish uploads of the same file', function (): void {
-    $first_id = str_repeat('a', 32);
-    $second_id = str_repeat('b', 32);
+    $first_id = '01234567-89ab-4def-a123-456789abcdef';
+    $second_id = '01234567-89ab-4def-b123-456789abcdef';
     $first = get_tus_upload_filename('replacement-file.tif', $first_id);
     $second = get_tus_upload_filename('replacement-file.tif', $second_id);
 
@@ -14,7 +14,12 @@ it('uses the temporary identifier to distinguish uploads of the same file', func
 
 it('rejects invalid temporary upload identifiers', function (string $id): void {
     expect(get_tus_upload_filename('replacement-file.tif', $id))->toBeFalse();
-})->with(['path segment' => '../invalid', 'trailing newline' => str_repeat('a', 32) . "\n"]);
+})->with([
+    'path segment' => '../invalid',
+    'trailing newline' => "01234567-89ab-4def-a123-456789abcdef\n",
+    'wrong UUID version' => '01234567-89ab-5def-a123-456789abcdef',
+    'wrong UUID variant' => '01234567-89ab-4def-c123-456789abcdef',
+]);
 
 it('retains the legacy key when no temporary identifier is provided', function (): void {
     expect(get_tus_upload_filename('replacement-file.tif', '', 2))->toStartWith('2-');

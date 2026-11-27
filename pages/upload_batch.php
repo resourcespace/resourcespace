@@ -534,10 +534,13 @@ if ($processupload)
         }
 
     // Validate the raw completed upload before hooks, autorotation or other
-    // processing can legitimately change its size.
+    // processing can legitimately change its size. Older pages omit both fields.
+    $upload_request = $_POST + $_GET + $_COOKIE;
+    $legacy_completion = !array_key_exists('file_size', $upload_request)
+        && !array_key_exists('upload_temp_id', $upload_request);
     $expected_file_size = getval("file_size", "");
     $actual_file_size = null;
-    if (!completed_upload_size_matches($upfilepath, $expected_file_size, $actual_file_size)) {
+    if (!$legacy_completion && !completed_upload_size_matches($upfilepath, $expected_file_size, $actual_file_size)) {
         debug(
             "upload_batch - completed upload size mismatch, filename "
             . json_encode(substr($upfilename, 0, 255), JSON_INVALID_UTF8_SUBSTITUTE)
@@ -1181,16 +1184,19 @@ jQuery(document).ready(function () {
     var Dashboard = Uppy.Dashboard;
     var Tus = Uppy.Tus;
 
-    // Generate a path-safe 128-bit identifier independently for every upload.
+    const resumedUploads = new Map();
+
+    // Keep getRandomValues so UUID generation also works on HTTP.
     function generateUploadTempId()
         {
         const bytes = new Uint8Array(16);
         window.crypto.getRandomValues(bytes);
-        return Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+        bytes[6] = (bytes[6] & 0x0f) | 0x40;
+        bytes[8] = (bytes[8] & 0x3f) | 0x80;
+        const hex = Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+        return [hex.slice(0, 8), hex.slice(8, 12), hex.slice(12, 16), hex.slice(16, 20), hex.slice(20)].join('-');
         }
 
-    // Local resumed uploads use the identifier stored in their TUS upload URL.
-    // An empty result selects the legacy filename path for pre-existing uploads.
     function getUploadTempIdFromUrl(uploadUrl)
         {
         if(typeof uploadUrl !== 'string' || uploadUrl === '')
@@ -1202,7 +1208,8 @@ jQuery(document).ready(function () {
             {
             const pathParts = new URL(uploadUrl, window.location.href).pathname.split('/').filter(Boolean);
             const uploadTempId = pathParts.pop() ?? '';
-            return /^[a-f0-9]{32}$/.test(uploadTempId) ? uploadTempId : '';
+            const uuidV4 = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
+            return uuidV4.test(uploadTempId) ? uploadTempId : null;
             }
         catch(error)
             {
@@ -1433,13 +1440,43 @@ jQuery(document).ready(function () {
         withCredentials: true,
         overridePatchMethod: true,
         removeFingerprintOnSuccess: true,
-        // Use the same identifier for the TUS resource and physical filename. This
-        // allows it to be recovered from the upload URL after a page-level resume.
-        onBeforeRequest(request, file) {
+        onBeforeRequest: async (request, file) => {
             const uploadTempId = file?.meta?.uploadTempId;
             if(uploadTempId)
                 {
                 request.setHeader('Upload-Key', uploadTempId);
+                }
+
+            if(file?.isRemote || request.getMethod() !== 'HEAD')
+                {
+                return;
+                }
+
+            const uploadUrl = request.getURL();
+            const resumedId = getUploadTempIdFromUrl(uploadUrl);
+            if(resumedId === null || resumedId === uploadTempId)
+                {
+                return;
+                }
+
+            // Legacy TUS URLs also contain UUIDs. Read the original metadata
+            // before tus-js-client removes the stored entry on success.
+            try
+                {
+                const uploads = await uppy.getPlugin('Tus').uploaders[file.id].findPreviousUploads();
+                const metadata = uploads.find(upload => upload.uploadUrl === uploadUrl)?.metadata;
+                if(metadata?.uploadTempId === resumedId)
+                    {
+                    resumedUploads.set(file.id, {uploadUrl, uploadTempId: resumedId});
+                    }
+                else if(metadata && metadata.uploadTempId === undefined)
+                    {
+                    resumedUploads.set(file.id, {uploadUrl, uploadTempId: '', key: metadata.key ?? ''});
+                    }
+                }
+            catch(error)
+                {
+                console.debug('Unable to read previous TUS upload metadata', error);
                 }
             },
         <?php
@@ -1484,21 +1521,22 @@ jQuery(document).ready(function () {
     uppy.on('upload-success', (file, response) => {
         uploadProgress++;
         console.debug('Completed uploading file ' + uploadProgress + ' out of ' + count + ' files');
-        // Local uploads can resume an older TUS resource, so its URL is authoritative.
-        // Companion uploads retain the identifier already stored in their metadata.
-        if(!file.isRemote)
+        const resumed = resumedUploads.get(file.id);
+        resumedUploads.delete(file.id);
+        // A failed resume can fall back to a new TUS resource.
+        if(resumed && resumed.uploadUrl === response?.uploadURL)
             {
-            const resumedUploadTempId = getUploadTempIdFromUrl(response?.uploadURL);
-            if(resumedUploadTempId !== null)
-                {
-                uppy.setFileMeta(file.id, {uploadTempId: resumedUploadTempId});
-                }
+            const {uploadTempId, key} = resumed;
+            uppy.setFileMeta(file.id, {uploadTempId, key: key ?? file.meta.key});
             }
         processFile(uppy.getFile(file.id) ?? file);
         // End of file uploaded code
         });
 
+    uppy.on('file-removed', file => resumedUploads.delete(file.id));
+
     uppy.on('upload-error', (file, error, response) => {
+        resumedUploads.delete(file.id);
         console.debug(error);
         errmessage = error.message;
         if(errmessage.indexOf('response text') !== -1)

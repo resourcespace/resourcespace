@@ -11,20 +11,24 @@ $offline_job_cli_long_options  = array(
     'clear-lock',
     'job:',
     'max-jobs:',
+    'type:',
+    'exclude-type:',
     'help',
 );
 $clear_lock = false;
 $jobs = array();
 $max_jobs = 10;
+$job_types = [];
+$excluded_job_types = [];
 
 $help_text = "NAME
     offline_jobs.php - Process offline jobs
 
 SYNOPSIS
-    php /path/to/pages/tools/tools/offline_jobs.php [OPTIONS...]
+    php /path/to/pages/tools/offline_jobs.php [OPTIONS...]
 
 DESCRIPTION
-    Used to run ResourceSpace offline jobs. Normally trigggered by a cron entry/scheduled task.
+    Used to run ResourceSpace offline jobs. Normally triggered by a cron entry/scheduled task.
 
 OPTIONS SUMMARY
 
@@ -32,14 +36,32 @@ OPTIONS SUMMARY
     -j, --job           Specify the job ID to run
     -c, --clear-lock    Clear any existing process locks for jobs
     -m, --max-jobs      Maximum number of concurrent jobs that can be running (integer)
+        --type          Run only these job types (comma-separated)
+        --exclude-type  Skip these job types (comma-separated)
 
 EXAMPLES
     php offline_jobs.php --clear-lock --job 256 
     php offline_jobs.php --max-jobs 5
+
+    To schedule separate general and video scene workers, use one cron entry for each command:
+    php offline_jobs.php --exclude-type=video_scene
+    php offline_jobs.php --type=video_scene --max-jobs=1
+
+    Workers with matching type filters share a concurrency limit. Use complementary filters
+    when scheduling separate workers.
 ";
 
 // CLI options check
 $options = getopt($offline_job_short_options, $offline_job_cli_long_options);
+foreach (['type', 'exclude-type'] as $filter_option) {
+    if (
+        !isset($options[$filter_option])
+        && array_intersect(['--' . $filter_option, '--' . $filter_option . '='], $argv) !== []
+    ) {
+        fwrite(STDERR, 'Missing job type for --' . $filter_option . PHP_EOL);
+        exit(1);
+    }
+}
 
 foreach ($options as $option_name => $option_value) {
     if (in_array($option_name, ['h', 'help'])) {
@@ -64,6 +86,27 @@ foreach ($options as $option_name => $option_value) {
     if (in_array($option_name, ['m', 'max-jobs'])) {
         $max_jobs =  (int)$option_value;
     }
+
+    if (in_array($option_name, ['type', 'exclude-type'], true)) {
+        $types = [];
+        foreach ((array) $option_value as $type_list) {
+            foreach (explode(',', $type_list) as $type) {
+                $type = strtolower(trim($type));
+                if (!preg_match('/\A[a-z0-9_-]+\z/', $type)) {
+                    fwrite(STDERR, "Invalid job type for --" . $option_name . PHP_EOL);
+                    exit(1);
+                }
+                $types[] = $type;
+            }
+        }
+        $types = array_unique($types);
+        sort($types);
+        if ($option_name === 'type') {
+            $job_types = $types;
+        } else {
+            $excluded_job_types = $types;
+        }
+    }
 }
 
 if ($offline_job_queue) {
@@ -73,11 +116,29 @@ if ($offline_job_queue) {
         "csv_metadata_export",
         );
 
-    // Only run essential and non-data affecting jobs in read only mode
-    $gettypes = $system_read_only ? implode(",", $readonly_jobs) : "";
+    $worker_lock_prefix = 'offlinejobs_';
+    if ($job_types !== [] || $excluded_job_types !== []) {
+        $filter_key = hash('sha256', serialize([$job_types, $excluded_job_types]));
+        $worker_lock_prefix = 'offlinejobs-filtered_' . $filter_key . '_';
+    }
 
+    // Only run essential and non-data affecting jobs in read only mode.
+    $allowed_types = $job_types;
+    if ($system_read_only) {
+        $allowed_types = $job_types === [] ? $readonly_jobs : array_intersect($job_types, $readonly_jobs);
+        if (array_diff($allowed_types, $excluded_job_types) === []) {
+            exit($lang['complete'] . ' ' . date('Y-m-d H:i:s') . PHP_EOL);
+        }
+    }
+    $gettypes = implode(',', $allowed_types);
     // Mark any jobs that are still marked as in progress but have an old process lock as failed
-    $runningjobs = job_queue_get_jobs($gettypes, STATUS_INPROGRESS, "", "", "ref", "ASC");
+    $runningjobs = job_queue_get_jobs(
+        $gettypes,
+        STATUS_INPROGRESS,
+        job_order_by: 'ref',
+        job_sort: 'ASC',
+        exclude_types: $excluded_job_types
+    );
 
     $jobcount = count($runningjobs);
     foreach ($runningjobs as $runningjob) {
@@ -132,7 +193,7 @@ if ($offline_job_queue) {
 
     # Extra check for current running instances
     $instances = 0;
-    foreach (glob(get_temp_dir() . '/process_locks/offlinejobs_*') as $lock_file) {
+    foreach (glob(get_temp_dir() . '/process_locks/' . $worker_lock_prefix . '*') as $lock_file) {
         $lock_file_name = substr($lock_file, strrpos($lock_file, '/') + 1);
         if (is_process_lock($lock_file_name)) {
             $instances++;
@@ -143,14 +204,23 @@ if ($offline_job_queue) {
         exit("There are currently " . $max_jobs . " jobs in progress. Exiting\n");
     }
 
-    $lock_name = 'offlinejobs_' . time();
+    $lock_name = $worker_lock_prefix . time() . '_' . getmypid();
     if (!set_process_lock($lock_name)) {
         exit("Unable to set process lock. Exiting\n");
     }
 
     while (!isset($offlinejobs) || count($offlinejobs) > 0) {
         // Get jobs in small batches so that new higher priority jobs won't have to wait if there is a backlog
-        $offlinejobs = job_queue_get_jobs($gettypes, STATUS_ACTIVE, "", "", "priority,ref", "ASC", "", false, 5, true, $jobs);
+        $offlinejobs = job_queue_get_jobs(
+            $gettypes,
+            STATUS_ACTIVE,
+            job_order_by: 'priority',
+            job_sort: 'ASC',
+            maxjobs: 5,
+            overdue: true,
+            find_by_job_ref: $jobs,
+            exclude_types: $excluded_job_types
+        );
         $offlinejob = array_shift($offlinejobs);
         if (
             !isset($offlinejob["start_date"])

@@ -221,10 +221,8 @@ def scene_images(request, index, start, end, last_frame_time, collage):
     return scene_collage(request, index, start, end, last_frame_time)
 
 
-def extract_audio(request, start, end, duration=None):
+def extract_audio(request, start, end, duration):
     """Extract a scene with configured surrounding audio as mono 24 kHz PCM16."""
-    if duration is None:
-        duration = media_info(request)[0][-1]
     overlap = max(0, min(30, int(request.get("audio_overlap", 1))))
     audio_start = max(0, start - overlap)
     audio_end = min(duration, end + overlap)

@@ -28,7 +28,11 @@ final class IntegrationFixtures
      */
     public function __construct(private array $setting_names = [])
     {
-        $this->settings = array_intersect_key($GLOBALS, array_fill_keys($setting_names, true));
+        foreach ($setting_names as $name) {
+            if (array_key_exists($name, $GLOBALS)) {
+                $this->settings[$name] = $GLOBALS[$name];
+            }
+        }
         $user = (int) ($GLOBALS['userref'] ?? 0);
         $this->current_user = $user > 0 ? get_user($user) : false;
     }

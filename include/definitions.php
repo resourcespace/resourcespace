@@ -735,6 +735,19 @@ const RS_SYSTEM_UTILITIES = [
             ],
         ],
     ],
+    'pdfunite' => [
+        'required' => false,
+        'path_var_name' => 'pdfunite_path',
+        'display_name' => 'pdfunite',
+        'show_on_check_page' => true,
+        'version_check' => [
+            'argument' => '-v',
+            'callback' => [
+                'fct_name' => 'check_utility_cli_version_found_by_name',
+                'args' => [['pdfunite']],
+            ],
+        ],
+    ],
 ];
 
 const SENSITIVE_VARIABLE_NAMES = [

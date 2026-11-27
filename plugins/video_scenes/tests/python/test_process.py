@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -70,12 +71,11 @@ class WorkerTests(unittest.TestCase):
                   {"shot_id": 2, "start_frame": 1, "end_frame": 2, "probability": 0.9,
                    "start_time": "0.040", "end_time": "0.080"}]
         with tempfile.TemporaryDirectory() as directory:
-            def run(command, **options):
-                if "transnetv2_pytorch" in command:
-                    Path(directory, "scenes.json").write_text(json.dumps(scenes))
-                return subprocess.CompletedProcess(command, 0, "", "")
+            def run_detector(command, *_args):
+                Path(command[command.index("--output") + 1]).write_text(json.dumps(scenes))
+
             request = {"directory": directory, "video": "fixture", "ffmpeg": "ffmpeg", "ffprobe": "ffprobe", "threshold": 0.5}
-            with patch.object(worker.subprocess, "run", side_effect=run):
+            with patch.object(worker.subprocess, "run"), patch.object(worker, "run_transnet_cli", side_effect=run_detector):
                 result = worker.detect_scenes(request, [0, 0.04, 0.12, 0.16])
             self.assertEqual(result[0]["end_time"], 0.04)  # Single-frame scene retains its duration.
             self.assertEqual(result[1]["start_time"], 0.04)
@@ -85,8 +85,12 @@ class WorkerTests(unittest.TestCase):
     def test_detector_failure_reports_cli_diagnostic(self):
         with tempfile.TemporaryDirectory() as directory:
             request = {"directory": directory, "video": "fixture", "ffmpeg": "ffmpeg", "ffprobe": "ffprobe", "threshold": 0.5}
-            with patch.object(worker.subprocess, "run", return_value=
-                    subprocess.CompletedProcess([], 1, "", "No module named transnetv2_pytorch")):
+            popen = subprocess.Popen
+
+            def run_failing_detector(_command, **options):
+                return popen([sys.executable, "-c", "raise SystemExit('No module named transnetv2_pytorch')"], **options)
+
+            with patch.object(worker.subprocess, "Popen", side_effect=run_failing_detector):
                 with self.assertRaisesRegex(RuntimeError, "No module named transnetv2_pytorch"):
                     worker.detect_scenes(request, [0, 0.04])
 
@@ -158,7 +162,7 @@ class WorkerTests(unittest.TestCase):
                 self.assertEqual(image.size, (960, 540))
             with Image.open(Path(directory) / "thumb_0.jpg") as image:
                 self.assertEqual(image.size, (320, 180))
-            self.assertAlmostEqual(len(worker.extract_audio(request, 0, 1)) / 48000, 1.0, places=1)
+            self.assertAlmostEqual(len(worker.extract_audio(request, 0, 1, timestamps[-1])) / 48000, 1.0, places=1)
             # A final one-frame scene must seek to its presentation time, never beyond EOF.
             worker.scene_images(request, 1, 0.9, 1.0, 0.9, True)
 
@@ -167,11 +171,13 @@ class WorkerTests(unittest.TestCase):
                 patch.object(worker, "detect_scenes", return_value=[{
                     "shot_id": 1, "start_frame": 0, "end_frame": 0, "probability": 0.8,
                     "start_time": 0, "end_time": 0.04}]), \
-                patch.object(worker, "scene_images", return_value=b"jpeg"), \
-                patch.object(worker, "extract_audio", return_value=b"pcm"), \
+                patch.object(worker, "scene_thumbnail"), \
+                patch.object(worker, "scene_collage", return_value=b"jpeg"), \
+                patch.object(worker, "extract_audio", return_value=b"pcm") as extract_audio, \
                 patch.object(worker, "realtime_description", side_effect=ValueError("failed")):
-            result = worker.process_video({"ffmpeg": "ffmpeg", "ffprobe": "ffprobe", "api_key": "test", "audio": True,
-                                           "threshold": 0.5})
+            request = {"ffmpeg": "ffmpeg", "ffprobe": "ffprobe", "api_key": "test", "audio": True, "threshold": 0.5}
+            result = worker.process_video(request)
+        extract_audio.assert_called_once_with(request, 0, 0.04, 0.04)
         self.assertEqual(result["description_errors"], 1)
         self.assertEqual(result["scenes"][0]["end_frame"], 0)
         self.assertEqual(result["scenes"][0]["description"], "")

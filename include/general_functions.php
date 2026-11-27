@@ -2562,7 +2562,7 @@ function get_imagemagick_path($utilityname, $exeNames, &$checked_path)
 function get_utility_path($utilityname, &$checked_path = null)
 {
     global $ghostscript_path, $ghostscript_executable, $ffmpeg_path, $exiftool_path, $pdftotext_path,
-           $blender_path, $archiver_path, $archiver_executable, $python_path, $fits_path;
+           $blender_path, $archiver_path, $archiver_executable, $python_path, $fits_path, $pdfunite_path;
 
     $checked_path = null;
 
@@ -2849,6 +2849,20 @@ function get_utility_path($utilityname, &$checked_path = null)
                 [
                     'unix' => 'ebook-convert',
                     'win'  => 'ebook-convert.exe'
+                ],
+                $checked_path
+            );
+
+        case 'pdfunite':
+            if (!isset($pdfunite_path) || $pdfunite_path === '') {
+                return false;
+            }
+
+            return get_executable_path(
+                $pdfunite_path,
+                [
+                    'unix' => 'pdfunite',
+                    'win' => 'pdfunite.exe'
                 ],
                 $checked_path
             );

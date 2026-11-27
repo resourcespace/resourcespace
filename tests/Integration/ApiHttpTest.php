@@ -159,7 +159,7 @@ it('authenticates, dispatches and audits GET and POST calls to the API', functio
     }
 })->with(['GET' => false, 'POST' => true]);
 
-it('uploads a multipart original through the signed API and requires an uploaded file', function () use (
+it('uploads an original through the signed multipart API and preserves it on invalid replacement', function () use (
     &$fixtures,
     &$server,
 ): void {
@@ -186,4 +186,22 @@ it('uploads a multipart original through the signed API and requires an uploaded
     expect($original)->toBeFile();
     expect(hash_file('sha256', $original))->toBe(hash_file('sha256', $input))
         ->and(get_data_by_field($resource, $GLOBALS['filename_field']))->toBe('multipart.jpg');
+
+    if (!is_plugin_activated('rse_version')) {
+        expect(activate_plugin('rse_version'))->toBeTrue();
+        $fixtures->onCleanup(static fn () => deactivate_plugin('rse_version'));
+    }
+
+    $invalid = tempnam(sys_get_temp_dir(), 'rs_empty_upload_');
+    expect($invalid)->toBeString();
+    $fixtures->onCleanup(static fn () => unlink($invalid));
+    $log_before = get_resource_log($resource)['data'];
+
+    $response = $server->request($path, ['file' => new CURLFile($invalid, 'image/jpeg', 'empty.jpg')]);
+    expect($response['status'])->toBe(500)
+        ->and(json_decode($response['body'], true, flags: JSON_THROW_ON_ERROR)['status'])->toBe('fail')
+        ->and($original)->toBeFile();
+    expect(hash_file('sha256', $original))->toBe(hash_file('sha256', $input))
+        ->and(get_resource_log($resource)['data'])->toBe($log_before)
+        ->and(get_alternative_files($resource))->toBe([]);
 });

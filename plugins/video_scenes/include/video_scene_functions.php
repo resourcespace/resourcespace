@@ -154,21 +154,38 @@ function video_scene_delete_resource(int $resource_ref, array $resource = []): v
 }
 
 /**
+ * Get the scrambled preview-storage path for a scene thumbnail.
+ *
+ * @param int  $resource_ref Resource reference.
+ * @param int  $scene        Scene reference.
+ * @param bool $generate     Create the preview storage directory if needed.
+ * @return string Physical path. The compound extension keeps the file outside download.php's size lookup.
+ */
+function video_scene_thumbnail_path(int $resource_ref, int $scene, bool $generate = false): string
+{
+    return get_resource_path($resource_ref, true, 'video_scene_' . $scene, $generate, 'scene') . '.jpg';
+}
+
+/**
  * Remove files belonging to stored scene rows.
  *
  * @param int    $resource_ref Resource reference.
  * @param string $extension    Original resource file extension.
+ * @param ?array $rows         Scene references to remove, or null to load the current scenes.
  * @return void
  */
-function video_scene_remove_scene_files(int $resource_ref, string $extension): void
+function video_scene_remove_scene_files(int $resource_ref, string $extension, ?array $rows = null): void
 {
-    $rows = ps_query('SELECT ref FROM resource_scene WHERE resource = ?', ['i', $resource_ref]);
+    $rows ??= ps_query('SELECT ref FROM resource_scene WHERE resource = ?', ['i', $resource_ref]);
     $original_path = get_resource_path($resource_ref, true, '', false, $extension);
     $directory = dirname($original_path);
     foreach ($rows as $row) {
-        $path = $directory . '/scene_' . (int) $row['ref'] . '.jpg';
-        if (is_file($path)) {
-            unlink($path);
+        $scene = (int) $row['ref'];
+        $legacy_path = $directory . '/scene_' . $scene . '.jpg';
+        foreach ([video_scene_thumbnail_path($resource_ref, $scene), $legacy_path] as $path) {
+            if (is_file($path)) {
+                unlink($path);
+            }
         }
     }
 }
@@ -180,7 +197,7 @@ function video_scene_remove_scene_files(int $resource_ref, string $extension): v
  */
 function video_scene_serve_thumbnail(): void
 {
-    global $plugins, $pagename, $access;
+    global $plugins, $pagename, $access, $internal_share_access;
 
     $ref = (int) getval('ref', 0, true);
     $scene = (int) getval('scene', 0, true);
@@ -190,6 +207,9 @@ function video_scene_serve_thumbnail(): void
     }
     $resource = $ref > 0 ? get_resource_data($ref) : false;
     $internal_share_access = internal_share_access();
+    if ($resource) {
+        resource_type_config_override($resource['resource_type']);
+    }
     $access = $resource ? get_resource_access($resource) : RESOURCE_ACCESS_INVALID_REQUEST;
     $pagename = 'view';
     if (!$resource || $scene <= 0 || !video_scene_can_view($resource) || check_use_watermark('', $ref)) {
@@ -209,7 +229,26 @@ function video_scene_serve_thumbnail(): void
         http_response_code(404);
         exit();
     }
-    $thumbnail_path = dirname($source['path']) . '/scene_' . $scene . '.jpg';
+    $thumbnail_path = video_scene_thumbnail_path($ref, $scene);
+    if (!is_file($thumbnail_path)) {
+        // Move thumbnails created by earlier versions when an authorised viewer requests them.
+        $legacy_path = dirname($source['path']) . '/scene_' . $scene . '.jpg';
+        if (is_file($legacy_path) && !is_link($legacy_path) && filesize($legacy_path) <= 65536) {
+            $previous_error_mode = $GLOBALS['use_error_exception'] ?? null;
+            $thumbnail_path = video_scene_thumbnail_path($ref, $scene, true);
+            $GLOBALS['use_error_exception'] = true;
+            try {
+                rename($legacy_path, $thumbnail_path);
+            } catch (Exception $error) {
+                if (!is_file($thumbnail_path)) {
+                    debug('video_scenes: Could not migrate thumbnail for scene ' . $scene);
+                    $thumbnail_path = $legacy_path;
+                }
+            } finally {
+                $GLOBALS['use_error_exception'] = $previous_error_mode;
+            }
+        }
+    }
     $thumbnail_directory = realpath(dirname($thumbnail_path));
     $resolved_thumbnail = realpath($thumbnail_path);
     if (
@@ -239,36 +278,30 @@ function video_scene_update_description_endpoint(): void
 {
     global $lang, $plugins, $CSRF_token_identifier, $usersession;
 
-    header('Content-Type: application/json');
     header('Cache-Control: no-store');
-    if (!enforcePostRequest(true)) {
-        exit();
-    }
+    header('Content-Type: application/json');
+    enforcePostRequest(true);
     if (!isValidCSRFToken(getval($CSRF_token_identifier, ''), $usersession)) {
-        http_response_code(400);
-        exit(json_encode(['error' => $lang['error-csrf-verification-failed']]));
+        ajax_send_response(400, ajax_response_fail(ajax_build_message($lang['error-csrf-verification-failed'])));
     }
 
     $ref = filter_var($_POST['ref'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
     $scene = filter_var($_POST['scene'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
     $resource = $ref ? get_resource_data($ref) : false;
     if (!in_array('video_scenes', $plugins, true) || !$resource || !video_scene_can_edit($resource)) {
-        http_response_code(403);
-        exit(json_encode(['error' => $lang['error-permissiondenied']]));
+        ajax_send_response(403, ajax_response_fail(ajax_build_message($lang['error-permissiondenied'])));
     }
 
     $description = $_POST['description'] ?? null;
     if (!$scene || !is_string($description) || strlen($description) > 16000 || preg_match('//u', $description) !== 1) {
-        http_response_code(400);
-        exit(json_encode(['error' => $lang['video_scene_invalid_description']]));
+        ajax_send_response(400, ajax_response_fail(ajax_build_message($lang['video_scene_invalid_description'])));
     }
     $rows = ps_query(
         'SELECT description, start_time FROM resource_scene WHERE ref = ? AND resource = ?',
         ['i', $scene, 'i', $ref]
     );
     if ($rows === []) {
-        http_response_code(404);
-        exit(json_encode(['error' => $lang['video_scene_description_missing']]));
+        ajax_send_response(404, ajax_response_fail(ajax_build_message($lang['video_scene_description_missing'])));
     }
     if ($description !== (string) $rows[0]['description']) {
         ps_query(
@@ -284,7 +317,7 @@ function video_scene_update_description_endpoint(): void
             $description
         );
     }
-    echo json_encode(['description' => $description]);
+    ajax_send_response(200, ajax_response_ok(['description' => $description]));
 }
 
 /**
@@ -428,20 +461,7 @@ function video_scene_worker(array $request, string $dir, $job_log = null): array
  */
 function video_scene_log(string $message, $job_log = null): void
 {
-    global $log_file;
-
-    if (!is_resource($job_log) && isset($log_file) && is_resource($log_file)) {
-        $job_log = $log_file;
-    }
-    $log_line = date('Y-m-d H:i:s') . ' [video_scene] ' . $message . PHP_EOL;
-    if (defined('STDOUT')) {
-        fwrite(STDOUT, $log_line);
-        fflush(STDOUT);
-    }
-    if (is_resource($job_log)) {
-        fwrite($job_log, $log_line);
-        fflush($job_log);
-    }
+    logScript('[video_scene] ' . $message, $job_log);
 }
 
 /**
@@ -525,13 +545,9 @@ function video_scene_process(array $job_data, $job_log = null): bool
         // Schema upgrades can issue DDL, which commits transactions; finish them before replacing old rows.
         ps_query('SELECT shot_id, probability FROM resource_scene LIMIT 0');
         $old_scene_rows = ps_query('SELECT ref FROM resource_scene WHERE resource = ?', ['i', $ref]);
-        $resource_directory = dirname($source['path']);
         $created_files = [];
         $scene_refs = [];
-        video_scene_log(
-            'Publishing ' . count($scenes) . ' scene rows and thumbnails beside the original video.',
-            $job_log
-        );
+        video_scene_log('Publishing ' . count($scenes) . ' scene rows and thumbnails.', $job_log);
         db_begin_transaction('video_scene');
         try {
             ps_query('DELETE FROM resource_scene WHERE resource = ?', ['i', $ref]);
@@ -548,18 +564,23 @@ function video_scene_process(array $job_data, $job_log = null): bool
                 );
                 $scene_ref = (int) sql_insert_id();
                 $scene_refs[] = $scene_ref;
-                $thumbnail_path = $resource_directory . '/scene_' . $scene_ref . '.jpg';
-                $temporary_path = tempnam($resource_directory, '.video_scene_');
-                if (
-                    $temporary_path === false
-                    || !copy($scene['thumbnail_path'], $temporary_path)
-                    || !chmod($temporary_path, 0644)
-                    || !rename($temporary_path, $thumbnail_path)
-                ) {
-                    if (is_string($temporary_path) && is_file($temporary_path)) {
+                $thumbnail_path = video_scene_thumbnail_path($ref, $scene_ref, true);
+                $thumbnail_directory = dirname($thumbnail_path);
+                $temporary_path = tempnam($thumbnail_directory, '.video_scene_');
+                try {
+                    if (
+                        $temporary_path === false
+                        || dirname($temporary_path) !== realpath($thumbnail_directory)
+                        || !copy($scene['thumbnail_path'], $temporary_path)
+                        || !chmod($temporary_path, 0644)
+                        || !rename($temporary_path, $thumbnail_path)
+                    ) {
+                        throw new RuntimeException('Unable to save scene thumbnail.');
+                    }
+                } finally {
+                    if ($temporary_path !== false && is_file($temporary_path)) {
                         unlink($temporary_path);
                     }
-                    throw new RuntimeException('Unable to save scene thumbnail beside the original video.');
                 }
                 $created_files[] = $thumbnail_path;
             }
@@ -573,12 +594,7 @@ function video_scene_process(array $job_data, $job_log = null): bool
             }
             throw $error;
         }
-        foreach ($old_scene_rows as $old_scene) {
-            $old_thumbnail = $resource_directory . '/scene_' . (int) $old_scene['ref'] . '.jpg';
-            if (is_file($old_thumbnail)) {
-                unlink($old_thumbnail);
-            }
-        }
+        video_scene_remove_scene_files($ref, $source['resource']['file_extension'], $old_scene_rows);
         video_scene_log('Saved ' . count($scenes) . ' scenes and thumbnails for resource ' . $ref . '.', $job_log);
 
         $description_errors = 0;

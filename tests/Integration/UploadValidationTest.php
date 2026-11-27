@@ -144,3 +144,70 @@ it('moves a genuine multipart upload and keeps an invalid dry run out of the fil
     'CSV with explicit MIME policy' => ['upload.csv', "x,y\n1,2", 'csv', null],
     'empty dry run' => ['empty.txt', '', 'dry_run', ProcessFileUploadErrorCondition::EmptySourceFile],
 ]);
+
+it('accepts legacy completion and validates the size when either upload field is supplied', function (
+    array $upload_fields,
+    bool $success,
+) use (&$fixtures): void {
+    $session = generateSecureKey(32);
+    $upload_session = generateSecureKey(64);
+    $user = $fixtures->user('uploadcompletion' . generateRandomTestID(12), 3);
+    ps_query('UPDATE user SET approved = 1, session = ?, last_active = NOW() WHERE ref = ?', [
+        's', $session, 'i', $user,
+    ]);
+
+    $server = new LocalTestServer();
+    $fixtures->onCleanup($server->close(...));
+    $server->configure([
+        'baseurl' => $server->url,
+        'session_autologout' => false,
+        'upload_then_edit' => true,
+        'CSRF_enabled' => true,
+    ]);
+
+    $target_dir = get_temp_dir() . '/tus/upload_' . hash('sha256', $upload_session . $GLOBALS['scramble_key']);
+    expect(mkdir($target_dir, 0700, true))->toBeTrue();
+    $fixtures->onCleanup(static fn () => rcRmdir($target_dir));
+    $filename = 'completed-upload.jpg';
+    $legacy_key = 2;
+    $temp_name = get_tus_upload_filename($filename, $upload_fields['upload_temp_id'] ?? '', $legacy_key);
+    $staged = $target_dir . '/' . $temp_name;
+    $image = testFixture('Images/image_1.jpg');
+    expect(copy($image, $staged))->toBeTrue();
+
+    $response = $server->request('/pages/upload_batch.php', $upload_fields + [
+        'ajax' => 'true',
+        'processupload' => 'true',
+        'upload_session' => $upload_session,
+        'file_name' => $filename,
+        'key' => $legacy_key,
+        'no_exif' => 'yes',
+        $GLOBALS['CSRF_token_identifier'] => generateCSRFToken($session, 'upload_batch'),
+    ], $server->sessionHeaders($session));
+
+    $resources = array_map('intval', ps_array('SELECT ref AS value FROM resource WHERE created_by = ? AND ref > 0', [
+        'i', $user,
+    ]));
+    foreach ($resources as $resource) {
+        $fixtures->trackResource($resource);
+    }
+
+    expect($response['status'])->toBe(200, substr(strip_tags($response['body']), 0, 300));
+    $result = json_decode($response['body'], true, flags: JSON_THROW_ON_ERROR);
+    expect($result['status'])->toBe($success)
+        ->and($staged)->not->toBeFile();
+
+    if ($success) {
+        expect($resources)->toBe([(int) $result['id']]);
+        $original = get_resource_path((int) $result['id'], true, '', false, 'jpg');
+        expect($original)->toBeFile()->and(hash_file('sha256', $original))->toBe(hash_file('sha256', $image));
+    } else {
+        expect($result['error'])->toBe(126)->and($resources)->toBe([]);
+    }
+})->with([
+    'legacy completion' => [[], true],
+    'missing size' => [['upload_temp_id' => '01234567-89ab-4def-a123-456789abcdef'], false],
+    'empty size' => [['file_size' => ''], false],
+    'malformed size' => [['file_size' => ['1']], false],
+    'oversized file' => [['upload_temp_id' => '01234567-89ab-4def-a123-456789abcdef', 'file_size' => '1'], false],
+]);

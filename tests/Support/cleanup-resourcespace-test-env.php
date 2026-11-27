@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 use Montala\ResourceSpace\Tests\Support\ResourceSpaceTestEnvironment;
 
+if (PHP_SAPI !== 'cli') {
+    http_response_code(403);
+    exit;
+}
+
 if (getenv('RS_TEST_MODE') !== '1') {
     throw new RuntimeException('ResourceSpace integration tests require `RS_TEST_MODE=1` environment variable');
 }

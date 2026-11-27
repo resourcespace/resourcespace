@@ -62,7 +62,7 @@ function completed_upload_size_matches(
  * Build the temporary filename used for a TUS upload.
  *
  * @param string $filename       Original filename supplied by the browser.
- * @param string $upload_temp_id Optional unique upload identifier.
+ * @param string $upload_temp_id Optional lowercase UUID v4 for the upload.
  * @param int    $legacy_key     Legacy duplicate-filename prefix.
  *
  * @return string|false Temporary filename, or false for an invalid upload identifier.
@@ -73,8 +73,8 @@ function get_tus_upload_filename(
     int $legacy_key = 0
 ): string|false
 {
-    // Restrict the client-generated identifier to a fixed, path-safe format.
-    if ($upload_temp_id !== '' && preg_match('/^[a-f0-9]{32}\z/', $upload_temp_id) !== 1) {
+    $uuid_v4 = '/\A[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\z/';
+    if ($upload_temp_id !== '' && preg_match($uuid_v4, $upload_temp_id) !== 1) {
         return false;
     }
 
@@ -543,7 +543,8 @@ enum ProcessFileUploadErrorCondition
  *      allow_extensions?: list<string>,
  *      file_move?: 'move_uploaded_file'|'rename'|'copy'|'dry_run',
  *      mime_file_based_detection?: bool,
- * } $processor Processors which can override different parts of the main logic (e.g. allow specific extensions)
+ * } $processor Processors which can override different parts of the main logic (e.g. allow specific extensions).
+ *              dry_run validates without moving the file.
  *
  * @return array{success: bool, error?: ProcessFileUploadErrorCondition}
  */
@@ -560,7 +561,7 @@ function process_file_upload(SplFileInfo|array $source, SplFileInfo $destination
         $source_file_path = $source['tmp_name'];
         $source_is_file = file_exists($source_file_path);
         $source_file_size = $source_is_file ? filesize($source_file_path) : 0;
-        $file_move_processor = 'move_uploaded_file';
+        $file_move_processor = ($processor['file_move'] ?? null) === 'dry_run' ? 'dry_run' : 'move_uploaded_file';
 
         if (!is_uploaded_file($source['tmp_name'])) {
             trigger_error('Invalid $source input. For files not uploaded via HTTP POST, please use SplFileInfo');

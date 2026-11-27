@@ -85,6 +85,16 @@ $password_min_alpha = $password_min_numeric = 1;
 $password_min_uppercase = $password_min_special = 0;
 
 // BEGIN PEST TEST CONFIGURATION
+$GLOBALS['baseurl'] = 'http://127.0.0.1:37619';
+$GLOBALS['tempdir'] = '/var/www/html/trunk/filestore/rs_test/tmp/8960f71157391c06f1555eac8c3ec86c';
+$GLOBALS['collection_download'] = true;
+$GLOBALS['collection_download_original'] = true;
+$GLOBALS['collection_download_tar_size'] = 1;
+$GLOBALS['offline_job_queue'] = false;
+$GLOBALS['download_usage'] = false;
+$GLOBALS['terms_download'] = false;
+$GLOBALS['exiftool_write'] = false;
+$GLOBALS['download_filename_format'] = '%resource.%extension';
 // END PEST TEST CONFIGURATION
 
 // Reconnect using the test environment configuration (expects the database to already be provisioned at this stage!)

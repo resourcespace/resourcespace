@@ -30,6 +30,86 @@ test('upload page is displayed when files are uploaded before setting metadata',
         ->assertPathIs('/pages/upload_batch.php');
 });
 
+test('completes a new or resumed local TUS upload', function (string $upload): void {
+    /** @var ResourceSpaceBrowserTestCase $this */
+    $browser = (new EditPage($this->loginAsAdmin()->click(UiElementSelector::HeaderUploadButton->value)))
+        ->waitForAjax()
+        ->addFileToUppy(testFixture('Images/image_1.jpg'));
+    $page = $browser->getPage();
+    $upload_mode = encode_js_value($upload);
+    $page->script(<<<JS
+        (async () => {
+            const mode = {$upload_mode};
+            const tus = uppy.getPlugin('Tus');
+            const {endpoint, headers, onBeforeRequest} = tus.opts;
+            window.tusUploadRequests = {creationKeys: [], resumeUrls: []};
+            tus.setOptions({
+                onBeforeRequest(request, file) {
+                    const result = onBeforeRequest(request, file);
+                    if (request.getMethod() === 'HEAD') {
+                        window.tusUploadRequests.resumeUrls.push(request.getURL());
+                    }
+                    if (request.getMethod() === 'POST' && request.getURL() === endpoint) {
+                        window.tusUploadRequests.creationKeys.push(request.getHeader('Upload-Key'));
+                    }
+                    return result;
+                },
+            });
+
+            if (mode === 'fresh') {
+                return;
+            }
+
+            // Stage a TUS resource and its original browser record as if a previous
+            // page had created it. The queued file has none of that original metadata.
+            const [file] = uppy.getFiles();
+            const uuid = '01234567-89ab-4def-a123-456789abcdef';
+            const encodedName = btoa('image_1') + '.jpg';
+            const metadata = {name: encodedName};
+            const creationHeaders = {
+                ...headers,
+                'Tus-Resumable': '1.0.0',
+                'Upload-Length': String(file.size),
+            };
+            if (mode === 'uuid') {
+                metadata.uploadTempId = uuid;
+                metadata.name = uuid + '-' + encodedName;
+                creationHeaders['Upload-Key'] = uuid;
+            } else if (mode === 'legacy with key') {
+                metadata.key = '2';
+                metadata.name = '2-' + encodedName;
+            }
+            creationHeaders['Upload-Metadata'] = Object.entries(metadata)
+                .map(([key, value]) => key + ' ' + btoa(value)).join(',');
+            const response = await fetch(endpoint, {method: 'POST', headers: creationHeaders});
+            if (response.status !== 201 || !response.headers.get('Location')) {
+                throw new Error('Unable to stage TUS upload: ' + response.status);
+            }
+            const uploadUrl = new URL(response.headers.get('Location'), endpoint).href;
+            window.stagedTusUploadUrl = uploadUrl;
+            localStorage.setItem('tus::tus-' + file.id + '-' + endpoint + '::fixture', JSON.stringify({
+                uploadUrl,
+                size: file.size,
+                metadata,
+                creationTime: new Date().toString(),
+            }));
+        })()
+        JS);
+
+    $browser->uploadAndWaitFor("#CentralSpace #mainform input[name='field_{$GLOBALS['view_title_field']}']");
+    $requests = $page->script('window.tusUploadRequests');
+    if ($upload === 'fresh') {
+        expect($requests['resumeUrls'])->toBe([])
+            ->and($requests['creationKeys'])->toHaveCount(1)
+            ->and($requests['creationKeys'][0])->toMatch(
+                '/\A[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\z/'
+            );
+    } else {
+        expect($requests['creationKeys'])->toBe([])
+            ->and($requests['resumeUrls'])->toBe([$page->script('window.stagedTusUploadUrl')]);
+    }
+})->with(['fresh', 'uuid', 'legacy without key', 'legacy with key']);
+
 test('uploaded resources can be added to an existing collection', function (): void {
     /** @var ResourceSpaceBrowserTestCase $this */
     $test_id = generateRandomTestID(16);

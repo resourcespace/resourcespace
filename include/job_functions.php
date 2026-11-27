@@ -139,9 +139,23 @@ function job_queue_delete($ref)
  * @param  int    $maxjobs      Maximum number of jobs to return
  * @param  bool   $overdue      Only return overdue jobs?
  * @param array $find_by_job_ref Find queued jobs by their ref
+ * @param array $exclude_types Job types to omit
  * @return mixed                Resulting array of requests or an SQL query object
  */
-function job_queue_get_jobs($type = "", $status = -1, $user = "", $job_code = "", $job_order_by = "priority", $job_sort = "asc", $find = "", $returnsql = false, int $maxjobs = 0, bool $overdue = false, array $find_by_job_ref = [])
+function job_queue_get_jobs(
+    $type = "",
+    $status = -1,
+    $user = "",
+    $job_code = "",
+    $job_order_by = "priority",
+    $job_sort = "asc",
+    $find = "",
+    $returnsql = false,
+    int $maxjobs = 0,
+    bool $overdue = false,
+    array $find_by_job_ref = [],
+    array $exclude_types = []
+)
 {
     global $userref;
     $condition = array();
@@ -153,10 +167,11 @@ function job_queue_get_jobs($type = "", $status = -1, $user = "", $job_code = ""
     }
     if (PHP_SAPI != 'cli') {
         // Don't show certain jobs if not accessing via CLI
-        $hiddentypes = array();
-        $hiddentypes[] = "delete_file";
-        $condition[] = " type NOT IN (" . ps_param_insert(count($hiddentypes)) . ")";
-        $parameters = array_merge($parameters, ps_param_fill($hiddentypes, "s"));
+        $exclude_types[] = 'delete_file';
+    }
+    if ($exclude_types !== []) {
+        $condition[] = 'type NOT IN (' . ps_param_insert(count($exclude_types)) . ')';
+        $parameters = array_merge($parameters, ps_param_fill($exclude_types, 's'));
     }
 
     if ((int)$status > -1) {

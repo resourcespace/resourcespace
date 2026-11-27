@@ -517,7 +517,7 @@ function get_utility_version(string $utilityname)
 
     # Check execution and find out version.
     $version_command = $utility_fullpath . " " . $version_argument;
-    $utilities_with_version_on_STDERR = ['python', 'pdftotext', 'fits'];
+    $utilities_with_version_on_STDERR = ['python', 'pdftotext', 'fits', 'pdfunite'];
     $version = run_command($version_command, in_array($utilityname, $utilities_with_version_on_STDERR));
     $version_check = call_user_func_array(
         $utility['version_check']['callback']['fct_name'],

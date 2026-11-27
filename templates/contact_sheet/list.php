@@ -86,7 +86,9 @@ if(isset($bind_placeholders['contact_sheet_footer']))
                     <span><?php echo escape($lang['contact_sheet_footer_address']); ?></span>
                     <p><?php echo escape($lang['contact_sheet_footer_copyright']); ?></p>
                 </td>
-                <td style="text-align: right; width: 10%">[[page_cu]] of [[page_nb]]</td>
+                <td style="text-align: right; width: 10%">
+                    <?php echo $bind_placeholders['page_number_html'] ?? '[[page_cu]] of [[page_nb]]'; ?>
+                </td>
             </tr>
         </table>
     </page_footer>
@@ -96,7 +98,9 @@ if(isset($bind_placeholders['contact_sheet_footer']))
 
 
     <!-- Real content starts here -->
-    <h3 id="pageTitle"><?php echo escape($bind_placeholders['title']); ?></h3>
+    <?php if (empty($bind_placeholders['page_offset'])) { ?>
+        <h3 id="pageTitle"><?php echo escape($bind_placeholders['title']); ?></h3>
+    <?php } ?>
     <table id="resourcesTable">
         <tbody>
         <?php

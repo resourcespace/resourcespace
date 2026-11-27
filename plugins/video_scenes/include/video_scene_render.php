@@ -26,7 +26,7 @@ function video_scene_render_panel()
     ?>
     <link rel="stylesheet"
           href="<?php echo escape(generateURL($asset_url . 'css/video-scene.css', ['v' => '1.3'])); ?>">
-    <script src="<?php echo escape(generateURL($asset_url . 'js/video-scene.js', ['v' => '1.2'])); ?>"></script>
+    <script src="<?php echo escape(generateURL($asset_url . 'js/video-scene.js', ['v' => '1.3'])); ?>"></script>
     <div class="RecordBox video-scene-panel"
          data-player-id="<?php echo escape($context . '_' . $display . '_introvideo' . $ref); ?>"
          data-unavailable="<?php echo escape($lang['video_scene_play_unavailable']); ?>"

@@ -87,7 +87,9 @@ if(isset($bind_placeholders['contact_sheet_footer']))
                     <span><?php echo escape($lang['contact_sheet_footer_address']); ?></span>
                     <p><?php echo escape($lang['contact_sheet_footer_copyright']); ?></p>
                 </td>
-                <td style="text-align: right; width: 10%">[[page_cu]] of [[page_nb]]</td>
+                <td style="text-align: right; width: 10%">
+                    <?php echo $bind_placeholders['page_number_html'] ?? '[[page_cu]] of [[page_nb]]'; ?>
+                </td>
             </tr>
         </table>
     </page_footer>
@@ -106,8 +108,6 @@ global $contact_sheet_field_name, $contact_sheet_field_name_bold;
 
 $row    = 1;
 $column = 0;
-
-$max_rows = ceil(count($bind_placeholders['resources']) / $bind_placeholders['columns']);
 
 foreach($bind_placeholders['resources'] as $resource_ref => $resource)
     {
@@ -214,17 +214,15 @@ foreach($bind_placeholders['resources'] as $resource_ref => $resource)
         ?>
         </tr>
         <?php
-        $row++;
         $column = 0;
         }
     }
 
-    if($row == $max_rows)
-        {
+    if ($column !== 0) {
         ?>
         </tr>
         <?php
-        }
+    }
     ?>
 </tbody>
 </table>

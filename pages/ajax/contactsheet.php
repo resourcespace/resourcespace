@@ -226,32 +226,24 @@ foreach ($results as $result_data) {
     unset($img_path);
 }
 
+$batches = [];
+
+$pdfunite = get_utility_path('pdfunite');
+if (!$preview && $pdfunite !== false) {
+    $batches = array_chunk($placeholders['resources'], max(20, $columns * 4), true);
+}
+
 if (!headers_sent()) {
     // If CSRF is enabled it will break the download function unless the vary header is removed.
     header_remove('Vary');
 }
 
 try {
-    $html2pdf = new Html2Pdf($pdf_properties['orientation'], $pdf_properties['format'], $pdf_properties['language'], true, 'UTF-8', $pdf_properties['margins']);
-
-    $html2pdf->pdf->SetTitle($pdf_properties['title']);
-    $html2pdf->pdf->SetAuthor($pdf_properties['author']);
-    $html2pdf->pdf->SetSubject($pdf_properties['subject']);
-    $html2pdf->setDefaultFont($pdf_properties['font']);
-    $html2pdf->getSecurityService()->addAllowedHost(parse_url($baseurl, PHP_URL_HOST));
-
-    $available_width  = $html2pdf->pdf->getW() - ($html2pdf->pdf->getlMargin() + $html2pdf->pdf->getrMargin());
-    $available_height = $html2pdf->pdf->getH() - ($html2pdf->pdf->gettMargin() + $html2pdf->pdf->getbMargin());
-    $placeholders['available_width']  = floor($available_width / (25.4 / 96));
-    $placeholders['available_height'] = floor($available_height / (25.4 / 96));
-
-    // Column width is made as "[column width in mm] / (25.4 / 96) - [adjustment]"
-    // IMPORTANT: [adjustment] is needed so that the content would be within the margins of the document
-    $placeholders['column_width'] = floor(floor($available_width / $columns) / (25.4 / 96) - 10);
-
-    $pdf_content = process_template($pdf_template_path, $placeholders);
-
-    $html2pdf->writeHTML($pdf_content);
+    if (count($batches) > 1) {
+        $batch_pdf = write_batched_contact_sheet($collection, $pdfunite, $batches, $pdf_template_path, $placeholders, $pdf_properties, $sheetstyle === 'single');
+    } else {
+        $html2pdf = render_contact_sheet($pdf_template_path, $placeholders, $pdf_properties);
+    }
 } catch (Html2PdfException $e) {
     $formatter = new ExceptionFormatter($e);
 
@@ -334,6 +326,7 @@ if ($preview && isset($imagemagick_path)) {
 }
 
 // Create a resource based on this PDF file or download it?
+$PDF_filename = i18n_get_collection_name($collectiondata) . '.pdf';
 if ($contact_sheet_resource && enforcePostRequest(getval("ajax", false))) {
     $new_resource = create_resource($contact_sheet_resource_type, get_default_archive_state(), -1, $lang["createdfromcontactsheet"]);
 
@@ -347,15 +340,19 @@ if ($contact_sheet_resource && enforcePostRequest(getval("ajax", false))) {
 
     // Create the file in the new resource folder:
     $path = get_resource_path($new_resource, true, '', true, 'pdf');
-    $html2pdf->Output($path, 'F');
+    if (isset($batch_pdf)) {
+        copy($batch_pdf, $path);
+    } else {
+        $html2pdf->Output($path, 'F');
+    }
 
     // Create thumbnails and redirect browser to the new contact sheet resource
     create_previews($new_resource, true, 'pdf');
     redirect("{$baseurl_short}pages/view.php?ref={$new_resource}");
+} elseif (isset($batch_pdf)) {
+    stream_contact_sheet($batch_pdf, $PDF_filename);
+} else {
+    $html2pdf->output($PDF_filename);
 }
-
-// Generate PDF file
-$PDF_filename = i18n_get_collection_name($collectiondata) . '.pdf';
-$html2pdf->Output($PDF_filename);
 
 hook('endscript');

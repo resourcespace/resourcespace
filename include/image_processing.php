@@ -78,8 +78,6 @@ function upload_file($ref, $no_exif = false, $revert = false, $autorotate = fals
     }
 
     if (!$after_upload_processing) {
-        resource_log($ref, LOG_CODE_TRANSFORMED, '', '', '', $lang['upload_file']);
-
         $exiftool_fullpath = get_utility_path("exiftool");
 
         # Process file upload for resource $ref
@@ -215,8 +213,13 @@ function upload_file($ref, $no_exif = false, $revert = false, $autorotate = fals
         $filepath = get_resource_path($ref, true, "", true, $extension);
 
         if (!$revert) {
-            # Remove existing file, if present
+            $source = $file_path !== "" || !isset($processfile) ? new SplFileInfo($file_path) : $processfile;
+            $validation = process_file_upload($source, new SplFileInfo($filepath), ['file_move' => 'dry_run']);
+            if (!$validation['success']) {
+                return false;
+            }
 
+            # Remove existing file, if present
             hook("beforeremoveexistingfile", "", array( "ref" => $ref ));
 
             $old_extension = ps_value("select file_extension value from resource where ref=?", array("i",$ref), "");
@@ -260,35 +263,11 @@ function upload_file($ref, $no_exif = false, $revert = false, $autorotate = fals
         && ($after_upload_processing || $filename != "")
     ) {
         if (!$after_upload_processing) {
-            if ($file_path != "" && ($replace_batch_existing || !$deletesource)) {
-                $result = process_file_upload(
-                    new SplFileInfo($file_path),
-                    new SplFileInfo($filepath),
-                    ['file_move' => 'copy']
-                )['success'];
-            } elseif (!$replace_batch_existing && $file_path != "") {
-                # File path has been specified. Let's use that directly.
-                if (file_exists($file_path)) {
-                    $result = process_file_upload(
-                        new SplFileInfo($file_path),
-                        new SplFileInfo($filepath),
-                        []
-                    )['success'];
-                } else {
-                    debug("File does not exist.");
-                    return false;
-                }
-            } else {
-                # Standard upload.
-                if (!$revert) {
-                    $result = process_file_upload($processfile, new SplFileInfo($filepath), [])['success'];
-                } else {
-                    $result = true;
-                }
-            }
-
-            if (!$result) {
-                debug("File processing faulure.");
+            $copy_source = $file_path !== "" && ($replace_batch_existing || !$deletesource);
+            $processor = $copy_source ? ['file_move' => 'copy'] : [];
+            $result = process_file_upload($source, new SplFileInfo($filepath), $processor);
+            if (!$result['success']) {
+                debug("File processing failure.");
                 return false;
             }
         }

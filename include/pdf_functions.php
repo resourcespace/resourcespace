@@ -1,6 +1,8 @@
 <?php
 
+use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\LocaleException;
+use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Locale;
 
 /**
@@ -223,10 +225,11 @@ function get_template_path($template_name, $template_namespace)
 *
 * @param string $template_path      The full path to the location of the template (as returned by get_template_path())
 * @param array  $bind_placeholders  A map of all the values that are meant to replace any placeholders found in the template
+* @param bool   $clear_output       Whether to discard the caller's current output buffer before rendering
 *
 * @return string
 */
-function process_template($template_path, array $bind_placeholders = array())
+function process_template($template_path, array $bind_placeholders = array(), bool $clear_output = true)
 {
     global $applicationname, $baseurl, $baseurl_short, $storagedir, $lang, $linkedheaderimgsrc;
     global $contact_sheet_date_include_time, $contact_sheet_date_wordy, $pdf_properties;
@@ -240,13 +243,18 @@ function process_template($template_path, array $bind_placeholders = array())
     $date            = $bind_placeholders['date'] ?? nicedate(date('Y-m-d H:i:s'), $contact_sheet_date_include_time, $contact_sheet_date_wordy);
 
     // Sometimes, HTML2PDF complains about headers being already sent
-    ob_end_clean();
+    if ($clear_output && ob_get_level() > 0) {
+        ob_end_clean();
+    }
 
     // At this point we shoud have all the placeholders we need to render the template nicely
     ob_start();
-    include $template_path;
-
-    return ob_get_clean();
+    try {
+        include $template_path;
+        return ob_get_contents();
+    } finally {
+        ob_end_clean();
+    }
 }
 
 /**
@@ -373,4 +381,149 @@ function get_pdf_templates($template_namespace)
         return pathinfo($e, PATHINFO_FILENAME);
     }, $templates);
     return $templates;
+}
+
+/**
+ * Write and merge contact sheet batches, 
+ * 
+ * @param int     $collection     Collection ID 
+ * @param string  $pdfunite       Path to pdfunite returned by get_utility_path()
+ * @param array   $batches        Array of resources and required properties for each batch
+ * @param string  $template       Contactsheet template path
+ * @param array   $placeholders   PDF Document values for the provided template
+ * @param array   $pdf_properties PDF document properties
+ * @param bool    $single         If the single template is in use, used to skip pagecount logic
+ * 
+ * @return string $output         Path to the complete PDF
+ */
+function write_batched_contact_sheet(int $collection, string $pdfunite, array $batches, string $template, array $placeholders, array $pdf_properties, bool $single = true): string 
+{
+    global $username, $scramble_key, $userref;
+    $filename_uid   = generateUserFilenameUID($userref);
+
+    $tmpdir = get_temp_dir();
+    if(!is_dir("$tmpdir/contactsheets")) {
+        // If it does not exist, create it.
+        mkdir("$tmpdir/contactsheets", 0777);
+    }
+
+    $directory = "$tmpdir/contactsheets";
+
+    $parts = [];
+    $output = $directory . '/contactsheet_' . $collection . '_' . md5($username . $filename_uid . $scramble_key) . '.pdf';
+    $placeholders['page_offset'] = 0;
+
+    if (isset($placeholders['contact_sheet_footer'])) {
+        if ($single) {
+            $placeholders['total_pages'] = array_sum(array_map('count', $batches));
+        } else {
+            foreach ($batches as $batch) {
+                $html2pdf = render_contact_sheet($template, array_merge($placeholders, ['resources' => $batch]), $pdf_properties, false);
+                $placeholders['page_offset'] += $html2pdf->pdf->getNumPages();
+                unset($html2pdf);
+            }
+            $placeholders['total_pages'] = $placeholders['page_offset'];
+            $placeholders['page_offset'] = 0;
+        }
+    }
+
+    foreach ($batches as $batch) {
+        $part = $directory . '/contactsheet_'. $collection . '_' . md5($username . $filename_uid . $scramble_key) . '_part_' . count($parts). '.pdf';
+        $parts[] = $part;
+        $html2pdf = render_contact_sheet($template, array_merge($placeholders, ['resources' => $batch]), $pdf_properties, false);
+        $page_count = $html2pdf->pdf->getNumPages();
+        $html2pdf->output($part, 'F');
+        unset($html2pdf);
+        $placeholders['page_offset'] += $page_count;
+    }
+
+    $arguments = implode(' ', array_map('escapeshellarg', [...$parts, $output]));
+    run_external($pdfunite . ' ' . $arguments);
+
+    $exiftool = get_utility_path('exiftool');
+    if ($exiftool !== false) {
+        run_external($exiftool . ' -overwrite_original -TagsFromFile ' . escapeshellarg($parts[0]) . ' -PDF:Title -PDF:Author -PDF:Subject -XMP-dc:Title -XMP-dc:Creator -XMP-dc:Description ' . escapeshellarg($output));
+    }
+
+    foreach ($parts as $part) {
+        unlink($part);
+    }
+
+    return $output;
+}
+
+/**
+ * Render a contact sheet using the supplied template.
+ * 
+ * @param string $template       Contactsheet template path
+ * @param array  $placeholders   Pdf Document values for the provided template
+ * @param array  $pdf_properties PDF document properties
+ * @param bool   $clear_output   If the current output buffer should be discarded 
+ * 
+ * @return html2pdf $html2pdf    Rendered PDF
+ */
+function render_contact_sheet(string $template, array $placeholders, array $pdf_properties, bool $clear_output = true): Html2Pdf 
+{
+    global $baseurl;
+
+    $html2pdf = new Html2Pdf($pdf_properties['orientation'], $pdf_properties['format'], $pdf_properties['language'], true, 'UTF-8', $pdf_properties['margins']);
+
+    $html2pdf->pdf->SetTitle($pdf_properties['title']);
+    $html2pdf->pdf->SetAuthor($pdf_properties['author']);
+    $html2pdf->pdf->SetSubject($pdf_properties['subject']);
+    $html2pdf->setDefaultFont($pdf_properties['font']);
+    $html2pdf->getSecurityService()->addAllowedHost(parse_url($baseurl, PHP_URL_HOST));
+
+    if (isset($placeholders['total_pages'])) {
+        $html2pdf->pdf->SetFont($pdf_properties['font']);
+        $html2pdf->pdf->setStartingPageNumber($placeholders['page_offset'] + 1);
+        $placeholders['page_number_html'] = escape($html2pdf->pdf->getAliasNumPage()) . '&nbsp;of&nbsp;' . (int) $placeholders['total_pages'];
+    }
+
+    $width = $html2pdf->pdf->getW() - ($html2pdf->pdf->getlMargin() + $html2pdf->pdf->getrMargin());
+    $height = $html2pdf->pdf->getH() - ($html2pdf->pdf->gettMargin() + $html2pdf->pdf->getbMargin());
+    $placeholders['available_width'] = floor($width / (25.4 / 96));
+    $placeholders['available_height'] = floor($height / (25.4 / 96));
+
+    $placeholders['column_width'] = floor(floor($width / $placeholders['columns']) / (25.4 / 96) - 10);
+
+    $html2pdf->writeHTML(process_template($template, $placeholders, $clear_output));
+    return $html2pdf;
+}
+
+/**
+ * Stream merged PDF to browser without loading the file into PHP memory.
+ *
+ * @param string $path     Path to the merged PDF
+ * @param string $filename Suggested browser filename
+ * 
+ * @return void
+ * 
+ * @throws RuntimeException If the PDF cannot be opened
+ */
+function stream_contact_sheet(string $path, string $filename): void
+{
+    $file = fopen($path, 'rb');
+
+    if ($file === false) {
+        throw new RuntimeException('Could not open the completed contact sheet PDF.');
+    }
+
+    if (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    $name = rawurlencode(basename($filename));
+    header('Content-Type: application/pdf');
+    header('X-Content-Type-Options: nosniff');
+    header('Cache-Control: private, must-revalidate, max-age=0');
+    header("Content-Disposition: inline; filename=\"{$name}\"; filename*=UTF-8''{$name}");
+
+    try {
+        if (fpassthru($file) === false) {
+            debug('Contact sheet: could not stream the completed PDF.');
+        }
+    } finally {
+        fclose($file);
+    }
 }
