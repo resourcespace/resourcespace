@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"] = 'Tambah tag anchor ke URL semasa menyimpan
 $lang["page-title_youtube_publish_setup"] = 'Tetapkan Plugin';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Terbitkan Sumber ke Youtube';
 $lang["youtube_publish_video_title"] = 'Tajuk video (max 100 aksara)';
+
+$lang['plugin-youtube_publish-title'] = 'Terbit YouTube';
+$lang['plugin-youtube_publish-desc'] = 'Terbitkan sumber video ke akaun YouTube yang telah dikonfigurasikan.';

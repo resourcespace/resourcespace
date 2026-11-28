@@ -10,3 +10,6 @@ $lang["bookend-intro"] = 'Chọn hình ảnh từ danh sách tệp thay thế đ
 $lang["bookend-failed"] = 'Thất bại!';
 $lang["bookend-could-not-open-file"] = 'Lỗi - không thể mở tệp!';
 $lang["page-title_video_bookend_bookend"] = 'Video Bookend';
+
+$lang['plugin-video_bookend-title'] = 'Video Bookend';
+$lang['plugin-video_bookend-desc'] = 'Thêm khả năng tải xuống video với tiêu đề và đồ họa kết thúc.';

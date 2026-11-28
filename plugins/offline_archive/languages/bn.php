@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'আর্কাইভ পুন�
 $lang["page-title_offline_archive_setup"] = 'সেটআপ প্লাগইন';
 $lang["page-title_offline_archive_view_archives"] = 'সম্পদ আর্কাইভ দেখুন';
 $lang["page-title_offline_archive_view_pending"] = 'অপেক্ষমাণ আর্কাইভ দেখুন';
+
+$lang['plugin-offline_archive-title'] = 'অফলাইন আর্কাইভ';
+$lang['plugin-offline_archive-desc'] = 'আর্কাইভ করা ফাইলগুলি অফলাইন অবস্থানে স্থানান্তর করার সুবিধা প্রদান করে।';

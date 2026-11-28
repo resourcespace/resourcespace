@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Створено за допомогою плаг
 
 $lang["page-title_emu_emu_object_details"] = 'Деталі об\'єкта EMu';
 $lang["page-title_emu_setup"] = 'Налаштування плагіна';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Дозволяє витягувати метадані ресурсів із бази даних EMu.';

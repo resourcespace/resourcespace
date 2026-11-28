@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='Список доступних варіант�
 $lang["page-title_resource_usage_delete"] = 'Видалити використання ресурсу';
 $lang["page-title_resource_usage_edit"] = 'Редагувати використання ресурсу';
 $lang["page-title_resource_usage_setup"] = 'Налаштування плагіна використання ресурсів';
+
+$lang['plugin-resource_usage-title'] = 'Використання ресурсу';
+$lang['plugin-resource_usage-desc'] = 'Додає можливість реєструвати використання ресурсу через сторінку перегляду ресурсу.';

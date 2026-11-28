@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'I-edit ang Lisensya';
 $lang["page-title_licensemanager_list"] = 'Ilista ang mga Lisensya';
 $lang["page-title_licensemanager_setup"] = 'I-set up ang Plugin ng License Manager';
 $lang["page-title_licensemanager_unlink"] = 'Alisin ang Ugnayan ng Lisensya';
+
+$lang["collection_actiontype_80"] = 'Paglilisensya';
+$lang['plugin-licensemanager-title'] = 'Tagapamahala ng Lisensya';
+$lang['plugin-licensemanager-desc'] = 'Pamahalaan ang paglisensya ng yaman.';

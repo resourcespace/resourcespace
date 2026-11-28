@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"]='Ychwanegu tagiau angor i URl wrth gadw i fa
 $lang["page-title_youtube_publish_setup"] = 'Gosod Plugin';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Cyhoeddi Adnodd i Youtube';
 $lang["youtube_publish_video_title"] = 'Teitl y fideo (mwy na 100 nodyn)';
+
+$lang['plugin-youtube_publish-title'] = 'Cyhoeddi YouTube';
+$lang['plugin-youtube_publish-desc'] = 'Cyhoeddi adnoddau fideo i gyfrif YouTube wedi’i ffurfweddu.';

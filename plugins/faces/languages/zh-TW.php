@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = '配置偵測臉孔的工作';
 $lang["faces_tag_faces_configure"] = '配置標記臉孔的工作';
 $lang["faces_detect_faces_intro"] = '在此建立一個工作以開始臉孔偵測 - 此工作不需要任何參數，只要沒有其他相同類型的待處理工作即可啟動。';
 $lang["faces_tag_faces_collection_refs_help"] = '設定此選項將只更新列出的集合中的資源。如果未指定集合，則所有適用的資源都將進行臉孔標記。集合可以使用逗號分隔的清單或範圍，例如 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Faces - InsightFace';
+$lang['plugin-faces-desc'] = '先進的自動人臉偵測與標記。以人臉搜尋。';

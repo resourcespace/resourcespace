@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'Връщане на състояниет�
 $lang["rse_version_invalid_time"] = 'Връщането към по-рано време от [date] не е поддържано';
 $lang["page-title_rse_version_revert"] = 'Възстановяване на версия на ресурса';
 $lang["page-title_rse_version_setup"] = 'Настройка на плъгина за версии';
+
+$lang['plugin-rse_version-title'] = 'Контрол на версиите';
+$lang['plugin-rse_version-desc'] = 'Проследявайте и възстановявайте промени в метаданните и файловете.';

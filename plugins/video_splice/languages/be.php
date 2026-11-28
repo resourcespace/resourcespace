@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'Памылка : Неправіл�
 $lang["page-title_video_splice_setup"] = 'Наладка плагіна Video Splice';
 $lang["page-title_video_splice_splice"] = 'Злучыць відэа';
 $lang["page-title_video_splice_trim"] = 'Абрэзці відэа';
+
+$lang['plugin-video_splice-title'] = 'Злучэнне відэа';
+$lang['plugin-video_splice-desc'] = 'Магчымасць абразання і злучэння відэа.';

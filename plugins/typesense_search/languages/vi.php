@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Khóa API';
 $lang["typesense_search_collection"] = 'Bộ sưu tập';
 $lang["typesense_search_timeout"] = 'Thời gian chờ giây';
 $lang["typesense_search_validate_access"] = 'Xác thực quyền truy cập sau tìm kiếm Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Tìm kiếm Typesense';
+$lang['plugin-typesense_search-desc'] = 'Nhà cung cấp tìm kiếm bên ngoài tùy chọn sử dụng Typesense (thử nghiệm)';

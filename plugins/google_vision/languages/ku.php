@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'پرۆسەکردنی سەرچاوەکانی نەکراو';
 $lang["google_vision_process_existing_configure"] = 'رێکخستنەوەی کار بۆ پرۆسەکردنی سەرچاوەکانی نەکراو';
 $lang["google_vision_process_existing_collection_refs_help"] = 'دانانی ئەم هەڵبژاردنە واتە تەنها سەرچاوەکانی لە کۆلەکشنەکانی لیستکراوەوە دەکرێن. ئەگەر هیچ کۆلەکشنێک دیاری نەکراوە، هەموو سەرچاوەکانی گونجاو بەردەوام دەکرێن. کۆلەکشنەکان دەتوانرێن بە لیستی کۆما وەک 100،105،110-115 دیاری بکرن.';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'نیشاندانی وێنە بە شێوەی ئۆتۆماتیکی بە بەکارهێنانی زانستی ئەقڵی.';

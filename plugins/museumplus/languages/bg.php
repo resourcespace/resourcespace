@@ -54,3 +54,6 @@ $lang["museumplus_error_module_no_field_maps"] = 'Не може да се син
 $lang["page-title_museumplus_museumplus_object_details"] = 'Детайли за обекта в MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'Настройка на модула MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'Настройка на плъгина MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Позволява извличане на метаданни за ресурси от MuseumPlus чрез неговия REST API (MpRIA).';

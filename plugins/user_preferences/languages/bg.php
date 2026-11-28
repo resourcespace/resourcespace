@@ -7,3 +7,6 @@ $lang["user_preferences_change_email"] = 'Позволи промяна на и�
 $lang["user_preferences_change_name"] = 'Позволи промяна на името на потребителя';
 $lang["changeyourpassword"] = 'Промени моята парола и данните за вход';
 $lang["page-title_user_preferences_setup"] = 'Настройка на приставката за настройки на потребителя';
+
+$lang['plugin-user_preferences-title'] = 'Потребителски предпочитания';
+$lang['plugin-user_preferences-desc'] = 'Позволява на потребителите да актуализират своето потребителско име, име и имейл адрес.';

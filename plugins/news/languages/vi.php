@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Thêm, chỉnh sửa hoặc xóa mục tin tức
 $lang["page-title_news_news_content_edit"] = 'Chỉnh sửa nội dung tin tức';
 $lang["page-title_news_news_edit"] = 'Chỉnh sửa Tin tức';
 $lang["page-title_news_news"] = 'Tin tức';
+
+$lang['plugin-news-title'] = 'Tin tức';
+$lang['plugin-news-desc'] = 'Thêm bài viết tin tức vào trang chủ.';

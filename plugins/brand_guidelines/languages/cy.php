@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Rheoli Cynnwys Canllawiau Brand'
 $lang["page-title_brand_guidelines_guidelines"] = 'Canllawiau Brand';
 $lang["page-title_brand_guidelines_setup"] = 'Gosod Plugin Canllawiau Brand';
 $lang["page-title_brand_guidelines_toc"] = 'Golygu cynnwys';
+
+$lang['plugin-brand_guidelines-title'] = 'Canllawiau Brand';
+$lang['plugin-brand_guidelines-desc'] = 'Creu ardal canllawiau brand gyda chynnwys wedi’i addasu, dolenni adnoddau a lliwiau.';

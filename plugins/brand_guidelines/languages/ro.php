@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Gestionați conținutul liniilor
 $lang["page-title_brand_guidelines_guidelines"] = 'Ghiduri de brand';
 $lang["page-title_brand_guidelines_setup"] = 'Configurare Plugin pentru Ghiduri de Brand';
 $lang["page-title_brand_guidelines_toc"] = 'Editează conținutul';
+
+$lang['plugin-brand_guidelines-title'] = 'Ghid de brand';
+$lang['plugin-brand_guidelines-desc'] = 'Creați o zonă de ghiduri de brand cu conținut personalizat, linkuri către resurse și culori.';

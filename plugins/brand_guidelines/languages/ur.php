@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'برانڈ گائیڈ لائنز
 $lang["page-title_brand_guidelines_guidelines"] = 'برانڈ گائیڈ لائنز';
 $lang["page-title_brand_guidelines_setup"] = 'برانڈ گائیڈ لائنز پلگ ان سیٹ اپ کریں';
 $lang["page-title_brand_guidelines_toc"] = 'مواد میں ترمیم کریں';
+
+$lang['plugin-brand_guidelines-title'] = 'برانڈ رہنما اصول';
+$lang['plugin-brand_guidelines-desc'] = 'حسبِ منشا مواد، وسائل کے روابط اور رنگوں کے ساتھ برانڈ رہنما اصول کا علاقہ بنائیں۔';

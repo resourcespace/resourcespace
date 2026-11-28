@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'ذخیره جدید OpenAI';
 $lang["openai_image_edit_error_invalid_image_data"] = 'داده تصویر نامعتبر است';
 $lang["openai_image_edit_error_invalid_image"] = 'تصویر نامعتبر است';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'امکان نوشتن فایل موقت وجود ندارد';
+$lang['plugin-openai_image_edit-title'] = 'ویرایش تصویر OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'بخش‌هایی از تصویر را پاک کنید و از GPT Image برای بازتولید آن‌ها استفاده کنید.';

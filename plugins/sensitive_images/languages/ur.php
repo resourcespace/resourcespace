@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='تصویری حساس ہونے کی وجہ بت
 $lang["sensitive_images_blur_level"]='حساس تصویر دھندلاپن کی سطح<br>(1=کم سے کم، 6=زیادہ سے زیادہ)';
 $lang["page-title_sensitive_images_setup"] = 'حساس تصاویر پلگ ان کی ترتیب کریں';
 $lang["sensitive_images_show"] = 'تصویر پر کلک کریں تاکہ دکھائی دے۔';
+
+$lang['plugin-sensitive_images-title'] = 'حساس تصاویر کو دھندلا کرنا';
+$lang['plugin-sensitive_images-desc'] = 'حساس کے طور پر نشان زد تصاویر کو دھندلا کرتا ہے، صارف کلک کر کے دھندلا پن ختم کر سکتا ہے۔';

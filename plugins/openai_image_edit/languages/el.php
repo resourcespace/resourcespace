@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Αποθήκευση Ν
 $lang["openai_image_edit_error_invalid_image_data"] = 'Μη έγκυρα δεδομένα εικόνας';
 $lang["openai_image_edit_error_invalid_image"] = 'Μη έγκυρη εικόνα';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Αδυναμία εγγραφής προσωρινού αρχείου';
+$lang['plugin-openai_image_edit-title'] = 'Επεξεργασία εικόνας OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Διαγράψτε μέρη μιας εικόνας και χρησιμοποιήστε το GPT Image για να τα αναδημιουργήσετε.';

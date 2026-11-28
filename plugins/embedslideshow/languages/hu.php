@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'Nyílt közvetlen hivatkozás (új old
 $lang["embedslideshow_dynamic_size"] = 'A nézet dinamikus átméretezése a lejátszó mérete alapján?';
 $lang["page-title_embedslideshow_setup"] = 'Beállítás Beágyazás Diavetítés Bővítmény';
 $lang["page-title_embedslideshow_viewer"] = 'Beágyazás Diavetítés';
+
+$lang['plugin-embedslideshow-title'] = 'Beágyazható diavetítés';
+$lang['plugin-embedslideshow-desc'] = 'Lehetővé teszi HTML generálását beágyazható gyűjtemény diavetítésekhez távoli webhelyeken.';

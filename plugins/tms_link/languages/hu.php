@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'Mutasd a nyers TMS adatokat';
 $lang["page-title_tms_link_test"] = 'Teszt TMS Adatok';
 $lang["page-title_tms_link_tms_details"] = 'TMS Adatok Megjelenítése';
 $lang["page-title_tms_link_tms_module_config"] = 'TMS Modul Beállításainak Szerkesztése';
+
+$lang['plugin-tms_link-title'] = 'TMS Kapcsolat';
+$lang['plugin-tms_link-desc'] = 'Lehetővé teszi az erőforrás metaadatainak kinyerését a TMS adatbázisból.';

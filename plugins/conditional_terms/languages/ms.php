@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = 'Medan metadata';
 $lang["conditional_terms_value"] = 'Nilai';
 $lang["conditional_terms_plugin_misconfigured"] = 'Plugin syarat bersyarat tidak dikonfigurasi dengan betul';
 $lang["page-title_conditional_terms_setup"] = 'Tetapkan Plugin Terma Bersyarat';
+
+$lang['plugin-conditional_terms-title'] = 'Terma Bersyarat';
+$lang['plugin-conditional_terms-desc'] = 'Membolehkan paparan bersyarat halaman terma semasa muat turun berdasarkan metadata sumber.';

@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'Kemaskini sumber yang ditapis untuk car
 $lang["page-title_rss2_rssfeed"] = 'RSS Feed';
 $lang["page-title_rss2_rssfilter"] = 'Penapis RSS';
 $lang["page-title_rss2_setup"] = 'Tetapkan Plugin RSS';
+
+$lang['plugin-rss2-title'] = 'Sumber RSS';
+$lang['plugin-rss2-desc'] = 'Membolehkan penjanaan sumber RSS yang disahkan bagi kandungan baru, termasuk medan yang boleh dikonfigurasikan.';

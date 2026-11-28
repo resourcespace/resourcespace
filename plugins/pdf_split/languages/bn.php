@@ -12,3 +12,6 @@ $lang["invalidrange"]='অবৈধ পরিসীমা';
 $lang["splitpdf_createnewresource"]='প্রতিটি পরিসরের জন্য একটি নতুন রিসোর্স তৈরি করুন';
 $lang["splitpdf_createnewalternativefile"]='প্রতিটি পরিসরের জন্য এই রিসোর্সে একটি নতুন বিকল্প ফাইল তৈরি করুন';
 $lang["page-title_pdf_split_pdf_split"] = 'পিডিএফ বিভাজন';
+
+$lang['plugin-pdf_split-title'] = 'পিডিএফ বিভাজন';
+$lang['plugin-pdf_split-desc'] = 'পিডিএফ ফাইলকে একাধিক পৃষ্ঠায় বিভক্ত করার সুবিধা প্রদান করে।';

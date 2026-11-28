@@ -51,3 +51,6 @@ $lang["museumplus_error_script_failed"]='Method MuseumPlus methu rhedeg oherwydd
 $lang["page-title_museumplus_museumplus_object_details"] = 'Manylion Eitem MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'Sefydlu Modiwl MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'Gosod Plugin MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Yn caniatáu i fetadata adnoddau gael ei echdynnu o MuseumPlus gan ddefnyddio ei REST API (MpRIA).';

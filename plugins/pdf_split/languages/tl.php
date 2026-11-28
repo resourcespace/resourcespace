@@ -12,3 +12,6 @@ $lang["invalidrange"] = 'Hindi wastong saklaw';
 $lang["splitpdf_createnewresource"] = 'Lumikha ng bagong yaman para sa bawat saklaw';
 $lang["splitpdf_createnewalternativefile"] = 'Lumikha ng bagong alternatibong file sa resource na ito para sa bawat saklaw';
 $lang["page-title_pdf_split_pdf_split"] = 'Hatiin ang PDF';
+
+$lang['plugin-pdf_split-title'] = 'Hatiin ang PDF';
+$lang['plugin-pdf_split-desc'] = 'Pinapayagan ang paghahati ng mga PDF file sa maraming pahina.';

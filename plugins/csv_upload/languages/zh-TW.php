@@ -87,3 +87,6 @@ $lang["csv_upload_alternative_file_name_column"] = '選擇包含替代文件記�
 $lang["csv_upload_alternative_file_description_column"] = '選擇包含替代文件記錄描述的欄位（可選）';
 $lang["latitude"] = '緯度';
 $lang["longitude"] = '經度';
+
+$lang['plugin-csv_upload-title'] = 'CSV 上傳';
+$lang['plugin-csv_upload-desc'] = '使用 CSV 檔案上傳元資料。';

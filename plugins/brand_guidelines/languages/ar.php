@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'إدارة محتوى إرشاد
 $lang["page-title_brand_guidelines_guidelines"] = 'إرشادات العلامة التجارية';
 $lang["page-title_brand_guidelines_setup"] = 'إعداد مكون إرشادات العلامة التجارية';
 $lang["page-title_brand_guidelines_toc"] = 'تعديل المحتوى';
+
+$lang['plugin-brand_guidelines-title'] = 'إرشادات العلامة التجارية';
+$lang['plugin-brand_guidelines-desc'] = 'إنشاء منطقة إرشادات العلامة التجارية بمحتوى مخصص وروابط الموارد والألوان.';

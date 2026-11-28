@@ -1257,6 +1257,7 @@ function add_resource_nodes(int $resourceid, $nodes = array(), $checkperms = tru
     }
 
     ps_query("INSERT IGNORE INTO resource_node(`resource`, node) VALUES {$sql};", $sql_params);
+    reconcile_search_field_node_changes([$resourceid], $nodes);
 
     if ($logthis) {
         $field_nodes_arr = array();
@@ -1338,6 +1339,7 @@ function add_resource_nodes_multi($resources = array(), $nodes = array(), $check
 
         if ($resource_node_values !== '') {
             ps_query("INSERT IGNORE INTO resource_node(`resource`, node) VALUES {$resource_node_values};", $sql_params);
+            reconcile_search_field_node_changes($resources_chunk, $nodes);
         }
     }
     return true;
@@ -1384,6 +1386,38 @@ function get_resource_nodes($resource, $resource_type_field = null, $detailed = 
     }
 
     return $detailed ? ps_query($query, $params) : ps_array($query, $params);
+}
+
+/**
+ * Reconcile pending or newly published columns for standalone node writes, such as upload-here and API calls.
+ * Transactional edit paths reconcile after committing their full set of node changes.
+ *
+ * @param array $resources Resource references changed by the write.
+ * @param array $nodes Changed node references.
+ * @return void
+ */
+function reconcile_search_field_node_changes(array $resources, array $nodes): void
+{
+    if (isset($GLOBALS['sql_transaction_in_progress'])) {
+        return;
+    }
+    $refresh = search_field_columns_to_reconcile(get_resource_table_joins());
+    if ($refresh === []) {
+        return;
+    }
+    $changed = [];
+    foreach (array_chunk(array_unique($nodes), SYSTEM_DATABASE_IDS_CHUNK_SIZE) as $chunk) {
+        $rows = ps_query(
+            'SELECT DISTINCT resource_type_field FROM node WHERE ref IN (' . ps_param_insert(count($chunk)) . ')',
+            ps_param_fill($chunk, 'i'),
+            logthis: 0
+        );
+        $changed = array_merge($changed, array_column($rows, 'resource_type_field'));
+    }
+    $refresh = array_intersect($refresh, $changed);
+    if ($refresh !== []) {
+        refresh_changed_search_field_columns(array_fill_keys($resources, null), $refresh);
+    }
 }
 
 /**
@@ -1448,6 +1482,7 @@ function delete_resource_nodes(int $resourceid, $nodes = array(), $logthis = tru
             array_merge(['i', $resourceid], ps_param_fill($chunk, 'i'))
         );
     }
+    reconcile_search_field_node_changes([$resourceid], $nodes);
 
     if ($logthis) {
         $field_nodes_arr = array();
@@ -1491,6 +1526,9 @@ function delete_resource_nodes_multi($resources = array(), $nodes = array())
             $sql = "DELETE FROM resource_node WHERE resource in (" . ps_param_insert(count($resource_chunk)) . ") AND node in (" . ps_param_insert(count($node_chunk)) . ")";
             $params = array_merge(ps_param_fill($resource_chunk, "i"), ps_param_fill($node_chunk, "i"));
             ps_query($sql, $params);
+        }
+        if ($nodes !== []) {
+            reconcile_search_field_node_changes($resource_chunk, $nodes);
         }
     }
 }
@@ -1993,14 +2031,15 @@ function get_node_tree($parentId = "", array $nodes = array())
 /**
  * This function returns an array of category tree nodes in the hierarchical sequence defined in manage options
  *
- * @param array   $treefield - the category tree field to be processed
+ * @param int     $treefield - the category tree field to be processed
  * @param integer $resource  - the resource against which to check for selected nodes - optional
- * @param array   $allnodes  - is true if all nodes in the structure are returned, false if only selected nodes are returned
+ * @param bool    $allnodes  Whether to return the full tree or only the selected nodes.
+ * @param bool    $use_primary Read the tree from the primary database.
  *
  * @return array  $flatnodes - the array of nodes returned in correct hierarchical order
  *
  */
-function get_cattree_nodes_ordered($treefield, $resource = null, $allnodes = false)
+function get_cattree_nodes_ordered($treefield, $resource = null, $allnodes = false, bool $use_primary = false)
 {
     $sql_query = "SELECT n.ref, n.resource_type_field, n.name, coalesce(n.parent, 0) parent, n.order_by, n.active, rn.resource FROM node n ";
     if ($allnodes) {
@@ -2008,7 +2047,22 @@ function get_cattree_nodes_ordered($treefield, $resource = null, $allnodes = fal
     }
     $sql_query .=  "JOIN resource_node rn on rn.resource = ? and rn.node = n.ref WHERE n.resource_type_field=? order by n.parent, n.order_by";
 
-    $nodeentries = ps_query($sql_query, array("i", (int) $resource, "i", (int) $treefield));
+    if ($use_primary) {
+        $connection = db_get_connection_mode();
+        db_set_connection_mode('read_write');
+    }
+    try {
+        $nodeentries = ps_query(
+            $sql_query,
+            ['i', (int) $resource, 'i', (int) $treefield],
+            logthis: $use_primary ? 0 : 2
+        );
+    } finally {
+        if ($use_primary) {
+            db_clear_connection_mode();
+            db_set_connection_mode($connection);
+        }
+    }
 
     # Any node that doesn't have a parent in the nodes supplied becomes a parent in this context as its real parent might not have been selected.
     # For example, when viewing options set when $category_tree_add_parents=false
@@ -2744,7 +2798,6 @@ function cleanup_invalid_nodes(array $fields = [], array $restypes = [], bool $d
     $allrestyperefs = array_column($allrestypes, "ref");
     $allfields = get_resource_type_fields();
     $fieldglobals = array_column($allfields, "global", "ref");
-    $joined_fields = get_resource_table_joins();
 
     $restypes = array_filter($restypes, function ($val) {
         return $val > 0;
@@ -2784,6 +2837,7 @@ function cleanup_invalid_nodes(array $fields = [], array $restypes = [], bool $d
                 $deletedrows += sql_affected_rows();
 
                 # Also remove data in joined fields.
+                $joined_fields = get_resource_table_joins(true);
                 foreach ($remove_fields as $check_joined_field) {
                     if (in_array($check_joined_field, $joined_fields)) {
                         ps_query("UPDATE resource SET `field" . $check_joined_field . "` = null WHERE resource_type = ?", array("i", $restype));

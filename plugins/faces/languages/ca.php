@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Configura la tasca per detectar cares';
 $lang["faces_tag_faces_configure"] = 'Configura la tasca per etiquetar cares';
 $lang["faces_detect_faces_intro"] = 'Crea una tasca per començar la detecció de cares aquí - aquesta tasca no requereix cap paràmetre, de manera que es pot iniciar sempre que no hi hagi altres tasques pendents d\'aquest tipus.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Configurar aquesta opció significarà que només els recursos en les col·leccions llistades s\'actualitzaran. Si no s\'especifica cap col·lecció, l\'etiquetatge de cares s\'actualitzarà per a TOTS els recursos adequats. Les col·leccions es poden especificar mitjançant una llista separada per comes així com rangs, p.e., 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'Rostres AI - InsightFace';
+$lang['plugin-faces-desc'] = 'Detecció i etiquetatge automàtic de rostres d\'última generació. Cerca per rostre.';

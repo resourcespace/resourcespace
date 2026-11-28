@@ -13,3 +13,6 @@ $lang["adobe_link_upload_document"] = 'Lưu';
 $lang["adobe_link_saving"] = 'Đang lưu..';
 $lang["adobe_link_saving_wait"] = 'Tập tin đang được lưu, vui lòng chờ tin nhắn xác nhận. Bạn có thể cần làm mới trang để cập nhật hình ảnh xem trước.';
 $lang["page-title_adobe_link_setup"] = 'Cài đặt Plugin Adobe Link';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'Cho phép nhập tệp Adobe từ ResourceSpace vào Adobe CC.';

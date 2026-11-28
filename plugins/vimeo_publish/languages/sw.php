@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"]='Ruhusu watumiaji kuchapisha kwenye a
 $lang["vimeo_publish_set_account"]='Weka akaunti ya Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'Weka Plugin ya Kuchapisha Vimeo';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Chapisha kwenye Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Chapisha Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Chapisha rasilimali kwenye Vimeo.';

@@ -12,3 +12,6 @@ $lang["invalidrange"]='ਅਵੈਧ ਰੇਂਜ';
 $lang["splitpdf_createnewresource"]='ਹਰ ਰੇਂਜ ਲਈ ਇੱਕ ਨਵਾਂ ਸਰੋਤ ਬਣਾਓ';
 $lang["splitpdf_createnewalternativefile"]='ਹਰ ਰੇਂਜ ਲਈ ਇਸ ਸਰੋਤ \'ਤੇ ਇੱਕ ਨਵਾਂ ਵਿਕਲਪਿਕ ਫਾਈਲ ਬਣਾਓ';
 $lang["page-title_pdf_split_pdf_split"] = 'ਪੀਡੀਐਫ਼ ਵੰਡ';
+
+$lang['plugin-pdf_split-title'] = 'PDF ਵੰਡੋ';
+$lang['plugin-pdf_split-desc'] = 'PDF ਫਾਇਲਾਂ ਨੂੰ ਕਈ ਪੰਨਿਆਂ ਵਿੱਚ ਵੰਡਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।';

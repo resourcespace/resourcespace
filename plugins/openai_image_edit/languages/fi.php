@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Tallenna Uusi';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Virheellinen kuvatiedosto';
 $lang["openai_image_edit_error_invalid_image"] = 'Virheellinen kuva';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Väliaikaistiedoston kirjoittaminen epäonnistui';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI-kuvankäsittely';
+$lang['plugin-openai_image_edit-desc'] = 'Poista osia kuvasta ja käytä GPT Imageä niiden uudelleenluomiseen.';

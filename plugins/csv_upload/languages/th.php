@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'เลือกคอลัมน์ที่ม
 $lang["csv_upload_longitude"] = 'เลือกคอลัมน์สำหรับลองจิจูดหากแยกจากคอลัมน์ด้านบน';
 $lang["latitude"] = 'ละติจูด';
 $lang["longitude"] = 'ลองจิจูด';
+
+$lang['plugin-csv_upload-title'] = 'อัปโหลด CSV';
+$lang['plugin-csv_upload-desc'] = 'อัปโหลดข้อมูลเมตาโดยใช้ไฟล์ CSV';

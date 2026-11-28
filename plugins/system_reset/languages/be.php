@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = 'Вы ўпэўнены? Гэта нельга б
 $lang["system_reset_delete_all"] = 'Выдаліць усе дадзеныя і файлы';
 $lang["system_reset-tooltip"] = 'Выканаць скід сістэмы, каб выдаліць усе файлы і дадзеныя';
 $lang["page-title_system_reset_reset"] = 'Скід сістэмы';
+
+$lang['plugin-system_reset-title'] = 'Скід сістэмы';
+$lang['plugin-system_reset-desc'] = 'Дадае опцыю ў admin/system для выдалення ўсіх дадзеных.';

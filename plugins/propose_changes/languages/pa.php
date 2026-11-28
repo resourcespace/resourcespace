@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"]='[img_headerlogo]<br />ਤੁਹਾਡੇ
 $lang["propose_changes_emailproposedchanges"]='[img_headerlogo]<br />ਪ੍ਰਸਤਾਵਿਤ ਬਦਲਾਅ ਜਮ੍ਹਾਂ ਕਰ ਦਿੱਤੇ ਗਏ ਹਨ।<br/>[changesummary]<br/>ਬਦਲਾਅ ਦੀ ਸਮੀਖਿਆ ਕਰਨ ਲਈ ਹੇਠਾਂ ਕਲਿੱਕ ਕਰੋ<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'ਬਦਲਾਅ ਦੀ ਸੁਝਾਅ ਦਿਓ';
 $lang["page-title_propose_changes_setup"] = 'ਸੈਟਅਪ ਪ੍ਰਸਤਾਵ ਬਦਲਾਅ ਪਲੱਗਇਨ';
+
+$lang['plugin-propose_changes-title'] = 'ਤਬਦੀਲੀਆਂ ਦਾ ਪ੍ਰਸਤਾਵ ਕਰੋ';
+$lang['plugin-propose_changes-desc'] = 'ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਸੰਪਾਦਨ ਦੀ ਪਹੁੰਚ ਦੇ ਬਿਨਾਂ ਮੈਟਾਡੇਟਾ ਵਿੱਚ ਤਬਦੀਲੀਆਂ ਦਾ ਪ੍ਰਸਤਾਵ ਦੇਣ ਦੀ ਆਗਿਆ ਦਿਓ।';

@@ -15,3 +15,6 @@ $lang["whisper"] = 'وێشپەر';
 $lang["whisper_process_existing"] = 'پرۆسەکردنی سەرچاوەکانی نەچالاک';
 $lang["whisper_process_existing_intro"] = 'ئەم کارە دروست بکە بۆ دەستپێکردنی پرۆسەکردنی دەنگی وێشپەر لەوێ - ئەم کارە هیچ پارامێرەکەی پێویست نیە، بۆیە دەتوانرێت بەردەوام بێت هەروەها هیچ کارەکانی تر لە ئەم جۆرە نەماوە.';
 $lang["whisper_process_existing_configure"] = 'پێناسەکردنی کارە بۆ پرۆسەکردنی فایلەکان بە وێشپەر';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'ڤیدیۆ/دەنگ بۆ دەق بە بەکارهێنانی Whisper لە OpenAI. لە شوێنەکەدا دەچێتە کار، هیچ ئەندامبوونێک پێویست نیە.';

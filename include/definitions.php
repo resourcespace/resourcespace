@@ -3,7 +3,10 @@
 define('RESOURCESPACE_BASE_PATH', dirname(__DIR__));
 
 // current upgrade level of ResourceSpace (used for migration scripts, will set sysvar using this if not already defined)
-define('SYSTEM_UPGRADE_LEVEL', 32);
+define('SYSTEM_UPGRADE_LEVEL', 34);
+
+const CONFIG_SEARCH_FIELD_LISTS = ['list_display_fields', 'thumbs_display_fields', 'sort_fields'];
+const SYSVAR_PREPARING_SEARCH_FIELDS = 'preparing_search_fields';
 
 // PHP VERSION AND MINIMUM SUPPORTED
 if (!defined('PHP_VERSION_ID')) {
@@ -933,6 +936,7 @@ $languages["it"] = "Italiano"; # Italian
 $languages["jp"] = "日本語"; # Japanese
 $languages["ko"] = "한국어"; # Korean
 $languages["ku"] = "کوردی"; # Kurdish
+$languages["mr"] = "मराठी"; # Marathi
 $languages["ms"] = "Bahasa Melayu"; # Malay
 $languages["nl"] = "Nederlands"; # Dutch
 $languages["no"] = "Norsk"; # Norwegian
@@ -943,9 +947,11 @@ $languages["pt"] = "Português"; # Portuguese
 $languages["pt-BR"] = "Português do Brasil"; # Brazilian Portuguese
 $languages["ro"] = "Limba română"; # Romanian
 $languages["ru"] = "Русский язык"; # Russian
+$languages["si"] = "සිංහල"; # Sinhala
 $languages["sk"] = "Slovenčina"; # Slovak
 $languages["sv"] = "Svenska"; # Swedish
 $languages["sw"] = "Kiswahili"; # Swahili
+$languages["ta"] = "தமிழ்"; # Tamil
 $languages["th"] = "ภาษาไทย"; # Thai
 $languages["tl"] = "Filipino"; # Filipino
 $languages["tr"] = "Türkçe"; # Turkish

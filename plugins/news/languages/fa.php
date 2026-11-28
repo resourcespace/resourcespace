@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'افزودن، ویرایش یا حذف موار
 $lang["page-title_news_news_content_edit"] = 'ویرایش محتوای اخبار';
 $lang["page-title_news_news_edit"] = 'ویرایش اخبار';
 $lang["page-title_news_news"] = 'اخبار';
+
+$lang['plugin-news-title'] = 'اخبار';
+$lang['plugin-news-desc'] = 'مقالات خبری را به صفحه اصلی اضافه کنید.';

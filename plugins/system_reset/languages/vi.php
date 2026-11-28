@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = 'Bạn có chắc không? Điều này không th
 $lang["system_reset_delete_all"] = 'Xóa tất cả dữ liệu và tệp tin';
 $lang["system_reset-tooltip"] = 'Thực hiện đặt lại hệ thống để xóa tất cả các tệp và dữ liệu';
 $lang["page-title_system_reset_reset"] = 'Đặt lại hệ thống';
+
+$lang['plugin-system_reset-title'] = 'Đặt lại hệ thống';
+$lang['plugin-system_reset-desc'] = 'Thêm tùy chọn vào admin/system để xóa tất cả dữ liệu.';

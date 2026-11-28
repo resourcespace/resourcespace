@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'آرکائیو بحال کریں'
 $lang["page-title_offline_archive_setup"] = 'سیٹ اپ پلگ ان';
 $lang["page-title_offline_archive_view_archives"] = 'وسائل کے ریکارڈ دیکھیں';
 $lang["page-title_offline_archive_view_pending"] = 'زیر غور آرکائیوز دیکھیں';
+
+$lang['plugin-offline_archive-title'] = 'آف لائن آرکائیو';
+$lang['plugin-offline_archive-desc'] = 'آرکائیو شدہ فائلوں کو آف لائن مقام پر منتقل کرنے کی سہولت فراہم کرتا ہے۔';

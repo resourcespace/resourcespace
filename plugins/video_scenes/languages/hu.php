@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Jelenet lejátszása %time időpontban';
 $lang["video_scene_play_unavailable"] = 'Ez a jelenet kívül esik az elérhető videó előnézeten.';
 $lang["video_scene_job_success"] = 'A videójelenet feldolgozása befejeződött';
 $lang["video_scene_job_failure"] = 'A videójelenet feldolgozása sikertelen volt. Részletekért tekintse meg a feladat naplóját.';
+$lang['plugin-video_scenes-title'] = 'Videójelenetek';
+$lang['plugin-video_scenes-desc'] = 'Videójelenetek helyi felismerése transnetv2-pytorch segítségével, opcionális OpenAI audiovizuális leírásokkal.';

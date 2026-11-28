@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Gem Ny';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Ugyldige billeddata';
 $lang["openai_image_edit_error_invalid_image"] = 'Ugyldigt billede';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Kan ikke skrive den midlertidige fil';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI Billedredigering';
+$lang['plugin-openai_image_edit-desc'] = 'Slet dele af et billede og brug GPT Image til at genskabe dem.';

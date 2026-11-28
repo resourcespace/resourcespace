@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'Выберыце слупок, які змяшч
 $lang["csv_upload_longitude"] = 'Выберыце слупок для Даўгаты, калі ён асобны ад вышэйзгаданага слупка';
 $lang["latitude"] = 'шырыня';
 $lang["longitude"] = 'даўгата';
+
+$lang['plugin-csv_upload-title'] = 'Загрузка CSV';
+$lang['plugin-csv_upload-desc'] = 'Загрузіце метаданыя з дапамогай файла CSV.';

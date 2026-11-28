@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'সিস�
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'কুকি নির্বাচন';
 $lang["page-title_cookies_notification_setup"] = 'কুকি বিজ্ঞপ্তি প্লাগইন সেটআপ করুন';
+
+$lang['plugin-cookies_notification-title'] = 'কুকিজ বিজ্ঞপ্তি';
+$lang['plugin-cookies_notification-desc'] = 'হেডারে একটি বার্তা প্রদর্শন করে কুকি ব্যবহারের তথ্য দিন।';

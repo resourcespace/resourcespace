@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'Ang tagapagbigay ay na-lock sa pandaigd
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Ollama model na gagamitin (hal. \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Ollama endpoint na gagamitin (hal. http://[IP]:11434/v1/chat/completions)';
+
+$lang['plugin-openai_gpt-title'] = 'Pagproseso ng metadata ng OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'Awtomatikong pagproseso ng metadata at mga imahe gamit ang AI.';

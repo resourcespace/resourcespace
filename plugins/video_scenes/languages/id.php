@@ -27,3 +27,6 @@ $lang["video_scene_play"] = 'Putar adegan pada %time';
 $lang["video_scene_play_unavailable"] = 'Adegan ini berada di luar pratinjau video yang tersedia.';
 $lang["video_scene_job_success"] = 'Pemrosesan adegan video selesai';
 $lang["video_scene_job_failure"] = 'Pemrosesan adegan video gagal. Lihat log pekerjaan untuk detail.';
+
+$lang['plugin-video_scenes-title'] = 'Adegan video';
+$lang['plugin-video_scenes-desc'] = 'Deteksi adegan video secara lokal dengan transnetv2-pytorch, dengan deskripsi audiovisual OpenAI opsional.';

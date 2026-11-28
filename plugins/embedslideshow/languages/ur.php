@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'پلیئر کے سائز کی بنیاد
 
 $lang["page-title_embedslideshow_setup"] = 'ایمبیڈ سلائیڈ شو پلگ ان سیٹ اپ کریں';
 $lang["page-title_embedslideshow_viewer"] = 'سلائیڈ شو شامل کریں';
+
+$lang['plugin-embedslideshow-title'] = 'سلائیڈ شو شامل کریں';
+$lang['plugin-embedslideshow-desc'] = 'دور دراز سائٹس پر شامل کیے جانے والے مجموعہ سلائیڈ شوز کے لیے HTML تیار کرنے کا فنکشن فراہم کرتا ہے۔';

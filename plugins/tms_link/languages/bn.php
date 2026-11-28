@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'কাঁচা TMS ডেটা দে
 $lang["page-title_tms_link_test"] = 'পরীক্ষা TMS ডেটা';
 $lang["page-title_tms_link_tms_details"] = 'TMS ডেটা দেখান';
 $lang["page-title_tms_link_tms_module_config"] = 'TMS মডিউল কনফিগারেশন সম্পাদনা করুন';
+
+$lang['plugin-tms_link-title'] = 'TMS লিঙ্ক';
+$lang['plugin-tms_link-desc'] = 'TMS ডাটাবেস থেকে রিসোর্স মেটাডেটা আহরণের অনুমতি দেয়।';

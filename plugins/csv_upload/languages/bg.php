@@ -87,3 +87,6 @@ $lang["csv_upload_alternative_file_name_column"] = 'Изберете колон�
 $lang["csv_upload_alternative_file_description_column"] = 'Изберете колоната, която съдържа описанието за записа на алтернативния файл (по желание)';
 $lang["latitude"] = 'ширина';
 $lang["longitude"] = 'дължина';
+
+$lang['plugin-csv_upload-title'] = 'Качване на CSV';
+$lang['plugin-csv_upload-desc'] = 'Качете метаданни чрез CSV файл.';

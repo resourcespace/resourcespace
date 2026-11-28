@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'Абноўлены адфільтрав
 $lang["page-title_rss2_rssfeed"] = 'RSS стужка';
 $lang["page-title_rss2_rssfilter"] = 'RSS Фільтр';
 $lang["page-title_rss2_setup"] = 'Наладка плагіна RSS';
+
+$lang['plugin-rss2-title'] = 'RSS-канал';
+$lang['plugin-rss2-desc'] = 'Дазваляе аўтарызавана ствараць RSS-каналы новага кантэнту з магчымасцю наладжвання палёў.';

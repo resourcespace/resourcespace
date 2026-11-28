@@ -52,3 +52,6 @@ $lang["youtube_publish_notuploaded"] = 'نەهاتە بارکردن';
 $lang["youtube_publish_failedupload_error"] = 'هەڵە لە بارکردن';
 $lang["youtube_publish_success"] = 'ڤیدیۆکە بە سەرکەوتوویی بڵاوکراوە!';
 $lang["youtube_publish_renewing_token"] = 'نوێکردنەوەی توکینی دەستگەیشتن';
+
+$lang['plugin-youtube_publish-title'] = 'Weşandina YouTube';
+$lang['plugin-youtube_publish-desc'] = 'Çavkaniyên vîdyoyê bi hesabek YouTube ya saz kirî weşîne.';

@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'Грешка: Невалидно �
 $lang["page-title_video_splice_setup"] = 'Настройка на плъгина Video Splice';
 $lang["page-title_video_splice_splice"] = 'Обединяване на видео';
 $lang["page-title_video_splice_trim"] = 'Изрязване на видео';
+
+$lang['plugin-video_splice-title'] = 'Видео свързване';
+$lang['plugin-video_splice-desc'] = 'Възможност за изрязване и свързване на видео.';

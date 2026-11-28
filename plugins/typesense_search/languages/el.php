@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Κλειδί API';
 $lang["typesense_search_collection"] = 'Συλλογή';
 $lang["typesense_search_timeout"] = 'Χρόνος λήξης σε δευτερόλεπτα';
 $lang["typesense_search_validate_access"] = 'Επικύρωση πρόσβασης μετά την αναζήτηση Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Αναζήτηση Typesense';
+$lang['plugin-typesense_search-desc'] = 'Προαιρετικός εξωτερικός πάροχος αναζήτησης με χρήση Typesense (πειραματικό)';

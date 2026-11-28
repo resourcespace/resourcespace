@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'براہ کرم وضاحت کریں کہ \'ای
 $lang["video_resourcetype"] = 'ویڈیو وسائل کی قسم';
 
 $lang["page-title_embedvideo_setup"] = 'ویڈیو پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-embedvideo-title'] = 'ویڈیو شامل کریں';
+$lang['plugin-embedvideo-desc'] = 'دور دراز سائٹس پر شامل کرنے کے لیے ویڈیو کا HTML تیار کرنے کا فنکشن فراہم کرتا ہے۔';

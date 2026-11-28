@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'Поле за метаданни, съдър�
 $lang["sensitive_images_blur_level"] = 'Ниво на замъгляване на чувствителното изображение<br>(1=най-малко, 6=най-много)';
 $lang["page-title_sensitive_images_setup"] = 'Настройка на плъгина за чувствителни изображения';
 $lang["sensitive_images_show"] = 'Кликнете върху изображението, за да го покажете.';
+
+$lang['plugin-sensitive_images-title'] = 'Замъгляване на чувствителни изображения';
+$lang['plugin-sensitive_images-desc'] = 'Замъглява изображения, маркирани като чувствителни, като потребителят може да кликне, за да ги изчисти.';

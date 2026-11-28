@@ -53,3 +53,6 @@ $lang["ldapserver"]='LDAP Server/URL เช่น ldaps://hostname:port';
 $lang["page-title_simpleldap_ajax_test_auth"] = 'ทดสอบการตรวจสอบสิทธิ์ LDAP';
 $lang["page-title_simpleldap_setup"] = 'ตั้งค่า Simple LDAP Plugin';
 $lang["simpleldap_userlimit_error"] = 'ไม่สามารถสร้างผู้ใช้ได้เนื่องจากจำนวนผู้ใช้ถึงขีดจำกัดแล้ว กรุณาติดต่อผู้ดูแลระบบของคุณ';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'การตรวจสอบผู้ใช้ผ่าน LDAP';

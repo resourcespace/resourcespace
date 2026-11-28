@@ -39,3 +39,6 @@ $lang["weekday-6"] = 'วันเสาร์';
 
 $lang["page-title_action_dates_setup"] = 'ตั้งค่าปลั๊กอินวันที่การดำเนินการ';
 $lang["action_dates_additional_settings_email_admin_days"] = 'แจ้งผู้ดูแลระบบล่วงหน้ากี่วันก่อนดำเนินการ (เว้นว่างเพื่อปิดการใช้งาน)';
+
+$lang['plugin-action_dates-title'] = 'วันที่ดำเนินการ';
+$lang['plugin-action_dates-desc'] = 'เปิดใช้งานการลบหรือจำกัดการเข้าถึงทรัพยากรตามวันที่กำหนดไว้ล่วงหน้า';

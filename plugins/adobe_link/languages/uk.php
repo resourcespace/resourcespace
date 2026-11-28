@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'Збереження..';
 $lang["adobe_link_saving_wait"] = 'Файл зберігається, будь ласка, зачекайте на повідомлення про підтвердження. Можливо, вам доведеться оновити сторінку, щоб оновити зображення попереднього перегляду.';
 
 $lang["page-title_adobe_link_setup"] = 'Налаштування плагіна Adobe Link';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'Дозволяє імпорт файлів Adobe з ResourceSpace до Adobe CC.';

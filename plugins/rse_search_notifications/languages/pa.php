@@ -26,3 +26,6 @@ $lang["columnheader-last-found"]='ਆਖਰੀ ਵਾਰ ਲੱਭਿਆ';
 $lang["search_notifications_watched_searches-tooltip"] = 'ਆਪਣੀਆਂ ਸੁਰੱਖਿਅਤ ਖੋਜਾਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰੋ';
 $lang["page-title_rse_search_notifications_setup"] = 'ਖੋਜ ਸੂਚਨਾ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'ਨਿਗਰਾਨੀ ਕੀਤੀਆਂ ਖੋਜਾਂ';
+
+$lang['plugin-rse_search_notifications-title'] = 'ਖੋਜ ਸੂਚਨਾਵਾਂ';
+$lang['plugin-rse_search_notifications-desc'] = 'ਜਦੋਂ ਸੰਭਾਲੀ ਹੋਈ ਖੋਜ ਵਿੱਚ ਬਦਲਾਅ ਹੁੰਦੇ ਹਨ ਤਾਂ ਉਪਭੋਗਤਾ ਨੂੰ ਸੂਚਿਤ ਕਰੋ।';

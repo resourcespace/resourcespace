@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Воспроизвести сцену в %time';
 $lang["video_scene_play_unavailable"] = 'Эта сцена находится за пределами доступного предварительного просмотра видео.';
 $lang["video_scene_job_success"] = 'Обработка видео сцены завершена';
 $lang["video_scene_job_failure"] = 'Обработка видео сцены не удалась. См. журнал заданий для подробностей.';
+$lang['plugin-video_scenes-title'] = 'Видеосцены';
+$lang['plugin-video_scenes-desc'] = 'Локальное обнаружение видеосцен с помощью transnetv2-pytorch, с дополнительными аудиовизуальными описаниями OpenAI.';

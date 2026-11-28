@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='নির্বাচিত রেকর্
 $lang["rse_version_invalid_time"]='[date] এর পূর্ববর্তী সময়ে ফিরে যাওয়া সমর্থিত নয়';
 $lang["page-title_rse_version_revert"] = 'সম্পদ সংস্করণ ফিরিয়ে আনুন';
 $lang["page-title_rse_version_setup"] = 'সংস্করণ প্লাগইন সেটআপ';
+
+$lang['plugin-rse_version-title'] = 'ভার্সন নিয়ন্ত্রণ';
+$lang['plugin-rse_version-desc'] = 'মেটাডেটা এবং ফাইল পরিবর্তনগুলি ট্র্যাক এবং পুনরুদ্ধার করুন।';

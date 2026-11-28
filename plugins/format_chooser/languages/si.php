@@ -1,0 +1,20 @@
+<?php
+$lang['format_chooser'] = 'ආකෘති තේරීම';
+$lang['format_chooser_configuration'] = 'ආකෘති තේරීම සැකසුම';
+$lang['format_chooser_output_formats'] = 'ප්‍රතිදාන ආකෘති (පින්තූර වර්ග පමණි)';
+$lang['format_chooser_input_formats'] = 'ආදාන ආකෘති (පින්තූර වර්ග පමණි)';
+$lang['format_chooser_keep_format'] = 'වෙනස් නොකරන්න';
+$lang['format_chooser_original_size'] = 'මුල් විභේදනය';
+$lang['format_chooser_choose_profile'] = 'වර්ණ පැතිකඩ තෝරන්න';
+$lang['format_chooser_keep_profile'] = 'පැතිකඩ තබා ගන්න';
+$lang['format_chooser_remove_profile'] = 'පැතිකඩ ඉවත් කරන්න';
+$lang['downloadformat'] = 'බාගත කිරීමේ ආකෘතිය';
+$lang['are_available-2'] = 'පරිවර්තනය කෙරේ';
+$lang['are_available-1'] = 'පරිවර්තනය කෙරේ';
+$lang['are_available-0'] = 'පරිවර්තනය කෙරේ';
+$lang['page-title_format_chooser_convert'] = 'ආකෘති තේරීම';
+$lang['page-title_format_chooser_setup'] = 'ආකෘති තේරීම ප්ලගීනය සැකසීම';
+$lang['format_chooser_blocked_inputs'] = '<p>ආදාන සඳහා පහත ආකෘති සහාය නොදක්වයි: %s</p>';
+$lang['format_chooser_blocked_outputs'] = '<p>ප්‍රතිදාන සඳහා පහත ආකෘති සහාය නොදක්වයි: %s</p>';
+$lang['plugin-format_chooser-title'] = 'ආකෘති තේරීම';
+$lang['plugin-format_chooser-desc'] = 'ගොනු බාගත කිරීමේදී විවිධ ආකෘති තෝරා ගැනීමට ඉඩ සලසයි, ඒවා ක්ෂණිකව ජනනය වේ.';

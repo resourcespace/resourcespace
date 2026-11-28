@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'ستونی را که حاوی مکان منبع 
 $lang["csv_upload_longitude"] = 'ستونی را برای طول جغرافیایی انتخاب کنید اگر جدا از ستون بالا است';
 $lang["latitude"] = 'عرض جغرافیایی';
 $lang["longitude"] = 'طول جغرافیایی';
+
+$lang['plugin-csv_upload-title'] = 'بارگذاری CSV';
+$lang['plugin-csv_upload-desc'] = 'بارگذاری فراداده با استفاده از فایل CSV.';

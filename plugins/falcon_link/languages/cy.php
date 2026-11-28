@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'Gwnewch yn siŵr nad yw\'r disgr
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'Gosod Plugin Cyswllt Falcon';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'Cyhoeddi adnoddau i Falcon.io ar gyfer rhannu awtomataidd ar gyfryngau cymdeithasol.';

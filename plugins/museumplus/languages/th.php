@@ -51,3 +51,6 @@ $lang["museumplus_error_script_failed"]='สคริปต์ MuseumPlus ล้
 $lang["page-title_museumplus_museumplus_object_details"] = 'รายละเอียดวัตถุ MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'ตั้งค่าโมดูล MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'ตั้งค่า MuseumPlus Plugin';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'อนุญาตให้ดึงข้อมูลเมตาของทรัพยากรจาก MuseumPlus โดยใช้ REST API (MpRIA) ของมัน';

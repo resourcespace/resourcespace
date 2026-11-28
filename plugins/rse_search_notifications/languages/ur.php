@@ -26,3 +26,6 @@ $lang["columnheader-last-found"]='آخری بار ملا';
 $lang["search_notifications_watched_searches-tooltip"] = 'اپنی محفوظ کردہ تلاشوں کو کنٹرول کریں';
 $lang["page-title_rse_search_notifications_setup"] = 'سرچ نوٹیفیکیشن پلگ ان سیٹ اپ کریں';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'دیکھے گئے تلاشات';
+
+$lang['plugin-rse_search_notifications-title'] = 'تلاش کی اطلاعات';
+$lang['plugin-rse_search_notifications-desc'] = 'محفوظ شدہ تلاش میں تبدیلی ہونے پر صارف کو مطلع کریں۔';

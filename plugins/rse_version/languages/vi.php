@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'Khôi phục trạng thái cho bộ sưu 
 $lang["rse_version_invalid_time"] = 'Việc quay lại thời gian trước [date] không được hỗ trợ';
 $lang["page-title_rse_version_revert"] = 'Khôi phục Phiên bản Tài nguyên';
 $lang["page-title_rse_version_setup"] = 'Cài đặt Plugin Phiên bản';
+
+$lang['plugin-rse_version-title'] = 'Kiểm soát Phiên bản';
+$lang['plugin-rse_version-desc'] = 'Theo dõi và khôi phục các thay đổi về siêu dữ liệu và tệp.';

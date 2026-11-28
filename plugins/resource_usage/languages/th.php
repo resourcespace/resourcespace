@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='รายการตัวเลือกก�
 $lang["page-title_resource_usage_delete"] = 'ลบการใช้งานทรัพยากร';
 $lang["page-title_resource_usage_edit"] = 'แก้ไขการใช้งานทรัพยากร';
 $lang["page-title_resource_usage_setup"] = 'ตั้งค่าปลั๊กอินการใช้งานทรัพยากร';
+
+$lang['plugin-resource_usage-title'] = 'การใช้งานทรัพยากร';
+$lang['plugin-resource_usage-desc'] = 'เพิ่มความสามารถในการบันทึกการใช้งานทรัพยากรผ่านหน้าดูทรัพยากร.';

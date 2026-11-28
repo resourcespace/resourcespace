@@ -10,3 +10,6 @@ $lang["grant_edit_list"]='موجودہ صارفین جن کے پاس اضافی 
 $lang["grant_edit_group_list"]='موجودہ گروپس جن کے پاس اضافی ترمیمی رسائی ہے';
 $lang["grant_edit_delete_user"]='تصدیق کریں کہ بہتر رسائی کو ہٹایا جائے';
 $lang["page-title_grant_edit_setup"] = 'سیٹ اپ گرانٹ ایڈٹ پلگ ان';
+
+$lang['plugin-grant_edit-title'] = 'ترمیم کی اجازت دیں';
+$lang['plugin-grant_edit-desc'] = 'ایڈمنسٹریٹرز کو صارفین کو عارضی طور پر وسائل کی مکمل ترمیم کی رسائی دینے کے قابل بناتا ہے۔';

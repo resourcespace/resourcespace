@@ -7,3 +7,6 @@ $lang["track_field_history_change"] = 'گۆڕانکاری';
 $lang["track_field_history_error_no_records"] = 'مێژووی دەسکاری نەدۆزرایەوە بۆ ئەم مەیدانە.';
 $lang["page-title_track_field_history_field_history_log"] = 'مێژوی مەیدان';
 $lang["page-title_track_field_history_setup"] = 'ڕێکخستنەوەی پلاگینەکەی مێژوی مەیدان';
+
+$lang['plugin-track_field_history-title'] = 'پێگەیشتن بە مێژووی خانەکان';
+$lang['plugin-track_field_history-desc'] = 'توانای پێگەیشتن بە مێژووی دەستکاری خانەکان.';

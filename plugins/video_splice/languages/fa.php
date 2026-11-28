@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"]='خطا: اقدام نامعتبر';
 $lang["page-title_video_splice_setup"] = 'نصب افزونه ویدیو اسپلیت';
 $lang["page-title_video_splice_splice"] = 'ادغام ویدیو';
 $lang["page-title_video_splice_trim"] = 'برش ویدیو';
+
+$lang['plugin-video_splice-title'] = 'ترکیب ویدئو';
+$lang['plugin-video_splice-desc'] = 'قابلیت برش و ترکیب ویدئو.';

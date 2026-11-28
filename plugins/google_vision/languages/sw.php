@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'Kuchakata rasilimali zisizochakatwa';
 $lang["google_vision_process_existing_configure"] = 'Sanidi kazi ya kuchakata rasilimali zisizochakatwa';
 $lang["google_vision_process_existing_collection_refs_help"] = 'Kuweka chaguo hili kutamaanisha kuwa ni rasilimali tu zilizoorodheshwa kwenye makusanyo zitachakatwa. Ikiwa hakuna makusanyo yaliyobainishwa basi RASILIMALI ZOTE zinazofaa zitachakatwa. Makusanyo yanaweza kubainishwa kwa kutumia orodha iliyo na koma au anuwai kama vile 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'Uwekaji lebo wa picha kiotomatiki kwa kutumia AI.';

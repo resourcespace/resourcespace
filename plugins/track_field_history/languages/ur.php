@@ -7,3 +7,6 @@ $lang["track_field_history_change"]='تبدیل کریں';
 $lang["track_field_history_error_no_records"]='اس فیلڈ کے لیے کوئی ترمیمی تاریخ نہیں ملی۔';
 $lang["page-title_track_field_history_field_history_log"] = 'فیلڈ کی تاریخ';
 $lang["page-title_track_field_history_setup"] = 'Track Field History Plugin سیٹ اپ کریں';
+
+$lang['plugin-track_field_history-title'] = 'فیلڈ کی تاریخ کا سراغ لگائیں';
+$lang['plugin-track_field_history-desc'] = 'فیلڈز کی ترمیم کی تاریخ کو سراغ لگانے کی صلاحیت۔';

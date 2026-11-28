@@ -1593,7 +1593,7 @@ function update_portrait_landscape_field($ref, $image = null)
     # updates portrait_landscape_field
 
     global $portrait_landscape_field,$lang;
-    if (isset($portrait_landscape_field)) {
+    if (isset($portrait_landscape_field) && $portrait_landscape_field !== '') {
         if (!$image) {
             $thumbfile = get_resource_path($ref, true, "thm", false, "jpg");
             if (!file_exists($thumbfile)) {
@@ -1803,7 +1803,7 @@ function tweak_preview_images($ref, $rotateangle, $gamma, $extension = "jpg", $a
         );
 
         global $portrait_landscape_field,$lang;
-        if (isset($portrait_landscape_field)) {
+        if (isset($portrait_landscape_field) && $portrait_landscape_field !== '') {
             # Write 'Portrait' or 'Landscape' to the appropriate field.
             if ($ts[0]["thumb_height"] >= $ts[0]["thumb_width"]) {
                 $portland = $lang["landscape"];

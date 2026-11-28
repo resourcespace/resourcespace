@@ -26,3 +26,6 @@ $lang["embedslideshow_seconds"] = '? eiliadau';
 
 $lang["page-title_embedslideshow_setup"] = 'Gosod Plugin Slideshow Embed';
 $lang["page-title_embedslideshow_viewer"] = 'Mewnoslido Slideshow';
+
+$lang['plugin-embedslideshow-title'] = 'Sleidfa Mewnosod';
+$lang['plugin-embedslideshow-desc'] = 'Yn darparu swyddogaeth i greu HTML ar gyfer sleidfeydd casgliadau y gellir eu mewnosod ar safleoedd o bell.';

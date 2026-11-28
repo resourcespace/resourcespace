@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'فیلدی مەتا داتا کە هۆکار�
 $lang["sensitive_images_blur_level"] = 'ئاستی وەشانی وێنەی حسەسە<br>(1=کەمترین، 6=زۆرترین)';
 $lang["page-title_sensitive_images_setup"] = 'ڕێکخستنەوەی پلاگینەکانی وێنەی حسەسە';
 $lang["sensitive_images_show"] = 'کرتن لە وێنە بکە بۆ پیشاندانی.';
+
+$lang['plugin-sensitive_images-title'] = 'وێنەی هەستیار بە تاریککردن';
+$lang['plugin-sensitive_images-desc'] = 'وێنەکان کە وەک هەستیار نیشان دەدرێن تاریک دەکرێن بەکارهێنەر دەتوانێت کرتە بکات بۆ لابردنی تاریککردن.';

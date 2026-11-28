@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'Danh sách các tùy chọn sử dụng có s
 $lang["page-title_resource_usage_delete"] = 'Xóa Sử Dụng Tài Nguyên';
 $lang["page-title_resource_usage_edit"] = 'Chỉnh sửa Sử dụng Tài nguyên';
 $lang["page-title_resource_usage_setup"] = 'Cài đặt Plugin Sử dụng Tài nguyên';
+
+$lang['plugin-resource_usage-title'] = 'Sử dụng tài nguyên';
+$lang['plugin-resource_usage-desc'] = 'Thêm khả năng ghi lại việc sử dụng tài nguyên qua trang xem tài nguyên.';

@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'ਕੱਚਾ TMS ਡੇਟਾ ਦਿਖ
 $lang["page-title_tms_link_test"] = 'ਟੈਸਟ TMS ਡੇਟਾ';
 $lang["page-title_tms_link_tms_details"] = 'TMS ਡੇਟਾ ਦਿਖਾਓ';
 $lang["page-title_tms_link_tms_module_config"] = 'TMS ਮੋਡੀਊਲ ਸੰਰਚਨਾ ਸੰਪਾਦਿਤ ਕਰੋ';
+
+$lang['plugin-tms_link-title'] = 'TMS ਲਿੰਕ';
+$lang['plugin-tms_link-desc'] = 'ਸਰੋਤ ਮੈਟਾਡੇਟਾ ਨੂੰ TMS ਡੇਟਾਬੇਸ ਤੋਂ ਪ੍ਰਾਪਤ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।';

@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='Je, una uhakika? Hili haliwezi kubatilishwa.';
 $lang["system_reset_delete_all"]='Futa data na faili zote';
 $lang["system_reset-tooltip"] = 'Fanya upya mfumo kufuta faili na data zote';
 $lang["page-title_system_reset_reset"] = 'Marekebisho ya Mfumo';
+
+$lang['plugin-system_reset-title'] = 'Weka upya Mfumo';
+$lang['plugin-system_reset-desc'] = 'Inaongeza chaguo kwenye admin/system kufuta data zote.';

@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='การอัปเดตทรัพ�
 $lang["page-title_rss2_rssfeed"] = 'ฟีด RSS';
 $lang["page-title_rss2_rssfilter"] = 'ฟิลเตอร์ RSS';
 $lang["page-title_rss2_setup"] = 'ตั้งค่า RSS Plugin';
+
+$lang['plugin-rss2-title'] = 'ฟีด RSS';
+$lang['plugin-rss2-desc'] = 'เปิดใช้งานการสร้างฟีด RSS ของเนื้อหาใหม่ที่ได้รับการตรวจสอบสิทธิ์ รวมถึงฟิลด์ที่กำหนดค่าได้';

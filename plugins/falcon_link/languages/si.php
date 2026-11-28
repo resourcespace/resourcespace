@@ -1,0 +1,47 @@
+<?php
+$lang['falcon_link_title'] = 'Falcon Link';
+$lang['falcon_link_manage'] = 'Falcon publish/archive';
+$lang['falcon_link_publish'] = 'Publish to Falcon';
+$lang['falcon_link_archive'] = 'Archive in Falcon';
+$lang['falcon_link_configuration'] = 'Falcon link- Setup';
+$lang['falcon_link_api_key'] = 'Falcon API key';
+
+$lang['falcon_link_notconfigured'] = 'Falcon Link ප්ලගිනය සැකසී නොමැත. කරුණාකර ඔබගේ පරිපාලකයාගෙන් ප්ලගිනය සැකසීමට ඉල්ලන්න.';
+$lang['falcon_link_resource_types_to_include'] = 'වලංගු Falcon සම්පත් වර්ග තෝරන්න';
+$lang['falcon_link_not_permitted_extension'] = '%TYPE% ගොනු වර්ගය Falcon වෙත උඩුගත කළ නොහැක';
+$lang['falcon_link_text_field'] = 'Falcon සැකිලි පෙළ ක්ෂේත්‍රය';
+$lang['falcon_link_default_tag'] = 'සියලු Falcon ප්‍රකාශිත අන්තර්ගතයට ස්වයංක්‍රීයව එක් කරන ලද පෙරනිමි ටැග් පෙළ. ඔබ \'[ID]\' පෙළ ඇතුළත් කළහොත් එය ටැග් හි සම්පත් හැඳුනුම් අංකයෙන් ප්‍රතිස්ථාපනය වේ';
+$lang['falcon_link_template_url'] = 'Falcon සැකිලි URL. මෙය ඔබට ප්‍රකාශිත සම්පත Falcon තුළ සෘජුවම බැලීමට ඉඩ සලසයි. [id] ටැග් එක ප්‍රකාශිත විට Falcon විසින් නිකුත් කරන ලද හැඳුනුම් අංකයෙන් ප්‍රතිස්ථාපනය වේ';
+$lang['falcon_link_tag_fields'] = 'ResourceSpace - Falcon ටැග් ක්ෂේත්‍ර. මෙය එකතු කර Falcon සැකිලි ටැග් වලට එක් කරනු ලැබේ';
+$lang['falcon_link_id_field'] = 'Falcon හැඳුනුම් අංකය ගබඩා කිරීමට මැටාදත්ත ක්ෂේත්‍රය';
+$lang['falcon_link_log_share'] = 'Falcon හි ප්‍රකාශිතයි';
+$lang['falcon_link_archived'] = 'සංරක්ෂිතයි';
+$lang['falcon_link_access_denied'] = 'තෝරාගත් සම්පත් ප්‍රකාශ කිරීමට ඔබට අවසර නොමැත';
+$lang['falcon_link_already_published'] = 'මෙම සම්පත Falcon වෙත ප්‍රකාශිතයි';
+$lang['falcon_link_resources_already_published'] = 'සම්පත් කිහිපයක් දැනටමත් Falcon වෙත ප්‍රකාශිත වන අතර නැවත ප්‍රකාශ කළ නොහැක';
+$lang['falcon_link_resource_not_published'] = 'සම්පත Falcon වෙත ප්‍රකාශිත නොවේ';
+$lang['falcon_link_resource_publish_unavailable'] = 'සම්පත Falcon වෙත ප්‍රකාශ කළ නොහැක';
+$lang['falcon_link_template_description'] = 'සැකිලි විස්තරය';
+$lang['falcon_link_template_tags'] = 'එකතු කරන සැකිලි ටැග්';
+$lang['falcon_link_missing_file'] = 'සම්පතට මුල් ගොනුවක් නොමැත';
+$lang['falcon_link_existing_id'] = 'පවතින Falcon හැඳුනුම් අංකය';
+$lang['falcon_link_not_uploaded'] = 'උඩුගත කර නොමැත';
+$lang['falcon_link_publish_button_text'] = 'ප්‍රකාශ කරන්න';
+$lang['falcon_link_archive_button_text'] = 'සංරක්ෂණය කරන්න';
+$lang['falcon_link_publish_success'] = 'සාර්ථකව ප්‍රකාශිතයි';
+$lang['falcon_link_usergroups'] = 'Falcon සැකිලි කළමනාකරණයට ප්‍රවේශය ඇති කණ්ඩායම්';
+$lang['falcon_link_filter'] = 'Falcon වෙත ප්‍රකාශ කළ හැකි සම්පත් තෝරා ගැනීම සඳහා පෙරහන';
+$lang['falcon_link_error_no_resources'] = 'ප්‍රකාශ කිරීමට සම්පත් ඉදිරිපත් කර නොමැත';
+$lang['falcon_link_error_falcon_api'] = 'Falcon සමඟ සන්නිවේදනය කිරීමේදී දෝෂයක් සිදු විය. වැඩි විස්තර සඳහා තත්ත්වය පරීක්ෂා කරන්න.';
+$lang['falcon_link_error_falcon_api_detailed'] = 'Falcon දෝෂය';
+$lang['falcon_link_view_in_falcon'] = 'Falcon තුළ බලන්න';
+$lang['falcon_link_share_user'] = 'Falcon භාවිතය සඳහා සාදන ලද හුවමාරු සඳහා පෙන්විය යුතු පරිශීලක පෙළ, උදාහරණයක් ලෙස \'user@falcon.io සමඟ හුවමාරු කරන ලදි\'';
+$lang['falcon_link_log_publish'] = 'Falcon හරහා සම්පත හුවමාරු කරන ලදි';
+$lang['falcon_link_log_archive'] = 'Falcon හරහා සම්පත සංරක්ෂණය කරන ලදි';
+$lang['falcon_link_error_falcon_check_tags'] = 'විස්තර සහ ටැග් හි හිස් නොවන බව කරුණාකර පරීක්ෂා කරන්න';
+$lang['page-title_falcon_link_falcon_link'] = 'Falcon Link';
+$lang['page-title_falcon_link_setup'] = 'Falcon Link ප්ලගිනය සැකසීම';
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'ස්වයංක්‍රීය සමාජ මාධ්‍ය හුවමාරුව සඳහා සම්පත් Falcon.io වෙත ප්‍රකාශ කරන්න.';
+
+$lang['falcon_link_archived_success'] = 'සංග්‍රහය සාර්ථකව සිදු විය.<br />සම්පත් බෙදාහැරීම් තවමත් ක්‍රියාශීලී වන අතර අවශ්‍ය නම් අතින් මකා දැමිය යුතුය.';

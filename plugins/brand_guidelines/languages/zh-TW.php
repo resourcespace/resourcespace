@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = '管理品牌指南內容';
 $lang["page-title_brand_guidelines_guidelines"] = '品牌指南';
 $lang["page-title_brand_guidelines_setup"] = '設定品牌指南插件';
 $lang["page-title_brand_guidelines_toc"] = '編輯內容';
+
+$lang['plugin-brand_guidelines-title'] = '品牌指南';
+$lang['plugin-brand_guidelines-desc'] = '建立一個品牌指南區域，包含自訂內容、資源連結及色彩。';

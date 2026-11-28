@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Gestionar el contingut de les di
 $lang["page-title_brand_guidelines_guidelines"] = 'Directrius de Marca';
 $lang["page-title_brand_guidelines_setup"] = 'Configura el complement de directrius de marca';
 $lang["page-title_brand_guidelines_toc"] = 'Editar contingut';
+
+$lang['plugin-brand_guidelines-title'] = 'Directrius de marca';
+$lang['plugin-brand_guidelines-desc'] = 'Crea una àrea de directrius de marca amb contingut personalitzat, enllaços a recursos i colors.';

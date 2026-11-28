@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Το τρέχον έτος';
 $lang["page-title_totp_setup"] = 'Ρύθμιση Πρόσθετου TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Απενεργοποίηση TOTP για χρήστες που έχουν ήδη πιστοποιηθεί μέσω SAML (Απαιτεί το πρόσθετο SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Υποστήριξη TFA/MFA μέσω Google Authenticator';

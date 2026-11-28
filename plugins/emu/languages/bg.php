@@ -36,3 +36,6 @@ $lang["emu_nodata_returned"] = 'Не са намерени данни от EMu �
 $lang["emu_createdfromemu"] = 'Създадено от EMU плъгин';
 $lang["page-title_emu_emu_object_details"] = 'Детайли за EMu обекта';
 $lang["page-title_emu_setup"] = 'Настройка на EMu плъгина';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Позволява извличане на метаданни за ресурси от базата данни EMu.';

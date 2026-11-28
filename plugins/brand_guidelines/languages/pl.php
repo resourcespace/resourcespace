@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Zarządzaj treścią wytycznych 
 $lang["page-title_brand_guidelines_guidelines"] = 'Wytyczne dotyczące marki';
 $lang["page-title_brand_guidelines_setup"] = 'Ustawienia wtyczki wytycznych dotyczących marki';
 $lang["page-title_brand_guidelines_toc"] = 'Edytuj zawartość';
+
+$lang['plugin-brand_guidelines-title'] = 'Wytyczne marki';
+$lang['plugin-brand_guidelines-desc'] = 'Utwórz sekcję wytycznych marki z niestandardową zawartością, linkami do zasobów i kolorami.';

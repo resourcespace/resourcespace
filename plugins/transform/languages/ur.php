@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'فائل کا نام عنوان کے طور پ
 
 $lang["error-resolution-zero"] = 'خرابی: اصل تصویر کی حساب شدہ چوڑائی/اونچائی صفر ہے۔';
 $lang["error-preview-missing"] = 'خرابی: پیش نظارہ تصویر تلاش کرنے سے قاصر';
+$lang['plugin-transform-title'] = 'تصویری اوزار (تبدیلی)';
+$lang['plugin-transform-desc'] = 'کٹے ہوئے اور پیمانے پر مبنی متبادل تصاویر بنانے کے قابل بناتا ہے۔';

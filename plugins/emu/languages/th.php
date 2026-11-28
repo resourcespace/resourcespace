@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'สร้างจากปลั๊กอิน 
 
 $lang["page-title_emu_emu_object_details"] = 'รายละเอียดวัตถุ EMu';
 $lang["page-title_emu_setup"] = 'ตั้งค่า Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'อนุญาตให้ดึงข้อมูลเมตาของทรัพยากรจากฐานข้อมูล EMu ได้';

@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'Cập nhật tài nguyên đã lọc ch
 $lang["page-title_rss2_rssfeed"] = 'RSS Feed';
 $lang["page-title_rss2_rssfilter"] = 'Bộ lọc RSS';
 $lang["page-title_rss2_setup"] = 'Cài đặt Plugin RSS';
+
+$lang['plugin-rss2-title'] = 'Nguồn RSS';
+$lang['plugin-rss2-desc'] = 'Cho phép tạo nguồn RSS xác thực cho nội dung mới, bao gồm các trường có thể cấu hình.';

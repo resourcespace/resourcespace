@@ -106,3 +106,6 @@ $lang["simplesaml_error_no_authsource"] = 'پلاگینەکانی SimpleSAML ت�
 $lang["page-title_simplesaml_about"] = 'دەربارەی SAML';
 $lang["page-title_simplesaml_generate_sp_config"] = 'هەڵبژاردنی ڕێکخستنەکانی SP دروست بکە';
 $lang["page-title_simplesaml_setup"] = 'ڕێکخستنەکانی پلاگین Simple SAML';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'دەستپێکردنی بەکارهێنەر بەڕێوەبەری SAML.';

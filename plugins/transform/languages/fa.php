@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'استفاده از نام فایل به عن�
 
 $lang["error-resolution-zero"] = 'خطا: عرض/ارتفاع تصویر اصلی برابر با صفر محاسبه شده است.';
 $lang["error-preview-missing"] = 'خطا: تصویر پیش‌نمایش یافت نشد';
+$lang['plugin-transform-title'] = 'ابزارهای تصویر (تبدیل)';
+$lang['plugin-transform-desc'] = 'امکان ایجاد تصاویر جایگزین برش‌خورده و مقیاس‌بندی شده را فراهم می‌کند.';

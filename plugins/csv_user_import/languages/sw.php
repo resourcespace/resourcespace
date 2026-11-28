@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'Safu zinazoruhusiwa: *jina_la_mtumiaji, *
 $lang["csv_user_import_condition5"] = 'Lugha ya mtumiaji itarudi kwa ile iliyowekwa kwa kutumia chaguo la usanidi "$defaultlanguage" ikiwa safu ya lugha haipatikani au haina thamani.';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'Uagizaji wa Mtumiaji wa CSV';
+
+$lang['plugin-csv_user_import-title'] = 'Uingizaji Watumiaji wa CSV';
+$lang['plugin-csv_user_import-desc'] = 'Inatoa uwezo wa kuingiza kundi la watumiaji kulingana na faili ya CSV iliyopangwa awali';

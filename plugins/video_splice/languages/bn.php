@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"]='ত্রুটি: অবৈধ ক
 $lang["page-title_video_splice_setup"] = 'ভিডিও স্প্লাইস প্লাগইন সেটআপ করুন';
 $lang["page-title_video_splice_splice"] = 'ভিডিও সংযুক্ত করুন';
 $lang["page-title_video_splice_trim"] = 'ভিডিও কেটে ফেলুন';
+
+$lang['plugin-video_splice-title'] = 'ভিডিও সংযোজন';
+$lang['plugin-video_splice-desc'] = 'ভিডিও ট্রিমিং এবং সংযোজনের ক্ষমতা।';

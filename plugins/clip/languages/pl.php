@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Konfiguruj zadanie do generowania wektorów CLIP'
 $lang["clip-job_limit"] = 'Limit rozmiaru partii';
 $lang["clip-job_limit_help"] = 'Ustawienie tej opcji ograniczy liczbę zasobów przetwarzanych w jednym uruchomieniu.';
 $lang["clip-job_limit_error"] = 'Wartość musi mieścić się w zakresie od 1 do 100000 lub być pusta, aby nie ustawiać limitu';
+
+$lang['plugin-clip-title'] = 'CLIP AI Inteligentne Wyszukiwanie i Tagowanie';
+$lang['plugin-clip-desc'] = 'Wyszukiwanie w języku naturalnym AI, wyszukiwanie wizualne, dopasowywanie podobieństw, wykrywanie duplikatów, tagowanie, generowanie tytułów';

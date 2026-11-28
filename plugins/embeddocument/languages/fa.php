@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'نوع منبع نمایشگر �
 
 $lang["page-title_embeddocument_setup"] = 'تنظیم افزونه سند جاسازی';
 $lang["page-title_embeddocument_viewer"] = 'نمایشگر سند را جاسازی کنید';
+
+$lang['plugin-embeddocument-title'] = 'درج سند';
+$lang['plugin-embeddocument-desc'] = 'امکان تولید کد HTML برای پیش‌نمایش‌های قابل درج سند در سایت‌های خارجی را فراهم می‌کند.';

@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Marka Kılavuzları İçeriğini
 $lang["page-title_brand_guidelines_guidelines"] = 'Marka Kılavuzları';
 $lang["page-title_brand_guidelines_setup"] = 'Marka Kılavuzları Eklentisini Kur';
 $lang["page-title_brand_guidelines_toc"] = 'İçeriği düzenle';
+
+$lang['plugin-brand_guidelines-title'] = 'Marka Rehberi';
+$lang['plugin-brand_guidelines-desc'] = 'Özel içerik, kaynak bağlantıları ve renklerle bir marka rehberi alanı oluşturun.';

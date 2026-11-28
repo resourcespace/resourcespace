@@ -53,3 +53,6 @@ $lang["museumplus_error_module_no_field_maps"]='قادر به همگام‌سا�
 $lang["page-title_museumplus_museumplus_object_details"] = 'جزئیات شیء MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'تنظیم ماژول MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'نصب افزونه MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'امکان استخراج فراداده منابع از MuseumPlus با استفاده از REST API آن (MpRIA) را فراهم می‌کند.';

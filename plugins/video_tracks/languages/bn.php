@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"]='এখনই ট্র�
 $lang["video_tracks_transcode_now_label"]='এখন ট্রান্সকোড করুন';
 $lang["page-title_video_tracks_create_video"] = 'ভিডিও তৈরি করুন';
 $lang["page-title_video_tracks_setup"] = 'ভিডিও ট্র্যাক প্লাগইন সেটআপ করুন';
+
+$lang['plugin-video_tracks-title'] = 'ভিডিও ট্র্যাকস';
+$lang['plugin-video_tracks-desc'] = 'ভিডিও রিসোর্সের জন্য বিভিন্ন অডিও এবং সাবটাইটেল বিকল্পের সমর্থন যোগ করুন।';

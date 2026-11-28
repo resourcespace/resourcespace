@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'لطفاً مشخص کنید که قابلیت 
 $lang["video_resourcetype"] = 'نوع منبع ویدئو';
 
 $lang["page-title_embedvideo_setup"] = 'نصب پلاگین ویدیو جاسازی';
+
+$lang['plugin-embedvideo-title'] = 'ویدیو جاسازی‌شده';
+$lang['plugin-embedvideo-desc'] = 'امکان تولید کد HTML برای ویدیوهای قابل جاسازی در سایت‌های دیگر را فراهم می‌کند.';

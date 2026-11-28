@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Speel scène af op %time';
 $lang["video_scene_play_unavailable"] = 'Deze scène valt buiten de beschikbare videovoorvertoning.';
 $lang["video_scene_job_success"] = 'Verwerking van videoscène voltooid';
 $lang["video_scene_job_failure"] = 'Verwerking van videoscène mislukt. Zie het taaklogboek voor details.';
+$lang['plugin-video_scenes-title'] = 'Videoscènes';
+$lang['plugin-video_scenes-desc'] = 'Detecteer videoscènes lokaal met transnetv2-pytorch, met optionele OpenAI audiovisuele beschrijvingen.';

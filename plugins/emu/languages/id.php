@@ -38,3 +38,5 @@ $lang["plugin-emu-desc"] = 'Memungkinkan metadata sumber daya diekstraksi dari d
 
 $lang["page-title_emu_emu_object_details"] = 'Detail Objek EMu';
 $lang["page-title_emu_setup"] = 'Pengaturan Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';

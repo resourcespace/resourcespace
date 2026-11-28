@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"]='থাম্বনেইল পথ';
 $lang["yt2rs_online_preview"]='অনলাইন প্রিভিউ';
 $lang["yt2rs_youtube_video"]='ইউটিউব ভিডিও';
 $lang["page-title_yt2rs_setup"] = 'Youtube থেকে ResourceSpace প্লাগইন সেটআপ করুন';
+
+$lang['plugin-yt2rs-title'] = 'YouTube থেকে ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'YouTube-এ হোস্ট করা ভিডিওগুলি রিসোর্স হিসাবে যোগ করুন।';

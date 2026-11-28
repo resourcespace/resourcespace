@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Lluniadu swydd i gynhyrchu vectorau CLIP';
 $lang["clip-job_limit"] = 'Terfyn maint y batch';
 $lang["clip-job_limit_help"] = 'Bydd gosod y dewislen hon yn cyfyngu ar nifer y adnoddau a brosesir mewn un gweithrediad.';
 $lang["clip-job_limit_error"] = 'Rhaid i\'r gwerth fod rhwng 1 a 100000 neu\'n wag i beidio â chyfyngu';
+
+$lang['plugin-clip-title'] = 'CHIP Chwilio Clyfar a Thagio AI';
+$lang['plugin-clip-desc'] = 'Chwilio iaith naturiol AI, chwilio gweledol, cyfateb tebyg, cyfateb dyblyg, tagio, creu teitl';

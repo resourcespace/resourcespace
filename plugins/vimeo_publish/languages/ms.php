@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'Benarkan pengguna untuk menerbitka
 $lang["vimeo_publish_set_account"] = 'Tetapkan akaun Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'Tetapkan Plugin Penerbitan Vimeo';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Terbitkan ke Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Terbitkan Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Terbitkan sumber ke Vimeo.';

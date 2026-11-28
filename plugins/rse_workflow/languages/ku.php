@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow"] = 'دەسەڵاتەکانی کا�
 $lang["page-title_rse_workflow_setup"] = 'ڕێکخستنەوەی پلاگینەکانی کارگەڕێک';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'ناتوانی لە گۆڕینی دۆخی ئەڕشیڤ بۆ %%ARCHIVE%%. دەستپێکردن بە خانە پڕکراوەکان کەمە.';
+$lang['plugin-rse_workflow-title'] = 'ڕێکخستنی کارپێکردنی پێشکەوتوو';
+$lang['plugin-rse_workflow-desc'] = 'دۆخی کارپێکردن و کردارە تایبەتیەکان لە دەرەوەی بنەڕەتیەکان ڕێکبخە.';

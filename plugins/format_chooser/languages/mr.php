@@ -1,0 +1,20 @@
+<?php
+$lang['format_chooser'] = 'फॉरमॅट निवडणारा';
+$lang['format_chooser_configuration'] = 'फॉरमॅट निवडणारा संरचना';
+$lang['format_chooser_output_formats'] = 'आउटपुट फॉरमॅट (फक्त प्रतिमा प्रकार)';
+$lang['format_chooser_input_formats'] = 'इनपुट फॉरमॅट (फक्त प्रतिमा प्रकार)';
+$lang['format_chooser_keep_format'] = 'बदल करू नका';
+$lang['format_chooser_original_size'] = 'मूळ रिझोल्यूशन';
+$lang['format_chooser_choose_profile'] = 'रंग प्रोफाइल निवडा';
+$lang['format_chooser_keep_profile'] = 'प्रोफाइल ठेवा';
+$lang['format_chooser_remove_profile'] = 'प्रोफाइल काढा';
+$lang['downloadformat'] = 'डाउनलोड फॉरमॅट';
+$lang['are_available-2'] = 'रूपांतरित केले जाईल';
+$lang['are_available-1'] = 'रूपांतरित केले जाईल';
+$lang['are_available-0'] = 'रूपांतरित केले जाईल';
+$lang['page-title_format_chooser_convert'] = 'फॉरमॅट निवडणारा';
+$lang['page-title_format_chooser_setup'] = 'फॉरमॅट निवडणारा प्लगइन सेटअप करा';
+$lang['format_chooser_blocked_inputs'] = '<p>खालील फॉरमॅट इनपुटसाठी समर्थित नाहीत: %s</p>';
+$lang['format_chooser_blocked_outputs'] = '<p>खालील फॉरमॅट आउटपुटसाठी समर्थित नाहीत: %s</p>';
+$lang['plugin-format_chooser-title'] = 'फॉरमॅट निवडणारा';
+$lang['plugin-format_chooser-desc'] = 'फायली डाउनलोड करताना वेगवेगळे फॉरमॅट निवडण्याची परवानगी देते, जे ऑन-द-फ्लाय तयार होतात.';

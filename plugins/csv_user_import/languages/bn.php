@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'অনুমোদিত কলাম: *u
 $lang["csv_user_import_condition5"] = 'ব্যবহারকারীর ভাষা "$defaultlanguage" কনফিগারেশন বিকল্প ব্যবহার করে সেট করা ভাষায় ফিরে যাবে যদি ল্যাং কলাম পাওয়া না যায় বা এর কোনো মান না থাকে।';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'CSV ব্যবহারকারী আমদানি';
+
+$lang['plugin-csv_user_import-title'] = 'CSV ব্যবহারকারী আমদানি';
+$lang['plugin-csv_user_import-desc'] = 'পূর্ব-ফরম্যাট করা CSV ফাইলের ভিত্তিতে ব্যবহারকারীদের একটি ব্যাচ আমদানি করার ক্ষমতা প্রদান করে';

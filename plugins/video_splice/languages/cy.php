@@ -48,3 +48,6 @@ $lang["action-splice"]='Torri a gosod';
 $lang["page-title_video_splice_setup"] = 'Gosod Plugin Torri Fideo';
 $lang["page-title_video_splice_splice"] = 'Cymysgu Fideo';
 $lang["page-title_video_splice_trim"] = 'Torri Fideo';
+
+$lang['plugin-video_splice-title'] = 'Cymysgu Fideo';
+$lang['plugin-video_splice-desc'] = 'Gallu torri a chymysgu fideo.';

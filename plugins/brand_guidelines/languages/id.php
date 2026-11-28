@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Kelola Konten Pedoman Merek';
 $lang["page-title_brand_guidelines_guidelines"] = 'Pedoman Merek';
 $lang["page-title_brand_guidelines_setup"] = 'Atur Plugin Pedoman Merek';
 $lang["page-title_brand_guidelines_toc"] = 'Edit konten';
+
+$lang['plugin-brand_guidelines-title'] = 'Panduan Merek';
+$lang['plugin-brand_guidelines-desc'] = 'Buat area panduan merek dengan konten khusus, tautan sumber daya, dan warna.';

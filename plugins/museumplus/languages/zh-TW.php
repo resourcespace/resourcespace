@@ -51,3 +51,6 @@ $lang["museumplus_error_module_no_field_maps"] = '無法同步MuseumPlus的資�
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus 物件詳情';
 $lang["page-title_museumplus_setup_module"] = '設定MuseumPlus模組';
 $lang["page-title_museumplus_setup"] = '設定MuseumPlus外掛';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = '允許使用其 REST API (MpRIA) 從 MuseumPlus 擷取資源的元資料。';

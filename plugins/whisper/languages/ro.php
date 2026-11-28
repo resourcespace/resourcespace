@@ -15,3 +15,6 @@ $lang["whisper"] = 'Șoaptă';
 $lang["whisper_process_existing"] = 'Procesează resursele neprocesate';
 $lang["whisper_process_existing_intro"] = 'Creează un job pentru a începe procesarea audio Whisper aici - acest job nu necesită parametri, deci poate fi pornit atâta timp cât nu există alte job-uri în curs de desfășurare de același tip.';
 $lang["whisper_process_existing_configure"] = 'Configurează job-ul pentru a procesa fișierele cu Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Video/audio în text folosind Whisper de la OpenAI. Rulează local, nu necesită abonament.';

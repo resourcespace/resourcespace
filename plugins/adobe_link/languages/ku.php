@@ -13,3 +13,6 @@ $lang["adobe_link_upload_document"] = 'پاشکەوت کردن';
 $lang["adobe_link_saving"] = 'پاشکەوت دەکرێت..';
 $lang["adobe_link_saving_wait"] = 'فایل دەبێتە پاشکەوت، تکایە چاوەڕوانی پەیامی پشتڕاستکردنەوە بکە. لەوانەیە پێویست بێت پەڕەکە نوێ بکەیتەوە بۆ نوێکردنەوەی وێنەی پێشنمایش.';
 $lang["page-title_adobe_link_setup"] = 'ڕێکخستنی پلاگینەکانی بەستەری ئەدوبی';
+
+$lang['plugin-adobe_link-title'] = 'پەیوەندی Adobe';
+$lang['plugin-adobe_link-desc'] = 'ڕێگە پێبدە بۆ هێنانەوەی فایلەکانی Adobe لە ResourceSpace بۆ Adobe CC.';

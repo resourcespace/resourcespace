@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time पर दृश्य चलाएं';
 $lang["video_scene_play_unavailable"] = 'यह दृश्य उपलब्ध वीडियो पूर्वावलोकन के बाहर है।';
 $lang["video_scene_job_success"] = 'वीडियो दृश्य प्रसंस्करण पूरा हुआ';
 $lang["video_scene_job_failure"] = 'वीडियो दृश्य प्रसंस्करण विफल रहा। विवरण के लिए जॉब लॉग देखें।';
+$lang['plugin-video_scenes-title'] = 'वीडियो दृश्य';
+$lang['plugin-video_scenes-desc'] = 'स्थानीय रूप से transnetv2-pytorch के साथ वीडियो दृश्य पहचानें, वैकल्पिक OpenAI ऑडियोविज़ुअल विवरणों के साथ।';

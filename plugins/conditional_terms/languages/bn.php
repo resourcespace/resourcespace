@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'মান';
 $lang["conditional_terms_plugin_misconfigured"] = 'শর্তাধীন শর্তাবলী প্লাগইনটি ভুলভাবে কনফিগার করা হয়েছে';
 
 $lang["page-title_conditional_terms_setup"] = 'শর্তাধীন শর্ত প্লাগইন সেটআপ করুন';
+
+$lang['plugin-conditional_terms-title'] = 'শর্তসাপেক্ষ শর্তাবলী';
+$lang['plugin-conditional_terms-desc'] = 'রিসোর্স মেটাডেটার উপর ভিত্তি করে ডাউনলোডের সময় শর্তসাপেক্ষ শর্তাবলী পৃষ্ঠার প্রদর্শন সক্ষম করে।';

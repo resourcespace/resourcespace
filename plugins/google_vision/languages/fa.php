@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'پردازش منابع پردازش‌نشده';
 $lang["google_vision_process_existing_configure"] = 'پیکربندی وظیفه برای پردازش منابع پردازش‌نشده';
 $lang["google_vision_process_existing_collection_refs_help"] = 'تنظیم این گزینه به معنای این است که تنها منابع در مجموعه‌های فهرست‌شده پردازش خواهند شد. اگر مجموعه‌ای مشخص نشده باشد، تمام منابع مناسب پردازش می‌شوند. مجموعه‌ها می‌توانند با استفاده از فهرست جداشده با کاما و همچنین بازه‌ها مشخص شوند مثلاً ۱۰۰،۱۰۵،۱۱۰-۱۱۵';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'برچسب‌گذاری خودکار تصاویر با استفاده از هوش مصنوعی.';

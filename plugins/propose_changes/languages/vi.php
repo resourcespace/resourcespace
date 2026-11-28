@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"] = '[img_headerlogo]<br />Các thay đổi
 $lang["propose_changes_emailproposedchanges"] = '[img_headerlogo]<br />Các thay đổi được đề xuất đã được gửi.<br/>[changesummary]<br/>Nhấp vào bên dưới để xem xét các thay đổi<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'Đề xuất thay đổi';
 $lang["page-title_propose_changes_setup"] = 'Cài đặt Plugin Đề xuất Thay đổi';
+
+$lang['plugin-propose_changes-title'] = 'Đề xuất Thay đổi';
+$lang['plugin-propose_changes-desc'] = 'Cho phép người dùng đề xuất thay đổi siêu dữ liệu mà không cần quyền chỉnh sửa.';

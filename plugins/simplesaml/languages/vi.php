@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'Plugin SimpleSAML chưa được c�
 $lang["simplesaml_error_no_idp_metadata"] = 'Plugin SimpleSAML chưa được cấu hình đầy đủ (thiếu metadata IdP)';
 $lang["simplesaml_error_no_authsource"] = 'Plugin SimpleSAML chưa được cấu hình đầy đủ (thiếu authsource)';
 $lang["simplesaml_userlimit_error"] = 'Không thể tạo người dùng vì đã đạt giới hạn người dùng. Vui lòng liên hệ quản trị viên của bạn.';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Xác thực người dùng qua SAML.';

@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'সম্পদটির জন্য অবস�
 $lang["csv_upload_longitude"] = 'অক্ষাংশের জন্য কলামটি নির্বাচন করুন যদি আলাদা হয় উপরের কলামের থেকে';
 $lang["latitude"] = 'অক্ষাংশ';
 $lang["longitude"] = 'দ্রাঘিমাংশ';
+
+$lang['plugin-csv_upload-title'] = 'CSV আপলোড';
+$lang['plugin-csv_upload-desc'] = 'একটি CSV ফাইল ব্যবহার করে মেটাডেটা আপলোড করুন।';

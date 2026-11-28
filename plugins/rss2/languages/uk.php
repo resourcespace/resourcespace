@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='Фільтроване оновлення
 $lang["page-title_rss2_rssfeed"] = 'RSS стрічка';
 $lang["page-title_rss2_rssfilter"] = 'RSS Фільтр';
 $lang["page-title_rss2_setup"] = 'Налаштування плагіна RSS';
+
+$lang['plugin-rss2-title'] = 'RSS-канал';
+$lang['plugin-rss2-desc'] = 'Дозволяє автентифіковано створювати RSS-канали нового контенту з налаштовуваними полями.';

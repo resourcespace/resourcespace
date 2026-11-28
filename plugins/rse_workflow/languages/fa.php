@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_setup"] = 'تنظیم افزونه گردش کا�
 $lang["page-title_rse_workflow_edit_workflow"] = 'ویرایش جریان کار';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'امکان تغییر وضعیت بایگانی به %%ARCHIVE%% وجود ندارد. دسترسی به فیلدهای الزامی خالی وجود ندارد.';
+$lang['plugin-rse_workflow-title'] = 'گردش کار پیشرفته';
+$lang['plugin-rse_workflow-desc'] = 'وضعیت‌ها و اقدامات گردش کار سفارشی فراتر از پیش‌فرض‌ها را پیکربندی کنید.';

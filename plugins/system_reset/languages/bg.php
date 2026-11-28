@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = 'Сигурни ли сте? Това не мо�
 $lang["system_reset_delete_all"] = 'Изтрий всички данни и файлове';
 $lang["system_reset-tooltip"] = 'Извършете рестартиране на системата, за да изтриете всички файлове и данни';
 $lang["page-title_system_reset_reset"] = 'Рестартиране на системата';
+
+$lang['plugin-system_reset-title'] = 'Нулиране на системата';
+$lang['plugin-system_reset-desc'] = 'Добавя опция в admin/system за изтриване на всички данни.';

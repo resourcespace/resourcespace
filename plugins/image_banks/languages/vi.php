@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Tìm kiếm';
 $lang["page-title_image_banks_setup"] = 'Cài đặt Plugin Ngân hàng Hình ảnh';
 $lang["page-title_image_banks_shutterstock_license"] = 'Xem hình ảnh Shutterstock';
 $lang["page-title_image_banks_view"] = 'Xem Tài nguyên';
+
+$lang['plugin-image_banks-title'] = 'Ngân hàng Hình ảnh';
+$lang['plugin-image_banks-desc'] = 'Tìm kiếm thư viện hình ảnh miễn phí/thương mại ngay trong ResourceSpace.';

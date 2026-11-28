@@ -26,3 +26,6 @@ $lang["columnheader-last-found"]='Dewis diwethaf';
 $lang["search_notifications_watched_searches-tooltip"] = 'Rheoli eich chwiliadau arbededig';
 $lang["page-title_rse_search_notifications_setup"] = 'Sefydlu Plugin Hysbysiadau Chwilio';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'Chwilio wedi\'i wylio';
+
+$lang['plugin-rse_search_notifications-title'] = 'Hysbysiadau Chwilio';
+$lang['plugin-rse_search_notifications-desc'] = 'Rhowch wybod i\'r defnyddiwr pan fydd newidiadau yn digwydd i chwiliad cadw.';

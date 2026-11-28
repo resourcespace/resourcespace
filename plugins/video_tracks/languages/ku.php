@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'کلیک بکە بۆ �
 $lang["video_tracks_transcode_now_label"] = 'ترانسکۆد لە ئێستا';
 $lang["page-title_video_tracks_create_video"] = 'دروستکردنی ڤیدیۆ';
 $lang["page-title_video_tracks_setup"] = 'ڕێکخستنەوەی پلاگینەکانی Video Tracks';
+
+$lang['plugin-video_tracks-title'] = 'ڕێگەی ڤیدیۆ';
+$lang['plugin-video_tracks-desc'] = 'پشتیوانی زیاد بکە بۆ هەڵبژاردنە جۆراوجۆری دەنگ و ناونیشانەکانی ڤیدیۆ.';

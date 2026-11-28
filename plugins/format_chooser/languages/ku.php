@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'ڕێکخستنی پلاگینەکا�
 
 $lang["format_chooser_blocked_inputs"] = '<p>فورماتەکانی خوارەوە پشتگیری نەکراون بۆ داخل کردن: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>فورماتەکانی خوارەوە پشتگیری نەکراون بۆ دەرخستن: %s</p>';
+$lang['plugin-format_chooser-title'] = 'هەڵبژاردنی فۆرمات';
+$lang['plugin-format_chooser-desc'] = 'دەبێت هەڵبژاردنی فۆرماتە جۆراوجۆرەکان بکەیت کاتێک فایلەکان دابەزێنیت کە بە شێوەیەکی ڕاستەوخۆ دروست دەکرێن.';

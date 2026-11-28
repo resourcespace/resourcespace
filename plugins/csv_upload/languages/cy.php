@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'Dewiswch y colofn sy\'n cynnwys y lleoliad ar gy
 $lang["csv_upload_longitude"] = 'Dewiswch y colofn ar gyfer Hyd os yw\'n ar wahân i\'r colofn uchod';
 $lang["latitude"] = 'cyfeiriadur';
 $lang["longitude"] = 'hyd';
+
+$lang['plugin-csv_upload-title'] = 'Uwchlwytho CSV';
+$lang['plugin-csv_upload-desc'] = 'Uwchlwythwch ffeil CSV i ychwanegu metaddata.';

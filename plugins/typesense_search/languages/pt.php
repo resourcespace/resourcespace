@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Chave API';
 $lang["typesense_search_collection"] = 'Coleção';
 $lang["typesense_search_timeout"] = 'Tempo limite em segundos';
 $lang["typesense_search_validate_access"] = 'Validar acesso após pesquisa Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Pesquisa Typesense';
+$lang['plugin-typesense_search-desc'] = 'Fornecedor de pesquisa externa opcional usando Typesense (experimental)';

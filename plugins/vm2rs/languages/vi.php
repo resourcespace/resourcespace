@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"] = 'Đường dẫn hình thu nhỏ';
 $lang["vm2rs_online_preview"] = 'Xem trước trực tuyến';
 $lang["vm2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_vm2rs_setup"] = 'Cài đặt Plugin Vimeo cho ResourceSpace';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo tới ResourceSpace';
+$lang['plugin-vm2rs-desc'] = 'Nhúng video từ Vimeo như thể chúng là tài nguyên của ResourceSpace.';

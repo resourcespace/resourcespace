@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'ਨਵੀਂਆਂ ਆਈਟਮਾਂ ਸ਼ਾ�
 $lang["page-title_news_news_content_edit"] = 'ਖਬਰਾਂ ਦੀ ਸਮੱਗਰੀ ਸੰਪਾਦਿਤ ਕਰੋ';
 $lang["page-title_news_news_edit"] = 'ਖਬਰਾਂ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ';
 $lang["page-title_news_news"] = 'ਖਬਰਾਂ';
+
+$lang['plugin-news-title'] = 'ਖ਼ਬਰਾਂ';
+$lang['plugin-news-desc'] = 'ਹੋਮ ਪੇਜ \'ਤੇ ਖ਼ਬਰਾਂ ਦੇ ਲੇਖ ਸ਼ਾਮਲ ਕਰੋ।';

@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'Kérjük, ellenőrizze, hogy a l
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'Falcon Link Plugin beállítása';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'Erőforrások közzététele a Falcon.io-n az automatikus közösségi média megosztáshoz.';

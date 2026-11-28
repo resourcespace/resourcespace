@@ -39,3 +39,6 @@ $lang["weekday-5"] = 'Jumaat';
 $lang["weekday-6"] = 'Sabtu';
 $lang["page-title_action_dates_setup"] = 'Tetapkan Plugin Tarikh Tindakan';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Beritahu pentadbir ini berapa hari sebelum tindakan berlaku (Tetapkan kosong untuk nyahaktifkan)';
+
+$lang['plugin-action_dates-title'] = 'Tarikh Tindakan';
+$lang['plugin-action_dates-desc'] = 'Membolehkan pemadaman berjadual atau sekatan sumber berdasarkan medan tarikh.';

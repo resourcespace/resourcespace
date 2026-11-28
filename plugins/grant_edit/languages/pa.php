@@ -10,3 +10,6 @@ $lang["grant_edit_list"]='ਮੌਜੂਦਾ ਉਪਭੋਗਤਾ ਜਿਨ੍�
 $lang["grant_edit_group_list"]='ਵਰਤਮਾਨ ਸਮੂਹ ਜਿਨ੍ਹਾਂ ਕੋਲ ਵਾਧੂ ਸੰਪਾਦਨ ਪਹੁੰਚ ਹੈ';
 $lang["grant_edit_delete_user"]='ਵਧੇਰੇ ਪਹੁੰਚ ਨੂੰ ਹਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ ਲਈ';
 $lang["page-title_grant_edit_setup"] = 'ਗ੍ਰਾਂਟ ਸੰਪਾਦਨ ਪਲੱਗਇਨ ਸੈਟਅਪ';
+
+$lang['plugin-grant_edit-title'] = 'ਸੰਪਾਦਨ ਦੀ ਆਗਿਆ ਦਿਓ';
+$lang['plugin-grant_edit-desc'] = 'ਪ੍ਰਸ਼ਾਸਕਾਂ ਨੂੰ ਯੂਜ਼ਰਾਂ ਨੂੰ ਅਸਥਾਈ ਤੌਰ \'ਤੇ ਰਿਸੋਰਸਾਂ ਦੀ ਪੂਰੀ ਸੰਪਾਦਨ ਪਹੁੰਚ ਦੇਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।';

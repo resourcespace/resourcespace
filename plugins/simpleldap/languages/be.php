@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'Не правяце прав�
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Тэст LDAP аўтэнтыфікацыі';
 $lang["page-title_simpleldap_setup"] = 'Наладзіць просты плагін LDAP';
 $lang["simpleldap_userlimit_error"] = 'Карыстальнік не можа быць створаны, бо дасягнуты ліміт карыстальнікаў. Калі ласка, звяжыцеся з вашым адміністратарам.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Аўтэнтыфікацыя карыстальнікаў праз LDAP.';

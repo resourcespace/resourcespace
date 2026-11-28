@@ -39,3 +39,6 @@ $lang["weekday-5"] = 'Biyernes';
 $lang["weekday-6"] = 'Sabado';
 $lang["page-title_action_dates_setup"] = 'I-set up ang Plugin ng Petsa ng Aksyon';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Ipagbigay-alam sa mga admin ng ilang araw bago maganap ang aksyon (Iwanang blangko upang i-disable)';
+
+$lang['plugin-action_dates-title'] = 'Mga Petsa ng Aksyon';
+$lang['plugin-action_dates-desc'] = 'Pinapagana ang naka-iskedyul na pagtanggal o paghihigpit ng mga yaman batay sa mga patlang ng petsa.';

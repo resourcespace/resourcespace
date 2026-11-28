@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'تکایە جۆری سەرچاو�
 $lang["embeddocument_document_resourcetype"] = 'جۆری سەرچاوەی نێوەندە کردن لەسەر بەڵگەنامە:';
 $lang["page-title_embeddocument_setup"] = 'ڕێکخستنەوەی پلاگین نێوەندە کردن لە بەڵگەنامە';
 $lang["page-title_embeddocument_viewer"] = 'نێوەندە کردن لە بەڵگەنامەی نێوەندە';
+
+$lang['plugin-embeddocument-title'] = 'بەستەری بەڵگەنامە';
+$lang['plugin-embeddocument-desc'] = 'فانکشنی دروستکردنی HTML بۆ پیشاندانی بەڵگەنامەی بەستراو لە ماڵپەڕە دەرەکییەکان دابین دەکات.';

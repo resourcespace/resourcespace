@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Gestire il contenuto delle linee
 $lang["page-title_brand_guidelines_guidelines"] = 'Linee guida del marchio';
 $lang["page-title_brand_guidelines_setup"] = 'Imposta il plugin delle linee guida del marchio';
 $lang["page-title_brand_guidelines_toc"] = 'Modifica contenuto';
+
+$lang['plugin-brand_guidelines-title'] = 'Linee guida del marchio';
+$lang['plugin-brand_guidelines-desc'] = 'Crea un\'area per le linee guida del marchio con contenuti personalizzati, link alle risorse e colori.';

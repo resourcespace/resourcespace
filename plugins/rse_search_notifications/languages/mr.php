@@ -1,0 +1,29 @@
+<?php
+$lang['search_notifications_watch_this_search'] = 'हा शोध पाहा';
+$lang['search_notifications_watched_searches'] = 'पाहिलेले शोध';
+$lang['search_notifications_no_watched_searches'] = 'कोणतेही पाहिलेले शोध सापडले नाहीत';
+$lang['search_notifications_show_for_all_users'] = 'सर्व वापरकर्त्यांसाठी पाहिलेले शोध दाखवा';
+$lang['search_notifications_config_heading'] = 'शोध सूचना सेटअप';
+$lang['search_notifications_config_thumbnail_count'] = 'सूचनेत दर्शविण्यासाठी पूर्वावलोकन थंबनेल प्रतिमांची संख्या';
+$lang['search_notifications_config_only_changes'] = 'फक्त शोधांमध्ये जोडलेले किंवा काढलेले संसाधने दाखवा';
+$lang['search_notifications_new match_found'] = 'नवीन जुळणं सापडलं';
+$lang['search_notifications_new matches_found'] = 'नवीन जुळणी सापडल्या';
+$lang['search_notifications_resource_no_longer_matches'] = 'संसाधन आता जुळत नाही';
+$lang['search_notifications_resources_no_longer_match'] = 'संसाधने आता जुळत नाहीत';
+$lang['search_notifications_for_watch_search'] = 'पाहिलेले शोधासाठी';
+$lang['search_notifications_notify_me'] = 'हा शोध जुळल्यास मला सूचित करा';
+$lang['and'] = 'आणि';
+$lang['disable_all'] = 'सर्व अक्षम करा';
+$lang['enable_all'] = 'सर्व सक्षम करा';
+$lang['disable'] = 'अक्षम करा';
+$lang['enable'] = 'सक्षम करा';
+$lang['checknow'] = 'आता तपासा';
+$lang['columnheader-enabled'] = 'सक्षम';
+$lang['columnheader-last-found'] = 'शेवटचा सापडलेला';
+$lang['search_notifications_watched_searches-tooltip'] = 'आपल्या जतन केलेल्या शोधांचे नियंत्रण करा';
+$lang['page-title_rse_search_notifications_setup'] = 'शोध सूचना प्लगइन सेटअप';
+$lang['page-title_rse_search_notifications_watched_searches'] = 'पाहिलेले शोध';
+$lang['plugin-rse_search_notifications-title'] = 'शोध सूचना';
+$lang['plugin-rse_search_notifications-desc'] = 'जतन केलेल्या शोधात बदल झाल्यास वापरकर्त्याला सूचित करा.';
+
+$lang['search_notifications_introtext'] = 'आपल्या जतन केलेल्या शोधांवर नियंत्रण ठेवण्यासाठी हा पृष्ठ वापरा.<br /><br />प्रशासक सर्व वापरकर्त्यांसाठी पाहिलेले शोध नियंत्रित करू शकतात.';

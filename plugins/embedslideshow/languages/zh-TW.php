@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = '開啟直接連結（新頁面）';
 $lang["embedslideshow_dynamic_size"] = '根據播放器大小動態調整預覽大小？';
 $lang["page-title_embedslideshow_setup"] = '設定嵌入幻燈片插件';
 $lang["page-title_embedslideshow_viewer"] = '嵌入幻燈片';
+
+$lang['plugin-embedslideshow-title'] = '嵌入式幻燈片';
+$lang['plugin-embedslideshow-desc'] = '提供一個功能，用於生成可嵌入遠端網站的集合幻燈片的 HTML。';

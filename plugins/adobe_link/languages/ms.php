@@ -13,3 +13,6 @@ $lang["adobe_link_upload_document"] = 'Simpan';
 $lang["adobe_link_saving"] = 'Menyimpan..';
 $lang["adobe_link_saving_wait"] = 'Fail sedang disimpan, sila tunggu untuk mesej pengesahan. Anda mungkin perlu menyegarkan halaman untuk mengemas kini imej pratonton.';
 $lang["page-title_adobe_link_setup"] = 'Tetapkan Plugin Pautan Adobe';
+
+$lang['plugin-adobe_link-title'] = 'Pautan Adobe';
+$lang['plugin-adobe_link-desc'] = 'Benarkan pengambilan fail Adobe dari ResourceSpace ke dalam Adobe CC.';

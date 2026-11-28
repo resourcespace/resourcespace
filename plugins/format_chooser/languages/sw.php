@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Panga Kichaguo cha Muundo wa Plugin'
 
 $lang["format_chooser_blocked_inputs"] = '<p>Miundo ifuatayo haijaungwa mkono kwa ingizo: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Miundo ifuatayo haijaungwa mkono kwa pato: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Chagua Muundo';
+$lang['plugin-format_chooser-desc'] = 'Inakuwezesha kuchagua miundo tofauti wakati wa kupakua faili zinazozalishwa papo hapo.';

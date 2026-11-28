@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Lire la scène à %time';
 $lang["video_scene_play_unavailable"] = 'Cette scène est en dehors de l\'aperçu vidéo disponible.';
 $lang["video_scene_job_success"] = 'Traitement de la scène vidéo terminé';
 $lang["video_scene_job_failure"] = 'Le traitement de la scène vidéo a échoué. Consultez le journal des tâches pour plus de détails.';
+$lang['plugin-video_scenes-title'] = 'Scènes vidéo';
+$lang['plugin-video_scenes-desc'] = 'Détection locale des scènes vidéo avec transnetv2-pytorch, avec descriptions audiovisuelles OpenAI optionnelles.';

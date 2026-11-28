@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Szene bei %time abspielen';
 $lang["video_scene_play_unavailable"] = 'Diese Szene liegt außerhalb der verfügbaren Video-Vorschau.';
 $lang["video_scene_job_success"] = 'Video-Szenenverarbeitung abgeschlossen';
 $lang["video_scene_job_failure"] = 'Video-Szenenverarbeitung fehlgeschlagen. Details im Job-Protokoll einsehen.';
+$lang['plugin-video_scenes-title'] = 'Videoszenen';
+$lang['plugin-video_scenes-desc'] = 'Lokale Erkennung von Videoszenen mit transnetv2-pytorch, mit optionalen audiovisuellen Beschreibungen von OpenAI.';

@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Edit Lesen';
 $lang["page-title_licensemanager_list"] = 'Senarai Lesen';
 $lang["page-title_licensemanager_setup"] = 'Tetapkan Plugin Pengurus Lesen';
 $lang["page-title_licensemanager_unlink"] = 'Nyahubungkan Lesen';
+
+$lang["collection_actiontype_80"] = 'Pelesenan';
+$lang['plugin-licensemanager-title'] = 'Pengurus Lesen';
+$lang['plugin-licensemanager-desc'] = 'Urus lesen sumber.';

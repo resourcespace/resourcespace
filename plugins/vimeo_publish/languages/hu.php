@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'Engedélyezze a felhasználóknak,
 $lang["vimeo_publish_set_account"] = 'Vimeo fiók beállítása';
 $lang["page-title_vimeo_publish_setup"] = 'Vimeo Közzétételi Bővítmény Beállítása';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Közzététel a Vimeo-n';
+
+$lang['plugin-vimeo_publish-title'] = 'Vimeo közzététel';
+$lang['plugin-vimeo_publish-desc'] = 'Erőforrások közzététele a Vimeo-n.';

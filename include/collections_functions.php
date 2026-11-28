@@ -3048,7 +3048,7 @@ function get_featured_collection_categ_sub_fcs(array $c, array $ctx = array())
 *
 * @param array  $resource_refs  List of resources
 *
-* @return array List of resource refs and corresponding images URLs
+* @return array Resource references, permitted preview URLs and thumbnail BlurHashes.
 */
 function generate_featured_collection_image_urls(array $resource_refs)
 {
@@ -3060,20 +3060,44 @@ function generate_featured_collection_image_urls(array $resource_refs)
         return $images;
     }
 
-    $refs_rtype = ps_query("SELECT ref, resource_type, file_extension FROM resource WHERE ref IN (" . ps_param_insert(count($refs_list)) . ")", ps_param_fill($refs_list, "i"), 'featured_collections');
+    $refs_rtype = ps_query(
+        'SELECT ref, resource_type, blurhash FROM resource WHERE ref IN (' . ps_param_insert(count($refs_list)) . ')',
+        ps_param_fill($refs_list, 'i')
+    );
 
     foreach ($refs_rtype as $ref_rt) {
         $ref = $ref_rt['ref'];
         $resource_type = $ref_rt['resource_type'];
 
         if (file_exists(get_resource_path($ref, true, $size, false)) && resource_download_allowed($ref, $size, $resource_type, -1, true)) {
-            $images[] = ["ref" => $ref, "path" => get_resource_path($ref, false, $size, false)];
+            $images[] = [
+                'ref' => $ref,
+                'path' => get_resource_path($ref, false, $size, false),
+                'blurhash' => $ref_rt['blurhash'] ?? '',
+            ];
         }
         // Use thm size for images after first to reduce loading times
         $size = "thm";
     }
 
     return $images;
+}
+
+/**
+ * Resolve the permitted preview images for a Featured Collection tile.
+ *
+ * @param array $collection Featured Collection data, including whether it contains resources.
+ * @param bool $smart Whether the tile represents a Smart Featured Collection node.
+ * @return array Preview image data for the tile renderer.
+ */
+function get_featured_collection_tile_images(array $collection, bool $smart): array
+{
+    $context = ['smart' => $smart, 'use_thumbnail_selection_method' => !$smart, 'all_fcs' => []];
+    if ($smart) {
+        $context['limit'] = THEME_IMAGES_NUMBER;
+    }
+
+    return generate_featured_collection_image_urls(get_featured_collection_resources($collection, $context));
 }
 
 /**

@@ -1,0 +1,3 @@
+user_preferences,1,parameter_scope,1,parameter,A,,,,,BTREE,,
+user_preferences,1,parameter_scope,2,user,A,,,,,BTREE,,
+user_preferences,1,parameter_scope,3,usergroup,A,,,,,BTREE,,

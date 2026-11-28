@@ -12,9 +12,6 @@ $lang["action_dates_email_admin_days"] = 'Notifier les administrateurs système 
 $lang["action_dates_email_text_restrict"] = 'Les ressources suivantes doivent être restreintes dans [days] jours.';
 $lang["action_dates_email_text_state"] = 'Les ressources suivantes doivent changer d\'état dans [days] jours.';
 $lang["action_dates_email_text"] = 'Les ressources suivantes doivent être restreintes et/ou changer d\'état dans [days] jours.';
-$lang["action_dates_email_range_restrict"] = 'Les ressources suivantes doivent être restreintes dans les prochains [days_min] à [days] jours.';
-$lang["action_dates_email_range_state"] = 'Les ressources suivantes doivent changer d\'état dans les prochains [days_min] à [days] jours.';
-$lang["action_dates_email_range"] = 'Les ressources suivantes doivent être restreintes et/ou changer d\'état dans les prochains [days_min] à [days] jours.';
 $lang["action_dates_email_subject_restrict"] = 'Notification des ressources devant être restreintes';
 $lang["action_dates_email_subject_state"] = 'Notification de ressources devant changer d\'état';
 $lang["action_dates_email_subject"] = 'Notification des ressources devant être restreintes et/ou changer d\'état';
@@ -41,3 +38,7 @@ $lang["plugin-action_dates-desc"] = 'Permet la suppression ou la restriction pro
 
 $lang["page-title_action_dates_setup"] = 'Configurer le plugin des dates d\'action';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Notifier les administrateurs ce nombre de jours avant la date de l\'action (Laissez vide pour désactiver)';
+
+$lang['action_dates_email_range_restrict'] = 'Les ressources suivantes doivent être restreintes dans un délai de [days_min] à [days_max] jours.';
+$lang['action_dates_email_range_state'] = 'Les ressources suivantes doivent changer d\'état dans un délai de [days_min] à [days_max] jours.';
+$lang['action_dates_email_range'] = 'Les ressources suivantes doivent être restreintes et/ou changer d\'état dans un délai de [days_min] à [days_max] jours.';

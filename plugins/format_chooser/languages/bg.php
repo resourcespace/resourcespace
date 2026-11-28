@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Настройка на плъгин
 
 $lang["format_chooser_blocked_inputs"] = '<p>Следните формати не се поддържат за въвеждане: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Следните формати не се поддържат за изход: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Избор на формат';
+$lang['plugin-format_chooser-desc'] = 'Позволява ви да избирате различни формати при изтегляне на файлове, които се генерират динамично.';

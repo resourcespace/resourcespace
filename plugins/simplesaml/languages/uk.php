@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'Плагін SimpleSAML не нал�
 $lang["simplesaml_error_no_idp_metadata"] = 'Плагін SimpleSAML не повністю налаштований (бракує метаданих IdP)';
 $lang["simplesaml_error_no_authsource"] = 'Плагін SimpleSAML не повністю налаштований (відсутній authsource)';
 $lang["simplesaml_userlimit_error"] = 'Користувача не вдалося створити, оскільки досягнуто ліміт користувачів. Будь ласка, зверніться до адміністратора.';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Аутентифікація користувача через SAML.';

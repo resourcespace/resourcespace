@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'Senarai pilihan penggunaan yang tersedia (dip
 $lang["page-title_resource_usage_delete"] = 'Padam Penggunaan Sumber';
 $lang["page-title_resource_usage_edit"] = 'Edit Penggunaan Sumber';
 $lang["page-title_resource_usage_setup"] = 'Tetapkan Plugin Penggunaan Sumber';
+
+$lang['plugin-resource_usage-title'] = 'Penggunaan Sumber';
+$lang['plugin-resource_usage-desc'] = 'Menambah keupayaan untuk merekod penggunaan sumber melalui halaman pandangan sumber.';

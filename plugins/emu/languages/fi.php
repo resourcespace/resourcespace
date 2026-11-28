@@ -38,3 +38,5 @@ $lang["plugin-emu-desc"] = 'Sallii resurssin metatietojen poimimisen EMu-tietoka
 
 $lang["page-title_emu_emu_object_details"] = 'EMu-objektin tiedot';
 $lang["page-title_emu_setup"] = 'Aseta liitännäinen';
+
+$lang['plugin-emu-title'] = 'EMu';

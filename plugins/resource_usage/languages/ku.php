@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'لیستی هەڵبژاردنەکانی بە�
 $lang["page-title_resource_usage_delete"] = 'سڕینەوەی بەکارهێنانی سەرچاوە';
 $lang["page-title_resource_usage_edit"] = 'دەسکاریکردنی بەکارهێنانی سەرچاوە';
 $lang["page-title_resource_usage_setup"] = 'ڕێکخستنەوەی پلاگینەکانی بەکارهێنانی سەرچاوە';
+
+$lang['plugin-resource_usage-title'] = 'بەکارهێنانی سەرچاوە';
+$lang['plugin-resource_usage-desc'] = 'توانای تۆمارکردنی بەکارهێنانی سەرچاوە بەڕێوە دەبات بەڕێوەبەری پەڕەی نیشاندانی سەرچاوە.';

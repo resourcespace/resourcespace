@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Clau API';
 $lang["typesense_search_collection"] = 'Col·lecció';
 $lang["typesense_search_timeout"] = 'Segons de temps d\'espera';
 $lang["typesense_search_validate_access"] = 'Validar l\'accés després de la cerca de Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Cerca Typesense';
+$lang['plugin-typesense_search-desc'] = 'Proveïdor de cerca extern opcional que utilitza Typesense (experimental)';

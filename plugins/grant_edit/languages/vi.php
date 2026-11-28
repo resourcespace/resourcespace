@@ -10,3 +10,6 @@ $lang["grant_edit_list"] = 'Người dùng hiện tại có quyền chỉnh sử
 $lang["grant_edit_group_list"] = 'Các nhóm hiện tại có quyền chỉnh sửa bổ sung';
 $lang["grant_edit_delete_user"] = 'Xác nhận xóa quyền truy cập nâng cao cho';
 $lang["page-title_grant_edit_setup"] = 'Cài đặt Plugin Chỉnh sửa Quyền';
+
+$lang['plugin-grant_edit-title'] = 'Cấp quyền chỉnh sửa';
+$lang['plugin-grant_edit-desc'] = 'Cho phép quản trị viên cấp quyền chỉnh sửa đầy đủ tạm thời cho người dùng đối với tài nguyên.';

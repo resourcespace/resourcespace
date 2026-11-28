@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Αναπαραγωγή σκηνής στο %time';
 $lang["video_scene_play_unavailable"] = 'Αυτή η σκηνή βρίσκεται εκτός της διαθέσιμης προεπισκόπησης βίντεο.';
 $lang["video_scene_job_success"] = 'Η επεξεργασία της σκηνής βίντεο ολοκληρώθηκε';
 $lang["video_scene_job_failure"] = 'Η επεξεργασία της σκηνής βίντεο απέτυχε. Δείτε το αρχείο καταγραφής εργασιών για λεπτομέρειες.';
+$lang['plugin-video_scenes-title'] = 'Σκηνές βίντεο';
+$lang['plugin-video_scenes-desc'] = 'Εντοπισμός σκηνών βίντεο τοπικά με transnetv2-pytorch, με προαιρετικές οπτικοακουστικές περιγραφές OpenAI.';

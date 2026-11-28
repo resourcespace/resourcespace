@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'Vui lòng kiểm tra rằng mô 
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'Cài đặt Plugin Falcon Link';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'Xuất bản tài nguyên lên Falcon.io để chia sẻ tự động trên mạng xã hội.';

@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Skonfiguruj zadanie do wykrywania twarz
 $lang["faces_tag_faces_configure"] = 'Skonfiguruj zadanie do oznaczania twarzy';
 $lang["faces_detect_faces_intro"] = 'Utwórz zadanie, aby rozpocząć wykrywanie twarzy tutaj - to zadanie nie wymaga żadnych parametrów, więc można je uruchomić, o ile nie ma innych oczekujących zadań tego typu.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Ustawienie tej opcji oznacza, że będą aktualizowane tylko zasoby w wymienionych kolekcjach. Jeśli nie określono kolekcji, oznaczanie twarzy zostanie zaktualizowane dla WSZYSTKICH odpowiednich zasobów. Kolekcje można określić za pomocą listy oddzielonej przecinkami, a także zakresów np 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Twarze - InsightFace';
+$lang['plugin-faces-desc'] = 'Nowoczesne automatyczne wykrywanie i tagowanie twarzy. Wyszukiwanie po twarzy.';

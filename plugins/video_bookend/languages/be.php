@@ -10,3 +10,6 @@ $lang["bookend-intro"] = 'Выберыце выявы з спісу альтэр
 $lang["bookend-failed"] = 'Не ўдалося!';
 $lang["bookend-could-not-open-file"] = 'Памылка - не ўдалося адкрыць файл!';
 $lang["page-title_video_bookend_bookend"] = 'Відэа кніжны канец';
+
+$lang['plugin-video_bookend-title'] = 'Відэа Bookend';
+$lang['plugin-video_bookend-desc'] = 'Дадае магчымасць спампаваць відэа з загалоўкам і канчатковай графікай.';

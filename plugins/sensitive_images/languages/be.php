@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'Поле метададзеных, якое �
 $lang["sensitive_images_blur_level"] = 'Раўнамернасць размыцця адчувальных малюнкаў<br>(1=мінімум, 6=максімум)';
 $lang["page-title_sensitive_images_setup"] = 'Наладка плагіна для адчувальных малюнкаў';
 $lang["sensitive_images_show"] = 'Націсніце на малюнак, каб паказаць.';
+
+$lang['plugin-sensitive_images-title'] = 'Размыццё адчувальных малюнкаў';
+$lang['plugin-sensitive_images-desc'] = 'Размывае выявы, пазначаныя як адчувальныя, з магчымасцю карыстальніка націснуць для аднаўлення выразнасці.';

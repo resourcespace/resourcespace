@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"]='ตรวจสอบเ
 $lang["video_tracks_transcode_now_label"]='แปลงรหัสตอนนี้';
 $lang["page-title_video_tracks_create_video"] = 'สร้างวิดีโอ';
 $lang["page-title_video_tracks_setup"] = 'ตั้งค่าปลั๊กอินวิดีโอแทร็ก';
+
+$lang['plugin-video_tracks-title'] = 'แทร็กวิดีโอ';
+$lang['plugin-video_tracks-desc'] = 'เพิ่มการรองรับตัวเลือกเสียงและคำบรรยายที่แตกต่างกันสำหรับทรัพยากรวิดีโอ';

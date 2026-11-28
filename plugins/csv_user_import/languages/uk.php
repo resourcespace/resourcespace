@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'Дозволені стовпці: *ім\
 $lang["csv_user_import_condition5"] = 'Мова користувача за замовчуванням повернеться до тієї, що встановлена за допомогою параметра конфігурації "$defaultlanguage", якщо стовпець lang не знайдено або він не має значення';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'Імпорт користувачів з CSV';
+
+$lang['plugin-csv_user_import-title'] = 'Імпорт користувачів CSV';
+$lang['plugin-csv_user_import-desc'] = 'Надає можливість імпортувати пакет користувачів на основі заздалегідь відформатованого CSV-файлу';

@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'Nid yw\'r plwg SimpleSAML wedi\'i ff
 $lang["simplesaml_error_no_idp_metadata"] = 'Nid yw\'r plwg SimpleSAML wedi\'i ffurfweddu\'n llwyr (mae metadata IdP yn brin)';
 $lang["simplesaml_error_no_authsource"] = 'Nid yw\'r plwg SimpleSAML wedi\'i ffurfweddu\'n llwyr (yn brin o authsource)';
 $lang["simplesaml_userlimit_error"] = 'Ni ellir creu\'r defnyddiwr oherwydd cyrhaeddwyd y terfyn defnyddwyr. Cysylltwch â\'ch gweinyddwr, os gwelwch yn dda.';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Dilysu defnyddwyr trwy SAML.';

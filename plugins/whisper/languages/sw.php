@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Saidia rasilimali zisizoshughulikiwa';
 $lang["whisper_process_existing_intro"] = 'Unda kazi kuanzisha usindikaji wa sauti wa Whisper hapa - kazi hii haina mahitaji ya vigezo hivyo inaweza kuanzishwa mradi hakuna kazi nyingine zinazofanana zinazobaki.';
 $lang["whisper_process_existing_configure"] = 'Sanidi kazi ya kusindika faili kwa Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Video/sauti hadi maandishi kwa kutumia Whisper kutoka OpenAI. Inaendeshwa kwa ndani, hakuna usajili unaohitajika.';

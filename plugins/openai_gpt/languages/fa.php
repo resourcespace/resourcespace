@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'این ارائه‌دهنده در پ�
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'مدل Ollama برای استفاده (به عنوان مثال \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Ollama endpoint برای استفاده (مثلاً http://[IP]:11434/v1/chat/completions)';
+
+$lang['plugin-openai_gpt-title'] = 'پردازش فراداده OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'پردازش خودکار فراداده و تصاویر با استفاده از هوش مصنوعی.';

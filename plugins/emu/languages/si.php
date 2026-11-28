@@ -1,0 +1,40 @@
+<?php
+$lang['emu_configuration'] = 'EMu වින්‍යාසය';
+$lang['emu_api_settings'] = 'API සේවාදායක සැකසුම්';
+$lang['emu_api_server_port'] = 'සේවාදායක වරාය';
+$lang['emu_resource_types'] = 'EMu සමඟ සම්බන්ධිත සම්පත් වර්ග තෝරන්න';
+$lang['emu_email_notify'] = 'ස්ක්‍රිප්ට් දැනුම්දීම් යැවීමට ඊ-මේල් ලිපිනය. පද්ධති දැනුම්දීම් ලිපිනයට හිස්ව තබන්න';
+$lang['emu_script_failure_notify_days'] = 'ස්ක්‍රිප්ට් සම්පූර්ණ නොවූ විට අනතුරු ඇඟවීමක් පෙන්වීමට සහ ඊ-මේල් යැවීමට දින ගණන';
+$lang['emu_script_header'] = 'ResourceSpace හි නියමිත කාර්යය (cron_copy_hitcount.php) ධාවනය වන විට ස්වයංක්‍රීයව EMu දත්ත යාවත්කාලීන කරන ස්ක්‍රිප්ට් සක්‍රීය කරන්න';
+$lang['emu_last_run_date'] = 'ස්ක්‍රිප්ට් අවසන් ධාවනය';
+$lang['emu_script_mode'] = 'ස්ක්‍රිප්ට් මෝඩය';
+$lang['emu_script_mode_option_1'] = 'EMu වෙතින් මेटාදත්ත ආයාත කරන්න';
+$lang['emu_script_mode_option_2'] = 'සියලු EMu වාර්තා ගෙන RS සහ EMu සමකාලීනව තබන්න';
+$lang['emu_enable_script'] = 'EMu ස්ක්‍රිප්ට් සක්‍රීය කරන්න';
+
+$lang['emu_test_mode'] = 'පරීක්ෂණ ක්‍රමය - සත්‍ය ලෙස සකසා ඇති විට ස්ක්‍රිප්ට් ක්‍රියාත්මක වන අතර සම්පත් යාවත්කාලීන නොවේ';
+$lang['emu_interval_run'] = 'ස්ක්‍රිප්ට් ධාවනය විය යුතු අන්තරාලය (උදාහරණයක් ලෙස +1 දින, +2 සතිය, සතියක්). හිස්ව තබා ඇත්නම් cron_copy_hitcount.php ධාවනය වන විට සෑම විටම ක්‍රියාත්මක වේ';
+$lang['emu_log_directory'] = 'ස්ක්‍රිප්ට් ලොග් ගබඩා කිරීමට ඩිරෙක්ටරිය. හිස් හෝ වැරදි නම් ලොග් කිරීම සිදු නොවේ';
+$lang['emu_created_by_script_field'] = 'සම්පතක් EMu ස්ක්‍රිප්ට් මඟින් නිර්මාණය වී ඇති බව සටහන් කිරීමට භාවිතා කරන මැටාදත්ත ක්ෂේත්‍රය';
+$lang['emu_settings_header'] = 'EMu සැකසුම්';
+$lang['emu_irn_field'] = 'EMu හැඳුනුම් අංකය (IRN) සටහන් කිරීමට භාවිතා කරන මැටාදත්ත ක්ෂේත්‍රය';
+$lang['emu_search_criteria'] = 'EMu සහ ResourceSpace සමඟ සම්බන්ධ කිරීම සඳහා සෙවුම් මාර්ගෝපදේශ';
+$lang['emu_rs_mappings_header'] = 'EMu - ResourceSpace සම්බන්ධතා නීති';
+$lang['emu_module'] = 'EMu මොඩියුලය';
+$lang['emu_column_name'] = 'EMu මොඩියුල තීරුව';
+$lang['emu_rs_field'] = 'ResourceSpace ක්ෂේත්‍රය';
+$lang['emu_add_mapping'] = 'සම්බන්ධතා එක් කරන්න';
+$lang['emu_confirm_upload_nodata'] = 'උඩුගත කිරීමට ඉදිරියට යාමට ඔබ කැමති බව තහවුරු කිරීමට පෙට්ටිය පරීක්ෂා කරන්න';
+$lang['emu_test_script_title'] = 'පරීක්ෂා/ස්ක්‍රිප්ට් ධාවනය කරන්න';
+$lang['emu_run_script'] = 'සංස්කරණය කරන්න';
+$lang['emu_script_problem'] = 'අවවාදය - EMu ස්ක්‍රිප්ට් අවසන් %days% දින තුළ සාර්ථකව නිම නොවීය. අවසන් ධාවන වේලාව: ';
+$lang['emu_no_resource'] = 'සම්පත් හැඳුනුම් අංකයක් සඳහන් කර නොමැත!';
+$lang['emu_upload_nodata'] = 'මෙම IRN සඳහා EMu දත්ත නොමැත: ';
+$lang['emu_nodata_returned'] = 'සඳහන් කළ IRN සඳහා EMu දත්ත නොමැත.';
+$lang['emu_createdfromemu'] = 'EMU ප්ලගිනයෙන් නිර්මාණය කරන ලදි';
+$lang['page-title_emu_emu_object_details'] = 'EMu වස්තු විස්තර';
+$lang['page-title_emu_setup'] = 'EMu ප්ලගිනය සැකසීම';
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'EMu දත්ත සමුදායෙන් සම්පත් මැටාදත්ත ලබා ගැනීමට ඉඩ සලසයි.';
+
+$lang['emu_api_server'] = 'සර්වර් ලිපිනය (උදා. http://[server.address])';

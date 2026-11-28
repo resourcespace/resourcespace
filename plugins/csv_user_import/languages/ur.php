@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'مجاز کالمز: *username، *email،
 $lang["csv_user_import_condition5"] = 'اگر lang کالم نہیں ملتا یا اس میں کوئی قدر نہیں ہے تو صارف کی زبان "$defaultlanguage" کنفیگریشن آپشن کے ذریعے سیٹ کی گئی زبان پر واپس چلی جائے گی۔';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'CSV صارف درآمد';
+
+$lang['plugin-csv_user_import-title'] = 'CSV صارف درآمد';
+$lang['plugin-csv_user_import-desc'] = 'پہلے سے فارمیٹ شدہ CSV فائل کی بنیاد پر صارفین کے بیچ کو درآمد کرنے کی سہولت فراہم کرتا ہے';

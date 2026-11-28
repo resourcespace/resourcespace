@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'กรุณาตรวจส�
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'ตั้งค่า Falcon Link Plugin';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'เผยแพร่ทรัพยากรไปยัง Falcon.io สำหรับการแชร์โซเชียลมีเดียอัตโนมัติ';

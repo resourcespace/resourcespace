@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'ਪ੍ਰਦਾਤਾ ਨੂੰ ਗਲ�
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Ollama ਮਾਡਲ ਵਰਤਣ ਲਈ (ਉਦਾਹਰਨ ਲਈ, \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Ollama ਐਂਡਪੌਇੰਟ ਵਰਤਣ ਲਈ (ਜਿਵੇਂ ਕਿ http://[IP]:11434/v1/chat/completions';
+
+$lang['plugin-openai_gpt-title'] = 'OpenAI/Ollama ਮੈਟਾਡੇਟਾ ਪ੍ਰਕਿਰਿਆ';
+$lang['plugin-openai_gpt-desc'] = 'ਏਆਈ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮੈਟਾਡੇਟਾ ਅਤੇ ਚਿੱਤਰਾਂ ਦੀ ਸਵੈਚਾਲਿਤ ਪ੍ਰਕਿਰਿਆ।';

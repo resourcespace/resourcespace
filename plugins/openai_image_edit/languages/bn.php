@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI নতুন সংর�
 $lang["openai_image_edit_error_invalid_image_data"] = 'অবৈধ চিত্র ডেটা';
 $lang["openai_image_edit_error_invalid_image"] = 'অবৈধ চিত্র';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'অস্থায়ী ফাইল লেখার অক্ষমতা';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI ইমেজ সম্পাদনা';
+$lang['plugin-openai_image_edit-desc'] = 'একটি ছবির অংশ মুছে ফেলুন এবং GPT Image ব্যবহার করে সেগুলি পুনরায় তৈরি করুন।';

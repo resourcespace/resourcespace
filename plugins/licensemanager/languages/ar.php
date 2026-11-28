@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'تعديل الترخيص';
 $lang["page-title_licensemanager_list"] = 'قائمة التراخيص';
 $lang["page-title_licensemanager_setup"] = 'إعداد مكون إدارة الترخيص';
 $lang["page-title_licensemanager_unlink"] = 'إلغاء ربط الترخيص';
+
+$lang["collection_actiontype_80"] = 'الترخيص';

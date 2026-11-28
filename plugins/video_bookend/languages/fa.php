@@ -10,3 +10,6 @@ $lang["bookend-failed"]='ناموفق!';
 $lang["bookend-could-not-open-file"]='خطا - نمی‌توان فایل را باز کرد!';
 $lang["bookend"]='پایان کتاب';
 $lang["page-title_video_bookend_bookend"] = 'پایان‌نامه ویدیو';
+
+$lang['plugin-video_bookend-title'] = 'پایان ویدئو';
+$lang['plugin-video_bookend-desc'] = 'امکان دانلود ویدئو با عنوان و گرافیک پایانی را اضافه می‌کند.';

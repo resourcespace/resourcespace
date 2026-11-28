@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'Показати сирі дані TMS'
 $lang["page-title_tms_link_test"] = 'Тестові дані TMS';
 $lang["page-title_tms_link_tms_details"] = 'Показати дані TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'Редагувати конфігурацію модуля TMS';
+
+$lang['plugin-tms_link-title'] = 'Посилання TMS';
+$lang['plugin-tms_link-desc'] = 'Дозволяє витягувати метадані ресурсів з бази даних TMS.';

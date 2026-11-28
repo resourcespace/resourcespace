@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Lisansı Düzenle';
 $lang["page-title_licensemanager_list"] = 'Lisansları Listele';
 $lang["page-title_licensemanager_setup"] = 'Lisans Yöneticisi Eklentisini Kur';
 $lang["page-title_licensemanager_unlink"] = 'Lisansı Bağlantısını Kes';
+
+$lang["collection_actiontype_80"] = 'Lisanslama';

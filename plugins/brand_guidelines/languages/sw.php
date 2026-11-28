@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Simamisha Maudhui ya Miongozo ya
 $lang["page-title_brand_guidelines_guidelines"] = 'Miongozo ya Brand';
 $lang["page-title_brand_guidelines_setup"] = 'Weka Miongozo ya Brand Plugin';
 $lang["page-title_brand_guidelines_toc"] = 'Hariri maudhui';
+
+$lang['plugin-brand_guidelines-title'] = 'Miongozo ya Chapa';
+$lang['plugin-brand_guidelines-desc'] = 'Tengeneza eneo la miongozo ya chapa lenye maudhui maalum, viungo vya rasilimali na rangi.';

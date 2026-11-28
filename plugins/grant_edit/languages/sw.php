@@ -10,3 +10,6 @@ $lang["grant_edit_list"]='Watumiaji wa sasa wenye ufikiaji wa ziada wa kuhariri'
 $lang["grant_edit_group_list"]='Vikundi vya sasa vyenye ufikiaji wa ziada wa kuhariri';
 $lang["grant_edit_delete_user"]='Thibitisha kuondolewa kwa ufikiaji ulioboreshwa kwa';
 $lang["page-title_grant_edit_setup"] = 'Panga Plugin ya Hariri ya Grant';
+
+$lang['plugin-grant_edit-title'] = 'Toa Ruhusa ya Kuhariri';
+$lang['plugin-grant_edit-desc'] = 'Inawawezesha wasimamizi kutoa watumiaji ruhusa ya muda ya kuhariri rasilimali kikamilifu.';

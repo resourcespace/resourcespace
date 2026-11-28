@@ -51,3 +51,6 @@ $lang["museumplus_error_module_no_field_maps"] = 'Không thể đồng bộ dữ
 $lang["page-title_museumplus_museumplus_object_details"] = 'Chi tiết đối tượng MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'Cài đặt mô-đun MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'Cài đặt Plugin MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Cho phép trích xuất siêu dữ liệu tài nguyên từ MuseumPlus bằng cách sử dụng REST API của nó (MpRIA).';

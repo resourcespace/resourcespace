@@ -52,3 +52,6 @@ $lang["museumplus_error_module_no_field_maps"] = 'Hindi ma-sync ang data mula sa
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus Detalye ng Objeto';
 $lang["page-title_museumplus_setup_module"] = 'I-set up ang MuseumPlus Module';
 $lang["page-title_museumplus_setup"] = 'I-set up ang MuseumPlus Plugin';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Pinapayagan ang metadata ng yaman na makuha mula sa MuseumPlus gamit ang REST API nito (MpRIA).';

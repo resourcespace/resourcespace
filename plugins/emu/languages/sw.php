@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Imeundwa kutoka kwa programu-jalizi ya EMU';
 
 $lang["page-title_emu_emu_object_details"] = 'Maelezo ya Kitu cha EMu';
 $lang["page-title_emu_setup"] = 'Panga Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Inaruhusu metadata ya rasilimali kuchukuliwa kutoka kwenye hifadhidata ya EMu.';

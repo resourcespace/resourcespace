@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = 'Мета данни поле';
 $lang["conditional_terms_value"] = 'Стойност';
 $lang["conditional_terms_plugin_misconfigured"] = 'Плъгинът за условни условия е неправилно конфигуриран';
 $lang["page-title_conditional_terms_setup"] = 'Настройка на плъгина за условни условия';
+
+$lang['plugin-conditional_terms-title'] = 'Условни условия';
+$lang['plugin-conditional_terms-desc'] = 'Позволява условно показване на страницата с условия при изтегляне, базирано на метаданни на ресурса.';

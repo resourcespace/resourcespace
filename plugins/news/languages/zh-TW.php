@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = '新增、編輯或刪除新聞項目';
 $lang["page-title_news_news_content_edit"] = '編輯新聞內容';
 $lang["page-title_news_news_edit"] = '編輯新聞';
 $lang["page-title_news_news"] = '新聞';
+
+$lang['plugin-news-title'] = '新聞';
+$lang['plugin-news-desc'] = '將新聞文章新增至首頁。';

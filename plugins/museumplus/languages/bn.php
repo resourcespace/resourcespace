@@ -51,3 +51,6 @@ $lang["museumplus_error_module_no_field_maps"]='MuseumPlus থেকে ডে�
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus অবজেক্ট বিস্তারিত';
 $lang["page-title_museumplus_setup_module"] = 'মিউজিয়ামপ্লাস মডিউল সেটআপ করুন';
 $lang["page-title_museumplus_setup"] = 'MuseumPlus প্লাগইন সেটআপ করুন';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'MuseumPlus-এর REST API (MpRIA) ব্যবহার করে রিসোর্স মেটাডেটা আহরণ করার সুবিধা প্রদান করে।';

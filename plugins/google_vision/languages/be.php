@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'Апрацаваць неапрацаваныя рэсурсы';
 $lang["google_vision_process_existing_configure"] = 'Налада працы для апрацоўкі неапрацаваных рэсурсаў';
 $lang["google_vision_process_existing_collection_refs_help"] = 'Усталяванне гэтай опцыі азначае, што будуць апрацоўвацца толькі рэсурсы ў пералічаных калекцыях. Калі калекцыі не ўказаны, будуць апрацоўвацца ЎСЕ адпаведныя рэсурсы. Калекцыі можна ўказваць у выглядзе спісу, раздзяленага коскамі, а таксама дыяпазонаў, напрыклад 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'Аўтаматычнае пазначэнне малюнкаў з дапамогай ШІ.';

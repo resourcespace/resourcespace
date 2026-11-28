@@ -12,7 +12,7 @@ if ('cli' != PHP_SAPI) {
     }
 }
 
-if (!isset($portrait_landscape_field)) {
+if (!isset($portrait_landscape_field) || $portrait_landscape_field === '') {
     exit("portrait_landscape_field not set in config");
 }
 

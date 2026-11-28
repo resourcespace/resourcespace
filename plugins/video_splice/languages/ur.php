@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"]='غلطی: غیر درست عمل';
 $lang["page-title_video_splice_setup"] = 'ویڈیو اسپlice پلگ ان سیٹ اپ کریں';
 $lang["page-title_video_splice_splice"] = 'ویڈیو کو جوڑیں';
 $lang["page-title_video_splice_trim"] = 'ویڈیو کاٹیں';
+
+$lang['plugin-video_splice-title'] = 'ویڈیو جوڑنا';
+$lang['plugin-video_splice-desc'] = 'ویڈیو ٹرم کرنے اور جوڑنے کی صلاحیت۔';

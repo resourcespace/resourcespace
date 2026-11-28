@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'Значення';
 $lang["conditional_terms_plugin_misconfigured"] = 'Плагін умовних термінів неправильно налаштований';
 
 $lang["page-title_conditional_terms_setup"] = 'Налаштування плагіна умовних термінів';
+
+$lang['plugin-conditional_terms-title'] = 'Умовні умови';
+$lang['plugin-conditional_terms-desc'] = 'Дозволяє умовне відображення сторінки умов під час завантаження на основі метаданих ресурсу.';

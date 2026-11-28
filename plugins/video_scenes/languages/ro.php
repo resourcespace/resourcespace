@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Redă scena la %time';
 $lang["video_scene_play_unavailable"] = 'Această scenă este în afara previzualizării video disponibile.';
 $lang["video_scene_job_success"] = 'Procesarea scenei video a fost finalizată';
 $lang["video_scene_job_failure"] = 'Procesarea scenei video a eșuat. Vezi jurnalul de activități pentru detalii.';
+$lang['plugin-video_scenes-title'] = 'Scene video';
+$lang['plugin-video_scenes-desc'] = 'Detecta scene video local cu transnetv2-pytorch, cu descrieri audiovizuale OpenAI opționale.';

@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Редагувати ліцензію
 $lang["page-title_licensemanager_list"] = 'Список ліцензій';
 $lang["page-title_licensemanager_setup"] = 'Налаштування плагіна менеджера ліцензій';
 $lang["page-title_licensemanager_unlink"] = 'Видалити зв\'язок з ліцензією';
+
+$lang["collection_actiontype_80"] = 'Ліцензування';
+$lang['plugin-licensemanager-title'] = 'Менеджер ліцензій';
+$lang['plugin-licensemanager-desc'] = 'Управління ліцензуванням ресурсів.';

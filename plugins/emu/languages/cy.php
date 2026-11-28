@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Creuwyd o\'r plwg EMU';
 
 $lang["page-title_emu_emu_object_details"] = 'Manylion Eitem EMu';
 $lang["page-title_emu_setup"] = 'Gosod Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Yn caniatáu i fetadata adnodd gael ei echdynnu o\'r gronfa ddata EMu.';

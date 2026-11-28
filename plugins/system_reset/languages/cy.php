@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='Ydych chi\'n siŵr? Ni ellir adfer hyn.';
 $lang["system_reset_delete_all"]='Dileu\'r holl ddata a ffeiliau';
 $lang["system_reset-tooltip"] = 'Perfformiwch adferiad system i ddileu pob ffeil a data';
 $lang["page-title_system_reset_reset"] = 'Ailgychwyn System';
+
+$lang['plugin-system_reset-title'] = 'Ailosod System';
+$lang['plugin-system_reset-desc'] = 'Yn ychwanegu opsiwn i admin/system i ddileu\'r holl ddata.';

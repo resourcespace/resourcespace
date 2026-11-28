@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"] = 'Thêm thẻ neo vào URL khi lưu vào tr
 $lang["page-title_youtube_publish_setup"] = 'Cài đặt Plugin';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Xuất bản Tài nguyên lên Youtube';
 $lang["youtube_publish_video_title"] = 'Tiêu đề video (tối đa 100 ký tự)';
+
+$lang['plugin-youtube_publish-title'] = 'Xuất bản YouTube';
+$lang['plugin-youtube_publish-desc'] = 'Xuất bản tài nguyên video lên tài khoản YouTube đã cấu hình.';

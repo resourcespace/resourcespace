@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Konfigurasi pekerjaan untuk mendeteksi 
 $lang["faces_tag_faces_configure"] = 'Konfigurasi pekerjaan untuk menandai wajah';
 $lang["faces_detect_faces_intro"] = 'Buat pekerjaan untuk memulai deteksi wajah di sini - pekerjaan ini tidak memerlukan parameter apa pun sehingga dapat dimulai selama tidak ada pekerjaan lain dari tipe ini yang sedang berjalan.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Mengatur opsi ini akan berarti hanya sumber daya dalam koleksi yang terdaftar yang akan diperbarui. Jika tidak ada koleksi yang ditentukan, penandaan wajah akan diperbarui untuk SEMUA sumber daya yang sesuai. Koleksi dapat ditentukan menggunakan daftar dipisahkan koma serta rentang misalnya 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'Wajah AI - InsightFace';
+$lang['plugin-faces-desc'] = 'Deteksi dan penandaan wajah otomatis mutakhir. Cari berdasarkan wajah.';

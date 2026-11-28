@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Márkirányelvek tartalmának ke
 $lang["page-title_brand_guidelines_guidelines"] = 'Márkairányelvek';
 $lang["page-title_brand_guidelines_setup"] = 'Állítsa be a Márkairányelvek Bővítményt';
 $lang["page-title_brand_guidelines_toc"] = 'Tartalom szerkesztése';
+
+$lang['plugin-brand_guidelines-title'] = 'Márka irányelvek';
+$lang['plugin-brand_guidelines-desc'] = 'Hozzon létre egy márka irányelvek területet egyedi tartalommal, erőforrás hivatkozásokkal és színekkel.';

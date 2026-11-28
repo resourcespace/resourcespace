@@ -48,3 +48,6 @@ $lang["action-splice"]='ต่อ';
 $lang["page-title_video_splice_setup"] = 'ตั้งค่าปลั๊กอิน Video Splice';
 $lang["page-title_video_splice_splice"] = 'ตัดต่อวิดีโอ';
 $lang["page-title_video_splice_trim"] = 'ตัดวิดีโอ';
+
+$lang['plugin-video_splice-title'] = 'การต่อวิดีโอ';
+$lang['plugin-video_splice-desc'] = 'ความสามารถในการตัดและต่อวิดีโอ';

@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'Aina ya Rasilimali ya Mtazamaji 
 
 $lang["page-title_embeddocument_setup"] = 'Weka Plugin ya Kuweka Hati';
 $lang["page-title_embeddocument_viewer"] = 'Embed Mwangalizi wa Hati';
+
+$lang['plugin-embeddocument-title'] = 'Ingiza Hati';
+$lang['plugin-embeddocument-desc'] = 'Inatoa kazi ya kuunda HTML kwa ajili ya onyesho la hati zinazoweza kuingizwa kwenye tovuti za mbali.';

@@ -1277,6 +1277,9 @@ function save_resource_data($ref, $multi, $autosave_field = "")
         add_resource_nodes($ref, $nodes_to_add, false, false);
     }
     db_end_transaction("update_resource_node");
+    if (!empty($updated_resources[$ref])) {
+        reconcile_search_field_columns([$ref => array_keys($updated_resources[$ref])], get_resource_table_joins());
+    }
 
     log_node_changes($ref, $new_node_values, $all_current_field_nodes, "", $oldnodenames);
 
@@ -2180,6 +2183,9 @@ function save_resource_data_multi($collection, $editsearch = array(), $postvals 
     }
 
     db_end_transaction("save_resource_data_multi");
+    if ($updated_resources !== []) {
+        reconcile_search_field_columns(array_map(array_keys(...), $updated_resources), $joins);
+    }
 
     // Also save related resources field
     if (($postvals["editthis_related"] ?? "") != "") {
@@ -2804,6 +2810,8 @@ function update_field($resource, $field, $value, array &$errors = array(), $log 
     $joins = get_resource_table_joins();
     if (in_array($fieldinfo['ref'], $joins)) {
         update_resource_field_column($resource, $field, $data_joins_field_value);
+    } else {
+        reconcile_search_field_columns([$resource => [(int) $field]], $joins);
     }
 
     # Add any onchange code
@@ -3758,6 +3766,7 @@ function copy_resource($from, $resource_type = -1, $origin = '')
 
     # Copy Metadata
     copy_resource_nodes($from, $to);
+    reconcile_search_field_columns([$to => null], $joins);
 
     # Copy relationships
     copyRelatedResources($from, $to);
@@ -6802,6 +6811,7 @@ function copyAllDataToResource($from, $to, $resourcedata = false)
     }
     $joinsql = $joinsql . $joinfields . " WHERE target.ref=?";
     ps_query($joinsql, array("i",$from,"i",$to));
+    reconcile_search_field_columns([$to => null], $joins);
     return true;
 }
 
@@ -8552,7 +8562,13 @@ function delete_resource_type_field($ref)
     return true;
 }
 
-function get_resource_table_joins()
+/**
+ * Get cached metadata fields used by the current configuration.
+ *
+ * @param bool $for_write Also include system search fields that became active or began preparation this request.
+ * @return array Field references with cached columns.
+ */
+function get_resource_table_joins(bool $for_write = false)
 {
 
     global
@@ -8590,7 +8606,13 @@ function get_resource_table_joins()
         $joins = array_merge($joins, $additional_joins);
     }
 
+    if ($for_write) {
+        $search_fields = get_search_field_column_state();
+        $joins = array_merge($joins, $search_fields['preparing'], $search_fields['published']);
+    }
+
     $joins = array_unique($joins);
+    $return = [];
     $n = 0;
     foreach ($joins as $join) {
         if ($join != "") {
@@ -8599,6 +8621,99 @@ function get_resource_table_joins()
         }
     }
     return $return;
+}
+
+/**
+ * Read the live search-cache write lists from the primary database, including changes after request boot.
+ *
+ * @return array{preparing: list<int>, published: list<int>} Pending and published system field references.
+ */
+function get_search_field_column_state(): array
+{
+    $state = ['preparing' => [], 'published' => []];
+    $published = array_diff(CONFIG_SEARCH_FIELD_LISTS, $GLOBALS['system_config_hide'] ?? []);
+    $connection = db_get_connection_mode();
+    db_set_connection_mode('read_write');
+    try {
+        $rows = ps_query(
+            'SELECT name AS setting, value FROM sysvars WHERE name = ?
+             UNION ALL
+             SELECT parameter AS setting, value FROM user_preferences
+             WHERE user IS NULL AND usergroup IS NULL AND parameter IN ('
+                . ps_param_insert(count(CONFIG_SEARCH_FIELD_LISTS)) . ')',
+            ['s', SYSVAR_PREPARING_SEARCH_FIELDS, ...ps_param_fill(CONFIG_SEARCH_FIELD_LISTS, 's')],
+            logthis: 0
+        );
+    } finally {
+        db_clear_connection_mode();
+        db_set_connection_mode($connection);
+    }
+    foreach ($rows as $row) {
+        if ($row['setting'] === SYSVAR_PREPARING_SEARCH_FIELDS) {
+            $list = 'preparing';
+        } elseif (in_array($row['setting'], $published, true)) {
+            $list = 'published';
+        } else {
+            continue;
+        }
+        if (validate_digit_csv($row['value'])) {
+            $state[$list] = array_merge($state[$list], array_map(intval(...), explode(',', $row['value'])));
+        }
+    }
+    return $state;
+}
+
+/**
+ * Catch newly managed columns after saving or copying nodes. During preparation this also replaces
+ * any cached values copied from a source whose backfill has yet to run.
+ *
+ * @param array<int, list<int>|null> $resources Changed fields by resource, or null for a complete copy.
+ * @param array $known_columns Columns already handled by the caller's original write.
+ * @return void
+ */
+function reconcile_search_field_columns(array $resources, array $known_columns): void
+{
+    refresh_changed_search_field_columns($resources, search_field_columns_to_reconcile($known_columns));
+}
+
+/**
+ * Identify pending fields and fields published after the request loaded its settings.
+ *
+ * @param array $known_columns Cached columns maintained by the original write.
+ * @return array Field references whose values need rechecking.
+ */
+function search_field_columns_to_reconcile(array $known_columns): array
+{
+    $state = get_search_field_column_state();
+    return array_unique(array_merge($state['preparing'], array_diff($state['published'], $known_columns)));
+}
+
+/**
+ * Refresh affected resource columns from their committed metadata.
+ *
+ * @param array<int, list<int>|null> $resources Changed fields by resource, or null for a complete copy.
+ * @param array $refresh Field references eligible for refreshing.
+ * @return void
+ */
+function refresh_changed_search_field_columns(array $resources, array $refresh): void
+{
+    if ($refresh === []) {
+        return;
+    }
+
+    $fields = [];
+    foreach ($refresh as $field) {
+        $data = get_resource_type_field($field);
+        if ($data !== false) {
+            $fields[$field] = $data;
+        }
+    }
+    foreach ($resources as $resource => $changed) {
+        $to_refresh = $changed === null ? $fields : array_intersect_key($fields, array_flip($changed));
+        if ($to_refresh !== []) {
+            refresh_resource_search_field_columns($resource, $to_refresh);
+        }
+    }
 }
 
 /*

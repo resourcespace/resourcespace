@@ -53,3 +53,6 @@ $lang["origin_simpleldap"] = 'SimpleLDAP 插件';
 $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = '不要根據證書的 CN 檢查伺服器的 FQDN';
 $lang["page-title_simpleldap_ajax_test_auth"] = '測試 LDAP 驗證';
 $lang["page-title_simpleldap_setup"] = '設定 Simple LDAP 插件';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = '透過 LDAP 進行使用者驗證。';

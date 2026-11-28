@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'API 密钥';
 $lang["typesense_search_collection"] = '集合';
 $lang["typesense_search_timeout"] = '超时（秒）';
 $lang["typesense_search_validate_access"] = '在 Typesense 搜索后验证访问';
+
+$lang['plugin-typesense_search-title'] = 'Typesense 搜索';
+$lang['plugin-typesense_search-desc'] = '使用 Typesense 的可选外部搜索提供程序（实验性）';

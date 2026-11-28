@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Pulihkan Arkib';
 $lang["page-title_offline_archive_setup"] = 'Tetapan Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'Lihat Arkib Sumber';
 $lang["page-title_offline_archive_view_pending"] = 'Lihat Arkib Menunggu';
+
+$lang['plugin-offline_archive-title'] = 'Arkib Luar Talian';
+$lang['plugin-offline_archive-desc'] = 'Membolehkan pemindahan fail yang diarkibkan ke lokasi luar talian.';

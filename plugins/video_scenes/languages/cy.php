@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Chwarae\'r olygfa am %time';
 $lang["video_scene_play_unavailable"] = 'Mae\'r olygfa hon y tu allan i\'r rhagolwg fideo sydd ar gael.';
 $lang["video_scene_job_success"] = 'Prosesu golygfa fideo wedi\'i gwblhau';
 $lang["video_scene_job_failure"] = 'Methwyd prosesu golygfa fideo. Gweler log y swydd am fanylion.';
+$lang['plugin-video_scenes-title'] = 'Golygfeydd fideo';
+$lang['plugin-video_scenes-desc'] = 'Canfod golygfeydd fideo yn lleol gyda transnetv2-pytorch, gyda disgrifiadau gweledol a chlywedol OpenAI dewisol.';

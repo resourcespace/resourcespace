@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਕਰਨ�
 $lang["system_reset_delete_all"]='ਸਾਰੇ ਡਾਟਾ ਅਤੇ ਫਾਈਲਾਂ ਮਿਟਾਓ';
 $lang["system_reset-tooltip"] = 'ਸਾਰੇ ਫਾਈਲਾਂ ਅਤੇ ਡਾਟਾ ਮਿਟਾਉਣ ਲਈ ਸਿਸਟਮ ਰੀਸੈਟ ਕਰੋ';
 $lang["page-title_system_reset_reset"] = 'ਸਿਸਟਮ ਰੀਸੈਟ';
+
+$lang['plugin-system_reset-title'] = 'ਸਿਸਟਮ ਰੀਸੈੱਟ';
+$lang['plugin-system_reset-desc'] = 'admin/system ਵਿੱਚ ਸਾਰੇ ਡੇਟਾ ਮਿਟਾਉਣ ਲਈ ਇੱਕ ਵਿਕਲਪ ਜੋੜਦਾ ਹੈ।';

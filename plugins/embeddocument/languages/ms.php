@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'Sila nyatakan jenis sumber yang m
 $lang["embeddocument_document_resourcetype"] = 'Jenis Sumber Pemandu Dokumen Jauh';
 $lang["page-title_embeddocument_setup"] = 'Tetapkan Plugin Dokumen Terbenam';
 $lang["page-title_embeddocument_viewer"] = 'Sisipkan Penampil Dokumen';
+
+$lang['plugin-embeddocument-title'] = 'Sisip Dokumen';
+$lang['plugin-embeddocument-desc'] = 'Menyediakan fungsi untuk menjana HTML bagi pratonton dokumen yang boleh disisipkan di laman jauh.';

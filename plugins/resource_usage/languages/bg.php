@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'Списък с налични опции з�
 $lang["page-title_resource_usage_delete"] = 'Изтриване на използването на ресурса';
 $lang["page-title_resource_usage_edit"] = 'Редактиране на използването на ресурса';
 $lang["page-title_resource_usage_setup"] = 'Настройка на плъгина за използване на ресурса';
+
+$lang['plugin-resource_usage-title'] = 'Използване на ресурси';
+$lang['plugin-resource_usage-desc'] = 'Добавя възможност за регистриране на използването на ресурси чрез страницата за преглед на ресурс.';

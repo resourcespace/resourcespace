@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Được tạo từ plugin EMU';
 
 $lang["page-title_emu_emu_object_details"] = 'Chi tiết đối tượng EMu';
 $lang["page-title_emu_setup"] = 'Cài đặt Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Cho phép trích xuất siêu dữ liệu tài nguyên từ cơ sở dữ liệu EMu.';

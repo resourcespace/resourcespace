@@ -12,3 +12,6 @@ $lang["invalidrange"] = 'Julat tidak sah';
 $lang["splitpdf_createnewresource"] = 'Buat sumber baru untuk setiap julat';
 $lang["splitpdf_createnewalternativefile"] = 'Buat fail alternatif baru pada sumber ini untuk setiap julat';
 $lang["page-title_pdf_split_pdf_split"] = 'Pembahagian PDF';
+
+$lang['plugin-pdf_split-title'] = 'Pisah PDF';
+$lang['plugin-pdf_split-desc'] = 'Membolehkan fail PDF dipisahkan kepada beberapa halaman.';

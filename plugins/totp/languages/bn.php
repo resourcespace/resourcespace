@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'বর্তমান বছর';
 $lang["page-title_totp_setup"] = 'TOTP প্লাগইন সেটআপ করুন';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'SAML এর মাধ্যমে ইতিমধ্যে প্রমাণীকৃত ব্যবহারকারীদের জন্য TOTP অক্ষম করুন (SAML প্লাগইন প্রয়োজন)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Google Authenticator এর মাধ্যমে TFA/MFA সমর্থন';

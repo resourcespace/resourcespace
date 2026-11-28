@@ -51,3 +51,6 @@ $lang["museumplus_error_module_no_field_maps"]='Haiwezi kulandanisha data kutoka
 $lang["page-title_museumplus_museumplus_object_details"] = 'Maelezo ya Kitu cha MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'Weka Moduli ya MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'Weka Plugin ya MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Inaruhusu metadata ya rasilimali kuchimbwa kutoka MuseumPlus kwa kutumia REST API yake (MpRIA).';

@@ -1,0 +1,21 @@
+<?php
+$lang['logconfirmrevert'] = 'आपल्याला हा बदल परत करायचा आहे का?';
+$lang['revertingwillapply'] = 'परत केल्याने हा बदल लागू होईल:';
+$lang['revertingwillreplace'] = 'परत केल्याने सध्याचा फाइल याने बदलला जाईल:';
+$lang['revertingclicktoproceed'] = 'खालील बदल लागू होतील:';
+$lang['revertingwilladd'] = 'हे पर्याय जोडले जातील:';
+$lang['revertingwillremove'] = 'हे पर्याय काढले जातील:';
+$lang['revertingwillignore'] = 'हे जुने पर्याय दुर्लक्षित केले जातील:';
+$lang['revert_log_note'] = '(परत करा)';
+$lang['revertmetadatatodatetime'] = 'दिनांक/वेळ (YYYY-MM-DD HH:MM) नुसार स्थिती परत करा';
+$lang['logdownloadearlierversion'] = 'फाइलचा हा जुना आवृत्ती डाउनलोड करा';
+$lang['rse_version_configuration'] = 'Resource Versioning (rse_version) संरचना';
+$lang['rse_version_override_groups'] = 'खालील वापरकर्ता गटांच्या API कॉल्सना संसाधन बदलताना विद्यमान फाइल जपण्यापासून वगळता येते';
+$lang['rse_version_log_not_found'] = 'नोंद सापडली नाही';
+$lang['rse_version_revert_state'] = 'स्थिती परत करा';
+$lang['rse_version_rstate_changes'] = 'निवडलेल्या नोंदीशिवाय, संग्रह #%COLLECTION साठी घटना पुन्हा चालवून स्थिती परत केली जात आहे.';
+$lang['rse_version_invalid_time'] = '[date] पूर्वीच्या वेळेला परत जाणे समर्थित नाही';
+$lang['page-title_rse_version_revert'] = 'संसाधन आवृत्ती परत करा';
+$lang['page-title_rse_version_setup'] = 'आवृत्ती प्लगइन सेटअप करा';
+$lang['plugin-rse_version-title'] = 'आवृत्ती नियंत्रण';
+$lang['plugin-rse_version-desc'] = 'मेटाडेटा आणि फाइल बदल ट्रॅक आणि पुनर्संचयित करा.';

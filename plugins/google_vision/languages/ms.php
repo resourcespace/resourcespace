@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Penglihatan Google';
 $lang["google_vision_process_existing"] = 'Proses sumber tidak diproses';
 $lang["google_vision_process_existing_configure"] = 'Konfigurasi tugasan untuk memproses sumber yang tidak diproses';
 $lang["google_vision_process_existing_collection_refs_help"] = 'Menetapkan pilihan ini akan bermakna hanya sumber dalam koleksi yang disenaraikan akan diproses. Jika tiada koleksi yang ditetapkan, SEMUA sumber yang sesuai akan diproses. Koleksi boleh ditetapkan menggunakan senarai berasingan dengan koma serta julat contohnya 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'Penandaan imej automatik menggunakan AI.';

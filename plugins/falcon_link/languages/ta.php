@@ -1,0 +1,47 @@
+<?php
+$lang['falcon_link_tag_fields'] = 'ResourceSpace - Falcon குறிச்சொல் புலங்கள். இவை இணைக்கப்பட்டு Falcon வார்ப்புரு குறிச்சொற்களுக்கு சேர்க்கப்படும்';
+$lang['falcon_link_id_field'] = 'Falcon அடையாளத்தை சேமிக்க மெட்டாடேட்டா புலம்';
+$lang['falcon_link_log_share'] = 'Falcon இல் வெளியிடப்பட்டது';
+$lang['falcon_link_archived'] = 'காப்பகப்படுத்தப்பட்டது';
+$lang['falcon_link_access_denied'] = 'தேர்ந்தெடுக்கப்பட்ட வளத்தை வெளியிட அனுமதி இல்லை';
+$lang['falcon_link_already_published'] = 'இந்த வளம் Falcon இல் வெளியிடப்பட்டுள்ளது';
+$lang['falcon_link_resources_already_published'] = 'சில வளங்கள் ஏற்கனவே Falcon இல் வெளியிடப்பட்டுள்ளன மற்றும் மீண்டும் வெளியிட முடியாது';
+$lang['falcon_link_resource_not_published'] = 'வளம் Falcon இல் வெளியிடப்படவில்லை';
+$lang['falcon_link_resource_publish_unavailable'] = 'வளம் Falcon இல் வெளியிட முடியாது';
+$lang['falcon_link_template_description'] = 'வார்ப்புரு விளக்கம்';
+$lang['falcon_link_template_tags'] = 'சேர்க்கப்படும் வார்ப்புரு குறிச்சொற்கள்';
+$lang['falcon_link_missing_file'] = 'வளத்திற்கு அசல் கோப்பு இல்லை';
+$lang['falcon_link_existing_id'] = 'தற்போதைய Falcon ஐடி';
+$lang['falcon_link_not_uploaded'] = 'பதிவேற்றப்படவில்லை';
+$lang['falcon_link_publish_button_text'] = 'வெளியிடு';
+$lang['falcon_link_archive_button_text'] = 'காப்பகப்படுத்து';
+$lang['falcon_link_publish_success'] = 'வெற்றிகரமாக வெளியிடப்பட்டது';
+$lang['falcon_link_usergroups'] = 'Falcon வார்ப்புருக்களை நிர்வகிக்க அனுமதி உள்ள குழுக்கள்';
+$lang['falcon_link_filter'] = 'எந்த வளங்கள் Falcon இல் வெளியிடப்படலாம் என்பதை தீர்மானிக்கும் வடிகட்டி';
+$lang['falcon_link_error_no_resources'] = 'வெளியிட எந்த வளங்களும் சமர்ப்பிக்கப்படவில்லை';
+$lang['falcon_link_error_falcon_api'] = 'Falcon உடன் தொடர்பு கொள்ளும் போது பிழை ஏற்பட்டது. மேலும் விவரங்களுக்கு நிலையை சரிபார்க்கவும்.';
+$lang['falcon_link_error_falcon_api_detailed'] = 'Falcon பிழை';
+$lang['falcon_link_view_in_falcon'] = 'Falcon இல் பார்க்கவும்';
+$lang['falcon_link_share_user'] = 'Falcon பயன்பாட்டிற்காக உருவாக்கப்பட்ட பகிர்வுகளுக்கான பயனர் உரை, உதா: \'user@falcon.io உடன் பகிரப்பட்டது\'';
+$lang['falcon_link_log_publish'] = 'Falcon மூலம் வளம் பகிரப்பட்டது';
+$lang['falcon_link_log_archive'] = 'Falcon மூலம் வளம் காப்பகப்படுத்தப்பட்டது';
+$lang['falcon_link_error_falcon_check_tags'] = 'விளக்கம் மற்றும் குறிச்சொற்கள் காலியாக இல்லாததை சரிபார்க்கவும்';
+$lang['page-title_falcon_link_falcon_link'] = 'Falcon இணைப்பு';
+$lang['page-title_falcon_link_setup'] = 'Falcon இணைப்பு பிளக்கின் அமைப்பு';
+$lang['plugin-falcon_link-title'] = 'Falcon இணைப்பு';
+$lang['plugin-falcon_link-desc'] = 'தானாக சமூக ஊடக பகிர்வுக்கு Falcon.io க்கு வளங்களை வெளியிடவும்.';
+
+$lang['falcon_link_title'] = 'Falcon Link';
+$lang['falcon_link_manage'] = 'Falcon வெளியீடு/காப்பகம்';
+$lang['falcon_link_publish'] = 'Falconக்கு வெளியிடு';
+$lang['falcon_link_archive'] = 'Falconல் காப்பகம் செய்';
+$lang['falcon_link_configuration'] = 'Falcon இணைப்பு - அமைப்பு';
+$lang['falcon_link_api_key'] = 'Falcon API விசை';
+$lang['falcon_link_notconfigured'] = 'Falcon Link பிளக்கின் அமைக்கப்படவில்லை. தயவுசெய்து உங்கள் நிர்வாகியிடம் பிளக்கினை அமைக்குமாறு கேளுங்கள்.';
+$lang['falcon_link_resource_types_to_include'] = 'செல்லுபடியாகும் Falcon வள வகைகளை தேர்ந்தெடுக்கவும்';
+$lang['falcon_link_not_permitted_extension'] = '%TYPE% கோப்பு வகை Falconக்கு பதிவேற்ற முடியாது';
+$lang['falcon_link_text_field'] = 'Falcon வார்ப்புரு உரை புலம்';
+$lang['falcon_link_default_tag'] = 'அனைத்து Falcon வெளியிடப்பட்ட உள்ளடக்கங்களுக்கும் தானாக சேர்க்கப்படும் இயல்புநிலை குறிச்சொல் உரை. நீங்கள் \'[ID]\' என்ற உரையை சேர்த்தால், அது குறிச்சொல்லில் வள அடையாளத்துடன் மாற்றப்படும்';
+$lang['falcon_link_template_url'] = 'Falcon வார்ப்புரு URL. இது வெளியிடப்பட்ட வளத்தை நேரடியாக Falconல் பார்க்க அனுமதிக்கிறது. [id] குறிச்சொல் வெளியிடும்போது Falcon வழங்கிய அடையாளத்துடன் மாற்றப்படும்';
+
+$lang['falcon_link_archived_success'] = 'வெற்றிகரமாக காப்பகப்படுத்தப்பட்டது.<br />வள பகிர்வுகள் இன்னும் செயல்பாட்டில் உள்ளன மற்றும் தேவையானால் கைமுறையாக நீக்கப்பட வேண்டும்.';

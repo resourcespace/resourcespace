@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Edit Lisensi';
 $lang["page-title_licensemanager_list"] = 'Daftar Lisensi';
 $lang["page-title_licensemanager_setup"] = 'Atur Plugin Manajer Lisensi';
 $lang["page-title_licensemanager_unlink"] = 'Hapus Tautan Lisensi';
+
+$lang["collection_actiontype_80"] = 'Perizinan';

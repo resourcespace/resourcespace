@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'ڕێگە بده بە بەکاره�
 $lang["vimeo_publish_set_account"] = 'ڕێکخستنەوەی ئەکاونتی Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'ڕێکخستنەوەی پلاگینەکەی Vimeo Publish';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'بڵاوکردنەوە بۆ Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Weşandina Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Çavkaniyan weşîne li Vimeo.';

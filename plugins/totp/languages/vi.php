@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Năm hiện tại';
 $lang["page-title_totp_setup"] = 'Cài đặt Plugin TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Vô hiệu hóa TOTP cho người dùng đã xác thực qua SAML (Yêu cầu plugin SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Hỗ trợ TFA/MFA qua Google Authenticator';

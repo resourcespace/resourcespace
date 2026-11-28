@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'Виберіть стовпець, що міст
 $lang["csv_upload_longitude"] = 'Виберіть стовпець для Довготи, якщо він окремий від вищезазначеного стовпця';
 $lang["latitude"] = 'широта';
 $lang["longitude"] = 'довгота';
+
+$lang['plugin-csv_upload-title'] = 'Завантаження CSV';
+$lang['plugin-csv_upload-desc'] = 'Завантажте метадані за допомогою CSV-файлу.';

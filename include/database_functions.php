@@ -311,14 +311,15 @@ function sql_connect()
 * Indicate that from now on we want to group together DML statements into one transaction.
 *
 * @param string $name Savepoint name for the transaction.
+* @param bool $required Use a transaction even when optional transactions are disabled.
 *
 * @return boolean Returns TRUE on success or FALSE on failure.
 */
-function db_begin_transaction($name)
+function db_begin_transaction($name, bool $required = false)
 {
     global $db, $use_db_transaction;
 
-    if (!$use_db_transaction) {
+    if (!$use_db_transaction && !$required) {
         return false;
     }
 
@@ -342,14 +343,15 @@ function db_begin_transaction($name)
 * Tell the database to commit the current transaction.
 *
 * @param string $name Savepoint name for the transaction.
+* @param bool $required Whether the transaction was required when it began.
 *
 * @return boolean Returns TRUE on success or FALSE on failure.
 */
-function db_end_transaction($name)
+function db_end_transaction($name, bool $required = false)
 {
     global $db, $use_db_transaction;
 
-    if (!$use_db_transaction) {
+    if (!$use_db_transaction && !$required) {
         return false;
     }
 
@@ -372,14 +374,15 @@ function db_end_transaction($name)
 * Tell the database to rollback the current transaction.
 *
 * @param string $name Savepoint name for the transaction.
+* @param bool $required Whether the transaction was required when it began.
 *
 * @return boolean Returns TRUE on success or FALSE on failure.
 */
-function db_rollback_transaction($name)
+function db_rollback_transaction($name, bool $required = false)
 {
     global $db, $use_db_transaction;
 
-    if (!$use_db_transaction) {
+    if (!$use_db_transaction && !$required) {
         return false;
     }
 

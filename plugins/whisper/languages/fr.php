@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Traiter les ressources non traitées';
 $lang["whisper_process_existing_intro"] = 'Créer une tâche pour démarrer le traitement audio Whisper ici - cette tâche ne nécessite aucun paramètre et peut être lancée tant qu\'il n\'y a pas d\'autres tâches en cours de ce type.';
 $lang["whisper_process_existing_configure"] = 'Configurer la tâche pour traiter les fichiers avec Whisper';
+
+$lang['plugin-whisper-title'] = '(BÊTA) Whisper';
+$lang['plugin-whisper-desc'] = 'Conversion vidéo/audio en texte avec Whisper d\'OpenAI. Fonctionne localement, aucun abonnement requis.';

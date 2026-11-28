@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '播放 %time 的場景';
 $lang["video_scene_play_unavailable"] = '此場景超出可用的影片預覽範圍。';
 $lang["video_scene_job_success"] = '影片場景處理完成';
 $lang["video_scene_job_failure"] = '影片場景處理失敗。詳情請參閱工作日誌。';
+$lang['plugin-video_scenes-title'] = '影片場景';
+$lang['plugin-video_scenes-desc'] = '使用 transnetv2-pytorch 在本地偵測影片場景，並可選擇使用 OpenAI 視聽描述。';

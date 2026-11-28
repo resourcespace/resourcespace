@@ -43,3 +43,6 @@ $lang["falcon_link_log_archive"] = 'Архивиран ресурс чрез Fal
 $lang["falcon_link_error_falcon_check_tags"] = 'Моля, проверете дали описанието и таговете не са празни';
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'Настройка на Falcon Link плъгина';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'Публикувайте ресурси във Falcon.io за автоматично споделяне в социалните мрежи.';

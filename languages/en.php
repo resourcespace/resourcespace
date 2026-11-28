@@ -2864,6 +2864,78 @@ $lang['systemconfig_debug'] = 'Debug';
 $lang['systemconfig_debug_log_on_specific_user'] = "On (specific user)";
 $lang['systemconfig_use_native_input_for_date_field'] = "Use native date input for displaying a 'date' metadata field type";
 $lang['systemconfig_native_date_input_no_partials_supported'] = "IMPORTANT: If enabled, partial dates (e.g May 2023) will no longer be supported and existing data will get cleared after the next resource edit.";
+$lang['systemconfig_downloads'] = 'Downloads';
+$lang['systemconfig_resource_share_expire_days'] = 'Latest expiry offered for external shares (days)';
+$lang['systemconfig_user_account_auto_creation_usergroup'] = 'Default user group for new account requests';
+$lang['systemconfig_portrait_landscape_field'] = 'Metadata field for image orientation';
+$lang['systemconfig_portrait_landscape_field_help'] = 'Select an active text field reserved for orientation. '
+    . 'Resource processing writes Portrait, Landscape or Square to this field.';
+$lang['systemconfig_configured_choice_unavailable'] = 'Current selection unavailable (%s)';
+$lang['systemconfig_simple_search_date'] = 'Show date filters in simple search';
+$lang['systemconfig_list_view_status_column'] = 'Show workflow status in list view';
+$lang['systemconfig_public_collections_top_nav'] = 'Show Public Collections in the main navigation';
+$lang['systemconfig_mycontributions_link'] = 'Show My Contributions in the main navigation';
+$lang['systemconfig_allow_smart_collections'] = 'Allow saved searches as smart collections';
+$lang['systemconfig_allow_smart_collections_help'] = 'Smart collections update their membership from the saved search.';
+$lang['systemconfig_themes_in_my_collections'] = 'Include featured collections in My Collections';
+$lang['systemconfig_resource_share_expire_never'] = 'Offer a Never expiry option for external shares';
+$lang['systemconfig_resource_share_expire_never_help'] = 'The share form must offer at least one expiry day '
+    . 'if Never is turned off.';
+$lang['systemconfig_external_share_view_as_internal'] = 'Show external shares in the internal view for signed-in users';
+$lang['systemconfig_external_share_view_as_internal_help'] = 'Signed-in recipients use their own account permissions '
+    . 'when opening an external share.';
+$lang['systemconfig_tabs_on_edit'] = 'Use tabs on the resource edit form';
+$lang['systemconfig_view_resource_collections'] = 'Show the user\'s collections on the resource page';
+$lang['systemconfig_disable_geocoding'] = 'Disable maps and location metadata';
+$lang['systemconfig_disable_geocoding_help'] = 'Disables map views and location editing, '
+    . 'and stops extracting GPS coordinates from uploaded files.';
+$lang['systemconfig_relate_on_upload'] = 'Offer to relate resources uploaded together';
+$lang['systemconfig_relate_on_upload_default'] = 'Relate resources uploaded together by default';
+$lang['systemconfig_show_status_and_access_on_upload'] = 'Show workflow status and access controls on upload';
+$lang['systemconfig_show_status_and_access_on_upload_help'] = 'The configured upload permissions still apply.';
+$lang['systemconfig_replace_resource_preserve_option'] = 'Offer to keep the previous file when replacing a resource';
+$lang['systemconfig_replace_resource_preserve_default'] = 'Keep the previous file by default when replacing a resource';
+$lang['systemconfig_replace_resource_preserve_default_help'] = 'Previous files are retained as alternative files '
+    . 'and continue to use storage.';
+$lang['systemconfig_user_account_auto_creation'] = 'Create accounts from submitted account requests';
+$lang['systemconfig_user_account_auto_creation_help'] = 'Requests normally require approval. '
+    . 'Existing automatic approval rules still apply.';
+$lang['systemconfig_registration_group_select'] = 'Let applicants choose their user group';
+$lang['systemconfig_registration_group_select_help'] = 'Applicants can choose groups marked for registration '
+    . 'in User Groups.';
+$lang['systemconfig_download_summary'] = 'Show a download summary on the resource page';
+$lang['systemconfig_download_usage'] = 'Ask users how they intend to use downloads';
+$lang['systemconfig_download_usage_options'] = 'Download usage options';
+$lang['systemconfig_download_usage_options_help'] = 'Keep at least one option. '
+    . 'Past downloads display the new label when you rename an option. '
+    . 'Removing an option keeps its label in existing records.';
+$lang['systemconfig_option_label'] = 'Option label';
+$lang['systemconfig_add_option'] = 'Add option';
+$lang['systemconfig_remove_option'] = 'Remove option';
+$lang['systemconfig_move_option_up'] = 'Move option up';
+$lang['systemconfig_move_option_down'] = 'Move option down';
+$lang['systemconfig_add_field'] = 'Add field';
+$lang['systemconfig_list_display_fields'] = 'Metadata columns in search list view';
+$lang['systemconfig_thumbs_display_fields'] = 'Metadata fields on search thumbnails';
+$lang['systemconfig_sort_fields'] = 'Metadata fields available for sorting';
+$lang['systemconfig_sort_fields_help'] = 'To remove the default sort field, select a different default first. '
+    . 'New fields may need to be prepared by an offline job.';
+$lang['systemconfig_search_display_fields_help'] = 'Fields appear in this order in search results. '
+    . 'New fields may need to be prepared by an offline job.';
+$lang['systemconfig_sort_fields_keep_default'] = 'Select a different default sort before removing this field.';
+$lang['systemconfig_search_fields_jobs_required'] = 'Offline jobs must be enabled to prepare the new fields.';
+$lang['systemconfig_search_fields_queued'] = 'Queued for preparation. Changes take effect when the offline job finishes.';
+$lang['systemconfig_search_fields_job_pending'] = 'An offline job is already preparing this list.';
+$lang['systemconfig_search_fields_job_complete'] = 'The search field configuration has been saved.';
+$lang['systemconfig_search_fields_job_failed'] = 'The search field configuration could not be saved. '
+    . 'Review the current setting before trying again.';
+$lang['job_list_prepare_search_fields'] = 'Prepare search fields';
+$lang['systemconfig_option_list_save_error'] = 'Could not save the options. Try again.';
+$lang['systemconfig_option_list_conflict'] = 'Could not save the options. Refresh the page to get the latest options.';
+$lang['systemconfig_download_usage_email'] = 'Ask for an email address on the download usage form';
+$lang['systemconfig_usage_comment_blank'] = 'Make the download usage comment optional';
+$lang['systemconfig_usage_comment_blank_help'] = 'The comment must be optional if the usage form is configured '
+    . 'to hide the comment box.';
 $lang["blue"] = "Blue";
 $lang["green"] = "Green";
 $lang["red"] = "Red";
@@ -3474,6 +3546,7 @@ $lang["language-it"] = "Italian";
 $lang["language-jp"] = "Japanese";
 $lang["language-ko"] = "Korean";
 $lang["language-ku"] = "Kurdish";
+$lang["language-mr"] = "Marathi";
 $lang["language-ms"] = "Malay";
 $lang["language-nl"] = "Dutch";
 $lang["language-no"] = "Norwegian";
@@ -3483,9 +3556,11 @@ $lang["language-pt"] = "Portuguese";
 $lang["language-pt-BR"] = "Brazilian Portuguese";
 $lang["language-ro"] = "Romanian";
 $lang["language-ru"] = "Russian";
+$lang["language-si"] = "Sinhala";
 $lang["language-sk"] = "Slovak";
 $lang["language-sv"] = "Swedish";
 $lang["language-sw"] = "Swahili";
+$lang["language-ta"] = "Tamil";
 $lang["language-tl"] = "Filipino";
 $lang["language-th"] = "Thai";
 $lang["language-tr"] = "Turkish";

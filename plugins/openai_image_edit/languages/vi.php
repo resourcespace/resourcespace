@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'Lưu Mới của OpenAI';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Dữ liệu hình ảnh không hợp lệ';
 $lang["openai_image_edit_error_invalid_image"] = 'Hình ảnh không hợp lệ';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Không thể ghi tệp tạm thời';
+$lang['plugin-openai_image_edit-title'] = 'Chỉnh sửa hình ảnh OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Xóa các phần của hình ảnh và sử dụng GPT Image để tái tạo chúng.';

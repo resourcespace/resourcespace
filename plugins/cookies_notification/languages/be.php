@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'Вы вырашылі н�
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Вы павінны прыняць выкарыстанне печыва перад доступам да сістэмы.';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Выбар печыва';
 $lang["page-title_cookies_notification_setup"] = 'Наладзіць плагін апавяшчэння аб печывечках';
+
+$lang['plugin-cookies_notification-title'] = 'Апавяшчэнне пра файлы cookie';
+$lang['plugin-cookies_notification-desc'] = 'Апавяшчае пра выкарыстанне файлаў cookie, паказваючы паведамленне ў загалоўку.';

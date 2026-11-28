@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'گەڕان';
 $lang["page-title_image_banks_setup"] = 'ڕێکخستنی پلاگینەکانی Image Banks';
 $lang["page-title_image_banks_shutterstock_license"] = 'بینینی وەسڵی Shutterstock';
 $lang["page-title_image_banks_view"] = 'بینینی سەرچاوە';
+
+$lang['plugin-image_banks-title'] = 'بانکەکانی وێنە';
+$lang['plugin-image_banks-desc'] = 'لە ناو ResourceSpace دا گەڕان بکە بۆ کتێبخانەکانی وێنەی ئازاد/بازرگانی.';

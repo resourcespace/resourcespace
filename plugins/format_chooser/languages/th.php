@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'ตั้งค่า Plugin ตั�
 
 $lang["format_chooser_blocked_inputs"] = '<p>รูปแบบต่อไปนี้ไม่รองรับสำหรับการนำเข้า: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>รูปแบบต่อไปนี้ไม่รองรับสำหรับการส่งออก: %s</p>';
+$lang['plugin-format_chooser-title'] = 'ตัวเลือกฟอร์แมต';
+$lang['plugin-format_chooser-desc'] = 'ช่วยให้คุณเลือกฟอร์แมตต่างๆ เมื่อดาวน์โหลดไฟล์ที่สร้างขึ้นแบบทันทีทันใด';

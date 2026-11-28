@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'সংরক্ষণ করা হচ্ছে..'
 $lang["adobe_link_saving_wait"] = 'ফাইলটি সংরক্ষণ করা হচ্ছে, অনুগ্রহ করে নিশ্চিতকরণ বার্তার জন্য অপেক্ষা করুন। প্রিভিউ ইমেজ আপডেট করতে আপনাকে পৃষ্ঠাটি রিফ্রেশ করতে হতে পারে।';
 
 $lang["page-title_adobe_link_setup"] = 'অ্যাডোবি লিঙ্ক প্লাগইন সেটআপ করুন';
+
+$lang['plugin-adobe_link-title'] = 'অ্যাডোবি লিঙ্ক';
+$lang['plugin-adobe_link-desc'] = 'ResourceSpace থেকে Adobe CC তে Adobe ফাইল ইনজেস্ট করার অনুমতি দিন।';

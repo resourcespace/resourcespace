@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = 'Pangkalahatang impormasyon na larangan';
 $lang["conditional_terms_value"] = 'Halaga';
 $lang["conditional_terms_plugin_misconfigured"] = 'Maling pagkaka-configure ng plugin ng mga kondisyunal na termino';
 $lang["page-title_conditional_terms_setup"] = 'I-set up ang Conditional Terms Plugin';
+
+$lang['plugin-conditional_terms-title'] = 'Mga Kundisyong Termino';
+$lang['plugin-conditional_terms-desc'] = 'Pinapagana ang kundisyong pagpapakita ng pahina ng mga termino sa pag-download batay sa metadata ng yaman.';

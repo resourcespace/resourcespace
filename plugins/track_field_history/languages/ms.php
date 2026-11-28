@@ -7,3 +7,6 @@ $lang["track_field_history_change"] = 'Tukar';
 $lang["track_field_history_error_no_records"] = 'Tiada sejarah pengeditan ditemui untuk medan ini.';
 $lang["page-title_track_field_history_field_history_log"] = 'Sejarah Medan';
 $lang["page-title_track_field_history_setup"] = 'Tetapkan Plugin Sejarah Bidang Jejak';
+
+$lang['plugin-track_field_history-title'] = 'Jejak Sejarah Medan';
+$lang['plugin-track_field_history-desc'] = 'Keupayaan untuk menjejak sejarah suntingan medan.';

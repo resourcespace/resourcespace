@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'EMU bővítményből készült';
 
 $lang["page-title_emu_emu_object_details"] = 'EMu Objekt Részletek';
 $lang["page-title_emu_setup"] = 'Beállítás Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Lehetővé teszi az erőforrás metaadatainak kinyerését az EMu adatbázisból.';

@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'پێشکەشکەری لە ڕێکخست�
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'مۆدێلی Ollama کە بەکار دەهێنرێت (وەک \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'نیشانی Ollama کە بەکار دەهێنرێت (وەک http://[IP]:11434/v1/chat/completions)';
+
+$lang['plugin-openai_gpt-title'] = 'پرۆسەکردنی مێتاداتا OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'پرۆسەکردنی خۆکارى مێتاداتا و وێنەکان بە بەکارهێنانی زانستی ئەقڵی.';

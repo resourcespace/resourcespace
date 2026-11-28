@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'ਆਰਕਾਈਵ ਨੂੰ ਮ�
 $lang["page-title_offline_archive_setup"] = 'ਸੈਟਅਪ ਪਲੱਗਇਨ';
 $lang["page-title_offline_archive_view_archives"] = 'ਸੰਸਾਧਨ ਆਰਕਾਈਵ ਦੇਖੋ';
 $lang["page-title_offline_archive_view_pending"] = 'ਲੰਬਿਤ ਆਰਕਾਈਵ ਵੇਖੋ';
+
+$lang['plugin-offline_archive-title'] = 'ਆਫਲਾਈਨ ਆਰਕਾਈਵ';
+$lang['plugin-offline_archive-desc'] = 'ਆਰਕਾਈਵ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਆਫਲਾਈਨ ਸਥਾਨ \'ਤੇ ਸਥਾਨਾਂਤਰਿਤ ਕਰਨ ਦੀ ਸਹੂਲਤ ਦਿੰਦਾ ਹੈ।';

@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Сохранить но
 $lang["openai_image_edit_error_invalid_image_data"] = 'Недопустимые данные изображения';
 $lang["openai_image_edit_error_invalid_image"] = 'Недопустимое изображение';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Не удалось записать временный файл';
+$lang['plugin-openai_image_edit-title'] = 'Редактирование изображений OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Сотрите части изображения и используйте GPT Image для их восстановления.';

@@ -15,3 +15,6 @@ $lang["whisper"] = 'ウィスパー';
 $lang["whisper_process_existing"] = '未処理のリソースを処理する';
 $lang["whisper_process_existing_intro"] = 'ここでウィスパー音声処理を開始するジョブを作成します - このジョブはパラメータを必要としないため、他に同種の未完了のジョブがなければ開始できます。';
 $lang["whisper_process_existing_configure"] = 'ウィスパーでファイルを処理するジョブを設定';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'OpenAIのWhisperを使用した動画／音声からテキストへの変換。ローカルで動作し、サブスクリプションは不要です。';

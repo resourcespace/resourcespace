@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Urus Kandungan Garis Panduan Jen
 $lang["page-title_brand_guidelines_guidelines"] = 'Garis Panduan Jenama';
 $lang["page-title_brand_guidelines_setup"] = 'Tetapkan Plugin Garis Panduan Jenama';
 $lang["page-title_brand_guidelines_toc"] = 'Edit kandungan';
+
+$lang['plugin-brand_guidelines-title'] = 'Garis Panduan Jenama';
+$lang['plugin-brand_guidelines-desc'] = 'Cipta kawasan garis panduan jenama dengan kandungan tersuai, pautan sumber dan warna.';

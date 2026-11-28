@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Muokkaa lisenssiä';
 $lang["page-title_licensemanager_list"] = 'Listaa lisenssit';
 $lang["page-title_licensemanager_setup"] = 'Aseta lisensinhallintalisäosa';
 $lang["page-title_licensemanager_unlink"] = 'Poista linkitys lisenssistä';
+
+$lang["collection_actiontype_80"] = 'Lisensointi';

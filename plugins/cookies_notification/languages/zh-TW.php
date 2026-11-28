@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = '您已決定不允許 Res
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = '在存取系統之前，您必須接受 Cookies 的使用。';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Cookie 選擇';
 $lang["page-title_cookies_notification_setup"] = '設定 Cookie 通知插件';
+
+$lang['plugin-cookies_notification-title'] = 'Cookies 通知';
+$lang['plugin-cookies_notification-desc'] = '在標題中顯示訊息以通知使用者 Cookies 的使用。';

@@ -53,3 +53,6 @@ $lang["ldapserver"]='LDAP Server/URL e.e.ldaps://hostname:port';
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Prawf Dilysu LDAP';
 $lang["page-title_simpleldap_setup"] = 'Gosod Plugin LDAP Symlig';
 $lang["simpleldap_userlimit_error"] = 'Ni ellir creu\'r defnyddiwr oherwydd bod y terfyn defnyddwyr wedi\'i gyrraedd. Cysylltwch â\'ch gweinyddwr.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Dilysu defnyddwyr trwy LDAP.';

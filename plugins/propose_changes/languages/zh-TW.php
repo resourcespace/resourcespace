@@ -33,3 +33,6 @@ $lang["propose_changes_novalue"] = '未設置';
 $lang["propose_changes_view_user"] = '查看由提議的變更 ';
 $lang["propose_changes_current_value"] = '現有值';
 $lang["propose_changes_proposed_value"] = '提議值';
+
+$lang['plugin-propose_changes-title'] = '建議變更';
+$lang['plugin-propose_changes-desc'] = '允許使用者在無編輯權限下提出元資料變更建議。';

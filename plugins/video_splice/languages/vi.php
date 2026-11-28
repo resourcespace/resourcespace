@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'Lỗi : Hành động không hợp
 $lang["page-title_video_splice_setup"] = 'Cài đặt Plugin Video Splice';
 $lang["page-title_video_splice_splice"] = 'Ghép Video';
 $lang["page-title_video_splice_trim"] = 'Cắt video';
+
+$lang['plugin-video_splice-title'] = 'Ghép video';
+$lang['plugin-video_splice-desc'] = 'Khả năng cắt và ghép video.';

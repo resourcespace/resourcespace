@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'Anda telah memutuskan unt
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Anda dikehendaki menerima penggunaan kuki sebelum mengakses sistem.';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Pemilihan Kuki';
 $lang["page-title_cookies_notification_setup"] = 'Tetapkan Plugin Pemberitahuan Kuki';
+
+$lang['plugin-cookies_notification-title'] = 'Pemberitahuan Kuki';
+$lang['plugin-cookies_notification-desc'] = 'Memaklumkan penggunaan kuki dengan memaparkan mesej di tajuk utama.';

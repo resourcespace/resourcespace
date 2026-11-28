@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = '编辑许可证';
 $lang["page-title_licensemanager_list"] = '列出许可证';
 $lang["page-title_licensemanager_setup"] = '设置许可证管理插件';
 $lang["page-title_licensemanager_unlink"] = '解除许可证链接';
+
+$lang["collection_actiontype_80"] = '许可';

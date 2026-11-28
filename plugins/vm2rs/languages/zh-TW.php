@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"] = '縮圖路徑';
 $lang["vm2rs_online_preview"] = '線上預覽';
 $lang["vm2rs_youtube_video"] = 'YouTube影片';
 $lang["page-title_vm2rs_setup"] = '設定Vimeo至ResourceSpace插件';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo 至 ResourceSpace';
+$lang['plugin-vm2rs-desc'] = '將 Vimeo 影片嵌入，彷彿它們是 ResourceSpace 的資源。';

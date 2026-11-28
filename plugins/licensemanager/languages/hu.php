@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Licencszerkesztés';
 $lang["page-title_licensemanager_list"] = 'Licencék listája';
 $lang["page-title_licensemanager_setup"] = 'Licenckezelő bővítmény beállítása';
 $lang["page-title_licensemanager_unlink"] = 'Licenc eltávolítása';
+
+$lang["collection_actiontype_80"] = 'Licencelés';
+$lang['plugin-licensemanager-title'] = 'Licenckezelő';
+$lang['plugin-licensemanager-desc'] = 'Erőforrás licenc kezelés.';

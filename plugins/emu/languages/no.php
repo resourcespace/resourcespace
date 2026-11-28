@@ -38,3 +38,5 @@ $lang["plugin-emu-desc"] = 'Tillater at ressursmetadata kan hentes fra EMu-datab
 
 $lang["page-title_emu_emu_object_details"] = 'EMu Objekt Detaljer';
 $lang["page-title_emu_setup"] = 'Konfigurer Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';

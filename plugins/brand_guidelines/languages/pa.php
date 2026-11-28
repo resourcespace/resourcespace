@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'ਬ੍ਰਾਂਡ ਗਾਈਡ�
 $lang["page-title_brand_guidelines_guidelines"] = 'ਬ੍ਰਾਂਡ ਗਾਈਡਲਾਈਨਜ਼';
 $lang["page-title_brand_guidelines_setup"] = 'ਬ੍ਰਾਂਡ ਗਾਈਡਲਾਈਨ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_brand_guidelines_toc"] = 'ਸਮੱਗਰੀ ਸੰਪਾਦਿਤ ਕਰੋ';
+
+$lang['plugin-brand_guidelines-title'] = 'ਬ੍ਰਾਂਡ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼';
+$lang['plugin-brand_guidelines-desc'] = 'ਕਸਟਮ ਸਮੱਗਰੀ, ਸਰੋਤ ਲਿੰਕ ਅਤੇ ਰੰਗਾਂ ਨਾਲ ਬ੍ਰਾਂਡ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ ਖੇਤਰ ਬਣਾਓ।';

@@ -26,3 +26,6 @@ $lang["columnheader-last-found"] = 'Cuối cùng tìm thấy';
 $lang["search_notifications_watched_searches-tooltip"] = 'Kiểm soát các tìm kiếm đã lưu của bạn';
 $lang["page-title_rse_search_notifications_setup"] = 'Cài đặt Plugin Thông báo Tìm kiếm';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'Tìm kiếm đã theo dõi';
+
+$lang['plugin-rse_search_notifications-title'] = 'Thông báo Tìm kiếm';
+$lang['plugin-rse_search_notifications-desc'] = 'Thông báo cho người dùng khi có thay đổi trong tìm kiếm đã lưu.';

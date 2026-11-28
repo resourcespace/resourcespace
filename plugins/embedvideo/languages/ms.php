@@ -8,3 +8,6 @@ $lang["embed_video_configuration"] = 'Konfigurasi Video Terbenam';
 $lang["specify_resourcetype"] = 'Sila nyatakan jenis sumber yang mana fungsi \'embed\' harus muncul.';
 $lang["video_resourcetype"] = 'Jenis Sumber Video';
 $lang["page-title_embedvideo_setup"] = 'Tetapkan Plugin Video Terbenam';
+
+$lang['plugin-embedvideo-title'] = 'Sisip Video';
+$lang['plugin-embedvideo-desc'] = 'Menyediakan fungsi untuk menjana HTML bagi video yang boleh disisipkan di laman jauh.';

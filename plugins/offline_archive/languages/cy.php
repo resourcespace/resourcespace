@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Adfer Archif';
 $lang["page-title_offline_archive_setup"] = 'Gosod Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'View Archifau Adnoddau';
 $lang["page-title_offline_archive_view_pending"] = 'Gweld Archifau ar Goll';
+
+$lang['plugin-offline_archive-title'] = 'Archif All-lein';
+$lang['plugin-offline_archive-desc'] = 'Yn galluogi symud ffeiliau archifedig i leoliad all-lein.';

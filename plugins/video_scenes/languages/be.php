@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Прайграць сцэну ў %time';
 $lang["video_scene_play_unavailable"] = 'Гэтая сцэна знаходзіцца па-за межамі даступнага прагляду відэа.';
 $lang["video_scene_job_success"] = 'Апрацоўка відэа сцэны завершана';
 $lang["video_scene_job_failure"] = 'Апрацоўка відэа сцэны не ўдалася. Глядзіце журнал заданняў для падрабязнасцей.';
+$lang['plugin-video_scenes-title'] = 'Відэасцэны';
+$lang['plugin-video_scenes-desc'] = 'Лакальнае выяўленне відэасцэн з дапамогай transnetv2-pytorch, з неабавязковымі аўдыявізуальнымі апісаннямі OpenAI.';

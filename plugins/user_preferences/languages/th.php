@@ -7,3 +7,6 @@ $lang["user_preferences_change_email"]='อนุญาตให้เปลี�
 $lang["user_preferences_change_name"]='อนุญาตให้เปลี่ยนชื่อผู้ใช้';
 $lang["changeyourpassword"]='เปลี่ยนรหัสผ่านและรายละเอียดผู้ใช้ของฉัน';
 $lang["page-title_user_preferences_setup"] = 'ตั้งค่าปลั๊กอินความชอบของผู้ใช้';
+
+$lang['plugin-user_preferences-title'] = 'การตั้งค่าผู้ใช้';
+$lang['plugin-user_preferences-desc'] = 'อนุญาตให้ผู้ใช้ปรับปรุงชื่อผู้ใช้ ชื่อ และที่อยู่อีเมลของตนได้';

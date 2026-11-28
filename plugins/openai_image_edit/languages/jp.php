@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI 新規保存';
 $lang["openai_image_edit_error_invalid_image_data"] = '無効な画像データです';
 $lang["openai_image_edit_error_invalid_image"] = '無効な画像です';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = '一時ファイルを書き込めません';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI画像編集';
+$lang['plugin-openai_image_edit-desc'] = '画像の一部を消去し、GPT Imageを使って再生成します。';

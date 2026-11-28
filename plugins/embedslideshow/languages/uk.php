@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'Динамічне змінення ро
 
 $lang["page-title_embedslideshow_setup"] = 'Налаштування плагіна вбудованого слайд-шоу';
 $lang["page-title_embedslideshow_viewer"] = 'Вставити слайд-шоу';
+
+$lang['plugin-embedslideshow-title'] = 'Вбудована слайдшоу';
+$lang['plugin-embedslideshow-desc'] = 'Надає функцію для створення HTML-коду для вбудованих слайдшоу колекцій на віддалених сайтах.';

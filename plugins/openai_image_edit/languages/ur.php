@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI نئی محفوظ کر�
 $lang["openai_image_edit_error_invalid_image_data"] = 'غلط تصویر کا ڈیٹا';
 $lang["openai_image_edit_error_invalid_image"] = 'غلط تصویر';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'عارضی فائل لکھنے میں ناکام';
+$lang['plugin-openai_image_edit-title'] = 'اوپن اے آئی امیج ایڈیٹنگ';
+$lang['plugin-openai_image_edit-desc'] = 'تصویر کے حصے مٹائیں اور انہیں دوبارہ بنانے کے لیے GPT Image استعمال کریں۔';

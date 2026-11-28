@@ -1,195 +1,60 @@
 <?php
 
-include dirname(__DIR__, 2) . '/include/boot.php';
-command_line_only();
-
-$restrict = $argv[1] ?? false;
-
-// Models to use in the order to try them in.
-$models = ["gpt-4.1-nano", "gpt-4.1-mini", "gpt-4o-mini", "gpt-4o"];
-
-// Parallel request count
-$parallel = 16;
-
-// Smaller batches are usually faster overall
-$batch_size = 15;
-
-if (substr((string)$restrict, 0, 6) == "model:") {
-    $models = [substr($restrict, 6)];
-    $restrict = false;
+if (PHP_SAPI !== 'cli') {
+    http_response_code(401);
+    exit('Access denied - Command line only!');
 }
 
-function buildChatCompletionHandle($apiKey, $model, $messages = array(), $uid = "")
-{
-    $endpoint = "https://api.openai.com/v1/chat/completions";
+$root = dirname(__DIR__, 2);
+require_once $root . '/include/cli_functions.php';
+require_once $root . '/include/lang_translation_functions.php';
 
-    $headers = [
-        "Content-Type: application/json",
-        "Authorization: Bearer $apiKey",
-    ];
-
-    $data = [
-        "model" => $model,
-        "messages" => $messages,
-        "temperature" => 0,
-        "max_tokens" => 4096,
-        "response_format" => ["type" => "json_object"],
-        "user" => $uid,
-    ];
-
-    $ch = curl_init($endpoint);
-
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST => true,
-        CURLOPT_TIMEOUT => 120,
-        CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_POSTFIELDS => json_encode($data),
-        CURLOPT_SSL_VERIFYPEER => true,
-        CURLOPT_SSL_VERIFYHOST => 2,
-    ]);
-
-    return $ch;
+$models = ['gpt-4.1-nano', 'gpt-4.1-mini', 'gpt-4o-mini', 'gpt-4o', 'gpt-6-luna', 'gpt-6.1-terra'];
+$restrict = null;
+$audit = false;
+foreach (array_slice($argv, 1) as $argument) {
+    if ($argument === '--help') {
+        echo "Usage: php lang_translate_gpt.php [locale] [model:model-id] [--audit]\n";
+        echo "--audit checks existing entries for defects without using the API or writing language packs.\n";
+        exit(0);
+    }
+    if ($argument === '--audit') {
+        $audit = true;
+    } elseif (str_starts_with($argument, 'model:') && strlen($argument) > 6) {
+        $models = [substr($argument, 6)];
+    } elseif ($restrict === null && preg_match('/^[a-z]{2,3}(?:-[a-zA-Z0-9]+)?$/D', $argument) === 1) {
+        $restrict = $argument;
+    } else {
+        fwrite(STDERR, "Unknown argument: {$argument}\n");
+        exit(2);
+    }
 }
 
-function run_parallel_translations($requests)
-{
-    $mh = curl_multi_init();
-
-    foreach ($requests as $id => $request) {
-        curl_multi_add_handle($mh, $request["handle"]);
+if ($audit) {
+    cli_log('ResourceSpace language pack audit', 'heading');
+    // The audit reads stock language files and plugin descriptions without booting the installation.
+    require_once $root . '/include/definitions.php';
+    require_once $root . '/include/file_functions.php';
+    require_once $root . '/include/plugin_functions.php';
+} else {
+    cli_log('ResourceSpace translation', 'heading');
+    cli_log('  Loading configuration.', 'muted');
+    require_once $root . '/include/boot.php';
+    if (!is_string($openai_key ?? null) || trim($openai_key) === '') {
+        fwrite(STDERR, "Configure an OpenAI API key before translating.\n");
+        exit(2);
     }
-
-    $running = null;
-
-do {
-
-    do {
-        $status = curl_multi_exec($mh, $running);
-    } while ($status === CURLM_CALL_MULTI_PERFORM);
-
-    echo "\rParallel requests active: {$running}   ";
-    flush();
-
-    if ($running > 0) {
-        curl_multi_select($mh, 1);
+    $lock = fopen(sys_get_temp_dir() . '/rs-language-translation-' . hash('sha256', $root) . '.lock', 'c');
+    if ($lock === false || !flock($lock, LOCK_EX | LOCK_NB)) {
+        fwrite(STDERR, "Could not acquire the translation lock for this checkout.\n");
+        exit(2);
     }
-
-} while ($running > 0);
-
-echo "\n";
-
-    $results = [];
-
-    foreach ($requests as $id => $request) {
-
-        $response = curl_multi_getcontent($request["handle"]);
-        $error = curl_errno($request['handle']);
-        $http_status = (int) curl_getinfo($request['handle'], CURLINFO_RESPONSE_CODE);
-
-        if ($response === false || $error !== CURLE_OK) {
-            echo "Translation request {$id} failed: " . curl_error($request['handle']) . "\n";
-            $results[$id] = null;
-        } elseif ($http_status < 200 || $http_status >= 300) {
-            echo "Translation request {$id} failed: HTTP {$http_status}\n";
-            $results[$id] = null;
-        } else {
-            $response_data = json_decode($response, true);
-
-            $results[$id] =
-                $response_data["choices"][0]["message"]["content"]
-                ?? null;
-        }
-
-        curl_multi_remove_handle($mh, $request["handle"]);
-        curl_close($request["handle"]);
-    }
-
-    curl_multi_close($mh);
-
-    return $results;
 }
 
-function extract_json_object($text)
-{
-    $text = trim((string)$text);
-
-    if (str_starts_with($text, "```")) {
-        $text = preg_replace('/^```(?:json)?\s*/', '', $text);
-        $text = preg_replace('/\s*```$/', '', $text);
-    }
-
-    $decoded = json_decode($text, true);
-
-    if (is_array($decoded)) {
-        return $decoded;
-    }
-
-    $start = strpos($text, "{");
-    $end = strrpos($text, "}");
-
-    if ($start !== false && $end !== false && $end > $start) {
-        $json = substr($text, $start, $end - $start + 1);
-        $decoded = json_decode($json, true);
-
-        if (is_array($decoded)) {
-            return $decoded;
-        }
-    }
-
-    return null;
+if ($restrict !== null && !isset($languages[$restrict])) {
+    fwrite(STDERR, "Unknown locale: {$restrict}\n");
+    exit(2);
 }
-
-function placeholders_match($source, $translation)
-{
-    preg_match_all("/\[([a-zA-Z0-9_]*)\]/", (string)$source, $source_params);
-    preg_match_all("/\[([a-zA-Z0-9_]*)\]/", (string)$translation, $result_params);
-
-    sort($source_params[0]);
-    sort($result_params[0]);
-
-    return $source_params[0] === $result_params[0];
-}
-
-function build_translation_messages($batch, $lang_name)
-{
-    return [
-        [
-            "role" => "system",
-            "content" => "Your task is to translate language strings used by the digital asset management software ResourceSpace from English to {$lang_name}.
-
-Ensure translations accurately reflect the intended meaning in the context of digital asset management software.
-
-Return ONLY valid JSON.
-
-The JSON object must have exactly the same keys as the input JSON object.
-
-Each value must be the translated string.
-
-Do not translate the keys.
-
-Preserve placeholders in square brackets exactly.
-
-Do not output markdown or explanations."
-        ],
-        [
-            "role" => "user",
-            "content" => json_encode($batch, JSON_UNESCAPED_UNICODE)
-        ]
-    ];
-}
-
-$plugins = scandir(RESOURCESPACE_BASE_PATH . "/plugins");
-array_shift($plugins);
-array_shift($plugins);
-
-$plugins[] = "";
-$plugins = array_reverse($plugins);
-
-$bad_params = 0;
-$calamity = 0;
-$calamities = [];
-$bad_params_list = [];
 
 $ignore = [
     "map_hydda_group",
@@ -226,301 +91,161 @@ $ignore = [
     "all__file_integrity_fail_email"
 ];
 
-foreach ($plugins as $plugin) {
+$components = ['' => $root];
+foreach (glob($root . '/plugins/*/languages/en.php') ?: [] as $source_file) {
+    $component_path = dirname($source_file, 2);
+    $components[basename($component_path)] = $component_path;
+}
+$english_core = lang_translation_load_pack($root . '/languages/en.php');
+cli_log('  Checking ' . count($components) . ' language pack directories'
+    . ($restrict === null ? ' across all supported locales.' : " for {$restrict}."), 'muted');
+$glossary_keys = array_fill_keys([
+    'resource', 'resources', 'resourceid', 'resourcetype', 'collection', 'collections', 'metadata', 'archive',
+    'archived', 'searchbutton', 'upload', 'download', 'status', 'featuredcollections', 'save', 'cancel',
+], true);
+$usage = null;
+$locale_context = [];
+$failed = 0;
+$reviews = 0;
+$processed = 0;
+$groups = [];
+$contexts = [];
+$sources = [];
 
-    $plugin_path = "";
-
-    if ($plugin != "") {
-        $plugin_path = "plugins/" . $plugin . "/";
-    }
-
-    $lang = [];
-    $basefile = sprintf('%s/%slanguages/en.php', RESOURCESPACE_BASE_PATH, $plugin_path);
-
-    if (!file_exists($basefile)) {
-        continue;
-    }
-
-    include $basefile;
-    $lang_en = $lang;
-
-    foreach ($languages as $language => $lang_name) {
-
-        if (in_array($language, ["en", "en-US"])) {
-            continue;
+try {
+    foreach ($components as $component => $directory) {
+        $component_name = $component === '' ? 'ResourceSpace core' : $component;
+        $english = $component === '' ? $english_core : lang_translation_load_pack($directory . '/languages/en.php');
+        if ($component !== '' && ($yaml = get_plugin_yaml($component, true, false)) !== false) {
+            $english['plugin-' . $component . '-title'] = $yaml['title'];
+            $english['plugin-' . $component . '-desc'] = $yaml['desc'];
         }
 
-        if ($restrict !== false && $restrict != $language) {
-            continue;
-        }
+        $pending = [];
+        $targets = [];
+        foreach ($languages as $locale => $language_name) {
+            if (in_array($locale, ['en', 'en-US'], true) || ($restrict !== null && $locale !== $restrict)) {
+                continue;
+            }
 
-        $lang = [];
+            $file = $directory . '/languages/' . $locale . '.php';
+            $existing = lang_translation_load_pack($file);
+            $label = ($component === '' ? 'core' : $component) . '/' . $locale;
+            if ($audit) {
+                foreach (array_intersect_key($english, $existing) as $key => $source) {
+                    $issue = lang_translation_issue($source, $existing[$key]);
+                    if ($issue !== null) {
+                        ++$failed;
+                        echo "{$label} {$key}: {$issue}\n";
+                    } elseif (is_string($source) && $source === $existing[$key] && str_word_count($source) >= 4) {
+                        ++$reviews;
+                        echo "{$label} {$key}: review possible untranslated English\n";
+                    }
+                }
+                continue;
+            }
 
-        $langfile = sprintf(
-            '%s/%slanguages/%s.php',
-            RESOURCESPACE_BASE_PATH,
-            $plugin_path,
-            $language
-        );
-
-        if (!file_exists($langfile)) {
-            file_put_contents($langfile, "<?php\n\n");
-        }
-
-        include $langfile;
-
-        $lang_en_extended = $lang_en;
-
-        if ($plugin != "") {
-
-            $yaml_path = sprintf(
-                '%s/%s.yaml',
-                RESOURCESPACE_BASE_PATH,
-                $plugin_path . $plugin
+            $missing = array_filter(
+                array_diff_key($english, $existing, array_fill_keys($ignore, true)),
+                static fn(mixed $value): bool => is_array($value) || (is_string($value) && strlen(trim($value)) > 1)
             );
+            if ($missing === []) {
+                continue;
+            }
 
-            if (file_exists($yaml_path)) {
-
-                $yaml = get_plugin_yaml($yaml_path);
-
-                if (isset($yaml["title"])) {
-                    $lang_en_extended["plugin-" . $plugin . "-title"] = $yaml["title"];
-                }
-
-                if (isset($yaml["desc"])) {
-                    $lang_en_extended["plugin-" . $plugin . "-desc"] = $yaml["desc"];
+            if (!isset($locale_context[$locale])) {
+                $locale_context[$locale] = [];
+                $core_existing = $component === '' ? $existing : lang_translation_load_pack(
+                    $root . '/languages/' . $locale . '.php'
+                );
+                foreach (array_intersect_key($core_existing, $glossary_keys, $english_core) as $key => $value) {
+                    if (is_string($value) && lang_translation_issue($english_core[$key], $value) === null) {
+                        $locale_context[$locale][$english_core[$key]] = $value;
+                    }
                 }
             }
+            $pending[$locale] = $missing;
+            $targets[$locale] = [
+                'language' => $language_name,
+                'existing_terminology' => $locale_context[$locale],
+            ];
         }
-
-        $missing = array_diff(
-            array_keys($lang_en_extended),
-            array_keys($lang)
-        );
-
-        $missing = array_filter(
-            $missing,
-            function ($mkey) use ($lang_en_extended, $ignore) {
-
-                if (is_array($lang_en_extended[$mkey])) {
-                    return true;
-                }
-
-                if (!is_string($lang_en_extended[$mkey])) {
-                    return false;
-                }
-
-                if (strlen(trim($lang_en_extended[$mkey])) <= 1) {
-                    return false;
-                }
-
-                if (in_array($mkey, $ignore)) {
-                    return false;
-                }
-
-                return true;
-            }
-        );
-
-        if (count($missing) === 0) {
+        if ($pending === []) {
             continue;
         }
 
-        echo "\nProcessing {$plugin_path} language {$language} ({$lang_name}) - " . count($missing) . " missing strings\n\n";
-
-        $array_keys = [];
-        $output_lines = [];
-        $processed = 0;
-
-        // Build all batches first
-        $all_batches = [];
-        $current_batch = [];
-
-        foreach ($missing as $mkey) {
-
-            $value = $lang_en_extended[$mkey];
-
-            if (is_array($value)) {
-                $value = json_encode($value, JSON_UNESCAPED_UNICODE);
-                $array_keys[$mkey] = true;
-            }
-
-            $current_batch[$mkey] = $value;
-
-            if (count($current_batch) >= $batch_size) {
-                $all_batches[] = $current_batch;
-                $current_batch = [];
-            }
-        }
-
-        if (count($current_batch) > 0) {
-            $all_batches[] = $current_batch;
-        }
-
-        // Process batches in parallel groups
-        for ($i = 0; $i < count($all_batches); $i += $parallel) {
-
-            $group = array_slice($all_batches, $i, $parallel, true);
-
-            echo "Processing parallel group starting batch " . ($i + 1) . "/" . count($all_batches) . "\n";
-
-            $remaining_batches = $group;
-
-            foreach ($models as $model) {
-
-                if (count($remaining_batches) === 0) {
-                    break;
-                }
-
-                echo "Using model: {$model}\n";
-
-                $requests = [];
-
-                foreach ($remaining_batches as $batch_id => $batch) {
-
-                    $messages = build_translation_messages($batch, $lang_name);
-
-                    $requests[$batch_id] = [
-                        "batch" => $batch,
-                        "handle" => buildChatCompletionHandle(
-                            $openai_key,
-                            $model,
-                            $messages
-                        )
-                    ];
-                }
-
-                $responses = run_parallel_translations($requests);
-
-                $failed_batches = [];
-
-                foreach ($remaining_batches as $batch_id => $batch) {
-
-                    $translations = extract_json_object($responses[$batch_id]);
-
-                    if (!is_array($translations)) {
-
-                        echo "Batch failed JSON parsing with model {$model}\n";
-
-                        $failed_batches[$batch_id] = $batch;
-                        continue;
-                    }
-
-                    $batch_failed = false;
-
-                    foreach ($batch as $key => $source) {
-
-                        if (
-                            !isset($translations[$key])
-                            || !is_string($translations[$key])
-                        ) {
-                            $batch_failed = true;
-                            break;
-                        }
-
-                        $translation = $translations[$key];
-
-                        if (
-                            strlen(trim($translation)) === 0
-                            || stripos($translation, "calamity") !== false
-                            || stripos($translation, "[error]") !== false
-                        ) {
-                            $batch_failed = true;
-                            break;
-                        }
-
-                        if (!placeholders_match($source, $translation)) {
-
-                            echo "Placeholder mismatch: {$key}\n";
-
-                            $bad_params++;
-                            $bad_params_list[] = $key;
-
-                            $batch_failed = true;
-                            break;
-                        }
-                    }
-
-                    if ($batch_failed) {
-                        $failed_batches[$batch_id] = $batch;
-                        continue;
-                    }
-
-                    // Batch succeeded
-                    foreach ($batch as $key => $source) {
-
-                        $translation = $translations[$key];
-
-                        if (isset($array_keys[$key])) {
-
-                            $decoded = json_decode($translation, true);
-
-                            if ($decoded === null) {
-
-                                echo "Failed array decode: {$key}\n";
-
-                                $calamity++;
-                                $calamities[] = $key;
-
-                                continue;
-                            }
-
-                            $translation = $decoded;
-                        }
-
-                        $output_lines[] =
-                            "\n\$lang[\"" .
-                            addslashes($key) .
-                            "\"] = " .
-                            var_export($translation, true) .
-                            ";";
-
-                        echo "{$model} translated to {$language}: {$key}\n";
-
-                        $processed++;
-                    }
-                }
-
-                $remaining_batches = $failed_batches;
-            }
-
-            // Any batches still remaining failed all models
-            foreach ($remaining_batches as $batch) {
-                foreach ($batch as $key => $value) {
-                    $calamity++;
-                    $calamities[] = $key;
-
-                    echo "Failed all models: {$key}\n";
-                }
-            }
-
-            // Write after each parallel group
-            if (count($output_lines) > 0) {
-
-                file_put_contents(
-                    $langfile,
-                    implode("", $output_lines),
-                    FILE_APPEND
-                );
-
-                $output_lines = [];
-            }
-        }
-
-        echo "\nCompleted {$plugin_path} language {$language}; added {$processed} translations\n\n";
+        $groups[$component] = lang_translation_batches($pending);
+        $contexts[$component] = ['component' => $component_name, 'locales' => $targets];
+        $sources[$component] = $english;
     }
+    if ($groups !== []) {
+        if ($usage === null) {
+            cli_log('  Indexing source paths for translation context.', 'muted');
+            $usage = lang_translation_usage_index($root);
+            cli_log('  Indexed source paths for ' . count($usage) . ' language keys.', 'muted');
+        }
+        $batch_count = array_sum(array_map('count', $groups));
+        $batch_label = $batch_count === 1 ? 'batch' : 'batches';
+        cli_log("\nTranslation queue", 'heading');
+        cli_log(
+            "  {$batch_count} {$batch_label} across " . count($groups) . " components. First model: {$models[0]}.",
+            'muted'
+        );
+        $untranslated = lang_translation_run(
+            $openai_key,
+            $models,
+            $groups,
+            ['components' => $contexts, 'usage' => $usage],
+            static function (
+                string $component,
+                array $translations,
+                string $model
+            ) use (
+                $components,
+                $contexts,
+                $sources,
+                &$processed
+            ): void {
+                $directory = $components[$component];
+                $component_name = $contexts[$component]['component'];
+                foreach ($translations as $locale => $values) {
+                    lang_translation_append($directory . '/languages/' . $locale . '.php', $values);
+                    $processed += count($values);
+                    $label = "  {$component_name}/{$locale} · Saved ";
+                    cli_log($label . count($values) . " translations from {$model}.", 'success');
+                    foreach ($values as $key => $value) {
+                        $source = $sources[$component][$key];
+                        $left = is_string($source) ? $source : json_encode($source, JSON_UNESCAPED_UNICODE);
+                        $right = is_string($value) ? $value : json_encode($value, JSON_UNESCAPED_UNICODE);
+                        cli_log(
+                            '    ' . cli_preview_column((string) $left) . ' => ' . cli_preview_column((string) $right)
+                        );
+                    }
+                }
+            }
+        );
+        foreach ($untranslated as $component => $locales) {
+            $component_name = $contexts[$component]['component'];
+            foreach ($locales as $locale => $entries) {
+                foreach ($entries as $key => $reason) {
+                    ++$failed;
+                    cli_log("  {$component_name}/{$locale} {$key}: {$reason}", 'warning');
+                }
+            }
+        }
+    }
+} catch (RuntimeException | JsonException $exception) {
+    fwrite(STDERR, $exception->getMessage() . "\n");
+    exit(1);
 }
 
-echo "\n\nTranslations that contained bad parameters and were skipped={$bad_params}\nCould not translate={$calamity}\n\n";
-
-if (count($bad_params_list) > 0) {
-    echo "Bad parameter strings:\n";
-    print_r($bad_params_list);
-    echo "\n";
+if ($audit) {
+    cli_log("\nAudit summary", 'heading');
+    cli_log("  Structural flags: {$failed}.", $failed > 0 ? 'warning' : 'success');
+    cli_log("  Possible untranslated English: {$reviews}.", 'muted');
+} else {
+    cli_log("\nTranslation summary", 'heading');
+    cli_log("  Saved: {$processed}.", 'success');
+    cli_log("  Untranslated: {$failed}.", $failed > 0 ? 'warning' : 'muted');
 }
-
-if (count($calamities) > 0) {
-    echo "Calamities:\n";
-    print_r($calamities);
-    echo "\n";
-}
+exit($failed > 0 ? 1 : 0);

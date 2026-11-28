@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Керувати вмістом 
 $lang["page-title_brand_guidelines_guidelines"] = 'Керівництво по бренду';
 $lang["page-title_brand_guidelines_setup"] = 'Налаштування плагіна керівництвом по бренду';
 $lang["page-title_brand_guidelines_toc"] = 'Редагувати вміст';
+
+$lang['plugin-brand_guidelines-title'] = 'Брендові настанови';
+$lang['plugin-brand_guidelines-desc'] = 'Створіть розділ брендованих настанов із власним контентом, посиланнями на ресурси та кольорами.';

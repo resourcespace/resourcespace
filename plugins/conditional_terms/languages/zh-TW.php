@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = '元資料欄位';
 $lang["conditional_terms_value"] = '值';
 $lang["conditional_terms_plugin_misconfigured"] = '條件條款插件配置錯誤';
 $lang["page-title_conditional_terms_setup"] = '設定條件條款插件';
+
+$lang['plugin-conditional_terms-title'] = '條件條款';
+$lang['plugin-conditional_terms-desc'] = '根據資源元資料，啟用下載時條款頁面的條件顯示。';

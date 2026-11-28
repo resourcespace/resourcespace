@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'Arbed..';
 $lang["adobe_link_saving_wait"] = 'Mae\'r ffeil yn cael ei chadw, aroswch am y neges gadarnhau. Efallai y bydd angen i chi adnewyddu\'r dudalen i ddiweddaru\'r delwedd rhagolwg.';
 
 $lang["page-title_adobe_link_setup"] = 'Gosod Plugin Adobe Link';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'Caniatáu mewnforio ffeiliau Adobe o ResourceSpace i Adobe CC.';

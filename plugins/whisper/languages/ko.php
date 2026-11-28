@@ -15,3 +15,6 @@ $lang["whisper"] = '속삭임';
 $lang["whisper_process_existing"] = '처리되지 않은 자산 처리';
 $lang["whisper_process_existing_intro"] = '여기서 Whisper 오디오 처리를 시작하는 작업을 만드세요 - 이 작업은 매개변수가 필요하지 않으므로 이 유형의 다른 작업이 없으면 시작할 수 있습니다.';
 $lang["whisper_process_existing_configure"] = 'Whisper로 파일을 처리하는 작업 구성';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'OpenAI Whisper를 사용한 비디오/오디오를 텍스트로 변환합니다. 로컬에서 실행되며 구독이 필요 없습니다.';

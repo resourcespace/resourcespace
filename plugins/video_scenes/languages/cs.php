@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Přehrát scénu v %time';
 $lang["video_scene_play_unavailable"] = 'Tato scéna je mimo dostupnou video ukázku.';
 $lang["video_scene_job_success"] = 'Zpracování video scény dokončeno';
 $lang["video_scene_job_failure"] = 'Zpracování video scény selhalo. Podrobnosti naleznete v protokolu úlohy.';
+$lang['plugin-video_scenes-title'] = 'Video scény';
+$lang['plugin-video_scenes-desc'] = 'Lokální detekce video scén pomocí transnetv2-pytorch, s volitelnými audiovizuálními popisy OpenAI.';

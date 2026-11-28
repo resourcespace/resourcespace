@@ -52,3 +52,6 @@ $lang["youtube_chunk_size"] = 'Размер на частта при качва�
 $lang["youtube_publish_add_anchor"] = 'Добавяне на анкор тагове към URL при запазване в полето за метаданни на YouTube URL?';
 $lang["page-title_youtube_publish_setup"] = 'Настройка на приставката';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Публикуване на ресурс в YouTube';
+
+$lang['plugin-youtube_publish-title'] = 'Публикуване в YouTube';
+$lang['plugin-youtube_publish-desc'] = 'Публикувайте видео ресурси в конфигуриран YouTube акаунт.';

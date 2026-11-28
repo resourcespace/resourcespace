@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Nieuw opslaan';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Ongeldige afbeeldingsgegevens';
 $lang["openai_image_edit_error_invalid_image"] = 'Ongeldige afbeelding';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Kan tijdelijke bestand niet schrijven';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI Afbeelding Bewerken';
+$lang['plugin-openai_image_edit-desc'] = 'Wis delen van een afbeelding uit en gebruik GPT Image om deze te regenereren.';

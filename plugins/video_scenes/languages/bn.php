@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time এ দৃশ্য চালান';
 $lang["video_scene_play_unavailable"] = 'এই দৃশ্যটি উপলব্ধ ভিডিও প্রিভিউর বাইরে।';
 $lang["video_scene_job_success"] = 'ভিডিও দৃশ্য প্রক্রিয়াকরণ সম্পন্ন হয়েছে';
 $lang["video_scene_job_failure"] = 'ভিডিও দৃশ্য প্রক্রিয়াকরণ ব্যর্থ হয়েছে। বিস্তারিত জানতে কাজের লগ দেখুন।';
+$lang['plugin-video_scenes-title'] = 'ভিডিও দৃশ্যসমূহ';
+$lang['plugin-video_scenes-desc'] = 'স্থানীয়ভাবে transnetv2-pytorch ব্যবহার করে ভিডিও দৃশ্য সনাক্ত করুন, ঐচ্ছিক OpenAI অডিওভিজ্যুয়াল বর্ণনার সাথে।';

@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"]='ਸਰਵਰ ਦੇ FQDN ਨੂ
 $lang["page-title_simpleldap_ajax_test_auth"] = 'LDAP ਪ੍ਰਮਾਣਿਕਤਾ ਦੀ ਜਾਂਚ ਕਰੋ';
 $lang["page-title_simpleldap_setup"] = 'ਸਧਾਰਨ LDAP ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["simpleldap_userlimit_error"] = 'ਉਪਭੋਗਤਾ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ ਕਿਉਂਕਿ ਉਪਭੋਗਤਾ ਸੀਮਾ ਪਹੁੰਚ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'LDAP ਰਾਹੀਂ ਯੂਜ਼ਰ ਪ੍ਰਮਾਣਿਕਤਾ।';

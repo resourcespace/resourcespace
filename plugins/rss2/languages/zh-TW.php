@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = '搜尋 [%search%] 的篩選資源更新
 $lang["page-title_rss2_rssfeed"] = 'RSS 源';
 $lang["page-title_rss2_rssfilter"] = 'RSS 篩選器';
 $lang["page-title_rss2_setup"] = '設定 RSS 外掛';
+
+$lang['plugin-rss2-title'] = 'RSS 訂閱源';
+$lang['plugin-rss2-desc'] = '啟用經身份驗證的新內容 RSS 訂閱源生成，包括可配置欄位。';

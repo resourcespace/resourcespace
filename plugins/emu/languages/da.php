@@ -37,3 +37,5 @@ $lang["plugin-emu-desc"] = 'Tillader udtrækning af ressource-metadata fra EMu-d
 
 $lang["page-title_emu_emu_object_details"] = 'EMu Objekt Detaljer';
 $lang["page-title_emu_setup"] = 'Opsætning Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';

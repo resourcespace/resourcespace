@@ -1,0 +1,20 @@
+<?php
+$lang['totp_set_up'] = 'බහු-සාධක සත්‍යාපනය (MFA) සකසන්න';
+$lang['totp_set_up_details'] = 'ඔබගේ ජංගම උපාංගයේ TOTP යෙදුමක් භාවිතා කර පහත QR කේතය ස්කෑන් කරන්න, උදාහරණයක් ලෙස ඇප් වෙළඳසැලේ ලබා ගත හැකි Google Authenticator. <br><br> කේතය සාර්ථකව ස්කෑන් කළ පසු, ස්ථාපනය තහවුරු කිරීමට යෙදුමෙන් පෙන්වන අංක හය ඇතුළත් කරන්න. පසුව ලොග් වීමේදී ඔබට යෙදුමෙන් ලබා දෙන කේතය අසනු ලැබේ.';
+$lang['totp_code'] = 'සත්‍යාපන කේතය:';
+$lang['totp_confirm'] = 'තහවුරු කරන්න';
+$lang['totp_skip'] = 'අදට මඟහැරීම (පරිපාලකයින්ට පමණි)';
+$lang['totp_tries_exceeded'] = 'ඔබට උපරිම උත්සාහ ගණන ඉක්මවා ඇත. පරිපාලකයෙකු අමතන්න.';
+$lang['totp_tries_left'] = 'උත්සාහ ඉතිරිව ඇත';
+$lang['totp_code_details'] = 'කරුණාකර ඔබගේ සත්‍යාපන යෙදුමෙන් කේතය ඇතුළත් කරන්න.';
+$lang['totp_reset'] = 'මෙම පරිශීලකයා සඳහා TOTP/MFA තත්ත්වය නැවත සකසන්න; ඔවුන්ට නැවත TOTP සකස් කිරීමට ඉල්ලීමක් සිදු වේ.';
+$lang['totp_date_binding'] = 'පරිශීලකයින්ට පහත අවසන් වීමෙන් පසු TOTP කේතයක් නැවත ඇතුළත් කිරීමට ඉල්ලීමක් සිදු වේ...';
+$lang['totp_date_binding_d'] = 'වත්මන් දිනය';
+$lang['totp_date_binding_w'] = 'වත්මන් සතිය (සඳුදා සිට ආරම්භ)';
+$lang['totp_date_binding_m'] = 'වත්මන් මාසය';
+$lang['totp_date_binding_y'] = 'වත්මන් වසර';
+$lang['totp_saml'] = 'SAML හරහා දැනටමත් සත්‍යාපිත පරිශීලකයින් සඳහා TOTP අක්‍රීය කරන්න (SAML ප්ලගීනය අවශ්‍යයි)';
+$lang['page-title_totp_setup'] = 'TOTP ප්ලගීනය සකසන්න';
+$lang['page-title_totp_totp'] = 'TOTP';
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Google Authenticator හරහා TFA/MFA සහාය';

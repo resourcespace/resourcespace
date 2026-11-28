@@ -245,8 +245,10 @@ include "../include/header.php";
         $logentry["user"] = hook("userdisplay", "", array($log[$n])) ? "" : $logusertext;
 
         if ($filter_dld_records_only) {
-            if (isset($download_usage_options[$log[$n]["usageoption"]]) && $log[$n]["usageoption"] != -1 && $log[$n]["usageoption"] >= 0) {
-                $logentry["usage"] = nl2br(escape(i18n_get_translated($download_usage_options[$log[$n]["usageoption"]])));
+            $usage_id = $log[$n]['usageoption'];
+            $usage_label = $download_usage_options[$usage_id] ?? $download_usage_options_retired[$usage_id] ?? null;
+            if ($usage_id >= 0 && $usage_label !== null) {
+                $logentry['usage'] = nl2br(escape(i18n_get_translated($usage_label)));
             }
             $logentry["usagemedium"]  = escape($log[$n]["notes"]);
             $tabledata["data"][] = $logentry;

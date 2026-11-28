@@ -15,3 +15,6 @@ $lang["whisper"] = 'กระซิบ';
 $lang["whisper_process_existing"] = 'ประมวลผลทรัพยากรที่ยังไม่ได้ประมวลผล';
 $lang["whisper_process_existing_intro"] = 'สร้างงานเพื่อเริ่มการประมวลผลเสียง Whisper ที่นี่ - งานนี้ไม่ต้องการพารามิเตอร์ใด ๆ จึงสามารถเริ่มได้ตราบเท่าที่ไม่มีงานอื่นที่ค้างอยู่ของประเภทนี้';
 $lang["whisper_process_existing_configure"] = 'กำหนดค่างานเพื่อประมวลผลไฟล์ด้วย Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'แปลงวิดีโอ/เสียงเป็นข้อความโดยใช้ Whisper จาก OpenAI ทำงานในเครื่อง ไม่ต้องสมัครสมาชิก';

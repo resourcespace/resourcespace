@@ -141,11 +141,11 @@ if (isset($download_usage_prevent_options)) { ?>
             <select class="stdwidth" name="usage" id="usage" <?php echo (isset($download_usage_prevent_options)) ? 'onchange="checkvalidusage();"' : ''; ?>>
                 <option value=""><?php echo escape($lang["select"]); ?></option>
                 <?php
-                for ($n = 0; $n < count($download_usage_options); $n++) {
-                    $selected = ($n === $usage) ? "selected" : "";
+                foreach ($download_usage_options as $option_id => $option_label) {
+                    $selected = (string) $option_id === (string) $usage ? 'selected' : '';
                     ?>
-                    <option <?php echo $selected; ?> value="<?php echo $n; ?>">
-                        <?php echo escape(i18n_get_translated($download_usage_options[$n])); ?>
+                    <option <?php echo $selected; ?> value="<?php echo escape((string) $option_id); ?>">
+                        <?php echo escape(i18n_get_translated($option_label)); ?>
                     </option>
                     <?php
                 } ?>
@@ -206,9 +206,9 @@ function html_usagecomments($usagecomment, $error)
 
 function validate_input_download_usage($fields)
 {
-    global $lang, $usage_comment_blank, $download_usage_email, $remove_usage_textbox;
+    global $lang, $usage_comment_blank, $download_usage_email, $remove_usage_textbox, $download_usage_options;
     $error = array();
-    $error["usage"] = $fields["usage"] == "" ? $lang["usageincorrect"] : "";
+    $error["usage"] = isset($download_usage_options[$fields["usage"]]) ? "" : $lang["usageincorrect"];
 
     if (!$remove_usage_textbox) {
         $error["usagecomment"] = $fields["usagecomment"] == "" && !$usage_comment_blank ? $lang["usageincorrect"] : "";

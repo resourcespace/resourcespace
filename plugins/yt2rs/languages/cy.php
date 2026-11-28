@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"]='Llwybr Miniatwr';
 $lang["yt2rs_online_preview"]='Rhagolwg Ar-lein';
 $lang["yt2rs_youtube_video"]='Fideo Youtube';
 $lang["page-title_yt2rs_setup"] = 'Gosod Plugin Youtube i ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube i ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Ychwanegu fideos a gynhelir ar YouTube fel adnoddau.';

@@ -26,3 +26,6 @@ $lang["columnheader-last-found"]='พบล่าสุด';
 $lang["search_notifications_watched_searches-tooltip"] = 'ควบคุมการค้นหาที่บันทึกไว้ของคุณ';
 $lang["page-title_rse_search_notifications_setup"] = 'ตั้งค่าปลั๊กอินการแจ้งเตือนการค้นหา';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'การค้นหาที่ติดตาม';
+
+$lang['plugin-rse_search_notifications-title'] = 'การแจ้งเตือนการค้นหา';
+$lang['plugin-rse_search_notifications-desc'] = 'แจ้งผู้ใช้เมื่อมีการเปลี่ยนแปลงในการค้นหาที่บันทึกไว้';

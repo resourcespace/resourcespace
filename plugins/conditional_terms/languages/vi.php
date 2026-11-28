@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = 'Trường siêu dữ liệu';
 $lang["conditional_terms_value"] = 'Giá trị';
 $lang["conditional_terms_plugin_misconfigured"] = 'Plugin điều khoản điều kiện bị cấu hình sai';
 $lang["page-title_conditional_terms_setup"] = 'Cài đặt Plugin Điều kiện Điều khoản';
+
+$lang['plugin-conditional_terms-title'] = 'Điều khoản có điều kiện';
+$lang['plugin-conditional_terms-desc'] = 'Cho phép hiển thị có điều kiện trang điều khoản khi tải xuống dựa trên siêu dữ liệu tài nguyên.';

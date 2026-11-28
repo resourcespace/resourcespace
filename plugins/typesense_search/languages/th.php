@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'คีย์ API';
 $lang["typesense_search_collection"] = 'คอลเลกชัน';
 $lang["typesense_search_timeout"] = 'เวลาหมดเวลาเป็นวินาที';
 $lang["typesense_search_validate_access"] = 'ตรวจสอบสิทธิ์หลังการค้นหา Typesense';
+
+$lang['plugin-typesense_search-title'] = 'การค้นหา Typesense';
+$lang['plugin-typesense_search-desc'] = 'ผู้ให้บริการค้นหาภายนอกทางเลือกโดยใช้ Typesense (ทดลอง)';

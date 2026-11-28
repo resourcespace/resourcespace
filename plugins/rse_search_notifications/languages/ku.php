@@ -26,3 +26,6 @@ $lang["columnheader-last-found"] = 'دوایین کەوتنەوە';
 $lang["search_notifications_watched_searches-tooltip"] = 'کۆنترۆلکردنی گەڕانەوەکانی پاشەکەوتکراوەکەت';
 $lang["page-title_rse_search_notifications_setup"] = 'ڕێکخستنەوەی پلاگینەکانی ئاگاداری گەڕان';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'گەڕانەوەکانی سەردانی کراو';
+
+$lang['plugin-rse_search_notifications-title'] = 'ئاگادارییەکانی گەڕان';
+$lang['plugin-rse_search_notifications-desc'] = 'بەکارهێنەر ئاگادار بکە کاتێک گۆڕانکاری لە گەڕانێکی پاشەکەوتکراو ڕوو دەدات.';

@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = '透過重播事件，還原集合 #%COLLE
 $lang["rse_version_invalid_time"] = '無法還原到 [date] 之前的時間';
 $lang["page-title_rse_version_revert"] = '還原資源版本';
 $lang["page-title_rse_version_setup"] = '設定版本插件';
+
+$lang['plugin-rse_version-title'] = '版本控制';
+$lang['plugin-rse_version-desc'] = '追蹤並還原元資料和檔案的變更。';

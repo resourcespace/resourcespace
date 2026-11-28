@@ -10,3 +10,6 @@ $lang["bookend-intro"] = 'وێنەکان لە لیستی فایلەکانی دی
 $lang["bookend-failed"] = 'سەرکەوتوو نەبوو!';
 $lang["bookend-could-not-open-file"] = 'هەڵە - نەتوانی فایلەکە بکەیتەوە!';
 $lang["page-title_video_bookend_bookend"] = 'پەیەکەوەی ڤیدیۆ';
+
+$lang['plugin-video_bookend-title'] = 'Video Bookend';
+$lang['plugin-video_bookend-desc'] = 'توانایی داگرتنی ڤیدیۆ بە ناونیشان و گرافیکی کۆتایی زیاد دەکات.';

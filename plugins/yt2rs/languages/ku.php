@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'ڕێڕەوی وێنەی سەرپەرشتی';
 $lang["yt2rs_online_preview"] = 'پێشبینین لەسەر ئینتەرنێت';
 $lang["yt2rs_youtube_video"] = 'ڤیدیۆی یوتیوب';
 $lang["page-title_yt2rs_setup"] = 'ڕێکخستنەوەی پلاگین یوتیوب بۆ ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube بۆ ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'زیادکردنی ڤیدیۆکانی میزبانی کراو لە YouTube وەک سەرچاوەکان.';

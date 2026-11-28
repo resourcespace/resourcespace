@@ -12,3 +12,6 @@ $lang["invalidrange"]='Kipindi batili';
 $lang["splitpdf_createnewresource"]='Unda rasilimali mpya kwa kila safu';
 $lang["splitpdf_createnewalternativefile"]='Unda faili mbadala mpya kwenye rasilimali hii kwa kila safu';
 $lang["page-title_pdf_split_pdf_split"] = 'PDF Kugawanya';
+
+$lang['plugin-pdf_split-title'] = 'Gawanya PDF';
+$lang['plugin-pdf_split-desc'] = 'Inaruhusu faili za PDF kugawanywa kuwa kurasa nyingi.';

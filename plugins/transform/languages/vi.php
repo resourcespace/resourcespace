@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'Sử dụng tên tệp làm tiêu đề';
 
 $lang["error-resolution-zero"] = 'Lỗi: Hình ảnh gốc có chiều rộng / chiều cao tính toán bằng không.';
 $lang["error-preview-missing"] = 'Lỗi: Không thể tìm thấy hình xem trước';
+$lang['plugin-transform-title'] = 'Công cụ hình ảnh (biến đổi)';
+$lang['plugin-transform-desc'] = 'Cho phép tạo các hình ảnh thay thế đã được cắt và thay đổi kích thước.';

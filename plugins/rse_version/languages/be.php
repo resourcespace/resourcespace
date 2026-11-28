@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'Вяртанне стану для кал
 $lang["rse_version_invalid_time"] = 'Павернуць да часу, які папярэднічае [date], не падтрымліваецца';
 $lang["page-title_rse_version_revert"] = 'Аднавіць версію рэсурсу';
 $lang["page-title_rse_version_setup"] = 'Наладка версіі плагіна';
+
+$lang['plugin-rse_version-title'] = 'Кантроль версій';
+$lang['plugin-rse_version-desc'] = 'Адсочвайце і аднаўляйце змены метададзеных і файлаў.';

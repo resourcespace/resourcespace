@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'ਖੋਜੋ';
 $lang["page-title_image_banks_setup"] = 'ਇਮੇਜ ਬੈਂਕ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_image_banks_shutterstock_license"] = 'Shutterstock ਚਿੱਤਰ ਵੇਖੋ';
 $lang["page-title_image_banks_view"] = 'ਸੰਸਾਧਨ ਵੇਖੋ';
+
+$lang['plugin-image_banks-title'] = 'ਚਿੱਤਰ ਬੈਂਕ';
+$lang['plugin-image_banks-desc'] = 'ResourceSpace ਵਿੱਚੋਂ ਮੁਫ਼ਤ/ਵਪਾਰਕ ਚਿੱਤਰ ਲਾਇਬ੍ਰੇਰੀਆਂ ਖੋਜੋ।';

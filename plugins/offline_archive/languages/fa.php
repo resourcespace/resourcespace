@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'بازیابی آرشیو';
 $lang["page-title_offline_archive_setup"] = 'تنظیم افزونه';
 $lang["page-title_offline_archive_view_archives"] = 'مشاهده آرشیو منابع';
 $lang["page-title_offline_archive_view_pending"] = 'مشاهده آرشیوهای معلق';
+
+$lang['plugin-offline_archive-title'] = 'آرشیو آفلاین';
+$lang['plugin-offline_archive-desc'] = 'امکان انتقال فایل‌های آرشیوشده به مکان آفلاین را فراهم می‌کند.';

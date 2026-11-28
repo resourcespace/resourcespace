@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'CLIP 벡터 생성을 위한 작업 구성';
 $lang["clip-job_limit"] = '일괄 처리 크기 제한';
 $lang["clip-job_limit_help"] = '이 옵션을 설정하면 한 번 실행 시 처리되는 리소스 수가 제한됩니다.';
 $lang["clip-job_limit_error"] = '값은 1에서 100000 사이이거나 제한 없음으로 비워둘 수 있습니다.';
+
+$lang['plugin-clip-title'] = 'CLIP AI 스마트 검색 및 태깅';
+$lang['plugin-clip-desc'] = 'AI 자연어 검색, 시각 검색, 유사도 매칭, 중복 매칭, 태깅, 제목 생성';

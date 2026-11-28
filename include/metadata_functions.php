@@ -262,56 +262,175 @@ function check_date_parts($parts)
 }
 
 /**
-* updates the value of fieldx field further to a metadata field value update
-*
-* @param integer $metadata_field_ref - metadata field ref
-*
-*/
-function update_fieldx(int $metadata_field_ref): void
+ * Rebuild a cached metadata column. System Configuration search fields also rebuild upload templates.
+ *
+ * @param int $metadata_field_ref Metadata field reference.
+ * @param bool $preparing Whether the field is still being prepared for System Configuration.
+ * @return void
+ */
+function update_fieldx(int $metadata_field_ref, bool $preparing = false): void
 {
-    global $NODE_FIELDS;
+    if ($metadata_field_ref <= 0) {
+        return;
+    }
+    if (!$preparing) {
+        $state = get_search_field_column_state();
+        $preparing = in_array($metadata_field_ref, array_merge($state['preparing'], $state['published']), true);
+        if (!$preparing && !in_array($metadata_field_ref, get_resource_table_joins())) {
+            return;
+        }
+    }
+    $field = get_resource_type_field($metadata_field_ref);
+    if ($field === false) {
+        return;
+    }
 
-    if ($metadata_field_ref > 0 && in_array($metadata_field_ref, get_resource_table_joins())) {
-        $fieldinfo = get_resource_type_field($metadata_field_ref);
-        $allresources = ps_array("SELECT ref value FROM resource WHERE ref>0 ORDER BY ref ASC", []);
-        if (in_array($fieldinfo['type'] ?? [], $NODE_FIELDS)) {
-            if ($fieldinfo['type'] === FIELD_TYPE_CATEGORY_TREE) {
-                $all_tree_nodes_ordered = get_cattree_nodes_ordered($fieldinfo['ref'], null, true);
-                // remove the fake "root" node which get_cattree_nodes_ordered() is adding since we won't be using get_cattree_node_strings()
-                array_shift($all_tree_nodes_ordered);
-                $all_tree_nodes_ordered = array_values($all_tree_nodes_ordered);
+    $category_paths = $field['type'] === FIELD_TYPE_CATEGORY_TREE
+        ? get_category_tree_column_paths($metadata_field_ref)
+        : null;
 
-                foreach ($allresources as $resource) {
-                    // category trees are using full paths to node names
-                    $resource_nodes = array_keys(get_cattree_nodes_ordered($fieldinfo['ref'], $resource, false));
-                    $node_names_paths = [];
-                    foreach ($resource_nodes as $node_ref) {
-                        $node_names_paths[] = implode(
-                            '/',
-                            array_column(compute_node_branch_path($all_tree_nodes_ordered, $node_ref), 'name')
-                        );
-                    }
-
-                    update_resource_field_column(
-                        $resource,
-                        $metadata_field_ref,
-                        implode($GLOBALS['field_column_string_separator'], $node_names_paths)
-                    );
-                }
-            } else {
-                foreach ($allresources as $resource) {
-                    $resnodes = get_resource_nodes($resource, $metadata_field_ref, true);
-                    uasort($resnodes, 'node_orderby_comparator');
-                    $resvals = array_column($resnodes, "name");
-                    $resdata = implode($GLOBALS['field_column_string_separator'], $resvals);
-                    update_resource_field_column($resource, $metadata_field_ref, $resdata);
-                }
+    if ($preparing) {
+        // Bound the scan while uploads continue. The shared write list covers newer resources and copies.
+        $last_resource = (int) (ps_query('SELECT MAX(ref) AS ref FROM resource', [], logthis: 0)[0]['ref'] ?? 0);
+        $after = PHP_INT_MIN;
+        do {
+            $resources = array_column(ps_query(
+                'SELECT ref FROM resource WHERE ref > ? AND ref <= ? AND ref <> 0 ORDER BY ref LIMIT 1000',
+                ['i', $after, 'i', $last_resource],
+                logthis: 0
+            ), 'ref');
+            if ($resources === []) {
+                break;
             }
-        } else {
-            foreach ($allresources as $resource) {
-                update_resource_field_column($resource, $metadata_field_ref, get_data_by_field($resource, $metadata_field_ref));
+            $category_paths = refresh_search_field_column_batch($resources, $field, $category_paths);
+            $after = (int) end($resources);
+        } while (count($resources) === 1000);
+    } else {
+        $resources = ps_array('SELECT ref AS value FROM resource WHERE ref > 0 ORDER BY ref', []);
+        foreach ($resources as $resource) {
+            update_resource_field_column($resource, $metadata_field_ref, get_resource_field_column_value(
+                (int) $resource,
+                $field,
+                $category_paths
+            ));
+        }
+    }
+}
+
+/**
+ * Generate the full untranslated path of each option in a category tree.
+ *
+ * @param int $field Metadata field reference.
+ * @return array<int, string> Paths keyed by node reference.
+ */
+function get_category_tree_column_paths(int $field): array
+{
+    $tree = get_cattree_nodes_ordered($field, null, true, use_primary: true);
+    unset($tree[0]); // The synthetic root has no name in cached paths.
+    $paths = [];
+    foreach ($tree as $ref => $node) {
+        $parent = $node['parent'];
+        $paths[$ref] = isset($paths[$parent]) ? $paths[$parent] . '/' . $node['name'] : $node['name'];
+    }
+    return $paths;
+}
+
+/**
+ * Refresh a batch for one field and reuse the category paths for the next batch.
+ *
+ * @param array $resources References in the current batch.
+ * @param array $field Metadata field record.
+ * @param array<int, string>|null $category_paths Preloaded paths, or null for other field types.
+ * @return array<int, string>|null The most recent category paths for the field.
+ */
+function refresh_search_field_column_batch(array $resources, array $field, ?array $category_paths): ?array
+{
+    $field_ref = (int) $field['ref'];
+    for ($attempt = 0;; ++$attempt) {
+        // After two changing snapshots, use live paths for this batch to bound the retries.
+        $paths_by_field = $category_paths !== null && $attempt < 2 ? [$field_ref => $category_paths] : [];
+        foreach ($resources as $resource) {
+            refresh_resource_search_field_columns((int) $resource, [$field], $paths_by_field);
+        }
+        if ($category_paths === null) {
+            return null;
+        }
+
+        // A concurrent rename or move can make even a previously selected node's path stale.
+        $current_paths = get_category_tree_column_paths($field_ref);
+        if ($paths_by_field === [] || $current_paths === $category_paths) {
+            return $current_paths;
+        }
+        $category_paths = $current_paths;
+    }
+}
+
+/**
+ * Format the current node data for a cached resource column.
+ *
+ * @param int $resource Resource or upload template reference.
+ * @param array $field Metadata field record.
+ * @param array<int, string>|null $category_paths Full paths keyed by node reference, if preloaded.
+ * @return string Cached metadata before truncation.
+ */
+function get_resource_field_column_value(int $resource, array $field, ?array $category_paths = null): string
+{
+    global $NODE_FIELDS, $field_column_string_separator;
+
+    $field_ref = (int) $field['ref'];
+    if (!in_array($field['type'], $NODE_FIELDS)) {
+        return get_data_by_field($resource, $field_ref);
+    }
+    if ($field['type'] === FIELD_TYPE_CATEGORY_TREE) {
+        $nodes = get_cattree_nodes_ordered($field_ref, $resource, false);
+        if ($nodes === []) {
+            return '';
+        }
+        if ($category_paths === null || array_diff_key($nodes, $category_paths) !== []) {
+            $category_paths = get_category_tree_column_paths($field_ref);
+        }
+        $paths = [];
+        foreach (array_keys($nodes) as $node) {
+            $paths[] = $category_paths[$node] ?? '';
+        }
+        return implode($field_column_string_separator, $paths);
+    }
+
+    $nodes = get_resource_nodes($resource, $field_ref, true);
+    uasort($nodes, 'node_orderby_comparator');
+    return implode($field_column_string_separator, array_column($nodes, 'name'));
+}
+
+/**
+ * Refresh cached columns from saved nodes. Lock the resource row before reading the nodes so that a
+ * concurrent cache write cannot be overwritten by a value read before that write.
+ *
+ * @param int $resource Resource or upload template reference.
+ * @param array $fields Metadata field records to refresh.
+ * @param array<int, array<int, string>> $paths_by_field Preloaded category paths keyed by field reference.
+ * @return void
+ */
+function refresh_resource_search_field_columns(int $resource, array $fields, array $paths_by_field = []): void
+{
+    $transaction = !isset($GLOBALS['sql_transaction_in_progress'])
+        && db_begin_transaction('refresh_search_fields', required: true);
+    try {
+        $row = ps_query('SELECT ref FROM resource WHERE ref = ? FOR UPDATE', ['i', $resource], logthis: 0);
+        if ($row !== []) {
+            foreach ($fields as $field) {
+                $field_ref = (int) $field['ref'];
+                $value = get_resource_field_column_value($resource, $field, $paths_by_field[$field_ref] ?? null);
+                update_resource_field_column($resource, $field_ref, $value);
             }
         }
+    } catch (Throwable $exception) {
+        if ($transaction) {
+            db_rollback_transaction('refresh_search_fields', required: true);
+        }
+        throw $exception;
+    }
+    if ($transaction) {
+        db_end_transaction('refresh_search_fields', required: true);
     }
 }
 

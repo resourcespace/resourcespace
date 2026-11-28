@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"]='เส้นทางภาพขนาดย่อ';
 $lang["yt2rs_online_preview"]='การดูตัวอย่างออนไลน์';
 $lang["yt2rs_youtube_video"]='Youtube Video';
 $lang["page-title_yt2rs_setup"] = 'ตั้งค่า Plugin Youtube สำหรับ ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube สู่ ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'เพิ่มวิดีโอที่โฮสต์บน YouTube เป็นทรัพยากร';

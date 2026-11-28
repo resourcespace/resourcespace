@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'Gwerth';
 $lang["conditional_terms_plugin_misconfigured"] = 'Mae\'r plwgyn telerau amodol wedi\'i gamgyfeirio';
 
 $lang["page-title_conditional_terms_setup"] = 'Gosod Plugin Telerau Amodol';
+
+$lang['plugin-conditional_terms-title'] = 'Termau Amodol';
+$lang['plugin-conditional_terms-desc'] = 'Yn galluogi arddangos amodol o dudalen y termau wrth lawrlwytho yn seiliedig ar fetaddata adnodd.';

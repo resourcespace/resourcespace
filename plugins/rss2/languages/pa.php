@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='ਫਿਲਟਰ ਕੀਤਾ ਰਿਸੋ
 $lang["page-title_rss2_rssfeed"] = 'RSS ਫੀਡ';
 $lang["page-title_rss2_rssfilter"] = 'RSS ਫਿਲਟਰ';
 $lang["page-title_rss2_setup"] = 'RSS ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-rss2-title'] = 'RSS ਫੀਡ';
+$lang['plugin-rss2-desc'] = 'ਨਵੇਂ ਸਮੱਗਰੀ ਦੀ ਪ੍ਰਮਾਣਿਤ ਤਿਆਰੀ ਲਈ RSS ਫੀਡ ਬਣਾਉਣ ਦੀ ਸਹੂਲਤ ਦਿੰਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਸੰਰਚਿਤ ਖੇਤਰ ਸ਼ਾਮਲ ਹਨ।';

@@ -15,3 +15,6 @@ $lang["whisper"] = 'Susurro';
 $lang["whisper_process_existing"] = 'Procesar recursos no procesados';
 $lang["whisper_process_existing_intro"] = 'Crear un trabajo para iniciar el procesamiento de audio Whisper aquí; este trabajo no requiere parámetros, por lo que puede iniciarse siempre que no haya otros trabajos pendientes de este tipo.';
 $lang["whisper_process_existing_configure"] = 'Configurar trabajo para procesar archivos con Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'De video/audio a texto usando Whisper de OpenAI. Funciona localmente, no requiere suscripción.';

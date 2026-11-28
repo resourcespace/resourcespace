@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'محفوظ کیا جا رہا ہے۔۔';
 $lang["adobe_link_saving_wait"] = 'فائل محفوظ کی جا رہی ہے، براہ کرم تصدیقی پیغام کا انتظار کریں۔ آپ کو پیش نظارہ تصویر کو اپ ڈیٹ کرنے کے لیے صفحہ کو ریفریش کرنے کی ضرورت ہو سکتی ہے۔';
 
 $lang["page-title_adobe_link_setup"] = 'ایڈوبی لنک پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-adobe_link-title'] = 'ایڈوب لنک';
+$lang['plugin-adobe_link-desc'] = 'ResourceSpace سے Adobe CC میں Adobe فائلوں کی درآمد کی اجازت دیں۔';

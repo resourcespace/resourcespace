@@ -63,3 +63,5 @@ $lang["page-title_licensemanager_edit"] = 'Redigera licens';
 $lang["page-title_licensemanager_list"] = 'Lista licenser';
 $lang["page-title_licensemanager_setup"] = 'Installera Licenshanteringsplugin';
 $lang["page-title_licensemanager_unlink"] = 'Koppla bort licens';
+
+$lang["collection_actiontype_80"] = 'Licensiering';

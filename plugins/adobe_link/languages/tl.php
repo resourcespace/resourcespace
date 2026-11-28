@@ -13,3 +13,6 @@ $lang["adobe_link_upload_document"] = 'I-save';
 $lang["adobe_link_saving"] = 'Nagsasave..';
 $lang["adobe_link_saving_wait"] = 'Ang file ay sinasave, mangyaring maghintay para sa mensahe ng kumpirmasyon. Maaaring kailanganin mong i-refresh ang pahina upang i-update ang preview na imahe.';
 $lang["page-title_adobe_link_setup"] = 'I-set up ang Adobe Link Plugin';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'Pahintulutan ang pag-import ng mga Adobe file mula sa ResourceSpace papunta sa Adobe CC.';

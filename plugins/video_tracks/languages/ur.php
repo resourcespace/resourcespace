@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"]='ابھی ٹرانسکو�
 $lang["video_tracks_transcode_now_label"]='ابھی ٹرانسکوڈ کریں';
 $lang["page-title_video_tracks_create_video"] = 'ویڈیو بنائیں';
 $lang["page-title_video_tracks_setup"] = 'ویڈیو ٹریکس پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-video_tracks-title'] = 'ویڈیو ٹریکس';
+$lang['plugin-video_tracks-desc'] = 'ویڈیو وسائل کے لیے مختلف آڈیو اور سب ٹائٹل کے اختیارات کی حمایت شامل کریں۔';

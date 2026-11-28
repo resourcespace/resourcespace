@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='کیا آپ کو یقین ہے؟ یہ واپس ن
 $lang["system_reset_delete_all"]='تمام ڈیٹا اور فائلیں حذف کریں';
 $lang["system_reset-tooltip"] = 'سسٹم کو ری سیٹ کریں تاکہ تمام فائلیں اور ڈیٹا حذف ہو جائیں';
 $lang["page-title_system_reset_reset"] = 'سسٹم ری سیٹ';
+
+$lang['plugin-system_reset-title'] = 'سسٹم ری سیٹ';
+$lang['plugin-system_reset-desc'] = 'admin/system میں تمام ڈیٹا مٹانے کا آپشن شامل کرتا ہے۔';

@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'سێنەکە لە %time بەردەوام بکە';
 $lang["video_scene_play_unavailable"] = 'ئەم سێنەیە لە دەرەوەی پێشبینی ڤیدیۆی بەردەستە.';
 $lang["video_scene_job_success"] = 'پرۆسەکردنی سێنەی ڤیدیۆ تەواو بوو';
 $lang["video_scene_job_failure"] = 'پرۆسەکردنی سێنەی ڤیدیۆ سەرکەوتوو نەبوو. بۆ وردەکاری زیاتر تۆمارەکەی کارەکە ببینە.';
+$lang['plugin-video_scenes-title'] = 'سەحنەکانی ڤیدیۆ';
+$lang['plugin-video_scenes-desc'] = 'سەحنەکانی ڤیدیۆ بە شێوەیەکی ناوخۆیی بە transnetv2-pytorch دۆزینەوە، بە وەسڵی دەستکاری OpenAI بۆ وەسفەکانی دەنگ و وێنە.';

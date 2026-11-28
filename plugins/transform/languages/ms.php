@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'Gunakan nama fail sebagai tajuk';
 
 $lang["error-resolution-zero"] = 'Ralat: Lebar / tinggi asal mempunyai nilai kosong yang dikira.';
 $lang["error-preview-missing"] = 'Ralat: Tidak dapat mencari imej pratonton';
+$lang['plugin-transform-title'] = 'Alat Imej (transformasi)';
+$lang['plugin-transform-desc'] = 'Membolehkan penciptaan imej alternatif yang dipotong dan diskala.';

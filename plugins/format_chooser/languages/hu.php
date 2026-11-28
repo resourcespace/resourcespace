@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Formátumválasztó bővítmény be�
 
 $lang["format_chooser_blocked_inputs"] = '<p>A következő formátumok nem támogatottak bemenetként: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>A következő formátumok nem támogatottak kimenetként: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Formátumválasztó';
+$lang['plugin-format_chooser-desc'] = 'Lehetővé teszi, hogy különböző formátumokat válasszon a fájlok letöltésekor, amelyek dinamikusan jönnek létre.';

@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'ਫਾਰਮੈਟ ਚੁਣਨ ਪ�
 
 $lang["format_chooser_blocked_inputs"] = '<p>ਹੇਠਾਂ ਦਿੱਤੇ ਫਾਰਮੈਟ ਇਨਪੁਟ ਲਈ ਸਮਰਥਿਤ ਨਹੀਂ ਹਨ: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>ਹੇਠਾਂ ਦਿੱਤੇ ਫਾਰਮੈਟ ਆਉਟਪੁਟ ਲਈ ਸਮਰਥਿਤ ਨਹੀਂ ਹਨ: %s</p>';
+$lang['plugin-format_chooser-title'] = 'ਫਾਰਮੈਟ ਚੁਣਨ ਵਾਲਾ';
+$lang['plugin-format_chooser-desc'] = 'ਤੁਹਾਨੂੰ ਫਾਇਲਾਂ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰਦੇ ਸਮੇਂ ਵੱਖ-ਵੱਖ ਫਾਰਮੈਟ ਚੁਣਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ ਜੋ ਤੁਰੰਤ ਤਿਆਰ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।';

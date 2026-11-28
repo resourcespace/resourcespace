@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'تۆ بەرزەوە لە 
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'پێویستە لە پێش دەستپێکردن بە بەکارهێنانی کوکی، ڕەزامەندی بدەیت بۆ بەکارهێنانی کوکی.';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'هەلبژاردنی کوکی';
 $lang["page-title_cookies_notification_setup"] = 'ڕێکخستنی پلاگین ئاگاداری کوکی';
+
+$lang['plugin-cookies_notification-title'] = 'ئاگاداری کوکیەکان';
+$lang['plugin-cookies_notification-desc'] = 'ئاگادارکردنەوەی بەکارهێنانی کوکی بە نیشاندانی پەیامێک لە سەرەتا.';

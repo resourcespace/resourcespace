@@ -10,3 +10,6 @@ $lang["bookend-intro"]='ਵਿਕਲਪਿਕ ਫਾਈਲਾਂ ਦੀ ਸੂ�
 $lang["bookend-failed"]='ਅਸਫਲ!';
 $lang["bookend-could-not-open-file"]='ਗਲਤੀ - ਫਾਈਲ ਨਹੀਂ ਖੋਲ੍ਹ ਸਕੀ!';
 $lang["page-title_video_bookend_bookend"] = 'ਵੀਡੀਓ ਬੁੱਕਐਂਡ';
+
+$lang['plugin-video_bookend-title'] = 'ਵੀਡੀਓ ਬੁੱਕਐਂਡ';
+$lang['plugin-video_bookend-desc'] = 'ਸਿਰਲੇਖ ਅਤੇ ਅੰਤ ਗ੍ਰਾਫਿਕ ਨਾਲ ਵੀਡੀਓ ਡਾਊਨਲੋਡ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਜੋੜਦਾ ਹੈ।';

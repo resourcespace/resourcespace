@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"]='کیا یوٹیوب یو آر ایل میٹ
 $lang["page-title_youtube_publish_setup"] = 'پلاگ ان سیٹ اپ کریں';
 $lang["page-title_youtube_publish_youtube_upload"] = 'یوٹیوب پر وسائل شائع کریں';
 $lang["youtube_publish_video_title"] = 'ویڈیو کا عنوان (زیادہ سے زیادہ 100 حروف)';
+
+$lang['plugin-youtube_publish-title'] = 'یوٹیوب اشاعت';
+$lang['plugin-youtube_publish-desc'] = 'ویڈیو وسائل کو ترتیب دیے گئے یوٹیوب اکاؤنٹ پر شائع کریں۔';

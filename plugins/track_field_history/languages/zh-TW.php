@@ -7,3 +7,6 @@ $lang["track_field_history_change"] = '變更';
 $lang["track_field_history_error_no_records"] = '未找到此欄位的編輯歷史記錄。';
 $lang["page-title_track_field_history_field_history_log"] = '欄位歷史記錄';
 $lang["page-title_track_field_history_setup"] = '設定追蹤欄位歷史記錄插件';
+
+$lang['plugin-track_field_history-title'] = '追蹤欄位歷史';
+$lang['plugin-track_field_history-desc'] = '能夠追蹤欄位的編輯歷史。';

@@ -1,0 +1,20 @@
+<?php
+$lang['totp_set_up'] = 'बहु-घटक प्रमाणीकरण (MFA) सेट करा';
+$lang['totp_set_up_details'] = 'खालील QR कोड आपल्या मोबाइल डिव्हाइसवरील TOTP अनुप्रयोगाने स्कॅन करा, उदाहरणार्थ Google Authenticator जो अॅप स्टोअरमध्ये उपलब्ध आहे. <br><br> कोड यशस्वीपणे स्कॅन केल्यानंतर, अनुप्रयोगाद्वारे दर्शविलेले सहा अंक प्रविष्ट करा जेणेकरून स्थापना पडताळता येईल. पुढील लॉगिन्समध्ये आपल्याला अनुप्रयोगातील कोड विचारला जाईल.';
+$lang['totp_code'] = 'प्रमाणीकरण कोड:';
+$lang['totp_confirm'] = 'पुष्टी करा';
+$lang['totp_skip'] = 'आजसाठी वगळा (फक्त प्रशासकांसाठी)';
+$lang['totp_tries_exceeded'] = 'आपण जास्तीत जास्त प्रयत्नांची मर्यादा ओलांडली आहे. कृपया प्रशासकाशी संपर्क साधा.';
+$lang['totp_tries_left'] = 'प्रयत्न शिल्लक आहेत';
+$lang['totp_code_details'] = 'कृपया आपल्या प्रमाणीकरण अनुप्रयोगातील कोड प्रविष्ट करा.';
+$lang['totp_reset'] = 'या वापरकर्त्यासाठी TOTP/MFA स्थिती रीसेट करा; त्यांना पुन्हा TOTP सेट करण्यास सांगितले जाईल.';
+$lang['totp_date_binding'] = 'वापरकर्त्यांना खालील समाप्तीनंतर पुन्हा TOTP कोड प्रविष्ट करण्यास सांगितले जाईल...';
+$lang['totp_date_binding_d'] = 'सध्याचा दिवस';
+$lang['totp_date_binding_w'] = 'सध्याचा आठवडा (सोमवारपासून सुरू)';
+$lang['totp_date_binding_m'] = 'सध्याचा महिना';
+$lang['totp_date_binding_y'] = 'सध्याचा वर्ष';
+$lang['totp_saml'] = 'SAML द्वारे आधीच प्रमाणीकरण केलेल्या वापरकर्त्यांसाठी TOTP अक्षम करा (SAML प्लगइन आवश्यक)';
+$lang['page-title_totp_setup'] = 'TOTP प्लगइन सेटअप';
+$lang['page-title_totp_totp'] = 'TOTP';
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Google Authenticator द्वारे TFA/MFA समर्थन';

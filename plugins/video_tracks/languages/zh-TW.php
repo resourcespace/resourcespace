@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = '勾選以立即轉碼�
 $lang["video_tracks_transcode_now_label"] = '立即轉碼';
 $lang["page-title_video_tracks_create_video"] = '建立影片';
 $lang["page-title_video_tracks_setup"] = '設定影片軌道插件';
+
+$lang['plugin-video_tracks-title'] = '影片軌道';
+$lang['plugin-video_tracks-desc'] = '為影片資源新增不同音訊和字幕選項的支援。';

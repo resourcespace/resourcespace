@@ -15,3 +15,6 @@ $lang["whisper"] = 'Fısıltı';
 $lang["whisper_process_existing"] = 'İşlenmemiş kaynakları işle';
 $lang["whisper_process_existing_intro"] = 'Burada Fısıltı ses işleme başlatmak için bir iş oluşturun - bu iş herhangi bir parametre gerektirmez, bu nedenle bu tür başka bekleyen işler yoksa başlatılabilir.';
 $lang["whisper_process_existing_configure"] = 'Fısıltı ile dosyaları işlemek için görevi yapılandır';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'OpenAI\'nin Whisper\'ı kullanarak video/sesten metne dönüştürme. Yerel olarak çalışır, abonelik gerekmez.';

@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Hariri Leseni';
 $lang["page-title_licensemanager_list"] = 'Orodha ya Leseni';
 $lang["page-title_licensemanager_setup"] = 'Weka Plugin ya Meneja wa Leseni';
 $lang["page-title_licensemanager_unlink"] = 'Ondoa Leseni';
+
+$lang["collection_actiontype_80"] = 'Utoaji Leseni';
+$lang['plugin-licensemanager-title'] = 'Msimamizi wa Leseni';
+$lang['plugin-licensemanager-desc'] = 'Simamia leseni za rasilimali.';

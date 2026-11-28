@@ -12,3 +12,6 @@ $lang["invalidrange"]='Amred dilys';
 $lang["splitpdf_createnewresource"]='Creu adnodd newydd ar gyfer pob ystod';
 $lang["splitpdf_createnewalternativefile"]='Creu ffeil amgen newydd ar y gr resource hwn ar gyfer pob ystod';
 $lang["page-title_pdf_split_pdf_split"] = 'PDF Rhannu';
+
+$lang['plugin-pdf_split-title'] = 'Rhannu PDF';
+$lang['plugin-pdf_split-desc'] = 'Yn caniatáu i ffeiliau PDF gael eu rhannu\'n sawl tudalen.';

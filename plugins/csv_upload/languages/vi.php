@@ -88,3 +88,6 @@ $lang["csv_upload_location"] = 'Chọn cột chứa vị trí của tài nguyên
 $lang["csv_upload_longitude"] = 'Chọn cột cho Kinh độ nếu riêng biệt với cột trên';
 $lang["latitude"] = 'vĩ độ';
 $lang["longitude"] = 'kinh độ';
+
+$lang['plugin-csv_upload-title'] = 'Tải lên CSV';
+$lang['plugin-csv_upload-desc'] = 'Tải lên siêu dữ liệu bằng tệp CSV.';

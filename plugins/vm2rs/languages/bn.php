@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"]='থাম্বনেইল পথ';
 $lang["vm2rs_online_preview"]='অনলাইন প্রিভিউ';
 $lang["vm2rs_youtube_video"]='ইউটিউব ভিডিও';
 $lang["page-title_vm2rs_setup"] = 'ResourceSpace প্লাগইন এর জন্য Vimeo সেটআপ করুন';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo থেকে ResourceSpace';
+$lang['plugin-vm2rs-desc'] = 'Vimeo থেকে ভিডিও এম্বেড করুন যেন সেগুলো ResourceSpace রিসোর্স।';

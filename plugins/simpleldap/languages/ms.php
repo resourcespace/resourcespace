@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'Jangan semak FQDN pelayan ter
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Uji Pengesahan LDAP';
 $lang["page-title_simpleldap_setup"] = 'Tetapkan Plugin LDAP Ringkas';
 $lang["simpleldap_userlimit_error"] = 'Pengguna tidak dapat dibuat kerana had pengguna telah dicapai. Sila hubungi pentadbir anda.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Pengesahan pengguna melalui LDAP.';

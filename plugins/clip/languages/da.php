@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Konfigurer job til generering af CLIP-vektorer';
 $lang["clip-job_limit"] = 'Batchstørrelsesgrænse';
 $lang["clip-job_limit_help"] = 'Ved at indstille denne mulighed vil du begrænse antallet af ressourcer, der behandles i én kørsel.';
 $lang["clip-job_limit_error"] = 'Værdien skal være mellem 1 og 100000 eller tom for ingen grænse';
+
+$lang['plugin-clip-title'] = 'CLIP AI Smart Søgning og Tagging';
+$lang['plugin-clip-desc'] = 'AI naturlig sprog søgning, visuel søgning, lighedsmatchning, duplikatmatchning, tagging, titelgenerering';

@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'Fájlnév használata címként';
 
 $lang["error-resolution-zero"] = 'Hiba: Az eredeti kép számított szélessége/magassága nulla.';
 $lang["error-preview-missing"] = 'Hiba: A békép nem található';
+$lang['plugin-transform-title'] = 'Kép eszközök (átalakítás)';
+$lang['plugin-transform-desc'] = 'Lehetővé teszi kivágott és átméretezett alternatív képek létrehozását.';

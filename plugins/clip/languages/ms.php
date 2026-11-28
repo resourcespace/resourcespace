@@ -44,3 +44,6 @@ $lang["clip-configure_job"] = 'Konfigurasi tugasan untuk menjana vektor CLIP';
 $lang["clip-job_limit"] = 'Had saiz kumpulan';
 $lang["clip-job_limit_help"] = 'Menetapkan pilihan ini akan mengehadkan bilangan sumber yang diproses dalam satu jalankan.';
 $lang["clip-job_limit_error"] = 'Nilai mesti antara 1 dan 100000 atau kosong untuk tiada had';
+
+$lang['plugin-clip-title'] = 'CLIP AI Carian Pintar dan Penandaan';
+$lang['plugin-clip-desc'] = 'Carian bahasa semula jadi AI, carian visual, padanan kesamaan, padanan pendua, penandaan, penjanaan tajuk';

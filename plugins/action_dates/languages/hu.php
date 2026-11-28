@@ -39,3 +39,6 @@ $lang["weekday-5"] = 'Péntek';
 $lang["weekday-6"] = 'Szombat';
 $lang["page-title_action_dates_setup"] = 'Akciódátumok plugin beállítása';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Értesítse a rendszergazdákat ennyi nappal az esemény előtt (Hagyja üresen a kikapcsoláshoz)';
+
+$lang['plugin-action_dates-title'] = 'Műveleti dátumok';
+$lang['plugin-action_dates-desc'] = 'Lehetővé teszi az erőforrások ütemezett törlését vagy korlátozását dátummezők alapján.';

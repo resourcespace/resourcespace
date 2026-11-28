@@ -12,3 +12,6 @@ $lang["invalidrange"] = 'مەودای نادروست';
 $lang["splitpdf_createnewresource"] = 'دروستکردنی سەرچاوەی نوێ بۆ هەر مەودا';
 $lang["splitpdf_createnewalternativefile"] = 'دروستکردنی فایلێکی جێگرەوەی نوێ لەسەر ئەم سەرچاوەیە بۆ هەر مەودا';
 $lang["page-title_pdf_split_pdf_split"] = 'بەشکردنەوەی PDF';
+
+$lang['plugin-pdf_split-title'] = 'پارچەکردنی PDF';
+$lang['plugin-pdf_split-desc'] = 'ڕێگە دەدات بۆ پارچەکردنی فایلەکانی PDF بۆ چەند لاپەڕە.';

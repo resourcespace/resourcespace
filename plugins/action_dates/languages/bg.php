@@ -39,3 +39,6 @@ $lang["weekday-4"] = 'Четвъртък';
 $lang["weekday-5"] = 'Петък';
 $lang["weekday-6"] = 'Събота';
 $lang["page-title_action_dates_setup"] = 'Настройка на плъгина за дати на действия';
+
+$lang['plugin-action_dates-title'] = 'Дати на действие';
+$lang['plugin-action_dates-desc'] = 'Позволява планирано изтриване или ограничаване на ресурси въз основа на полета с дати.';

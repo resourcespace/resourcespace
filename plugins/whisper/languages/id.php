@@ -15,3 +15,6 @@ $lang["whisper"] = 'Bisikan';
 $lang["whisper_process_existing"] = 'Proses sumber daya yang belum diproses';
 $lang["whisper_process_existing_intro"] = 'Buat pekerjaan untuk memulai pemrosesan audio Whisper di sini - pekerjaan ini tidak memerlukan parameter apa pun sehingga dapat dimulai selama tidak ada pekerjaan lain yang tertunda dari tipe ini.';
 $lang["whisper_process_existing_configure"] = 'Konfigurasikan pekerjaan untuk memproses file dengan Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Video/audio ke teks menggunakan Whisper dari OpenAI. Berjalan secara lokal, tanpa perlu berlangganan.';

@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'Cho phép người dùng xuất b�
 $lang["vimeo_publish_set_account"] = 'Đặt tài khoản Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'Cài đặt Plugin Xuất Bản Vimeo';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Xuất bản lên Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Xuất bản Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Xuất bản tài nguyên lên Vimeo.';

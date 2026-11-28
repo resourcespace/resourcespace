@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Spracovať nespracované zdroje';
 $lang["whisper_process_existing_intro"] = 'Vytvorte úlohu na spustenie spracovania zvuku Whisper tu - táto úloha nevyžaduje žiadne parametre, takže ju možno spustiť, pokiaľ nie sú iné nevybavené úlohy tohto typu.';
 $lang["whisper_process_existing_configure"] = 'Konfigurujte úlohu na spracovanie súborov pomocou Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Video/audio na text pomocou Whisper od OpenAI. Beží lokálne, nie je potrebné predplatné.';

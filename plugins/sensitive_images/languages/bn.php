@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='মেটাডেটা ক্ষেত্র 
 $lang["sensitive_images_blur_level"]='সংবেদনশীল চিত্র ঝাপসা করার স্তর<br>(১=সর্বনিম্ন, ৬=সর্বাধিক)';
 $lang["page-title_sensitive_images_setup"] = 'সংবেদনশীল চিত্র প্লাগইন সেটআপ করুন';
 $lang["sensitive_images_show"] = 'প্রদর্শন করতে ছবিতে ক্লিক করুন।';
+
+$lang['plugin-sensitive_images-title'] = 'সংবেদনশীল চিত্র ব্লারিং';
+$lang['plugin-sensitive_images-desc'] = 'সংবেদনশীল হিসেবে চিহ্নিত চিত্রগুলো ব্লার করে, ব্যবহারকারী ক্লিক করে ব্লার সরাতে পারেন।';

@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Uredi licencu';
 $lang["page-title_licensemanager_list"] = 'Popis licenciја';
 $lang["page-title_licensemanager_setup"] = 'Postavite dodatak za upravljanje licencama';
 $lang["page-title_licensemanager_unlink"] = 'Odveži licencu';
+
+$lang["collection_actiontype_80"] = 'Licenciranje';

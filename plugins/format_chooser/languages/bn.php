@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'ফরম্যাট চয়ন�
 
 $lang["format_chooser_blocked_inputs"] = '<p>নিম্নলিখিত ফর্ম্যাটগুলি ইনপুটের জন্য সমর্থিত নয়: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>নিম্নলিখিত ফর্ম্যাটগুলি আউটপুটের জন্য সমর্থিত নয়: %s</p>';
+$lang['plugin-format_chooser-title'] = 'ফরম্যাট নির্বাচনকারী';
+$lang['plugin-format_chooser-desc'] = 'আপনাকে ফাইল ডাউনলোড করার সময় বিভিন্ন ফরম্যাট বেছে নিতে দেয় যা অন-দ্য-ফ্লাই তৈরি হয়।';

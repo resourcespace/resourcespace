@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI บันทึกใ�
 $lang["openai_image_edit_error_invalid_image_data"] = 'ข้อมูลรูปภาพไม่ถูกต้อง';
 $lang["openai_image_edit_error_invalid_image"] = 'รูปภาพไม่ถูกต้อง';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'ไม่สามารถเขียนไฟล์ชั่วคราวได้';
+$lang['plugin-openai_image_edit-title'] = 'แก้ไขภาพ OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'ลบส่วนของภาพและใช้ GPT Image สร้างใหม่.';

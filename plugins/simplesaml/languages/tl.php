@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'Hindi naka-configure ang SimpleSAML 
 $lang["simplesaml_error_no_idp_metadata"] = 'Hindi ganap na naka-configure ang SimpleSAML plugin (kulang ang IdP metadata)';
 $lang["simplesaml_error_no_authsource"] = 'Hindi ganap na naka-configure ang SimpleSAML plugin (kulang ang authsource)';
 $lang["simplesaml_userlimit_error"] = 'Hindi maaaring malikha ang gumagamit dahil naabot na ang limitasyon ng gumagamit. Mangyaring makipag-ugnayan sa iyong tagapangasiwa.';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Pagpapatunay ng gumagamit sa pamamagitan ng SAML.';

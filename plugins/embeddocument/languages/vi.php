@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'Vui lòng chỉ định loại t�
 $lang["embeddocument_document_resourcetype"] = 'Loại Tài liệu Xem Từ Xa';
 $lang["page-title_embeddocument_setup"] = 'Cài đặt Plugin Nhúng Tài liệu';
 $lang["page-title_embeddocument_viewer"] = 'Nhúng Trình xem Tài liệu';
+
+$lang['plugin-embeddocument-title'] = 'Nhúng Tài liệu';
+$lang['plugin-embeddocument-desc'] = 'Cung cấp chức năng tạo mã HTML để xem trước tài liệu có thể nhúng trên các trang web từ xa.';

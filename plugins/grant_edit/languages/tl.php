@@ -10,3 +10,6 @@ $lang["grant_edit_list"] = 'Mga kasalukuyang gumagamit na may karagdagang access
 $lang["grant_edit_group_list"] = 'Mga kasalukuyang grupo na may karagdagang access sa pag-edit';
 $lang["grant_edit_delete_user"] = 'Kumpirmahin ang pagtanggal ng pinahusay na pag-access para sa';
 $lang["page-title_grant_edit_setup"] = 'I-set up ang Grant Edit Plugin';
+
+$lang['plugin-grant_edit-title'] = 'Bigyan ng Pahintulot sa Pag-edit';
+$lang['plugin-grant_edit-desc'] = 'Pinapayagan ang mga administrador na bigyan ang mga gumagamit ng pansamantalang buong access sa pag-edit ng mga yaman.';

@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'EMU ਪਲੱਗਇਨ ਤੋਂ ਬਣਾਇਆ 
 
 $lang["page-title_emu_emu_object_details"] = 'EMu ਵਸਤੂ ਵੇਰਵੇ';
 $lang["page-title_emu_setup"] = 'ਸੈਟਅਪ ਪਲੱਗਇਨ';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'ਸਰੋਤ ਮੈਟਾਡੇਟਾ ਨੂੰ EMu ਡੇਟਾਬੇਸ ਤੋਂ ਕੱਢਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।';

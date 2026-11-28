@@ -36,3 +36,16 @@ it('applies the keyword allowlist in searches and indexing', function (
     'separator takes precedence' => [['_', '-'], ['-'], '2020.3a-l', ['2020.3a', 'l'], ['2020.3a', 'l']],
     'keyword exclusion' => [['_', '-'], ['&'], 'photo -draft', ['photo', '-draft'], ['photo', 'draft']],
 ]);
+
+it('splits keywords following a special search command', function (string $input, array $expected): void {
+    $GLOBALS['config_separators'] = ['_'];
+    $GLOBALS['keyword_allowed_symbols'] = [];
+
+    expect(split_keywords($input, keepquotes: true))->toBe($expected);
+})->with([
+    'comma without whitespace' => ['!test,cat dog', ['!test', 'cat', 'dog']],
+    'single keyword after a comma' => ['!multi_part_test,cat', ['!multi_part_test', 'cat']],
+    'comma and whitespace' => ['!test, cat dog', ['!test', 'cat', 'dog']],
+    'whitespace only' => ['!multi_part_test cat dog', ['!multi_part_test', 'cat', 'dog']],
+    'command alone' => ['!multi_part_test', ['!multi_part_test']],
+]);

@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'I-set up ang Plugin ng Pagpili ng Fo
 
 $lang["format_chooser_blocked_inputs"] = '<p>Ang mga sumusunod na format ay hindi sinusuportahan para sa input: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Ang mga sumusunod na format ay hindi sinusuportahan para sa output: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Tagapili ng Format';
+$lang['plugin-format_chooser-desc'] = 'Pinapayagan kang pumili ng iba\'t ibang mga format kapag nagda-download ng mga file na nilikha nang mabilis.';

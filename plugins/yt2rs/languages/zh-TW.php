@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = '縮圖路徑';
 $lang["yt2rs_online_preview"] = '線上預覽';
 $lang["yt2rs_youtube_video"] = 'YouTube 影片';
 $lang["page-title_yt2rs_setup"] = '設定 YouTube 至 ResourceSpace 插件';
+
+$lang['plugin-yt2rs-title'] = 'YouTube 至 ResourceSpace';
+$lang['plugin-yt2rs-desc'] = '將 YouTube 托管的影片新增為資源。';

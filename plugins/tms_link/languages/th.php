@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'แสดงข้อมูล TMS ด�
 $lang["page-title_tms_link_test"] = 'ทดสอบข้อมูล TMS';
 $lang["page-title_tms_link_tms_details"] = 'แสดงข้อมูล TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'แก้ไขการกำหนดค่าระบบโมดูล TMS';
+
+$lang['plugin-tms_link-title'] = 'ลิงก์ TMS';
+$lang['plugin-tms_link-desc'] = 'อนุญาตให้ดึงข้อมูลเมตาของทรัพยากรจากฐานข้อมูล TMS ได้';

@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'Simpan Baru OpenAI';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Data gambar tidak valid';
 $lang["openai_image_edit_error_invalid_image"] = 'Gambar tidak valid';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Tidak dapat menulis file sementara';
+$lang['plugin-openai_image_edit-title'] = 'Pengeditan Gambar OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Hapus bagian dari gambar dan gunakan GPT Image untuk menghasilkannya kembali.';

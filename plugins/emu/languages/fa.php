@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'ایجاد شده از افزونه EMU';
 
 $lang["page-title_emu_emu_object_details"] = 'جزئیات شی EMu';
 $lang["page-title_emu_setup"] = 'تنظیمات افزونه';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'امکان استخراج فراداده منابع از پایگاه داده EMu را فراهم می‌کند.';

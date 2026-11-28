@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'کلیل API';
 $lang["typesense_search_collection"] = 'کۆلەکشن';
 $lang["typesense_search_timeout"] = 'کاتی کەوتنە ژوورەوە (چرکە)';
 $lang["typesense_search_validate_access"] = 'پشکنینی دەستگەیشتن پاش گەڕانی Typesense';
+
+$lang['plugin-typesense_search-title'] = 'گەڕانی Typesense';
+$lang['plugin-typesense_search-desc'] = 'دابینکەری گەڕانەکی دەرەکی هەڵبژێردراو بەکارهێنانی Typesense (تاقیکردنەوە)';

@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'Праверце, ка
 $lang["video_tracks_transcode_now_label"] = 'Транскодаваць зараз';
 $lang["page-title_video_tracks_create_video"] = 'Стварыць відэа';
 $lang["page-title_video_tracks_setup"] = 'Наладзіць плагін відэатрас';
+
+$lang['plugin-video_tracks-title'] = 'Відэа дарожкі';
+$lang['plugin-video_tracks-desc'] = 'Дадайце падтрымку розных аўдыё і субтытраў для відэарэсурсаў.';

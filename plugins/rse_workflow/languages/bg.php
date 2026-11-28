@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow"] = 'Редактиране на р
 $lang["page-title_rse_workflow_setup"] = 'Настройка на плъгина за работен процес';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'Неуспешна промяна на състоянието на архива на %%ARCHIVE%%. Липсва достъп за изчистване на задължителни полета.';
+$lang['plugin-rse_workflow-title'] = 'Разширен работен процес';
+$lang['plugin-rse_workflow-desc'] = 'Конфигурирайте персонализирани състояния и действия на работния процес извън стандартните.';

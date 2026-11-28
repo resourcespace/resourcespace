@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Upraviť licenciu';
 $lang["page-title_licensemanager_list"] = 'Zoznam licencií';
 $lang["page-title_licensemanager_setup"] = 'Nastavte plugin správcu licencií';
 $lang["page-title_licensemanager_unlink"] = 'Odpojiť licenciu';
+
+$lang["collection_actiontype_80"] = 'Licencovanie';

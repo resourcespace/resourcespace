@@ -29,3 +29,6 @@ $lang["google_vision"] = 'ਗੂਗਲ ਵਿਜ਼ਨ';
 $lang["google_vision_process_existing"] = 'ਅਪ੍ਰੋਸੈਸ ਕੀਤੀਆਂ ਗਈਆਂ ਸੰਸਾਧਨਾਂ ਨੂੰ ਪ੍ਰਕਿਰਿਆ ਕਰੋ';
 $lang["google_vision_process_existing_configure"] = 'ਅਪ੍ਰੋਸੈਸ ਕੀਤੀਆਂ ਗਈਆਂ ਸੰਸਾਧਨਾਂ ਨੂੰ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਲਈ ਨੌਕਰੀ ਸੰਰਚਨਾ ਕਰੋ';
 $lang["google_vision_process_existing_collection_refs_help"] = 'ਇਹ ਵਿਕਲਪ ਸੈਟ ਕਰਨ ਨਾਲ ਸਿਰਫ਼ ਲਿਸਟ ਕੀਤੀਆਂ ਕਲੇਕਸ਼ਨਾਂ ਵਿੱਚ ਮੌਜੂਦ ਸੰਸਾਧਨ ਪ੍ਰਕਿਰਿਆ ਵਿੱਚ ਲਿਆਂਦੇ ਜਾਣਗੇ। ਜੇ ਕੋਈ ਕਲੇਕਸ਼ਨ ਦਰਜ ਨਹੀਂ ਕੀਤੀ ਗਈ ਤਾਂ ਸਾਰੇ ਯੋਗ ਸੰਸਾਧਨ ਪ੍ਰਕਿਰਿਆ ਵਿੱਚ ਲਿਆਂਦੇ ਜਾਣਗੇ। ਕਲੇਕਸ਼ਨਾਂ ਨੂੰ ਕਾਮਾ-ਵਿਚਾਰਿਤ ਸੂਚੀ ਜਾਂ ਰੇਂਜਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਦਰਜ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ ਜਿਵੇਂ ਕਿ 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'ਏਆਈ ਦੀ ਵਰਤੋਂ ਨਾਲ ਸਵੈਚਾਲਿਤ ਚਿੱਤਰ ਟੈਗਿੰਗ।';

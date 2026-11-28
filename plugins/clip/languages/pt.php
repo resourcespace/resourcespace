@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Configurar trabalho para gerar vetores CLIP';
 $lang["clip-job_limit"] = 'Limite de tamanho do lote';
 $lang["clip-job_limit_help"] = 'Definir esta opção limitará o número de recursos processados em uma execução.';
 $lang["clip-job_limit_error"] = 'O valor deve estar entre 1 e 100000 ou em branco para sem limite';
+
+$lang['plugin-clip-title'] = 'CLIP AI Pesquisa e Etiquetagem Inteligente';
+$lang['plugin-clip-desc'] = 'Pesquisa em linguagem natural por IA, pesquisa visual, correspondência por similaridade, detecção de duplicados, etiquetagem, geração de títulos';

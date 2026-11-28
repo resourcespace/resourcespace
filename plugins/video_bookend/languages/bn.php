@@ -10,3 +10,6 @@ $lang["bookend-intro"]='বিকল্প ফাইল তালিকা থ�
 $lang["bookend-failed"]='ব্যর্থ!';
 $lang["bookend-could-not-open-file"]='ত্রুটি - ফাইল খোলা সম্ভব হয়নি!';
 $lang["page-title_video_bookend_bookend"] = 'ভিডিও বুকএন্ড';
+
+$lang['plugin-video_bookend-title'] = 'ভিডিও বুকএন্ড';
+$lang['plugin-video_bookend-desc'] = 'শিরোনাম এবং শেষ গ্রাফিক সহ একটি ভিডিও ডাউনলোড করার ক্ষমতা যোগ করে।';

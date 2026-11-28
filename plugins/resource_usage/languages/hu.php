@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'Elérhető felhasználási lehetőségek list
 $lang["page-title_resource_usage_delete"] = 'Erőforrás-használat törlése';
 $lang["page-title_resource_usage_edit"] = 'Erőforrás-használat szerkesztése';
 $lang["page-title_resource_usage_setup"] = 'Erőforrás-használati bővítmény beállítása';
+
+$lang['plugin-resource_usage-title'] = 'Erőforrás-használat';
+$lang['plugin-resource_usage-desc'] = 'Lehetővé teszi az erőforrás-használat naplózását az erőforrás megtekintési oldalán keresztül.';

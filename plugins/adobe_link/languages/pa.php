@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ ਹੈ..
 $lang["adobe_link_saving_wait"] = 'ਫਾਈਲ ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਪੁਸ਼ਟੀਕਰਨ ਸੁਨੇਹੇ ਦੀ ਉਡੀਕ ਕਰੋ। ਪ੍ਰੀਵਿਊ ਚਿੱਤਰ ਨੂੰ ਅਪਡੇਟ ਕਰਨ ਲਈ ਤੁਹਾਨੂੰ ਪੰਨਾ ਤਾਜ਼ਾ ਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।';
 
 $lang["page-title_adobe_link_setup"] = 'ਐਡੋਬੀ ਲਿੰਕ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-adobe_link-title'] = 'ਐਡੋਬੀ ਲਿੰਕ';
+$lang['plugin-adobe_link-desc'] = 'ResourceSpace ਤੋਂ ਐਡੋਬੀ CC ਵਿੱਚ ਐਡੋਬੀ ਫਾਈਲਾਂ ਦੀ ਇਨਗੈਸਟ ਦੀ ਆਗਿਆ ਦਿਓ।';

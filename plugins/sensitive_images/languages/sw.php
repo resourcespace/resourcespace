@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='Sehemu ya metadata inayojumuisha sababu ya pich
 $lang["sensitive_images_blur_level"]='Kiwango cha kufifisha picha nyeti<br>(1=chini, 6=juu)';
 $lang["page-title_sensitive_images_setup"] = 'Weka Plugin ya Picha Nyeti';
 $lang["sensitive_images_show"] = 'Bonyeza picha kuonyesha.';
+
+$lang['plugin-sensitive_images-title'] = 'Kufifia kwa picha nyeti';
+$lang['plugin-sensitive_images-desc'] = 'Hufifisha picha zilizotajwa kuwa nyeti na mtumiaji anaweza kubofya kufifua kufifia.';

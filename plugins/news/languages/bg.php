@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Добавяне, редактиране или 
 $lang["page-title_news_news_content_edit"] = 'Редактиране на съдържанието на новината';
 $lang["page-title_news_news_edit"] = 'Редактиране на новина';
 $lang["page-title_news_news"] = 'Новини';
+
+$lang['plugin-news-title'] = 'Новини';
+$lang['plugin-news-desc'] = 'Добавете новинарски статии на началната страница.';

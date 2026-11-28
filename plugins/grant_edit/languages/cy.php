@@ -10,3 +10,6 @@ $lang["grant_edit_list"]='Defnyddwyr cyfredol gyda mynediad golygu ychwanegol';
 $lang["grant_edit_group_list"]='Grwpiau cyfredol gyda mynediad golygu ychwanegol';
 $lang["grant_edit_delete_user"]='Cadarnhau dileu mynediad gwell ar gyfer';
 $lang["page-title_grant_edit_setup"] = 'Sefydlu Plugin Golygu Grant';
+
+$lang['plugin-grant_edit-title'] = 'Rhoi mynediad i olygu';
+$lang['plugin-grant_edit-desc'] = 'Yn galluogi gweinyddwyr i roi mynediad llawn dros dro i ddefnyddwyr i olygu adnoddau.';

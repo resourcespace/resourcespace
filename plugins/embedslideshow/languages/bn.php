@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'প্লেয়ারের আকা
 
 $lang["page-title_embedslideshow_setup"] = 'এম্বেড স্লাইডশো প্লাগইন সেটআপ করুন';
 $lang["page-title_embedslideshow_viewer"] = 'স্লাইডশো এম্বেড করুন';
+
+$lang['plugin-embedslideshow-title'] = 'স্লাইডশো এম্বেড করুন';
+$lang['plugin-embedslideshow-desc'] = 'দূরবর্তী সাইটে এম্বেডযোগ্য সংগ্রহ স্লাইডশো তৈরি করার জন্য একটি ফাংশন প্রদান করে।';

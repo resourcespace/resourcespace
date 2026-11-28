@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Edytuj licencję';
 $lang["page-title_licensemanager_list"] = 'Lista licencji';
 $lang["page-title_licensemanager_setup"] = 'Ustawienia wtyczki Menedżera Licencji';
 $lang["page-title_licensemanager_unlink"] = 'Odłącz licencję';
+
+$lang["collection_actiontype_80"] = 'Licencjonowanie';

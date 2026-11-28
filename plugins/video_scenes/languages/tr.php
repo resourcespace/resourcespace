@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time konumundaki sahneyi oynat';
 $lang["video_scene_play_unavailable"] = 'Bu sahne mevcut video önizlemesinin dışında.';
 $lang["video_scene_job_success"] = 'Video sahne işleme tamamlandı';
 $lang["video_scene_job_failure"] = 'Video sahne işleme başarısız oldu. Ayrıntılar için iş günlüğüne bakın.';
+$lang['plugin-video_scenes-title'] = 'Video sahneleri';
+$lang['plugin-video_scenes-desc'] = 'OpenAI görsel ve işitsel açıklamalarıyla isteğe bağlı olarak transnetv2-pytorch ile yerel olarak video sahnelerini algılayın.';

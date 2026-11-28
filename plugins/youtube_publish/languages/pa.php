@@ -52,3 +52,6 @@ $lang["youtube_publish_password"]='ਯੂਟਿਊਬ ਪਾਸਵਰਡ';
 $lang["page-title_youtube_publish_setup"] = 'ਪਲੱਗਇਨ ਸੈਟਅਪ';
 $lang["page-title_youtube_publish_youtube_upload"] = 'ਯੂਟਿਊਬ \'ਤੇ ਸਰੋਤ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ';
 $lang["youtube_publish_video_title"] = 'ਵੀਡੀਓ ਸਿਰਲੇਖ (ਅਧਿਕਤਮ 100 ਅੱਖਰ)';
+
+$lang['plugin-youtube_publish-title'] = 'ਯੂਟਿਊਬ ਪ੍ਰਕਾਸ਼ਨ';
+$lang['plugin-youtube_publish-desc'] = 'ਸੰਰਚਿਤ ਯੂਟਿਊਬ ਖਾਤੇ \'ਤੇ ਵੀਡੀਓ ਸਰੋਤ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ।';

@@ -43,3 +43,6 @@ $lang["falcon_link_log_archive"] = '通過 Falcon 存檔資源';
 $lang["falcon_link_error_falcon_check_tags"] = '請檢查描述和標籤是否為空';
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon 連結';
 $lang["page-title_falcon_link_setup"] = '設定 Falcon 連結插件';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = '將資源發布至 Falcon.io 以進行自動社群媒體分享。';

@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'ਲਾਇਸੈਂਸ ਸੰਪਾਦ
 $lang["page-title_licensemanager_list"] = 'ਲਾਇਸੰਸਾਂ ਦੀ ਸੂਚੀ';
 $lang["page-title_licensemanager_setup"] = 'ਲਾਇਸੈਂਸ ਮੈਨੇਜਰ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_licensemanager_unlink"] = 'ਲਾਇਸੈਂਸ ਨੂੰ ਅਣਜੋੜੋ';
+
+$lang["collection_actiontype_80"] = 'ਲਾਇਸੈਂਸਿੰਗ';
+$lang['plugin-licensemanager-title'] = 'ਲਾਇਸੈਂਸ ਮੈਨੇਜਰ';
+$lang['plugin-licensemanager-desc'] = 'ਸਰੋਤ ਲਾਇਸੈਂਸਿੰਗ ਦਾ ਪ੍ਰਬੰਧ ਕਰੋ।';

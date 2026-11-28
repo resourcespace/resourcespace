@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"]='Njia ya Picha Ndogo';
 $lang["yt2rs_online_preview"]='Mwonekano wa Mtandaoni';
 $lang["yt2rs_youtube_video"]='Video ya Youtube';
 $lang["page-title_yt2rs_setup"] = 'Weka Youtube kwenye Plugin ya ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube kwenda ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Ongeza video zilizo kwenye YouTube kama rasilimali.';

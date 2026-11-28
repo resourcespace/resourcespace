@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'نمایش داتای Raw TMS';
 $lang["page-title_tms_link_test"] = 'تاقیکردنەوەی داتای TMS';
 $lang["page-title_tms_link_tms_details"] = 'نمایش داتای TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'دەسەلاتکردنی ڕێکخستنەوەی مۆدولەکانی TMS';
+
+$lang['plugin-tms_link-title'] = 'پەیوەندی TMS';
+$lang['plugin-tms_link-desc'] = 'ڕێگە دەدات بۆ وەرگرتنی مێتاداتای سەرچاوەکان لە بنکەدراوەی TMS.';

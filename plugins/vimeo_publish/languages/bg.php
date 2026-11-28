@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'Позволете на потре
 $lang["vimeo_publish_set_account"] = 'Настройте акаунт във Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'Настройка на плъгина за публикуване във Vimeo';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Публикуване във Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Публикуване във Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Публикувайте ресурси във Vimeo.';

@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'در حال ذخیره‌سازی..';
 $lang["adobe_link_saving_wait"] = 'فایل در حال ذخیره شدن است، لطفاً منتظر پیام تأیید بمانید. ممکن است نیاز باشد صفحه را تازه‌سازی کنید تا تصویر پیش‌نمایش به‌روزرسانی شود.';
 
 $lang["page-title_adobe_link_setup"] = 'نصب افزونه Adobe Link';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'امکان وارد کردن فایل‌های Adobe از ResourceSpace به Adobe CC را فراهم می‌کند.';

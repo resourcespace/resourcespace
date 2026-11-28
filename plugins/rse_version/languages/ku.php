@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'گۆڕینی دۆخ بۆ کۆلەکشن #
 $lang["rse_version_invalid_time"] = 'گەڕاندنەوە بۆ کاتی پێش [date] پشتیوانی نەکراوە';
 $lang["page-title_rse_version_revert"] = 'گەڕاندنەوەی وەشانەکانی سەرچاوە';
 $lang["page-title_rse_version_setup"] = 'ڕێکخستنەوەی پلاگین وەشانەکان';
+
+$lang['plugin-rse_version-title'] = 'کۆنترۆڵی وەشانی';
+$lang['plugin-rse_version-desc'] = 'گۆڕانکارییەکانی مێتاداتا و پەڕگەکان بەدواداچوون و ڕێکخستن.';

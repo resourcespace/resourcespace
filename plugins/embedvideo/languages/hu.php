@@ -8,3 +8,6 @@ $lang["embed_video_configuration"] = 'Videó beágyazási konfiguráció';
 $lang["specify_resourcetype"] = 'Kérjük, adja meg, hogy melyik erőforrástípusnál jelenjen meg az \'embed\' funkció.';
 $lang["video_resourcetype"] = 'Videó Erőforrás Típus';
 $lang["page-title_embedvideo_setup"] = 'Videó beágyazási plugin beállítása';
+
+$lang['plugin-embedvideo-title'] = 'Videó beágyazása';
+$lang['plugin-embedvideo-desc'] = 'Funkciót biztosít beágyazható videó HTML kódjának generálásához távoli webhelyeken.';

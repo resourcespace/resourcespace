@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Archívum visszaállítása';
 $lang["page-title_offline_archive_setup"] = 'Beállítás Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'Nézd meg az Erőforrás Archívumokat';
 $lang["page-title_offline_archive_view_pending"] = 'Nézd meg a függőben lévő archívumokat';
+
+$lang['plugin-offline_archive-title'] = 'Offline archívum';
+$lang['plugin-offline_archive-desc'] = 'Lehetővé teszi az archivált fájlok áthelyezését offline helyre.';

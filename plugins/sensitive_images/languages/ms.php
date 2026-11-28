@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'Medan metadata yang mengandungi sebab imej te
 $lang["sensitive_images_blur_level"] = 'Tahap kabur imej sensitif<br>(1=terendah, 6=tertinggi)';
 $lang["page-title_sensitive_images_setup"] = 'Tetapkan Plugin Imej Sensitif';
 $lang["sensitive_images_show"] = 'Klik imej untuk menunjukkan.';
+
+$lang['plugin-sensitive_images-title'] = 'Pengaburan imej sensitif';
+$lang['plugin-sensitive_images-desc'] = 'Mengaburkan imej yang ditandakan sebagai sensitif dengan pengguna boleh klik untuk membuka kabur.';

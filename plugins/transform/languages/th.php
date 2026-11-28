@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'ใช้ชื่อไฟล์เป็น�
 
 $lang["error-resolution-zero"] = 'ข้อผิดพลาด: ความกว้าง/ความสูงของภาพต้นฉบับเป็นศูนย์';
 $lang["error-preview-missing"] = 'ข้อผิดพลาด: ไม่พบภาพตัวอย่าง';
+$lang['plugin-transform-title'] = 'เครื่องมือรูปภาพ (แปลง)';
+$lang['plugin-transform-desc'] = 'ช่วยให้สร้างรูปภาพทางเลือกที่ถูกครอบและปรับขนาดได้.';

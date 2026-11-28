@@ -10,3 +10,6 @@ $lang["bookend-intro"]='متبادل فائلوں کی فہرست سے تصاو�
 $lang["bookend-failed"]='ناکام!';
 $lang["bookend-could-not-open-file"]='خرابی - فائل کو کھولا نہیں جا سکا!';
 $lang["page-title_video_bookend_bookend"] = 'ویڈیو بک اینڈ';
+
+$lang['plugin-video_bookend-title'] = 'ویڈیو بک اینڈ';
+$lang['plugin-video_bookend-desc'] = 'ویڈیو کو عنوان اور اختتامی گرافک کے ساتھ ڈاؤن لوڈ کرنے کی صلاحیت شامل کرتا ہے۔';

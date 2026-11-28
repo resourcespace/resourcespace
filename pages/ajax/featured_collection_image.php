@@ -35,20 +35,4 @@ if ($is_smart) {
     );
 }
 
-// Fetch resources for the featured collection tile.
-$resource_context = [
-    "smart" => $is_smart,
-    "use_thumbnail_selection_method" => !$is_smart,
-    "all_fcs" => [],
-];
-
-if ($is_smart) {
-    $resource_context["limit"] = 3;
-}
-
-$resources = get_featured_collection_resources($fc, $resource_context);
-
-// Reuse the standard featured collection image generation/rendering logic.
-$theme_images = generate_featured_collection_image_urls($resources);
-
-echo generate_featured_collection_image_html($theme_images, $fc);
+echo generate_featured_collection_image_html(get_featured_collection_tile_images($fc, $is_smart), $fc);

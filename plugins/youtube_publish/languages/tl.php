@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"] = 'Magdagdag ng anchor tags sa URL kapag nag
 $lang["page-title_youtube_publish_setup"] = 'I-set up ang Plugin';
 $lang["page-title_youtube_publish_youtube_upload"] = 'I-publish ang Yaman sa Youtube';
 $lang["youtube_publish_video_title"] = 'Pamagat ng video (hanggang 100 karakter)';
+
+$lang['plugin-youtube_publish-title'] = 'I-publish sa YouTube';
+$lang['plugin-youtube_publish-desc'] = 'I-publish ang mga video na yaman sa isang naka-configure na YouTube account.';

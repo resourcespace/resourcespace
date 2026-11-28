@@ -15,3 +15,6 @@ $lang["csv_user_import_condition3"] = 'Mga Kolum na magkakaroon ng mga halaga na
 $lang["csv_user_import_condition4"] = 'Pinapayagang mga kolum: *username, *email, password, buong pangalan, account_expires, mga komento, ip_restrict, lang. Tandaan: ang mga kinakailangang patlang ay minarkahan ng *';
 $lang["csv_user_import_condition5"] = 'Ang wika ng gumagamit ay babalik sa nakatakdang wika gamit ang "$defaultlanguage" na opsyon sa config kung ang lang na kolum ay hindi matagpuan o walang halaga.';
 $lang["page-title_csv_user_import_csv_user_import"] = 'CSV Pag-import ng Gumagamit';
+
+$lang['plugin-csv_user_import-title'] = 'Pag-import ng User mula sa CSV';
+$lang['plugin-csv_user_import-desc'] = 'Nagbibigay ng kakayahan na mag-import ng maramihang user gamit ang isang paunang naka-format na CSV na file';

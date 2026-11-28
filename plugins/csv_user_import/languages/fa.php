@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'ستون‌های مجاز: *نام‌ک�
 $lang["csv_user_import_condition5"] = 'زبان کاربر به طور پیش‌فرض به زبانی که با استفاده از گزینه پیکربندی "$defaultlanguage" تنظیم شده است برمی‌گردد اگر ستون زبان پیدا نشود یا مقداری نداشته باشد';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'واردات کاربر CSV';
+
+$lang['plugin-csv_user_import-title'] = 'وارد کردن کاربران از CSV';
+$lang['plugin-csv_user_import-desc'] = 'امکان وارد کردن گروهی کاربران بر اساس فایل CSV از پیش قالب‌بندی شده را فراهم می‌کند';

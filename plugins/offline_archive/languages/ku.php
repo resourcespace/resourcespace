@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'گەڕاندنەوەی ئە archi
 $lang["page-title_offline_archive_setup"] = 'ڕێکخستنەوەی پلاگینەکانی archiveی دەرەکی';
 $lang["page-title_offline_archive_view_archives"] = 'بینینی archiveی سەرچاوەکان';
 $lang["page-title_offline_archive_view_pending"] = 'بینینی archiveی پێنەوە';
+
+$lang['plugin-offline_archive-title'] = 'تێپەڕبووکردنی ئۆفڵاین';
+$lang['plugin-offline_archive-desc'] = 'ڕێگە دەدات بۆ گواستنەوەی پەڕگەکانی تێپەڕبوو بۆ شوێنی ئۆفڵاین.';

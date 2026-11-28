@@ -26,3 +26,6 @@ $lang["columnheader-last-found"] = 'Последно намерено';
 $lang["search_notifications_watched_searches-tooltip"] = 'Контролирайте запазените си търсения';
 $lang["page-title_rse_search_notifications_setup"] = 'Настройка на плъгина за известия за търсене';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'Следени търсения';
+
+$lang['plugin-rse_search_notifications-title'] = 'Известия за търсене';
+$lang['plugin-rse_search_notifications-desc'] = 'Уведомявайте потребителя при промени в запазено търсене.';

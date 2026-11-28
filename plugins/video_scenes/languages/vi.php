@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Phát cảnh tại %time';
 $lang["video_scene_play_unavailable"] = 'Cảnh này nằm ngoài phần xem trước video có sẵn.';
 $lang["video_scene_job_success"] = 'Xử lý cảnh video hoàn tất';
 $lang["video_scene_job_failure"] = 'Xử lý cảnh video thất bại. Xem nhật ký công việc để biết chi tiết.';
+$lang['plugin-video_scenes-title'] = 'Cảnh video';
+$lang['plugin-video_scenes-desc'] = 'Phát hiện cảnh video cục bộ bằng transnetv2-pytorch, với mô tả âm thanh hình ảnh tùy chọn của OpenAI.';

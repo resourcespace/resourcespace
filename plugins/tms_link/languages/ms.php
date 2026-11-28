@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'Tunjukkan Data TMS Mentah';
 $lang["page-title_tms_link_test"] = 'Uji Data TMS';
 $lang["page-title_tms_link_tms_details"] = 'Tunjukkan Data TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'Edit Konfigurasi Modul TMS';
+
+$lang['plugin-tms_link-title'] = 'Pautan TMS';
+$lang['plugin-tms_link-desc'] = 'Membolehkan metadata sumber diekstrak daripada pangkalan data TMS.';

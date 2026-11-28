@@ -53,3 +53,6 @@ $lang["museumplus_error_module_no_field_maps"] = 'Nem sikerült szinkronizálni 
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus Objekt Részletek';
 $lang["page-title_museumplus_setup_module"] = 'MúzeumPlus Modul Beállítása';
 $lang["page-title_museumplus_setup"] = 'Állítsa be a MuseumPlus bővítményt';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Lehetővé teszi az erőforrás metaadatainak kinyerését a MuseumPlus-ból a REST API (MpRIA) használatával.';

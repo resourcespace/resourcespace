@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"] = 'Шлях да мініятюры';
 $lang["vm2rs_online_preview"] = 'Анлайн-папярэдні прагляд';
 $lang["vm2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_vm2rs_setup"] = 'Наладка плагіна Vimeo для ResourceSpace';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo у ResourceSpace';
+$lang['plugin-vm2rs-desc'] = 'Убудаваць відэа з Vimeo, быццам гэта рэсурсы ResourceSpace.';

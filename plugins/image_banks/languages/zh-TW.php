@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = '搜尋';
 $lang["page-title_image_banks_setup"] = '設定圖像庫插件';
 $lang["page-title_image_banks_shutterstock_license"] = '查看 Shutterstock 圖像';
 $lang["page-title_image_banks_view"] = '查看資源';
+
+$lang['plugin-image_banks-title'] = '圖片庫';
+$lang['plugin-image_banks-desc'] = '在 ResourceSpace 內搜尋免費／商業圖片庫。';

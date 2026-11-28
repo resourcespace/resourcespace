@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Пошук';
 $lang["page-title_image_banks_setup"] = 'Налаштування плагіна банків зображень';
 $lang["page-title_image_banks_shutterstock_license"] = 'Переглянути зображення Shutterstock';
 $lang["page-title_image_banks_view"] = 'Переглянути ресурс';
+
+$lang['plugin-image_banks-title'] = 'Банки зображень';
+$lang['plugin-image_banks-desc'] = 'Шукайте безкоштовні/комерційні бібліотеки зображень безпосередньо в ResourceSpace.';

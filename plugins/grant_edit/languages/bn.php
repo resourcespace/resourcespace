@@ -10,3 +10,6 @@ $lang["grant_edit_list"]='বর্তমান ব্যবহারকার�
 $lang["grant_edit_group_list"]='বর্তমান গ্রুপগুলি অতিরিক্ত সম্পাদনা অ্যাক্সেস সহ';
 $lang["grant_edit_delete_user"]='উন্নত অ্যাক্সেস অপসারণ নিশ্চিত করুন জন্য';
 $lang["page-title_grant_edit_setup"] = 'গ্রান্ট সম্পাদনা প্লাগইন সেটআপ';
+
+$lang['plugin-grant_edit-title'] = 'সম্পাদনার অনুমতি দিন';
+$lang['plugin-grant_edit-desc'] = 'প্রশাসকদের ব্যবহারকারীদের রিসোর্স সম্পাদনার জন্য অস্থায়ী পূর্ণ অনুমতি দেওয়ার সক্ষমতা প্রদান করে।';

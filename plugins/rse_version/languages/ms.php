@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'Mengembalikan keadaan untuk koleksi #%COL
 $lang["rse_version_invalid_time"] = 'Kembali ke waktu sebelum [date] tidak disokong';
 $lang["page-title_rse_version_revert"] = 'Kembalikan Versi Sumber';
 $lang["page-title_rse_version_setup"] = 'Tetapkan Plugin Versi';
+
+$lang['plugin-rse_version-title'] = 'Kawalan Versi';
+$lang['plugin-rse_version-desc'] = 'Jejaki dan pulihkan perubahan metadata dan fail.';

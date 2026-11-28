@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'Jelöld be a transzkó
 $lang["video_tracks_transcode_now_label"] = 'Transzkódolás most';
 $lang["page-title_video_tracks_create_video"] = 'Videó létrehozása';
 $lang["page-title_video_tracks_setup"] = 'Videósávok bővítmény beállítása';
+
+$lang['plugin-video_tracks-title'] = 'Videósávok';
+$lang['plugin-video_tracks-desc'] = 'Támogatás hozzáadása különböző hang- és feliratválasztékokhoz videó erőforrások esetén.';

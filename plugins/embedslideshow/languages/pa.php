@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'ਪਲੇਅਰ ਦੇ ਆਕਾਰ ਦ�
 
 $lang["page-title_embedslideshow_setup"] = 'ਐਮਬੈਡ ਸਲਾਈਡਸ਼ੋ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_embedslideshow_viewer"] = 'ਸਲਾਈਡਸ਼ੋ ਨੂੰ ਐਮਬੈਡ ਕਰੋ';
+
+$lang['plugin-embedslideshow-title'] = 'ਸਲਾਈਡਸ਼ੋ ਐਂਬੈੱਡ ਕਰੋ';
+$lang['plugin-embedslideshow-desc'] = 'ਦੂਰੇ ਸਾਈਟਾਂ \'ਤੇ ਐਂਬੈੱਡ ਕਰਨ ਯੋਗ ਸੰਗ੍ਰਹਿ ਸਲਾਈਡਸ਼ੋ ਬਣਾਉਣ ਲਈ ਇੱਕ ਫੰਕਸ਼ਨ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।';

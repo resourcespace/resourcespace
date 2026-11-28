@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Tetapkan Pemilih Format Plugin';
 
 $lang["format_chooser_blocked_inputs"] = '<p>Format berikut tidak disokong untuk input: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Format berikut tidak disokong untuk output: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Pemilih Format';
+$lang['plugin-format_chooser-desc'] = 'Membolehkan anda memilih format berbeza semasa memuat turun fail yang dijana secara langsung.';

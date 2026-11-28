@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'Na-filter na pag-update ng resource par
 $lang["page-title_rss2_rssfeed"] = 'RSS Feed';
 $lang["page-title_rss2_rssfilter"] = 'RSS Filter';
 $lang["page-title_rss2_setup"] = 'I-set up ang RSS Plugin';
+
+$lang['plugin-rss2-title'] = 'RSS Feed';
+$lang['plugin-rss2-desc'] = 'Pinapagana ang awtentikadong paglikha ng mga RSS feed ng bagong nilalaman, kabilang ang mga naiaayos na patlang.';

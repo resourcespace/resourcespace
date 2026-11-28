@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Hírek hozzáadása, szerkesztése vagy törlés
 $lang["page-title_news_news_content_edit"] = 'Hírek tartalmának szerkesztése';
 $lang["page-title_news_news_edit"] = 'Hírek szerkesztése';
 $lang["page-title_news_news"] = 'Hírek';
+
+$lang['plugin-news-title'] = 'Hírek';
+$lang['plugin-news-desc'] = 'Hírek hozzáadása a kezdőlaphoz.';

@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Chwilio';
 $lang["page-title_image_banks_setup"] = 'Gosod Plugin Banciau Delwedd';
 $lang["page-title_image_banks_shutterstock_license"] = 'Gweld Delwedd Shutterstock';
 $lang["page-title_image_banks_view"] = 'Gweld Adnodd';
+
+$lang['plugin-image_banks-title'] = 'Banciau Delweddau';
+$lang['plugin-image_banks-desc'] = 'Chwiliwch am lyfrgelloedd delweddau rhad / masnachol o fewn ResourceSpace.';

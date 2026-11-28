@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Quản lý nội dung hướng d
 $lang["page-title_brand_guidelines_guidelines"] = 'Hướng dẫn thương hiệu';
 $lang["page-title_brand_guidelines_setup"] = 'Cài đặt Plugin Hướng dẫn Thương hiệu';
 $lang["page-title_brand_guidelines_toc"] = 'Chỉnh sửa nội dung';
+
+$lang['plugin-brand_guidelines-title'] = 'Hướng dẫn thương hiệu';
+$lang['plugin-brand_guidelines-desc'] = 'Tạo khu vực hướng dẫn thương hiệu với nội dung tùy chỉnh, liên kết tài nguyên và màu sắc.';

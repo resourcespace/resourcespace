@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'ค้นหา';
 $lang["page-title_image_banks_setup"] = 'ตั้งค่าปลั๊กอินธนาคารภาพ';
 $lang["page-title_image_banks_shutterstock_license"] = 'ดูภาพ Shutterstock';
 $lang["page-title_image_banks_view"] = 'ดูทรัพยากร';
+
+$lang['plugin-image_banks-title'] = 'คลังภาพ';
+$lang['plugin-image_banks-desc'] = 'ค้นหาห้องสมุดภาพฟรี/เชิงพาณิชย์จากภายใน ResourceSpace.';

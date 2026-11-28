@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Administrere innhold for merke r
 $lang["page-title_brand_guidelines_guidelines"] = 'Merke retningslinjer';
 $lang["page-title_brand_guidelines_setup"] = 'Sett opp merkevare retningslinjer-plugin';
 $lang["page-title_brand_guidelines_toc"] = 'Rediger innhold';
+
+$lang['plugin-brand_guidelines-title'] = 'Retningslinjer for merkevare';
+$lang['plugin-brand_guidelines-desc'] = 'Opprett et område for retningslinjer for merkevaren med egendefinert innhold, ressurslenker og farger.';

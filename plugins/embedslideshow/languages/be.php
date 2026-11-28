@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'Адкрыць прамы спасыл
 $lang["embedslideshow_dynamic_size"] = 'Дынамічнае змяненне памеру папярэдняга прагляду ў залежнасці ад памеру праймера?';
 $lang["page-title_embedslideshow_setup"] = 'Наладзіць убудову слайдшоўта';
 $lang["page-title_embedslideshow_viewer"] = 'Уставіць слайд-шоў';
+
+$lang['plugin-embedslideshow-title'] = 'Убудаваная слайд-шоў';
+$lang['plugin-embedslideshow-desc'] = 'Прадастаўляе функцыю для генерацыі HTML-кода ўбудаваных слайд-шоў калекцый на аддаленых сайтах.';

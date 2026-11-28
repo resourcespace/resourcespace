@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'ਉਹ ਕਾਲਮ ਚੁਣੋ ਜਿਸ ਵ�
 $lang["csv_upload_longitude"] = 'ਜੇ ਵੱਖਰੇ ਹੋਣ ਤਾਂ ਲੰਬਾਈ ਲਈ ਕਾਲਮ ਚੁਣੋ, ਜੋ ਉਪਰਲੇ ਕਾਲਮ ਤੋਂ ਵੱਖਰਾ ਹੈ';
 $lang["latitude"] = 'ਅੱਖਾਂ';
 $lang["longitude"] = 'ਲੰਬਾਈ';
+
+$lang['plugin-csv_upload-title'] = 'CSV ਅਪਲੋਡ';
+$lang['plugin-csv_upload-desc'] = 'CSV ਫਾਇਲ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮੈਟਾਡੇਟਾ ਅਪਲੋਡ ਕਰੋ।';

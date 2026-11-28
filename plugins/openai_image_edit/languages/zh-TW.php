@@ -28,3 +28,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI 儲存新建';
 $lang["openai_image_edit_error_invalid_image_data"] = '無效的圖像數據';
 $lang["openai_image_edit_error_invalid_image"] = '無效的圖像';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = '無法寫入臨時文件';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI 圖像編輯';
+$lang['plugin-openai_image_edit-desc'] = '擦除圖像的部分並使用 GPT Image 重新生成。';

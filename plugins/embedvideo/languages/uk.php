@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'Будь ласка, вкажіть, для я�
 $lang["video_resourcetype"] = 'Тип ресурсу Відео';
 
 $lang["page-title_embedvideo_setup"] = 'Налаштування плагіна вбудовування відео';
+
+$lang['plugin-embedvideo-title'] = 'Вбудувати відео';
+$lang['plugin-embedvideo-desc'] = 'Надає функцію для створення HTML-коду для вбудовування відео на віддалених сайтах.';

@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'คุณ�
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'การเลือกคุกกี้';
 $lang["page-title_cookies_notification_setup"] = 'ตั้งค่าปลั๊กอินการแจ้งเตือนคุกกี้';
+
+$lang['plugin-cookies_notification-title'] = 'การแจ้งเตือนคุกกี้';
+$lang['plugin-cookies_notification-desc'] = 'แจ้งการใช้คุกกี้โดยแสดงข้อความในส่วนหัว';

@@ -1,0 +1,21 @@
+<?php
+$lang['logconfirmrevert'] = 'ඔබට මෙම වෙනස ආපසු හැරීමට අවශ්‍යද?';
+$lang['revertingwillapply'] = 'ආපසු හැරීමෙන් මෙම වෙනස ක්‍රියාත්මක වේ:';
+$lang['revertingwillreplace'] = 'ආපසු හැරීමෙන් වර්තමාන ගොනුව මෙයෙනි ස්ථානයට වෙනස් වේ:';
+$lang['revertingclicktoproceed'] = 'පහත සඳහන් වෙනස්කම් ක්‍රියාත්මක වේ:';
+$lang['revertingwilladd'] = 'මෙම විකල්ප එකතු කෙරේ:';
+$lang['revertingwillremove'] = 'මෙම විකල්ප ඉවත් කෙරේ:';
+$lang['revertingwillignore'] = 'මෙම පැරණි විකල්ප නොසලකා හැරේ:';
+$lang['revert_log_note'] = '(ආපසු හැරීම)';
+$lang['revertmetadatatodatetime'] = 'දිනය/වේලාව (YYYY-MM-DD HH:MM) අනුව තත්ත්වයට ආපසු හැරීම';
+$lang['logdownloadearlierversion'] = 'ගොනු පරණ අනුවාදය බාගත කරන්න';
+$lang['rse_version_configuration'] = 'Resource Versioning (rse_version) වින්‍යාසය';
+$lang['rse_version_override_groups'] = 'පරිශීලක කණ්ඩායම් පහත සඳහන් API ඇමතුම් සම්පත් වෙනස් කිරීමේදී පවතින ගොනුව රැක ගැනීමෙන් ඉවතලිය හැක';
+$lang['rse_version_log_not_found'] = 'ලොග් ඇතුළත් කිරීම සොයාගත නොහැක';
+$lang['rse_version_revert_state'] = 'තත්ත්වය ආපසු හැරීම';
+$lang['rse_version_rstate_changes'] = 'තෝරාගත් වාර්තාව ඇතුළත් නොකර, එකතු කිරීම #%COLLECTION සඳහා සිදුවීම් නැවත ක්‍රියාත්මක කිරීමෙන් තත්ත්වය ආපසු හැරීම.';
+$lang['rse_version_invalid_time'] = '[date] ට පෙර කාලයකට ආපසු හැරීම සහය නොදක්වයි';
+$lang['page-title_rse_version_revert'] = 'සම්පත් අනුවාදය ආපසු හැරීම';
+$lang['page-title_rse_version_setup'] = 'අනුවාද ප්ලගිනය සැකසීම';
+$lang['plugin-rse_version-title'] = 'අනුවාද පාලනය';
+$lang['plugin-rse_version-desc'] = 'මැටාදත්ත සහ ගොනු වෙනස්කම් සටහන් කර නැවත ලබා ගන්න.';

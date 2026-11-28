@@ -12,3 +12,6 @@ $lang["invalidrange"]='محدوده نامعتبر';
 $lang["splitpdf_createnewresource"]='ایجاد یک منبع جدید برای هر محدوده';
 $lang["splitpdf_createnewalternativefile"]='ایجاد یک فایل جایگزین جدید در این منبع برای هر محدوده';
 $lang["page-title_pdf_split_pdf_split"] = 'تقسیم PDF';
+
+$lang['plugin-pdf_split-title'] = 'تقسیم PDF';
+$lang['plugin-pdf_split-desc'] = 'امکان تقسیم فایل‌های PDF به صفحات متعدد را فراهم می‌کند.';

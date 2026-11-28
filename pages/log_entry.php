@@ -117,8 +117,10 @@ if (!checkperm('v') && !$bypass_permission_check) {
                                     continue 2;
                                 } else {
                                     $name = $lang["indicateusagemedium"];
-                                    if (isset($download_usage_options[$value])) {
-                                        $value = i18n_get_translated($download_usage_options[$value]);
+                                    $usage_label = $download_usage_options[$value]
+                                        ?? $download_usage_options_retired[$value] ?? null;
+                                    if ($usage_label !== null) {
+                                        $value = i18n_get_translated($usage_label);
                                     }
                                 }
                                 break;

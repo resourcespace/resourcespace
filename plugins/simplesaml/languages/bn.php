@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'SimpleSAML প্লাগইন ক
 $lang["simplesaml_error_no_idp_metadata"] = 'SimpleSAML প্লাগইন সম্পূর্ণরূপে কনফিগার করা হয়নি (IdP মেটাডেটা অনুপস্থিত)';
 $lang["simplesaml_error_no_authsource"] = 'SimpleSAML প্লাগইন সম্পূর্ণরূপে কনফিগার করা হয়নি (অথরসোর্স অনুপস্থিত)';
 $lang["simplesaml_userlimit_error"] = 'ব্যবহারকারী তৈরি করা যায়নি কারণ ব্যবহারকারীর সীমা পৌঁছেছে। দয়া করে আপনার প্রশাসকের সাথে যোগাযোগ করুন।';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'SAML এর মাধ্যমে ব্যবহারকারী প্রমাণীকরণ।';

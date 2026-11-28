@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'Chagua safu inayojumuisha mahali pa rasilimali, 
 $lang["csv_upload_longitude"] = 'Chagua safu ya Longitude ikiwa ni tofauti na ile iliyo juu';
 $lang["latitude"] = 'latitude';
 $lang["longitude"] = 'longitude';
+
+$lang['plugin-csv_upload-title'] = 'Pakia CSV';
+$lang['plugin-csv_upload-desc'] = 'Pakia metadata kwa kutumia faili la CSV.';

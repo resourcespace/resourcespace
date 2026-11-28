@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'Bạn đã quyết địn
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Bạn cần chấp nhận việc sử dụng cookie trước khi truy cập vào hệ thống.';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Lựa chọn Cookie';
 $lang["page-title_cookies_notification_setup"] = 'Cài đặt Plugin Thông báo Cookie';
+
+$lang['plugin-cookies_notification-title'] = 'Thông báo Cookie';
+$lang['plugin-cookies_notification-desc'] = 'Thông báo việc sử dụng cookie bằng cách hiển thị một thông điệp ở đầu trang.';

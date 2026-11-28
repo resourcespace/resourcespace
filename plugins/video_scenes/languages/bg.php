@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Възпроизвеждане на сцена в %
 $lang["video_scene_play_unavailable"] = 'Тази сцена е извън наличния видео преглед.';
 $lang["video_scene_job_success"] = 'Обработката на видео сцената е завършена';
 $lang["video_scene_job_failure"] = 'Обработката на видео сцената не бе успешна. Вижте дневника на задачата за подробности.';
+$lang['plugin-video_scenes-title'] = 'Видео сцени';
+$lang['plugin-video_scenes-desc'] = 'Локално откриване на видео сцени с transnetv2-pytorch, с опционални аудиовизуални описания от OpenAI.';

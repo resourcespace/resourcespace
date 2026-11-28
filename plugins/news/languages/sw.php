@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Ongeza, hariri au futa vitu vya habari';
 $lang["page-title_news_news_content_edit"] = 'Hariri Maudhui ya Habari';
 $lang["page-title_news_news_edit"] = 'Hariri Habari';
 $lang["page-title_news_news"] = 'Habari';
+
+$lang['plugin-news-title'] = 'Habari';
+$lang['plugin-news-desc'] = 'Ongeza makala za habari kwenye ukurasa wa nyumbani.';

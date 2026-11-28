@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'Salvează Nou OpenAI';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Date imagine invalide';
 $lang["openai_image_edit_error_invalid_image"] = 'Imagine invalidă';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nu se poate scrie fișierul temporar';
+$lang['plugin-openai_image_edit-title'] = 'Editare Imagine OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Ștergeți părți dintr-o imagine și folosiți GPT Image pentru a le regenera.';

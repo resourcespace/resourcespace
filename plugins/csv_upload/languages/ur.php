@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'وہ کالم منتخب کریں جس میں و
 $lang["csv_upload_longitude"] = 'اگر علیحدہ کالم ہے تو طول بلد کے لیے کالم منتخب کریں';
 $lang["latitude"] = 'عرض بلد';
 $lang["longitude"] = 'طول بلد';
+
+$lang['plugin-csv_upload-title'] = 'CSV اپ لوڈ';
+$lang['plugin-csv_upload-desc'] = 'CSV فائل کے ذریعے میٹا ڈیٹا اپ لوڈ کریں۔';

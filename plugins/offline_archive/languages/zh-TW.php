@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = '還原存檔';
 $lang["page-title_offline_archive_setup"] = '設定離線存檔插件';
 $lang["page-title_offline_archive_view_archives"] = '查看資源存檔';
 $lang["page-title_offline_archive_view_pending"] = '查看待處理存檔';
+
+$lang['plugin-offline_archive-title'] = '離線存檔';
+$lang['plugin-offline_archive-desc'] = '允許將已存檔的檔案移動到離線位置。';

@@ -1,0 +1,30 @@
+<?php
+$lang['video_scene_play'] = '%time දී දර්ශනය ක්‍රීයාවට නැංවීම';
+$lang['video_scene_play_unavailable'] = 'මෙම දර්ශනය ලබා ගත හැකි වීඩියෝ පෙරදසුනෙන් පිටත වේ.';
+$lang['video_scene_job_success'] = 'වීඩියෝ දර්ශන සැකසුම් සම්පූර්ණයි';
+$lang['video_scene_job_failure'] = 'වීඩියෝ දර්ශන සැකසුම් අසාර්ථකයි. විස්තර සඳහා රැකියා ලොගය බලන්න.';
+$lang['plugin-video_scenes-title'] = 'වීඩියෝ දර්ශන';
+$lang['plugin-video_scenes-desc'] = 'transnetv2-pytorch සමඟ දේශීයව වීඩියෝ දර්ශන හඳුනා ගන්න, විකල්ප OpenAI දෘශ්‍ය-ශ්‍රව්‍ය විස්තර සමඟ.';
+
+$lang['video_scene_title'] = 'වීඩියෝ දර්ශන';
+$lang['video_scene_intro'] = 'උඩුගත කිරීමෙන් පසු හෝ පෙරදසුන නැවත නිර්මාණය කිරීමෙන් පසු transnetv2-pytorch සමඟ දර්ශන ස්ථානයේ හඳුනා ගන්න. සැකසීමකට පෙර Python පැකේජය ස්ථාපනය කරන්න; ආදර්ශ බර ඇතුළත් වේ. විකල්ප OpenAI API යතුරක් දර්ශන විස්තර සක්‍රීය කරයි; පසුව කොලේජ සහ දර්ශන ශ්‍රව්‍ය OpenAI වෙත යවනු ලැබේ.';
+$lang['video_scene_python'] = 'Python ක්‍රියාත්මක කිරීම (සම්පූර්ණ මාර්ගය)';
+$lang['video_scene_threshold'] = 'දර්ශන මාරුවීමේ සීමාව (0 සහ 1 අතර)';
+$lang['video_scene_api_key'] = 'OpenAI API යතුර (විකල්ප)';
+$lang['video_scene_model'] = 'පින්තූර සහ ශ්‍රව්‍ය ආදානයට සහය දක්වන OpenAI Realtime ආදර්ශය';
+$lang['video_scene_audio'] = 'විස්තරවල දර්ශන ශ්‍රව්‍ය ඇතුළත් කරන්න';
+$lang['video_scene_audio_overlap'] = 'සෑම දර්ශනයකට පෙර සහ පසු ශ්‍රව්‍ය පරිසරය (තත්පර, 0 සිට 30 දක්වා)';
+$lang['video_scene_prompt'] = 'දර්ශන විස්තර ප්‍රශ්නය';
+$lang['video_scene_search_field'] = 'සෙවිය හැකි දර්ශන විස්තර ක්ෂේත්‍රය (විකල්ප)';
+$lang['video_scene_prompt_help'] = 'එක් එක් දර්ශනය එහි ෆ්‍රේම් සහ ශ්‍රව්‍යයෙන් විස්තර කිරීමට උපදෙස්. උපරිම 8,000 බයිට්.';
+$lang['video_scene_timeout'] = 'වීඩියෝවකට උපරිම සැකසුම් කාලය (තත්පර)';
+$lang['video_scene_invalid_config'] = 'Python මාර්ගය, සීමාව, ආදර්ශය, යතුර සහ සැකසුම් කාලය පරීක්ෂා කරන්න.';
+$lang['video_scene_time'] = 'කාලසටහන';
+$lang['video_scene_thumbnail'] = 'කුඩා රූපය';
+$lang['video_scene_description'] = 'විස්තරය';
+$lang['video_scene_edit_description'] = '%time දර්ශන විස්තර සංස්කරණය කරන්න';
+$lang['video_scene_invalid_description'] = 'අවම වශයෙන් 16,000 බයිට් දක්වා වලංගු විස්තරයක් ඇතුළත් කරන්න.';
+$lang['video_scene_description_missing'] = 'මෙම දර්ශනය දැන් නොපවතියි. සම්පත් දර්ශනය නැවත පූරණය කරන්න.';
+$lang['video_scene_description_save_failed'] = 'විස්තරය සුරකින්න නොහැකි විය. නැවත උත්සාහ කරන්න හෝ සම්පත් දර්ශනය නැවත පූරණය කරන්න.';
+$lang['video_scene_description_saved'] = 'දර්ශන විස්තරය සුරකිණි.';
+$lang['video_scene_no_description'] = 'විස්තරයක් නොමැත';

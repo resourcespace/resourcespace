@@ -39,3 +39,6 @@ $lang["weekday-6"] = 'Jumamosi';
 
 $lang["page-title_action_dates_setup"] = 'Panga Plugin ya Tarehe za Kitendo';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Waarifu wasimamizi siku ngapi kabla ya kitendo kutokea (Weka tupu kuzuia)';
+
+$lang['plugin-action_dates-title'] = 'Tarehe za Hatua';
+$lang['plugin-action_dates-desc'] = 'Inawezesha kufuta au kuweka vikwazo kwa rasilimali kwa ratiba kulingana na mashamba ya tarehe.';

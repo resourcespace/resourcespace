@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'فارمیٹ چننے والا پل�
 
 $lang["format_chooser_blocked_inputs"] = '<p>مندرجہ ذیل فارمیٹس ان پٹ کے لیے معاونت یافتہ نہیں ہیں: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>مندرجہ ذیل فارمیٹس آؤٹ پٹ کے لیے معاونت یافتہ نہیں ہیں: %s</p>';
+$lang['plugin-format_chooser-title'] = 'فارمیٹ منتخب کنندہ';
+$lang['plugin-format_chooser-desc'] = 'فائلوں کو ڈاؤن لوڈ کرتے وقت مختلف فارمیٹس منتخب کرنے کی اجازت دیتا ہے جو فوری طور پر تیار کیے جاتے ہیں۔';

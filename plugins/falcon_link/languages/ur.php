@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'براہ کرم چیک کریں 
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'فالکن لنک پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'خودکار سوشل میڈیا شیئرنگ کے لیے وسائل کو Falcon.io پر شائع کریں۔';

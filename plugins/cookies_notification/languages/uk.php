@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Ви по�
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Вибір файлів cookie';
 $lang["page-title_cookies_notification_setup"] = 'Налаштування плагіна сповіщення про куки';
+
+$lang['plugin-cookies_notification-title'] = 'Повідомлення про файли cookie';
+$lang['plugin-cookies_notification-desc'] = 'Повідомляє про використання файлів cookie, показуючи повідомлення у заголовку.';

@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'Калі ласка, праве�
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'Наладзіць плагін Falcon Link';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'Апублікаваць рэсурсы на Falcon.io для аўтаматычнага абмену ў сацыяльных сетках.';

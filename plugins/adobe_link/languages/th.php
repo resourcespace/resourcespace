@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'กำลังบันทึก..';
 $lang["adobe_link_saving_wait"] = 'กำลังบันทึกไฟล์ กรุณารอข้อความยืนยัน คุณอาจต้องรีเฟรชหน้าเพื่ออัปเดตภาพตัวอย่าง';
 
 $lang["page-title_adobe_link_setup"] = 'ตั้งค่า Adobe Link Plugin';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'อนุญาตให้นำเข้าไฟล์ Adobe จาก ResourceSpace ไปยัง Adobe CC';

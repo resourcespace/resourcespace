@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Toista kohtaus kohdassa %time';
 $lang["video_scene_play_unavailable"] = 'Tämä kohtaus on videon esikatselun ulkopuolella.';
 $lang["video_scene_job_success"] = 'Videokohtauksen käsittely valmis';
 $lang["video_scene_job_failure"] = 'Videokohtauksen käsittely epäonnistui. Katso työn loki lisätietoja varten.';
+$lang['plugin-video_scenes-title'] = 'Videokohtaukset';
+$lang['plugin-video_scenes-desc'] = 'Tunnista videokohtaukset paikallisesti transnetv2-pytorchilla, valinnaisilla OpenAI audiovisuaalisilla kuvauksilla.';

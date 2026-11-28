@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'Mangyaring tukuyin kung aling uri
 $lang["embeddocument_document_resourcetype"] = 'Malalayong Tagakita ng Dokumento Uri ng Yaman:';
 $lang["page-title_embeddocument_setup"] = 'I-set up ang Embed Document Plugin';
 $lang["page-title_embeddocument_viewer"] = 'I-embed ang Tagapanood ng Dokumento';
+
+$lang['plugin-embeddocument-title'] = 'I-embed ang Dokumento';
+$lang['plugin-embeddocument-desc'] = 'Nagbibigay ng function para gumawa ng HTML para sa mga embeddable na preview ng dokumento sa mga remote na site.';

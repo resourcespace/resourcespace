@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Gosodwch y Plugin Dewis Fformat';
 
 $lang["format_chooser_blocked_inputs"] = '<p>Nid yw\'r fformatau canlynol yn cael eu cefnogi ar gyfer mewnbwn: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Nid yw\'r fformatau canlynol yn cael eu cefnogi ar gyfer allbwn: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Dewisydd Fformat';
+$lang['plugin-format_chooser-desc'] = 'Yn caniatáu i chi ddewis fformatau gwahanol wrth lawrlwytho ffeiliau sy\'n cael eu creu ar y hedfan.';

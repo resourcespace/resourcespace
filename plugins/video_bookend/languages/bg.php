@@ -10,3 +10,6 @@ $lang["bookend-intro"] = 'Изберете изображения от спис�
 $lang["bookend-failed"] = 'Неуспех!';
 $lang["bookend-could-not-open-file"] = 'Грешка - не можа да се отвори файл!';
 $lang["page-title_video_bookend_bookend"] = 'Видео крайна част';
+
+$lang['plugin-video_bookend-title'] = 'Видео Bookend';
+$lang['plugin-video_bookend-desc'] = 'Добавя възможност за изтегляне на видео с заглавие и крайна графика.';

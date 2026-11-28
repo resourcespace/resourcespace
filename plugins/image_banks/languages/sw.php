@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Tafuta';
 $lang["page-title_image_banks_setup"] = 'Panga Plugin ya Benki za Picha';
 $lang["page-title_image_banks_shutterstock_license"] = 'Tazama Picha ya Shutterstock';
 $lang["page-title_image_banks_view"] = 'Tazama Rasilimali';
+
+$lang['plugin-image_banks-title'] = 'Benki za Picha';
+$lang['plugin-image_banks-desc'] = 'Tafuta maktaba za picha za bure/kibiashara kutoka ndani ya ResourceSpace.';

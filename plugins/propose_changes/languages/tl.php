@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"] = '[img_headerlogo]<br />Ang iyong iminun
 $lang["propose_changes_emailproposedchanges"] = '[img_headerlogo]<br />Inilagay na ang mga iminungkahing pagbabago.<br/>[changesummary]<br/>I-click ang ibaba upang suriin ang mga pagbabago<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'Magmungkahi ng mga Pagbabago';
 $lang["page-title_propose_changes_setup"] = 'I-set up ang Plugin para sa Pagmungkahi ng mga Pagbabago';
+
+$lang['plugin-propose_changes-title'] = 'Iminungkahi ang mga Pagbabago';
+$lang['plugin-propose_changes-desc'] = 'Payagan ang mga gumagamit na magmungkahi ng mga pagbabago sa metadata nang walang access sa pag-edit.';

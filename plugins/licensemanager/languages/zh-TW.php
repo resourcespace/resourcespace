@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = '編輯授權';
 $lang["page-title_licensemanager_list"] = '授權清單';
 $lang["page-title_licensemanager_setup"] = '設定授權管理插件';
 $lang["page-title_licensemanager_unlink"] = '解除授權連結';
+
+$lang["collection_actiontype_80"] = '授權';
+$lang['plugin-licensemanager-title'] = '授權管理員';
+$lang['plugin-licensemanager-desc'] = '管理資源授權。';

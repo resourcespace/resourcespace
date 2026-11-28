@@ -26,3 +26,6 @@ $lang["columnheader-last-found"] = '上次找到';
 $lang["search_notifications_watched_searches-tooltip"] = '控制您的已儲存搜尋';
 $lang["page-title_rse_search_notifications_setup"] = '設定搜尋通知插件';
 $lang["page-title_rse_search_notifications_watched_searches"] = '已監控的搜尋';
+
+$lang['plugin-rse_search_notifications-title'] = '搜尋通知';
+$lang['plugin-rse_search_notifications-desc'] = '當已儲存的搜尋發生變更時通知使用者。';

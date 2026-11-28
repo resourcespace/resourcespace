@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Cấu hình công việc tạo vector CLIP';
 $lang["clip-job_limit"] = 'Giới hạn kích thước lô';
 $lang["clip-job_limit_help"] = 'Thiết lập tùy chọn này sẽ giới hạn số tài nguyên được xử lý trong một lần chạy.';
 $lang["clip-job_limit_error"] = 'Giá trị phải từ 1 đến 100000 hoặc để trống để không giới hạn';
+
+$lang['plugin-clip-title'] = 'Tìm kiếm và Gắn thẻ Thông minh CLIP AI';
+$lang['plugin-clip-desc'] = 'Tìm kiếm ngôn ngữ tự nhiên AI, tìm kiếm hình ảnh, so khớp tương tự, phát hiện trùng lặp, gắn thẻ, tạo tiêu đề';

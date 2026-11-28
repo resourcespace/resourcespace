@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_setup"] = 'Tetapkan Plugin Aliran Kerja';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Edit Aliran Kerja';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'Tidak dapat menukar keadaan arkib kepada %%ARCHIVE%%. Tiada akses untuk mengosongkan medan yang diperlukan.';
+$lang['plugin-rse_workflow-title'] = 'Aliran Kerja Lanjutan';
+$lang['plugin-rse_workflow-desc'] = 'Konfigurasikan keadaan dan tindakan aliran kerja tersuai melebihi tetapan lalai.';

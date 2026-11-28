@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'تنظیم افزونه انتخاب
 
 $lang["format_chooser_blocked_inputs"] = '<p>فرمت‌های زیر برای ورودی پشتیبانی نمی‌شوند: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>فرمت‌های زیر برای خروجی پشتیبانی نمی‌شوند: %s</p>';
+$lang['plugin-format_chooser-title'] = 'انتخاب فرمت';
+$lang['plugin-format_chooser-desc'] = 'امکان انتخاب فرمت‌های مختلف هنگام دانلود فایل‌هایی که به صورت پویا تولید می‌شوند را فراهم می‌کند.';

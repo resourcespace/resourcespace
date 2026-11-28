@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Editar llicència';
 $lang["page-title_licensemanager_list"] = 'Llista de llicències';
 $lang["page-title_licensemanager_setup"] = 'Configura el complement del gestor de llicències';
 $lang["page-title_licensemanager_unlink"] = 'Desvincular llicència';
+
+$lang["collection_actiontype_80"] = 'Llicenciament';

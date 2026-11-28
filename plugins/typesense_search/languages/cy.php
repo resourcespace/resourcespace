@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Allwedd API';
 $lang["typesense_search_collection"] = 'Casgliad';
 $lang["typesense_search_timeout"] = 'Eiliadau amser allan';
 $lang["typesense_search_validate_access"] = 'Dilysu mynediad ar ôl chwilio Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Chwilio Typesense';
+$lang['plugin-typesense_search-desc'] = 'Darparwr chwilio allanol dewisol gan ddefnyddio Typesense (arbrofol)';

@@ -13,3 +13,6 @@ $lang["adobe_link_upload_document"] = 'Запази';
 $lang["adobe_link_saving"] = 'Запазване..';
 $lang["adobe_link_saving_wait"] = 'Файлът се запазва, моля изчакайте потвърждението. Може да е необходимо да обновите страницата, за да актуализирате изображението за преглед.';
 $lang["page-title_adobe_link_setup"] = 'Настройка на Adobe Link плъгина';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = 'Позволява внасяне на Adobe файлове от ResourceSpace в Adobe CC.';

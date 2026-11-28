@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"]='ইউটিউব URL মেটাডে�
 $lang["page-title_youtube_publish_setup"] = 'প্লাগইন সেটআপ';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Youtube-এ সম্পদ প্রকাশ করুন';
 $lang["youtube_publish_video_title"] = 'ভিডিও শিরোনাম (সর্বোচ্চ ১০০ অক্ষর)';
+
+$lang['plugin-youtube_publish-title'] = 'ইউটিউব প্রকাশ';
+$lang['plugin-youtube_publish-desc'] = 'কনফিগার করা ইউটিউব অ্যাকাউন্টে ভিডিও রিসোর্স প্রকাশ করুন।';

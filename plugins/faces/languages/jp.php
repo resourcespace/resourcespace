@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = '顔検出ジョブを設定';
 $lang["faces_tag_faces_configure"] = '顔タグ付けジョブを設定';
 $lang["faces_detect_faces_intro"] = 'ここで顔検出を開始するジョブを作成します - このジョブはパラメータを必要としないため、他の同種のジョブがない限り開始できます。';
 $lang["faces_tag_faces_collection_refs_help"] = 'このオプションを設定すると、リストされたコレクション内のリソースのみが更新されます。コレクションが指定されていない場合、すべての適切なリソースに対して顔タグ付けが更新されます。コレクションはカンマ区切りのリストや範囲（例：100,105,110-115）で指定できます。';
+
+$lang['plugin-faces-title'] = 'AIフェイス - InsightFace';
+$lang['plugin-faces-desc'] = '最先端の自動顔検出とタグ付け。顔で検索。';

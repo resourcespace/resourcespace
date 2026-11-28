@@ -53,3 +53,6 @@ $lang["ldap_encoding"]='Кодування даних, отриманих від
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Тестування LDAP автентифікації';
 $lang["page-title_simpleldap_setup"] = 'Налаштування простого плагіна LDAP';
 $lang["simpleldap_userlimit_error"] = 'Користувача не вдалося створити, оскільки досягнуто ліміт користувачів. Будь ласка, зверніться до адміністратора.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Аутентифікація користувачів через LDAP.';

@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = '라이선스 편집';
 $lang["page-title_licensemanager_list"] = '라이센스 목록';
 $lang["page-title_licensemanager_setup"] = '라이센스 관리자 플러그인 설정';
 $lang["page-title_licensemanager_unlink"] = '라이센스 연결 해제';
+
+$lang["collection_actiontype_80"] = '라이선스';

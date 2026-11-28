@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Kunci API';
 $lang["typesense_search_collection"] = 'Koleksi';
 $lang["typesense_search_timeout"] = 'Masa tamat tempoh saat';
 $lang["typesense_search_validate_access"] = 'Sahkan akses selepas carian Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Carian Typesense';
+$lang['plugin-typesense_search-desc'] = 'Penyedia carian luaran pilihan menggunakan Typesense (eksperimen)';

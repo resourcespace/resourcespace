@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Käsittele käsittelemättömät resurssit';
 $lang["whisper_process_existing_intro"] = 'Luo tehtävä käynnistääksesi Whisper-äänenkäsittelyn täällä – tätä tehtävää ei tarvita parametreja, joten se voidaan käynnistää niin kauan kuin muita tämän tyyppisiä tehtäviä ei ole käynnissä.';
 $lang["whisper_process_existing_configure"] = 'Määritä tehtävä käsittelemään tiedostoja Whisperillä';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Video-/ääni tekstiksi Whisperin avulla OpenAI:lta. Toimii paikallisesti, ei vaadi tilausta.';

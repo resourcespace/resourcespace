@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'Szűrt erőforrás frissítés a keres�
 $lang["page-title_rss2_rssfeed"] = 'RSS Feed';
 $lang["page-title_rss2_rssfilter"] = 'RSS szűrő';
 $lang["page-title_rss2_setup"] = 'RSS bővítmény beállítása';
+
+$lang['plugin-rss2-title'] = 'RSS-hírcsatorna';
+$lang['plugin-rss2-desc'] = 'Lehetővé teszi hitelesített RSS-hírcsatornák létrehozását új tartalmakról, konfigurálható mezőkkel.';

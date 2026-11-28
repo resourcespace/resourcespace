@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'Вие решихте д�
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Трябва да приемете използването на бисквитки, преди да получите достъп до системата.';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Избор на бисквитки';
 $lang["page-title_cookies_notification_setup"] = 'Настройка на плъгина за известия за бисквитки';
+
+$lang['plugin-cookies_notification-title'] = 'Известие за бисквитки';
+$lang['plugin-cookies_notification-desc'] = 'Уведомява за използването на бисквитки чрез показване на съобщение в заглавната част.';

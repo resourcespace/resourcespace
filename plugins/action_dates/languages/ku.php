@@ -39,3 +39,6 @@ $lang["weekday-4"] = 'پێنجشەممە';
 $lang["weekday-5"] = 'هەینی';
 $lang["weekday-6"] = 'شەممە';
 $lang["page-title_action_dates_setup"] = 'ڕێکخستنەوەی پلاگین ڕێککەوتنەکانی کردار';
+
+$lang['plugin-action_dates-title'] = 'بەرواری کردار';
+$lang['plugin-action_dates-desc'] = 'ڕێگە دەدات بۆ سڕینەوە یان سنوردارکردنی سەرچاوەکان بە پەیوەندی بە خانەکانی بەروار.';

@@ -38,3 +38,5 @@ $lang["plugin-emu-desc"] = '[متقدم] يسمح باستخراج بيانات 
 
 $lang["page-title_emu_emu_object_details"] = 'تفاصيل كائن EMu';
 $lang["page-title_emu_setup"] = 'إعداد المكون الإضافي';
+
+$lang['plugin-emu-title'] = 'EMu';

@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Ychwanegu, golygu neu ddileu eitemau newyddion';
 $lang["page-title_news_news_content_edit"] = 'Golygu Cynnwys Newyddion';
 $lang["page-title_news_news_edit"] = 'Golygu Newyddion';
 $lang["page-title_news_news"] = 'Newyddion';
+
+$lang['plugin-news-title'] = 'Newyddion';
+$lang['plugin-news-desc'] = 'Ychwanegwch erthyglau newyddion i\'r dudalen gartref.';

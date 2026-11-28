@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"] = '[img_headerlogo]<br \\/>گۆڕانکا
 $lang["propose_changes_emailproposedchanges"] = '[img_headerlogo]<br \\/>گۆڕانکاریە پێشنیارکراوەکان ناردراون.<br\\/>[changesummary]<br\\/>ەرەوە کرتە بکە بۆ پێداچونەوەی گۆڕانکاریەکان<br\\/><a href=\'[url]\'>[url]<\\/a>';
 $lang["page-title_propose_changes_propose_changes"] = 'پیشنهادی بۆ گۆڕانکاریەکان';
 $lang["page-title_propose_changes_setup"] = 'ڕێکخستنەوەی پلاگینەکەی پێشنیازی گۆڕانکاری';
+
+$lang['plugin-propose_changes-title'] = 'پێشنیازی گۆڕانکارییەکان بکە';
+$lang['plugin-propose_changes-desc'] = 'ڕێگە دەدات بە بەکارهێنەرەکان بێ دەستگەیشتنی دەستکاری، پێشنیازی گۆڕانکارییەکانی مێتاداتا بکەن.';

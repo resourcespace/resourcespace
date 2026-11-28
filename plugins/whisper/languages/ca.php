@@ -15,3 +15,6 @@ $lang["whisper"] = 'Sussurro';
 $lang["whisper_process_existing"] = 'Processar recursos no processats';
 $lang["whisper_process_existing_intro"] = 'Crea una tasca per iniciar el processament d\'àudio amb Whisper aquí - aquesta tasca no requereix cap paràmetre, de manera que es pot iniciar sempre que no hi hagi altres tasques pendents d\'aquest tipus.';
 $lang["whisper_process_existing_configure"] = 'Configura la tasca per processar fitxers amb Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Vídeo/àudio a text amb Whisper d\'OpenAI. Funciona localment, no cal subscripció.';

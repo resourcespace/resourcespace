@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Administrer indhold om brandretn
 $lang["page-title_brand_guidelines_guidelines"] = 'Brand retningslinjer';
 $lang["page-title_brand_guidelines_setup"] = 'Opsæt Brand Guidelines Plugin';
 $lang["page-title_brand_guidelines_toc"] = 'Rediger indhold';
+
+$lang['plugin-brand_guidelines-title'] = 'Brandretningslinjer';
+$lang['plugin-brand_guidelines-desc'] = 'Opret et område for brandretningslinjer med tilpasset indhold, ressourcelinks og farver.';

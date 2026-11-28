@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Відтворити сцену на %time';
 $lang["video_scene_play_unavailable"] = 'Ця сцена знаходиться поза межами доступного відеоперегляду.';
 $lang["video_scene_job_success"] = 'Обробка відеосцени завершена';
 $lang["video_scene_job_failure"] = 'Обробка відеосцени не вдалася. Деталі див. у журналі завдань.';
+$lang['plugin-video_scenes-title'] = 'Відеосцени';
+$lang['plugin-video_scenes-desc'] = 'Виявляйте відеосцени локально за допомогою transnetv2-pytorch, з додатковими аудіовізуальними описами OpenAI.';

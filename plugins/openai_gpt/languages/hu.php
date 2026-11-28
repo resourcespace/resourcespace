@@ -38,3 +38,6 @@ $lang["openai_gpt_provider_override"] = 'A szolgáltató globális konfiguráci�
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Ollama modell használata (pl. \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Ollama végpont használata (pl. http://[IP]:11434/v1/chat/completions';
+
+$lang['plugin-openai_gpt-title'] = 'OpenAI/Ollama metaadat-feldolgozás';
+$lang['plugin-openai_gpt-desc'] = 'Metaadatok és képek automatikus feldolgozása MI segítségével.';

@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'Error : Di wastong aksyon';
 $lang["page-title_video_splice_setup"] = 'I-set up ang Video Splice Plugin';
 $lang["page-title_video_splice_splice"] = 'Pagsamahin ang Video';
 $lang["page-title_video_splice_trim"] = 'I-trim ang Video';
+
+$lang['plugin-video_splice-title'] = 'Pagsasama ng Video';
+$lang['plugin-video_splice-desc'] = 'Kakayahan sa pag-trim at pagsasama ng video.';

@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'শিরোনাম হিসেবে ফ�
 
 $lang["error-resolution-zero"] = 'ত্রুটি: মূল চিত্রের গণনা করা প্রস্থ/উচ্চতা শূন্য।';
 $lang["error-preview-missing"] = 'ত্রুটি: প্রিভিউ চিত্র খুঁজে পাওয়া যায়নি';
+$lang['plugin-transform-title'] = 'ছবি সরঞ্জাম (রূপান্তর)';
+$lang['plugin-transform-desc'] = 'কাটা এবং স্কেল করা বিকল্প ছবি তৈরি করার সুবিধা প্রদান করে।';

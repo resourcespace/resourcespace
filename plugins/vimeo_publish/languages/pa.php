@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"]='ਉਪਭੋਗਤਾਵਾਂ ਨ�
 $lang["vimeo_publish_set_account"]='ਵਿਮੀਓ ਖਾਤਾ ਸੈੱਟ ਕਰੋ';
 $lang["page-title_vimeo_publish_setup"] = 'Vimeo ਪ੍ਰਕਾਸ਼ਨ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Vimeo \'ਤੇ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ';
+
+$lang['plugin-vimeo_publish-title'] = 'ویڈیو شیئرنگ پلیٹ فارم \'Vimeo\' \'ਤੇ شائع کریں';
+$lang['plugin-vimeo_publish-desc'] = 'وسائل کو Vimeo \'تے شائع کرو۔';

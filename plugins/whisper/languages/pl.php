@@ -15,3 +15,6 @@ $lang["whisper"] = 'Szept';
 $lang["whisper_process_existing"] = 'Przetwarzaj nieprzetworzone zasoby';
 $lang["whisper_process_existing_intro"] = 'Utwórz zadanie, aby rozpocząć przetwarzanie audio za pomocą Whisper — to zadanie nie wymaga żadnych parametrów, więc można je uruchomić, o ile nie ma innych oczekujących zadań tego typu.';
 $lang["whisper_process_existing_configure"] = 'Skonfiguruj zadanie do przetwarzania plików za pomocą Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Konwersja wideo/audio na tekst za pomocą Whisper od OpenAI. Działa lokalnie, nie wymaga subskrypcji.';

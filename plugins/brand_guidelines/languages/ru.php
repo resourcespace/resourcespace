@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Управление содер�
 $lang["page-title_brand_guidelines_guidelines"] = 'Руководство по бренду';
 $lang["page-title_brand_guidelines_setup"] = 'Настройка плагина руководства по бренду';
 $lang["page-title_brand_guidelines_toc"] = 'Редактировать содержимое';
+
+$lang['plugin-brand_guidelines-title'] = 'Руководство по бренду';
+$lang['plugin-brand_guidelines-desc'] = 'Создайте раздел с руководством по бренду с пользовательским содержимым, ссылками на ресурсы и цветами.';

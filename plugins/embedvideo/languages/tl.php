@@ -8,3 +8,6 @@ $lang["embed_video_configuration"] = 'I-embed ang Configuration ng Video';
 $lang["specify_resourcetype"] = 'Mangyaring tukuyin kung aling uri ng mapagkukunan dapat lumitaw ang \'embed\' na kakayahan.';
 $lang["video_resourcetype"] = 'Uri ng Video na Yaman';
 $lang["page-title_embedvideo_setup"] = 'I-set up ang Embed Video Plugin';
+
+$lang['plugin-embedvideo-title'] = 'I-embed ang Video';
+$lang['plugin-embedvideo-desc'] = 'Nagbibigay ng isang function upang makabuo ng HTML para sa mga video na maaaring i-embed sa mga remote na site.';

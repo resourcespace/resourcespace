@@ -7,3 +7,6 @@ $lang["user_preferences_change_email"] = 'Дазволіць змяняць ад
 $lang["user_preferences_change_name"] = 'Дазволіць змяняць імя карыстальніка';
 $lang["changeyourpassword"] = 'Змяніць мой пароль і даныя карыстальніка';
 $lang["page-title_user_preferences_setup"] = 'Наладка плагіна пераваг карыстальніка';
+
+$lang['plugin-user_preferences-title'] = 'Перавагі карыстальніка';
+$lang['plugin-user_preferences-desc'] = 'Дазваляе карыстальнікам абнаўляць сваё імя карыстальніка, імя і адрас электроннай пошты.';

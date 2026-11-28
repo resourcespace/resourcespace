@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Редактиране на лице�
 $lang["page-title_licensemanager_list"] = 'Списък с лицензи';
 $lang["page-title_licensemanager_setup"] = 'Настройка на плъгина за управление на лицензи';
 $lang["page-title_licensemanager_unlink"] = 'Разделяне на лицензия';
+
+$lang["collection_actiontype_80"] = 'Лицензиране';
+$lang['plugin-licensemanager-title'] = 'Мениджър на лицензи';
+$lang['plugin-licensemanager-desc'] = 'Управление на лицензите за ресурси.';

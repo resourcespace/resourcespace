@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Cấu hình công việc để phát hi
 $lang["faces_tag_faces_configure"] = 'Cấu hình công việc để gắn thẻ khuôn mặt';
 $lang["faces_detect_faces_intro"] = 'Tạo một công việc để bắt đầu phát hiện khuôn mặt tại đây - công việc này không yêu cầu tham số nào nên có thể bắt đầu miễn là không có công việc nào khác cùng loại đang chờ xử lý.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Việc thiết lập tùy chọn này sẽ chỉ cập nhật các tài nguyên trong các bộ sưu tập được liệt kê. Nếu không chỉ định bộ sưu tập nào thì việc gắn thẻ khuôn mặt sẽ được cập nhật cho TẤT CẢ các tài nguyên phù hợp. Các bộ sưu tập có thể được chỉ định bằng cách sử dụng danh sách phân cách bằng dấu phẩy cũng như phạm vi ví dụ 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Faces - InsightFace';
+$lang['plugin-faces-desc'] = 'Phát hiện và gắn thẻ khuôn mặt tự động tiên tiến. Tìm kiếm theo khuôn mặt.';

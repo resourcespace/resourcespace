@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='অনুসন্ধান [%search%] �
 $lang["page-title_rss2_rssfeed"] = 'RSS ফিড';
 $lang["page-title_rss2_rssfilter"] = 'আরএসএস ফিল্টার';
 $lang["page-title_rss2_setup"] = 'RSS প্লাগইন সেটআপ করুন';
+
+$lang['plugin-rss2-title'] = 'আরএসএস ফিড';
+$lang['plugin-rss2-desc'] = 'নতুন সামগ্রীর আরএসএস ফিডগুলি প্রমাণীকৃতভাবে তৈরি করার সুবিধা প্রদান করে, কনফিগারযোগ্য ক্ষেত্রসহ।';

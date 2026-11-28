@@ -1,0 +1,29 @@
+<?php
+$lang['search_notifications_watch_this_search'] = 'இந்த தேடலை கண்காணிக்கவும்';
+$lang['search_notifications_watched_searches'] = 'கண்காணிக்கப்பட்ட தேடல்கள்';
+$lang['search_notifications_no_watched_searches'] = 'கண்காணிக்கப்பட்ட தேடல்கள் எதுவும் இல்லை';
+$lang['search_notifications_show_for_all_users'] = 'அனைத்து பயனர்களுக்குமான கண்காணிக்கப்பட்ட தேடல்களை காட்டு';
+$lang['search_notifications_config_heading'] = 'தேடல் அறிவிப்புகள் அமைப்பு';
+$lang['search_notifications_config_thumbnail_count'] = 'அறிவிப்பில் காண்பிக்கப்படும் முன்னோட்ட சிறு படங்களின் எண்ணிக்கை';
+$lang['search_notifications_config_only_changes'] = 'தேடல்களில் சேர்க்கப்பட்ட அல்லது நீக்கப்பட்ட வளங்களை மட்டும் காட்டு';
+$lang['search_notifications_new match_found'] = 'புதிய பொருத்தம் கண்டுபிடிக்கப்பட்டது';
+$lang['search_notifications_new matches_found'] = 'புதிய பொருத்தங்கள் கண்டுபிடிக்கப்பட்டன';
+$lang['search_notifications_resource_no_longer_matches'] = 'வளம் இனி பொருந்தவில்லை';
+$lang['search_notifications_resources_no_longer_match'] = 'வளங்கள் இனி பொருந்தவில்லை';
+$lang['search_notifications_for_watch_search'] = 'கண்காணிக்கப்பட்ட தேடலுக்காக';
+$lang['search_notifications_notify_me'] = 'இந்த தேடலுக்கு பொருந்தும் வளங்கள் வந்தால் எனக்கு அறிவிக்கவும்';
+$lang['and'] = 'மற்றும்';
+$lang['disable_all'] = 'அனைத்தையும் முடக்கு';
+$lang['enable_all'] = 'அனைத்தையும் இயக்கவும்';
+$lang['disable'] = 'முடக்கு';
+$lang['enable'] = 'இயக்கு';
+$lang['checknow'] = 'இப்போது சரிபார்';
+$lang['columnheader-enabled'] = 'இயக்கப்பட்டது';
+$lang['columnheader-last-found'] = 'கடைசியாக கண்டுபிடிக்கப்பட்டது';
+$lang['search_notifications_watched_searches-tooltip'] = 'உங்கள் சேமிக்கப்பட்ட தேடல்களை கட்டுப்படுத்தவும்';
+$lang['page-title_rse_search_notifications_setup'] = 'தேடல் அறிவிப்புகள் பிளக்கின் அமைப்பு';
+$lang['page-title_rse_search_notifications_watched_searches'] = 'கண்காணிக்கப்பட்ட தேடல்கள்';
+$lang['plugin-rse_search_notifications-title'] = 'தேடல் அறிவிப்புகள்';
+$lang['plugin-rse_search_notifications-desc'] = 'சேமிக்கப்பட்ட தேடலில் மாற்றங்கள் ஏற்பட்டால் பயனரை அறிவிக்கவும்';
+
+$lang['search_notifications_introtext'] = 'உங்கள் சேமிக்கப்பட்ட தேடல்களை கட்டுப்படுத்த இந்த பக்கத்தை பயன்படுத்தவும்.<br /><br />நிர்வாகிகள் அனைத்து பயனர்களுக்குமான கண்காணிக்கப்பட்ட தேடல்களை கட்டுப்படுத்த முடியும்.';

@@ -39,3 +39,6 @@ $lang["weekday-5"] = 'Thứ Sáu';
 $lang["weekday-6"] = 'Thứ Bảy';
 $lang["page-title_action_dates_setup"] = 'Cài đặt Plugin Ngày Hành Động';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Thông báo cho quản trị viên trước ngày diễn ra hành động này bao nhiêu ngày (Để trống để vô hiệu hóa)';
+
+$lang['plugin-action_dates-title'] = 'Ngày hành động';
+$lang['plugin-action_dates-desc'] = 'Cho phép xóa hoặc hạn chế tài nguyên theo lịch dựa trên các trường ngày tháng.';

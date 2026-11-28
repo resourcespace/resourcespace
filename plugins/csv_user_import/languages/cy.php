@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'Colofnau a ganiateir: *enw defnyddiwr, *e
 $lang["csv_user_import_condition5"] = 'Bydd iaith y defnyddiwr yn dychwelyd i\'r un a osodwyd gan ddefnyddio\'r opsiwn config "$defaultlanguage" os na chaiff y golofn lang ei chanfod nac os nad oes ganddi werth.';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'Mewnos Defnyddiwr CSV';
+
+$lang['plugin-csv_user_import-title'] = 'Mewnforio Defnyddwyr CSV';
+$lang['plugin-csv_user_import-desc'] = 'Yn darparu’r gallu i fewnforio swmp o ddefnyddwyr yn seiliedig ar ffeil CSV wedi’i fformatio ymlaen llaw';

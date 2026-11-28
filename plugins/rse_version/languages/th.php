@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='การคืนสถานะสำห�
 $lang["rse_version_invalid_time"]='การย้อนกลับไปยังเวลาที่ก่อนหน้า [date] ไม่ได้รับการสนับสนุน';
 $lang["page-title_rse_version_revert"] = 'ย้อนกลับเวอร์ชันทรัพยากร';
 $lang["page-title_rse_version_setup"] = 'ตั้งค่าเวอร์ชันปลั๊กอิน';
+
+$lang['plugin-rse_version-title'] = 'การควบคุมเวอร์ชัน';
+$lang['plugin-rse_version-desc'] = 'ติดตามและกู้คืนการเปลี่ยนแปลงของเมตาดาต้าและไฟล์';

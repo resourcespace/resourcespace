@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'Път към миниатюрата';
 $lang["yt2rs_online_preview"] = 'Онлайн преглед';
 $lang["yt2rs_youtube_video"] = 'YouTube видео';
 $lang["page-title_yt2rs_setup"] = 'Настройка на плъгина YouTube към ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube към ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Добавяне на видеоклипове, хоствани в YouTube, като ресурси.';

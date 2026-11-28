@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Налаштування плагі�
 
 $lang["format_chooser_blocked_inputs"] = '<p>Наступні формати не підтримуються для вводу: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Наступні формати не підтримуються для виводу: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Вибір формату';
+$lang['plugin-format_chooser-desc'] = 'Дозволяє вибирати різні формати під час завантаження файлів, які генеруються на льоту.';

@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'คอลัมน์ที่อนุ�
 $lang["csv_user_import_condition5"] = 'ภาษาของผู้ใช้จะกลับไปเป็นภาษาที่ตั้งค่าไว้โดยใช้ตัวเลือกการกำหนดค่า "$defaultlanguage" หากไม่พบคอลัมน์ lang หรือไม่มีค่า';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'การนำเข้าผู้ใช้ CSV';
+
+$lang['plugin-csv_user_import-title'] = 'นำเข้าผู้ใช้ CSV';
+$lang['plugin-csv_user_import-desc'] = 'ให้ความสามารถในการนำเข้าผู้ใช้จำนวนมากโดยใช้ไฟล์ CSV ที่จัดรูปแบบไว้ล่วงหน้า';

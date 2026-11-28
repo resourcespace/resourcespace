@@ -28,3 +28,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI پاشەکەوتکرد�
 $lang["openai_image_edit_error_invalid_image_data"] = 'داتای وێنەی نادروست';
 $lang["openai_image_edit_error_invalid_image"] = 'وێنەی نادروست';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'ناتوانرێت پەڕگەی کاتی بنووسرێت';
+$lang['plugin-openai_image_edit-title'] = 'دەستکاری وێنەی OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'بەشەکان لە وێنەکە بسڕەوە و بەکارهێنانی GPT Image بۆ نوێکردنەوەی ئەوان.';

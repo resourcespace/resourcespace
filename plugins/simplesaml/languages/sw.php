@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'Plugin ya SimpleSAML haijasanidiwa';
 $lang["simplesaml_error_no_idp_metadata"] = 'Plugin ya SimpleSAML haijakamilika kikamilifu (metadata ya IdP inakosekana)';
 $lang["simplesaml_error_no_authsource"] = 'Plugin ya SimpleSAML haijakamilika (inasababisha authsource)';
 $lang["simplesaml_userlimit_error"] = 'Mtumiaji hawezi kuundwa kwa sababu kikomo cha watumiaji kimefikiwa. Tafadhali wasiliana na msimamizi wako.';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Uthibitishaji wa mtumiaji kupitia SAML.';

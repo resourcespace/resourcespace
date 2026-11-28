@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'Sila semak bahawa penerangan dan
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'Pasang Plugin Falcon Link';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'Terbitkan sumber ke Falcon.io untuk perkongsian media sosial automatik.';

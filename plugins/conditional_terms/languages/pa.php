@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'ਮੁੱਲ';
 $lang["conditional_terms_plugin_misconfigured"] = 'ਸ਼ਰਤੀ ਸ਼ਰਤਾਂ ਪਲੱਗਇਨ ਗਲਤ ਕਨਫਿਗਰ ਕੀਤਾ ਗਿਆ ਹੈ';
 
 $lang["page-title_conditional_terms_setup"] = 'ਸ਼ਰਤਾਂ ਵਾਲਾ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-conditional_terms-title'] = 'ਸ਼ਰਤੀ ਸ਼ਰਤਾਂ';
+$lang['plugin-conditional_terms-desc'] = 'ਸਰੋਤ ਮੈਟਾਡੇਟਾ ਦੇ ਆਧਾਰ \'ਤੇ ਡਾਊਨਲੋਡ ਸਮੇਂ ਸ਼ਰਤਾਂ ਪੰਨਾ ਦੀ ਸ਼ਰਤੀ ਪ੍ਰਦਰਸ਼ਨੀ ਨੂੰ ਯੋਗ ਬਣਾਉਂਦਾ ਹੈ।';

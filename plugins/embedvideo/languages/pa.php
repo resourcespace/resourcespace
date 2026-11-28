@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'ਕਿਰਪਾ ਕਰਕੇ ਦਰਸਾਓ �
 $lang["video_resourcetype"] = 'ਵੀਡੀਓ ਸਰੋਤ ਕਿਸਮ';
 
 $lang["page-title_embedvideo_setup"] = 'ਵੀਡੀਓ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-embedvideo-title'] = 'ਵੀਡੀਓ ਐਂਬੈੱਡ ਕਰੋ';
+$lang['plugin-embedvideo-desc'] = 'ਦੂਰੇ ਸਾਈਟਾਂ \'ਤੇ ਐਂਬੈੱਡ ਕਰਨ ਯੋਗ ਵੀਡੀਓ ਲਈ HTML ਬਣਾਉਣ ਦੀ ਸਹੂਲਤ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।';

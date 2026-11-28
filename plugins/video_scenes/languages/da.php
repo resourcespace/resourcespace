@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Afspil scene ved %time';
 $lang["video_scene_play_unavailable"] = 'Denne scene er uden for den tilgængelige video preview.';
 $lang["video_scene_job_success"] = 'Videoscene behandling fuldført';
 $lang["video_scene_job_failure"] = 'Videoscene behandling mislykkedes. Se jobloggen for detaljer.';
+$lang['plugin-video_scenes-title'] = 'Videoscener';
+$lang['plugin-video_scenes-desc'] = 'Registrer videoscener lokalt med transnetv2-pytorch, med valgfrie OpenAI audiovisuelle beskrivelser.';

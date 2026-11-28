@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = '處理未處理的資源';
 $lang["whisper_process_existing_intro"] = '在此建立一個作業以啟動 Whisper 音訊處理 — 此作業不需要任何參數，只要沒有其他同類型的待處理作業即可啟動。';
 $lang["whisper_process_existing_configure"] = '配置作業以使用 Whisper 處理檔案';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = '使用 OpenAI 的 Whisper 將影片/音訊轉為文字。於本機執行，無需訂閱。';

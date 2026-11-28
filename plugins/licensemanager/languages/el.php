@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Επεξεργασία Άδειας';
 $lang["page-title_licensemanager_list"] = 'Λίστα Αδειών';
 $lang["page-title_licensemanager_setup"] = 'Ρύθμιση Πρόσθετου Διαχείρισης Άδειας';
 $lang["page-title_licensemanager_unlink"] = 'Αποσύνδεση Άδειας';
+
+$lang["collection_actiontype_80"] = 'Αδειοδότηση';

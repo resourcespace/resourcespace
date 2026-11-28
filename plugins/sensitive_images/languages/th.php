@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='ฟิลด์เมตาดาต้าท�
 $lang["sensitive_images_blur_level"]='ระดับการเบลอภาพที่ละเอียดอ่อน<br>(1=น้อยที่สุด, 6=มากที่สุด)';
 $lang["page-title_sensitive_images_setup"] = 'ตั้งค่าปลั๊กอินภาพที่ละเอียดอ่อน';
 $lang["sensitive_images_show"] = 'คลิกภาพเพื่อแสดง';
+
+$lang['plugin-sensitive_images-title'] = 'การเบลอภาพที่ละเอียดอ่อน';
+$lang['plugin-sensitive_images-desc'] = 'เบลอภาพที่ถูกทำเครื่องหมายว่าเป็นภาพละเอียดอ่อน โดยผู้ใช้สามารถคลิกเพื่อยกเลิกการเบลอได้';

@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Reproduciraj scenu u %time';
 $lang["video_scene_play_unavailable"] = 'Ova scena je izvan dostupnog video pregleda.';
 $lang["video_scene_job_success"] = 'Obrada video scene je završena';
 $lang["video_scene_job_failure"] = 'Obrada video scene nije uspjela. Pogledajte zapisnik zadatka za detalje.';
+$lang['plugin-video_scenes-title'] = 'Video scene';
+$lang['plugin-video_scenes-desc'] = 'Lokalno otkrivanje video scena pomoću transnetv2-pytorch, uz opcionalne OpenAI audiovizualne opise.';

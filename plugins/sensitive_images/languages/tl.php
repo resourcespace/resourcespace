@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'Pangkalahatang patlang ng metadata na naglala
 $lang["sensitive_images_blur_level"] = 'Antas ng pag-blur ng sensitibong imahe<br>(1=kaunti, 6=pinakamarami)';
 $lang["page-title_sensitive_images_setup"] = 'I-set up ang Plugin para sa Sensitibong Imahe';
 $lang["sensitive_images_show"] = 'I-click ang larawan upang ipakita.';
+
+$lang['plugin-sensitive_images-title'] = 'Pag-blur ng sensitibong larawan';
+$lang['plugin-sensitive_images-desc'] = 'Nagba-blur ng mga larawang minarkahan bilang sensitibo na maaaring i-click ng gumagamit upang alisin ang blur.';

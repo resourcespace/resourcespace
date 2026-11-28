@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='คุณแน่ใจหรือ? สิ่�
 $lang["system_reset_delete_all"]='ลบข้อมูลและไฟล์ทั้งหมด';
 $lang["system_reset-tooltip"] = 'ทำการรีเซ็ตระบบเพื่อลบไฟล์และข้อมูลทั้งหมด';
 $lang["page-title_system_reset_reset"] = 'การรีเซ็ตระบบ';
+
+$lang['plugin-system_reset-title'] = 'รีเซ็ตระบบ';
+$lang['plugin-system_reset-desc'] = 'เพิ่มตัวเลือกใน admin/system เพื่อลบข้อมูลทั้งหมด';

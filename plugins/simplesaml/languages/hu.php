@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'A SimpleSAML bővítmény nincs konf
 $lang["simplesaml_error_no_idp_metadata"] = 'A SimpleSAML bővítmény nincs teljesen konfigurálva (hiányzik az IdP metaadat)';
 $lang["simplesaml_error_no_authsource"] = 'A SimpleSAML bővítmény nincs teljesen konfigurálva (hiányzik az authsource)';
 $lang["simplesaml_userlimit_error"] = 'A felhasználót nem lehet létrehozni, mivel elérte a felhasználói korlátot. Kérjük, lépjen kapcsolatba a rendszergazdával.';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Felhasználói hitelesítés SAML-en keresztül.';

@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='دستیاب استعمال کے اختیارا
 $lang["page-title_resource_usage_delete"] = 'وسائل استعمال حذف کریں';
 $lang["page-title_resource_usage_edit"] = 'وسائل کے استعمال میں ترمیم کریں';
 $lang["page-title_resource_usage_setup"] = 'وسائل استعمال پلگ ان ترتیب دیں';
+
+$lang['plugin-resource_usage-title'] = 'وسیلہ کا استعمال';
+$lang['plugin-resource_usage-desc'] = 'وسیلہ دیکھنے والے صفحے کے ذریعے وسائل کے استعمال کو لاگ کرنے کی صلاحیت شامل کرتا ہے۔';

@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'Тип ресурсу для в�
 
 $lang["page-title_embeddocument_setup"] = 'Налаштування плагіна вбудовування документів';
 $lang["page-title_embeddocument_viewer"] = 'Вставити переглядач документів';
+
+$lang['plugin-embeddocument-title'] = 'Вбудувати документ';
+$lang['plugin-embeddocument-desc'] = 'Надає функцію для створення HTML-коду для вбудовуваних попередніх переглядів документів на віддалених сайтах.';

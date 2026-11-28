@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'هەڵە: کردارە نادرو�
 $lang["page-title_video_splice_setup"] = 'ڕێکخستنەوەی پڵەگینەکەی Video Splice';
 $lang["page-title_video_splice_splice"] = 'بەشکردنەوەی ڤیدیۆ';
 $lang["page-title_video_splice_trim"] = 'بەشکردنەوەی ڤیدیۆ';
+
+$lang['plugin-video_splice-title'] = 'تێکەڵکردنی ڤیدیۆ';
+$lang['plugin-video_splice-desc'] = 'توانای بڕین و تێکەڵکردنی ڤیدیۆ.';

@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Keresés';
 $lang["page-title_image_banks_setup"] = 'Képbankok bővítmény beállítása';
 $lang["page-title_image_banks_shutterstock_license"] = 'Nézd meg a Shutterstock képet';
 $lang["page-title_image_banks_view"] = 'Erőforrás megtekintése';
+
+$lang['plugin-image_banks-title'] = 'Képtárak';
+$lang['plugin-image_banks-desc'] = 'Keressen ingyenes/kereskedelmi képtárakat közvetlenül a ResourceSpace-ben.';

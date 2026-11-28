@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'Jalan Thumbnail';
 $lang["yt2rs_online_preview"] = 'Pratonton Dalam Talian';
 $lang["yt2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_yt2rs_setup"] = 'Setup Youtube to ResourceSpace Plugin';
+
+$lang['plugin-yt2rs-title'] = 'YouTube ke ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Tambah video yang dihoskan di YouTube sebagai sumber.';

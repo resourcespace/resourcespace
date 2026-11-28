@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"]='ਥੰਬਨੇਲ ਪਾਥ';
 $lang["yt2rs_online_preview"]='ਆਨਲਾਈਨ ਪ੍ਰੀਵਿਊ';
 $lang["yt2rs_youtube_video"]='ਯੂਟਿਊਬ ਵੀਡੀਓ';
 $lang["page-title_yt2rs_setup"] = 'Youtube ਨੂੰ ResourceSpace ਪਲੱਗਇਨ ਲਈ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-yt2rs-title'] = 'YouTube ਤੋਂ ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'YouTube \'ਤੇ ਹੋਸਟ ਕੀਤੀਆਂ ਵੀਡੀਓਜ਼ ਨੂੰ ਸਰੋਤਾਂ ਵਜੋਂ ਸ਼ਾਮਲ ਕਰੋ।';

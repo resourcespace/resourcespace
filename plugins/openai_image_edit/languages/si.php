@@ -1,0 +1,30 @@
+<?php
+$lang['page-title_openai_image_edit_save_new'] = 'OpenAI නව සුරකින්න';
+$lang['openai_image_edit_error_invalid_image_data'] = 'අවලංගු රූප දත්ත';
+$lang['openai_image_edit_error_invalid_image'] = 'අවලංගු රූපය';
+$lang['openai_image_edit_error_fail_write_tmp_file'] = 'තාවකාලික ගොනුව ලිවීමට නොහැක';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI රූප සංස්කරණය';
+$lang['plugin-openai_image_edit-desc'] = 'රූපයක කොටස් මකා දමන්න සහ GPT රූපය භාවිතයෙන් ඒවා නැවත ජනනය කරන්න.';
+
+$lang['openai_image_edit__edit_with_ai'] = 'AI සමඟ සංස්කරණය කරන්න';
+$lang['openai_image_edit__prompt'] = 'ඉල්ලීම';
+$lang['openai_image_edit__preparing_images'] = 'පින්තූර මාස්ක් සකස් කරමින්';
+$lang['openai_image_edit__completing'] = 'පින්තූරය සම්පූර්ණ කරමින් (~2 මිනිත්තු)';
+$lang['openai_image_edit__sending'] = 'පින්තූර දත්ත යවන ලදි';
+$lang['openai_image_edit__pensize'] = 'පැන්සල ප්‍රමාණය';
+$lang['openai_image_edit__reset'] = 'යළි සකසන්න';
+$lang['openai_image_edit__generate'] = 'උත්පාදනය කරන්න';
+$lang['openai_image_edit__exportoptions'] = 'අපනයන විකල්ප';
+$lang['openai_image_edit__download'] = 'ගොනුව බාගත කරන්න';
+$lang['openai_image_edit__alternative'] = 'විකල්ප ගොනුවක් ලෙස සම්පත් වාර්තාවට සුරකින්න';
+$lang['openai_image_edit__export'] = 'පින්තූරය අපනයනය කරන්න';
+$lang['openai_image_edit__filename'] = 'AI සංස්කරණය කළ පින්තූරය';
+$lang['openai_image_edit__saving_alternative'] = 'විකල්ප ගොනුව සුරැකීම';
+$lang['openai_image_edit__generating_alternative_previews'] = 'පෙරදසුන පින්තූර ජනනය කිරීම';
+$lang['openai_image_edit__preparing_image_for_editing'] = 'සංස්කරණය සඳහා පින්තූරය සකස් කරමින්';
+$lang['openai_image_edit__new'] = 'නව සම්පතක් ලෙස සුරකින්න';
+$lang['openai_image_edit__creating_new_resource'] = 'නව සම්පතක් නිර්මාණය කරමින්';
+$lang['openai_image_edit__introtext'] = 'පින්තූරයට සිදු කිරීමට අවශ්‍ය වෙනස්කම් විස්තරයක් ඉල්ලීම කොටුවට ඇතුළත් කරන්න. විකල්ප ලෙස, බුරුෂය භාවිතා කර පින්තූරයේ කොටස් මකා දමන්න, එම ප්‍රදේශ නැවත ජනනය කිරීමට බලපායි.';
+$lang['page-title_openai_image_edit_edit'] = 'OpenAI සංස්කරණය';
+$lang['page-title_openai_image_edit_get_png'] = 'OpenAI PNG ලබා ගන්න';
+$lang['page-title_openai_image_edit_save_alternative'] = 'OpenAI විකල්ප සුරකින්න';

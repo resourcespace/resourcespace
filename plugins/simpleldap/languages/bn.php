@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"]='সার্টিফিকে�
 $lang["page-title_simpleldap_ajax_test_auth"] = 'LDAP প্রমাণীকরণ পরীক্ষা করুন';
 $lang["page-title_simpleldap_setup"] = 'সরল LDAP প্লাগইন সেটআপ করুন';
 $lang["simpleldap_userlimit_error"] = 'ব্যবহারকারী তৈরি করা যায়নি কারণ ব্যবহারকারীর সীমা পৌঁছেছে। দয়া করে আপনার প্রশাসকের সাথে যোগাযোগ করুন।';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'LDAP এর মাধ্যমে ব্যবহারকারী প্রমাণীকরণ।';

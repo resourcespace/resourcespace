@@ -12,3 +12,6 @@ $lang["invalidrange"]='Недійсний діапазон';
 $lang["splitpdf_createnewresource"]='Створити новий ресурс для кожного діапазону';
 $lang["splitpdf_createnewalternativefile"]='Створити новий альтернативний файл для цього ресурсу для кожного діапазону';
 $lang["page-title_pdf_split_pdf_split"] = 'Розділити PDF';
+
+$lang['plugin-pdf_split-title'] = 'Розділення PDF';
+$lang['plugin-pdf_split-desc'] = 'Дозволяє розділяти PDF-файли на кілька сторінок.';

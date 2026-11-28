@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'Дазволіць карыста�
 $lang["vimeo_publish_set_account"] = 'Усталяваць уліковы запіс Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'Наладзіць плагін публікацыі Vimeo';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Апублікаваць у Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Публікацыя Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Апублікаваць рэсурсы на Vimeo.';

@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'API ਕੁੰਜੀ';
 $lang["typesense_search_collection"] = 'ਸੰਗ੍ਰਹਿ';
 $lang["typesense_search_timeout"] = 'ਟਾਈਮਆਉਟ ਸਕਿੰਟ';
 $lang["typesense_search_validate_access"] = 'ਟਾਈਪਸੈਂਸ ਖੋਜ ਤੋਂ ਬਾਅਦ ਪਹੁੰਚ ਦੀ ਜਾਂਚ ਕਰੋ';
+
+$lang['plugin-typesense_search-title'] = 'Typesense ਖੋਜ';
+$lang['plugin-typesense_search-desc'] = 'Typesense ਦੀ ਵਰਤੋਂ ਕਰਦਿਆਂ ਵਿਕਲਪਿਕ ਬਾਹਰੀ ਖੋਜ ਪ੍ਰਦਾਤਾ (ਪ੍ਰਯੋਗਾਤਮਕ)';

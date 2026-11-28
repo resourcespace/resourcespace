@@ -106,3 +106,6 @@ $lang["simplesaml_error_not_configured"] = 'SimpleSAML ਪਲੱਗਇਨ ਸੰ
 $lang["simplesaml_error_no_idp_metadata"] = 'SimpleSAML ਪਲੱਗਇਨ ਪੂਰੀ ਤਰ੍ਹਾਂ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ (IdP ਮੈਟਾਡੇਟਾ ਗੁੰਮ ਹੈ)';
 $lang["simplesaml_error_no_authsource"] = 'SimpleSAML ਪਲੱਗਇਨ ਪੂਰੀ ਤਰ੍ਹਾਂ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ (authsource ਗੁੰਮ ਹੈ)';
 $lang["simplesaml_userlimit_error"] = 'ਉਪਭੋਗਤਾ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ ਕਿਉਂਕਿ ਉਪਭੋਗਤਾ ਸੀਮਾ ਪਹੁੰਚ ਗਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਪ੍ਰਬੰਧਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'SAML ਰਾਹੀਂ ਯੂਜ਼ਰ ਪ੍ਰਮਾਣਿਕਤਾ।';

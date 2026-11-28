@@ -38,3 +38,6 @@ $lang["vimeo_publish_set_account"]='Set cyfrif Vimeo';
 $lang["vimeo_api_instructions_condition_2"]='Mewngofnodwch i Vimeo gydag unrhyw gyfrif Vimeo dilys (nid oes angen iddo fod yn gysylltiedig â\'ch cyfrif Vimeo), yna ewch i <a href="https://developer.vimeo.com/" target="_blank">https://developer.vimeo.com/</a>';
 $lang["page-title_vimeo_publish_setup"] = 'Gosod Plugin Cyhoeddi Vimeo';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Cyhoeddi i Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Cyhoeddi Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'Cyhoeddi adnoddau i Vimeo.';

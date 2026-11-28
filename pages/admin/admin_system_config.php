@@ -11,6 +11,10 @@ include_once '../../include/ajax_functions.php';
 include_once '../../include/annotation_functions.php';
 
 $ajax = getval('ajax', '') === 'true';
+$autosave_request = $ajax && getval('autosave', '') === 'true';
+if ($autosave_request) {
+    enforcePostRequest($ajax);
+}
 
 // Common config fields' options
 $enable_disable_options = array($lang['userpreference_disable_option'], $lang['userpreference_enable_option']);
@@ -132,7 +136,13 @@ $page_def[] = config_add_boolean_select('resource_request_reason_required', $lan
 $page_def[] = config_add_boolean_select('iiif_enabled', $lang['iiif_enable_option'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('research_request', $lang['systemconfig_research_request'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('custom_access', $lang['systemconfig_custom_access'], $enable_disable_options, 420, null, true);
-$page_def[] = config_add_boolean_select('enable_related_resources', $lang['systemconfig_enable_related_resources'], $enable_disable_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'enable_related_resources',
+    $lang['systemconfig_enable_related_resources'],
+    $enable_disable_options,
+    autosave: true,
+    reload_page: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Annotations section
@@ -216,13 +226,20 @@ if ($random_sort) {
 
 $sort_order_fields['resourcetype'] = $lang['type'];
 
-foreach ($sort_fields as $field) {
+$search_field_choices = config_search_field_choices();
+foreach ($system_wide_config_options['sort_fields'] as $field) {
     $field_data = get_resource_type_field($field);
     if ($field_data !== false) {
-        $sort_order_fields["field$field"] = $field_data["title"];
+        $sort_order_fields["field$field"] = lang_or_i18n_get_translated($field_data['title'], 'fieldtitle-');
     }
 }
 
+$page_def[] = config_add_field_list(
+    'sort_fields',
+    $lang['systemconfig_sort_fields'],
+    $lang['systemconfig_sort_fields_help'],
+    $search_field_choices
+);
 $page_def[] = config_add_single_select(
     'default_sort',
     $lang['userpreference_default_sort_label'],
@@ -260,6 +277,18 @@ $page_def[] = config_add_single_select(
     null,
     true
 );
+$page_def[] = config_add_field_list(
+    'list_display_fields',
+    $lang['systemconfig_list_display_fields'],
+    $lang['systemconfig_search_display_fields_help'],
+    $search_field_choices
+);
+$page_def[] = config_add_field_list(
+    'thumbs_display_fields',
+    $lang['systemconfig_thumbs_display_fields'],
+    $lang['systemconfig_search_display_fields_help'],
+    $search_field_choices
+);
 $page_def[] = config_add_boolean_select('archive_search', $lang['stat-archivesearch'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('display_resource_id_in_thumbnail', $lang['systemconfig_display_resource_id_in_thumbnail_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('advanced_search_contributed_by', $lang['systemconfig_advanced_search_contributed_by_label'], $enable_disable_options, 420, null, true);
@@ -271,6 +300,18 @@ $page_def[] = config_add_boolean_select('thumbs_display_archive_state', $lang['s
 $page_def[] = config_add_integer_input('recent_search_quantity', $lang['systemconfig_recent_search_quantity'], 10, 5000, 55, null, true);
 $page_def[] = config_add_boolean_select('category_tree_search_use_and', $lang['systemconfig_category_tree_search_use_and'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('category_tree_search_use_and_logic', $lang['systemconfig_category_tree_search_use_and_logic'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'simple_search_date',
+    $lang['systemconfig_simple_search_date'],
+    autosave: true,
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'list_view_status_column',
+    $lang['systemconfig_list_view_status_column'],
+    autosave: true,
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Navigation section
@@ -282,12 +323,37 @@ $page_def[] = config_add_boolean_select('myrequests_link', $lang['systemconfig_m
 $page_def[] = config_add_boolean_select('themes_navlink', $lang['systemconfig_themes_navlink_label'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('use_theme_as_home', $lang['systemconfig_use_theme_as_home_label'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('use_recent_as_home', $lang['systemconfig_use_recent_as_home_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'public_collections_top_nav',
+    $lang['systemconfig_public_collections_top_nav'],
+    autosave: true,
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'mycontributions_link',
+    $lang['systemconfig_mycontributions_link'],
+    autosave: true,
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Collection section
 $page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-folder"></i>&nbsp;' . $lang['collections'] . '</h3><div id="SystemConfigCollectionSection" class="CollapsibleSection">');
 $page_def[] = config_add_boolean_select('show_collection_name', $lang['systemconfig_show_collection_name'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('enable_themes', $lang['systemconfig_enable_themes'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'allow_smart_collections',
+    $lang['systemconfig_allow_smart_collections'],
+    autosave: true,
+    help: $lang['systemconfig_allow_smart_collections_help'],
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'themes_in_my_collections',
+    $lang['systemconfig_themes_in_my_collections'],
+    autosave: true,
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Actions section
@@ -302,8 +368,43 @@ $page_def[] = config_add_html('</div>');
 $page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-share-2"></i>&nbsp;' . $lang['systemconfig_sharing'] . '</h3><div id="SystemConfigSharingSection" class="CollapsibleSection">');
 $page_def[] = config_add_boolean_select('share_password_required', $lang['systemconfig_external_share_requires_password_label'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('external_share_groups_config_options', $lang['systemconfig_external_share_groups_config_options'], $yes_no_options, 420, null, true);
-$page_def[] = config_add_integer_input('resource_share_expire_days_default', $lang['systemconfig_resource_share_expire_days_default'], 0, $resource_share_expire_days, 55, null, true);
+$page_def[] = config_add_boolean_select(
+    'resource_share_expire_never',
+    $lang['systemconfig_resource_share_expire_never'],
+    autosave: true,
+    help: $lang['systemconfig_resource_share_expire_never_help'],
+    reload_page: true,
+    checkbox: true
+);
+$page_def[] = config_add_integer_input(
+    'resource_share_expire_days',
+    $lang['systemconfig_resource_share_expire_days'],
+    max(
+        $system_wide_config_options['resource_share_expire_never'] ? 0 : 1,
+        (int) $system_wide_config_options['resource_share_expire_days_default']
+    ),
+    3650,
+    80,
+    autosave: true,
+    reload_page: true
+);
+$page_def[] = config_add_integer_input(
+    'resource_share_expire_days_default',
+    $lang['systemconfig_resource_share_expire_days_default'],
+    0,
+    (int) $system_wide_config_options['resource_share_expire_days'],
+    55,
+    autosave: true,
+    reload_page: true
+);
 $page_def[] = config_add_boolean_select('restricted_share', $lang['systemconfig_restricted_share'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'external_share_view_as_internal',
+    $lang['systemconfig_external_share_view_as_internal'],
+    autosave: true,
+    help: $lang['systemconfig_external_share_view_as_internal_help'],
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Metadata section
@@ -312,6 +413,29 @@ $page_def[] = config_add_boolean_select('metadata_report', $lang['metadata-repor
 $page_def[] = config_add_boolean_select('metadata_read_default', $lang['embedded_metadata'], array($lang['embedded_metadata_donot_extract_option'], $lang['embedded_metadata_extract_option']), 420, null, true);
 $page_def[] = config_add_boolean_select('blank_edit_template', $lang['systemconfig_blank_edit_template'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('enable_copy_data_from', $lang['systemconfig_enable_copy_data_from'], $yes_no_options, 420, null, true);
+$orientation_fields = get_resource_type_fields('', 'title', 'asc', '', [
+    FIELD_TYPE_TEXT_BOX_SINGLE_LINE,
+    FIELD_TYPE_TEXT_BOX_MULTI_LINE,
+    FIELD_TYPE_TEXT_BOX_LARGE_MULTI_LINE,
+    FIELD_TYPE_TEXT_BOX_FORMATTED_AND_TINYMCE,
+]);
+$page_def[] = config_add_single_select(
+    'portrait_landscape_field',
+    $lang['systemconfig_portrait_landscape_field'],
+    ['' => $lang['disabled']] + array_map(
+        static fn($title) => lang_or_i18n_get_translated($title, 'fieldtitle-'),
+        array_column($orientation_fields, 'title', 'ref')
+    ),
+    title: $lang['systemconfig_portrait_landscape_field_help'],
+    autosave: true
+);
+$system_wide_config_options['portrait_landscape_field'] ??= '';
+$page_def[] = config_add_boolean_select(
+    'tabs_on_edit',
+    $lang['systemconfig_tabs_on_edit'],
+    autosave: true,
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Resource view section
@@ -322,6 +446,19 @@ $page_def[] = config_add_boolean_select('show_access_field', $lang['systemconfig
 $page_def[] = config_add_boolean_select('show_contributed_by', $lang['systemconfig_show_contributed_by'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('show_related_themes', $lang['systemconfig_show_related_themes'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('metadata_download', $lang['systemconfig_metadata_download'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'view_resource_collections',
+    $lang['systemconfig_view_resource_collections'],
+    autosave: true,
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'disable_geocoding',
+    $lang['systemconfig_disable_geocoding'],
+    autosave: true,
+    help: $lang['systemconfig_disable_geocoding_help'],
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // Uploading section
@@ -331,16 +468,135 @@ $page_def[] = config_add_boolean_select('upload_add_to_new_collection', $lang['s
 $page_def[] = config_add_boolean_select('upload_add_to_new_collection_opt', $lang['systemconfig_upload_add_to_new_collection_opt'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('upload_do_not_add_to_new_collection_opt', $lang['systemconfig_upload_do_not_add_to_new_collection_opt'], $yes_no_options, 420, null, true);
 $page_def[] = config_add_boolean_select('upload_collection_name_required', $lang['systemconfig_upload_collection_name_required'], $yes_no_options, 420, null, true);
+if ($system_wide_config_options['enable_related_resources']) {
+    $page_def[] = config_add_boolean_select(
+        'relate_on_upload',
+        $lang['systemconfig_relate_on_upload'],
+        autosave: true,
+        reload_page: true,
+        checkbox: true
+    );
+}
+if ($system_wide_config_options['enable_related_resources'] && $system_wide_config_options['relate_on_upload']) {
+    $page_def[] = config_add_boolean_select(
+        'relate_on_upload_default',
+        $lang['systemconfig_relate_on_upload_default'],
+        autosave: true,
+        checkbox: true
+    );
+}
+$page_def[] = config_add_boolean_select(
+    'show_status_and_access_on_upload',
+    $lang['systemconfig_show_status_and_access_on_upload'],
+    autosave: true,
+    help: $lang['systemconfig_show_status_and_access_on_upload_help'],
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'replace_resource_preserve_option',
+    $lang['systemconfig_replace_resource_preserve_option'],
+    autosave: true,
+    reload_page: true,
+    checkbox: true
+);
+if ($system_wide_config_options['replace_resource_preserve_option']) {
+    $page_def[] = config_add_boolean_select(
+        'replace_resource_preserve_default',
+        $lang['systemconfig_replace_resource_preserve_default'],
+        autosave: true,
+        help: $lang['systemconfig_replace_resource_preserve_default_help'],
+        checkbox: true
+    );
+}
+$page_def[] = config_add_html('</div>');
+
+// Downloads section
+$page_def[] = config_add_html(
+    '<h3 class="CollapsibleSectionHead collapsed"><i class="icon-download"></i>&nbsp;'
+    . escape($lang['systemconfig_downloads']) . '</h3>'
+    . '<div id="SystemConfigDownloadsSection" class="CollapsibleSection">'
+);
+$page_def[] = config_add_boolean_select(
+    'download_summary',
+    $lang['systemconfig_download_summary'],
+    autosave: true,
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'download_usage',
+    $lang['systemconfig_download_usage'],
+    autosave: true,
+    on_change_js: 'this.disabled = true;',
+    checkbox: true
+);
+$page_def[] = config_add_option_list(
+    'download_usage_options',
+    $lang['systemconfig_download_usage_options'],
+    $lang['systemconfig_download_usage_options_help'],
+    !$system_wide_config_options['download_usage']
+);
+$page_def[] = config_add_boolean_select(
+    'download_usage_email',
+    $lang['systemconfig_download_usage_email'],
+    autosave: true,
+    hidden: !$system_wide_config_options['download_usage'],
+    checkbox: true
+);
+$page_def[] = config_add_boolean_select(
+    'usage_comment_blank',
+    $lang['systemconfig_usage_comment_blank'],
+    autosave: true,
+    hidden: !$system_wide_config_options['download_usage'] && !$system_wide_config_options['remove_usage_textbox'],
+    help: $lang['systemconfig_usage_comment_blank_help'],
+    checkbox: true
+);
 $page_def[] = config_add_html('</div>');
 
 // User accounts section
 $page_def[] = config_add_html('<h3 class="CollapsibleSectionHead collapsed"><i class="icon-user-round"></i>&nbsp;' . $lang['systemconfig_user_accounts'] . '</h3><div id="SystemConfigUserAccountsSection" class="CollapsibleSection">');
-$page_def[] = config_add_boolean_select('allow_account_request', $lang['systemconfig_allow_account_request_label'], $yes_no_options, 420, null, true);
+$page_def[] = config_add_boolean_select(
+    'allow_account_request',
+    $lang['systemconfig_allow_account_request_label'],
+    $yes_no_options,
+    autosave: true,
+    reload_page: true
+);
 $page_def[] = config_add_boolean_select('terms_download', $lang['systemconfig_terms_download_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('terms_login', $lang['systemconfig_terms_login_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('terms_upload', $lang['systemconfig_terms_upload_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_boolean_select('user_rating', $lang['systemconfig_user_rating_label'], $enable_disable_options, 420, null, true);
 $page_def[] = config_add_integer_input('inactive_user_disable_days', $lang['systemconfig_inactive_user_disable_days'], 0, 1825, 55, null, true);
+if ($system_wide_config_options['allow_account_request']) {
+    $page_def[] = config_add_boolean_select(
+        'user_account_auto_creation',
+        $lang['systemconfig_user_account_auto_creation'],
+        autosave: true,
+        help: $lang['systemconfig_user_account_auto_creation_help'],
+        reload_page: true,
+        checkbox: true
+    );
+}
+if ($system_wide_config_options['allow_account_request'] && $system_wide_config_options['user_account_auto_creation']) {
+    $page_def[] = config_add_single_select(
+        'user_account_auto_creation_usergroup',
+        $lang['systemconfig_user_account_auto_creation_usergroup'],
+        get_usergroups(id_name_pair_array: true),
+        autosave: true
+    );
+}
+if (
+    $system_wide_config_options['allow_account_request']
+    && $system_wide_config_options['user_account_auto_creation']
+    && ($system_wide_config_options['registration_group_select'] || get_registration_selectable_usergroups() !== [])
+) {
+    $page_def[] = config_add_boolean_select(
+        'registration_group_select',
+        $lang['systemconfig_registration_group_select'],
+        autosave: true,
+        help: $lang['systemconfig_registration_group_select_help'],
+        checkbox: true
+    );
+}
 $page_def[] = config_add_html('</div>');
 
 // Security section
@@ -550,18 +806,40 @@ if (count($system_config_hide) > 0) {
 
 // Process autosaving requests
 // Note: $page_def must be defined by now in order to make sure we only save options that we've defined
-if ('true' === getval('ajax', '') && 'true' === getval('autosave', '')) {
+if ($autosave_request) {
     header('Content-Type: application/json');
+    enforcePostRequest(true);
     $response['success'] = true;
     $response['message'] = '';
 
-    $autosave_option_name  = getval('autosave_option_name', '');
-    $autosave_option_value = getval('autosave_option_value', '');
+    $autosave_option_name = $_POST['autosave_option_name'] ?? null;
+    $autosave_option_value = $_POST['autosave_option_value'] ?? null;
 
     // Search for the option name within our defined (allowed) options
     // if it is not there, error and don't allow saving it
-    $page_def_option_index = array_search($autosave_option_name, array_column($page_def, 1));
-    if (false === $page_def_option_index || !config_check_valid_option($page_def[$page_def_option_index], $autosave_option_value)) {
+    $page_def_option_index = is_string($autosave_option_name)
+        ? array_search($autosave_option_name, array_column($page_def, 1), true)
+        : false;
+    if (
+        !is_string($autosave_option_value)
+        || $page_def_option_index === false
+        || !config_check_valid_option($page_def[$page_def_option_index], $autosave_option_value)
+        || (
+            !$system_wide_config_options['download_usage']
+            && (
+                in_array($autosave_option_name, ['download_usage_options', 'download_usage_email'], true)
+                || (
+                    $autosave_option_name === 'usage_comment_blank'
+                    && !$system_wide_config_options['remove_usage_textbox']
+                )
+            )
+        )
+        || (
+            $autosave_option_name === 'resource_share_expire_never'
+            && $autosave_option_value === '0'
+            && (int) $system_wide_config_options['resource_share_expire_days'] < 1
+        )
+    ) {
         $response['success'] = false;
         $response['message'] = $lang['systemconfig_option_not_allowed_error'];
 
@@ -569,7 +847,42 @@ if ('true' === getval('ajax', '') && 'true' === getval('autosave', '')) {
         exit();
     }
 
-    if (!set_config_option(null, $autosave_option_name, $autosave_option_value, 'System configuration change')) {
+    if (
+        $system_wide_config_options['remove_usage_textbox']
+        && (
+            ($autosave_option_name === 'usage_comment_blank' && $autosave_option_value === '0')
+            || (
+                $autosave_option_name === 'download_usage'
+                && $autosave_option_value === '1'
+                && !$system_wide_config_options['usage_comment_blank']
+            )
+        )
+    ) {
+        $response['success'] = false;
+        $response['message'] = $lang['systemconfig_usage_comment_blank_help'];
+        echo json_encode($response);
+        exit();
+    }
+
+    if ($page_def[$page_def_option_index][0] === 'field_list') {
+        $response = config_save_search_field_list(
+            $autosave_option_name,
+            $autosave_option_value,
+            getval('autosave_option_version', ''),
+            $page_def[$page_def_option_index][4]
+        );
+    } elseif ($page_def[$page_def_option_index][0] === 'option_list') {
+        $version = config_save_option_list(
+            $autosave_option_name,
+            $autosave_option_value,
+            getval('autosave_option_version', '')
+        );
+        $response['success'] = $version !== null;
+        $response['version'] = $version;
+        if ($version === null) {
+            $response['message'] = $lang['systemconfig_option_list_conflict'];
+        }
+    } elseif (!set_config_option(null, $autosave_option_name, $autosave_option_value, 'System configuration change')) {
         $response['success'] = false;
     }
 
@@ -603,6 +916,24 @@ if (!isset($userref)) {
 }
 
 $page_def = config_filter_by_search($page_def, [], getval("filter", ""), getval("only_modified", "no"));
+
+// Show file-configured selections that are outside the editable choices.
+foreach ($page_def as &$option) {
+    if (
+        $option[0] !== 'single_select'
+        || !in_array($option[1], ['portrait_landscape_field', 'user_account_auto_creation_usergroup'], true)
+    ) {
+        continue;
+    }
+    $configured_choice = (string) ($system_wide_config_options[$option[1]] ?? '');
+    if (!array_key_exists($configured_choice, $option[3])) {
+        $option[3][$configured_choice] = sprintf(
+            $lang['systemconfig_configured_choice_unavailable'],
+            $configured_choice
+        );
+    }
+}
+unset($option);
 
 include '../../include/header.php';
 ?>
@@ -649,6 +980,53 @@ include '../../include/header.php';
     config_generate_AutoSaveConfigOption_function($baseurl . '/pages/admin/admin_system_config.php');
     ?>
     <script>
+        jQuery('#sort_fields').on('ConfigAutosaveComplete', function(event, response) {
+            const defaultSort = document.getElementById('default_sort');
+            if (!response.success || response.queued || !defaultSort) {
+                return;
+            }
+            const current = defaultSort.value;
+            Array.from(defaultSort.options).forEach(option => {
+                if (/^field\d+$/.test(option.value)) {
+                    option.remove();
+                }
+            });
+            document.querySelectorAll('#question_sort_fields [data-option-value]').forEach(picker => {
+                defaultSort.add(new Option(picker.selectedOptions[0].text, 'field' + picker.value));
+            });
+            defaultSort.value = current;
+        });
+
+        jQuery('#download_usage').on('ConfigAutosaveComplete', function(event, response) {
+            this.disabled = false;
+            if (!response.success) {
+                this.checked = !this.checked;
+                return;
+            }
+            jQuery('#question_download_usage_options, #question_download_usage_email').toggle(this.checked);
+            const commentBoxHidden =
+                <?php echo encode_js_value((bool) $system_wide_config_options['remove_usage_textbox']); ?>;
+            jQuery('#question_usage_comment_blank').toggle(this.checked || commentBoxHidden);
+        });
+
+        // Keep the edited section open when a save reloads its dependent controls.
+        jQuery('.CollapsibleSections').on('ConfigAutosaveReload', function(event) {
+            const section = event.target.closest('.CollapsibleSection');
+            if (section) {
+                sessionStorage.setItem('SystemConfigAutosaveSection', section.id);
+            }
+        });
+        jQuery(function() {
+            const sectionId = sessionStorage.getItem('SystemConfigAutosaveSection');
+            if (sectionId) {
+                sessionStorage.removeItem('SystemConfigAutosaveSection');
+                const heading = document.getElementById(sectionId)?.previousElementSibling;
+                if (heading?.classList.contains('collapsed')) {
+                    heading.click();
+                }
+            }
+        });
+
         jQuery('fieldset#annotate_fields :input:checkbox').on('change', () => AutoSaveConfigOption('annotate_fields'));
 
         dom_add_autosave_status_container('fieldset#annotate_exclude_restypes', 'annotate_exclude_restypes');

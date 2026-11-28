@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'Suriin upang simulan a
 $lang["video_tracks_transcode_now_label"] = 'I-transcode na ngayon';
 $lang["page-title_video_tracks_create_video"] = 'Lumikha ng Video';
 $lang["page-title_video_tracks_setup"] = 'I-set up ang Video Tracks Plugin';
+
+$lang['plugin-video_tracks-title'] = 'Mga Track ng Video';
+$lang['plugin-video_tracks-desc'] = 'Magdagdag ng suporta para sa iba\'t ibang mga opsyon sa audio at subtitle para sa mga yaman ng video.';

@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Sanidi kazi ya kutengeneza vektori za CLIP';
 $lang["clip-job_limit"] = 'Kiwango cha kundi';
 $lang["clip-job_limit_help"] = 'Kuweka chaguo hili kutapunguza idadi ya rasilimali zitakazochakatwa kwa wakati mmoja.';
 $lang["clip-job_limit_error"] = 'Thamani inapaswa kuwa kati ya 1 na 100000 au tupu kwa bila kikomo';
+
+$lang['plugin-clip-title'] = 'CLIP AI Utafutaji na Uwekaji Lebo wa Kitaalamu';
+$lang['plugin-clip-desc'] = 'Utafutaji wa lugha asilia wa AI, utafutaji wa kuona, ulinganifu wa mfanano, ulinganifu wa nakala rudufu, uwekaji lebo, uundaji wa vichwa';

@@ -7,3 +7,6 @@ $lang["user_preferences_change_email"]='ই-মেইল ঠিকানা প�
 $lang["user_preferences_change_name"]='ব্যবহারকারীর নাম পরিবর্তনের অনুমতি দিন';
 $lang["changeyourpassword"]='আমার পাসওয়ার্ড এবং ব্যবহারকারীর বিবরণ পরিবর্তন করুন';
 $lang["page-title_user_preferences_setup"] = 'ব্যবহারকারী পছন্দ প্লাগইন সেটআপ';
+
+$lang['plugin-user_preferences-title'] = 'ব্যবহারকারীর পছন্দসমূহ';
+$lang['plugin-user_preferences-desc'] = 'ব্যবহারকারীদের তাদের ব্যবহারকারীর নাম, নাম এবং ইমেইল ঠিকানা আপডেট করার অনুমতি দেয়।';

@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Új mentése';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Érvénytelen képadat';
 $lang["openai_image_edit_error_invalid_image"] = 'Érvénytelen kép';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nem sikerült írni az ideiglenes fájlt';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI Kép Szerkesztés';
+$lang['plugin-openai_image_edit-desc'] = 'Töröljön részeket egy képről, és használja a GPT Kép-et azok újragenerálásához.';

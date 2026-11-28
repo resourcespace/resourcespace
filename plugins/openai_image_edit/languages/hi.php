@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI नया सहेज�
 $lang["openai_image_edit_error_invalid_image_data"] = 'अमान्य छवि डेटा';
 $lang["openai_image_edit_error_invalid_image"] = 'अमान्य छवि';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'अस्थायी फ़ाइल लिखने में असमर्थ';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI छवि संपादन';
+$lang['plugin-openai_image_edit-desc'] = 'छवि के हिस्सों को मिटाएं और उन्हें पुनः उत्पन्न करने के लिए GPT Image का उपयोग करें।';

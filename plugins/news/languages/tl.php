@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Magdagdag, mag-edit o magtanggal ng mga balita';
 $lang["page-title_news_news_content_edit"] = 'I-edit ang Nilalaman ng Balita';
 $lang["page-title_news_news_edit"] = 'I-edit ang Balita';
 $lang["page-title_news_news"] = 'Balita';
+
+$lang['plugin-news-title'] = 'Balita';
+$lang['plugin-news-desc'] = 'Magdagdag ng mga artikulo ng balita sa pahina ng bahay.';

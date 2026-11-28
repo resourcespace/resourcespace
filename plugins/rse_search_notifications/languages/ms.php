@@ -26,3 +26,6 @@ $lang["columnheader-last-found"] = 'Ditemui terakhir';
 $lang["search_notifications_watched_searches-tooltip"] = 'Kawal carian yang disimpan anda';
 $lang["page-title_rse_search_notifications_setup"] = 'Tetapkan Plugin Pemberitahuan Carian';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'Carian yang Dipantau';
+
+$lang['plugin-rse_search_notifications-title'] = 'Pemberitahuan Carian';
+$lang['plugin-rse_search_notifications-desc'] = 'Maklumkan pengguna apabila perubahan berlaku pada carian yang disimpan.';

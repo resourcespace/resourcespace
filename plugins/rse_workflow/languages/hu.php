@@ -66,3 +66,5 @@ $lang["page-title_rse_workflow_edit_workflow"] = 'Ediw munkafolyamat';
 $lang["page-title_rse_workflow_setup"] = 'Munkafolyamat bővítmény beállítása';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'Nem sikerült az archív állapotot %%ARCHIVE%% értékre változtatni. Hiányzik a hozzáférés a kötelező mezők törléséhez.';
+$lang['plugin-rse_workflow-title'] = 'Fejlett munkafolyamat';
+$lang['plugin-rse_workflow-desc'] = 'Konfiguráljon egyedi munkafolyamat állapotokat és műveleteket az alapértelmezetteken túl.';

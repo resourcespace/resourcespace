@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'نوێکردنەوەی سەرچاوەی
 $lang["page-title_rss2_rssfeed"] = 'خەرجی RSS';
 $lang["page-title_rss2_rssfilter"] = 'فلتەر RSS';
 $lang["page-title_rss2_setup"] = 'ڕێکخستنەوەی پلاگینەکانی RSS';
+
+$lang['plugin-rss2-title'] = 'فیدەکانی RSS';
+$lang['plugin-rss2-desc'] = 'دروستکردنی فیدەکانی RSS بە شێوەیەکی دڵنیابووەوە بۆ ناوەڕۆکی نوێ، بەشێوەیەکی ڕێکخراو.';

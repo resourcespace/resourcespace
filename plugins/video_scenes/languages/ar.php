@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'تشغيل المشهد عند %time';
 $lang["video_scene_play_unavailable"] = 'هذا المشهد خارج معاينة الفيديو المتاحة.';
 $lang["video_scene_job_success"] = 'اكتمل معالجة مشهد الفيديو';
 $lang["video_scene_job_failure"] = 'فشل معالجة مشهد الفيديو. راجع سجل الوظيفة للتفاصيل.';
+$lang['plugin-video_scenes-title'] = 'مشاهد الفيديو';
+$lang['plugin-video_scenes-desc'] = 'كشف مشاهد الفيديو محليًا باستخدام transnetv2-pytorch، مع أوصاف سمعية بصرية اختيارية من OpenAI.';

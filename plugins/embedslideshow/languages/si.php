@@ -1,0 +1,29 @@
+<?php
+$lang['page-title_embedslideshow_setup'] = 'ඇතුල් කරන්නා වූ ස්ලයිඩ්ශෝ ප්ලගීනය සැකසීම';
+$lang['page-title_embedslideshow_viewer'] = 'ඇතුල් කරන්නා වූ ස්ලයිඩ්ශෝ';
+$lang['plugin-embedslideshow-title'] = 'ඇතුල් කරන්නා වූ ස්ලයිඩ්ශෝ';
+$lang['plugin-embedslideshow-desc'] = 'දුරස්ථ වෙබ් අඩවි සඳහා ඇතුල් කළ හැකි එකතු කළ ස්ලයිඩ්ශෝ සඳහා HTML ජනනය කිරීමේ ක්‍රියාවලියක් සපයයි.';
+
+$lang['embed'] = 'එම්බෙඩ් කරන්න';
+$lang['embedslideshow_minimise'] = '&minus; ස්ලයිඩ්ශෝ කුඩා කරන්න';
+$lang['embedslideshow_maximise'] = '+ ස්ලයිඩ්ශෝ විශාල කරන්න';
+$lang['embedslideshow_size'] = 'ස්ලයිඩ්ශෝ ප්‍රමාණය?';
+$lang['sizename_pixels'] = '%name (%pixels පික්සල්)';
+$lang['embedslideshow_transitiontime'] = 'ස්ලයිඩ් කාලය?';
+$lang['embedslideshow'] = 'ස්ලයිඩ්ශෝ එම්බෙඩ් කරන්න';
+$lang['embedslideshow_action_description'] = 'මෙය බාහිර හුවමාරු යතුරක් නිර්මාණය කර, එමඟින් බාහිර වෙබ් අඩවියකට ඇතුළත් කළ හැකි HTML කොටසක් ජනනය කරයි.';
+$lang['generateslideshowhtml'] = 'ස්ලයිඩ්ශෝ HTML ජනනය කරන්න';
+$lang['slideshow'] = 'ස්ලයිඩ්ශෝ';
+$lang['slideshowhtml'] = 'ස්ලයිඩ්ශෝ HTML';
+$lang['slideshowpreview'] = 'ස්ලයිඩ්ශෝ පෙරදසුන';
+$lang['embedslideshow_notavailable'] = 'සමාවන්න, මෙම ස්ලයිඩ්ශෝ දැන් ලබා ගත නොහැක.';
+$lang['embedslideshow_alreadyonpage'] = 'විශේෂිත පිටුවකට යාමට දකුණු පැත්තේ කොටුවට පිටු අංකයක් ඇතුළත් කරන්න.';
+$lang['embedslideshowconfig'] = 'ස්ලයිඩ්ශෝ එම්බෙඩ් සැකසුම්';
+$lang['embedslideshow_textfield'] = 'අමතර විස්තර පෙළ පෙන්වන්නද?';
+$lang['embedslideshow_resourcedatatextfield'] = 'විස්තර සටහන් තබාගැනීම සඳහා මැටාදත්ත ක්ෂේත්‍රය?';
+$lang['embedslideshow_maximise_option'] = 'විශාල කිරීමේ විකල්පය?';
+$lang['embedslideshow_seconds'] = '? තත්පර';
+$lang['embedslideshow_notransition'] = 'ස්වයංක්‍රීය මාරුවක් නැත';
+$lang['embedslideshow_directlink'] = 'එම්බෙඩ් නොකළ සෘජු URL';
+$lang['embedslideshow_directlinkopen'] = 'සෘජු සබැඳිය විවෘත කරන්න (නව පිටුව)';
+$lang['embedslideshow_dynamic_size'] = 'පෙරදසුන ප්ලේයර් ප්‍රමාණය අනුව ගතිකව ප්‍රමාණය වෙනස් කිරීම?}}';

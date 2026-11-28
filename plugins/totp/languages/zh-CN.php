@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = '当前年份';
 $lang["page-title_totp_setup"] = '设置 TOTP 插件';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = '为已通过 SAML 进行身份验证的用户禁用 TOTP（需要 SAML 插件)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = '通过 Google Authenticator 支持 TFA/MFA';

@@ -39,3 +39,6 @@ $lang["weekday-6"] = 'ਸ਼ਨੀਵਾਰ';
 
 $lang["page-title_action_dates_setup"] = 'ਐਕਸ਼ਨ ਤਾਰੀਖਾਂ ਪਲੱਗਇਨ ਸੈਟਅਪ';
 $lang["action_dates_additional_settings_email_admin_days"] = 'ਇਹ ਕਿੰਨੇ ਦਿਨਾਂ ਪਹਿਲਾਂ ਐਡਮਿਨਾਂ ਨੂੰ ਸੂਚਿਤ ਕਰੋ ਜਦੋਂ ਕਾਰਵਾਈ ਹੋਵੇ (ਅਸਮਰਥਿਤ ਕਰਨ ਲਈ ਖਾਲੀ ਛੱਡੋ)';
+
+$lang['plugin-action_dates-title'] = 'ਕਾਰਵਾਈ ਦੀਆਂ ਤਾਰੀਖਾਂ';
+$lang['plugin-action_dates-desc'] = 'ਮਿਤੀ ਖੇਤਰਾਂ ਦੇ ਆਧਾਰ \'ਤੇ ਸਰੋਤਾਂ ਦੀ ਨਿਯਤ ਸਮੇਂ ਮਿਟਾਈ ਜਾਂ ਸੀਮਿਤ ਕਰਨ ਦੀ ਸਹੂਲਤ ਦਿੰਦਾ ਹੈ।';

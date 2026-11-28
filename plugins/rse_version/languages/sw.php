@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='Kurudisha hali ya mkusanyiko #%COLLECTION k
 $lang["rse_version_invalid_time"]='Kurudi kwenye wakati kabla ya [date] hakuhimizwi';
 $lang["page-title_rse_version_revert"] = 'Rudisha Toleo la Rasilimali';
 $lang["page-title_rse_version_setup"] = 'Panga Toleo la Plugin';
+
+$lang['plugin-rse_version-title'] = 'Udhibiti wa Toleo';
+$lang['plugin-rse_version-desc'] = 'Fuata na rejesha mabadiliko ya metadata na faili.';

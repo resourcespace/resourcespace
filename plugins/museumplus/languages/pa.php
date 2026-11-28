@@ -51,3 +51,6 @@ $lang["museumplus_error_module_no_field_maps"]='ਮਿਊਜ਼ੀਅਮਪਲ�
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus ਵਸਤੂ ਵੇਰਵੇ';
 $lang["page-title_museumplus_setup_module"] = 'MuseumPlus ਮੋਡੀਊਲ ਸੈਟਅਪ';
 $lang["page-title_museumplus_setup"] = 'MuseumPlus ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'MuseumPlus ਦੀ REST API (MpRIA) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਸਰੋਤ ਮੈਟਾਡੇਟਾ ਨੂੰ ਕੱਢਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।';

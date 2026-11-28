@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Configurar trabajo para detectar caras'
 $lang["faces_tag_faces_configure"] = 'Configurar trabajo para etiquetar caras';
 $lang["faces_detect_faces_intro"] = 'Crea un trabajo para comenzar la detección de caras aquí; este trabajo no requiere parámetros, por lo que puede iniciarse siempre que no haya otros trabajos pendientes de este tipo.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Configurar esta opción significará que solo los recursos en las colecciones listadas serán actualizados. Si no se especifican colecciones, la etiquetación de caras se actualizará para TODOS los recursos adecuados. Las colecciones pueden especificarse usando una lista separada por comas así como rangos, por ejemplo 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'Rostros IA - InsightFace';
+$lang['plugin-faces-desc'] = 'Detección y etiquetado automático de rostros de última generación. Buscar por rostro.';

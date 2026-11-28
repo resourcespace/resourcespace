@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'Mae\'r darparwr wedi\'i gloi yn y gosod
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Model Ollama i\'w ddefnyddio (e.e. \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Ollama endpoint i\'w ddefnyddio (e.e. http://[IP]:11434/v1/sgwrs/cwblhau';
+
+$lang['plugin-openai_gpt-title'] = 'Prosesu metaddata OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'Prosesu awtomataidd o fetadata a delweddau gan ddefnyddio AI.';

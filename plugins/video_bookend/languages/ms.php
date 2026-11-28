@@ -10,3 +10,6 @@ $lang["bookend-intro"] = 'Pilih imej dari senarai fail alternatif untuk digunaka
 $lang["bookend-failed"] = 'Gagal!';
 $lang["bookend-could-not-open-file"] = 'Ralat - tidak dapat membuka fail!';
 $lang["page-title_video_bookend_bookend"] = 'Video Bookend';
+
+$lang['plugin-video_bookend-title'] = 'Video Bookend';
+$lang['plugin-video_bookend-desc'] = 'Menambah keupayaan untuk memuat turun video dengan tajuk dan grafik akhir.';

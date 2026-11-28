@@ -26,3 +26,6 @@ $lang["columnheader-last-found"]='آخرین یافت شده';
 $lang["search_notifications_watched_searches-tooltip"] = 'جستجوهای ذخیره شده خود را کنترل کنید';
 $lang["page-title_rse_search_notifications_setup"] = 'نصب افزونه اعلان‌های جستجو';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'جستجوهای مشاهده شده';
+
+$lang['plugin-rse_search_notifications-title'] = 'اطلاعیه‌های جستجو';
+$lang['plugin-rse_search_notifications-desc'] = 'هنگام ایجاد تغییر در جستجوی ذخیره‌شده به کاربر اطلاع دهید.';

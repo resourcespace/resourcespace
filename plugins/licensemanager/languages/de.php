@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Lizenz bearbeiten';
 $lang["page-title_licensemanager_list"] = 'Lizenzen auflisten';
 $lang["page-title_licensemanager_setup"] = 'Lizenzmanager-Plugin einrichten';
 $lang["page-title_licensemanager_unlink"] = 'Lizenz trennen';
+
+$lang["collection_actiontype_80"] = 'Lizenzierung';

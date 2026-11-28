@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'Math Adnabod Dogfen Bell:';
 
 $lang["page-title_embeddocument_setup"] = 'Gosod Plugin Dogfen Mewnosod';
 $lang["page-title_embeddocument_viewer"] = 'Mewnos Gwyliwr Dogfen';
+
+$lang['plugin-embeddocument-title'] = 'Mewnosod Dogfen';
+$lang['plugin-embeddocument-desc'] = 'Yn darparu swyddogaeth i gynhyrchu HTML ar gyfer rhagolwg dogfennau y gellir eu mewnosod ar safleoedd o bell.';

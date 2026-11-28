@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'Daan ng Thumbnail';
 $lang["yt2rs_online_preview"] = 'Online Preview';
 $lang["yt2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_yt2rs_setup"] = 'I-set up ang Youtube sa ResourceSpace Plugin';
+
+$lang['plugin-yt2rs-title'] = 'YouTube sa ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Magdagdag ng mga video na naka-host sa YouTube bilang mga yaman.';

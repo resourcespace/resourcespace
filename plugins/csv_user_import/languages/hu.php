@@ -15,3 +15,6 @@ $lang["csv_user_import_condition3"] = 'Olyan oszlop(ok), amelyek értékei vessz
 $lang["csv_user_import_condition4"] = 'Engedélyezett oszlopok: *felhasználónév, *email, jelszó, teljes név, fiók lejárata, megjegyzések, ip_korlátozás, nyelv. Megjegyzés: a kötelező mezők *-gal vannak megjelölve';
 $lang["csv_user_import_condition5"] = 'A felhasználó nyelve visszaáll a "$defaultlanguage" konfigurációs opcióval beállított nyelvre, ha a lang oszlop nem található vagy nincs értéke';
 $lang["page-title_csv_user_import_csv_user_import"] = 'CSV Felhasználó Importálás';
+
+$lang['plugin-csv_user_import-title'] = 'CSV felhasználóimportálás';
+$lang['plugin-csv_user_import-desc'] = 'Lehetővé teszi felhasználók tömeges importálását előre formázott CSV fájl alapján';

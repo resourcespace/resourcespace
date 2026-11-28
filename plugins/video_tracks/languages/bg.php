@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'Поставете о�
 $lang["video_tracks_transcode_now_label"] = 'Транскодирай сега';
 $lang["page-title_video_tracks_create_video"] = 'Създаване на видео';
 $lang["page-title_video_tracks_setup"] = 'Настройка на плъгина Video Tracks';
+
+$lang['plugin-video_tracks-title'] = 'Видео писти';
+$lang['plugin-video_tracks-desc'] = 'Добавете поддръжка за различни аудио и субтитри опции за видео ресурси.';

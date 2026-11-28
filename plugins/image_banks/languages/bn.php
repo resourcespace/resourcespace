@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'অনুসন্ধান';
 $lang["page-title_image_banks_setup"] = 'ছবি ব্যাংক প্লাগইন সেটআপ করুন';
 $lang["page-title_image_banks_shutterstock_license"] = 'Shutterstock ইমেজ দেখুন';
 $lang["page-title_image_banks_view"] = 'সম্পদ দেখুন';
+
+$lang['plugin-image_banks-title'] = 'ইমেজ ব্যাংক';
+$lang['plugin-image_banks-desc'] = 'ResourceSpace-এর মধ্যে থেকে বিনামূল্যে/বাণিজ্যিক ইমেজ লাইব্রেরি অনুসন্ধান করুন।';

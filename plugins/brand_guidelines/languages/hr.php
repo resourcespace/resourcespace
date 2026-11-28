@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Upravljanje sadržajem smjernica
 $lang["page-title_brand_guidelines_guidelines"] = 'Smjernice za brend';
 $lang["page-title_brand_guidelines_setup"] = 'Postavite dodatak za smjernice branda';
 $lang["page-title_brand_guidelines_toc"] = 'Uredi sadržaj';
+
+$lang['plugin-brand_guidelines-title'] = 'Smjernice za brend';
+$lang['plugin-brand_guidelines-desc'] = 'Izradite područje smjernica za brend s prilagođenim sadržajem, poveznicama na resurse i bojama.';

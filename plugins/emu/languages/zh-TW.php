@@ -36,3 +36,6 @@ $lang["emu_nodata_returned"] = '未找到指定 IRN 的 EMu 資料。';
 $lang["emu_createdfromemu"] = '由 EMU 插件建立';
 $lang["page-title_emu_emu_object_details"] = 'EMu 物件詳情';
 $lang["page-title_emu_setup"] = '設定 EMu 插件';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = '允許從 EMu 資料庫擷取資源的元資料。';

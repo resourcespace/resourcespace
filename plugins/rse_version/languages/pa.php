@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='ਕਲੈਕਸ਼ਨ #%COLLECTION ਲਈ �
 $lang["rse_version_invalid_time"]='[date] ਤੋਂ ਪਹਿਲਾਂ ਦੇ ਸਮੇਂ \'ਤੇ ਵਾਪਸ ਜਾਣਾ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ';
 $lang["page-title_rse_version_revert"] = 'ਸੰਸਾਧਨ ਸੰਸਕਰਣ ਨੂੰ ਵਾਪਸ ਲਿਆਓ';
 $lang["page-title_rse_version_setup"] = 'ਸੈਟਅਪ ਵਰਜਨ ਪਲੱਗਇਨ';
+
+$lang['plugin-rse_version-title'] = 'ਵਰਜਨ ਕੰਟਰੋਲ';
+$lang['plugin-rse_version-desc'] = 'ਮੇਟਾਡੇਟਾ ਅਤੇ ਫਾਇਲ ਬਦਲਾਅ ਨੂੰ ਟਰੈਕ ਅਤੇ بحਾਲ ਕਰੋ।';

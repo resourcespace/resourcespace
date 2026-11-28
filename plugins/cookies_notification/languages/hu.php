@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'Úgy döntöttél, hogy n
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'El kell fogadnia a sütik használatát, mielőtt hozzáférne a rendszerhez.';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Süti kiválasztás';
 $lang["page-title_cookies_notification_setup"] = 'Cookie értesítő bővítmény beállítása';
+
+$lang['plugin-cookies_notification-title'] = 'Sütik értesítése';
+$lang['plugin-cookies_notification-desc'] = 'Értesítés a sütik használatáról az üzenet megjelenítésével a fejlécben.';

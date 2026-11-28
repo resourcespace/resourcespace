@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'مہیا کنندہ عالمی ترتی
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Ollama ماڈل استعمال کرنے کے لیے (مثلاً \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Ollama اینڈ پوائنٹ استعمال کرنے کے لیے (مثلاً http://[IP]:11434/v1/chat/completions';
+
+$lang['plugin-openai_gpt-title'] = 'OpenAI/Ollama میٹا ڈیٹا پروسیسنگ';
+$lang['plugin-openai_gpt-desc'] = 'مصنوعی ذہانت کا استعمال کرتے ہوئے میٹا ڈیٹا اور تصاویر کی خودکار پروسیسنگ۔';

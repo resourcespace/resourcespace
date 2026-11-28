@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'Huwag suriin ang FQDN ng serv
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Subukan ang LDAP Authentication';
 $lang["page-title_simpleldap_setup"] = 'I-set up ang Simpleng LDAP Plugin';
 $lang["simpleldap_userlimit_error"] = 'Hindi maaaring malikha ang gumagamit dahil naabot na ang limitasyon ng gumagamit. Mangyaring makipag-ugnayan sa iyong tagapangasiwa.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Pagpapatunay ng gumagamit sa pamamagitan ng LDAP.';

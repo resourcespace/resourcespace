@@ -1,0 +1,42 @@
+<?php
+$lang['vimeo_publish_configuration'] = 'Vimeo ප්‍රකාශන ප්ලගීනය සැකසීම';
+$lang['vimeo_publish_resource_tool_link'] = 'Vimeo වෙත ප්‍රකාශනය කරන්න';
+$lang['vimeo_publish_base'] = 'මූලික URL';
+$lang['vimeo_publish_callback_url'] = 'ප්‍රතිචාර URL';
+$lang['vimeo_publish_authentication'] = 'සත්‍යාපනය';
+$lang['vimeo_publish_vimeo_instructions'] = 'Vimeo OAuth 2.0 උපදෙස්';
+$lang['vimeo_publish_oauth2_client_id'] = 'සේවාදායක හැඳුනුම්පත';
+$lang['vimeo_publish_oauth2_client_secret'] = 'සේවාදායක රහස';
+$lang['vimeo_publish_rs_field_mappings'] = 'ResourceSpace - Vimeo ක්ෂේත්‍ර සම්බන්ධතා';
+$lang['vimeo_publish_video_details'] = 'Vimeo - වීඩියෝ විස්තර';
+$lang['vimeo_publish_vimeo_link'] = 'Vimeo සබැඳිය';
+
+$lang['vimeo_publish_video_title'] = 'වීඩියෝ මාතෘකාව';
+$lang['vimeo_publish_video_description'] = 'වීඩියෝ විස්තරය';
+$lang['vimeo_publish_resource_types_to_include'] = 'Vimeo සඳහා වලංගු වීඩියෝ සම්පත් වර්ග තෝරන්න';
+$lang['vimeo_publish_publish_as_user'] = 'ඔබ Vimeo වෙත පළ කරන ලද්දේ: ';
+$lang['vimeo_publish_delete_token'] = 'වෙනත් Vimeo ගිණුමක් භාවිතා කරන්න (මෙම Vimeo ගිණුමෙන් පිටවී ඇති බවට සහතික වන්න)';
+$lang['vimeo_publish_button_text'] = 'පළ කරන්න';
+$lang['vimeo_api_instructions_condition_1'] = 'ResourceSpace යෙදුමක් ලෙස Vimeo සමඟ ලියාපදිංචි වී OAuth client ID සහ Secret ලබා ගත යුතුය';
+$lang['vimeo_api_instructions_condition_2'] = 'වලංගු Vimeo ගිණුමකින් පිවිසෙන්න (ඔබගේ Vimeo ගිණුමට සම්බන්ධ නොවිය හැක), පසුව <a href="https://developer.vimeo.com/" target="_blank">https://developer.vimeo.com/</a> වෙත යන්න';
+$lang['vimeo_api_instructions_condition_3'] = 'ඉහළ දකුණු පැත්තේ "New App" ක්ලික් කරන්න';
+$lang['vimeo_api_instructions_condition_4'] = 'සියලු විස්තර පුරවන්න.';
+$lang['vimeo_api_instructions_condition_5'] = '"App URL" සඳහා මූලික URL භාවිතා කරන්න (මෙම උපදෙස්ට පෙර දක්වා ඇත)';
+$lang['vimeo_api_instructions_condition_6'] = '"App Callback URL" සඳහා Callback URL භාවිතා කරන්න (මෙම උපදෙස්ට පෙර දක්වා ඇත)';
+$lang['vimeo_api_instructions_condition_7'] = 'යෙදුම නිර්මාණය කිරීමෙන් පසු, එය විවෘත කර "Authentication" ටැබය ක්ලික් කර Client ID සහ Secret සොයා ගන්න';
+$lang['vimeo_api_instructions_condition_8'] = 'Client ID සහ Secret පිටපත් කර පහත දැක්වූ ස්ථානයට ඇතුළත් කරන්න';
+$lang['vimeo_api_instructions_condition_9'] = 'Vimeo වෙත වීඩියෝ උඩුගත කිරීමට අවසර ඉල්ලීමක් කරන්න. ඔබ උඩුගත කිරීමට යන වීඩියෝ වර්ගය පිළිබඳ ප්‍රමාණවත් තොරතුරු සපයන්න';
+$lang['vimeo_publish_no_vimeoAPI_files'] = 'ResourceSpace විසින් Vimeo PHP API ගොනු ප්‍රවේශ විය නොහැකැයි පෙනේ!';
+$lang['vimeo_publish_access_denied'] = 'ප්‍රවේශය ප්‍රතික්ෂේප කරන ලදි!';
+$lang['vimeo_publish_not_configured'] = 'ResourceSpace ප්ලගිනය "vimeo_publish" සැකසී නොමැත. කරුණාකර මෙතැනට යන්න: ';
+$lang['vimeo_publish_resource_already_published'] = 'ID [ref] සහිත සම්පත දැනටමත් Vimeo වෙත පළ කර ඇත. ඔබට මෙහිදී පරීක්ෂා කළ හැක [vimeo_url]';
+$lang['vimeo_publish_resource_published'] = 'සම්පත Vimeo වෙත පළ කර ඇත. ඔබට මෙහිදී පරීක්ෂා කළ හැක [vimeo_url]';
+$lang['vimeo_publish_account_options'] = 'Vimeo ගිණුම් විකල්ප';
+$lang['vimeo_publish_allow_user_accounts'] = 'පරිශීලකයින්ට තම Vimeo ගිණුම් වෙත පළ කිරීමට ඉඩ දෙන්න. අසත්‍ය නම්, එක් Vimeo ගිණුමකට ප්‍රවේශය පහත සැකසිය යුතුය';
+$lang['vimeo_publish_set_account'] = 'Vimeo ගිණුම සකසන්න';
+$lang['page-title_vimeo_publish_setup'] = 'Vimeo Publish ප්ලගිනය සැකසීම';
+$lang['page-title_vimeo_publish_vimeo_api'] = 'Vimeo වෙත පළ කරන්න';
+$lang['plugin-vimeo_publish-title'] = 'Vimeo Publish';
+$lang['plugin-vimeo_publish-desc'] = 'සම්පත් Vimeo වෙත පළ කරන්න.';
+
+$lang['vimeo_publish_legal_warning'] = '\'ඔකේ\' ක්ලික් කිරීමෙන් ඔබට අන්තර්ගතය පිළිබඳ සියලුම හිමිකම් හිමිකරුවෙකු බව හෝ අන්තර්ගතය ජනතා ප්‍රවේශයට ලබා දීමට හිමිකරු විසින් අනුමත කර ඇති බව සහ Vimeo හි සේවා කොන්දේසි https://vimeo.com/terms සමඟ අනෙක් සියල්ල අනුකූල බව සහතික කරයි.';

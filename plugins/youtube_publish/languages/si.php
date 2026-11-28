@@ -1,0 +1,57 @@
+<?php
+$lang['youtube_chunk_size'] = 'YouTube වෙත උඩුගත කිරීමේදී භාවිතා කරන කොටස් ප්‍රමාණය (MB)';
+$lang['youtube_publish_add_anchor'] = 'YouTube URL මැටාදත්ත ක්ෂේත්‍රයට සුරැකිමේදී anchor ටැග් එකතු කරන්නද?';
+$lang['page-title_youtube_publish_setup'] = 'ප්ලගිනය සැකසීම';
+$lang['page-title_youtube_publish_youtube_upload'] = 'සම්පත් YouTube වෙත ප්‍රකාශනය කරන්න';
+$lang['plugin-youtube_publish-title'] = 'YouTube ප්‍රකාශනය';
+$lang['plugin-youtube_publish-desc'] = 'වින්ඩියෝ සම්පත් සකස් කළ YouTube ගිණුමකට ප්‍රකාශනය කරන්න.';
+
+$lang['youtube_publish_title'] = 'YouTube ප්‍රකාශනය';
+$lang['youtube_publish_linktext'] = 'YouTube වෙත ප්‍රකාශනය කරන්න';
+$lang['youtube_publish_configuration'] = 'YouTube වෙත ප්‍රකාශනය - සැකසුම්';
+$lang['youtube_publish_notconfigured'] = 'YouTube උඩුගත කිරීමේ ප්ලගිනය සැකසී නොමැත. කරුණාකර ඔබගේ පරිපාලකයාගෙන් මෙම ප්ලගිනය මෙහි සැකසීමට ඉල්ලන්න';
+$lang['youtube_publish_resource_types_to_include'] = 'වලංගු YouTube සම්පත් වර්ග තෝරන්න';
+$lang['youtube_publish_mappings_title'] = 'ResourceSpace - YouTube ක්ෂේත්‍ර සම්බන්ධතා';
+$lang['youtube_publish_title_field'] = 'ශීර්ෂය ක්ෂේත්‍රය';
+$lang['youtube_publish_descriptionfields'] = 'විස්තර ක්ෂේත්‍ර';
+$lang['youtube_publish_keywords_fields'] = 'ටැග් ක්ෂේත්‍ර';
+$lang['youtube_publish_url_field'] = 'YouTube URL ගබඩා කිරීමට මැටාදත්ත ක්ෂේත්‍රය';
+$lang['youtube_publish_allow_multiple'] = 'එම සම්පත බහු වතාවක් උඩුගත කිරීමට ඉඩ දෙනවාද?';
+$lang['youtube_publish_log_share'] = 'YouTube හි බෙදා හරිමින්';
+$lang['youtube_publish_unpublished'] = 'ප්‍රකාශයට පත් කර නොමැත';
+$lang['youtube_publishloggedinas'] = 'ඔබ පහත YouTube ගිණුමට ප්‍රකාශනය කරනු ඇත: %youtube_username%';
+$lang['youtube_publish_change_login'] = 'වෙනත් YouTube ගිණුමක් භාවිතා කරන්න';
+$lang['youtube_publish_accessdenied'] = 'ඔබට මෙම සම්පත ප්‍රකාශයට පත් කිරීමට අවසර නැත';
+$lang['youtube_publish_alreadypublished'] = 'මෙම සම්පත දැනටමත් YouTube වෙත ප්‍රකාශයට පත් කර ඇත.';
+$lang['youtube_access_failed'] = 'YouTube උඩුගත කිරීමේ සේවා අතුරුමුහුණත වෙත ප්‍රවේශ වීම අසාර්ථක විය. කරුණාකර ඔබගේ පරිපාලකයා අමතන්න හෝ ඔබගේ සැකසුම පරීක්ෂා කරන්න.';
+$lang['youtube_publish_video_title'] = 'වීඩියෝ ශීර්ෂය (අක්ෂර 100 කට අඩු)';
+$lang['youtube_publish_video_description'] = 'වීඩියෝ විස්තරය';
+$lang['youtube_publish_video_tags'] = 'වීඩියෝ ටැග්';
+$lang['youtube_publish_access'] = 'ප්‍රවේශය සකසන්න';
+$lang['youtube_public'] = 'පොදු';
+$lang['youtube_private'] = 'පෞද්ගලික';
+$lang['youtube_publish_public'] = 'පොදු';
+$lang['youtube_publish_private'] = 'පෞද්ගලික';
+$lang['youtube_publish_unlisted'] = 'ලැයිස්තුගත නොකළ';
+$lang['youtube_publish_button_text'] = 'ප්‍රකාශනය කරන්න';
+$lang['youtube_publish_authentication'] = 'සත්‍යාපනය';
+$lang['youtube_publish_use_oauth2'] = 'OAuth 2.0 භාවිතා කරන්නද?';
+$lang['youtube_publish_oauth2_advice'] = 'YouTube OAuth 2.0 උපදෙස්';
+$lang['youtube_publish_developer_key'] = 'සංවර්ධක යතුර';
+$lang['youtube_publish_oauth2_clientid'] = 'ගනුදෙනුකරු හැඳුනුම්පත';
+$lang['youtube_publish_oauth2_clientsecret'] = 'ගනුදෙනුකරු රහස්පදය';
+$lang['youtube_publish_base'] = 'මූලික URL';
+$lang['youtube_publish_callback_url'] = 'Callback URL';
+$lang['youtube_publish_username'] = 'YouTube පරිශීලක නාමය';
+$lang['youtube_publish_password'] = 'YouTube මුරපදය';
+$lang['youtube_publish_existingurl'] = 'පවතින YouTube URL :- ';
+$lang['youtube_publish_notuploaded'] = 'උඩුගත කර නොමැත';
+$lang['youtube_publish_failedupload_error'] = 'උඩුගත කිරීමේ දෝෂය';
+$lang['youtube_publish_success'] = 'වීඩියෝ සාර්ථකව ප්‍රකාශයට පත් කරන ලදි!';
+$lang['youtube_publish_renewing_token'] = 'ප්‍රවේශ ටෝකනය යාවත්කාලීන කරමින්';
+$lang['youtube_publish_category'] = 'වර්ගය';
+$lang['youtube_publish_category_error'] = 'YouTube වර්ග ලබා ගැනීමේ දෝෂය: - ';
+
+$lang['youtube_publish_oauth2_advice_desc'] = '<p>මෙම ප්ලගිනය සකස් කිරීමට OAuth 2.0 පිහිටුවිය යුතුය, මන්ද අනෙකුත් සියලු සත්‍යාපන ක්‍රම නිල වශයෙන් භාවිතයෙන් ඉවත් කර ඇත. ඒ සඳහා ඔබේ ResourceSpace අඩවිය Google හි ව්‍යාපෘතියක් ලෙස ලියාපදිංචි කර OAuth client ID සහ secret එකක් ලබාගත යුතුය. මේ සඳහා කිසිදු ගාස්තුවක් අය නොවේ.</p><ul><li>Google වෙත පිවිස ඔබේ උපකරණ පුවරුවට යන්න: <a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>.</li><li>නව ව්‍යාපෘතියක් සාදන්න (නම සහ ID වැදගත් නොවේ; ඒවා ඔබේ යොමුව සඳහා පමණි).</li><li>\'ENABLE API\'S AND SERVICES\' ක්ලික් කර පහළට අනුචලනය කර ‘YouTube Data API\' විකල්පය තෝරන්න.</li><li>\'Enable\' ක්ලික් කරන්න.</li><li>වම් පසින් \'Credentials\' තෝරන්න.</li><li>ඉන්පසු \'CREATE CREDENTIALS\' ක්ලික් කර පතන මෙනුවෙන් \'Oauth client ID\' තෝරන්න.</li><li>එවිට ඔබට \'Create OAuth client ID\' පිටුව දිස්වනු ඇත.</li><li>ඉදිරියට යාමට, පළමුව නිල් පැහැති \'Configure consent screen\' බොත්තම ක්ලික් කරන්න.</li><li>අදාළ තොරතුරු පුරවා සුරකින්න.</li><li>එවිට ඔබව නැවත \'Create OAuth client ID\' පිටුවට යොමු කරනු ඇත.</li><li>\'Application type\' යටතේ \'Web application\' තෝරා, \'Authorized Javascript origins\' ක්ෂේත්‍රයට ඔබේ පද්ධතියේ මූල URL එකත්, redirect URL ක්ෂේත්‍රයට මෙම පිටුවේ ඉහළින් දක්වා ඇති callback URL එකත් ඇතුළත් කර \'Create\' ක්ලික් කරන්න.</li><li>එවිට ඔබ අලුතින් සාදන ලද \'client ID\' සහ \'client secret\' පෙන්වන තිරයක් දකිනු ඇත.</li><li>client ID සහ secret සටහන් කරගෙන, එම තොරතුරු පහතින් ඇතුළත් කරන්න.</li></ul>';
+
+$lang['youtube_publish_legal_warning'] = '\'ඔකේ\' යන්න ක්ලික් කිරීමෙන් ඔබට අන්තර්ගතය පිළිබඳ සියලුම හිමිකම් හිමිකරුවෙකු බව හෝ අන්තර්ගතය යූටියුබ් හි මහජන ලෙස ලබා දීමට හිමිකරු විසින් ඔබට බලය ලබා දී ඇති බව සහතික කරයි, සහ එය යූටියුබ් සේවා කොන්දේසි වලට අනුකූල වේ http://www.youtube.com/t/terms.';

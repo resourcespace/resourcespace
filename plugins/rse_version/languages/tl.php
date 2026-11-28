@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'Pagbabalik ng estado para sa koleksyon #%
 $lang["rse_version_invalid_time"] = 'Ang pagbabalik sa isang oras bago ang [date] ay hindi sinusuportahan';
 $lang["page-title_rse_version_revert"] = 'Ibalik ang Bersyon ng Yaman';
 $lang["page-title_rse_version_setup"] = 'I-set up ang Bersyon ng Plugin';
+
+$lang['plugin-rse_version-title'] = 'Kontrol ng Bersyon';
+$lang['plugin-rse_version-desc'] = 'Subaybayan at ibalik ang mga pagbabago sa metadata at file.';

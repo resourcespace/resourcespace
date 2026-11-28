@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Konfigurirajte zadatak za prepoznavanje
 $lang["faces_tag_faces_configure"] = 'Konfigurirajte zadatak za označavanje lica';
 $lang["faces_detect_faces_intro"] = 'Ovdje stvorite zadatak za pokretanje prepoznavanja lica - ovaj zadatak ne zahtijeva nikakve parametre, pa ga možete pokrenuti sve dok nema drugih aktivnih zadataka tog tipa.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Postavljanje ove opcije značit će da će se ažurirati samo resursi u navedenim kolekcijama. Ako nisu specificirane kolekcije, označavanje lica će se ažurirati za SVE prikladne resurse. Kolekcije se mogu navesti koristeći popis odvojene zarezom, kao i raspone npr 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Lica - InsightFace';
+$lang['plugin-faces-desc'] = 'Najmodernije automatsko prepoznavanje i označavanje lica. Pretraživanje po licu.';

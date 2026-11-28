@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'Listahan ng mga magagamit na opsyon sa paggam
 $lang["page-title_resource_usage_delete"] = 'Tanggalin ang Paggamit ng Yaman';
 $lang["page-title_resource_usage_edit"] = 'I-edit ang Paggamit ng Yaman';
 $lang["page-title_resource_usage_setup"] = 'I-set up ang Plugin ng Paggamit ng Resource';
+
+$lang['plugin-resource_usage-title'] = 'Paggamit ng Yaman';
+$lang['plugin-resource_usage-desc'] = 'Nagdaragdag ng kakayahang mag-log ng paggamit ng yaman sa pamamagitan ng pahina ng pagtingin ng yaman.';

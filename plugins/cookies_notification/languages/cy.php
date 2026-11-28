@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Mae angen 
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Dewis Cwci';
 $lang["page-title_cookies_notification_setup"] = 'Sefydlu Plugin Hysbysiad Cwci';
+
+$lang['plugin-cookies_notification-title'] = 'Hysbysiad Cwcis';
+$lang['plugin-cookies_notification-desc'] = 'Hysbysu am ddefnydd cwcis trwy ddangos neges yn y pennawd.';

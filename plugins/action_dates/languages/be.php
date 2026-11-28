@@ -39,3 +39,6 @@ $lang["weekday-5"] = 'Пятніца';
 $lang["weekday-6"] = 'Субота';
 $lang["page-title_action_dates_setup"] = 'Наладка плагіна дзеянняў па датах';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Паведаміць адміністратарам за некалькі дзён да правядзення дзеяння (астаўце пустым, каб адключыць)';
+
+$lang['plugin-action_dates-title'] = 'Даты дзеянняў';
+$lang['plugin-action_dates-desc'] = 'Дазваляе запланаваць выдаленне або абмежаванне рэсурсаў на аснове палёў з датамі.';

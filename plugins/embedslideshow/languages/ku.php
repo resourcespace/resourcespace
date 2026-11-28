@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'کراوەی ڕاستەوخۆ بکەو
 $lang["embedslideshow_dynamic_size"] = 'گۆڕینی قەبارەی پیشاندانی لەسەر بنەمای قەبارەی یاریگەر؟';
 $lang["page-title_embedslideshow_setup"] = 'ڕێکخستنەوەی پلاگینەکەی Embed Slideshow';
 $lang["page-title_embedslideshow_viewer"] = 'پیشاندانی Slideshow';
+
+$lang['plugin-embedslideshow-title'] = 'پێشاندانی کۆلەکشن بە شێوەی سلایدشو';
+$lang['plugin-embedslideshow-desc'] = 'فانکشنی دروستکردنی HTML بۆ پێشاندانی کۆلەکشن بە شێوەی سلایدشو لە ماڵپەڕە دەرەکییەکاندا دابین دەکات.';

@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'Os gwelwch yn dda, nodwch pa fath o adnodd y dy
 $lang["video_resourcetype"] = 'Math Adnodd Fideo';
 
 $lang["page-title_embedvideo_setup"] = 'Gosod Plugin Fideo Mewnosod';
+
+$lang['plugin-embedvideo-title'] = 'Mewnosod Fideo';
+$lang['plugin-embedvideo-desc'] = 'Yn darparu swyddogaeth i gynhyrchu HTML ar gyfer fideo y gellir ei fewnosod ar safleoedd o bell.';

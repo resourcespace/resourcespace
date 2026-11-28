@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='উপলব্ধ ব্যবহার বি
 $lang["page-title_resource_usage_delete"] = 'সম্পদ ব্যবহার মুছুন';
 $lang["page-title_resource_usage_edit"] = 'সম্পদ ব্যবহারের সম্পাদনা';
 $lang["page-title_resource_usage_setup"] = 'রিসোর্স ব্যবহারের প্লাগইন সেটআপ করুন';
+
+$lang['plugin-resource_usage-title'] = 'রিসোর্স ব্যবহারের তথ্য';
+$lang['plugin-resource_usage-desc'] = 'রিসোর্স ভিউ পৃষ্ঠার মাধ্যমে রিসোর্স ব্যবহারের লগ করার ক্ষমতা যোগ করে।';

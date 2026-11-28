@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'پخش صحنه در %time';
 $lang["video_scene_play_unavailable"] = 'این صحنه خارج از پیش‌نمایش ویدیوی موجود است.';
 $lang["video_scene_job_success"] = 'پردازش صحنه ویدیو با موفقیت انجام شد';
 $lang["video_scene_job_failure"] = 'پردازش صحنه ویدیو ناموفق بود. برای جزئیات به گزارش کار مراجعه کنید.';
+$lang['plugin-video_scenes-title'] = 'صحنه‌های ویدئو';
+$lang['plugin-video_scenes-desc'] = 'شناسایی صحنه‌های ویدئویی به صورت محلی با transnetv2-pytorch، همراه با توضیحات صوتی‌تصویری اختیاری OpenAI.';

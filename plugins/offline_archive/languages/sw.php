@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Rejesha Archive';
 $lang["page-title_offline_archive_setup"] = 'Panga Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'Tazama Maktaba ya Rasilimali';
 $lang["page-title_offline_archive_view_pending"] = 'Tazama Maktaba Zinazosubiri';
+
+$lang['plugin-offline_archive-title'] = 'Kumbukumbu Isiyo Mtandaoni';
+$lang['plugin-offline_archive-desc'] = 'Inawezesha kuhamisha faili zilizohifadhiwa kwenda mahali pasipo mtandao.';

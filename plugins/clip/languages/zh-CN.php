@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = '配置生成 CLIP 向量的任务';
 $lang["clip-job_limit"] = '批处理大小限制';
 $lang["clip-job_limit_help"] = '设置此选项将限制一次处理的资源数量。';
 $lang["clip-job_limit_error"] = '值必须在 1 到 100000 之间，或留空表示无限制';
+
+$lang['plugin-clip-title'] = 'CLIP AI 智能搜索与标记';
+$lang['plugin-clip-desc'] = 'AI 自然语言搜索、视觉搜索、相似匹配、重复匹配、标记、标题生成';

@@ -10,3 +10,6 @@ $lang["bookend-failed"]='ล้มเหลว!';
 $lang["bookend-could-not-open-file"]='ข้อผิดพลาด - ไม่สามารถเปิดไฟล์ได้!';
 $lang["bookend"]='ขาตั้งหนังสือ';
 $lang["page-title_video_bookend_bookend"] = 'ขอบวิดีโอ';
+
+$lang['plugin-video_bookend-title'] = 'Video Bookend';
+$lang['plugin-video_bookend-desc'] = 'เพิ่มความสามารถในการดาวน์โหลดวิดีโอพร้อมชื่อเรื่องและกราฟิกตอนจบ';

@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Створана з плагіна EMU';
 
 $lang["page-title_emu_emu_object_details"] = 'Дэталі аб\'екта EMu';
 $lang["page-title_emu_setup"] = 'Наладка плагіна';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Дазваляе здабываць метаданыя рэсурсаў з базы дадзеных EMu.';

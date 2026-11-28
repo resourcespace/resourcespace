@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"]='ব্যবহারকারীদ
 $lang["vimeo_publish_set_account"]='ভিমিও অ্যাকাউন্ট সেট করুন';
 $lang["page-title_vimeo_publish_setup"] = 'Vimeo প্রকাশ প্লাগইন সেটআপ করুন';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Vimeo তে প্রকাশ করুন';
+
+$lang['plugin-vimeo_publish-title'] = 'ভিমিও প্রকাশ';
+$lang['plugin-vimeo_publish-desc'] = 'রিসোর্সগুলি ভিমিওতে প্রকাশ করুন।';

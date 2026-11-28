@@ -26,3 +26,6 @@ $lang["columnheader-last-found"]='সর্বশেষ পাওয়া গ�
 $lang["search_notifications_watched_searches-tooltip"] = 'আপনার সংরক্ষিত অনুসন্ধানগুলি নিয়ন্ত্রণ করুন';
 $lang["page-title_rse_search_notifications_setup"] = 'সার্চ নোটিফিকেশন প্লাগইন সেটআপ করুন';
 $lang["page-title_rse_search_notifications_watched_searches"] = 'দেখা অনুসন্ধানসমূহ';
+
+$lang['plugin-rse_search_notifications-title'] = 'অনুসন্ধান বিজ্ঞপ্তি';
+$lang['plugin-rse_search_notifications-desc'] = 'সংরক্ষিত অনুসন্ধানে পরিবর্তন ঘটলে ব্যবহারকারীকে অবহিত করুন।';

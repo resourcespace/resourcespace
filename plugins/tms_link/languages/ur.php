@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'خام TMS ڈیٹا دکھائیں';
 $lang["page-title_tms_link_test"] = 'ٹیسٹ TMS ڈیٹا';
 $lang["page-title_tms_link_tms_details"] = 'TMS ڈیٹا دکھائیں';
 $lang["page-title_tms_link_tms_module_config"] = 'TMS ماڈیول کی ترتیب میں ترمیم کریں';
+
+$lang['plugin-tms_link-title'] = 'TMS لنک';
+$lang['plugin-tms_link-desc'] = 'وسیلہ کے میٹا ڈیٹا کو TMS ڈیٹا بیس سے نکالنے کی اجازت دیتا ہے۔';

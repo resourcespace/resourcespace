@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = '提供者已在全域設定中鎖定為
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = '要使用的 Ollama 模型（例如 \'gemma3:12b\'）';
 $lang["ollama_endpoint"] = '要使用的 Ollama 端點（例如 http://[IP]:11434/v1/chat/completions）';
+
+$lang['plugin-openai_gpt-title'] = 'OpenAI/Ollama 元資料處理';
+$lang['plugin-openai_gpt-desc'] = '使用人工智慧自動處理元資料和影像。';

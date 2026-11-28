@@ -37,3 +37,5 @@ $lang["plugin-emu-desc"] = 'संसाधन मेटाडेटा को E
 
 $lang["page-title_emu_emu_object_details"] = 'EMu ऑब्जेक्ट विवरण';
 $lang["page-title_emu_setup"] = 'सेटअप प्लगइन';
+
+$lang['plugin-emu-title'] = 'EMu';

@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = '錯誤：無效的操作';
 $lang["page-title_video_splice_setup"] = '設定影片拼接插件';
 $lang["page-title_video_splice_splice"] = '拼接影片';
 $lang["page-title_video_splice_trim"] = '裁剪影片';
+
+$lang['plugin-video_splice-title'] = '影片剪接';
+$lang['plugin-video_splice-desc'] = '影片剪輯與拼接功能。';

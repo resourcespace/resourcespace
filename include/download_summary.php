@@ -1,8 +1,9 @@
 <?php
 $download_summary = download_summary($ref);
+$usage_options = $download_usage_options + ($download_usage_options_retired ?? []);
 $total = 0;
 foreach ($download_summary as $usage) {
-    if (array_key_exists($usage["usageoption"], $download_usage_options)) {
+    if (array_key_exists($usage["usageoption"], $usage_options)) {
         $total += $usage["c"];
     } elseif ($usage['usageoption'] == '-1') {
         $total += $usage['c'];
@@ -43,13 +44,15 @@ $rl_params_override = array(
             </tr>
             <?php
             foreach ($download_summary as $usage) {
-                if (array_key_exists($usage["usageoption"], $download_usage_options)) {
+                if (array_key_exists($usage["usageoption"], $usage_options)) {
                     $rl_params_override["filter_by_usageoption"] = $usage["usageoption"];
                     ?>
                     <tr>
                         <td>
                             <a href="<?php echo generateURL($rl_url, $rl_params, $rl_params_override); ?>" onclick="return ModalLoad(this, true);">
-                                <?php echo LINK_CARET . escape(i18n_get_translated($download_usage_options[$usage["usageoption"]])); ?>
+                                <?php
+                                echo LINK_CARET . escape(i18n_get_translated($usage_options[$usage['usageoption']]));
+                                ?>
                             </a>
                         </td>
                         <td width="20%"><?php echo $usage["c"]; ?></td>       

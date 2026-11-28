@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time 에 장면 재생';
 $lang["video_scene_play_unavailable"] = '이 장면은 사용 가능한 비디오 미리보기 범위를 벗어났습니다.';
 $lang["video_scene_job_success"] = '비디오 장면 처리가 완료되었습니다';
 $lang["video_scene_job_failure"] = '비디오 장면 처리에 실패했습니다. 자세한 내용은 작업 로그를 확인하세요.';
+$lang['plugin-video_scenes-title'] = '비디오 장면';
+$lang['plugin-video_scenes-desc'] = 'transnetv2-pytorch를 사용하여 로컬에서 비디오 장면을 감지하며, 선택적으로 OpenAI 시청각 설명을 제공합니다.';

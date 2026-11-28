@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'Xử lý tài nguyên chưa xử lý';
 $lang["google_vision_process_existing_configure"] = 'Cấu hình công việc để xử lý tài nguyên chưa xử lý';
 $lang["google_vision_process_existing_collection_refs_help"] = 'Thiết lập tùy chọn này sẽ chỉ xử lý các tài nguyên trong các bộ sưu tập được liệt kê. Nếu không chỉ định bộ sưu tập nào thì TẤT CẢ các tài nguyên phù hợp sẽ được xử lý. Các bộ sưu tập có thể được chỉ định bằng danh sách phân cách bằng dấu phẩy cũng như phạm vi ví dụ 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'Gắn thẻ hình ảnh tự động bằng AI.';

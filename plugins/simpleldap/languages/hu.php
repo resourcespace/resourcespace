@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'Ne ellenőrizze a szerver FQD
 $lang["page-title_simpleldap_ajax_test_auth"] = 'LDAP hitelesítés tesztelése';
 $lang["page-title_simpleldap_setup"] = 'Egyszerű LDAP bővítmény beállítása';
 $lang["simpleldap_userlimit_error"] = 'Felhasználót nem lehet létrehozni, mivel elérte a felhasználói korlátot. Kérjük, lépjen kapcsolatba a rendszergazdával.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Felhasználói hitelesítés LDAP-on keresztül.';

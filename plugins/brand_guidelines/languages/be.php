@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Кіраванне змесці�
 $lang["page-title_brand_guidelines_guidelines"] = 'Кіраўніцтва па брэндах';
 $lang["page-title_brand_guidelines_setup"] = 'Наладзіць плагін кіраўніцтва па брэндах';
 $lang["page-title_brand_guidelines_toc"] = 'Рэдагаваць змест';
+
+$lang['plugin-brand_guidelines-title'] = 'Кіраўніцтва па брэнду';
+$lang['plugin-brand_guidelines-desc'] = 'Стварыце раздзел кіраўніцтва па брэнду з карыстальніцкім зместам, спасылкамі на рэсурсы і колерамі.';

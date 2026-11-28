@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'เล่นฉากที่ %time';
 $lang["video_scene_play_unavailable"] = 'ฉากนี้อยู่นอกช่วงตัวอย่างวิดีโอที่มีให้';
 $lang["video_scene_job_success"] = 'การประมวลผลฉากวิดีโอเสร็จสมบูรณ์';
 $lang["video_scene_job_failure"] = 'การประมวลผลฉากวิดีโอล้มเหลว ดูบันทึกงานสำหรับรายละเอียด';
+$lang['plugin-video_scenes-title'] = 'ฉากวิดีโอ';
+$lang['plugin-video_scenes-desc'] = 'ตรวจจับฉากวิดีโอในเครื่องด้วย transnetv2-pytorch พร้อมคำอธิบายภาพและเสียง OpenAI แบบเลือกได้.';

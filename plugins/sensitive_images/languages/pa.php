@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='ਮੈਟਾਡੇਟਾ ਫੀਲਡ ਜਿਸ
 $lang["sensitive_images_blur_level"]='ਸੰਵੇਦਨਸ਼ੀਲ ਚਿੱਤਰ ਧੁੰਦਲਾਪਨ ਪੱਧਰ<br>(1=ਘੱਟ, 6=ਸਭ ਤੋਂ ਵੱਧ)';
 $lang["page-title_sensitive_images_setup"] = 'ਸੰਵੇਦਨਸ਼ੀਲ ਚਿੱਤਰ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["sensitive_images_show"] = 'ਦਿਖਾਉਣ ਲਈ ਚਿੱਤਰ \'ਤੇ ਕਲਿੱਕ ਕਰੋ।';
+
+$lang['plugin-sensitive_images-title'] = 'ਸੰਵੇਦਨਸ਼ੀਲ ਚਿੱਤਰ ਧੁੰਦਲਾ ਕਰਨਾ';
+$lang['plugin-sensitive_images-desc'] = 'ਸੰਵੇਦਨਸ਼ੀਲ ਵਜੋਂ ਨਿਸ਼ਾਨ ਲੱਗੇ ਚਿੱਤਰਾਂ ਨੂੰ ਧੁੰਦਲਾ ਕਰਦਾ ਹੈ ਜਿਸਨੂੰ ਵਰਤੋਂਕਾਰ ਕਲਿੱਕ ਕਰਕੇ ਸਾਫ਼ ਕਰ ਸਕਦਾ ਹੈ।';

@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'Отвори директния лин
 $lang["embedslideshow_dynamic_size"] = 'Динамично преоразмеряване на прегледа въз основа на размера на плейъра?';
 $lang["page-title_embedslideshow_setup"] = 'Настройка на приставката за вграждане на слайдшоу';
 $lang["page-title_embedslideshow_viewer"] = 'Вграждане на слайдшоу';
+
+$lang['plugin-embedslideshow-title'] = 'Вграждане на слайдшоу';
+$lang['plugin-embedslideshow-desc'] = 'Осигурява функция за генериране на HTML за вградени слайдшоута на колекции в отдалечени сайтове.';

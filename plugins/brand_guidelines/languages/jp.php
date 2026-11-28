@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'ブランドガイドライン�
 $lang["page-title_brand_guidelines_guidelines"] = 'ブランドガイドライン';
 $lang["page-title_brand_guidelines_setup"] = 'ブランドガイドラインプラグインの設定';
 $lang["page-title_brand_guidelines_toc"] = 'コンテンツを編集';
+
+$lang['plugin-brand_guidelines-title'] = 'ブランドガイドライン';
+$lang['plugin-brand_guidelines-desc'] = 'カスタムコンテンツ、リソースリンク、カラーを含むブランドガイドラインエリアを作成します。';

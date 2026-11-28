@@ -13,3 +13,6 @@ $lang["adobe_link_saving"] = 'Inahifadhi..';
 $lang["adobe_link_saving_wait"] = 'Faili linaokolewa, tafadhali subiri ujumbe wa uthibitisho. Unaweza kuhitaji kusasisha ukurasa ili kusasisha picha ya hakikisho.';
 
 $lang["page-title_adobe_link_setup"] = 'Weka Plugin ya Adobe Link';
+
+$lang['plugin-adobe_link-title'] = 'Kiungo cha Adobe';
+$lang['plugin-adobe_link-desc'] = 'Ruhusu kuingiza faili za Adobe kutoka ResourceSpace kwenda Adobe CC.';

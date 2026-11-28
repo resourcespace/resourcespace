@@ -268,16 +268,23 @@ if ($parent > 0) {
 </div>
 <div class="BasicsBox FeaturedSimpleLinks">
     <?php
+    // The first two rows at the widest layout can show their placeholders in the initial response.
+    $inline_image_limit = $k === '' ? 8 : 0;
     $rendering_options = [
         "general_url_params" => $general_url_params,
         "all_fcs" => $all_fcs,
         "reorder" => $allow_fc_reorder && can_reorder_featured_collections(),
+        "inline_image_limit" => $inline_image_limit,
     ];
     render_featured_collections($rendering_options, $featured_collection_initial_batch["featured"]);
 
     $smart_rendering_options = $rendering_options;
     $smart_rendering_options["smart"] = true;
     $smart_rendering_options["reorder"] = false;
+    $smart_rendering_options["inline_image_limit"] = max(
+        0,
+        $inline_image_limit - count($featured_collection_initial_batch["featured"])
+    );
     render_featured_collections($smart_rendering_options, $featured_collection_initial_batch["smart"]);
 
     if ($featured_collection_initial_batch["has_more"]) {

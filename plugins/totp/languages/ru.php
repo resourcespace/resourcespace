@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Текущий год';
 $lang["page-title_totp_setup"] = 'Настройка плагина TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Отключить TOTP для пользователей, уже прошедших аутентификацию через SAML (требуется плагин SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Поддержка TFA/MFA через Google Authenticator';

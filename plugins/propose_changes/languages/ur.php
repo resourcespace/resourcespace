@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"]='[img_headerlogo]<br />آپ کی تجوی
 $lang["propose_changes_emailproposedchanges"]='[img_headerlogo]<br />تجویز کردہ تبدیلیاں جمع کر دی گئی ہیں۔<br/>[changesummary]<br/>تبدیلیوں کا جائزہ لینے کے لیے نیچے کلک کریں<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'تبدیلیاں تجویز کریں';
 $lang["page-title_propose_changes_setup"] = 'تبدیلیوں کی تجویز کرنے والا پلگ ان ترتیب دیں';
+
+$lang['plugin-propose_changes-title'] = 'تبدیلیاں تجویز کریں';
+$lang['plugin-propose_changes-desc'] = 'صارفین کو ترمیم کی رسائی کے بغیر میٹا ڈیٹا میں تبدیلیاں تجویز کرنے کی اجازت دیں۔';

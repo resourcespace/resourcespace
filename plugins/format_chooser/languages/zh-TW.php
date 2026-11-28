@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = '設定格式選擇器插件';
 
 $lang["format_chooser_blocked_inputs"] = '<p>以下格式不支援輸入：%s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>以下格式不支援輸出：%s</p>';
+$lang['plugin-format_chooser-title'] = '格式選擇器';
+$lang['plugin-format_chooser-desc'] = '允許您在下載即時生成的檔案時選擇不同的格式。';

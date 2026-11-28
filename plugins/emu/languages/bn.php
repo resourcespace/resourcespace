@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'EMU প্লাগইন থেকে তৈর�
 
 $lang["page-title_emu_emu_object_details"] = 'EMu অবজেক্ট বিস্তারিত';
 $lang["page-title_emu_setup"] = 'সেটআপ প্লাগইন';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'EMu ডাটাবেস থেকে রিসোর্স মেটাডেটা আহরণের অনুমতি দেয়।';

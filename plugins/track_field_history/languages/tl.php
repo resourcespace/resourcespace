@@ -7,3 +7,6 @@ $lang["track_field_history_change"] = 'Palitan';
 $lang["track_field_history_error_no_records"] = 'Walang natagpuang kasaysayan ng pag-edit para sa larangang ito.';
 $lang["page-title_track_field_history_field_history_log"] = 'Kasaysayan ng Patlang';
 $lang["page-title_track_field_history_setup"] = 'I-set up ang Track Field History Plugin';
+
+$lang['plugin-track_field_history-title'] = 'Subaybayan ang Kasaysayan ng Patlang';
+$lang['plugin-track_field_history-desc'] = 'Kakayahang subaybayan ang kasaysayan ng pag-edit ng mga patlang.';

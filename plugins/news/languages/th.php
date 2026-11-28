@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'เพิ่ม แก้ไข หรือ ล
 $lang["page-title_news_news_content_edit"] = 'แก้ไขเนื้อหาข่าว';
 $lang["page-title_news_news_edit"] = 'แก้ไขข่าวสาร';
 $lang["page-title_news_news"] = 'ข่าว';
+
+$lang['plugin-news-title'] = 'ข่าวสาร';
+$lang['plugin-news-desc'] = 'เพิ่มบทความข่าวลงในหน้าหลัก';

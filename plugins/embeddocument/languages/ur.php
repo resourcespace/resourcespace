@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'ریموٹ ڈاکیومنٹ وی
 
 $lang["page-title_embeddocument_setup"] = 'دستاویز پلگ ان ترتیب دیں';
 $lang["page-title_embeddocument_viewer"] = 'دستاویز ویوئر شامل کریں';
+
+$lang['plugin-embeddocument-title'] = 'دستاویز شامل کریں';
+$lang['plugin-embeddocument-desc'] = 'دور دراز سائٹس پر شامل کرنے کے لیے دستاویز کے پیش نظارہ کے HTML بنانے کا فنکشن فراہم کرتا ہے۔';

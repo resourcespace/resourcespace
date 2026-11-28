@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'تغییر اندازه پویا پیش�
 
 $lang["page-title_embedslideshow_setup"] = 'نصب افزونه اسلایدشو جاسازی';
 $lang["page-title_embedslideshow_viewer"] = 'گنجاندن اسلایدشو';
+
+$lang['plugin-embedslideshow-title'] = 'نمایش اسلاید جاسازی‌شده';
+$lang['plugin-embedslideshow-desc'] = 'امکان تولید کد HTML برای نمایش اسلایدهای مجموعه‌های قابل جاسازی در سایت‌های دیگر را فراهم می‌کند.';

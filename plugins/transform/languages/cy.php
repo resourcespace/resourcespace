@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'Defnyddio\'r enw ffeil fel teitl';
 
 $lang["error-resolution-zero"] = 'Gwall: Mae lled / uchder y ddelwedd wreiddiol wedi\'i gyfrifo\'n sero.';
 $lang["error-preview-missing"] = 'Gwall: Methiant wrth ddod o hyd i ddelwedd rhagolwg';
+$lang['plugin-transform-title'] = 'Offer Delweddau (trawsnewid)';
+$lang['plugin-transform-desc'] = 'Yn galluogi creu delweddau amgen wedi\'u torri a\'u graddio.';

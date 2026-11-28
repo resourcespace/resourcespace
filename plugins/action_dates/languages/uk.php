@@ -39,3 +39,6 @@ $lang["weekday-6"] = 'Субота';
 
 $lang["page-title_action_dates_setup"] = 'Налаштування плагіна дат дій';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Повідомляти адміністраторів за кілька днів до запланованої дії (залиште порожнім для відключення)';
+
+$lang['plugin-action_dates-title'] = 'Дати дій';
+$lang['plugin-action_dates-desc'] = 'Дозволяє планувати видалення або обмеження доступу до ресурсів на основі дат у полях.';

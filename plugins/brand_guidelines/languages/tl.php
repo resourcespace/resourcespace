@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Pamahalaan ang Nilalaman ng Mga 
 $lang["page-title_brand_guidelines_guidelines"] = 'Mga Patnubay sa Brand';
 $lang["page-title_brand_guidelines_setup"] = 'I-set up ang Plugin ng Mga Patnubay sa Brand';
 $lang["page-title_brand_guidelines_toc"] = 'I-edit ang nilalaman';
+
+$lang['plugin-brand_guidelines-title'] = 'Mga Patnubay sa Tatak';
+$lang['plugin-brand_guidelines-desc'] = 'Lumikha ng isang lugar para sa mga patnubay sa tatak na may pasadyang nilalaman, mga link sa mga yaman, at mga kulay.';

@@ -8,3 +8,6 @@ $lang["embed_video_configuration"] = '嵌入影片設定';
 $lang["specify_resourcetype"] = '請指定「嵌入」功能應出現的資源類型。';
 $lang["video_resourcetype"] = '影片資源類型';
 $lang["page-title_embedvideo_setup"] = '設定嵌入影片插件';
+
+$lang['plugin-embedvideo-title'] = '嵌入影片';
+$lang['plugin-embedvideo-desc'] = '提供在遠端網站嵌入影片的 HTML 產生功能。';

@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'I-configure ang trabaho upang tuklasin 
 $lang["faces_tag_faces_configure"] = 'I-configure ang trabaho upang i-tag ang mga mukha';
 $lang["faces_detect_faces_intro"] = 'Lumikha ng isang trabaho upang simulan ang pagtuklas ng mga mukha dito - ang trabahong ito ay hindi nangangailangan ng anumang mga parameter kaya maaari itong simulan hangga\'t walang ibang nakabinbing trabaho ng ganitong uri.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Ang pagtatakda ng opsyong ito ay nangangahulugang tanging ang mga resources sa nakalistang mga koleksyon ang ia-update. Kung walang nakalistang koleksyon, ang pag-tag ng mukha ay ia-update para sa LAHAT ng angkop na mga resources. Maaaring tukuyin ang mga koleksyon gamit ang isang listahan na pinaghihiwalay ng kuwit pati na rin ang mga saklaw tulad ng 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Faces - InsightFace';
+$lang['plugin-faces-desc'] = 'Makabagong awtomatikong pagtuklas at pag-tag ng mukha. Maghanap gamit ang mukha.';

@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'حفظ جديد من OpenAI';
 $lang["openai_image_edit_error_invalid_image_data"] = 'بيانات صورة غير صالحة';
 $lang["openai_image_edit_error_invalid_image"] = 'صورة غير صالحة';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'غير قادر على كتابة الملف المؤقت';
+$lang['plugin-openai_image_edit-title'] = 'تحرير صورة OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'امسح أجزاء من الصورة واستخدم GPT Image لإعادة توليدها.';

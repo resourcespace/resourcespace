@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Configura il lavoro per generare vettori CLIP';
 $lang["clip-job_limit"] = 'Limite della dimensione del batch';
 $lang["clip-job_limit_help"] = 'Impostando questa opzione si limiterà il numero di risorse elaborate in un\'unica esecuzione.';
 $lang["clip-job_limit_error"] = 'Il valore deve essere compreso tra 1 e 100000 o vuoto per nessun limite';
+
+$lang['plugin-clip-title'] = 'CLIP AI Ricerca Intelligente e Tagging';
+$lang['plugin-clip-desc'] = 'Ricerca in linguaggio naturale AI, ricerca visiva, corrispondenza di similarità, rilevamento duplicati, tagging, generazione titoli';

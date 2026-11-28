@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'Калі ласка, укажыц
 $lang["embeddocument_document_resourcetype"] = 'Віддалены праглядальнік дакументаў Тып рэсурсу:';
 $lang["page-title_embeddocument_setup"] = 'Наладзіць убудову дакумента';
 $lang["page-title_embeddocument_viewer"] = 'Убудаваць праглядальнік дакументаў';
+
+$lang['plugin-embeddocument-title'] = 'Убудаваць дакумент';
+$lang['plugin-embeddocument-desc'] = 'Прадастаўляе функцыю для генерацыі HTML-кода для ўбудаваных папярэдніх праглядаў дакументаў на аддаленых сайтах.';

@@ -79,3 +79,6 @@ $lang["tms_link_tms_uid_field"] = 'TMS UID欄位';
 $lang["tms_link_uid_field_int"] = 'TMS整數UID。設為false以允許非整數UID。';
 $lang["tms_link_rs_uid_field"] = 'ResourceSpace UID欄位';
 $lang["tms_link_applicable_rt"] = '適用的資源類型';
+
+$lang['plugin-tms_link-title'] = 'TMS 連結';
+$lang['plugin-tms_link-desc'] = '允許從 TMS 資料庫擷取資源元資料。';

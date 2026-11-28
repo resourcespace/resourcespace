@@ -44,3 +44,6 @@ $lang["clip-configure_job"] = '設定產生 CLIP 向量的工作';
 $lang["clip-job_limit"] = '批次大小限制';
 $lang["clip-job_limit_help"] = '設定此選項將限制每次處理的資源數量。';
 $lang["clip-job_limit_error"] = '值必須介於 1 和 100000 之間，或留空表示不限制';
+
+$lang['plugin-clip-title'] = 'CLIP AI 智慧搜尋與標籤';
+$lang['plugin-clip-desc'] = 'AI 自然語言搜尋、視覺搜尋、相似度比對、重複比對、標籤、標題生成';

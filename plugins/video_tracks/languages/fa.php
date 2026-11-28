@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"]='برای شروع تبد
 $lang["video_tracks_transcode_now_label"]='اکنون تبدیل کن';
 $lang["page-title_video_tracks_create_video"] = 'ایجاد ویدیو';
 $lang["page-title_video_tracks_setup"] = 'نصب افزونه ویدئو ترک‌ها';
+
+$lang['plugin-video_tracks-title'] = 'مسیرهای ویدئو';
+$lang['plugin-video_tracks-desc'] = 'افزودن پشتیبانی برای گزینه‌های مختلف صوتی و زیرنویس برای منابع ویدئویی.';

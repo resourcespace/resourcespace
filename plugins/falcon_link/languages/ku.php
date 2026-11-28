@@ -43,3 +43,6 @@ $lang["falcon_link_log_archive"] = 'سەرچاوەی کۆکردنەوە لە ڕ�
 $lang["falcon_link_error_falcon_check_tags"] = 'تکایە دڵنیابە کە وەسف و تاگەکان بەتاڵن نەبن';
 $lang["page-title_falcon_link_falcon_link"] = 'Linkی Falcon';
 $lang["page-title_falcon_link_setup"] = 'ڕێکخستنەوەی پلاگین Linkی Falcon';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'سەرچاوەکان بڵاو بکەوە بۆ Falcon.io بۆ بەشکردنی خۆکار لە ماڵپەڕە کۆمەڵایەتییەکاندا.';

@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time のシーンを再生';
 $lang["video_scene_play_unavailable"] = 'このシーンは利用可能なビデオプレビューの範囲外です。';
 $lang["video_scene_job_success"] = 'ビデオシーンの処理が完了しました';
 $lang["video_scene_job_failure"] = 'ビデオシーンの処理に失敗しました。詳細はジョブログを参照してください。';
+$lang['plugin-video_scenes-title'] = 'ビデオシーン';
+$lang['plugin-video_scenes-desc'] = 'transnetv2-pytorchを使用してローカルでビデオシーンを検出し、オプションでOpenAIの視聴覚説明を追加します。';

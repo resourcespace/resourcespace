@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'قدر';
 $lang["conditional_terms_plugin_misconfigured"] = 'مشروط شرائط پلگ ان غلط ترتیب دیا گیا ہے';
 
 $lang["page-title_conditional_terms_setup"] = 'شرطی شرائط پلگ ان ترتیب دیں';
+
+$lang['plugin-conditional_terms-title'] = 'مشروط شرائط';
+$lang['plugin-conditional_terms-desc'] = 'وسیلہ کے میٹا ڈیٹا کی بنیاد پر ڈاؤن لوڈ کے وقت شرائط کے صفحہ کی مشروط نمائش کو فعال کرتا ہے۔';

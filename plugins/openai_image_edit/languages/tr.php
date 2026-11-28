@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Yeni Kaydet';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Geçersiz resim verisi';
 $lang["openai_image_edit_error_invalid_image"] = 'Geçersiz resim';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Geçici dosya yazılamadı';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI Görüntü Düzenleme';
+$lang['plugin-openai_image_edit-desc'] = 'Bir görüntünün bölümlerini silin ve GPT Image ile yeniden oluşturun.';

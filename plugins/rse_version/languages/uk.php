@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='Повернення стану для ко
 $lang["rse_version_invalid_time"]='Повернення до часу до [date] не підтримується';
 $lang["page-title_rse_version_revert"] = 'Повернути версію ресурсу';
 $lang["page-title_rse_version_setup"] = 'Налаштування плагіна версії';
+
+$lang['plugin-rse_version-title'] = 'Контроль версій';
+$lang['plugin-rse_version-desc'] = 'Відстежуйте та відновлюйте зміни метаданих і файлів.';

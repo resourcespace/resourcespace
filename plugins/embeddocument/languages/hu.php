@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'Kérjük, adja meg, hogy melyik e
 $lang["embeddocument_document_resourcetype"] = 'Távolléti Dokumentum Megjelenítő Erőforrás Típus:';
 $lang["page-title_embeddocument_setup"] = 'Dokumentbeágyazási bővítmény beállítása';
 $lang["page-title_embeddocument_viewer"] = 'Dokumentmegjelenítő beágyazása';
+
+$lang['plugin-embeddocument-title'] = 'Dokumentum beágyazása';
+$lang['plugin-embeddocument-desc'] = 'Funkciót biztosít beágyazható dokumentum-előnézetek HTML kódjának generálásához távoli webhelyeken.';

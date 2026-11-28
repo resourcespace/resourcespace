@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'Доставчикът е заключ�
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Модел Ollama за използване (напр. \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Крайна точка Ollama за използване (напр. http://[IP]:11434/v1/chat/completions)';
+
+$lang['plugin-openai_gpt-title'] = 'Обработка на метаданни с OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'Автоматизирана обработка на метаданни и изображения с помощта на ИИ.';

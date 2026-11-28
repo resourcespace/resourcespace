@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time \'ਤੇ ਸੀਨ ਚਲਾਓ';
 $lang["video_scene_play_unavailable"] = 'ਇਹ ਸੀਨ ਉਪਲਬਧ ਵੀਡੀਓ ਪ੍ਰੀਵਿਊ ਤੋਂ ਬਾਹਰ ਹੈ।';
 $lang["video_scene_job_success"] = 'ਵੀਡੀਓ ਸੀਨ ਪ੍ਰਕਿਰਿਆ ਪੂਰੀ ਹੋ ਗਈ';
 $lang["video_scene_job_failure"] = 'ਵੀਡੀਓ ਸੀਨ ਪ੍ਰਕਿਰਿਆ ਅਸਫਲ ਰਹੀ। ਵੇਰਵਿਆਂ ਲਈ ਨੌਕਰੀ ਲਾਗ ਵੇਖੋ।';
+$lang['plugin-video_scenes-title'] = 'ਵੀਡੀਓ ਦ੍ਰਿਸ਼';
+$lang['plugin-video_scenes-desc'] = 'transnetv2-pytorch ਨਾਲ ਸਥਾਨਕ ਤੌਰ \'ਤੇ ਵੀਡੀਓ ਦ੍ਰਿਸ਼ਾਂ ਦੀ ਪਹਿਚਾਣ ਕਰੋ, ਵਿਕਲਪਿਕ OpenAI ਆਡੀਓਵਿਜ਼ੂਅਲ ਵਰਣਨਾਂ ਨਾਲ।';

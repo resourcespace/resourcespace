@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = '配置检测人脸的任务';
 $lang["faces_tag_faces_configure"] = '配置标记人脸的任务';
 $lang["faces_detect_faces_intro"] = '在此创建一个开始检测人脸的任务 - 该任务不需要任何参数，只要没有其他同类型的未完成任务即可启动。';
 $lang["faces_tag_faces_collection_refs_help"] = '设置此选项将意味着只有列出的集合中的资源会被更新。如果未指定集合，则所有适用资源的面部标记将被更新。集合可以使用逗号分隔的列表或范围，例如 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Faces - InsightFace';
+$lang['plugin-faces-desc'] = '先进的自动人脸检测与标记。通过人脸搜索。';

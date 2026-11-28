@@ -85,3 +85,5 @@ $lang["replaceslideshowimage"] = 'وێنەی پێشکەشکردنی وێنە ج�
 
 $lang["error-resolution-zero"] = 'هەڵە: وێنەی سەرەکی قەبارەی دروستکراوەی پێویست نیە.';
 $lang["error-preview-missing"] = 'هەڵە: ناتوانرێت وێنەی پیشاندانی بدۆزیتەوە';
+$lang['plugin-transform-title'] = 'ئامرازەکانی وێنە (گۆڕانکاری)';
+$lang['plugin-transform-desc'] = 'دەتوانێت وێنەکانی جیاواز کراو و قەبارەکراو دروست بکات.';

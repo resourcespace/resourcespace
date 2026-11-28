@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'Penyedia telah dikunci dalam konfiguras
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Ollama model untuk digunakan (contoh: \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Sila terjemahkan: Titik akhir Ollama untuk digunakan (contohnya http://[IP]:11434/v1/chat/completions';
+
+$lang['plugin-openai_gpt-title'] = 'Pemprosesan metadata OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'Pemprosesan automatik metadata dan imej menggunakan AI.';

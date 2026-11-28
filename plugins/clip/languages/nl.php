@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Configureer taak om CLIP- vectoren te genereren';
 $lang["clip-job_limit"] = 'Batchgrootte limiet';
 $lang["clip-job_limit_help"] = 'Het instellen van deze optie beperkt het aantal bronnen dat in één keer wordt verwerkt.';
 $lang["clip-job_limit_error"] = 'Waarde moet tussen 1 en 100000 liggen of leeg zijn voor geen limiet';
+
+$lang['plugin-clip-title'] = 'CLIP AI Slim Zoeken en Taggen';
+$lang['plugin-clip-desc'] = 'AI natuurlijke taal zoeken, visueel zoeken, gelijkenis matching, duplicaat matching, taggen, titel generatie';

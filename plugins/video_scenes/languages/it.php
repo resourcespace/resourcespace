@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Riproduci la scena a %time';
 $lang["video_scene_play_unavailable"] = 'Questa scena è al di fuori dell\'anteprima video disponibile.';
 $lang["video_scene_job_success"] = 'Elaborazione della scena video completata';
 $lang["video_scene_job_failure"] = 'Elaborazione della scena video fallita. Consulta il registro del lavoro per i dettagli.';
+$lang['plugin-video_scenes-title'] = 'Scene video';
+$lang['plugin-video_scenes-desc'] = 'Rileva localmente le scene video con transnetv2-pytorch, con descrizioni audiovisive opzionali di OpenAI.';

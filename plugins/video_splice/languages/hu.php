@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'Hiba: Érvénytelen művelet';
 $lang["page-title_video_splice_setup"] = 'Videó Splice Plugin beállítása';
 $lang["page-title_video_splice_splice"] = 'Videó összefűzése';
 $lang["page-title_video_splice_trim"] = 'Videó vágása';
+
+$lang['plugin-video_splice-title'] = 'Videó összefűzés';
+$lang['plugin-video_splice-desc'] = 'Videóvágás és összefűzés lehetősége.';

@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'Hifadhi Mpya ya OpenAI';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Data ya picha si halali';
 $lang["openai_image_edit_error_invalid_image"] = 'Picha si halali';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Haiwezi kuandika faili la muda';
+$lang['plugin-openai_image_edit-title'] = 'Uhariri wa Picha wa OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Futa sehemu za picha na tumia GPT Image kuzirejesha.';

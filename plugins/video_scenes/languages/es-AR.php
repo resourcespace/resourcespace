@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Reproducir escena en %time';
 $lang["video_scene_play_unavailable"] = 'Esta escena está fuera de la vista previa de video disponible.';
 $lang["video_scene_job_success"] = 'Procesamiento de la escena de video completado';
 $lang["video_scene_job_failure"] = 'El procesamiento de la escena de video falló. Consulte el registro del trabajo para más detalles.';
+$lang['plugin-video_scenes-title'] = 'Escenas de video';
+$lang['plugin-video_scenes-desc'] = 'Detectar escenas de video localmente con transnetv2-pytorch, con descripciones audiovisuales opcionales de OpenAI.';

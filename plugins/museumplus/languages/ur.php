@@ -54,3 +54,6 @@ $lang["museumplus_error_module_no_field_maps"]='میوزیم پلس سے ڈیٹ�
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus آبجیکٹ کی تفصیلات';
 $lang["page-title_museumplus_setup_module"] = 'میوزیم پلس ماڈیول سیٹ اپ کریں';
 $lang["page-title_museumplus_setup"] = 'میوزیم پلس پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'وسیلہ کے میٹا ڈیٹا کو MuseumPlus کے REST API (MpRIA) کے ذریعے نکالنے کی اجازت دیتا ہے۔';

@@ -160,6 +160,9 @@ function set_config_option($user_id, $param_name, $param_value, ?string $activit
         $params  = ["i",$user_id,"s",$param_name,"s",$param_value,];
     }
 
+    if (is_array($current_param_value)) {
+        $current_param_value = json_encode($current_param_value, JSON_INVALID_UTF8_SUBSTITUTE);
+    }
     log_activity($activity_log_note, LOG_CODE_EDITED, $param_value, 'user_preferences', 'value', "parameter='" . $param_name . "'", null, $current_param_value);
 
     ps_query($query, $params);
@@ -366,7 +369,13 @@ function get_config_option(array $config_type, $name, &$returned_value, $default
     }
 
     $query = "SELECT `value` FROM user_preferences WHERE parameter = ? AND " . $user_query;
-    $config_option = ps_value($query, $params, null, "preferences");
+    if ($name === 'download_usage_options' || in_array($name, CONFIG_SEARCH_FIELD_LISTS, true)) {
+        // Ordered editors compare their version on the writable connection.
+        db_set_connection_mode('read_write');
+        $config_option = ps_query($query, $params, logthis: 0)[0]['value'] ?? null;
+    } else {
+        $config_option = ps_value($query, $params, null, 'preferences');
+    }
 
     if (is_null($default) && isset($GLOBALS[$name])) {
         $default = $GLOBALS[$name];
@@ -377,7 +386,7 @@ function get_config_option(array $config_type, $name, &$returned_value, $default
         return false;
     }
 
-    $returned_value = unescape($config_option);
+    $returned_value = $name === 'download_usage_options' ? $config_option : unescape($config_option);
     return true;
 }
 
@@ -510,6 +519,14 @@ function process_config_options(array $config_type): void
     if (get_config_options($config_type, $config_options)) {
         foreach ($config_options as $config_option) {
             $param_value = $config_option['value'];
+            if ($config_option['parameter'] === 'download_usage_options') {
+                $options = config_decode_option_list($param_value);
+                if ($options !== null) {
+                    $GLOBALS['download_usage_options'] = $options['active'];
+                    $GLOBALS['download_usage_options_retired'] = $options['retired'];
+                }
+                continue;
+            }
             $global_type =  isset($GLOBALS[$config_option['parameter']])
                 ? gettype($GLOBALS[$config_option['parameter']])
                 : '';
@@ -667,10 +684,23 @@ function config_text_input($name, $label, $current, $password = false, $width = 
  * @param  bool     $autosave    Enable auto-saving of changes when focus is lost
  * @param  bool     $hidden      Whether field is hidden on the page
  * @param  string   $help_link   Help link to be displayed alongside the label.
+ * @param  bool     $reload_page Reload the page after saving to refresh dependent controls.
  * 
  * @return void
  */
-function config_integer_input($name, $label, $current, $min_value, $max_value, $width = 55, $title = null, $autosave = false, $hidden = false, $help_link = ""): void
+function config_integer_input(
+    $name,
+    $label,
+    $current,
+    $min_value,
+    $max_value,
+    $width = 55,
+    $title = null,
+    $autosave = false,
+    $hidden = false,
+    $help_link = '',
+    bool $reload_page = false
+): void
 {
     global $lang;
 
@@ -704,7 +734,9 @@ function config_integer_input($name, $label, $current, $min_value, $max_value, $
                 name="<?php echo escape($name); ?>"
                 value="<?php echo escape((string) $current); ?>"
                 <?php if ($autosave) { ?>
-                    onchange="if (isValidInt<?php echo escape($name); ?>(this.value)) {AutoSaveConfigOption('<?php echo escape($name); ?>');}"
+                    onchange="if (isValidInt<?php echo escape($name); ?>(this.value)) {
+                        AutoSaveConfigOption('<?php echo escape($name); ?>'<?php echo $reload_page ? ', true' : ''; ?>);
+                    }"
                 <?php } ?>
                 style="width:<?php echo (int) $width; ?>px"
             />
@@ -749,9 +781,41 @@ function config_add_text_input($config_var, $label, $password = false, $width = 
 }
 
 
-function config_add_integer_input($config_var, $label, $min_value, $max_value, $width = 420, $title = null, $autosave = false, $hidden = false, string $help_link = "")
+/**
+ * Build an integer input definition using the display and validation arguments of config_integer_input().
+ *
+ * @param string $config_var Configuration variable name.
+ * @param string $label Localised field label.
+ * @param int $min_value Minimum permitted value.
+ * @param int $max_value Maximum permitted value.
+ * @param int $width Field width in pixels.
+ * @param ?string $title Optional label tooltip.
+ * @param bool $autosave Save after the value changes.
+ * @param bool $hidden Hide the input.
+ * @param string $help_link Optional help page path.
+ * @param bool $reload_page Reload after a successful save.
+ * @return array Configuration page definition entry.
+ */
+function config_add_integer_input(
+    $config_var,
+    $label,
+    $min_value,
+    $max_value,
+    $width = 420,
+    $title = null,
+    $autosave = false,
+    $hidden = false,
+    string $help_link = '',
+    bool $reload_page = false
+)
 {
-    return array('integer_input', $config_var, $label, $min_value, $max_value, $width, $title, $autosave, $hidden, $help_link);
+    $definition = [
+        'integer_input', $config_var, $label, $min_value, $max_value, $width, $title, $autosave, $hidden, $help_link,
+    ];
+    if ($reload_page) {
+        $definition[] = true;
+    }
+    return $definition;
 }
 
 /**
@@ -992,6 +1056,7 @@ function config_add_single_select($config_var, $label, $choices = '', $usekeys =
  *                                 Note: onChange event will call AutoSaveConfigOption([option name])
  * @param string        $help      Help text to display for this question
  * @param boolean       $reload_page Reload the page after saving, useful for large CSS changes.
+ * @param boolean       $checkbox Render a single checkbox for an autosaved boolean.
  */
 function config_boolean_select(
     $name,
@@ -1004,7 +1069,8 @@ function config_boolean_select(
     $on_change_js = null,
     $hidden = false,
     string $help = '',
-    bool $reload_page = false
+    bool $reload_page = false,
+    bool $checkbox = false
 ) {
     global $lang;
 
@@ -1032,21 +1098,41 @@ function config_boolean_select(
             </div>
         <?php } ?>
 
-        <select
-            id="<?php echo escape($name); ?>"
-            name="<?php echo escape($name); ?>"
-            <?php if ($autosave) { ?>
-                onChange="<?php echo $on_change_js; ?>AutoSaveConfigOption('<?php echo escape($name); ?>'<?php echo $reload_page ? ", true" : ""?>);"
-            <?php } ?>
-            style="width:<?php echo (int) $width; ?>px"
-        >
-            <option value="1" <?php echo ($current == '1') ? 'selected' : ''; ?>>
-                <?php echo $choices[1]; ?>
-            </option>
-            <option value="0" <?php echo ($current == '0') ? 'selected' : ''; ?>>
-                <?php echo $choices[0]; ?>
-            </option>
-        </select>
+        <?php if ($checkbox) { ?>
+            <input
+                type="checkbox"
+                id="<?php echo escape($name); ?>"
+                name="<?php echo escape($name); ?>"
+                value="1"
+                data-config-boolean
+                <?php echo $current ? 'checked' : ''; ?>
+                <?php if ($autosave) { ?>
+                    onchange="<?php echo $on_change_js; ?>
+                        AutoSaveConfigOption(
+                            '<?php echo escape($name); ?>'<?php echo $reload_page ? ', true' : ''; ?>
+                        );"
+                <?php } ?>
+            >
+        <?php } else { ?>
+            <select
+                id="<?php echo escape($name); ?>"
+                name="<?php echo escape($name); ?>"
+                <?php if ($autosave) { ?>
+                    onChange="<?php echo $on_change_js; ?>
+                        AutoSaveConfigOption(
+                            '<?php echo escape($name); ?>'<?php echo $reload_page ? ', true' : ''; ?>
+                        );"
+                <?php } ?>
+                style="width:<?php echo (int) $width; ?>px"
+            >
+                <option value="1" <?php echo ($current == '1') ? 'selected' : ''; ?>>
+                    <?php echo $choices[1]; ?>
+                </option>
+                <option value="0" <?php echo ($current == '0') ? 'selected' : ''; ?>>
+                    <?php echo $choices[0]; ?>
+                </option>
+            </select>
+        <?php } ?>
 
         <?php
         if ($help !== '') {
@@ -1070,10 +1156,29 @@ function config_boolean_select(
  * @param integer $width the width of the input field in pixels. Default: 420.
  * @param string $help Help text to display for this question
  * @param boolean $reload_page Reload the page after saving.
+ * @param boolean $checkbox Render a single checkbox for an autosaved boolean.
  */
-function config_add_boolean_select($config_var, $label, $choices = '', $width = 420, $title = null, $autosave = false, $on_change_js = null, $hidden = false, string $help = '', bool $reload_page = false)
-{
-    return array('boolean_select', $config_var, $label, $choices, $width, $title, $autosave,$on_change_js,$hidden, $help, $reload_page);
+function config_add_boolean_select(
+    $config_var,
+    $label,
+    $choices = '',
+    $width = 420,
+    $title = null,
+    $autosave = false,
+    $on_change_js = null,
+    $hidden = false,
+    string $help = '',
+    bool $reload_page = false,
+    bool $checkbox = false
+) {
+    $definition = [
+        'boolean_select', $config_var, $label, $choices, $width, $title,
+        $autosave, $on_change_js, $hidden, $help, $reload_page,
+    ];
+    if ($checkbox) {
+        $definition[] = true;
+    }
+    return $definition;
 }
 
 /**
@@ -1271,9 +1376,12 @@ function config_generate_AutoSaveConfigOption_function($post_url)
             .map((idx, el) => jQuery(el).val())
             .get()
             .toString();
-        let option_value = jQuery('#' + option_name).val();
+        const option_input = jQuery('#' + option_name);
+        let option_value = option_input.val();
 
-        if (jQuery('input[name=' + option_name + ']').is(':checkbox')) {
+        if (option_input.is('[data-config-boolean]')) {
+            option_value = option_input.is(':checked') ? '1' : '0';
+        } else if (jQuery('input[name=' + option_name + ']').is(':checkbox')) {
             option_value = cast_to_digit_csv(jQuery('input[name=' + option_name + ']:checked'));
         } else if (jQuery('input[name="' + option_name + '[]"]').length > 0) {
             option_value = cast_to_digit_csv(jQuery('input[name="' + option_name + '[]"]:checked'));
@@ -1288,22 +1396,142 @@ function config_generate_AutoSaveConfigOption_function($post_url)
             <?php echo generateAjaxToken($post_url); ?>
         };
 
+            if (option_input.is('[data-option-version]')) {
+                post_data.autosave_option_version = option_input.attr('data-option-version');
+            }
+
+            function showSaveError(message = '') {
+                const list_error = option_input.attr('data-option-save-error');
+                const fallback = <?php echo encode_js_value($lang['save-error']); ?>;
+                jQuery('#AutoSaveStatus-' + option_name)
+                    .text(list_error ? (message || list_error) : fallback + (message ? ' ' + message : ''));
+            }
+
             jQuery.post(post_url, post_data, function(response) {
-                if (response.success === true) {
+                if (response.queued) {
+                    jQuery('#AutoSaveStatus-' + option_name).text(response.message);
+                } else if (response.success === true) {
                     jQuery('#AutoSaveStatus-' + option_name).html('<?php echo escape($lang["saved"]); ?>');
                     jQuery('#AutoSaveStatus-' + option_name).fadeOut('slow');
                     if (reload_page) {
+                        option_input.trigger('ConfigAutosaveReload');
                         location.reload();
                     }
-                } else if (response.success === false && response.message && response.message.length > 0) {
-                    jQuery('#AutoSaveStatus-' + option_name).html("<?php echo escape($lang['save-error']); ?> " + response.message);
                 } else {
-                    jQuery('#AutoSaveStatus-' + option_name).html("<?php echo escape($lang['save-error']); ?>");
+                    showSaveError(response.message);
                 }
-            }, 'json');
+                option_input.trigger('ConfigAutosaveComplete', [response]);
+            }, 'json').fail(function() {
+                showSaveError();
+                option_input.trigger('ConfigAutosaveComplete', [{success: false}]);
+            });
 
             return true;
         }
+
+        document.querySelectorAll('[data-config-option-list]').forEach(editor => {
+            const input = editor.querySelector('[data-option-version]');
+            const rows = editor.querySelector('[data-option-rows]');
+            const add = editor.querySelector('[data-add-option]');
+            const save = editor.querySelector('[data-save-options]');
+            const template = editor.querySelector('template');
+            const fieldList = editor.hasAttribute('data-field-list');
+            let saved = fieldList ? null : JSON.parse(input.value);
+            let nextId = fieldList ? 0 : Math.max(-1, ...Object.keys(saved.active), ...Object.keys(saved.retired)) + 1;
+            const rowValues = () => Array.from(rows.querySelectorAll('[data-option-value]'), control => control.value);
+
+            function updateSaveState() {
+                const values = rowValues();
+                save.disabled = (!fieldList && values.length === 0) || values.some(value => !value.trim())
+                    || (fieldList && new Set(values).size !== values.length);
+                if (fieldList) {
+                    rows.querySelectorAll('select').forEach(select => {
+                        Array.from(select.options).forEach(option => {
+                            option.disabled = option.value !== select.value && values.includes(option.value);
+                        });
+                    });
+                }
+                Array.from(rows.children).forEach(row => {
+                    row.querySelector('[data-move-option-up]').disabled = !row.previousElementSibling;
+                    row.querySelector('[data-move-option-down]').disabled = !row.nextElementSibling;
+                });
+            }
+
+            function addRow(id, value) {
+                const row = template.content.firstElementChild.cloneNode(true);
+                const label = row.querySelector('[data-option-value]');
+                row.dataset.optionId = id;
+                label.value = value;
+                label.addEventListener('input', updateSaveState);
+                label.addEventListener('change', updateSaveState);
+                row.querySelector('[data-move-option-up]').addEventListener('click', () => {
+                    row.previousElementSibling.before(row);
+                    updateSaveState();
+                    label.focus();
+                });
+                row.querySelector('[data-move-option-down]').addEventListener('click', () => {
+                    row.nextElementSibling.after(row);
+                    updateSaveState();
+                    label.focus();
+                });
+                row.querySelector('[data-remove-option]').addEventListener('click', () => {
+                    const next = row.nextElementSibling || row.previousElementSibling;
+                    row.remove();
+                    updateSaveState();
+                    (next?.querySelector('[data-option-value]') || add).focus();
+                });
+                rows.append(row);
+                return label;
+            }
+
+            if (fieldList) {
+                input.value.split(',').filter(Boolean).forEach(ref => addRow(nextId++, ref));
+            } else {
+                saved.order.forEach(id => addRow(id, saved.active[id]));
+            }
+            updateSaveState();
+            save.disabled = true;
+            add.addEventListener('click', () => {
+                addRow(nextId++, '').focus();
+                updateSaveState();
+            });
+            save.addEventListener('click', () => {
+                const currentRows = Array.from(rows.children);
+                const values = rowValues();
+                if (fieldList) {
+                    input.value = values.join(',');
+                } else {
+                    const active = Object.fromEntries(currentRows.map((row, i) => [row.dataset.optionId, values[i].trim()]));
+                    const retired = {...saved.retired};
+                    Object.entries(saved.active).forEach(([id, label]) => {
+                        if (!(id in active)) {
+                            retired[id] = label;
+                        }
+                    });
+                    input.value = JSON.stringify({
+                        active,
+                        retired,
+                        order: currentRows.map(row => Number(row.dataset.optionId))
+                    });
+                }
+                editor.querySelectorAll('button, [data-option-value]').forEach(control => control.disabled = true);
+                AutoSaveConfigOption(input.id);
+            });
+            jQuery(input).on('ConfigAutosaveComplete', (event, response) => {
+                if (response.queued) {
+                    return;
+                }
+                editor.querySelectorAll('button, [data-option-value]').forEach(control => control.disabled = false);
+                updateSaveState();
+                if (response.success) {
+                    input.dataset.optionVersion = response.version;
+                    if (!fieldList) {
+                        saved = JSON.parse(input.value);
+                    }
+                    save.disabled = true;
+                }
+            });
+        });
     </script>
     
     <?php
@@ -1414,14 +1642,45 @@ function config_generate_html(array $page_def)
             case 'text_input':
                 config_text_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9]);
                 break;
+            case 'option_list':
+                config_option_list($def[1], $def[2], $def[3], $def[4]);
+                break;
+            case 'field_list':
+                config_option_list($def[1], $def[2], $def[3], false, $def[4]);
+                break;
             case 'integer_input':
-                config_integer_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9]);
+                config_integer_input(
+                    $def[1],
+                    $def[2],
+                    $GLOBALS[$def[1]],
+                    $def[3],
+                    $def[4],
+                    $def[5],
+                    $def[6],
+                    $def[7],
+                    $def[8],
+                    $def[9],
+                    $def[10] ?? false
+                );
                 break;
             case 'file_input':
                 config_file_input($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6],  $def[7]);
                 break;
             case 'boolean_select':
-                config_boolean_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9], $def[10]);
+                config_boolean_select(
+                    $def[1],
+                    $def[2],
+                    $GLOBALS[$def[1]],
+                    $def[3],
+                    $def[4],
+                    $def[5],
+                    $def[6],
+                    $def[7],
+                    $def[8],
+                    $def[9],
+                    $def[10],
+                    $def[11] ?? false
+                );
                 break;
             case 'single_select':
                 config_single_select($def[1], $def[2], $GLOBALS[$def[1]], $def[3], $def[4], $def[5], $def[6], $def[7], $def[8], $def[9], $def[10]);
@@ -2400,15 +2659,487 @@ function config_check_valid_option(array $def, mixed $value): bool
             } else {
                 $valid_options = $def[3];
             }
-            $result = in_array($value, $valid_options);
+            $result = is_scalar($value) && in_array((string) $value, array_map(strval(...), $valid_options), true);
             break;
         case 'boolean_select':
             $valid_options = array('0', '1');
-            $result = in_array($value, $valid_options);
+            $result = is_scalar($value) && in_array((string) $value, $valid_options, true);
+            break;
+        case 'option_list':
+            $result = is_string($value) && config_decode_option_list($value) !== null;
+            break;
+        case 'field_list':
+            $result = is_string($value) && config_parse_field_list($value, $def[4]) !== null;
             break;
         default:
             $result = true;
             break;
     }
     return $result;
+}
+
+/**
+ * Define an editor for a flat list of labels with stable integer identifiers.
+ *
+ * @param string $name Setting name.
+ * @param string $label Localised editor label.
+ * @param string $help Localised explanatory text.
+ * @param bool $hidden Whether to hide the editor initially.
+ * @return array Configuration page definition entry.
+ */
+function config_add_option_list(string $name, string $label, string $help, bool $hidden): array
+{
+    return ['option_list', $name, $label, $help, $hidden];
+}
+
+/**
+ * Define an ordered metadata-field picker.
+ *
+ * @param string $name Configuration variable.
+ * @param string $label Localised setting label.
+ * @param string $help Localised instructions.
+ * @param array $choices Selectable field titles keyed by field reference.
+ * @return array Configuration page definition entry.
+ */
+function config_add_field_list(string $name, string $label, string $help, array $choices): array
+{
+    return ['field_list', $name, $label, $help, $choices];
+}
+
+/**
+ * Validate an ordered list against the allowed metadata field references.
+ *
+ * @param string $value Comma-separated field references, or an empty string.
+ * @param array $choices Allowed field titles keyed by field reference.
+ * @return list<int>|null Field references in order, or null for invalid input.
+ */
+function config_parse_field_list(string $value, array $choices): ?array
+{
+    if ($value === '') {
+        return [];
+    }
+    $refs = explode(',', $value);
+    if (count($refs) !== count(array_unique($refs)) || array_diff($refs, array_keys($choices)) !== []) {
+        return null;
+    }
+    return array_map(intval(...), $refs);
+}
+
+/**
+ * Decode an option list posted by the editor or loaded from the database.
+ *
+ * @param string $value JSON containing active and retired labels.
+ * @return array|null Valid options, or null for invalid input.
+ */
+function config_decode_option_list(string $value): ?array
+{
+    if (strlen($value) > 60000) {
+        return null;
+    }
+
+    $options = json_decode($value, true, 4);
+    if (
+        !is_array($options)
+        || count($options) !== 3
+        || !is_array($options['active'] ?? null)
+        || $options['active'] === []
+        || !is_array($options['retired'] ?? null)
+        || !is_array($options['order'] ?? null)
+        || !array_is_list($options['order'])
+        || count($options['order']) !== count($options['active'])
+        || array_intersect_key($options['active'], $options['retired']) !== []
+    ) {
+        return null;
+    }
+
+    foreach ($options['active'] + $options['retired'] as $id => $label) {
+        if (
+            !is_int($id) || $id < 0 || $id > 2147483647
+            || !is_string($label) || trim($label) === ''
+            || mb_strlen($label) > 255 || preg_match('/[\x00-\x1f\x7f]/', $label)
+        ) {
+            return null;
+        }
+    }
+    foreach ($options['order'] as $id) {
+        if (!is_int($id) || !isset($options['active'][$id])) {
+            return null;
+        }
+    }
+    if (count(array_unique($options['order'])) !== count($options['order'])) {
+        return null;
+    }
+
+    $options['active'] = array_replace(array_fill_keys($options['order'], ''), $options['active']);
+    return $options;
+}
+
+/**
+ * Build the editor value from the effective system-wide configuration.
+ *
+ * @param string $name Setting name.
+ * @param bool $field_list Use the standard integer CSV encoding for field lists.
+ * @return string Encoded effective list in display order.
+ */
+function config_option_list_initial_value(string $name, bool $field_list): string
+{
+    global $system_wide_config_options;
+    $active = $system_wide_config_options[$name] ?? [];
+    if ($field_list) {
+        return implode(',', $active);
+    }
+    return json_encode([
+        'active' => $active,
+        'retired' => $system_wide_config_options[$name . '_retired'] ?? [],
+        'order' => array_keys($active),
+    ], JSON_INVALID_UTF8_SUBSTITUTE | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
+}
+
+/**
+ * Render a list editor that saves all edits together.
+ *
+ * @param string $name Setting name.
+ * @param string $label Localised editor label.
+ * @param string $help Localised explanatory text.
+ * @param bool $hidden Whether to hide the editor initially.
+ * @param array|null $choices Field titles keyed by reference, or null for text options.
+ * @return void
+ */
+function config_option_list(string $name, string $label, string $help, bool $hidden, ?array $choices = null): void
+{
+    global $lang;
+    $value = config_option_list_initial_value($name, $choices !== null);
+    if ($choices !== null && $value !== '') {
+        // Keep file-configured fields visible if they have since been deactivated or removed.
+        foreach (array_diff(explode(',', $value), array_keys($choices)) as $ref) {
+            $choices[$ref] = sprintf($lang['systemconfig_configured_choice_unavailable'], $ref);
+        }
+    }
+    $stored = '';
+    get_config_option([], $name, $stored, $value);
+    $actions = [
+        'move-option-up' => ['chevron-up', $lang['systemconfig_move_option_up']],
+        'move-option-down' => ['chevron-down', $lang['systemconfig_move_option_down']],
+        'remove-option' => ['x', $lang['systemconfig_remove_option']],
+    ];
+    ?>
+    <div
+        class="Question config-option-question"
+        id="question_<?php echo escape($name); ?>"
+        <?php echo $hidden ? 'style="display:none;"' : ''; ?>
+    >
+        <label id="<?php echo escape($name); ?>-label"><?php echo escape($label); ?></label>
+        <div
+            class="config-option-list"
+            data-config-option-list
+            <?php echo $choices !== null ? 'data-field-list' : ''; ?>
+            role="group"
+            aria-labelledby="<?php echo escape($name); ?>-label"
+        >
+            <input
+                type="hidden"
+                id="<?php echo escape($name); ?>"
+                value="<?php echo escape($value); ?>"
+                data-option-version="<?php echo hash('sha256', $stored); ?>"
+                data-option-save-error="<?php echo escape($lang['systemconfig_option_list_save_error']); ?>"
+            >
+            <template>
+                <div class="config-option-row">
+                    <?php if ($choices === null) { ?>
+                        <input
+                            type="text"
+                            maxlength="255"
+                            data-option-value
+                            aria-label="<?php echo escape($lang['systemconfig_option_label']); ?>"
+                        >
+                    <?php } else { ?>
+                        <select data-option-value aria-label="<?php echo escape($lang['admin_resource_type_field']); ?>">
+                            <option value=""><?php echo escape($lang['select']); ?></option>
+                            <?php foreach ($choices as $ref => $title) { ?>
+                                <option value="<?php echo (int) $ref; ?>"><?php echo escape($title); ?></option>
+                            <?php } ?>
+                        </select>
+                    <?php } ?>
+                    <?php foreach ($actions as $action => [$icon, $action_label]) { ?>
+                        <button
+                            type="button"
+                            class="config-option-action"
+                            data-<?php echo escape($action); ?>
+                            aria-label="<?php echo escape($action_label); ?>"
+                            title="<?php echo escape($action_label); ?>"
+                        ><i class="icon-<?php echo escape($icon); ?>" aria-hidden="true"></i></button>
+                    <?php } ?>
+                </div>
+            </template>
+            <div class="config-option-rows" data-option-rows></div>
+            <div class="config-option-row">
+                <button type="button" data-add-option>
+                    <?php echo escape($lang[$choices === null ? 'systemconfig_add_option' : 'systemconfig_add_field']); ?>
+                </button>
+                <button type="button" data-save-options disabled><?php echo escape($lang['save']); ?></button>
+                <div class="AutoSaveStatus">
+                    <span
+                        id="AutoSaveStatus-<?php echo escape($name); ?>"
+                        aria-live="polite"
+                        style="display:none;"
+                    ></span>
+                </div>
+            </div>
+            <?php render_question_form_helper($help, 'question_' . $name, []); ?>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Save an option list only if it still matches the version opened in the editor.
+ * Preserve retired labels for historical records and prevent their IDs from being reused.
+ *
+ * @param string $name Setting name.
+ * @param string $value Submitted JSON.
+ * @param string $version Hash of the list before editing.
+ * @param array|null $choices Valid field choices, or null for text options.
+ * @param bool $prepare_fields Whether an offline job may prepare missing search columns.
+ * @return string|null Hash of the saved value, or null on conflict or invalid input.
+ */
+function config_save_option_list(
+    string $name,
+    string $value,
+    string $version,
+    ?array $choices = null,
+    bool $prepare_fields = false
+): ?string {
+    global $mysql_db;
+    $options = $choices === null ? config_decode_option_list($value) : config_parse_field_list($value, $choices);
+    if ($options === null) {
+        return null;
+    }
+
+    $lock = 'rs_option_list_' . sha1($mysql_db . ':' . ($choices === null ? $name : 'search_fields'));
+    db_set_connection_mode('read_write');
+    $result = ps_query('SELECT GET_LOCK(?, 3) AS acquired', ['s', $lock], logthis: 0);
+    if ((int) ($result[0]['acquired'] ?? 0) !== 1) {
+        return null;
+    }
+
+    $preparing_fields = false;
+    try {
+        $initial_value = config_option_list_initial_value($name, $choices !== null);
+        $stored = '';
+        get_config_option([], $name, $stored, $initial_value);
+        if (!hash_equals(hash('sha256', $stored), $version)) {
+            return null;
+        }
+
+        if ($choices !== null) {
+            if (!config_search_field_list_keeps_default_sort($name, $options, $stored)) {
+                return null;
+            }
+            $missing = config_search_fields_to_prepare($options);
+            if ($missing !== []) {
+                if (!$prepare_fields) {
+                    return null;
+                }
+                $preparing_fields = true;
+                config_register_search_field_columns($missing);
+                foreach ($missing as $field) {
+                    update_fieldx($field, true);
+                }
+                if (
+                    config_parse_field_list($value, config_search_field_choices()) === null
+                    || !config_search_field_list_keeps_default_sort($name, $options, $stored)
+                ) {
+                    return null;
+                }
+            }
+            if (!set_config_option(null, $name, $value, 'System configuration change')) {
+                return null;
+            }
+            $GLOBALS[$name] = $options;
+            $GLOBALS['system_wide_config_options'][$name] = $options;
+            return hash('sha256', $value);
+        }
+
+        $current = config_decode_option_list($stored) ?? json_decode($initial_value, true);
+        // Every existing ID must remain active or retain its original label in the retired list.
+        $retired = $current['retired'] + array_diff_key($current['active'], $options['active']);
+        $last_id = max([-1, ...array_keys($current['active']), ...array_keys($current['retired'])]);
+        $new_ids = array_keys(array_diff_key($options['active'], $current['active']));
+        if (
+            array_intersect_key($options['active'], $retired) !== []
+            || $options['retired'] != $retired
+            || ($new_ids !== [] && min($new_ids) <= $last_id)
+        ) {
+            return null;
+        }
+
+        $options['retired'] = $retired;
+        $json = json_encode($options, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
+        if (strlen($json) > 60000 || !set_config_option(null, $name, $json, 'System configuration change')) {
+            return null;
+        }
+
+        return hash('sha256', $json);
+    } finally {
+        try {
+            if ($preparing_fields) {
+                set_sysvar(SYSVAR_PREPARING_SEARCH_FIELDS, null);
+            }
+        } finally {
+            db_set_connection_mode('read_write');
+            ps_query('SELECT RELEASE_LOCK(?)', ['s', $lock], logthis: 0);
+        }
+    }
+}
+
+/**
+ * List active metadata fields for the search field pickers.
+ *
+ * @return array Field titles keyed by reference.
+ */
+function config_search_field_choices(): array
+{
+    $choices = array_map(
+        static fn(string $title): string => lang_or_i18n_get_translated($title, 'fieldtitle-'),
+        array_column(get_resource_type_fields(), 'title', 'ref')
+    );
+    natcasesort($choices);
+    return $choices;
+}
+
+/**
+ * Protect a configured default field when editing the sort list.
+ *
+ * @param string $name Setting name.
+ * @param list<int> $fields Proposed field references.
+ * @param string $current Currently configured references.
+ * @return bool Whether saving preserves the configured default sort.
+ */
+function config_search_field_list_keeps_default_sort(string $name, array $fields, string $current): bool
+{
+    if ($name !== 'sort_fields') {
+        return true;
+    }
+
+    $default = '';
+    get_config_option([], 'default_sort', $default, $GLOBALS['system_wide_config_options']['default_sort']);
+    if (!preg_match('/^field([1-9][0-9]*)$/D', $default, $matches)) {
+        return true;
+    }
+    return !in_array($matches[1], explode(',', $current), true) || in_array((int) $matches[1], $fields, true);
+}
+
+/**
+ * Find fields whose cached resource columns need preparation.
+ *
+ * @param list<int> $fields Requested field references.
+ * @return list<int> Fields requiring backfill before activation.
+ */
+function config_search_fields_to_prepare(array $fields): array
+{
+    $joined = array_intersect($fields, get_resource_table_joins());
+    if ($joined !== []) {
+        $prepared_columns = config_resource_join_columns(array_map(prefix_value('field'), $joined));
+        $joined = array_map(static fn(string $column): int => (int) substr($column, 5), $prepared_columns);
+    }
+    return array_values(array_diff($fields, $joined));
+}
+
+/**
+ * Find existing cached metadata columns in the resource table.
+ *
+ * @param array $columns Requested column names.
+ * @return array Existing column names among those requested.
+ */
+function config_resource_join_columns(array $columns): array
+{
+    return array_column(ps_query(
+        'SELECT COLUMN_NAME AS value FROM INFORMATION_SCHEMA.COLUMNS
+         WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME IN (' . ps_param_insert(count($columns)) . ')',
+        ['s', 'resource', ...ps_param_fill($columns, 's')],
+        logthis: 0
+    ), 'value');
+}
+
+/**
+ * Create any missing columns and register them for metadata writes before the offline backfill.
+ *
+ * @param list<int> $fields Field references validated by the field picker.
+ * @return void
+ */
+function config_register_search_field_columns(array $fields): void
+{
+    global $resource_field_column_limit;
+
+    $columns = array_map(prefix_value('field'), $fields);
+    $existing = config_resource_join_columns($columns);
+    $missing = array_diff($columns, $existing);
+    if ($missing !== []) {
+        // The identifiers come from validated integer field references above.
+        $column_limit = (int) $resource_field_column_limit;
+        $additions = array_map(
+            static fn(string $column): string => "ADD COLUMN `{$column}` VARCHAR({$column_limit})",
+            $missing
+        );
+        ps_query('ALTER TABLE resource ' . implode(', ', $additions));
+    }
+
+    // Publish only after the columns exist. Keep the write list live until the configuration is saved.
+    set_sysvar(SYSVAR_PREPARING_SEARCH_FIELDS, implode(',', $fields));
+}
+
+/**
+ * Save search field choices or queue a background job to prepare their cached values first.
+ *
+ * @param string $name Setting name from the authorised page definition.
+ * @param string $value Validated comma-separated field references.
+ * @param string $version Hash of the list opened in the editor.
+ * @param array $choices Valid field choices keyed by reference.
+ * @return array Save or queue result for the configuration editor.
+ */
+function config_save_search_field_list(string $name, string $value, string $version, array $choices): array
+{
+    global $lang, $system_wide_config_options;
+    if (!in_array($name, CONFIG_SEARCH_FIELD_LISTS, true)) {
+        return ['success' => false, 'message' => $lang['systemconfig_option_not_allowed_error']];
+    }
+    $fields = config_parse_field_list($value, $choices);
+    $current = '';
+    get_config_option([], $name, $current, config_option_list_initial_value($name, true));
+    if ($fields === null || !hash_equals(hash('sha256', $current), $version)) {
+        return ['success' => false, 'message' => $lang['systemconfig_option_list_conflict']];
+    }
+    if (!config_search_field_list_keeps_default_sort($name, $fields, $current)) {
+        return ['success' => false, 'message' => $lang['systemconfig_sort_fields_keep_default']];
+    }
+
+    if (config_search_fields_to_prepare($fields) === []) {
+        $saved_version = config_save_option_list($name, $value, $version, $choices);
+        return $saved_version !== null
+            ? ['success' => true, 'version' => $saved_version]
+            : ['success' => false, 'message' => $lang['systemconfig_option_list_conflict']];
+    }
+    if (!$system_wide_config_options['offline_job_queue']) {
+        return ['success' => false, 'message' => $lang['systemconfig_search_fields_jobs_required']];
+    }
+
+    $type = 'prepare_search_fields';
+    $code = $type . '_' . $name;
+    if (
+        job_queue_get_jobs($type, STATUS_ACTIVE, job_code: $code) !== []
+        || job_queue_get_jobs($type, STATUS_INPROGRESS, job_code: $code) !== []
+    ) {
+        return ['success' => false, 'message' => $lang['systemconfig_search_fields_job_pending']];
+    }
+    $job = job_queue_add(
+        $type,
+        ['setting' => $name, 'fields' => $value, 'version' => $version],
+        success_text: $lang['systemconfig_search_fields_job_complete'],
+        failure_text: $lang['systemconfig_search_fields_job_failed'],
+        job_code: $code
+    );
+    if (!is_int($job) || $job < 1) {
+        return ['success' => false, 'message' => $lang['systemconfig_search_fields_job_pending']];
+    }
+    return ['success' => true, 'queued' => true, 'message' => $lang['systemconfig_search_fields_queued']];
 }

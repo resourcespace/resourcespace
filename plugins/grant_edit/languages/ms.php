@@ -10,3 +10,6 @@ $lang["grant_edit_list"] = 'Pengguna semasa dengan akses penyuntingan tambahan';
 $lang["grant_edit_group_list"] = 'Kumpulan semasa dengan akses penyuntingan tambahan';
 $lang["grant_edit_delete_user"] = 'Sahkan penghapusan akses yang dipertingkatkan untuk';
 $lang["page-title_grant_edit_setup"] = 'Tetapan Plugin Edit Grant';
+
+$lang['plugin-grant_edit-title'] = 'Berikan Akses Sunting';
+$lang['plugin-grant_edit-desc'] = 'Membolehkan pentadbir memberikan pengguna akses sunting penuh sementara ke sumber.';

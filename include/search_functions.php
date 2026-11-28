@@ -2177,8 +2177,7 @@ function split_keywords($search, $index = false, $partial_index = false, $is_dat
 
     $ns = trim_spaces($search);
     $special_search = [];
-    // Search forms can add a comma before the whitespace separating keywords.
-    if (!$index && $keepquotes && preg_match('/^(!\S+?)(?:,*\s+|\z)/', $ns, $matches)) {
+    if (!$index && $keepquotes && preg_match('/^(![^\s,]+)(?:[,\s]+|\z)/', $ns, $matches)) {
         $special_search[] = $matches[1];
         $ns = substr($ns, strlen($matches[0]));
         if ($ns === '') {
@@ -2596,6 +2595,9 @@ function get_fields_for_search_display($field_refs)
 {
     if (!is_array($field_refs)) {
         exit(" passed to getfields() is not an array. ");
+    }
+    if ($field_refs === []) {
+        return [];
     }
 
     # Executes query.

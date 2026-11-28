@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Khôi phục Lưu trữ';
 $lang["page-title_offline_archive_setup"] = 'Cài đặt Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'Xem Kho Tư Liệu';
 $lang["page-title_offline_archive_view_pending"] = 'Xem Lưu trữ Đang Chờ';
+
+$lang['plugin-offline_archive-title'] = 'Lưu trữ ngoại tuyến';
+$lang['plugin-offline_archive-desc'] = 'Cho phép di chuyển các tệp đã lưu trữ đến vị trí ngoại tuyến.';

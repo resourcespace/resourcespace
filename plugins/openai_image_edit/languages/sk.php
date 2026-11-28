@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Uložiť nové';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Neplatné údaje obrázka';
 $lang["openai_image_edit_error_invalid_image"] = 'Neplatný obrázok';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nepodarilo sa zapísať do dočasného súboru';
+$lang['plugin-openai_image_edit-title'] = 'Úprava obrázkov OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Vymažte časti obrázka a použite GPT Image na ich obnovenie.';

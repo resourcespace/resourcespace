@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='منتخب ریکارڈ کو شامل کی�
 $lang["rse_version_invalid_time"]='[date] سے پہلے کے وقت پر واپس جانا معاونت یافتہ نہیں ہے۔';
 $lang["page-title_rse_version_revert"] = 'وسائل کی ورژن کو واپس کریں';
 $lang["page-title_rse_version_setup"] = 'ورژن پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-rse_version-title'] = 'ورژن کنٹرول';
+$lang['plugin-rse_version-desc'] = 'میٹا ڈیٹا اور فائل کی تبدیلیوں کو ٹریک اور بحال کریں۔';

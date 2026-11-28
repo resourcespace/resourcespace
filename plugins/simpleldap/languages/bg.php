@@ -53,3 +53,6 @@ $lang["origin_simpleldap"] = 'Плъгинът SimpleLDAP';
 $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'Не проверявайте FQDN на сървъра спрямо CN на сертификата';
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Тест за LDAP удостоверяване';
 $lang["page-title_simpleldap_setup"] = 'Настройка на плъгина Simple LDAP';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Потребителска автентикация чрез LDAP.';

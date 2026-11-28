@@ -88,3 +88,6 @@ $lang["csv_upload_location"] = 'Válassza ki azt az oszlopot, amely a forrás he
 $lang["csv_upload_longitude"] = 'Válassza ki a Hosszúság oszlopát, ha külön van az előzőtől';
 $lang["latitude"] = 'szélesség';
 $lang["longitude"] = 'hosszúság';
+
+$lang['plugin-csv_upload-title'] = 'CSV feltöltés';
+$lang['plugin-csv_upload-desc'] = 'Metaadatok feltöltése CSV fájl segítségével.';

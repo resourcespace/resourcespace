@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'ライセンスを編集';
 $lang["page-title_licensemanager_list"] = 'ライセンスの一覧';
 $lang["page-title_licensemanager_setup"] = 'ライセンス管理プラグインの設定';
 $lang["page-title_licensemanager_unlink"] = 'ライセンスのリンクを解除';
+
+$lang["collection_actiontype_80"] = 'ライセンス';

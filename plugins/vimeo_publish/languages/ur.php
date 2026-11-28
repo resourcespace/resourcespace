@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"]='صارفین کو اپنے Vimeo ا�
 $lang["vimeo_publish_set_account"]='ویمیو اکاؤنٹ سیٹ کریں';
 $lang["page-title_vimeo_publish_setup"] = 'Vimeo پبلش پلگ ان سیٹ اپ کریں';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'Vimeo پر شائع کریں';
+
+$lang['plugin-vimeo_publish-title'] = 'ویڈیو شیئرنگ پلیٹ فارم \'Vimeo\' پر شائع کریں';
+$lang['plugin-vimeo_publish-desc'] = 'وسائل کو Vimeo پر شائع کریں۔';

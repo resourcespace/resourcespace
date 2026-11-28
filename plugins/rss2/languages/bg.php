@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"] = 'Актуализация на филт�
 $lang["page-title_rss2_rssfeed"] = 'RSS емисия';
 $lang["page-title_rss2_rssfilter"] = 'RSS филтър';
 $lang["page-title_rss2_setup"] = 'Настройка на RSS плъгина';
+
+$lang['plugin-rss2-title'] = 'RSS емисия';
+$lang['plugin-rss2-desc'] = 'Позволява удостоверено генериране на RSS емисии с ново съдържание, включително конфигурируеми полета.';

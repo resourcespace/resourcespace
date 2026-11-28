@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'নিউজ আইটেম যোগ করু
 $lang["page-title_news_news_content_edit"] = 'সংবাদ সামগ্রী সম্পাদনা করুন';
 $lang["page-title_news_news_edit"] = 'সংবাদ সম্পাদনা';
 $lang["page-title_news_news"] = 'সংবাদ';
+
+$lang['plugin-news-title'] = 'সংবাদ';
+$lang['plugin-news-desc'] = 'হোম পৃষ্ঠায় সংবাদ নিবন্ধ যোগ করুন।';

@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Configurează sarcina pentru detectarea
 $lang["faces_tag_faces_configure"] = 'Configurează sarcina pentru etichetarea fețelor';
 $lang["faces_detect_faces_intro"] = 'Creează o sarcină pentru a începe detectarea fețelor aici - această sarcină nu necesită parametri, astfel încât poate fi pornită atâta timp cât nu există alte sarcini în curs de desfășurare de același tip.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Setarea acestei opțiuni va însemna că doar resursele din colecțiile listate vor fi actualizate. Dacă nu sunt specificate colecții, atunci etichetarea fețelor va fi actualizată pentru TOATE resursele potrivite. Colecțiile pot fi specificate folosind o listă separată prin virgule, precum și intervale, de exemplu 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'Fețe AI - InsightFace';
+$lang['plugin-faces-desc'] = 'Detectare și etichetare automată a fețelor de ultimă generație. Căutați după față.';

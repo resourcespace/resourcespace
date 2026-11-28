@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI ਨਵਾਂ ਸੇਵ 
 $lang["openai_image_edit_error_invalid_image_data"] = 'ਅਵੈਧ ਚਿੱਤਰ ਡੇਟਾ';
 $lang["openai_image_edit_error_invalid_image"] = 'ਅਵੈਧ ਚਿੱਤਰ';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'ਅਸਥਾਈ ਫਾਈਲ ਲਿਖਣ ਵਿੱਚ ਅਸਮਰੱਥ';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI ਚਿੱਤਰ ਸੰਪਾਦਨ';
+$lang['plugin-openai_image_edit-desc'] = 'ਚਿੱਤਰ ਦੇ ਹਿੱਸਿਆਂ ਨੂੰ ਮਿਟਾਓ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਮੁੜ ਬਣਾਉਣ ਲਈ GPT Image ਦੀ ਵਰਤੋਂ ਕਰੋ।';

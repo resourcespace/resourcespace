@@ -87,3 +87,6 @@ $lang["csv_upload_alternative_file_name_column"] = 'هەڵبژاردنی ستو�
 $lang["csv_upload_alternative_file_description_column"] = 'هەڵبژاردنی ستوونی کە وەسفەکەی فایلەکە داخڵ دەکات (اختیاری)';
 $lang["latitude"] = 'درەختی ناوەڕاست';
 $lang["longitude"] = 'درەختی چەپ';
+
+$lang['plugin-csv_upload-title'] = 'بارکردنی CSV';
+$lang['plugin-csv_upload-desc'] = 'بارکردنی Metadata بە بەکارهێنانی فایلێکی CSV.';

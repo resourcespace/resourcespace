@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Nastavit úlohu pro detekci obličejů'
 $lang["faces_tag_faces_configure"] = 'Nastavit úlohu pro označení obličejů';
 $lang["faces_detect_faces_intro"] = 'Vytvořte úlohu pro zahájení detekce obličejů zde - tato úloha nevyžaduje žádné parametry, takže ji lze spustit, pokud neprobíhají jiné úlohy tohoto typu.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Nastavením této možnosti budou aktualizovány pouze zdroje v uvedených kolekcích. Pokud nejsou kolekce uvedeny, bude označování obličejů aktualizováno pro VŠECHNY vhodné zdroje. Kolekce lze uvést pomocí seznamu odděleného čárkami nebo rozsahů, např. 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Obličeje - InsightFace';
+$lang['plugin-faces-desc'] = 'Moderní automatická detekce a označování obličejů. Vyhledávání podle obličeje.';

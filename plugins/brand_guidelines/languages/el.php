@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Διαχείριση Περιε�
 $lang["page-title_brand_guidelines_guidelines"] = 'Οδηγίες Μάρκας';
 $lang["page-title_brand_guidelines_setup"] = 'Ρύθμιση Πρόσθετου Οδηγιών Μάρκας';
 $lang["page-title_brand_guidelines_toc"] = 'Επεξεργασία περιεχομένου';
+
+$lang['plugin-brand_guidelines-title'] = 'Οδηγίες Εταιρικής Ταυτότητας';
+$lang['plugin-brand_guidelines-desc'] = 'Δημιουργήστε μια περιοχή οδηγιών εταιρικής ταυτότητας με προσαρμοσμένο περιεχόμενο, συνδέσμους πόρων και χρώματα.';

@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'กรุณาระบุประเภท�
 $lang["video_resourcetype"] = 'ประเภททรัพยากรวิดีโอ';
 
 $lang["page-title_embedvideo_setup"] = 'ตั้งค่าปลั๊กอินฝังวิดีโอ';
+
+$lang['plugin-embedvideo-title'] = 'ฝังวิดีโอ';
+$lang['plugin-embedvideo-desc'] = 'ให้ฟังก์ชันสำหรับสร้าง HTML เพื่อฝังวิดีโอบนเว็บไซต์ระยะไกล';

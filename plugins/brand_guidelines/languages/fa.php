@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'مدیریت محتوای راه
 $lang["page-title_brand_guidelines_guidelines"] = 'راهنماهای برند';
 $lang["page-title_brand_guidelines_setup"] = 'نصب افزونه راهنمای برند';
 $lang["page-title_brand_guidelines_toc"] = 'ویرایش محتوا';
+
+$lang['plugin-brand_guidelines-title'] = 'راهنمای برند';
+$lang['plugin-brand_guidelines-desc'] = 'ایجاد بخشی برای راهنمای برند با محتوای سفارشی، لینک‌های منابع و رنگ‌ها.';

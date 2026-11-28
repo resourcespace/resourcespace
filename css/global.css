@@ -416,6 +416,20 @@ button, input[type=submit], input[type=button], .RecordPanel .RecordDownloadSpac
     height: 180px;
     object-fit: cover;  
 }
+.tile-preview {
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.tile-preview > img,
+.tile-preview > noscript,
+.tile-preview > noscript img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .tile-desc {
     display: flex;
     padding: var(--space-16);
@@ -663,11 +677,12 @@ div.tile-select {
 .tile-multi > .tile-placeholder { 
     width: calc(50% - 1px);
 }
-.tile-multi > img {
+.tile-multi > img,
+.tile-multi > .tile-preview {
     width: 50%;
     object-fit: cover;
     display: block;
-    background: var(--colour-surface-card-icon-background);
+    background-color: var(--colour-surface-card-icon-background);
 }
 .tile-sub-multi {
     display: flex;
@@ -675,13 +690,15 @@ div.tile-select {
     width: 50%;
     gap: var(--space-2)
 }
-.tile-sub-multi img, .tile-sub-multi div {
+.tile-sub-multi > img,
+.tile-sub-multi > div,
+.tile-multi .tile-sub-multi > .tile-preview {
     flex: 1;
     width: 100%;
     height: calc(50% - 1px);
     object-fit: cover;
     display: block;
-    background: var(--colour-surface-card-icon-background);
+    background-color: var(--colour-surface-card-icon-background);
 }
 .tile-multi:hover .tile-sub-multi > div, .tile-multi:hover > .tile-placeholder {
     background: var(--colour-surface-card-icon-background-hover);
@@ -977,6 +994,52 @@ input[type="number"].NumberSearchWidth {width:80px; margin: 0 10px;}
 }
 .Question label, .QuestionSubmit label{ width: 300px;float: left;margin-top: 0.3em;padding-right:10px;}
 .Question .customFieldset { padding: 0; border: 0;}
+.config-option-question {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--space-8);
+}
+.config-option-question > label {
+    flex: none;
+    max-width: 100%;
+}
+.config-option-list {
+    flex: 1;
+    min-width: min(100%, 300px);
+}
+.config-option-rows {
+    display: grid;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+.config-option-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+.config-option-row input,
+.config-option-row select {
+    min-width: 0;
+}
+.config-option-row input,
+.config-option-row button {
+    margin-block: 0;
+}
+.config-option-row .config-option-action {
+    flex: 0 0 auto;
+    min-inline-size: var(--space-32);
+    min-block-size: var(--space-32);
+    padding-inline: var(--space-4);
+}
+.config-option-row .AutoSaveStatus {
+    padding: 0;
+}
+.config-option-list .FormHelp {
+    margin: var(--space-8) 0 0;
+}
+.config-option-list .FormHelpInner {
+    max-width: 100%;
+}
 #capswarning {display: none; font-weight: bold;}
 .Question .stdwidth,.stdwidth, .dynamickeywords {width: 420px;font-size: 1em;}
 .Question .medwidth,.medwidth{width: 285px;font-size: 1em;}

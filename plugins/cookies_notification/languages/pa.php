@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'ਤੁਹ�
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'ਕੁਕੀ ਚੋਣ';
 $lang["page-title_cookies_notification_setup"] = 'ਕੁਕੀ ਨੋਟੀਫਿਕੇਸ਼ਨ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-cookies_notification-title'] = 'ਕੁਕੀਜ਼ ਸੂਚਨਾ';
+$lang['plugin-cookies_notification-desc'] = 'ਹੈਡਰ ਵਿੱਚ ਸੁਨੇਹਾ ਦਿਖਾ ਕੇ ਕੁਕੀਜ਼ ਦੇ ਇਸਤੇਮਾਲ ਦੀ ਸੂਚਨਾ ਦਿਓ।';

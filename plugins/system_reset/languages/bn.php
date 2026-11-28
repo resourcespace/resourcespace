@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='আপনি কি নিশ্চিত? এট
 $lang["system_reset_delete_all"]='সমস্ত ডেটা এবং ফাইল মুছে ফেলুন';
 $lang["system_reset-tooltip"] = 'সিস্টেম রিসেট সম্পন্ন করুন সমস্ত ফাইল এবং ডেটা মুছে ফেলার জন্য';
 $lang["page-title_system_reset_reset"] = 'সিস্টেম রিসেট';
+
+$lang['plugin-system_reset-title'] = 'সিস্টেম রিসেট';
+$lang['plugin-system_reset-desc'] = 'অ্যাডমিন/সিস্টেম-এ সমস্ত ডেটা মুছে ফেলার অপশন যোগ করে।';

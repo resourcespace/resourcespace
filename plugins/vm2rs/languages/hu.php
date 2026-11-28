@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"] = 'Bélyegkép Útvonal';
 $lang["vm2rs_online_preview"] = 'Online előnézet';
 $lang["vm2rs_youtube_video"] = 'Youtube Videó';
 $lang["page-title_vm2rs_setup"] = 'Vimeo beállítása a ResourceSpace bővítményhez';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo a ResourceSpace-be';
+$lang['plugin-vm2rs-desc'] = 'Vimeo videók beágyazása úgy, mintha ResourceSpace erőforrások lennének.';

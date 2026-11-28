@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = 'Поле метададзеных';
 $lang["conditional_terms_value"] = 'Значэнне';
 $lang["conditional_terms_plugin_misconfigured"] = 'Плагін умовных тэрмінаў няправільна наладжаны';
 $lang["page-title_conditional_terms_setup"] = 'Наладзіць плагін умоўных тэрмінаў';
+
+$lang['plugin-conditional_terms-title'] = 'Умоўныя ўмовы';
+$lang['plugin-conditional_terms-desc'] = 'Дазваляе ўмоўна адлюстроўваць старонку ўмоў пры загрузцы на аснове метаданых рэсурсу.';

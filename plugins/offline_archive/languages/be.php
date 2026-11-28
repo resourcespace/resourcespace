@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Аднавіць архіў';
 $lang["page-title_offline_archive_setup"] = 'Наладка плагіна';
 $lang["page-title_offline_archive_view_archives"] = 'Прагляд архіваў рэсурсаў';
 $lang["page-title_offline_archive_view_pending"] = 'Праглядзець чаканыя архівы';
+
+$lang['plugin-offline_archive-title'] = 'Афлайн архіў';
+$lang['plugin-offline_archive-desc'] = 'Дазваляе перамяшчаць архіваваныя файлы ў афлайн размяшчэнне.';

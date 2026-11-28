@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Tambah, edit atau padam item berita';
 $lang["page-title_news_news_content_edit"] = 'Edit Kandungan Berita';
 $lang["page-title_news_news_edit"] = 'Edit Berita';
 $lang["page-title_news_news"] = 'Berita';
+
+$lang['plugin-news-title'] = 'Berita';
+$lang['plugin-news-desc'] = 'Tambah artikel berita ke halaman utama.';

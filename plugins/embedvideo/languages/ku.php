@@ -8,3 +8,6 @@ $lang["embed_video_configuration"] = 'ڕێکخستنەکانی هاکەردنی 
 $lang["specify_resourcetype"] = 'تکایە جۆری سەرچاوەی کە دەبێت لەسەر ئەوەی \'هاکەردن\' پەیدا بێت دیاری بکە.';
 $lang["video_resourcetype"] = 'جۆری سەرچاوەی ڤیدیۆ';
 $lang["page-title_embedvideo_setup"] = 'ڕێکخستنەوەی پلاگینەکانی هاکەردنی ڤیدیۆ';
+
+$lang['plugin-embedvideo-title'] = 'ڤیدیۆی لە ناوەڕاستدا بنێرە';
+$lang['plugin-embedvideo-desc'] = 'فانکشنی دروستکردنی HTML بۆ ڤیدیۆی دابەزاندنی لە ماڵپەڕە دەرەکییەکان دابین دەکات.';

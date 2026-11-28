@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'Шлях да мініяцюры';
 $lang["yt2rs_online_preview"] = 'Анлайн-папярэдні прагляд';
 $lang["yt2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_yt2rs_setup"] = 'Наладка плагіна Youtube для ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube у ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Дадайце відэа, размешчаныя на YouTube, як рэсурсы.';

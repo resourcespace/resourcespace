@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'Nhà cung cấp đã bị khóa trong c
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Mô hình Ollama để sử dụng (ví dụ: \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Điểm cuối Ollama để sử dụng (ví dụ http://[IP]:11434/v1/chat/completions)';
+
+$lang['plugin-openai_gpt-title'] = 'Xử lý siêu dữ liệu OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'Xử lý tự động siêu dữ liệu và hình ảnh bằng AI.';

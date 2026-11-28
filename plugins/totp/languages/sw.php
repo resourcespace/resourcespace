@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Mwaka wa sasa';
 $lang["page-title_totp_setup"] = 'Weka Plugin ya TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Zima TOTP kwa watumiaji waliothibitishwa tayari kupitia SAML (Inahitaji programu-jalizi ya SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Msaada wa TFA/MFA kupitia Google Authenticator';

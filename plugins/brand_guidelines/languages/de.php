@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Markenrichtlinien-Inhalte verwal
 $lang["page-title_brand_guidelines_guidelines"] = 'Markenrichtlinien';
 $lang["page-title_brand_guidelines_setup"] = 'Brandrichtlinien-Plugin einrichten';
 $lang["page-title_brand_guidelines_toc"] = 'Inhalt bearbeiten';
+
+$lang['plugin-brand_guidelines-title'] = 'Markenrichtlinien';
+$lang['plugin-brand_guidelines-desc'] = 'Erstellen Sie einen Bereich für Markenrichtlinien mit benutzerdefinierten Inhalten, Ressourcenlinks und Farben.';

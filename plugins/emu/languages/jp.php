@@ -38,3 +38,5 @@ $lang["plugin-emu-desc"] = '[高度] EMuデータベースからリソースメ�
 
 $lang["page-title_emu_emu_object_details"] = 'EMuオブジェクトの詳細';
 $lang["page-title_emu_setup"] = 'プラグインの設定';
+
+$lang['plugin-emu-title'] = 'EMu';

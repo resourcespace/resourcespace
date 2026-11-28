@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'กู้คืนคลังข
 $lang["page-title_offline_archive_setup"] = 'ตั้งค่า Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'ดูคลังทรัพยากร';
 $lang["page-title_offline_archive_view_pending"] = 'ดูเอกสารที่รอดำเนินการ';
+
+$lang['plugin-offline_archive-title'] = 'เก็บถาวรแบบออฟไลน์';
+$lang['plugin-offline_archive-desc'] = 'ช่วยให้ย้ายไฟล์ที่เก็บถาวรไปยังตำแหน่งแบบออฟไลน์ได้';

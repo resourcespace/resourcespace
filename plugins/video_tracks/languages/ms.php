@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'Semak untuk memulakan 
 $lang["video_tracks_transcode_now_label"] = 'Transkod sekarang';
 $lang["page-title_video_tracks_create_video"] = 'Cipta Video';
 $lang["page-title_video_tracks_setup"] = 'Tetapkan Plugin Trek Video';
+
+$lang['plugin-video_tracks-title'] = 'Trek Video';
+$lang['plugin-video_tracks-desc'] = 'Tambah sokongan untuk pilihan audio dan sari kata yang berbeza bagi sumber video.';

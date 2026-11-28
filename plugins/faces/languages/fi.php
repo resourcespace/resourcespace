@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Määritä tehtävä kasvojen havaitsem
 $lang["faces_tag_faces_configure"] = 'Määritä tehtävä kasvojen merkitsemiseksi';
 $lang["faces_detect_faces_intro"] = 'Luo tehtävä aloittaaksesi kasvojen havaitsemisen täällä – tätä tehtävää ei tarvita parametreja, joten se voidaan käynnistää niin kauan kuin muita saman tyyppisiä tehtäviä ei ole käynnissä.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Tämän asetuksen avulla päivitys koskee vain luetteloituja kokoelmia. Jos kokoelmia ei ole määritelty, kasvojen merkitseminen päivitetään kaikille sopiville resursseille. Kokoelmat voidaan määritellä pilkulla erotettuna listana sekä alueina esim. 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Kasvot - InsightFace';
+$lang['plugin-faces-desc'] = 'Huipputekninen automaattinen kasvojentunnistus ja merkintä. Hae kasvojen perusteella.';

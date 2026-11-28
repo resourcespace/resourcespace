@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'API ključ';
 $lang["typesense_search_collection"] = 'Kolekcija';
 $lang["typesense_search_timeout"] = 'Vremensko ograničenje u sekundama';
 $lang["typesense_search_validate_access"] = 'Provjeri pristup nakon pretraživanja Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Typesense Pretraživanje';
+$lang['plugin-typesense_search-desc'] = 'Opcionalni vanjski pružatelj pretraživanja koristeći Typesense (eksperimentalno)';

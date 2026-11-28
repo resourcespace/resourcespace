@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Prosesu adnoddau heb eu prosesu';
 $lang["whisper_process_existing_intro"] = 'Creu swydd i ddechrau prosesu audio Whisper yma - nid oes angen paramedrau ar y swydd hon felly gall ddechrau cyn belled â bod dim swyddi eraill o\'r math hwn ar waith.';
 $lang["whisper_process_existing_configure"] = 'Cyflwyno\'r swydd i brosesu ffeiliau gyda Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Fideo/sain i destun gan ddefnyddio Whisper o OpenAI. Yn rhedeg yn lleol, dim angen tanysgrifiad.';

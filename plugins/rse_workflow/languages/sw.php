@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_setup"] = 'Weka Plugin ya Mchakato';
 $lang["page-title_rse_workflow_edit_workflow"] = 'Hariri Mchakato';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'Haiwezekani kubadilisha hali ya kumbukumbu kuwa %%ARCHIVE%%. Ukosefu wa ruhusa ya kufuta sehemu muhimu.';
+$lang['plugin-rse_workflow-title'] = 'Mtiririko wa Kazi wa Juu';
+$lang['plugin-rse_workflow-desc'] = 'Sanidi hali na vitendo vya mtiririko wa kazi maalum zaidi ya zile za kawaida.';

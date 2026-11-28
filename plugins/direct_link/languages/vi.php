@@ -6,3 +6,5 @@ $lang["direct_link_expires"] = 'Các URL này hết hạn vào: ';
 $lang["direct_link_copy"] = 'Sao chép liên kết';
 $lang["direct_link_copied"] = 'Đã sao chép!';
 $lang["direct_link_copy_error"] = 'Không thể sao chép';
+$lang['plugin-direct_link-title'] = 'Liên kết trực tiếp';
+$lang['plugin-direct_link-desc'] = 'Cung cấp URL tạm thời trực tiếp đến các tệp trên trang chia sẻ tài nguyên.';

@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'API ключ';
 $lang["typesense_search_collection"] = 'Колекция';
 $lang["typesense_search_timeout"] = 'Време за изтичане в секунди';
 $lang["typesense_search_validate_access"] = 'Потвърждаване на достъпа след търсене Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Търсене с Typesense';
+$lang['plugin-typesense_search-desc'] = 'Опционален външен доставчик на търсене с Typesense (експериментално)';

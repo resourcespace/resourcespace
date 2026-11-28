@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'APIキー';
 $lang["typesense_search_collection"] = 'コレクション';
 $lang["typesense_search_timeout"] = 'タイムアウト秒';
 $lang["typesense_search_validate_access"] = 'Typesense検索後にアクセスを検証';
+
+$lang['plugin-typesense_search-title'] = 'Typesense 検索';
+$lang['plugin-typesense_search-desc'] = 'Typesense を使用したオプションの外部検索プロバイダー（実験的）';

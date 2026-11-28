@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'A metaadat mező, amely tartalmazza, hogy mi�
 $lang["sensitive_images_blur_level"] = 'Érzékeny kép elmosási szint<br>(1=legkevésbé, 6=legjobban)';
 $lang["page-title_sensitive_images_setup"] = 'Érzékeny Képek Bővítmény Beállítása';
 $lang["sensitive_images_show"] = 'Kattintson a kép megjelenítéséhez.';
+
+$lang['plugin-sensitive_images-title'] = 'Érzékeny képek elmosása';
+$lang['plugin-sensitive_images-desc'] = 'Elmosja az érzékenyként megjelölt képeket, a felhasználó pedig kattintással eltávolíthatja az elmosást.';

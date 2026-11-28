@@ -27,3 +27,6 @@ $lang["video_scene_play"] = 'I-play ang eksena sa %time';
 $lang["video_scene_play_unavailable"] = 'Ang eksenang ito ay nasa labas ng magagamit na preview ng video.';
 $lang["video_scene_job_success"] = 'Natapos ang pagproseso ng eksena ng video';
 $lang["video_scene_job_failure"] = 'Nabigo ang pagproseso ng eksena ng video. Tingnan ang job log para sa mga detalye.';
+
+$lang['plugin-video_scenes-title'] = 'Mga eksena ng video';
+$lang['plugin-video_scenes-desc'] = 'Tuklasin ang mga eksena ng video nang lokal gamit ang transnetv2-pytorch, na may opsyonal na mga audiovisual na paglalarawan ng OpenAI.';

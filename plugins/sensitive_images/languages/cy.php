@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='Maes metadata sy\'n cynnwys y rheswm pam mae\'r
 $lang["sensitive_images_blur_level"]='Lefel niwlenni delweddau sensitif<br>(1=lleiaf, 6=most)';
 $lang["page-title_sensitive_images_setup"] = 'Gosod Plugin Delweddau Sensitif';
 $lang["sensitive_images_show"] = 'Cliciwch ar y ddelwedd i\'w dangos.';
+
+$lang['plugin-sensitive_images-title'] = 'Anadlusrwydd delweddau sensitif';
+$lang['plugin-sensitive_images-desc'] = 'Yn anadlusrwydd delweddau a nodwyd fel sensitif gyda\'r defnyddiwr yn gallu clicio i ddad-anadlusrwydd.';

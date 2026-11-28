@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Konfigurasi kerja untuk mengesan muka';
 $lang["faces_tag_faces_configure"] = 'Konfigurasi kerja untuk menandai muka';
 $lang["faces_detect_faces_intro"] = 'Buat kerja untuk memulakan pengesanan muka di sini - kerja ini tidak memerlukan parameter apa pun jadi boleh dimulakan selagi tiada kerja lain yang tertunggak dari jenis ini.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Menetapkan pilihan ini akan bermakna hanya sumber dalam koleksi yang disenaraikan akan dikemas kini. Jika tiada koleksi yang ditetapkan, penandaan muka akan dikemas kini untuk SEMUA sumber yang sesuai. Koleksi boleh ditetapkan menggunakan senarai berasingan dengan koma serta julat seperti 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'Wajah AI - InsightFace';
+$lang['plugin-faces-desc'] = 'Pengesanan dan penandaan wajah automatik terkini. Cari mengikut wajah.';

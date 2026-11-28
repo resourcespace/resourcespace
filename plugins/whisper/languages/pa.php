@@ -15,3 +15,6 @@ $lang["whisper"] = 'ਵਿਸ਼ਪਰ';
 $lang["whisper_process_existing"] = 'ਅਣਪ੍ਰਕਿਰਿਆਤਮਕ ਸਰੋਤਾਂ ਨੂੰ ਪ੍ਰਕਿਰਿਆ ਕਰੋ';
 $lang["whisper_process_existing_intro"] = 'ਇੱਥੇ ਵਿਸ਼ਪਰ ਆਡੀਓ ਪ੍ਰਕਿਰਿਆ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਨੌਕਰੀ ਬਣਾਓ - ਇਸ ਨੌਕਰੀ ਨੂੰ ਕਿਸੇ ਵੀ ਪੈਰਾਮੀਟਰ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ ਇਸ ਲਈ ਜਦ ਤੱਕ ਇਸ ਕਿਸਮ ਦੀ ਹੋਰ ਕੋਈ ਬਕਾਇਆ ਨੌਕਰੀ ਨਾ ਹੋਵੇ, ਇਸ ਨੂੰ ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।';
 $lang["whisper_process_existing_configure"] = 'ਫਾਈਲਾਂ ਨੂੰ ਵਿਸ਼ਪਰ ਨਾਲ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਲਈ ਨੌਕਰੀ ਸੰਰਚਨਾ ਕਰੋ';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'ਵਿਡੀਓ/ਆਡੀਓ ਨੂੰ ਟੈਕਸਟ ਵਿੱਚ ਬਦਲਣਾ OpenAI ਦੇ Whisper ਨਾਲ। ਸਥਾਨਕ ਤੌਰ \'ਤੇ ਚੱਲਦਾ ਹੈ, ਕਿਸੇ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਦੀ ਲੋੜ ਨਹੀਂ।';

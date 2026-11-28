@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'Зберегти нове Open
 $lang["openai_image_edit_error_invalid_image_data"] = 'Недійсні дані зображення';
 $lang["openai_image_edit_error_invalid_image"] = 'Недійсне зображення';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Не вдалося записати тимчасовий файл';
+$lang['plugin-openai_image_edit-title'] = 'Редагування зображень OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Видаліть частини зображення та використовуйте GPT Image для їх відновлення.';

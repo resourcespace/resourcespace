@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Mainkan babak pada %time';
 $lang["video_scene_play_unavailable"] = 'Babak ini berada di luar pratonton video yang tersedia.';
 $lang["video_scene_job_success"] = 'Pemprosesan babak video selesai';
 $lang["video_scene_job_failure"] = 'Pemprosesan babak video gagal. Lihat log kerja untuk butiran.';
+$lang['plugin-video_scenes-title'] = 'Babak video';
+$lang['plugin-video_scenes-desc'] = 'Mengesan babak video secara tempatan dengan transnetv2-pytorch, dengan penerangan audiovisual OpenAI pilihan.';

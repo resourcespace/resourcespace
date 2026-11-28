@@ -52,3 +52,6 @@ $lang["museumplus_error_module_no_field_maps"] = 'Tidak dapat menyegerakkan data
 $lang["page-title_museumplus_museumplus_object_details"] = 'Butiran Objek MuseumPlus';
 $lang["page-title_museumplus_setup_module"] = 'Tetapkan Modul MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'Pasang Plugin MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Membolehkan metadata sumber diekstrak daripada MuseumPlus menggunakan REST API (MpRIA) mereka.';

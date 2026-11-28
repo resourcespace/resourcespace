@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"]='اجازه به کاربران بر�
 $lang["vimeo_publish_set_account"]='تنظیم حساب Vimeo';
 $lang["page-title_vimeo_publish_setup"] = 'نصب افزونه انتشار ویمئو';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'به Vimeo منتشر کنید';
+
+$lang['plugin-vimeo_publish-title'] = 'انتشار در Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'منابع را در Vimeo منتشر کنید.';

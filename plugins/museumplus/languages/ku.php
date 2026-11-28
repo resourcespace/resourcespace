@@ -54,3 +54,6 @@ $lang["museumplus_view_in_museumplus"] = 'بینین لە MuseumPlus';
 $lang["museumplus_confirm_delete_module_config"] = 'دڵنیایت دەتەوێت ئەم ڕێکخستنەی مۆدیوڵە بسڕیتەوە؟ ئەم کردارە ناتوانرێت بگەڕێندرێتەوە!';
 $lang["museumplus_module_setup"] = 'ڕێکخستنی مۆدیوڵ';
 $lang["museumplus_module_name"] = 'ناوی مۆدیوڵی MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'دەستگەیشتن بە مێتاداتای سەرچاوەکان لە MuseumPlus بە بەکارهێنانی REST API یەکەی (MpRIA) ڕێگە دەدات.';

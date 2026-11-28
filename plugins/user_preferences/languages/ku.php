@@ -7,3 +7,6 @@ $lang["user_preferences_change_email"] = 'ڕێگەدان بۆ گۆڕینی نا�
 $lang["user_preferences_change_name"] = 'ڕێگەدان بۆ گۆڕینی ناوی بەکارهێنەر';
 $lang["changeyourpassword"] = 'گۆڕینی تێپەڕوشە و وردەکاریەکانی بەکارهێنەر';
 $lang["page-title_user_preferences_setup"] = 'ڕێکخستنەوەی پلاگین پێشنیازی بەکارهێنەر';
+
+$lang['plugin-user_preferences-title'] = 'هەڵبژاردنی بەکارهێنەر';
+$lang['plugin-user_preferences-desc'] = 'ڕێگە دەدات بە بەکارهێنەرەکان ناوی بەکارهێنەر، ناو و ناونیشانی ئیمەیڵی خۆیان نوێ بکەنەوە.';

@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Управление на съд
 $lang["page-title_brand_guidelines_guidelines"] = 'Насоки за марката';
 $lang["page-title_brand_guidelines_setup"] = 'Настройка на приставката за насоки за марката';
 $lang["page-title_brand_guidelines_toc"] = 'Редактиране на съдържанието';
+
+$lang['plugin-brand_guidelines-title'] = 'Насоки за бранда';
+$lang['plugin-brand_guidelines-desc'] = 'Създайте зона с насоки за бранда с персонализирано съдържание, връзки към ресурси и цветове.';

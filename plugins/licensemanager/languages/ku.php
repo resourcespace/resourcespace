@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'دەسکاریکردنی مۆڵەت';
 $lang["page-title_licensemanager_list"] = 'لیستی مۆڵەتەکان';
 $lang["page-title_licensemanager_setup"] = 'ڕێکخستنی پلاگین بەڕێوەبردنی مۆڵەت';
 $lang["page-title_licensemanager_unlink"] = 'بەستنی مۆڵەت';
+
+$lang["collection_actiontype_80"] = 'مۆڵەتی';
+$lang['plugin-licensemanager-title'] = 'بەڕێوەبەری مافنامەکان';
+$lang['plugin-licensemanager-desc'] = 'بەڕێوەبردنی مافنامەی سەرچاوەکان.';

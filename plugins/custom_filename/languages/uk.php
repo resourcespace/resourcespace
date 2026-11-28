@@ -4,3 +4,6 @@ $lang["custom_filename_configuration"] = 'Налаштування плагін�
 $lang["custom_filename_field_label"] = 'Де буде збережено нове значення?';
 
 $lang["page-title_custom_filename_setup"] = 'Налаштування плагіна для користувацьких імен файлів';
+
+$lang['plugin-custom_filename-title'] = 'Користувацька назва файлу';
+$lang['plugin-custom_filename-desc'] = 'Післяобробка назви файлу та збереження нового значення в окремому полі.';

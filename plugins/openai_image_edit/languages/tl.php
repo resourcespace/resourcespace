@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI I-save ang Bago';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Hindi wastong datos ng larawan';
 $lang["openai_image_edit_error_invalid_image"] = 'Hindi wastong larawan';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Hindi maisulat ang pansamantalang file';
+$lang['plugin-openai_image_edit-title'] = 'Pag-edit ng Larawan ng OpenAI';
+$lang['plugin-openai_image_edit-desc'] = 'Burahin ang mga bahagi ng larawan at gamitin ang GPT Image upang muling likhain ang mga ito.';

@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Feldolgozatlan erőforrások feldolgozása';
 $lang["whisper_process_existing_intro"] = 'Hozzon létre egy feladatot a Whisper hangfeldolgozás elindításához itt - ez a feladat nem igényel paramétereket, így elindítható, amíg nincs más, ezzel a típussal kapcsolatos függőben lévő feladat.';
 $lang["whisper_process_existing_configure"] = 'Feladat konfigurálása fájlok Whisperrel történő feldolgozásához';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Videó/hang szöveggé alakítása az OpenAI Whisper segítségével. Helyileg fut, előfizetés nem szükséges.';

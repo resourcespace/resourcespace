@@ -57,3 +57,5 @@ $lang["page-title_licensemanager_edit"] = 'Editare Licență';
 $lang["page-title_licensemanager_list"] = 'Lista Licențelor';
 $lang["page-title_licensemanager_setup"] = 'Configurare plugin-ul Manager de Licențe';
 $lang["page-title_licensemanager_unlink"] = 'Dezactivează licența';
+
+$lang["collection_actiontype_80"] = 'Licențiere';

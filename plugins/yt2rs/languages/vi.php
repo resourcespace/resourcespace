@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'Đường dẫn hình thu nhỏ';
 $lang["yt2rs_online_preview"] = 'Xem trước trực tuyến';
 $lang["yt2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_yt2rs_setup"] = 'Cài đặt Plugin Youtube cho ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube tới ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'Thêm video lưu trữ trên YouTube làm tài nguyên.';

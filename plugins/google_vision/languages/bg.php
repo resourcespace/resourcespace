@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'Обработка на необработени ресурси';
 $lang["google_vision_process_existing_configure"] = 'Конфигурирайте задача за обработка на необработени ресурси';
 $lang["google_vision_process_existing_collection_refs_help"] = 'Настройването на тази опция означава, че ще бъдат обработени само ресурсите в изброените колекции. Ако не са посочени колекции, ще бъдат обработени ВСИЧКИ подходящи ресурси. Колекциите могат да се посочат чрез списък разделен със запетая, както и диапазони, например 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'Автоматично етикетиране на изображения с помощта на изкуствен интелект.';

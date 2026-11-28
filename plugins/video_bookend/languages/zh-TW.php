@@ -10,3 +10,6 @@ $lang["bookend-intro"] = '從替代檔案清單中選擇圖像用於開頭和結
 $lang["bookend-failed"] = '失敗！';
 $lang["bookend-could-not-open-file"] = '錯誤 - 無法打開檔案！';
 $lang["page-title_video_bookend_bookend"] = '影片書尾';
+
+$lang['plugin-video_bookend-title'] = '影片書籤';
+$lang['plugin-video_bookend-desc'] = '新增可下載帶有標題和結尾圖形的影片功能。';

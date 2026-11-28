@@ -15,3 +15,6 @@ $lang["whisper"] = 'ویسپر';
 $lang["whisper_process_existing"] = 'پردازش منابع پردازش‌نشده';
 $lang["whisper_process_existing_intro"] = 'ایجاد یک وظیفه برای شروع پردازش صوتی ویسپر در اینجا - این وظیفه نیاز به پارامتر ندارد، بنابراین می‌تواند زمانی که وظایف دیگری از این نوع در حال اجرا نیست، شروع شود.';
 $lang["whisper_process_existing_configure"] = 'پیکربندی وظیفه برای پردازش فایل‌ها با ویسپر';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'تبدیل ویدئو/صوت به متن با استفاده از Whisper از OpenAI. به صورت محلی اجرا می‌شود، نیاز به اشتراک ندارد.';

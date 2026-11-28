@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'Hiển thị Dữ liệu TMS Thô';
 $lang["page-title_tms_link_test"] = 'Kiểm tra dữ liệu TMS';
 $lang["page-title_tms_link_tms_details"] = 'Hiển thị Dữ liệu TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'Chỉnh sửa cấu hình mô-đun TMS';
+
+$lang['plugin-tms_link-title'] = 'Liên kết TMS';
+$lang['plugin-tms_link-desc'] = 'Cho phép trích xuất siêu dữ liệu tài nguyên từ cơ sở dữ liệu TMS.';

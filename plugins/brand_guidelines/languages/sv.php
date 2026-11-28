@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Hantera innehåll för varumärk
 $lang["page-title_brand_guidelines_guidelines"] = 'Varumärkesriktlinjer';
 $lang["page-title_brand_guidelines_setup"] = 'Installera plugin för varumärkesriktlinjer';
 $lang["page-title_brand_guidelines_toc"] = 'Redigera innehåll';
+
+$lang['plugin-brand_guidelines-title'] = 'Varumärkesriktlinjer';
+$lang['plugin-brand_guidelines-desc'] = 'Skapa ett område för varumärkesriktlinjer med anpassat innehåll, resurslänkar och färger.';

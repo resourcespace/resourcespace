@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'Piliin ang column na naglalaman ng lokasyon para
 $lang["csv_upload_longitude"] = 'Piliin ang column para sa Longitude kung hiwalay sa column sa itaas';
 $lang["latitude"] = 'latitude';
 $lang["longitude"] = 'longitude';
+
+$lang['plugin-csv_upload-title'] = 'Pag-upload ng CSV';
+$lang['plugin-csv_upload-desc'] = 'Mag-upload ng metadata gamit ang isang CSV na file.';

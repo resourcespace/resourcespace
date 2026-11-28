@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'A jelenlegi év';
 $lang["page-title_totp_setup"] = 'TOTP bővítmény beállítása';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'TOTP kikapcsolása a SAML-on keresztül hitelesített felhasználóknál (SAML plugin szükséges)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'TFA/MFA támogatás a Google Authenticator segítségével';

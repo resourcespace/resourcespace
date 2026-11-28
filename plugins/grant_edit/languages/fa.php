@@ -10,3 +10,6 @@ $lang["grant_edit_list"]='کاربران فعلی با دسترسی ویرایش
 $lang["grant_edit_group_list"]='گروه‌های فعلی با دسترسی ویرایش اضافی';
 $lang["grant_edit_delete_user"]='تأیید حذف دسترسی پیشرفته برای';
 $lang["page-title_grant_edit_setup"] = 'تنظیم افزونه ویرایش مجوز';
+
+$lang['plugin-grant_edit-title'] = 'دادن اجازه ویرایش';
+$lang['plugin-grant_edit-desc'] = 'به مدیران اجازه می‌دهد تا به کاربران دسترسی کامل ویرایش موقت به منابع بدهند.';

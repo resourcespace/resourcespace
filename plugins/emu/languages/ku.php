@@ -36,3 +36,6 @@ $lang["emu_nodata_returned"] = 'هیچ داتای EMu بۆ IRN-ە دیاریکر
 $lang["emu_createdfromemu"] = 'دروستکراوە لە فڵەگین EMU';
 $lang["page-title_emu_emu_object_details"] = 'وردەکارییەکانی ئەو شتەی EMu';
 $lang["page-title_emu_setup"] = 'ڕێکخستنەوەی فڵەگین EMu';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'ڕێگە دەدات بۆ وەرگرتنی Metadata ی سەرچاوەکان لە بنکەدراوەی EMu.';

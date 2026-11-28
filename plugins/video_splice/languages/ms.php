@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"] = 'Ralat : Tindakan tidak sah';
 $lang["page-title_video_splice_setup"] = 'Tetapkan Plugin Video Splice';
 $lang["page-title_video_splice_splice"] = 'Potong Video';
 $lang["page-title_video_splice_trim"] = 'Potong Video';
+
+$lang['plugin-video_splice-title'] = 'Sambungan Video';
+$lang['plugin-video_splice-desc'] = 'Keupayaan memotong dan menyambung video.';

@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Cheza tukio saa %time';
 $lang["video_scene_play_unavailable"] = 'Tukio hili liko nje ya onyesho la awali la video.';
 $lang["video_scene_job_success"] = 'Uchakataji wa tukio la video umekamilika';
 $lang["video_scene_job_failure"] = 'Uchakataji wa tukio la video umefeli. Angalia kumbukumbu ya kazi kwa maelezo.';
+$lang['plugin-video_scenes-title'] = 'Mazingira ya video';
+$lang['plugin-video_scenes-desc'] = 'Gundua mazingira ya video kwa ndani kwa kutumia transnetv2-pytorch, na maelezo ya sauti na picha ya hiari ya OpenAI.';

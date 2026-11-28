@@ -1,0 +1,31 @@
+<?php
+$lang['video_tracks_custom_video_formats_label'] = 'අභිරුචි ආකෘති';
+$lang['video_tracks_use_for_custom_video_formats_of_original_label'] = 'මූලික ගොනුව සඳහා අභිරුචි වීඩියෝ ආකෘති නිර්මාණය කිරීමට ලබා ගත හැකි ගොනු ප්‍රතිදාන විකල්ප භාවිතා කිරීමට ඉඩ දෙනවාද?';
+$lang['video_tracks_transcode_now_or_notify_me_label'] = 'දැන් පරිවර්තනය ආරම්භ කිරීමට පරීක්ෂා කරන්න. පරීක්ෂා නොකළහොත් ගොනුව සූදානම් වූ විට ඔබට දැනුම්දීමක් ලැබේ';
+$lang['video_tracks_transcode_now_label'] = 'දැන් පරිවර්තනය කරන්න';
+$lang['page-title_video_tracks_create_video'] = 'වීඩියෝ නිර්මාණය කරන්න';
+$lang['page-title_video_tracks_setup'] = 'වීඩියෝ ට්‍රැක් ප්ලගිනය සැකසීම';
+$lang['plugin-video_tracks-title'] = 'වීඩියෝ ට්‍රැක්';
+$lang['plugin-video_tracks-desc'] = 'වීඩියෝ සම්පත් සඳහා විවිධ ශ්‍රව්‍ය සහ උපසිරසි විකල්ප සඳහා සහාය එක් කරන්න.';
+
+$lang['video_tracks_title'] = 'වීඩියෝ පථ සැකසුම';
+$lang['video_tracks_intro'] = 'මෙම ප්ලගීනය විකල්ප උපසිරසි සහ ශ්‍රව්‍ය පථ ගොනු භාවිතා කරමින් අභිරුචි වීඩියෝ ගොනු නිර්මාණය කිරීමට ඉඩ සලසයි';
+$lang['video_tracks_convert_vtt'] = 'වීඩියෝ පෙරදසුනවල ප්‍රදර්ශනය සඳහා සබ්රිප් උපසිරසි ගොනු (.srt) ස්වයංක්‍රීයව VTT වෙත පරිවර්තනය කරන්නේද?';
+$lang['video_tracks_audio_extensions'] = 'සංගීත පට සඳහා භාවිතා කළ හැකි විකල්ප ශ්‍රව්‍ය ගොනු දිගුවල ලැයිස්තුව (කොමාවෙන් වෙන්වූ)';
+$lang['video_tracks_subtitle_extensions'] = 'අනුමත උපසිරසි ගොනු දිගුවල ලැයිස්තුව (කොමාවෙන් වෙන්වූ). ffmpeg විසින් සහාය දක්වන ලදි යුතුය';
+$lang['video_tracks_permitted_video_extensions'] = 'මෙම ගොනු දිගුවල සඳහා අභිරුචි වීඩියෝ විකල්ප පෙන්වන්න';
+$lang['video_tracks_create_video_link'] = 'අභිරුචි වීඩියෝ ජනනය කරන්න';
+$lang['video_tracks_select_output'] = 'ආකෘතිය තෝරන්න';
+$lang['video_tracks_select_subtitle'] = 'උපසිරසි';
+$lang['video_tracks_select_audio'] = 'ශ්‍රව්‍ය';
+$lang['video_tracks_invalid_resource'] = 'අවලංගු සම්පත්';
+$lang['video_tracks_invalid_option'] = 'අවලංගු විකල්ප තෝරා ඇත';
+$lang['video_tracks_select_generate_opt'] = 'කරුණාකර ජනනය කිරීමේ විකල්පයක් තෝරන්න';
+$lang['video_tracks_save_alt_not_perm'] = 'අවසර නොමැතිව විකල්ප ගොනුව සුරකින්න නොහැක';
+$lang['video_tracks_save_to'] = 'සුරකින්න';
+$lang['video_tracks_save_alternative'] = 'විකල්ප ගොනුව';
+$lang['video_tracks_generate'] = 'ජනනය කරන්න';
+$lang['video_tracks_process_size_limit'] = 'ඉක්මන් සැකසීම සඳහා සම්පත් ගොනු උපරිම ප්‍රමාණය (MB). විශාල ගොනු අන්තර්ජාලයෙන් පිටත සැකසීම සිදු කරනු ලබයි සහ සම්පූර්ණ වූ විට පරිශීලකයාට දැනුම් දෙනු ඇත';
+$lang['video_tracks_offline_notice'] = 'ඔබගේ ඉල්ලීම පෝරමයකට එක් කර ඇත. නව ගොනුව ජනනය වූ විට ඔබට දැනුම් දෙනු ඇත';
+$lang['video_tracks_upgrade_msg_deprecated_output_format'] = 'වැදගත්! Video Tracks ප්ලගීනය ආදාන ආකෘති සැකසුම් අත්හැර ඇත. ඒවා config.php හි පමණක් සකස් කළ හැක. සැකසුම් විකල්පය පිටපත් කර නොමැතිව ප්ලගීනය නිවැරදි ලෙස ක්‍රියා නොකරනු ඇත. කරුණාකර පහත පිටපත් කරන්න:- %nl%####%nl%[output_formats_config]####%nl%';
+$lang['video_tracks_generate_label'] = 'ජනනය කරන්න';

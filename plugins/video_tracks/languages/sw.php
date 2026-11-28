@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"]='Angalia kuanza kubadilis
 $lang["video_tracks_transcode_now_label"]='Badilisha sasa';
 $lang["page-title_video_tracks_create_video"] = 'Unda Video';
 $lang["page-title_video_tracks_setup"] = 'Panga Plugin za Video Tracks';
+
+$lang['plugin-video_tracks-title'] = 'Njia za Video';
+$lang['plugin-video_tracks-desc'] = 'Ongeza msaada kwa chaguzi tofauti za sauti na manukuu kwa rasilimali za video.';

@@ -53,3 +53,6 @@ $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'Không kiểm tra FQDN của 
 $lang["page-title_simpleldap_ajax_test_auth"] = 'Kiểm tra xác thực LDAP';
 $lang["page-title_simpleldap_setup"] = 'Cài đặt Plugin LDAP Đơn Giản';
 $lang["simpleldap_userlimit_error"] = 'Không thể tạo người dùng vì đã đạt giới hạn người dùng. Vui lòng liên hệ quản trị viên của bạn.';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'Xác thực người dùng qua LDAP.';

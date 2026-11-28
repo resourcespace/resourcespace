@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'Onyesha Takwimu za TMS Mbichi';
 $lang["page-title_tms_link_test"] = 'Jaribio la Takwimu za TMS';
 $lang["page-title_tms_link_tms_details"] = 'Onyesha Takwimu za TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'Hariri Mipangilio ya Moduli ya TMS';
+
+$lang['plugin-tms_link-title'] = 'Kiungo cha TMS';
+$lang['plugin-tms_link-desc'] = 'Inaruhusu metadata ya rasilimali kuchukuliwa kutoka kwenye hifadhidata ya TMS.';

@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_setup"] = 'Налаштування плагін�
 $lang["page-title_rse_workflow_edit_workflow"] = 'Редагувати робочий процес';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'Неможливо змінити стан архіву на %%ARCHIVE%%. Відсутній доступ для очищення обов’язкових полів.';
+$lang['plugin-rse_workflow-title'] = 'Розширений робочий процес';
+$lang['plugin-rse_workflow-desc'] = 'Налаштуйте користувацькі стани та дії робочого процесу поза межами стандартних.';

@@ -28,7 +28,6 @@ $lang["emu_add_mapping"] = 'Ajouter une correspondance';
 $lang["emu_confirm_upload_nodata"] = 'Veuillez cocher la case pour confirmer que vous souhaitez poursuivre le téléchargement';
 $lang["emu_test_script_title"] = 'Tester/Exécuter le script';
 $lang["emu_run_script"] = 'Processus';
-$lang["emu_script_problem"] = 'AVERTISSEMENT - le script EMu n\'a pas été exécuté avec succès au cours des %jours% derniers jours. Dernière heure d\'exécution :';
 $lang["emu_no_resource"] = 'Identifiant de ressource non spécifié !';
 $lang["emu_upload_nodata"] = 'Aucune donnée EMu trouvée pour cet IRN :';
 $lang["emu_nodata_returned"] = 'Aucune donnée EMu trouvée pour l\'IRN spécifié.';
@@ -38,3 +37,6 @@ $lang["plugin-emu-desc"] = '[Avancé] Permet d\'extraire les métadonnées des r
 
 $lang["page-title_emu_emu_object_details"] = 'Détails de l\'objet EMu';
 $lang["page-title_emu_setup"] = 'Configurer le plugin';
+
+$lang['emu_script_problem'] = 'AVERTISSEMENT - le script EMu ne s\'est pas exécuté avec succès depuis plus de %days% jours. Dernière exécution : ';
+$lang['plugin-emu-title'] = 'EMu';

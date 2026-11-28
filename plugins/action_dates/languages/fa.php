@@ -39,3 +39,6 @@ $lang["weekday-6"] = 'شنبه';
 
 $lang["page-title_action_dates_setup"] = 'نصب افزونه تاریخ‌های اقدام';
 $lang["action_dates_additional_settings_email_admin_days"] = 'اعلان مدیران این تعداد روز قبل از انجام عمل (برای غیرفعال کردن، خالی بگذارید)';
+
+$lang['plugin-action_dates-title'] = 'تاریخ‌های اقدام';
+$lang['plugin-action_dates-desc'] = 'امکان حذف یا محدودسازی برنامه‌ریزی‌شده منابع بر اساس فیلدهای تاریخ را فراهم می‌کند.';

@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"] = 'Bélyegkép Útvonal';
 $lang["yt2rs_online_preview"] = 'Online előnézet';
 $lang["yt2rs_youtube_video"] = 'Youtube Videó';
 $lang["page-title_yt2rs_setup"] = 'Youtube a ResourceSpace Plugin beállítása';
+
+$lang['plugin-yt2rs-title'] = 'YouTube a ResourceSpace-hez';
+$lang['plugin-yt2rs-desc'] = 'YouTube-on tárolt videók hozzáadása erőforrásként.';

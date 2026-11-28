@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'مقدار';
 $lang["conditional_terms_plugin_misconfigured"] = 'پلاگین شرایط مشروط به اشتباه پیکربندی شده است';
 
 $lang["page-title_conditional_terms_setup"] = 'نصب افزونه شرایط شرطی';
+
+$lang['plugin-conditional_terms-title'] = 'شرایط مشروط';
+$lang['plugin-conditional_terms-desc'] = 'امکان نمایش مشروط صفحه شرایط هنگام دانلود بر اساس فراداده منبع را فراهم می‌کند.';

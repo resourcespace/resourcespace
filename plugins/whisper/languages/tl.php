@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Proseso ang mga hindi pa na-proseso na mga mapagkukunan';
 $lang["whisper_process_existing_intro"] = 'Lumikha ng isang trabaho upang simulan ang Whisper audio processing dito - ang trabahong ito ay hindi nangangailangan ng anumang mga parameter kaya maaari itong simulan hangga\'t walang ibang nakabinbing mga trabaho ng ganitong uri.';
 $lang["whisper_process_existing_configure"] = 'I-configure ang trabaho upang i-proseso ang mga file gamit ang Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Video/audio sa teksto gamit ang Whisper mula sa OpenAI. Tumatakbo nang lokal, hindi kailangan ng subscription.';

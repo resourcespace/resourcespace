@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_setup"] = 'ตั้งค่าปลั๊ก�
 $lang["page-title_rse_workflow_edit_workflow"] = 'แก้ไขเวิร์กโฟลว์';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'ไม่สามารถเปลี่ยนสถานะคลังเก็บเป็น %%ARCHIVE%% ได้ เนื่องจากไม่มีสิทธิ์เข้าถึงฟิลด์ที่จำเป็นต้องว่าง';
+$lang['plugin-rse_workflow-title'] = 'เวิร์กโฟลว์ขั้นสูง';
+$lang['plugin-rse_workflow-desc'] = 'กำหนดสถานะและการดำเนินการของเวิร์กโฟลว์ที่กำหนดเองนอกเหนือจากค่าเริ่มต้น';

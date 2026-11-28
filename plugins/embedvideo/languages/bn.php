@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'অনুগ্রহ করে নির্দ
 $lang["video_resourcetype"] = 'ভিডিও রিসোর্স প্রকার';
 
 $lang["page-title_embedvideo_setup"] = 'ভিডিও এম্বেড প্লাগইন সেটআপ করুন';
+
+$lang['plugin-embedvideo-title'] = 'ভিডিও এম্বেড করুন';
+$lang['plugin-embedvideo-desc'] = 'দূরবর্তী সাইটে এম্বেডযোগ্য ভিডিওর জন্য HTML তৈরি করার একটি ফাংশন প্রদান করে।';

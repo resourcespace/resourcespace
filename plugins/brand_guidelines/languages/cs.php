@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'Spravovat obsah pokynů pro zna�
 $lang["page-title_brand_guidelines_guidelines"] = 'Pokyny pro značku';
 $lang["page-title_brand_guidelines_setup"] = 'Nastavit plugin pro směrnice značky';
 $lang["page-title_brand_guidelines_toc"] = 'Upravit obsah';
+
+$lang['plugin-brand_guidelines-title'] = 'Pokyny pro značku';
+$lang['plugin-brand_guidelines-desc'] = 'Vytvořte oblast pokynů pro značku s vlastním obsahem, odkazy na zdroje a barvami.';

@@ -106,3 +106,6 @@ $lang["simplesaml_error_no_authsource"] = 'SimpleSAML 插件未完全配置（�
 $lang["page-title_simplesaml_about"] = 'SAML 關於';
 $lang["page-title_simplesaml_generate_sp_config"] = '產生 SP 配置';
 $lang["page-title_simplesaml_setup"] = '設定 Simple SAML 插件';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = '透過 SAML 進行使用者驗證。';

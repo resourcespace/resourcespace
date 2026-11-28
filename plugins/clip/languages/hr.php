@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Konfiguriraj zadatak za generiranje CLIP vektora'
 $lang["clip-job_limit"] = 'Ograničenje veličine serije';
 $lang["clip-job_limit_help"] = 'Postavljanjem ove opcije ograničit ćete broj resursa obrađenih u jednom pokretanju.';
 $lang["clip-job_limit_error"] = 'Vrijednost mora biti između 1 i 100000 ili prazna za bez ograničenja';
+
+$lang['plugin-clip-title'] = 'CLIP AI Pametno pretraživanje i označavanje';
+$lang['plugin-clip-desc'] = 'AI pretraživanje prirodnim jezikom, vizualno pretraživanje, podudaranje sličnosti, podudaranje duplikata, označavanje, generiranje naslova';

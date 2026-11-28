@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = 'Adakah anda pasti? Ini tidak boleh dibatalkan.'
 $lang["system_reset_delete_all"] = 'Padam semua data dan fail';
 $lang["system_reset-tooltip"] = 'Lakukan reset sistem untuk memadam semua fail dan data';
 $lang["page-title_system_reset_reset"] = 'Tetapan Semula Sistem';
+
+$lang['plugin-system_reset-title'] = 'Tetapan Semula Sistem';
+$lang['plugin-system_reset-desc'] = 'Menambah pilihan pada admin/system untuk memadam semua data.';

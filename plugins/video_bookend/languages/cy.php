@@ -10,3 +10,6 @@ $lang["bookend-failed"]='Methu!';
 $lang["bookend-could-not-open-file"]='Gwall - ni ellid agor y ffeil!';
 $lang["bookend"]='Gweddol Lyfr';
 $lang["page-title_video_bookend_bookend"] = 'Cofnod Fideo';
+
+$lang['plugin-video_bookend-title'] = 'Video Bookend';
+$lang['plugin-video_bookend-desc'] = 'Yn ychwanegu\'r gallu i lawrlwytho fideo gyda theitl a graffeg diwedd.';

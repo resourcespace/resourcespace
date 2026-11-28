@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Spela scen vid %time';
 $lang["video_scene_play_unavailable"] = 'Denna scen ligger utanför den tillgängliga videoförhandsvisningen.';
 $lang["video_scene_job_success"] = 'Videoscensbearbetning slutförd';
 $lang["video_scene_job_failure"] = 'Videoscensbearbetning misslyckades. Se jobbloggen för detaljer.';
+$lang['plugin-video_scenes-title'] = 'Videoscener';
+$lang['plugin-video_scenes-desc'] = 'Detektera videoscener lokalt med transnetv2-pytorch, med valfria OpenAI audiovisuella beskrivningar.';

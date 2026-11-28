@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'Buksan ang direktang link (bagong pahi
 $lang["embedslideshow_dynamic_size"] = 'Dinamiko na pagbabago ng sukat ng preview batay sa laki ng manlalaro?';
 $lang["page-title_embedslideshow_setup"] = 'I-set up ang Embed Slideshow Plugin';
 $lang["page-title_embedslideshow_viewer"] = 'I-embed ang Slideshow';
+
+$lang['plugin-embedslideshow-title'] = 'I-embed ang Slideshow';
+$lang['plugin-embedslideshow-desc'] = 'Nagbibigay ng kakayahan upang makabuo ng HTML para sa mga slideshow ng koleksyon na maaaring i-embed sa mga panlabas na site.';

@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'ای ایم یو پلگ ان سے تخلیق کی
 
 $lang["page-title_emu_emu_object_details"] = 'EMu آبجیکٹ کی تفصیلات';
 $lang["page-title_emu_setup"] = 'سیٹ اپ پلگ ان';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'وسائل کے میٹا ڈیٹا کو EMu ڈیٹا بیس سے نکالنے کی اجازت دیتا ہے۔';

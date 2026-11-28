@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='لیست گزینه‌های استفاده م�
 $lang["page-title_resource_usage_delete"] = 'حذف استفاده از منبع';
 $lang["page-title_resource_usage_edit"] = 'ویرایش استفاده از منبع';
 $lang["page-title_resource_usage_setup"] = 'نصب افزونه استفاده از منابع';
+
+$lang['plugin-resource_usage-title'] = 'استفاده از منبع';
+$lang['plugin-resource_usage-desc'] = 'امکان ثبت استفاده از منبع از طریق صفحه مشاهده منبع را اضافه می‌کند.';

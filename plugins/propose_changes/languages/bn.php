@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"]='[img_headerlogo]<br />আপনার �
 $lang["propose_changes_emailproposedchanges"]='[img_headerlogo]<br />প্রস্তাবিত পরিবর্তনগুলি জমা দেওয়া হয়েছে।<br/>[changesummary]<br/>পরিবর্তনগুলি পর্যালোচনা করতে নিচে ক্লিক করুন<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'পরিবর্তন প্রস্তাব করুন';
 $lang["page-title_propose_changes_setup"] = 'পরিবর্তন প্রস্তাবনা প্লাগইন সেটআপ';
+
+$lang['plugin-propose_changes-title'] = 'পরিবর্তনের প্রস্তাব দিন';
+$lang['plugin-propose_changes-desc'] = 'ব্যবহারকারীদের সম্পাদনার অনুমতি ছাড়াই মেটাডেটা পরিবর্তনের প্রস্তাব দেওয়ার অনুমতি দিন।';

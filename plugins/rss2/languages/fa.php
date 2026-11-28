@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='به‌روزرسانی منبع فیلت
 $lang["page-title_rss2_rssfeed"] = 'خوراک RSS';
 $lang["page-title_rss2_rssfilter"] = 'فیلتر RSS';
 $lang["page-title_rss2_setup"] = 'تنظیم افزونه RSS';
+
+$lang['plugin-rss2-title'] = 'خوراک RSS';
+$lang['plugin-rss2-desc'] = 'امکان تولید خوراک‌های RSS معتبر از محتوای جدید، شامل فیلدهای قابل تنظیم را فراهم می‌کند.';

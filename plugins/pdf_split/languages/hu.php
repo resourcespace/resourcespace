@@ -12,3 +12,6 @@ $lang["invalidrange"] = 'Érvénytelen tartomány';
 $lang["splitpdf_createnewresource"] = 'Hozzon létre egy új erőforrást minden tartományhoz';
 $lang["splitpdf_createnewalternativefile"] = 'Hozzon létre egy új alternatív fájlt ezen az erőforráson minden tartományhoz';
 $lang["page-title_pdf_split_pdf_split"] = 'PDF Felosztás';
+
+$lang['plugin-pdf_split-title'] = 'PDF felosztás';
+$lang['plugin-pdf_split-desc'] = 'Lehetővé teszi a PDF fájlok több oldalra történő felosztását.';

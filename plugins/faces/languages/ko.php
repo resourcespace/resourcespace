@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = '얼굴 감지 작업 구성';
 $lang["faces_tag_faces_configure"] = '얼굴 태그 지정 작업 구성';
 $lang["faces_detect_faces_intro"] = '여기서 얼굴 감지 작업을 시작하세요 - 이 작업은 매개변수가 필요하지 않으며, 다른 유효한 작업이 없을 경우 시작할 수 있습니다.';
 $lang["faces_tag_faces_collection_refs_help"] = '이 옵션을 설정하면 나열된 컬렉션에 있는 리소스만 업데이트됩니다. 컬렉션이 지정되지 않으면 모든 적합한 리소스에 대해 얼굴 태그가 업데이트됩니다. 컬렉션은 쉼표로 구분된 목록 또는 범위(예: 100,105,110-115)로 지정할 수 있습니다.';
+
+$lang['plugin-faces-title'] = 'AI 얼굴 - InsightFace';
+$lang['plugin-faces-desc'] = '최첨단 자동 얼굴 인식 및 태깅. 얼굴로 검색.';

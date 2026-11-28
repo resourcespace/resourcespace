@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'จัดการเนื้�
 $lang["page-title_brand_guidelines_guidelines"] = 'แนวทางแบรนด์';
 $lang["page-title_brand_guidelines_setup"] = 'ตั้งค่าปลั๊กอินแนวทางแบรนด์';
 $lang["page-title_brand_guidelines_toc"] = 'แก้ไขเนื้อหา';
+
+$lang['plugin-brand_guidelines-title'] = 'แนวทางแบรนด์';
+$lang['plugin-brand_guidelines-desc'] = 'สร้างพื้นที่แนวทางแบรนด์พร้อมเนื้อหาที่กำหนดเอง ลิงก์ทรัพยากร และสีสันต่างๆ';

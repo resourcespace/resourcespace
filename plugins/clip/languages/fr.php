@@ -5,7 +5,6 @@ $lang["clip-configuration"] = 'Configuration de CLIP';
 $lang["clip-ai-smart-search"] = 'Recherche intelligente IA';
 $lang["clip-visually-similar-images"] = 'Images visuellement similaires';
 $lang["clip_search_cutoff"] = 'Seuil de distance du vecteur de recherche en langage naturel<br />(suggéré 25%; augmentez pour affiner la recherche, diminuez pour élargir la recherche)';
-$lang["clip_similar_cutoff"] = 'Images similaires seuil de distance vectorielle<br />(suggéré 60%; augmentez pour affiner la recherche, diminuez pour élargir la recherche)';
 $lang["clip_results_limit_search"] = 'Nombre de résultats de recherche à afficher';
 $lang["clip_results_limit_similar"] = 'Nombre de ressources similaires à afficher';
 $lang["clip_service_url"] = 'URL du service CLIP';
@@ -45,3 +44,8 @@ $lang["clip-configure_job"] = 'Configurer le travail pour générer des vecteurs
 $lang["clip-job_limit"] = 'Limite de taille de lot';
 $lang["clip-job_limit_help"] = 'La configuration de cette option limitera le nombre de ressources traitées en une seule exécution.';
 $lang["clip-job_limit_error"] = 'La valeur doit être comprise entre 1 et 100000 ou vide pour aucune limite';
+
+$lang['plugin-clip-title'] = 'Recherche et étiquetage intelligent CLIP AI';
+$lang['plugin-clip-desc'] = 'Recherche en langage naturel par IA, recherche visuelle, correspondance de similarité, détection de doublons, étiquetage, génération de titres';
+
+$lang['clip_similar_cutoff'] = 'Seuil de distance vectorielle pour images similaires (50 % recommandé ; augmenter pour affiner la recherche, diminuer pour l\'élargir)';

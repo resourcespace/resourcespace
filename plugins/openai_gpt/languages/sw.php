@@ -39,3 +39,6 @@ $lang["openai_gpt_provider_override"] = 'Mtoa huduma amewekwa kufungwa katika us
 $lang["ollama_name"] = 'Ollama';
 $lang["ollama_model"] = 'Ollama model to use (e.g. \'gemma3:12b\')';
 $lang["ollama_endpoint"] = 'Tumia mwisho wa Ollama (k.m. http://[IP]:11434/v1/chat/completions)';
+
+$lang['plugin-openai_gpt-title'] = 'Usindikaji wa metadata wa OpenAI/Ollama';
+$lang['plugin-openai_gpt-desc'] = 'Usindikaji wa moja kwa moja wa metadata na picha kwa kutumia AI.';

@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"]='ਥੰਬਨੇਲ ਪਾਥ';
 $lang["vm2rs_online_preview"]='ਆਨਲਾਈਨ ਪ੍ਰੀਵਿਊ';
 $lang["vm2rs_youtube_video"]='ਯੂਟਿਊਬ ਵੀਡੀਓ';
 $lang["page-title_vm2rs_setup"] = 'Vimeo ਨੂੰ ResourceSpace ਪਲੱਗਇਨ ਵਿੱਚ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo ਤੋਂ ResourceSpace';
+$lang['plugin-vm2rs-desc'] = 'Vimeo ਤੋਂ ਵੀਡੀਓਜ਼ ਨੂੰ ਇਸ ਤਰ੍ਹਾਂ ਐਂਬੈਡ ਕਰੋ ਜਿਵੇਂ ਕਿ ਉਹ ResourceSpace ਸਰੋਤ ਹਨ।';

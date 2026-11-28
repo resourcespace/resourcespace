@@ -7,3 +7,6 @@ $lang["conditional_terms_field"] = 'خانەی داتاکان';
 $lang["conditional_terms_value"] = 'نرخ';
 $lang["conditional_terms_plugin_misconfigured"] = 'پلاگینەکانی مەرجەکانی بەشەرت هەڵەیە';
 $lang["page-title_conditional_terms_setup"] = 'ڕێکخستنەوەی پلاگینەکانی بەشەرتی';
+
+$lang['plugin-conditional_terms-title'] = 'مەرجەکانی مەشروط';
+$lang['plugin-conditional_terms-desc'] = 'ڕێگە دەدات بۆ نیشاندانی مەرجەکانی لاپەڕەی مەرجەکان لەکاتی داگرتن بەسەر بنچینەی Metadata ی سەرچاوەکان.';

@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'Дадаць, адрэдагаваць або в
 $lang["page-title_news_news_content_edit"] = 'Рэдагаваць кантэнт навін';
 $lang["page-title_news_news_edit"] = 'Рэдагаваць навіны';
 $lang["page-title_news_news"] = 'Навіны';
+
+$lang['plugin-news-title'] = 'Навіны';
+$lang['plugin-news-desc'] = 'Дадайце навіны на галоўную старонку.';

@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Hallitse brändiohjeiden sisält
 $lang["page-title_brand_guidelines_guidelines"] = 'Brändiohjeet';
 $lang["page-title_brand_guidelines_setup"] = 'Aseta brändiohjeet laajennus';
 $lang["page-title_brand_guidelines_toc"] = 'Muokkaa sisältöä';
+
+$lang['plugin-brand_guidelines-title'] = 'Brändiohjeet';
+$lang['plugin-brand_guidelines-desc'] = 'Luo brändiohjealue, jossa on mukautettua sisältöä, resurssilinkkejä ja värejä.';

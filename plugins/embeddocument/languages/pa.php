@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'ਦੂਰਦਰਾਜ ਦਸਤ�
 
 $lang["page-title_embeddocument_setup"] = 'ਦਸਤਾਵੇਜ਼ ਐਮਬੈਡ ਪਲੱਗਇਨ ਸੈਟਅਪ';
 $lang["page-title_embeddocument_viewer"] = 'ਦਸਤਾਵੇਜ਼ ਦਰਸ਼ਕ ਨੂੰ ਐਂਬੈਡ ਕਰੋ';
+
+$lang['plugin-embeddocument-title'] = 'ਦਸਤਾਵੇਜ਼ ਐਂਬੈੱਡ ਕਰੋ';
+$lang['plugin-embeddocument-desc'] = 'ਦੂਰ-ਦਰਾਜ ਸਾਈਟਾਂ \'ਤੇ ਐਂਬੈੱਡ ਕਰਨ ਯੋਗ ਦਸਤਾਵੇਜ਼ ਪ੍ਰੀਵਿਊ ਲਈ HTML ਬਣਾਉਣ ਦੀ ਸਹੂਲਤ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।';

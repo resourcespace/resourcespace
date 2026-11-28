@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Bewerk Licentie';
 $lang["page-title_licensemanager_list"] = 'Lijst Licenties';
 $lang["page-title_licensemanager_setup"] = 'Instellen Licentiebeheer Plugin';
 $lang["page-title_licensemanager_unlink"] = 'Koppel Licentie los';
+
+$lang["collection_actiontype_80"] = 'Licentiëring';

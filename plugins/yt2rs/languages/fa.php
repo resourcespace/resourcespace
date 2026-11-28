@@ -7,3 +7,6 @@ $lang["yt2rs_thumb"]='مسیر تصویر بندانگشتی';
 $lang["yt2rs_online_preview"]='پیش‌نمایش آنلاین';
 $lang["yt2rs_youtube_video"]='ویدیو یوتیوب';
 $lang["page-title_yt2rs_setup"] = 'نصب افزونه یوتیوب به ResourceSpace';
+
+$lang['plugin-yt2rs-title'] = 'YouTube به ResourceSpace';
+$lang['plugin-yt2rs-desc'] = 'افزودن ویدئوهای میزبانی شده در YouTube به عنوان منابع.';

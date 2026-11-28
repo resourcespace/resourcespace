@@ -38,3 +38,5 @@ $lang["plugin-emu-desc"] = '[高级] 允许从EMu数据库提取资源元数据�
 
 $lang["page-title_emu_emu_object_details"] = 'EMu 对象详情';
 $lang["page-title_emu_setup"] = '设置 插件';
+
+$lang['plugin-emu-title'] = 'EMu';

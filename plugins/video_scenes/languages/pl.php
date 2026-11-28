@@ -27,3 +27,5 @@ $lang["video_scene_play"] = 'Odtwórz scenę o %time';
 $lang["video_scene_play_unavailable"] = 'Ta scena znajduje się poza dostępnym podglądem wideo.';
 $lang["video_scene_job_success"] = 'Przetwarzanie sceny wideo zakończone pomyślnie';
 $lang["video_scene_job_failure"] = 'Przetwarzanie sceny wideo nie powiodło się. Zobacz dziennik zadań, aby uzyskać szczegóły.';
+$lang['plugin-video_scenes-title'] = 'Sceny wideo';
+$lang['plugin-video_scenes-desc'] = 'Lokalne wykrywanie scen wideo za pomocą transnetv2-pytorch, z opcjonalnymi audiowizualnymi opisami OpenAI.';

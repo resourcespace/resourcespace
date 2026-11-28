@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'خبریں شامل کریں، ترمیم کری
 $lang["page-title_news_news_content_edit"] = 'خبری مواد میں ترمیم کریں';
 $lang["page-title_news_news_edit"] = 'خبریں ایڈٹ کریں';
 $lang["page-title_news_news"] = 'خبریں';
+
+$lang['plugin-news-title'] = 'خبریں';
+$lang['plugin-news-desc'] = 'ہوم پیج پر خبری مضامین شامل کریں۔';

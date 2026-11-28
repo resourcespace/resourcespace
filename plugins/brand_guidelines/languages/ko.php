@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = '브랜드 가이드라인 콘텐
 $lang["page-title_brand_guidelines_guidelines"] = '브랜드 가이드라인';
 $lang["page-title_brand_guidelines_setup"] = '브랜드 가이드라인 플러그인 설정';
 $lang["page-title_brand_guidelines_toc"] = '내용 편집';
+
+$lang['plugin-brand_guidelines-title'] = '브랜드 가이드라인';
+$lang['plugin-brand_guidelines-desc'] = '맞춤 콘텐츠, 리소스 링크 및 색상을 포함한 브랜드 가이드라인 영역을 만듭니다.';

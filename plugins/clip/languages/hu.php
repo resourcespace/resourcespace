@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Feladat konfigurálása a CLIP vektorok generál�
 $lang["clip-job_limit"] = 'Csoportméret korlát';
 $lang["clip-job_limit_help"] = 'Ennek a beállításnak az aktiválásával korlátozza az egy futásban feldolgozott erőforrások számát.';
 $lang["clip-job_limit_error"] = 'Az értéknek 1 és 100000 között kell lennie, vagy üresen hagyható a korlát nélküli beállításhoz';
+
+$lang['plugin-clip-title'] = 'CLIP AI intelligens keresés és címkézés';
+$lang['plugin-clip-desc'] = 'AI természetes nyelvű keresés, vizuális keresés, hasonlóság alapú egyezés, duplikátum felismerés, címkézés, cím generálás';

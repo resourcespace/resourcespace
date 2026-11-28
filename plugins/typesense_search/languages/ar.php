@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'مفتاح API';
 $lang["typesense_search_collection"] = 'المجموعة';
 $lang["typesense_search_timeout"] = 'ثواني المهلة';
 $lang["typesense_search_validate_access"] = 'التحقق من الوصول بعد بحث Typesense';
+
+$lang['plugin-typesense_search-title'] = 'بحث Typesense';
+$lang['plugin-typesense_search-desc'] = 'مزود بحث خارجي اختياري باستخدام Typesense (تجريبي)';

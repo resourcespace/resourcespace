@@ -86,3 +86,5 @@ $lang["use_filename_as_title"] = 'Gamitin ang filename bilang pamagat';
 $lang["error-resolution-zero"] = 'Error: Ang orihinal na larawan ay may kalkuladong lapad/
 ltura na zero.';
 $lang["error-preview-missing"] = 'Error: Hindi mahanap ang preview na larawan';
+$lang['plugin-transform-title'] = 'Mga Kasangkapan sa Imahe (transform)';
+$lang['plugin-transform-desc'] = 'Nagpapahintulot sa paglikha ng mga pinuputol at iskalang alternatibong mga imahe.';

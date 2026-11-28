@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'Mở liên kết trực tiếp (trang 
 $lang["embedslideshow_dynamic_size"] = 'Thay đổi kích thước động của bản xem trước dựa trên kích thước của trình phát?';
 $lang["page-title_embedslideshow_setup"] = 'Cài đặt Plugin Trình chiếu Nhúng';
 $lang["page-title_embedslideshow_viewer"] = 'Nhúng trình chiếu';
+
+$lang['plugin-embedslideshow-title'] = 'Nhúng Trình Chiếu';
+$lang['plugin-embedslideshow-desc'] = 'Cung cấp chức năng tạo mã HTML cho trình chiếu bộ sưu tập có thể nhúng trên các trang web từ xa.';

@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Unahitajik
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Chaguo la Keki';
 $lang["page-title_cookies_notification_setup"] = 'Weka Plugin ya Arifa ya Kuki';
+
+$lang['plugin-cookies_notification-title'] = 'Taarifa za Vidakuzi';
+$lang['plugin-cookies_notification-desc'] = 'Taarifu kuhusu matumizi ya vidakuzi kwa kuonyesha ujumbe kwenye kichwa cha ukurasa.';

@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'آپ کو 
 
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'کوکی کا انتخاب';
 $lang["page-title_cookies_notification_setup"] = 'کوکی نوٹیفیکیشن پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-cookies_notification-title'] = 'کوکیز کی اطلاع';
+$lang['plugin-cookies_notification-desc'] = 'ہیڈر میں پیغام دکھا کر کوکیز کے استعمال کی اطلاع دیں۔';

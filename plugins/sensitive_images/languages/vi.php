@@ -7,3 +7,6 @@ $lang["sensitive_images_field"] = 'Trường metadata chứa lý do hình ảnh 
 $lang["sensitive_images_blur_level"] = 'Mức độ làm mờ hình ảnh nhạy cảm<br>(1=ít nhất, 6=nhiều nhất)';
 $lang["page-title_sensitive_images_setup"] = 'Cài đặt Plugin Hình ảnh Nhạy cảm';
 $lang["sensitive_images_show"] = 'Nhấn vào hình để hiển thị.';
+
+$lang['plugin-sensitive_images-title'] = 'Làm mờ hình ảnh nhạy cảm';
+$lang['plugin-sensitive_images-desc'] = 'Làm mờ các hình ảnh được đánh dấu là nhạy cảm, người dùng có thể nhấp để bỏ làm mờ.';

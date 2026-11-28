@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'দূরবর্তী ডক�
 
 $lang["page-title_embeddocument_setup"] = 'এম্বেড ডকুমেন্ট প্লাগইন সেটআপ করুন';
 $lang["page-title_embeddocument_viewer"] = 'ডকুমেন্ট ভিউয়ার এম্বেড করুন';
+
+$lang['plugin-embeddocument-title'] = 'ডকুমেন্ট এম্বেড করুন';
+$lang['plugin-embeddocument-desc'] = 'দূরবর্তী সাইটে এম্বেডযোগ্য ডকুমেন্ট প্রিভিউ তৈরি করার জন্য একটি ফাংশন প্রদান করে।';

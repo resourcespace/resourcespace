@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'CLIPベクトル生成ジョブを設定';
 $lang["clip-job_limit"] = 'バッチサイズの制限';
 $lang["clip-job_limit_help"] = 'このオプションを設定すると、1回の実行で処理されるリソースの数が制限されます。';
 $lang["clip-job_limit_error"] = '値は1から100000の間、または制限なしの場合は空白にしてください';
+
+$lang['plugin-clip-title'] = 'CLIP AIスマート検索とタグ付け';
+$lang['plugin-clip-desc'] = 'AIによる自然言語検索、ビジュアル検索、類似性マッチング、重複マッチング、タグ付け、タイトル生成';

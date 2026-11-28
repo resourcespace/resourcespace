@@ -15,3 +15,6 @@ $lang["csv_user_import_condition3"] = '包含逗號( , )的欄位，請確保格
 $lang["csv_user_import_condition4"] = '允許的欄位：*username, *email, password, fullname, account_expires, comments, ip_restrict, lang。注意：必填欄位以 * 標示';
 $lang["csv_user_import_condition5"] = '如果找不到 lang 欄位或該欄位沒有值，用 "$defaultlanguage" 設定的語言將會成為預設值';
 $lang["page-title_csv_user_import_csv_user_import"] = 'CSV 用戶匯入';
+
+$lang['plugin-csv_user_import-title'] = 'CSV 使用者匯入';
+$lang['plugin-csv_user_import-desc'] = '提供根據預先格式化的 CSV 檔案批次匯入使用者的功能';

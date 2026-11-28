@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Lluniwch swydd i ddarganfod wynebau';
 $lang["faces_tag_faces_configure"] = 'Lluniwch swydd i tagio wynebau';
 $lang["faces_detect_faces_intro"] = 'Creu swydd i ddechrau darganfod wynebau yma - nid oes angen paramedrau ar y swydd hon felly gellir ei dechrau cyn belled â bod dim swydd arall o\'r un math yn parhau.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Bydd gosod y opsiwn hwn yn golygu y bydd dim ond adnoddau yn y casgliadau rhestriedig a fydd yn cael eu diweddaru. Os na fydd unrhyw gasgliadau wedi\'u nodi, bydd tagio wynebau yn cael ei ddiweddaru ar gyfer POB adnodd addas. Gellir nodi casgliadau gan ddefnyddio rhestr wedi\'i wahanu â chomed, yn ogystal â rhesi e.e. 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'Wynebau AI - InsightFace';
+$lang['plugin-faces-desc'] = 'Canfod a thagio wynebau awtomatig o\'r radd flaenaf. Chwilio yn ôl wyneb.';

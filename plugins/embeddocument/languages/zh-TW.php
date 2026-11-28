@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = '請指定「嵌入」功能應出
 $lang["embeddocument_document_resourcetype"] = '遠端文件查看器資源類型：';
 $lang["page-title_embeddocument_setup"] = '設定嵌入文件插件';
 $lang["page-title_embeddocument_viewer"] = '嵌入文件查看器';
+
+$lang['plugin-embeddocument-title'] = '嵌入文件';
+$lang['plugin-embeddocument-desc'] = '提供一個功能，用於生成可在遠端網站嵌入的文件預覽 HTML。';

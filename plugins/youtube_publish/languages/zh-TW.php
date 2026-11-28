@@ -52,3 +52,6 @@ $lang["youtube_chunk_size"] = '上傳到 YouTube 時使用的區塊大小（MB�
 $lang["youtube_publish_add_anchor"] = '儲存到 YouTube URL 元資料欄位時，是否在 URL 中加入錨點標籤？';
 $lang["page-title_youtube_publish_setup"] = '設定插件';
 $lang["page-title_youtube_publish_youtube_upload"] = '將資源發布到 YouTube';
+
+$lang['plugin-youtube_publish-title'] = 'YouTube 發佈';
+$lang['plugin-youtube_publish-desc'] = '將影片資源發佈至已設定的 YouTube 帳戶。';

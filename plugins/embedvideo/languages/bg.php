@@ -8,3 +8,6 @@ $lang["embed_video_configuration"] = 'Конфигурация за вгражд
 $lang["specify_resourcetype"] = 'Моля, посочете за кой тип ресурс трябва да се появи функцията \'вграждане\'.';
 $lang["video_resourcetype"] = 'Тип ресурс за видео';
 $lang["page-title_embedvideo_setup"] = 'Настройка на плъгина за вграждане на видео';
+
+$lang['plugin-embedvideo-title'] = 'Вграждане на видео';
+$lang['plugin-embedvideo-desc'] = 'Осигурява функция за генериране на HTML за вграждане на видео в отдалечени сайтове.';

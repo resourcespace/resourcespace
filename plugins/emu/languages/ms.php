@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Dicipta dari plugin EMU';
 
 $lang["page-title_emu_emu_object_details"] = 'Butiran Objek EMu';
 $lang["page-title_emu_setup"] = 'Tetapan Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Membolehkan metadata sumber diekstrak daripada pangkalan data EMu.';

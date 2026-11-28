@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Bieżący rok';
 $lang["page-title_totp_setup"] = 'Konfiguracja wtyczki TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Wyłącz TOTP dla użytkowników już uwierzytelnionych za pomocą SAML (wymaga wtyczki SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Wsparcie TFA/MFA przez Google Authenticator';

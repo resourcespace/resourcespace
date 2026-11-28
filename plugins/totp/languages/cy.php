@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Y flwyddyn bresennol';
 $lang["page-title_totp_setup"] = 'Gosodwch y Plugin TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Analluogi TOTP ar gyfer defnyddwyr sydd eisoes wedi\'u dilysu trwy SAML (Mae angen y plugin SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Cefnogaeth TFA/MFA trwy Google Authenticator';

@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Chỉnh sửa Giấy phép';
 $lang["page-title_licensemanager_list"] = 'Danh sách Giấy phép';
 $lang["page-title_licensemanager_setup"] = 'Cài đặt Plugin Quản lý Giấy phép';
 $lang["page-title_licensemanager_unlink"] = 'Hủy liên kết Giấy phép';
+
+$lang["collection_actiontype_80"] = 'Cấp phép';
+$lang['plugin-licensemanager-title'] = 'Trình quản lý giấy phép';
+$lang['plugin-licensemanager-desc'] = 'Quản lý cấp phép tài nguyên.';

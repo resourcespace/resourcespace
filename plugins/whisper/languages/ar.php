@@ -15,3 +15,6 @@ $lang["whisper"] = 'همس';
 $lang["whisper_process_existing"] = 'معالجة الموارد غير المعالجة';
 $lang["whisper_process_existing_intro"] = 'إنشاء مهمة لبدء معالجة صوت Whisper هنا - هذه المهمة لا تتطلب أية معلمات لذلك يمكن بدءها طالما لا توجد مهام أخرى معلقة من هذا النوع.';
 $lang["whisper_process_existing_configure"] = 'تكوين المهمة لمعالجة الملفات باستخدام Whisper';
+
+$lang['plugin-whisper-title'] = '(نسخة تجريبية) Whisper';
+$lang['plugin-whisper-desc'] = 'تحويل الفيديو/الصوت إلى نص باستخدام Whisper من OpenAI. يعمل محليًا، لا حاجة للاشتراك.';

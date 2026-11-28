@@ -53,3 +53,6 @@ $lang["origin_simpleldap"] = 'پلاگینە SimpleLDAP';
 $lang["simpleldap_LDAPTLS_REQCERT_never_label"] = 'نەچکە FQDN ی سێرڤەرەکە لەسەر CN ی شەهادەتیەکە';
 $lang["page-title_simpleldap_ajax_test_auth"] = 'تاقیکردنەوەی ناسنامەی LDAP';
 $lang["page-title_simpleldap_setup"] = 'ڕێکخستنی پلاگینە Simple LDAP';
+
+$lang['plugin-simpleldap-title'] = 'LDAP';
+$lang['plugin-simpleldap-desc'] = 'دڵنیابوونی بەکارهێنەر بەڕێوەبەری LDAP.';

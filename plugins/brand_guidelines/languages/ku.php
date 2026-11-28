@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'بەڕێوەبردنی ناوە�
 $lang["page-title_brand_guidelines_guidelines"] = 'ڕێنمایی براند';
 $lang["page-title_brand_guidelines_setup"] = 'ڕێکخستنەوەی پلاگینەکانی ڕێنمایی براند';
 $lang["page-title_brand_guidelines_toc"] = 'دەستکاری ناوەڕۆک';
+
+$lang['plugin-brand_guidelines-title'] = 'ڕێنمایی نیشانە';
+$lang['plugin-brand_guidelines-desc'] = 'دروستکردنی ناوچەی ڕێنمایی نیشانە بە ناوەڕۆکی تایبەتی، بەستەرەکانی سەرچاوە و ڕەنگەکان.';

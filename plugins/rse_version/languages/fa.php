@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='بازگرداندن وضعیت برای م
 $lang["rse_version_invalid_time"]='بازگشت به زمانی قبل از [date] پشتیبانی نمی‌شود';
 $lang["page-title_rse_version_revert"] = 'بازگرداندن نسخه منبع';
 $lang["page-title_rse_version_setup"] = 'نصب افزونه نسخه';
+
+$lang['plugin-rse_version-title'] = 'کنترل نسخه';
+$lang['plugin-rse_version-desc'] = 'تغییرات فراداده و فایل‌ها را پیگیری و بازیابی کنید.';

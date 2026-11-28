@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"]='ਗਲਤੀ : ਅਵੈਧ ਕਾ�
 $lang["page-title_video_splice_setup"] = 'ਵੀਡੀਓ ਸਪਲਾਈਸ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
 $lang["page-title_video_splice_splice"] = 'ਵੀਡੀਓ ਸਪਲਾਈਸ ਕਰੋ';
 $lang["page-title_video_splice_trim"] = 'ਵੀਡੀਓ ਕੱਟੋ';
+
+$lang['plugin-video_splice-title'] = 'ਵੀਡੀਓ ਜੋੜਨਾ';
+$lang['plugin-video_splice-desc'] = 'ਵੀਡੀਓ ਟ੍ਰਿਮਿੰਗ ਅਤੇ ਜੋੜਨ ਦੀ ਸਮਰੱਥਾ।';

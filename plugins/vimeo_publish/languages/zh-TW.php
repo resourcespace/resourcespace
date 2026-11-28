@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = '允許用戶發布到他們自己�
 $lang["vimeo_publish_set_account"] = '設置Vimeo帳戶';
 $lang["page-title_vimeo_publish_setup"] = '設置Vimeo發布插件';
 $lang["page-title_vimeo_publish_vimeo_api"] = '發布到Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'Vimeo 發佈';
+$lang['plugin-vimeo_publish-desc'] = '將資源發佈到 Vimeo。';

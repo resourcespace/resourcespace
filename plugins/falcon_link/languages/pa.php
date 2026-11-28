@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'ਕਿਰਪਾ ਕਰਕੇ ਜ
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'ਫਾਲਕਨ ਲਿੰਕ ਪਲੱਗਇਨ ਸੈਟਅਪ ਕਰੋ';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'ਸਰੋਤਾਂ ਨੂੰ Falcon.io \'ਤੇ ਆਟੋਮੈਟਿਕ ਸੋਸ਼ਲ ਮੀਡੀਆ ਸਾਂਝੇਦਾਰੀ ਲਈ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ।';

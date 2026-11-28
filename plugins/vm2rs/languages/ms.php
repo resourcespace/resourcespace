@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"] = 'Jalan Thumbnail';
 $lang["vm2rs_online_preview"] = 'Pratonton Dalam Talian';
 $lang["vm2rs_youtube_video"] = 'Youtube Video';
 $lang["page-title_vm2rs_setup"] = 'Setup Vimeo to ResourceSpace Plugin';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo ke ResourceSpace';
+$lang['plugin-vm2rs-desc'] = 'Sematkan video dari Vimeo seolah-olah ia adalah sumber ResourceSpace.';

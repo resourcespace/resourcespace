@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'API-nyckel';
 $lang["typesense_search_collection"] = 'Samling';
 $lang["typesense_search_timeout"] = 'Timeout i sekunder';
 $lang["typesense_search_validate_access"] = 'Validera åtkomst efter Typesense-sökning';
+
+$lang['plugin-typesense_search-title'] = 'Typesense Sök';
+$lang['plugin-typesense_search-desc'] = 'Valfri extern sökleverantör som använder Typesense (experimentell)';

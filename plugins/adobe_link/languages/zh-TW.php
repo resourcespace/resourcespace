@@ -13,3 +13,6 @@ $lang["adobe_link_upload_document"] = '儲存';
 $lang["adobe_link_saving"] = '儲存中..';
 $lang["adobe_link_saving_wait"] = '檔案正在儲存中，請等待確認訊息。您可能需要重新整理頁面以更新預覽圖像。';
 $lang["page-title_adobe_link_setup"] = '設定 Adobe 連結外掛';
+
+$lang['plugin-adobe_link-title'] = 'Adobe Link';
+$lang['plugin-adobe_link-desc'] = '允許從 ResourceSpace 將 Adobe 檔案匯入 Adobe CC。';

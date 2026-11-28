@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = 'Sigurado ka ba? Hindi ito maibabalik.';
 $lang["system_reset_delete_all"] = 'Tanggalin ang lahat ng data at mga file';
 $lang["system_reset-tooltip"] = 'Isagawa ang isang reset ng sistema upang tanggalin ang lahat ng mga file at data';
 $lang["page-title_system_reset_reset"] = 'Pag-reset ng Sistema';
+
+$lang['plugin-system_reset-title'] = 'I-reset ang Sistema';
+$lang['plugin-system_reset-desc'] = 'Nagdaragdag ng opsyon sa admin/system upang burahin ang lahat ng data.';

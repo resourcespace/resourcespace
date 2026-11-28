@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = '處理未處理的資源';
 $lang["google_vision_process_existing_configure"] = '配置任務以處理未處理的資源';
 $lang["google_vision_process_existing_collection_refs_help"] = '設置此選項將只處理列出集合中的資源。如果未指定任何集合，則將處理所有適用的資源。集合可以使用逗號分隔的列表或範圍，例如 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = '使用人工智慧自動標記影像。';

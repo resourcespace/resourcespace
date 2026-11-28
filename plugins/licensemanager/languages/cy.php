@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'Golygu Trwydded';
 $lang["page-title_licensemanager_list"] = 'Rhestr Drwyddedau';
 $lang["page-title_licensemanager_setup"] = 'Gosod Plwgyn Rheolwr Trwydded';
 $lang["page-title_licensemanager_unlink"] = 'Diddymu Trwydded';
+
+$lang["collection_actiontype_80"] = 'Trwyddedu';
+$lang['plugin-licensemanager-title'] = 'Rheolwr Trwyddedau';
+$lang['plugin-licensemanager-desc'] = 'Rheoli trwyddedu adnoddau.';

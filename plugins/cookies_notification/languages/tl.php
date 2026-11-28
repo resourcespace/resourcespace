@@ -11,3 +11,6 @@ $lang["cookies_notification_cookies_use_error_msg"] = 'Nagpasya kang huwag payag
 $lang["cookies_notification_cookies_use_require_option_error_msg"] = 'Kailangan mong tanggapin ang paggamit ng cookies bago ma-access ang sistema';
 $lang["page-title_cookies_notification_cookies_user_feedback"] = 'Pagpili ng Cookie';
 $lang["page-title_cookies_notification_setup"] = 'I-set up ang Plugin para sa Abiso ng Cookie';
+
+$lang['plugin-cookies_notification-title'] = 'Abiso sa Cookies';
+$lang['plugin-cookies_notification-desc'] = 'Ipabatid ang paggamit ng cookies sa pamamagitan ng pagpapakita ng mensahe sa header.';

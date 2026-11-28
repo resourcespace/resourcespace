@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='Sasisho la rasilimali iliyochujwa kwa uta
 $lang["page-title_rss2_rssfeed"] = 'RSS Feed';
 $lang["page-title_rss2_rssfilter"] = 'RSS Filter';
 $lang["page-title_rss2_setup"] = 'Weka Plugin ya RSS';
+
+$lang['plugin-rss2-title'] = 'Mlisho wa RSS';
+$lang['plugin-rss2-desc'] = 'Inawezesha uzalishaji uliothibitishwa wa milisho ya RSS ya maudhui mapya, ikiwa ni pamoja na nyanja zinazoweza kusanidiwa.';

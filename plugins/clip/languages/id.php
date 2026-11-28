@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Konfigurasi pekerjaan untuk menghasilkan vektor C
 $lang["clip-job_limit"] = 'Batas ukuran batch';
 $lang["clip-job_limit_help"] = 'Mengatur opsi ini akan membatasi jumlah sumber daya yang diproses dalam satu jalur.';
 $lang["clip-job_limit_error"] = 'Nilai harus antara 1 dan 100000 atau kosong untuk tanpa batas';
+
+$lang['plugin-clip-title'] = 'CLIP AI Pencarian dan Penandaan Cerdas';
+$lang['plugin-clip-desc'] = 'Pencarian bahasa alami AI, pencarian visual, pencocokan kemiripan, pencocokan duplikat, penandaan, pembuatan judul';

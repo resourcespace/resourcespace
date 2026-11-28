@@ -10,3 +10,6 @@ $lang["grant_edit_list"] = 'Jelenlegi felhasználók további szerkesztési hozz
 $lang["grant_edit_group_list"] = 'Jelenlegi csoportok további szerkesztési hozzáféréssel';
 $lang["grant_edit_delete_user"] = 'Erősített hozzáférés eltávolításának megerősítése a következőhöz';
 $lang["page-title_grant_edit_setup"] = 'Beállítási Engedély Szerkesztő Plugin';
+
+$lang['plugin-grant_edit-title'] = 'Szerkesztési jogosultság megadása';
+$lang['plugin-grant_edit-desc'] = 'Lehetővé teszi az adminisztrátorok számára, hogy ideiglenes teljes szerkesztési hozzáférést adjanak a felhasználóknak az erőforrásokhoz.';

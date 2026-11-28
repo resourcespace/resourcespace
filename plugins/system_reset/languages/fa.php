@@ -7,3 +7,6 @@ $lang["system_reset_confirm"]='آیا مطمئن هستید؟ این قابل ب
 $lang["system_reset_delete_all"]='حذف تمام داده‌ها و فایل‌ها';
 $lang["system_reset-tooltip"] = 'سیستم را بازنشانی کنید تا تمام فایل‌ها و داده‌ها حذف شوند';
 $lang["page-title_system_reset_reset"] = 'بازنشانی سیستم';
+
+$lang['plugin-system_reset-title'] = 'بازنشانی سیستم';
+$lang['plugin-system_reset-desc'] = 'گزینه‌ای به admin/system اضافه می‌کند تا همه داده‌ها پاک شوند.';

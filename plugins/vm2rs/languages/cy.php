@@ -7,3 +7,6 @@ $lang["vm2rs_thumb"]='Llwybr Miniatwr';
 $lang["vm2rs_online_preview"]='Rhagolwg Ar-lein';
 $lang["vm2rs_youtube_video"]='Fideo Youtube';
 $lang["page-title_vm2rs_setup"] = 'Gosod Plugin Vimeo i ResourceSpace';
+
+$lang['plugin-vm2rs-title'] = 'Vimeo i ResourceSpace';
+$lang['plugin-vm2rs-desc'] = 'Mewnosodwch fideos o Vimeo fel pe baent yn adnoddau ResourceSpace.';

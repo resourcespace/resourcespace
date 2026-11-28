@@ -15,3 +15,6 @@ $lang["csv_user_import_condition4"] = 'ਇਜਾਜ਼ਤ ਪ੍ਰਾਪਤ ਕ
 $lang["csv_user_import_condition5"] = 'ਜੇਕਰ lang ਕਾਲਮ ਨਹੀਂ ਮਿਲਦਾ ਜਾਂ ਇਸ ਵਿੱਚ ਕੋਈ ਮੁੱਲ ਨਹੀਂ ਹੈ ਤਾਂ ਯੂਜ਼ਰ ਦੀ ਭਾਸ਼ਾ "$defaultlanguage" ਕਨਫਿਗਰੇਸ਼ਨ ਵਿਕਲਪ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਸੈੱਟ ਕੀਤੀ ਗਈ ਭਾਸ਼ਾ \'ਤੇ ਵਾਪਸ ਚਲੀ ਜਾਵੇਗੀ।';
 
 $lang["page-title_csv_user_import_csv_user_import"] = 'CSV ਯੂਜ਼ਰ ਆਯਾਤ';
+
+$lang['plugin-csv_user_import-title'] = 'CSV ਯੂਜ਼ਰ ਆਯਾਤ';
+$lang['plugin-csv_user_import-desc'] = 'ਪੂਰਵ-ਫਾਰਮੈਟ ਕੀਤੇ CSV ਫਾਇਲ ਦੇ ਆਧਾਰ \'ਤੇ ਯੂਜ਼ਰਾਂ ਦਾ ਇੱਕ ਬੈਚ ਆਯਾਤ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ';

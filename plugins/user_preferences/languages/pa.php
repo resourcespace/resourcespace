@@ -7,3 +7,6 @@ $lang["user_preferences_change_email"]='ਈ-ਮੇਲ ਪਤਾ ਬਦਲਣ ਦ
 $lang["user_preferences_change_name"]='ਉਪਭੋਗਤਾ ਦੇ ਨਾਮ ਨੂੰ ਬਦਲਣ ਦੀ ਆਗਿਆ ਦਿਓ';
 $lang["changeyourpassword"]='ਮੇਰਾ ਪਾਸਵਰਡ ਅਤੇ ਯੂਜ਼ਰ ਵੇਰਵੇ ਬਦਲੋ';
 $lang["page-title_user_preferences_setup"] = 'ਯੂਜ਼ਰ ਪਸੰਦਾਂ ਪਲੱਗਇਨ ਸੈਟਅਪ';
+
+$lang['plugin-user_preferences-title'] = 'ਉਪਭੋਗਤਾ ਪਸੰਦਾਂ';
+$lang['plugin-user_preferences-desc'] = 'ਉਪਭੋਗਤਾਵਾਂ ਨੂੰ ਆਪਣਾ ਯੂਜ਼ਰਨੇਮ, ਨਾਮ ਅਤੇ ਈਮੇਲ ਪਤਾ ਅਪਡੇਟ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।';

@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='Diweddariad adnodd wedi\'i hidlo ar gyfer
 $lang["page-title_rss2_rssfeed"] = 'RSS Feed';
 $lang["page-title_rss2_rssfilter"] = 'Ffilter RSS';
 $lang["page-title_rss2_setup"] = 'Sefydlu Plugin RSS';
+
+$lang['plugin-rss2-title'] = 'Ffrwd RSS';
+$lang['plugin-rss2-desc'] = 'Yn galluogi creu ffrwd RSS awdurdodedig o gynnwys newydd, gan gynnwys meysydd y gellir eu ffurfweddu.';

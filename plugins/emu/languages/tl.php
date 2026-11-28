@@ -36,3 +36,6 @@ $lang["emu_createdfromemu"] = 'Gawa mula sa EMU plugin';
 
 $lang["page-title_emu_emu_object_details"] = 'Detalye ng EMu Objeto';
 $lang["page-title_emu_setup"] = 'I-set up ang Plugin';
+
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'Pinapayagan ang metadata ng yaman na makuha mula sa database ng EMu.';

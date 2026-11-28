@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'অনুগ্রহ করে 
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'ফ্যালকন লিঙ্ক প্লাগইন সেটআপ করুন';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'স্বয়ংক্রিয় সোশ্যাল মিডিয়া শেয়ারিংয়ের জন্য Falcon.io-তে সম্পদ প্রকাশ করুন।';

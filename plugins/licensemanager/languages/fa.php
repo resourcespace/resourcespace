@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'ویرایش مجوز';
 $lang["page-title_licensemanager_list"] = 'لیست مجوزها';
 $lang["page-title_licensemanager_setup"] = 'نصب افزونه مدیریت لایسنس';
 $lang["page-title_licensemanager_unlink"] = 'حذف پیوند مجوز';
+
+$lang["collection_actiontype_80"] = 'مجوزدهی';
+$lang['plugin-licensemanager-title'] = 'مدیر مجوز';
+$lang['plugin-licensemanager-desc'] = 'مدیریت مجوز منابع.';

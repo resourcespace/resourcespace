@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'Modifica Licenza';
 $lang["page-title_licensemanager_list"] = 'Elenco Licenze';
 $lang["page-title_licensemanager_setup"] = 'Imposta il plugin License Manager';
 $lang["page-title_licensemanager_unlink"] = 'Scollega Licenza';
+
+$lang["collection_actiontype_80"] = 'Licenza';

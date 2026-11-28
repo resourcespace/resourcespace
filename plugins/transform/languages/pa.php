@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'ਫਾਇਲ ਨਾਮ ਨੂੰ ਸਿਰਲ�
 
 $lang["error-resolution-zero"] = 'ਗਲਤੀ: ਮੂਲ ਚਿੱਤਰ ਦੀ ਲੰਬਾਈ/ਉਚਾਈ ਦੀ ਗਣਨਾ ਸਿਫਰ ਹੈ।';
 $lang["error-preview-missing"] = 'ਗਲਤੀ: ਪ੍ਰੀਵਿਊ ਚਿੱਤਰ ਨਹੀਂ ਲੱਭ ਸਕਿਆ';
+$lang['plugin-transform-title'] = 'ਚਿੱਤਰ ਸੰਦ (ਬਦਲਾਅ)';
+$lang['plugin-transform-desc'] = 'ਕੱਟੇ ਅਤੇ ਪੈਮਾਨੇ ਵਾਲੀਆਂ ਵਿਕਲਪਿਕ ਚਿੱਤਰਾਂ ਬਣਾਉਣ ਯੋਗ ਬਣਾਉਂਦਾ ਹੈ।';

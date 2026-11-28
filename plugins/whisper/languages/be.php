@@ -15,3 +15,6 @@ $lang["whisper"] = 'Шэпт';
 $lang["whisper_process_existing"] = 'Апрацаваць неапрацаваныя рэсурсы';
 $lang["whisper_process_existing_intro"] = 'Стварыце задачу для запуску апрацоўкі аўдыё з дапамогай Whisper - гэтая задача не патрабуе ніякіх параметраў, таму можа быць запушчана, пакуль няма іншых адкрытых задач гэтага тыпу.';
 $lang["whisper_process_existing_configure"] = 'Налада задачы для апрацоўкі файлаў з дапамогай Whisper';
+
+$lang['plugin-whisper-title'] = '(БЭТА) Whisper';
+$lang['plugin-whisper-desc'] = 'Пераклад відэа/аўдыё ў тэкст з дапамогай Whisper ад OpenAI. Працоўнае лакальна, падпіска не патрабуецца.';

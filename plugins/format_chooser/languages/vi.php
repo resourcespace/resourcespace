@@ -19,3 +19,5 @@ $lang["page-title_format_chooser_setup"] = 'Cài đặt Plugin Chọn Định D�
 
 $lang["format_chooser_blocked_inputs"] = '<p>Các định dạng sau không được hỗ trợ để nhập: %s</p>';
 $lang["format_chooser_blocked_outputs"] = '<p>Các định dạng sau không được hỗ trợ để xuất: %s</p>';
+$lang['plugin-format_chooser-title'] = 'Bộ chọn định dạng';
+$lang['plugin-format_chooser-desc'] = 'Cho phép bạn chọn các định dạng khác nhau khi tải xuống các tệp được tạo ngay lập tức.';

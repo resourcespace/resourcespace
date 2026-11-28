@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='ਉਪਲਬਧ ਵਰਤੋਂ ਦੇ ਵਿ�
 $lang["page-title_resource_usage_delete"] = 'ਸਾਧਨ ਦੀ ਵਰਤੋਂ ਹਟਾਓ';
 $lang["page-title_resource_usage_edit"] = 'ਸੰਸਾਧਨ ਦੀ ਵਰਤੋਂ ਸੰਪਾਦਿਤ ਕਰੋ';
 $lang["page-title_resource_usage_setup"] = 'ਸਾਧਨ ਵਰਤੋਂ ਪਲੱਗਇਨ ਸੈਟਅਪ';
+
+$lang['plugin-resource_usage-title'] = 'ਸਰੋਤ ਵਰਤੋਂ';
+$lang['plugin-resource_usage-desc'] = 'ਸਰੋਤ ਵੇਖਣ ਵਾਲੇ ਪੰਨੇ ਰਾਹੀਂ ਸਰੋਤ ਵਰਤੋਂ ਨੂੰ ਲੌਗ ਕਰਨ ਦੀ ਸਮਰੱਥਾ ਜੋੜਦਾ ਹੈ।';

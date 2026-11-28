@@ -39,3 +39,6 @@ $lang["weekday-6"] = 'Dydd Sadwrn';
 
 $lang["page-title_action_dates_setup"] = 'Gosod Plugin Dyddiadau Gweithredu';
 $lang["action_dates_additional_settings_email_admin_days"] = 'Hysbysu\'r rheolwyr hyn yn ychydig ddyddiau cyn i\'r weithred ddigwydd (Gosod yn wag i analluogi)';
+
+$lang['plugin-action_dates-title'] = 'Dyddiadau Gweithredu';
+$lang['plugin-action_dates-desc'] = 'Yn galluogi dileu neu gyfyngu adnoddau wedi’u hamserlennu yn seiliedig ar feysydd dyddiad.';

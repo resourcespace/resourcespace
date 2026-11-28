@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'موجودہ سال';
 $lang["page-title_totp_setup"] = 'TOTP پلگ ان سیٹ اپ کریں';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'SAML کے ذریعے پہلے سے تصدیق شدہ صارفین کے لیے TOTP کو غیر فعال کریں (SAML پلگ ان کی ضرورت ہے)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'گوگل آتھنٹی کیٹر کے ذریعے TFA/MFA کی حمایت';

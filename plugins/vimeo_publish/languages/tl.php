@@ -38,3 +38,6 @@ $lang["vimeo_publish_allow_user_accounts"] = 'Payagan ang mga gumagamit na mag-p
 $lang["vimeo_publish_set_account"] = 'I-set ang Vimeo account';
 $lang["page-title_vimeo_publish_setup"] = 'I-set up ang Vimeo Publish Plugin';
 $lang["page-title_vimeo_publish_vimeo_api"] = 'I-publish sa Vimeo';
+
+$lang['plugin-vimeo_publish-title'] = 'I-publish sa Vimeo';
+$lang['plugin-vimeo_publish-desc'] = 'I-publish ang mga yaman sa Vimeo.';

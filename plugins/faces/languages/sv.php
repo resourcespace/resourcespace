@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Konfigurera jobb för att upptäcka ans
 $lang["faces_tag_faces_configure"] = 'Konfigurera jobb för att märka ansikten';
 $lang["faces_detect_faces_intro"] = 'Skapa ett jobb för att starta ansiktsdetektering här - detta jobb kräver inga parametrar och kan startas så länge det inte finns några andra utestående jobb av denna typ.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Genom att aktivera detta alternativ kommer endast resurser i de listade samlingarna att uppdateras. Om inga samlingar anges kommer ansiktsmärkning att uppdateras för ALLA lämpliga resurser. Samlingar kan anges med en kommaseparerad lista samt intervall, t.ex. 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Faces - InsightFace';
+$lang['plugin-faces-desc'] = 'Avancerad automatisk ansiktsigenkänning och taggning. Sök med ansikte.';

@@ -43,3 +43,6 @@ $lang["falcon_link_error_falcon_check_tags"] = 'لطفاً بررسی کنید �
 
 $lang["page-title_falcon_link_falcon_link"] = 'Falcon Link';
 $lang["page-title_falcon_link_setup"] = 'نصب افزونه لینک فالکن';
+
+$lang['plugin-falcon_link-title'] = 'Falcon Link';
+$lang['plugin-falcon_link-desc'] = 'منابع را برای اشتراک‌گذاری خودکار در شبکه‌های اجتماعی به Falcon.io منتشر کنید.';

@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"]='[img_headerlogo]<br />تغییرات پ�
 $lang["propose_changes_emailproposedchanges"]='[img_headerlogo]<br />تغییرات پیشنهادی ارسال شده‌اند.<br/>[changesummary]<br/>برای بررسی تغییرات، روی لینک زیر کلیک کنید<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'تغییرات را پیشنهاد دهید';
 $lang["page-title_propose_changes_setup"] = 'تنظیم افزونه پیشنهاد تغییرات';
+
+$lang['plugin-propose_changes-title'] = 'پیشنهاد تغییرات';
+$lang['plugin-propose_changes-desc'] = 'اجازه دهید کاربران بدون دسترسی ویرایش، تغییرات متادیتا را پیشنهاد دهند.';

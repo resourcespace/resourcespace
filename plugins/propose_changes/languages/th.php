@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"]='[img_headerlogo]<br />การเปล
 $lang["propose_changes_emailproposedchanges"]='[img_headerlogo]<br />ได้มีการส่งข้อเสนอการเปลี่ยนแปลงแล้ว<br/>[changesummary]<br/>คลิกด้านล่างเพื่อตรวจสอบการเปลี่ยนแปลง<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'เสนอการเปลี่ยนแปลง';
 $lang["page-title_propose_changes_setup"] = 'ตั้งค่าเสนอการเปลี่ยนแปลงปลั๊กอิน';
+
+$lang['plugin-propose_changes-title'] = 'เสนอการเปลี่ยนแปลง';
+$lang['plugin-propose_changes-desc'] = 'อนุญาตให้ผู้ใช้เสนอการเปลี่ยนแปลงเมตาดาต้าโดยไม่ต้องมีสิทธิ์แก้ไข';

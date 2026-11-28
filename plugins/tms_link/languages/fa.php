@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'نمایش داده‌های خام TMS
 $lang["page-title_tms_link_test"] = 'داده‌های TMS آزمایشی';
 $lang["page-title_tms_link_tms_details"] = 'نمایش داده‌های TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'ویرایش پیکربندی ماژول TMS';
+
+$lang['plugin-tms_link-title'] = 'پیوند TMS';
+$lang['plugin-tms_link-desc'] = 'امکان استخراج فراداده منابع از پایگاه داده TMS را فراهم می‌کند.';

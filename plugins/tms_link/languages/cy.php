@@ -79,3 +79,6 @@ $lang["page-title_tms_link_show_raw"] = 'Dangos Data TMS Crai';
 $lang["page-title_tms_link_test"] = 'Profion Data TMS';
 $lang["page-title_tms_link_tms_details"] = 'Dangos Data TMS';
 $lang["page-title_tms_link_tms_module_config"] = 'Golygu Cydosod Modiwl TMS';
+
+$lang['plugin-tms_link-title'] = 'Dolen TMS';
+$lang['plugin-tms_link-desc'] = 'Yn caniatáu echdynnu metaddata adnoddau o gronfa ddata TMS.';

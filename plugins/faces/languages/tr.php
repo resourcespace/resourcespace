@@ -29,3 +29,6 @@ $lang["faces_detect_faces_configure"] = 'Yüzleri tespit etmek için işi yapıl
 $lang["faces_tag_faces_configure"] = 'Yüzleri etiketlemek için işi yapılandır';
 $lang["faces_detect_faces_intro"] = 'Burada yüz tespiti başlatmak için bir iş oluşturun - bu iş herhangi bir parametre gerektirmez, bu nedenle başka türdeki bekleyen işler yoksa başlatılabilir.';
 $lang["faces_tag_faces_collection_refs_help"] = 'Bu seçeneği ayarlamak, yalnızca listelenen koleksiyonlardaki kaynakların güncelleneceği anlamına gelir. Koleksiyonlar belirtilmezse, Yüz etiketleme TÜM uygun kaynaklar için güncellenecektir. Koleksiyonlar virgülle ayrılmış liste veya aralıklar kullanılarak da belirtilebilir, örn. 100,105,110-115';
+
+$lang['plugin-faces-title'] = 'AI Faces - InsightFace';
+$lang['plugin-faces-desc'] = 'En son otomatik yüz algılama ve etiketleme. Yüze göre arama yapın.';

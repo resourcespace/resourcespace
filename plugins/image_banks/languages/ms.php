@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Cari';
 $lang["page-title_image_banks_setup"] = 'Tetapkan Plugin Bank Imej';
 $lang["page-title_image_banks_shutterstock_license"] = 'Lihat Gambar Shutterstock';
 $lang["page-title_image_banks_view"] = 'Lihat Sumber';
+
+$lang['plugin-image_banks-title'] = 'Bank Imej';
+$lang['plugin-image_banks-desc'] = 'Cari perpustakaan imej percuma/komersial terus dari dalam ResourceSpace.';

@@ -16,3 +16,6 @@ $lang["news_manage-tooltip"] = 'زیادکردن، دەسکاریکردن یان
 $lang["page-title_news_news_content_edit"] = 'دەسکاریکردنی ناوەڕۆکی هەواڵ';
 $lang["page-title_news_news_edit"] = 'دەسکاریکردنی هەواڵ';
 $lang["page-title_news_news"] = 'هەواڵ';
+
+$lang['plugin-news-title'] = 'هەواڵەکان';
+$lang['plugin-news-desc'] = 'بەشە هەواڵەکان زیاد بکە بۆ لاپەڕەی سەرەکی.';

@@ -10,3 +10,6 @@ $lang["bookend-intro"] = 'Válassza ki a képeket az alternatív fájlok listáj
 $lang["bookend-failed"] = 'Sikertelen!';
 $lang["bookend-could-not-open-file"] = 'Hiba - nem sikerült megnyitni a fájlt!';
 $lang["page-title_video_bookend_bookend"] = 'Videó könyvjelző';
+
+$lang['plugin-video_bookend-title'] = 'Videó Bookend';
+$lang['plugin-video_bookend-desc'] = 'Lehetővé teszi egy videó letöltését címmel és záró grafikával.';

@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Aktuální rok';
 $lang["page-title_totp_setup"] = 'Nastavení pluginu TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Zakázat TOTP pro uživatele již ověřené přes SAML (vyžaduje plugin SAML)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Podpora TFA/MFA přes Google Authenticator';

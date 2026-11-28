@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'ब्रांड दिशा�
 $lang["page-title_brand_guidelines_guidelines"] = 'ब्रांड दिशानिर्देश';
 $lang["page-title_brand_guidelines_setup"] = 'ब्रांड दिशानिर्देश प्लगइन सेटअप करें';
 $lang["page-title_brand_guidelines_toc"] = 'सामग्री संपादित करें';
+
+$lang['plugin-brand_guidelines-title'] = 'ब्रांड दिशानिर्देश';
+$lang['plugin-brand_guidelines-desc'] = 'कस्टम सामग्री, संसाधन लिंक और रंगों के साथ एक ब्रांड दिशानिर्देश क्षेत्र बनाएं।';

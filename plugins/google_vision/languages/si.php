@@ -1,0 +1,32 @@
+<?php
+$lang['page-title_google_vision_process_existing'] = 'Google Vision පවතින දත්ත සැකසීම';
+$lang['page-title_google_vision_setup'] = 'Google Vision ප්ලගිනය සැකසීම';
+$lang['page-title_google_vision_test_jpg'] = 'Google Vision පරීක්ෂණය';
+$lang['page-title_google_vision_test'] = 'Google Vision පරීක්ෂණය';
+$lang['google_vision'] = 'Google Vision';
+$lang['google_vision_process_existing'] = 'සැකසී නොමැති සම්පත් සැකසීම';
+$lang['google_vision_process_existing_configure'] = 'සැකසී නොමැති සම්පත් සැකසීම සඳහා රැකියා සැකසීම';
+$lang['google_vision_process_existing_collection_refs_help'] = 'මෙම විකල්පය සකස් කිරීමෙන්, ලැයිස්තුගත කළ එකතුවල ඇති සම්පත් පමණක් සැකසෙනු ඇත. එකතුවක් සඳහන් නොකළහොත්, සුදුසු සියලු සම්පත් සැකසෙනු ඇත. එකතුවන් කොමාවෙන් වෙන් කළ ලැයිස්තුවක් හෝ පරාසයක් ලෙස සඳහන් කළ හැක, උදාහරණයක් ලෙස 100,105,110-115';
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'AI භාවිතයෙන් ස්වයංක්‍රීය රූප ටැගිං.';
+
+$lang['google_vision_api_key'] = 'Google API යතුර';
+$lang['google_vision_label_field'] = 'ආරෝපිත යතුරු සඳහා ක්ෂේත්‍රය';
+$lang['google_vision_landmarks_field'] = 'ලැන්ඩ්මාර්ක් සඳහා ක්ෂේත්‍රය';
+$lang['google_vision_text_field'] = 'උගත් පෙළ සඳහා ක්ෂේත්‍රය';
+$lang['google_vision_logo_field'] = 'හඳුනාගත් ජනප්‍රිය ලාංඡන සඳහා ක්ෂේත්‍රය';
+$lang['google_vision_api'] = 'Google Vision API';
+$lang['google_vision_restypes'] = 'සක්‍රීය කළ සම්පත් වර්ග';
+$lang['google_vision_features'] = 'සක්‍රීය කළ විශේෂාංග හඳුනා ගැනීම';
+$lang['google_vision_autotitle'] = 'උසස්ම ශ්‍රේණිගත යතුරට මාතෘකාව ස්වයංක්‍රීයව සකසන්න';
+$lang['google_vision_help'] = '<strong>අත්‍යවශ්‍යයි</strong> - Google Vision දත්ත ගබඩා කිරීම සඳහා නව ක්ෂේත්‍ර නිර්මාණය කිරීම යෝජනා කරයි, එවිට එය පරිශීලක ඇතුළත් අන්තර්ගතයෙන් පැහැදිලිව වෙනස් වේ.';
+$lang['google_vision_face_detect'] = 'මුහුණු හඳුනා ගැනීම';
+$lang['google_vision_face_detect_field'] = 'මුහුණු හඳුනා ගැනීමේ දත්ත ගබඩා කිරීමට ක්ෂේත්‍රය (විකල්ප)';
+$lang['google_vision_face_detect_fullface'] = 'මුහුණු දත්ත ගබඩා කරනවානම්, සම ප්‍රදේශය පමණක් නොව සම්පූර්ණ මුහුණු හඳුනා ගන්න. වැඩි විස්තර සඳහා <a href=\'https://cloud.google.com/vision/docs/reference/rest/v1/images/annotate#FaceAnnotation\' target=\'_blank\'>මෙම සබැඳිය</a> බලන්න';
+$lang['google_vision_face_detect_verbose'] = 'විස්තරාත්මක මුහුණු හඳුනා ගැනීමේ දත්ත ගබඩා කරන්න (සියලු මුහුණු දත්ත, මුහුණු ලක්ෂණ ස්ථාන සහ හැඟීම් හඳුනා ගැනීම ඇතුළත්)';
+$lang['google_vision_face_dependent_field'] = 'මුහුණු හඳුනා ගැනීමේ දත්ත ක්ෂේත්‍රය හිස් වූ විට සැඟවෙන මැටාඩේටා ක්ෂේත්‍රයක් තෝරන්න (විකල්ප)';
+$lang['google_vision_translation'] = 'බහුභාෂා පරිවර්තනය';
+$lang['google_vision_translation_intro'] = 'Google Vision ඉංග්‍රීසි යතුරු පමණක් ලබා දෙයි. වෙනත් භාෂාවලට පරිවර්තනය කිරීමට වෙනම පරිවර්තන API භාවිතා කළ හැක. Google පාලක මණ්ඩලයේ Translation API සක්‍රීය කර ඇති බවට සහතික වන්න.';
+$lang['google_vision_translation_api_key'] = 'වලංගු Google API යතුරක් ඇතුළත් කර Vision යතුරු පරිවර්තන API හරහා පරිවර්තනය සක්‍රීය කරන්න';
+$lang['google_vision_translation_languages'] = 'භාෂා කේත කොමාවෙන් වෙන් කළ ලැයිස්තුව, උදා. "no,es"';
+$lang['google_vision_translation_keep_english'] = 'මුල් ඉංග්‍රීසි යතුරු තබා ගන්නද?';

@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'Maghanap';
 $lang["page-title_image_banks_setup"] = 'I-set up ang Plugin ng Image Banks';
 $lang["page-title_image_banks_shutterstock_license"] = 'Tingnan ang Imahe ng Shutterstock';
 $lang["page-title_image_banks_view"] = 'Tingnan ang Yaman';
+
+$lang['plugin-image_banks-title'] = 'Mga Bangko ng Imahe';
+$lang['plugin-image_banks-desc'] = 'Maghanap ng mga libreng/pang-komersyal na aklatan ng imahe mula sa loob ng ResourceSpace.';

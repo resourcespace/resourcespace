@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Ibalik ang Archive';
 $lang["page-title_offline_archive_setup"] = 'I-set up ang Plugin';
 $lang["page-title_offline_archive_view_archives"] = 'Tingnan ang mga Archive ng Resource';
 $lang["page-title_offline_archive_view_pending"] = 'Tingnan ang Mga Nakatagong Archive';
+
+$lang['plugin-offline_archive-title'] = 'Archive Offline';
+$lang['plugin-offline_archive-desc'] = 'Pinapagana ang paglilipat ng mga na-archive na file sa isang offline na lokasyon.';

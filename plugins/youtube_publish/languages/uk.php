@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"]='Додати теги якоря до URL �
 $lang["page-title_youtube_publish_setup"] = 'Налаштування плагіна';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Опублікувати ресурс на YouTube';
 $lang["youtube_publish_video_title"] = 'Назва відео (максимум 100 символів)';
+
+$lang['plugin-youtube_publish-title'] = 'Публікація на YouTube';
+$lang['plugin-youtube_publish-desc'] = 'Публікувати відеоресурси у налаштований обліковий запис YouTube.';

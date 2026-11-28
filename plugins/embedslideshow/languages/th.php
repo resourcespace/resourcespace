@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'การปรับขนาดตั�
 
 $lang["page-title_embedslideshow_setup"] = 'ตั้งค่าปลั๊กอินสไลด์โชว์ฝัง';
 $lang["page-title_embedslideshow_viewer"] = 'ฝังสไลด์โชว์';
+
+$lang['plugin-embedslideshow-title'] = 'ฝังสไลด์โชว์';
+$lang['plugin-embedslideshow-desc'] = 'ให้ฟังก์ชันสำหรับสร้าง HTML เพื่อฝังสไลด์โชว์คอลเลกชันบนเว็บไซต์ภายนอก';

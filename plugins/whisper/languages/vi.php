@@ -15,3 +15,6 @@ $lang["whisper"] = 'Thì thầm';
 $lang["whisper_process_existing"] = 'Xử lý tài nguyên chưa xử lý';
 $lang["whisper_process_existing_intro"] = 'Tạo một tác vụ để bắt đầu xử lý âm thanh Whisper tại đây - tác vụ này không yêu cầu tham số nào nên có thể bắt đầu miễn là không có tác vụ nào khác cùng loại đang chờ xử lý.';
 $lang["whisper_process_existing_configure"] = 'Cấu hình tác vụ để xử lý tệp với Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Chuyển đổi video/âm thanh thành văn bản bằng Whisper từ OpenAI. Chạy cục bộ, không cần đăng ký.';

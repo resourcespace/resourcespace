@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"] = 'A gyűjtemény #%COLLECTION állapotának
 $lang["rse_version_invalid_time"] = 'A [date] előtti időpontra való visszaállítás nem támogatott';
 $lang["page-title_rse_version_revert"] = 'Erőforrás verzió visszaállítása';
 $lang["page-title_rse_version_setup"] = 'Plugin beállítása';
+
+$lang['plugin-rse_version-title'] = 'Verziókezelés';
+$lang['plugin-rse_version-desc'] = 'Kövesse nyomon és állítsa vissza a metaadatok és fájlok változásait.';

@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Beheer Inhoud Merkrichtlijnen';
 $lang["page-title_brand_guidelines_guidelines"] = 'Merkrichtlijnen';
 $lang["page-title_brand_guidelines_setup"] = 'Instellen van het Brand Guidelines Plugin';
 $lang["page-title_brand_guidelines_toc"] = 'Bewerk inhoud';
+
+$lang['plugin-brand_guidelines-title'] = 'Merkrichtlijnen';
+$lang['plugin-brand_guidelines-desc'] = 'Maak een gebied voor merkrichtlijnen met aangepaste inhoud, bronnenlinks en kleuren.';

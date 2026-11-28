@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"] = '[img_headerlogo]<br />Perubahan yang d
 $lang["propose_changes_emailproposedchanges"] = '[img_headerlogo]<br />Perubahan yang dicadangkan telah dihantar.<br/>[changesummary]<br/>Klik di bawah untuk menyemak perubahan<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'Cadangkan Perubahan';
 $lang["page-title_propose_changes_setup"] = 'Tetapkan Plugin Cadangan Perubahan';
+
+$lang['plugin-propose_changes-title'] = 'Cadangkan Perubahan';
+$lang['plugin-propose_changes-desc'] = 'Benarkan pengguna mencadangkan perubahan metadata tanpa akses suntingan.';

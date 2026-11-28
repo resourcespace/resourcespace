@@ -85,3 +85,5 @@ $lang["use_filename_as_title"] = 'Tumia jina la faili kama kichwa';
 
 $lang["error-resolution-zero"] = 'Hitilafu: Picha asili ina upana/wahusika wa hesabu wa sifuri.';
 $lang["error-preview-missing"] = 'Hitilafu: Haiwezi kupatikana picha ya awali';
+$lang['plugin-transform-title'] = 'Zana za Picha (badiliko)';
+$lang['plugin-transform-desc'] = 'Inawezesha kuunda picha mbadala zilizokatwa na kupimwa.';

@@ -55,3 +55,5 @@ $lang["page-title_licensemanager_edit"] = 'लाइसेंस संपाद
 $lang["page-title_licensemanager_list"] = 'लाइसेंस सूची';
 $lang["page-title_licensemanager_setup"] = 'लाइसेंस प्रबंधक प्लगइन सेटअप करें';
 $lang["page-title_licensemanager_unlink"] = 'लाइसेंस अंसलिंक करें';
+
+$lang["collection_actiontype_80"] = 'लाइसेंसिंग';

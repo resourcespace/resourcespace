@@ -41,3 +41,6 @@ $lang["page-title_brand_guidelines_content"] = 'ব্র্যান্ড গ�
 $lang["page-title_brand_guidelines_guidelines"] = 'ব্র্যান্ড গাইডলাইনস';
 $lang["page-title_brand_guidelines_setup"] = 'ব্র্যান্ড গাইডলাইন প্লাগইন সেটআপ করুন';
 $lang["page-title_brand_guidelines_toc"] = 'বিষয়বস্তু সম্পাদনা করুন';
+
+$lang['plugin-brand_guidelines-title'] = 'ব্র্যান্ড নির্দেশিকা';
+$lang['plugin-brand_guidelines-desc'] = 'কাস্টম কন্টেন্ট, সম্পদ লিঙ্ক এবং রঙ সহ একটি ব্র্যান্ড নির্দেশিকা এলাকা তৈরি করুন।';

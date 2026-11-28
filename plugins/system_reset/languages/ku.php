@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = 'ئایا دڵنیایت؟ ئەمە ناتوان
 $lang["system_reset_delete_all"] = 'سڕینەوەی هەموو داتا و فایلەکان';
 $lang["system_reset-tooltip"] = 'بەکاربردنی نەوەی سیستەم بۆ سڕینەوەی هەموو فایلەکان و داتا';
 $lang["page-title_system_reset_reset"] = 'نەوەی سیستەم';
+
+$lang['plugin-system_reset-title'] = 'ڕیسێتی سیستەم';
+$lang['plugin-system_reset-desc'] = 'هەڵبژاردنێک زیاد دەکات بۆ admin/system بۆ سڕینەوەی هەموو داتاکان.';

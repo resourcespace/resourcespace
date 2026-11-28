@@ -55,3 +55,6 @@ $lang["page-title_offline_archive_restore"] = 'Възстановяване на
 $lang["page-title_offline_archive_setup"] = 'Настройка на плъгина за офлайн архив';
 $lang["page-title_offline_archive_view_archives"] = 'Преглед на архивите на ресурси';
 $lang["page-title_offline_archive_view_pending"] = 'Преглед на чакащите архиви';
+
+$lang['plugin-offline_archive-title'] = 'Офлайн архив';
+$lang['plugin-offline_archive-desc'] = 'Позволява преместването на архивирани файлове в офлайн местоположение.';

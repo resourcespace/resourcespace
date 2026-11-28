@@ -26,3 +26,6 @@ $lang["embedslideshow_directlinkopen"] = 'Buka pautan terus (halaman baru)';
 $lang["embedslideshow_dynamic_size"] = 'Saiz pratonton yang dinamik berdasarkan saiz pemain?';
 $lang["page-title_embedslideshow_setup"] = 'Tetapkan Plugin Tayangan Slideshow';
 $lang["page-title_embedslideshow_viewer"] = 'Sisipkan Tayangan Slideshow';
+
+$lang['plugin-embedslideshow-title'] = 'Sisipkan Tayangan Slide';
+$lang['plugin-embedslideshow-desc'] = 'Menyediakan fungsi untuk menjana HTML bagi tayangan slide koleksi yang boleh disisipkan di laman jauh.';

@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'لائسنس میں ترمیم کری
 $lang["page-title_licensemanager_list"] = 'لائسنس کی فہرست';
 $lang["page-title_licensemanager_setup"] = 'لائسنس منیجر پلگ ان سیٹ اپ کریں';
 $lang["page-title_licensemanager_unlink"] = 'لائسنس کو منقطع کریں';
+
+$lang["collection_actiontype_80"] = 'لائسنسنگ';
+$lang['plugin-licensemanager-title'] = 'لائسنس مینیجر';
+$lang['plugin-licensemanager-desc'] = 'وسائل کی لائسنسنگ کا انتظام کریں۔';

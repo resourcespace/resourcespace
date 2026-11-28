@@ -87,3 +87,6 @@ $lang["csv_upload_location"] = 'Pilih lajur yang mengandungi lokasi untuk sumber
 $lang["csv_upload_longitude"] = 'Pilih lajur untuk Longitud jika berasingan daripada lajur di atas';
 $lang["latitude"] = 'latitud';
 $lang["longitude"] = 'longitud';
+
+$lang['plugin-csv_upload-title'] = 'Muat Naik CSV';
+$lang['plugin-csv_upload-desc'] = 'Muat naik metadata menggunakan fail CSV.';

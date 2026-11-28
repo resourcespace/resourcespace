@@ -26,3 +26,6 @@ $lang["embedslideshow_dynamic_size"] = 'Kubadilisha ukubwa wa hakikisho kwa nguv
 
 $lang["page-title_embedslideshow_setup"] = 'Weka Plugin ya Kuonyesha Slideshow';
 $lang["page-title_embedslideshow_viewer"] = 'Weka Slideshow';
+
+$lang['plugin-embedslideshow-title'] = 'Onyesha Slideshow';
+$lang['plugin-embedslideshow-desc'] = 'Inatoa kipengele cha kuunda HTML kwa ajili ya slideshow za mikusanyiko zinazoweza kuingizwa kwenye tovuti za mbali.';

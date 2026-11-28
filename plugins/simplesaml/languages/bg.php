@@ -106,3 +106,6 @@ $lang["simplesaml_error_no_authsource"] = 'SimpleSAML плъгинът не е �
 $lang["page-title_simplesaml_about"] = 'За SAML';
 $lang["page-title_simplesaml_generate_sp_config"] = 'Генерирай SP конфигурация';
 $lang["page-title_simplesaml_setup"] = 'Настройка на Simple SAML плъгина';
+
+$lang['plugin-simplesaml-title'] = 'SAML';
+$lang['plugin-simplesaml-desc'] = 'Потребителска автентикация чрез SAML.';

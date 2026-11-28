@@ -54,3 +54,6 @@ $lang["museumplus_error_module_no_field_maps"]='Неможливо синхро�
 $lang["page-title_museumplus_museumplus_object_details"] = 'MuseumPlus Деталі об\'єкта';
 $lang["page-title_museumplus_setup_module"] = 'Налаштування модуля MuseumPlus';
 $lang["page-title_museumplus_setup"] = 'Налаштування плагіна MuseumPlus';
+
+$lang['plugin-museumplus-title'] = 'MuseumPlus';
+$lang['plugin-museumplus-desc'] = 'Дозволяє отримувати метадані ресурсів з MuseumPlus за допомогою його REST API (MpRIA).';

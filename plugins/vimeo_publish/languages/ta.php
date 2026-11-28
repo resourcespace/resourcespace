@@ -1,0 +1,42 @@
+<?php
+$lang['vimeo_api_instructions_condition_5'] = '"App URL" க்காக Base URL ஐப் பயன்படுத்தவும் (இந்த வழிமுறைகளுக்கு முன் உள்ளது)';
+$lang['vimeo_api_instructions_condition_6'] = '"App Callback URL" க்காக Callback URL ஐப் பயன்படுத்தவும் (இந்த வழிமுறைகளுக்கு முன் உள்ளது)';
+$lang['vimeo_api_instructions_condition_7'] = 'ஆப் உருவாக்கிய பிறகு, அதை திறந்து "Authentication" தாவலை கிளிக் செய்து Client ID மற்றும் Secret ஐ கண்டறியவும்';
+$lang['vimeo_api_instructions_condition_8'] = 'Client ID மற்றும் Secret ஐ நகலெடுத்து கீழே ஒட்டவும்';
+$lang['vimeo_api_instructions_condition_9'] = 'Vimeo இல் வீடியோக்களை பதிவேற்ற அனுமதி கோரவும். நீங்கள் பதிவேற்றப்போகும் வீடியோக்களின் வகையைப் பற்றி போதுமான தகவலை வழங்கவும்';
+$lang['vimeo_publish_no_vimeoAPI_files'] = 'ResourceSpace Vimeo இன் PHP API கோப்புகளை அணுக முடியவில்லை போல் தெரிகிறது!';
+$lang['vimeo_publish_access_denied'] = 'அணுகல் மறுக்கப்பட்டது!';
+$lang['vimeo_publish_not_configured'] = 'ResourceSpace பிளக்கின் "vimeo_publish" அமைக்கப்படவில்லை. தயவுசெய்து செல்லவும்: ';
+$lang['vimeo_publish_resource_already_published'] = 'ID [ref] கொண்ட வளம் ஏற்கனவே Vimeo இல் வெளியிடப்பட்டுள்ளது. அதை [vimeo_url] இல் பார்க்கலாம்';
+$lang['vimeo_publish_resource_published'] = 'வளம் Vimeo இல் வெளியிடப்பட்டது. அதை [vimeo_url] இல் பார்க்கலாம்';
+$lang['vimeo_publish_account_options'] = 'Vimeo கணக்கு விருப்பங்கள்';
+$lang['vimeo_publish_allow_user_accounts'] = 'பயனர்கள் தங்கள் சொந்த Vimeo கணக்குகளில் வெளியிட அனுமதிக்கவும். தவறானால் கீழே ஒரு தனி Vimeo கணக்கு அணுகல் அமைக்கப்பட வேண்டும்';
+$lang['vimeo_publish_set_account'] = 'Vimeo கணக்கை அமைக்கவும்';
+$lang['page-title_vimeo_publish_setup'] = 'Vimeo வெளியீடு பிளக்கின் அமைப்பு';
+$lang['page-title_vimeo_publish_vimeo_api'] = 'Vimeo இல் வெளியிடவும்';
+$lang['plugin-vimeo_publish-title'] = 'Vimeo வெளியீடு';
+$lang['plugin-vimeo_publish-desc'] = 'வளங்களை Vimeo இல் வெளியிடவும்.';
+
+$lang['vimeo_publish_configuration'] = 'Vimeo வெளியீடு பிளக்கின் அமைப்பு';
+$lang['vimeo_publish_resource_tool_link'] = 'Vimeo-க்கு வெளியிடு';
+$lang['vimeo_publish_base'] = 'அடிப்படை URL';
+$lang['vimeo_publish_callback_url'] = 'பின்வழிச் URL';
+$lang['vimeo_publish_authentication'] = 'அங்கீகாரம்';
+$lang['vimeo_publish_vimeo_instructions'] = 'Vimeo OAuth 2.0 வழிமுறைகள்';
+$lang['vimeo_publish_oauth2_client_id'] = 'கிளையன்ட் ஐடி';
+$lang['vimeo_publish_oauth2_client_secret'] = 'கிளையன்ட் ரகசியம்';
+$lang['vimeo_publish_rs_field_mappings'] = 'ResourceSpace - Vimeo புலம் பொருத்தங்கள்';
+$lang['vimeo_publish_video_details'] = 'Vimeo - வீடியோ விவரங்கள்';
+$lang['vimeo_publish_vimeo_link'] = 'Vimeo இணைப்பு';
+$lang['vimeo_publish_video_title'] = 'வீடியோ தலைப்பு';
+$lang['vimeo_publish_video_description'] = 'வீடியோ விளக்கம்';
+$lang['vimeo_publish_resource_types_to_include'] = 'Vimeoக்கான செல்லுபடியான வீடியோ வள வகைகளை தேர்ந்தெடுக்கவும்';
+$lang['vimeo_publish_publish_as_user'] = 'நீங்கள் கீழ்காணும் பயனராக Vimeo-க்கு வெளியிடப்போகிறீர்கள்: ';
+$lang['vimeo_publish_delete_token'] = 'வேறு Vimeo கணக்கை பயன்படுத்தவும் (முதலில் இந்த Vimeo கணக்கிலிருந்து வெளியேறியிருப்பதை உறுதிப்படுத்தவும்)';
+$lang['vimeo_publish_button_text'] = 'வெளியிடு';
+$lang['vimeo_api_instructions_condition_1'] = 'ResourceSpace ஐ Vimeo உடன் ஒரு செயலியாக பதிவு செய்து OAuth கிளையன்ட் ஐடி மற்றும் ரகசியத்தைப் பெற வேண்டும்';
+$lang['vimeo_api_instructions_condition_2'] = 'ஏதேனும் செல்லுபடியான Vimeo கணக்கில் உள்நுழைந்து (இது உங்கள் Vimeo கணக்குடன் தொடர்புடையதாக இருக்க வேண்டியதில்லை), பின்னர் <a href="https://developer.vimeo.com/" target="_blank">https://developer.vimeo.com/</a> செல்லவும்';
+$lang['vimeo_api_instructions_condition_3'] = 'மேலே வலது பக்கத்தில் உள்ள "New App" என்பதைக் கிளிக் செய்யவும்';
+$lang['vimeo_api_instructions_condition_4'] = 'அனைத்து விவரங்களையும் பூர்த்தி செய்யவும்';
+
+$lang['vimeo_publish_legal_warning'] = '\'சரி\' என்பதைக் கிளிக் செய்வதன் மூலம், நீங்கள் உள்ளடக்கத்தின் அனைத்து உரிமைகளையும் நீங்கள் உடையவராக அல்லது உள்ளடக்கத்தை விமியோவில் பொதுவாக கிடைக்கச் செய்ய உரிமையாளர் மூலம் அனுமதிக்கப்பட்டவராக இருப்பதை உறுதிப்படுத்துகிறீர்கள் மற்றும் இது விமியோவின் சேவை விதிமுறைகளுடன் https://vimeo.com/terms இணக்கமாக இருப்பதாக உறுதிப்படுத்துகிறீர்கள்.';

@@ -1799,7 +1799,8 @@ function dash_tile_featured_collection_get_resources($c, array $ctx)
             "ref" => $resource_data['ref'],
             "field{$view_title_field}" => get_data_by_field($resource_data['ref'], $view_title_field),
             "resource_type" => $resource_data['resource_type'],
-            "file_extension" => $resource_data['file_extension']);
+            "file_extension" => $resource_data['file_extension'],
+            "blurhash" => $resource_data['blurhash'] ?? '');
     }
 
     return $resources;
@@ -1826,7 +1827,8 @@ function dash_tile_featured_collection_get_top_resources()
             $return[] = [
                 'ref'                           => $resource['ref'],
                 'title'                         => get_data_by_field($resource['ref'], $view_title_field),
-                'resource_type'                 => $resource['resource_type']
+                'resource_type'                 => $resource['resource_type'],
+                'blurhash'                      => $resource['blurhash'] ?? '',
             ];
         }
         if ($count >=3) {
@@ -1976,9 +1978,20 @@ function tltype_srch_generate_js_for_background_and_count(array $tile, string $t
 
             api('get_dash_search_data', data, function(response) {
                 const TILE_ID = '<?php echo escape($tile_id); ?>';
-                const TILE_WIDTH = <?php echo $tile_width; ?>;
-                const TILE_HEIGHT = <?php echo $tile_height; ?>;
                 var preview_resources;
+                const previewImage = (resource) => {
+                    const tile = jQuery('<span>', {class: 'thmbs-tile-img tile-preview'});
+                    if (resource.placeholder) {
+                        tile.css('background-image', 'url(' + resource.placeholder + ')');
+                    }
+                    // The API provides an HTML-escaped title.
+                    const image = jQuery('<img alt="' + resource.title + '">').attr({
+                        'data-preview-src': resource.url,
+                        decoding: 'async',
+                        style: 'display:none;opacity:0'
+                    });
+                    return tile.append(image);
+                };
 
                 if (TILE_STYLE === 'thmbs') {
                     let promoted_image = <?php echo (int)$promoted_image; ?>;
@@ -1989,23 +2002,7 @@ function tltype_srch_generate_js_for_background_and_count(array $tile, string $t
                     preview_resources = promoted_image > 0 && promoted_image_resource[0] !== undefined ? [promoted_image_resource[0]]
                     : promoted_image === 0 && response.images[0] !== undefined ? [response.images[0]]
                     : [];
-                    // Fit (adjust) the 'pre' size to the tile size
-                    preview_resources = preview_resources.map(function(resource) {
-                        if (resource['thumb_width'] * 0.7 >= resource['thumb_height']) {
-                            let ratio = resource['thumb_height'] / TILE_HEIGHT;
-                            if (ratio == 0) { ratio = 1; } // attempt fit if 'thumb_height' is 0
-                            let width = resource['thumb_width'] / ratio;
-                            var size = width < TILE_WIDTH ? ' width="100%"' : ' height="100%"';
-                        } else {
-                            let ratio = resource['thumb_width'] / TILE_WIDTH;
-                            if (ratio == 0) { ratio = 1; } // attempt fit if 'thumb_width' is 0
-
-                            let height = resource['thumb_height'] / ratio;
-                            var size = height < TILE_HEIGHT ? ' height="100%"' : ' width="100%"';
-                        }
-
-                        return '<img alt="' + resource.title + '" src="' + resource.url + '"' + size + ' class="thmbs-tile-img">';
-                    });
+                    preview_resources = preview_resources.map(previewImage);
 
                     // Tile background - resource(s) preview
                     console.debug('preview_resources = %o', preview_resources);
@@ -2022,10 +2019,7 @@ function tltype_srch_generate_js_for_background_and_count(array $tile, string $t
                         )
                     }
                 } else if (TILE_STYLE === 'multi') {
-                    preview_resources = response.images
-                        .map(function(resource, index, resources_list) {
-                            return '<img alt="' + resource.title + '" src="' + resource.url + '">';
-                        })
+                    preview_resources = response.images.map(previewImage);
                     let use_placeholder = false;
                     while(preview_resources.length < 3) {
                         if (preview_resources.length == 0) {
@@ -2147,6 +2141,8 @@ function get_dash_search_data($link = '', $promimg = 0)
                         $searchdata["images"][$imagecount]["thumb_height"] = $results["data"][$n]["thumb_height"];
                         $searchdata["images"][$imagecount]["url"] = get_resource_path($results["data"][$n]["ref"], false, "pre", false, "jpg", -1, 1, $use_watermark);
                         $searchdata["images"][$imagecount]["title"] = escape($results["data"][$n]["field" . $view_title_field] ?? $lang["resource-1"] . " " . $results["data"][$n]["ref"]);
+                        $searchdata["images"][$imagecount]["placeholder"] = $use_watermark
+                            ? '' : get_blurhash_placeholder($results["data"][$n]['blurhash'] ?? '');
                         $imagecount++;
                     }
                 }
@@ -2180,6 +2176,8 @@ function get_dash_search_data($link = '', $promimg = 0)
                         $searchdata["images"][$imagecount]["thumb_height"] = $results[$n]["thumb_height"];
                         $searchdata["images"][$imagecount]["url"] = get_resource_path($results[$n]["ref"], false, "pre", false, "jpg", -1, 1, $use_watermark);
                         $searchdata["images"][$imagecount]["title"] = escape($results[$n]["field" . $view_title_field] ?? $lang["resource-1"] . " " . $results[$n]["ref"]);
+                        $searchdata["images"][$imagecount]["placeholder"] = $use_watermark
+                            ? '' : get_blurhash_placeholder($results[$n]['blurhash'] ?? '');
                         $imagecount++;
                     }
                 }

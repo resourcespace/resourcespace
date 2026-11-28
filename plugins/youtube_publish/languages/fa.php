@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"]='آیا هنگام ذخیره به فیلد 
 $lang["page-title_youtube_publish_setup"] = 'تنظیم افزونه';
 $lang["page-title_youtube_publish_youtube_upload"] = 'منبع را به یوتیوب منتشر کنید';
 $lang["youtube_publish_video_title"] = 'عنوان ویدیو (حداکثر ۱۰۰ کاراکتر)';
+
+$lang['plugin-youtube_publish-title'] = 'انتشار در یوتیوب';
+$lang['plugin-youtube_publish-desc'] = 'انتشار منابع ویدیویی در حساب یوتیوب پیکربندی شده.';

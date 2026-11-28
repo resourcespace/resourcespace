@@ -1,0 +1,40 @@
+<?php
+$lang['emu_test_script_title'] = 'சோதனை/செயல்படுத்தல் ஸ்கிரிப்ட்';
+$lang['emu_run_script'] = 'செயலாக்கு';
+$lang['emu_script_problem'] = 'எச்சரிக்கை - EMu ஸ்கிரிப்ட் கடந்த %days% நாட்களில் வெற்றிகரமாக முடிவடையவில்லை. கடைசி இயக்க நேரம்: ';
+$lang['emu_no_resource'] = 'மூல ID குறிப்பிடப்படவில்லை!';
+$lang['emu_upload_nodata'] = 'இந்த IRN க்கான EMu தரவு இல்லை: ';
+$lang['emu_nodata_returned'] = 'குறிப்பிட்ட IRN க்கான EMu தரவு இல்லை.';
+$lang['emu_createdfromemu'] = 'EMu பிளக்கின் மூலம் உருவாக்கப்பட்டது';
+$lang['page-title_emu_emu_object_details'] = 'EMu பொருள் விவரங்கள்';
+$lang['page-title_emu_setup'] = 'EMu பிளக்கின் அமைப்பு';
+$lang['plugin-emu-title'] = 'EMu';
+$lang['plugin-emu-desc'] = 'EMu தரவுத்தளத்திலிருந்து வளத்தின் மெட்டாடேட்டாவை எடுக்க அனுமதிக்கிறது.';
+
+$lang['emu_configuration'] = 'EMu கட்டமைப்பு';
+$lang['emu_api_settings'] = 'API சேவையக அமைப்புகள்';
+$lang['emu_api_server_port'] = 'சேவையக போர்ட்';
+$lang['emu_resource_types'] = 'EMu உடன் இணைக்கப்பட்ட வள வகைகளை தேர்ந்தெடுக்கவும்';
+$lang['emu_email_notify'] = 'ஸ்கிரிப்ட் அறிவிப்புகளை அனுப்பும் மின்னஞ்சல் முகவரி. காலியாக இருந்தால் அமைப்பு அறிவிப்பு முகவரிக்கு இயல்புநிலை';
+$lang['emu_script_failure_notify_days'] = 'ஸ்கிரிப்ட் முடிவடையவில்லை என்றால் எத்தனை நாட்களுக்கு பிறகு எச்சரிக்கை மற்றும் மின்னஞ்சல் அனுப்ப வேண்டும்';
+$lang['emu_script_header'] = 'ResourceSpace அதன் திட்டமிடப்பட்ட பணியை (cron_copy_hitcount.php) இயக்கும் போது EMu தரவை தானாக புதுப்பிக்கும் ஸ்கிரிப்டை இயக்கவும்';
+$lang['emu_last_run_date'] = 'ஸ்கிரிப்ட் கடைசியாக இயக்கப்பட்டது';
+$lang['emu_script_mode'] = 'ஸ்கிரிப்ட் முறை';
+$lang['emu_script_mode_option_1'] = 'EMu இலிருந்து மெட்டாடேட்டாவை இறக்குமதி செய்க';
+$lang['emu_script_mode_option_2'] = 'அனைத்து EMu பதிவுகளையும் இழுக்கவும் மற்றும் RS மற்றும் EMu ஐ ஒத்திசைக்கவும்';
+$lang['emu_enable_script'] = 'EMu ஸ்கிரிப்டை இயக்கவும்';
+$lang['emu_test_mode'] = 'சோதனை முறை - உண்மையாக அமைக்கப்பட்டால் ஸ்கிரிப்ட் இயங்கும் ஆனால் வளங்களை புதுப்பிக்காது';
+$lang['emu_interval_run'] = 'பின்வரும் இடைவெளியில் ஸ்கிரிப்டை இயக்கவும் (உதா: +1 நாள், +2 வாரங்கள், பத்தாம் நாள்). காலியாக விட்டால் cron_copy_hitcount.php இயக்கப்படும் ஒவ்வொரு முறையும் இயங்கும்';
+$lang['emu_log_directory'] = 'ஸ்கிரிப்ட் பதிவுகளை சேமிக்க அடைவு. காலியாகவோ தவறானதோ இருந்தால் பதிவு செய்யப்படாது';
+$lang['emu_created_by_script_field'] = 'வளங்கள் EMu ஸ்கிரிப்ட் மூலம் உருவாக்கப்பட்டுள்ளதா என்பதை சேமிக்க பயன்படுத்தப்படும் மெட்டாடேட்டா புலம்';
+$lang['emu_settings_header'] = 'EMu அமைப்புகள்';
+$lang['emu_irn_field'] = 'EMu அடையாள எண் (IRN) சேமிக்க பயன்படுத்தப்படும் மெட்டாடேட்டா புலம்';
+$lang['emu_search_criteria'] = 'EMu மற்றும் ResourceSpace ஐ ஒத்திசைக்க தேடல் அளவுருக்கள்';
+$lang['emu_rs_mappings_header'] = 'EMu - ResourceSpace வரைபட விதிகள்';
+$lang['emu_module'] = 'EMu தொகுதி';
+$lang['emu_column_name'] = 'EMu தொகுதி நெடுவரிசை';
+$lang['emu_rs_field'] = 'ResourceSpace புலம்';
+$lang['emu_add_mapping'] = 'வரைபடம் சேர்க்கவும்';
+$lang['emu_confirm_upload_nodata'] = 'உங்கள் பதிவேற்றத்தை தொடர விரும்புகிறீர்கள் என்பதை உறுதிப்படுத்த பெட்டியை சரிபார்க்கவும்';
+
+$lang['emu_api_server'] = 'சேவையக முகவரி (எடுத்துக்காட்டு: http://[server.address])';

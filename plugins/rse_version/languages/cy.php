@@ -19,3 +19,6 @@ $lang["rse_version_rstate_changes"]='Adferiad cyflwr ar gyfer casgliad #%COLLECT
 $lang["rse_version_invalid_time"]='Nid yw dychwelyd i amser cyn [date] yn cael ei gefnogi';
 $lang["page-title_rse_version_revert"] = 'Adfer Fersiwn Adnodd';
 $lang["page-title_rse_version_setup"] = 'Gosod Fersiwn Plugin';
+
+$lang['plugin-rse_version-title'] = 'Rheoli Fersiwn';
+$lang['plugin-rse_version-desc'] = 'Olrhain a adfer newidiadau metadata a ffeiliau.';

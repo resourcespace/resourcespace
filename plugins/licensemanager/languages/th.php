@@ -53,3 +53,7 @@ $lang["page-title_licensemanager_edit"] = 'แก้ไขใบอนุญา�
 $lang["page-title_licensemanager_list"] = 'รายการใบอนุญาต';
 $lang["page-title_licensemanager_setup"] = 'ตั้งค่าปลั๊กอินผู้จัดการใบอนุญาต';
 $lang["page-title_licensemanager_unlink"] = 'ยกเลิกการเชื่อมโยงใบอนุญาต';
+
+$lang["collection_actiontype_80"] = 'การอนุญาต';
+$lang['plugin-licensemanager-title'] = 'ผู้จัดการใบอนุญาต';
+$lang['plugin-licensemanager-desc'] = 'จัดการใบอนุญาตทรัพยากร';

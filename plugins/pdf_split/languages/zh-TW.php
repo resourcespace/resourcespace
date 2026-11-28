@@ -12,3 +12,6 @@ $lang["invalidrange"] = '無效範圍';
 $lang["splitpdf_createnewresource"] = '為每個範圍建立一個新資源';
 $lang["splitpdf_createnewalternativefile"] = '在此資源上為每個範圍建立一個新備用檔案';
 $lang["page-title_pdf_split_pdf_split"] = 'PDF 拆分';
+
+$lang['plugin-pdf_split-title'] = 'PDF 分割';
+$lang['plugin-pdf_split-desc'] = '允許將 PDF 檔案拆分為多個頁面。';

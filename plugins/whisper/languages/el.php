@@ -15,3 +15,6 @@ $lang["whisper"] = 'Whisper';
 $lang["whisper_process_existing"] = 'Επεξεργασία ανεπεξέργαστων πόρων';
 $lang["whisper_process_existing_intro"] = 'Δημιουργήστε μια εργασία για να ξεκινήσετε την επεξεργασία ήχου Whisper εδώ - αυτή η εργασία δεν απαιτεί παραμέτρους, οπότε μπορεί να ξεκινήσει όσο δεν υπάρχουν άλλες εκκρεμείς εργασίες αυτού του τύπου.';
 $lang["whisper_process_existing_configure"] = 'Διαμόρφωση εργασίας για επεξεργασία αρχείων με Whisper';
+
+$lang['plugin-whisper-title'] = '(BETA) Whisper';
+$lang['plugin-whisper-desc'] = 'Μετατροπή βίντεο/ήχου σε κείμενο με Whisper από την OpenAI. Εκτελείται τοπικά, δεν απαιτείται συνδρομή.';

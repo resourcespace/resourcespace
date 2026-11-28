@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'Cheie API';
 $lang["typesense_search_collection"] = 'Colecție';
 $lang["typesense_search_timeout"] = 'Timp de așteptare (secunde)';
 $lang["typesense_search_validate_access"] = 'Validare acces după căutarea Typesense';
+
+$lang['plugin-typesense_search-title'] = 'Căutare Typesense';
+$lang['plugin-typesense_search-desc'] = 'Furnizor opțional de căutare externă folosind Typesense (experimental)';

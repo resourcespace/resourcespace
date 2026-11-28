@@ -12,3 +12,6 @@ $lang["filtered_resource_update_for"]='تلاش [%search%] کے لیے فلٹر 
 $lang["page-title_rss2_rssfeed"] = 'آر ایس ایس فیڈ';
 $lang["page-title_rss2_rssfilter"] = 'RSS فلٹر';
 $lang["page-title_rss2_setup"] = 'RSS پلگ ان سیٹ اپ کریں';
+
+$lang['plugin-rss2-title'] = 'RSS فیڈ';
+$lang['plugin-rss2-desc'] = 'نئی مواد کے تصدیق شدہ RSS فیڈز کی تخلیق کو فعال کرتا ہے، بشمول ترتیب پذیر فیلڈز۔';

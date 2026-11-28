@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"] = 'Kiểm tra để bắt
 $lang["video_tracks_transcode_now_label"] = 'Chuyển mã ngay bây giờ';
 $lang["page-title_video_tracks_create_video"] = 'Tạo Video';
 $lang["page-title_video_tracks_setup"] = 'Cài đặt Plugin Video Tracks';
+
+$lang['plugin-video_tracks-title'] = 'Các bản nhạc video';
+$lang['plugin-video_tracks-desc'] = 'Thêm hỗ trợ cho các tùy chọn âm thanh và phụ đề khác nhau cho tài nguyên video.';

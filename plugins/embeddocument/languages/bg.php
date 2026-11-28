@@ -14,3 +14,6 @@ $lang["embeddocument_specify_resourcetype"] = 'Моля, посочете за �
 $lang["embeddocument_document_resourcetype"] = 'Тип ресурс за отдалечения преглед на документи:';
 $lang["page-title_embeddocument_setup"] = 'Настройка на плъгина за вграждане на документи';
 $lang["page-title_embeddocument_viewer"] = 'Преглед на вградения документ';
+
+$lang['plugin-embeddocument-title'] = 'Вграждане на документ';
+$lang['plugin-embeddocument-desc'] = 'Осигурява функция за генериране на HTML за вградими визуализации на документи в отдалечени сайтове.';

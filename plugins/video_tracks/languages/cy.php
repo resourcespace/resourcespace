@@ -28,3 +28,6 @@ $lang["video_tracks_transcode_now_or_notify_me_label"]='Gwirio i ddechrau\'r tra
 $lang["video_tracks_transcode_now_label"]='Trawsgrifiwch nawr';
 $lang["page-title_video_tracks_create_video"] = 'Creu Fideo';
 $lang["page-title_video_tracks_setup"] = 'Gosod Plugin Traciau Fideo';
+
+$lang['plugin-video_tracks-title'] = 'Traciau Fideo';
+$lang['plugin-video_tracks-desc'] = 'Ychwanegu cefnogaeth ar gyfer opsiynau sain a isdeitlau gwahanol ar gyfer adnoddau fideo.';

@@ -33,3 +33,6 @@ $lang["propose_changes_emailreviewed"] = '[img_headerlogo]<br />Вашы пра�
 $lang["propose_changes_emailproposedchanges"] = '[img_headerlogo]<br />Прапанованыя змены былі прадстаўлены.<br/>[changesummary]<br/>Націсніце ніжэй, каб праглядзець змены<br/><a href=\'[url]\'>[url]</a>';
 $lang["page-title_propose_changes_propose_changes"] = 'Прапанаваць змены';
 $lang["page-title_propose_changes_setup"] = 'Наладзіць плагін прапанавання змяненняў';
+
+$lang['plugin-propose_changes-title'] = 'Прапанова змен';
+$lang['plugin-propose_changes-desc'] = 'Дазволіць карыстальнікам прапаноўваць змены метададзеных без доступу на рэдагаванне.';

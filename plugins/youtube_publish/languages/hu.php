@@ -52,3 +52,6 @@ $lang["youtube_publish_add_anchor"] = 'Hozzáadja az anchor tageket az URL-hez, 
 $lang["page-title_youtube_publish_setup"] = 'Plugin beállítása';
 $lang["page-title_youtube_publish_youtube_upload"] = 'Erőforrás közzététele a Youtube-on';
 $lang["youtube_publish_video_title"] = 'Videó címe (max. 100 karakter)';
+
+$lang['plugin-youtube_publish-title'] = 'YouTube közzététel';
+$lang['plugin-youtube_publish-desc'] = 'Videó erőforrások közzététele egy beállított YouTube fiókban.';

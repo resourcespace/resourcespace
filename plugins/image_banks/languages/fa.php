@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'جستجو';
 $lang["page-title_image_banks_setup"] = 'نصب افزونه بانک‌های تصویری';
 $lang["page-title_image_banks_shutterstock_license"] = 'تصویر Shutterstock را مشاهده کنید';
 $lang["page-title_image_banks_view"] = 'مشاهده منبع';
+
+$lang['plugin-image_banks-title'] = 'بانک‌های تصویر';
+$lang['plugin-image_banks-desc'] = 'جستجوی کتابخانه‌های تصاویر رایگان/تجاری از داخل ResourceSpace.';

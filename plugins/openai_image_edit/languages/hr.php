@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Spremi novo';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Nevažeći podaci slike';
 $lang["openai_image_edit_error_invalid_image"] = 'Nevažeća slika';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Nije moguće zapisati privremenu datoteku';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI Uređivanje Slika';
+$lang['plugin-openai_image_edit-desc'] = 'Izbrišite dijelove slike i koristite GPT Image za njihovu regeneraciju.';

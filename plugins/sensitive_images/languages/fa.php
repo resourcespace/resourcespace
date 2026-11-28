@@ -7,3 +7,6 @@ $lang["sensitive_images_field"]='فیلد ابرداده حاوی دلیل حس�
 $lang["sensitive_images_blur_level"]='سطح تاری تصویر حساس<br>(1=کمترین، 6=بیشترین)';
 $lang["page-title_sensitive_images_setup"] = 'تنظیم افزونه تصاویر حساس';
 $lang["sensitive_images_show"] = 'برای نمایش کلیک کنید.';
+
+$lang['plugin-sensitive_images-title'] = 'تاری کردن تصاویر حساس';
+$lang['plugin-sensitive_images-desc'] = 'تصاویر علامت‌گذاری شده به عنوان حساس را تار می‌کند و کاربر می‌تواند برای برداشتن تاری کلیک کند.';

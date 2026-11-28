@@ -48,3 +48,6 @@ $lang["video_splice_error_invalid_action"]='Hitilafu: Hatua batili';
 $lang["page-title_video_splice_setup"] = 'Weka Plugin ya Video Splice';
 $lang["page-title_video_splice_splice"] = 'Punguza Video';
 $lang["page-title_video_splice_trim"] = 'Punguza Video';
+
+$lang['plugin-video_splice-title'] = 'Kuunganisha Video';
+$lang['plugin-video_splice-desc'] = 'Uwezo wa kukata na kuunganisha video.';

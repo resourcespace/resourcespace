@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Määritä tehtävä CLIP-vektorien luomiseksi';
 $lang["clip-job_limit"] = 'Eräkoko raja';
 $lang["clip-job_limit_help"] = 'Tämän asetuksen avulla rajoitat resurssien käsittelyn määrää yhdellä suorituskerralla.';
 $lang["clip-job_limit_error"] = 'Arvon on oltava välillä 1 ja 100000 tai tyhjä, jos rajoitusta ei haluta';
+
+$lang['plugin-clip-title'] = 'CLIP AI älykäs haku ja merkintä';
+$lang['plugin-clip-desc'] = 'AI:n luonnollisen kielen haku, visuaalinen haku, samankaltaisuuden tunnistus, kaksoiskappaleiden tunnistus, merkintä, otsikon luonti';

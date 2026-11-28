@@ -7,3 +7,6 @@ $lang["conditional_terms_value"] = 'ค่า';
 $lang["conditional_terms_plugin_misconfigured"] = 'ปลั๊กอินเงื่อนไขถูกกำหนดค่าผิดพลาด';
 
 $lang["page-title_conditional_terms_setup"] = 'ตั้งค่าปลั๊กอินเงื่อนไข';
+
+$lang['plugin-conditional_terms-title'] = 'ข้อกำหนดตามเงื่อนไข';
+$lang['plugin-conditional_terms-desc'] = 'เปิดใช้งานการแสดงหน้าข้อกำหนดตามเงื่อนไขเมื่อดาวน์โหลดโดยอิงจากข้อมูลเมตาของทรัพยากร';

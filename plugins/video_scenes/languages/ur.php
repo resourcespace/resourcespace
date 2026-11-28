@@ -27,3 +27,5 @@ $lang["video_scene_play"] = '%time پر منظر چلائیں';
 $lang["video_scene_play_unavailable"] = 'یہ منظر دستیاب ویڈیو پیش نظارہ سے باہر ہے۔';
 $lang["video_scene_job_success"] = 'ویڈیو منظر کی پروسیسنگ مکمل ہو گئی';
 $lang["video_scene_job_failure"] = 'ویڈیو منظر کی پروسیسنگ ناکام ہو گئی۔ تفصیلات کے لیے جاب لاگ دیکھیں۔';
+$lang['plugin-video_scenes-title'] = 'ویڈیو مناظر';
+$lang['plugin-video_scenes-desc'] = 'transnetv2-pytorch کے ساتھ مقامی طور پر ویڈیو مناظر کا پتہ لگائیں، اختیاری OpenAI صوتی و بصری وضاحتوں کے ساتھ۔';

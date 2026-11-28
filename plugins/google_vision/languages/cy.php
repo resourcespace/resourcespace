@@ -29,3 +29,6 @@ $lang["google_vision"] = 'Google Vision';
 $lang["google_vision_process_existing"] = 'Proses adnoddau heb eu prosesio';
 $lang["google_vision_process_existing_configure"] = 'Cyfluni swydd i brosesu adnoddau heb eu prosesio';
 $lang["google_vision_process_existing_collection_refs_help"] = 'Bydd gosod y opsiwn hwn yn golygu y bydd dim ond adnoddau yn y casgliadau a restrir yn cael eu prosesu. Os na fydd unrhyw gasgliadau wedi\'u nodi, yna bydd pob adnodd addas yn cael ei brosesu. Gellir nodi casgliadau gan ddefnyddio rhestr wedi\'i wahanu gan gomau yn ogystal â rhesi e.e. 100,105,110-115';
+
+$lang['plugin-google_vision-title'] = 'Google Vision';
+$lang['plugin-google_vision-desc'] = 'Tagio delweddau awtomataidd gan ddefnyddio AI.';

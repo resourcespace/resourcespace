@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'ساڵی ئێستا';
 $lang["totp_saml"] = 'پشتبەستنەوەی TOTP بۆ بەکارهێنەرانی کە پێشتر لە ڕێگەی SAML دەستپێکردوون (پێویستە پلاگین SAML بێت)';
 $lang["page-title_totp_setup"] = 'ڕێکخستنی پلاگین TOTP';
 $lang["page-title_totp_totp"] = 'TOTP';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'پشتیوانی TFA/MFA بەڕێوەبەری Google Authenticator';

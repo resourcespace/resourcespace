@@ -44,3 +44,6 @@ $lang["clip-configure_job"] = 'I-configure ang gawain upang lumikha ng mga CLIP 
 $lang["clip-job_limit"] = 'Limitasyon sa laki ng batch';
 $lang["clip-job_limit_help"] = 'Ang pagtatakda ng opsyong ito ay maglilimita sa bilang ng mga resources na mapoproseso sa isang takbo.';
 $lang["clip-job_limit_error"] = 'Ang halaga ay dapat nasa pagitan ng 1 at 100000 o walang laman para sa walang limitasyon';
+
+$lang['plugin-clip-title'] = 'CLIP AI Matalinong Paghahanap at Pag-tag';
+$lang['plugin-clip-desc'] = 'AI natural na paghahanap gamit ang wika, visual na paghahanap, pagtutugma ng pagkakapareho, pagtutugma ng dobleng kopya, pag-tag, pagbuo ng pamagat';

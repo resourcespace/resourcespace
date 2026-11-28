@@ -52,3 +52,6 @@ $lang["youtube_publish_oauth2_advice_desc"]='<p>ในการตั้งค�
 $lang["page-title_youtube_publish_setup"] = 'ตั้งค่าปลั๊กอิน';
 $lang["page-title_youtube_publish_youtube_upload"] = 'เผยแพร่ทรัพยากรไปยัง Youtube';
 $lang["youtube_publish_video_title"] = 'ชื่อวิดีโอ (สูงสุด 100 ตัวอักษร)';
+
+$lang['plugin-youtube_publish-title'] = 'เผยแพร่ YouTube';
+$lang['plugin-youtube_publish-desc'] = 'เผยแพร่ทรัพยากรวิดีโอไปยังบัญชี YouTube ที่ตั้งค่าไว้แล้ว';

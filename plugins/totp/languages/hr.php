@@ -18,3 +18,6 @@ $lang["totp_date_binding_y"] = 'Tekuća godina';
 $lang["page-title_totp_setup"] = 'Postavljanje TOTP dodatka';
 $lang["page-title_totp_totp"] = 'TOTP';
 $lang["totp_saml"] = 'Onemogući TOTP za korisnike već autentificirane putem SAML-a (zahtijeva SAML dodatak)';
+
+$lang['plugin-totp-title'] = 'TOTP';
+$lang['plugin-totp-desc'] = 'Podrška za TFA/MFA putem Google Authenticatora';

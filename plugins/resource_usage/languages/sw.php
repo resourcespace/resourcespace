@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"]='Orodha ya chaguo za matumizi zinazopatikana (zi
 $lang["page-title_resource_usage_delete"] = 'Futa Matumizi ya Rasilimali';
 $lang["page-title_resource_usage_edit"] = 'Hariri Matumizi ya Rasilimali';
 $lang["page-title_resource_usage_setup"] = 'Weka Plugin ya Matumizi ya Rasilimali';
+
+$lang['plugin-resource_usage-title'] = 'Matumizi ya Rasilimali';
+$lang['plugin-resource_usage-desc'] = 'Inaongeza uwezo wa kurekodi matumizi ya rasilimali kupitia ukurasa wa mtazamo wa rasilimali.';

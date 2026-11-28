@@ -10,3 +10,6 @@ $lang["typesense_search_api_key"] = 'API anahtarı';
 $lang["typesense_search_collection"] = 'Koleksiyon';
 $lang["typesense_search_timeout"] = 'Saniye cinsinden zaman aşımı';
 $lang["typesense_search_validate_access"] = 'Typesense aramasından sonra erişimi doğrula';
+
+$lang['plugin-typesense_search-title'] = 'Typesense Arama';
+$lang['plugin-typesense_search-desc'] = 'Typesense kullanan isteğe bağlı harici arama sağlayıcısı (deneysel)';

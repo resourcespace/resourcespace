@@ -67,3 +67,5 @@ $lang["page-title_rse_workflow_setup"] = 'Cài đặt Plugin Quy trình làm vi�
 $lang["page-title_rse_workflow_edit_workflow"] = 'Chỉnh sửa Quy trình làm việc';
 
 $lang["rse_workflow_state_change_failed_permissions"] = 'Không thể thay đổi trạng thái lưu trữ thành %%ARCHIVE%%. Thiếu quyền truy cập để xóa các trường bắt buộc.';
+$lang['plugin-rse_workflow-title'] = 'Quy trình làm việc nâng cao';
+$lang['plugin-rse_workflow-desc'] = 'Cấu hình trạng thái và hành động quy trình làm việc tùy chỉnh vượt ra ngoài mặc định.';

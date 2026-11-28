@@ -6,3 +6,5 @@ $lang["direct_link_expires"] = 'Αυτοί οι σύνδεσμοι λήγουν 
 $lang["direct_link_copy"] = 'Αντιγραφή συνδέσμου';
 $lang["direct_link_copied"] = 'Αντιγράφηκε!';
 $lang["direct_link_copy_error"] = 'Αδυναμία αντιγραφής';
+$lang['plugin-direct_link-title'] = 'Άμεσος Σύνδεσμος';
+$lang['plugin-direct_link-desc'] = 'Παρέχει προσωρινούς συνδέσμους απευθείας στα αρχεία στη σελίδα κοινής χρήσης πόρων.';

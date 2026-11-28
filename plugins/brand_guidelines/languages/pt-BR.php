@@ -42,3 +42,6 @@ $lang["page-title_brand_guidelines_content"] = 'Gerenciar Conteúdo das Diretriz
 $lang["page-title_brand_guidelines_guidelines"] = 'Diretrizes de Marca';
 $lang["page-title_brand_guidelines_setup"] = 'Configurar Plugin de Diretrizes de Marca';
 $lang["page-title_brand_guidelines_toc"] = 'Editar conteúdo';
+
+$lang['plugin-brand_guidelines-title'] = 'Diretrizes da Marca';
+$lang['plugin-brand_guidelines-desc'] = 'Crie uma área de diretrizes da marca com conteúdo personalizado, links de recursos e cores.';

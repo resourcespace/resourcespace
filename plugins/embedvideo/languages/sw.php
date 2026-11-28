@@ -8,3 +8,6 @@ $lang["specify_resourcetype"] = 'Tafadhali bainisha aina ya rasilimali ambayo ki
 $lang["video_resourcetype"] = 'Aina ya Rasilimali ya Video';
 
 $lang["page-title_embedvideo_setup"] = 'Weka Plugin ya Video ya Embed';
+
+$lang['plugin-embedvideo-title'] = 'Ingiza Video';
+$lang['plugin-embedvideo-desc'] = 'Inatoa kipengele cha kuunda HTML kwa ajili ya video zinazoweza kuingizwa kwenye tovuti za mbali.';

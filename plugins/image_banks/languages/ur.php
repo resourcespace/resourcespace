@@ -39,3 +39,6 @@ $lang["page-title_image_banks_search"] = 'تلاش کریں';
 $lang["page-title_image_banks_setup"] = 'تصویر بینک پلگ ان سیٹ اپ کریں';
 $lang["page-title_image_banks_shutterstock_license"] = 'Shutterstock تصویر دیکھیں';
 $lang["page-title_image_banks_view"] = 'وسائل دیکھیں';
+
+$lang['plugin-image_banks-title'] = 'امیج بینکس';
+$lang['plugin-image_banks-desc'] = 'ResourceSpace کے اندر سے مفت/تجارتی امیج لائبریریاں تلاش کریں۔';

@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'CLIP vektörleri oluşturmak için işi yapıland
 $lang["clip-job_limit"] = 'İşlem sınırı';
 $lang["clip-job_limit_help"] = 'Bu seçeneği ayarlamak, bir çalışmada işlenen kaynakların sayısını sınırlar.';
 $lang["clip-job_limit_error"] = 'Değer 1 ile 100000 arasında olmalı veya sınır olmaması için boş bırakılmalı';
+
+$lang['plugin-clip-title'] = 'CLIP AI Akıllı Arama ve Etiketleme';
+$lang['plugin-clip-desc'] = 'Yapay zeka doğal dil araması, görsel arama, benzerlik eşleştirme, çoğaltma eşleştirme, etiketleme, başlık oluşturma';

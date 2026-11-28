@@ -7,3 +7,6 @@ $lang["system_reset_confirm"] = '你確定嗎？此操作無法撤銷。';
 $lang["system_reset_delete_all"] = '刪除所有資料和檔案';
 $lang["system_reset-tooltip"] = '執行系統重置以刪除所有檔案和資料';
 $lang["page-title_system_reset_reset"] = '系統重置';
+
+$lang['plugin-system_reset-title'] = '系統重設';
+$lang['plugin-system_reset-desc'] = '在 admin/system 中新增清除所有資料的選項。';

@@ -45,3 +45,6 @@ $lang["clip-configure_job"] = 'Konfigurovať úlohu na generovanie CLIP vektorov
 $lang["clip-job_limit"] = 'Limit veľkosti dávky';
 $lang["clip-job_limit_help"] = 'Nastavenie tejto možnosti obmedzí počet zdrojov spracovaných v jednom behu.';
 $lang["clip-job_limit_error"] = 'Hodnota musí byť medzi 1 a 100000 alebo prázdna pre žiadne obmedzenie';
+
+$lang['plugin-clip-title'] = 'CLIP AI inteligentné vyhľadávanie a označovanie';
+$lang['plugin-clip-desc'] = 'AI vyhľadávanie v prirodzenom jazyku, vizuálne vyhľadávanie, porovnávanie podobnosti, vyhľadávanie duplikátov, označovanie, generovanie názvov';

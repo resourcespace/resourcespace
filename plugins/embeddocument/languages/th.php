@@ -14,3 +14,6 @@ $lang["embeddocument_document_resourcetype"] = 'ประเภททรัพ�
 
 $lang["page-title_embeddocument_setup"] = 'ตั้งค่าเอกสารปลั๊กอินฝัง';
 $lang["page-title_embeddocument_viewer"] = 'ฝังตัวดูเอกสาร';
+
+$lang['plugin-embeddocument-title'] = 'ฝังเอกสาร';
+$lang['plugin-embeddocument-desc'] = 'ให้ฟังก์ชันสำหรับสร้าง HTML เพื่อแสดงตัวอย่างเอกสารที่ฝังได้บนเว็บไซต์ระยะไกล';

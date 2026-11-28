@@ -15,3 +15,6 @@ $lang["resource_usage_mediums"] = 'Спіс даступных варыянта�
 $lang["page-title_resource_usage_delete"] = 'Выдаліць выкарыстанне рэсурсу';
 $lang["page-title_resource_usage_edit"] = 'Рэдагаваць выкарыстанне рэсурсаў';
 $lang["page-title_resource_usage_setup"] = 'Наладка плагіна выкарыстання рэсурсаў';
+
+$lang['plugin-resource_usage-title'] = 'Выкарыстанне рэсурсаў';
+$lang['plugin-resource_usage-desc'] = 'Дадае магчымасць рэгістраваць выкарыстанне рэсурсаў праз старонку прагляду рэсурсу.';

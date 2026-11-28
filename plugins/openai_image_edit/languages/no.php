@@ -29,3 +29,5 @@ $lang["page-title_openai_image_edit_save_new"] = 'OpenAI Lagre Ny';
 $lang["openai_image_edit_error_invalid_image_data"] = 'Ugyldige bildedata';
 $lang["openai_image_edit_error_invalid_image"] = 'Ugyldig bilde';
 $lang["openai_image_edit_error_fail_write_tmp_file"] = 'Kan ikke skrive midlertidig fil';
+$lang['plugin-openai_image_edit-title'] = 'OpenAI Bilde Redigering';
+$lang['plugin-openai_image_edit-desc'] = 'Slett deler av et bilde og bruk GPT Image til å regenerere dem.';
